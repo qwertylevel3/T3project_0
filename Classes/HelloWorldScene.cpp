@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
+#include"DungeonBuilder.h"
 
 USING_NS_CC;
 
@@ -54,7 +55,10 @@ bool HelloWorld::init()
 
     // add a label shows "Hello World"
     // create and initialize a label
-    
+	DungeonBuilder::instance()->init(120);
+	DungeonBuilder::instance()->generate();
+	DungeonBuilder::instance()->writeToFile();
+	
     auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
     
     // position the label on the center of the screen
