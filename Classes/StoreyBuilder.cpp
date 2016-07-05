@@ -1,48 +1,41 @@
-#include<sstream>
+#include "StoreyBuilder.h"
 #include<tinyxml2\tinyxml2.h>
-#include "DungeonBuilder.h"
+#include"FieldEnum.h"
+#include"RandomNumber.h"
+#include"cocos2d.h"
 
-inline int DungeonBuilder::randomInt(int exclusiveMax)
+using namespace Field;
+
+USING_NS_CC;
+
+StoreyBuilder::StoreyBuilder()
 {
-	std::uniform_int_distribution<> dist(0, exclusiveMax - 1);
-	return dist(mt);
+	storey = NULL;
 }
 
-inline int DungeonBuilder::randomInt(int min, int max) // inclusive min/max
-{
-	std::uniform_int_distribution<> dist(0, max - min);
-	return dist(mt) + min;
-}
 
-inline bool DungeonBuilder::randomBool(double probability)
-{
-	std::bernoulli_distribution dist(probability);
-	return dist(mt);
-}
-
-DungeonBuilder::DungeonBuilder()
+StoreyBuilder::~StoreyBuilder()
 {
 }
 
-void DungeonBuilder::init(unsigned seed)
+void StoreyBuilder::init()
 {
-	mt.seed(seed);
-	width = 100;
-	height = 100;
-	for (int i = 0; i < width*height; i++)
+}
+
+Storey* StoreyBuilder::generate()
+{
+	if (storey)
 	{
-		tiles.push_back(Unused);
+		delete storey;
 	}
-}
+	storey = new Storey(100,100);
 
-void DungeonBuilder::generate()
-{
 	int maxFeatures=50;
 	// place the first room in the center
-	if (!makeRoom(width / 2, height / 2, static_cast<Direction>(randomInt(4), true)))
+	if (!makeRoom(storey->getWidth() / 2, storey->getHeight() / 2, static_cast<Direction>(RandomNumber::instance()->randomInt(4), true)))
 	{
-		std::cout << "Unable to place the first room.\n";
-		return;
+		CCLOG("Unable to place the first room\n");
+		exit(-1);
 	}
 
 	// we already placed 1 feature (the first room)
@@ -50,24 +43,21 @@ void DungeonBuilder::generate()
 	{
 		if (!createFeature())
 		{
-			std::cout << "Unable to place more features (placed " << i << ").\n";
-			break;
+			CCLOG("Unable to place more features(place %d)\n", i);
+			exit(-1);
 		}
-		//print();
-		//std::cin.get();
-
 	}
 
 	if (!placeObject(UpStairs))
 	{
-		std::cout << "Unable to place up stairs.\n";
-		return;
+		CCLOG("Unable to place up stairs\n");
+		exit(-1);
 	}
 
 	if (!placeObject(DownStairs))
 	{
-		std::cout << "Unable to place down stairs.\n";
-		return;
+		CCLOG("Unable to place down stairs\n");
+		exit(-1);
 	}
 
 //	for (int& tile : tiles)
@@ -79,20 +69,8 @@ void DungeonBuilder::generate()
 //	}
 }
 
-int DungeonBuilder::getTile(int x, int y) const
-{
-	if (x < 0 || y < 0 || x >= width || y >= height)
-		return Unused;
 
-	return tiles[x + y * width];
-}
-
-void DungeonBuilder::setTile(int x, int y, int tile)
-{
-	tiles[x + y * width] = tile;
-}
-
-bool DungeonBuilder::createFeature()
+bool StoreyBuilder::createFeature()
 {
 	for (int i = 0; i < 1000; ++i)
 	{
@@ -100,9 +78,9 @@ bool DungeonBuilder::createFeature()
 			break;
 
 		//从当前所有的可能出口矩形中随机选一个，再在这个矩形中选一个随机的xy坐标
-		int r = randomInt(exits.size());
-		int x = randomInt(exits[r].x, exits[r].x + exits[r].width - 1);
-		int y = randomInt(exits[r].y, exits[r].y + exits[r].height - 1);
+		int r =RandomNumber::instance()->randomInt(exits.size());
+		int x =RandomNumber::instance()->randomInt(exits[r].x, exits[r].x + exits[r].width - 1);
+		int y =RandomNumber::instance()->randomInt(exits[r].y, exits[r].y + exits[r].height - 1);
 
 		//用这个xy坐标和4个可能方向生成
 		for (int j = 0; j < DirectionCount; ++j)
@@ -118,7 +96,7 @@ bool DungeonBuilder::createFeature()
 	return false;
 }
 
-bool DungeonBuilder::createFeature(int x, int y, Direction dir)
+bool StoreyBuilder::createFeature(int x, int y, Direction dir)
 {
 	static const int roomChance = 50; // corridorChance = 100 - roomChance
 
@@ -134,14 +112,14 @@ bool DungeonBuilder::createFeature(int x, int y, Direction dir)
 	else if (dir == East)
 		dx = -1;
 
-	if (getTile(x + dx, y + dy) != Floor && getTile(x + dx, y + dy) != Corridor)
+	if (storey->getTile(x + dx, y + dy) != Floor && storey->getTile(x + dx, y + dy) != Corridor)
 		return false;
 
-	if (randomInt(100) < roomChance)
+	if (RandomNumber::instance()->randomInt(100) < roomChance)
 	{
 		if (makeRoom(x, y, dir))
 		{
-			setTile(x, y, ClosedDoor);
+			storey->setTile(x, y, ClosedDoor);
 
 			return true;
 		}
@@ -150,10 +128,10 @@ bool DungeonBuilder::createFeature(int x, int y, Direction dir)
 	{
 		if (makeCorridor(x, y, dir))
 		{
-			if (getTile(x + dx, y + dy) == Floor)
-				setTile(x, y, ClosedDoor);
+			if (storey->getTile(x + dx, y + dy) == Floor)
+				storey->setTile(x, y, ClosedDoor);
 			else // don't place a door between corridors
-				setTile(x, y, Corridor);
+				storey->setTile(x, y, Corridor);
 
 			return true;
 		}
@@ -162,14 +140,14 @@ bool DungeonBuilder::createFeature(int x, int y, Direction dir)
 	return false;
 }
 
-bool DungeonBuilder::makeRoom(int x, int y, Direction dir, bool firstRoom /*= false*/)
+bool StoreyBuilder::makeRoom(int x, int y, Direction dir, bool firstRoom /*= false*/)
 {
 	static const int minRoomSize = 6;
 	static const int maxRoomSize = 15;
 
 	Rect room;
-	room.width = randomInt(minRoomSize, maxRoomSize);
-	room.height = randomInt(minRoomSize, maxRoomSize);
+	room.width = RandomNumber::instance()->randomInt(minRoomSize, maxRoomSize);
+	room.height = RandomNumber::instance()->randomInt(minRoomSize, maxRoomSize);
 
 	//room并非以xy为中心生成，而是根据朝向，偏移一半的width或者heigh
 	if (dir == North)
@@ -217,7 +195,7 @@ bool DungeonBuilder::makeRoom(int x, int y, Direction dir, bool firstRoom /*= fa
 	return false;
 }
 
-bool DungeonBuilder::makeCorridor(int x, int y, Direction dir)
+bool StoreyBuilder::makeCorridor(int x, int y, Direction dir)
 {
 	static const int minCorridorLength = 3;
 	static const int maxCorridorLength = 6;
@@ -226,16 +204,16 @@ bool DungeonBuilder::makeCorridor(int x, int y, Direction dir)
 	corridor.x = x;
 	corridor.y = y;
 
-	if (randomBool()) // horizontal corridor
+	if (RandomNumber::instance()->randomBool()) // horizontal corridor
 	{
-		corridor.width = randomInt(minCorridorLength, maxCorridorLength);
+		corridor.width = RandomNumber::instance()->randomInt(minCorridorLength, maxCorridorLength);
 		corridor.height = 1;
 
 		if (dir == North)
 		{
 			corridor.y = y - 1;
 
-			if (randomBool()) // west
+			if (RandomNumber::instance()->randomBool()) // west
 				corridor.x = x - corridor.width + 1;
 		}
 
@@ -243,7 +221,7 @@ bool DungeonBuilder::makeCorridor(int x, int y, Direction dir)
 		{
 			corridor.y = y + 1;
 
-			if (randomBool()) // west
+			if (RandomNumber::instance()->randomBool()) // west
 				corridor.x = x - corridor.width + 1;
 		}
 
@@ -257,7 +235,7 @@ bool DungeonBuilder::makeCorridor(int x, int y, Direction dir)
 	else // vertical corridor
 	{
 		corridor.width = 1;
-		corridor.height = randomInt(minCorridorLength, maxCorridorLength);
+		corridor.height = RandomNumber::instance()->randomInt(minCorridorLength, maxCorridorLength);
 
 		if (dir == North)
 			corridor.y = y - corridor.height;
@@ -269,7 +247,7 @@ bool DungeonBuilder::makeCorridor(int x, int y, Direction dir)
 		{
 			corridor.x = x - 1;
 
-			if (randomBool()) // north
+			if (RandomNumber::instance()->randomBool()) // north
 				corridor.y = y - corridor.height + 1;
 		}
 
@@ -277,7 +255,7 @@ bool DungeonBuilder::makeCorridor(int x, int y, Direction dir)
 		{
 			corridor.x = x + 1;
 
-			if (randomBool()) // north
+			if (RandomNumber::instance()->randomBool()) // north
 				corridor.y = y - corridor.height + 1;
 		}
 	}
@@ -299,15 +277,15 @@ bool DungeonBuilder::makeCorridor(int x, int y, Direction dir)
 	return false;
 }
 
-bool DungeonBuilder::placeRect(const Rect& rect, int tile)
+bool StoreyBuilder::placeRect(const Field::Rect& rect, int tile)
 {
-	if (rect.x < 1 || rect.y < 1 || rect.x + rect.width > width - 1 || rect.y + rect.height > height - 1)
+	if (rect.x < 1 || rect.y < 1 || rect.x + rect.width > storey->getWidth() - 1 || rect.y + rect.height > storey->getHeight() - 1)
 		return false;
 
 	for (int y = rect.y; y < rect.y + rect.height; ++y)
 		for (int x = rect.x; x < rect.x + rect.width; ++x)
 		{
-			if (getTile(x, y) != Unused)
+			if (storey->getTile(x, y) != Unused)
 				return false; // the area already used
 		}
 
@@ -315,26 +293,26 @@ bool DungeonBuilder::placeRect(const Rect& rect, int tile)
 		for (int x = rect.x - 1; x < rect.x + rect.width + 1; ++x)
 		{
 			if (x == rect.x - 1 || y == rect.y - 1 || x == rect.x + rect.width || y == rect.y + rect.height)
-				setTile(x, y, Wall);
+				storey->setTile(x, y, Wall);
 			else
-				setTile(x, y, tile);
+				storey->setTile(x, y, tile);
 		}
 
 	return true;
 }
 
-bool DungeonBuilder::placeObject(int tile)
+bool StoreyBuilder::placeObject(int tile)
 {
 	if (rooms.empty())
 		return false;
 
-	int r = randomInt(rooms.size()); // choose a random room
-	int x = randomInt(rooms[r].x + 1, rooms[r].x + rooms[r].width - 2);
-	int y = randomInt(rooms[r].y + 1, rooms[r].y + rooms[r].height - 2);
+	int r = RandomNumber::instance()->randomInt(rooms.size()); // choose a random room
+	int x = RandomNumber::instance()->randomInt(rooms[r].x + 1, rooms[r].x + rooms[r].width - 2);
+	int y = RandomNumber::instance()->randomInt(rooms[r].y + 1, rooms[r].y + rooms[r].height - 2);
 
-	if (getTile(x, y) == Floor)
+	if (storey->getTile(x, y) == Floor)
 	{
-		setTile(x, y, tile);
+		storey->setTile(x, y, tile);
 
 		// place one object in one room (optional)
 		rooms.erase(rooms.begin() + r);
@@ -345,7 +323,7 @@ bool DungeonBuilder::placeObject(int tile)
 	return false;
 }
 
-void DungeonBuilder::writeToFile()
+void StoreyBuilder::writeToFile()
 {
 	std::string filePath = FileUtils::getInstance()->getWritablePath() + "tile.tmx";
 	std::string picturePath = FileUtils::getInstance()->fullPathForFilename("tile.png");
@@ -360,8 +338,8 @@ void DungeonBuilder::writeToFile()
 	mapElement->SetAttribute("version", "1.0");
 	mapElement->SetAttribute("orientation", "orthogonal");
 	mapElement->SetAttribute("renderorder", "right-down");
-	mapElement->SetAttribute("width", width);
-	mapElement->SetAttribute("height", height);
+	mapElement->SetAttribute("width", storey->getWidth());
+	mapElement->SetAttribute("height", storey->getHeight());
 	mapElement->SetAttribute("tilewidth", "32");
 	mapElement->SetAttribute("tileheight", 32);
 	mapElement->SetAttribute("nextobjectid", "1");
@@ -387,8 +365,8 @@ void DungeonBuilder::writeToFile()
 	//添加layer节点
 	tinyxml2::XMLElement *layerElement = pDoc->NewElement("layer");
 	layerElement->SetAttribute("name", "bk");
-	layerElement->SetAttribute("width" , width);
-	layerElement->SetAttribute("height", height);
+	layerElement->SetAttribute("width" , storey->getWidth());
+	layerElement->SetAttribute("height", storey->getHeight());
 	mapElement->LinkEndChild(layerElement);
 
 	//添加layer中的bk data节点
@@ -396,9 +374,9 @@ void DungeonBuilder::writeToFile()
 	layerElement->LinkEndChild(bkdataElement);
 
 	//bk data 数据
-	for (int i = 0; i < width; i++)
+	for (int i = 0; i < storey->getWidth(); i++)
 	{
-		for (int j = 0; j < height; j++)
+		for (int j = 0; j < storey->getHeight(); j++)
 		{
 			tinyxml2::XMLElement *tempElement = pDoc->NewElement("tile");
 			tempElement->SetAttribute("gid", "1");
@@ -410,8 +388,8 @@ void DungeonBuilder::writeToFile()
 	//添加terrain layer节点
 	tinyxml2::XMLElement *terrainlayerElement = pDoc->NewElement("layer");
 	terrainlayerElement->SetAttribute("name", "terrain");
-	terrainlayerElement->SetAttribute("width", width);
-	terrainlayerElement->SetAttribute("height", height);
+	terrainlayerElement->SetAttribute("width", storey->getWidth());
+	terrainlayerElement->SetAttribute("height", storey->getHeight());
 	mapElement->LinkEndChild(terrainlayerElement);
 
 	//添加terrain layer中data
@@ -419,12 +397,12 @@ void DungeonBuilder::writeToFile()
 	terrainlayerElement->LinkEndChild(terraindataElement);
 
 	//添加data数据
-	for (int i = 0; i < width; i++)
+	for (int i = 0; i < storey->getWidth(); i++)
 	{
-		for (int j = 0; j < height; j++)
+		for (int j = 0; j < storey->getHeight(); j++)
 		{
 			tinyxml2::XMLElement *tempElement = pDoc->NewElement("tile");
-			tempElement->SetAttribute("gid", getTile(i,j));
+			tempElement->SetAttribute("gid", storey->getTile(i,j));
 			terraindataElement->LinkEndChild(tempElement);
 		}
 	}

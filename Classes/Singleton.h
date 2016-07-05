@@ -3,8 +3,6 @@
 template<class SubClass>
 class Singleton
 {
-protected:
-	static SubClass *p;
 public:
 	static SubClass * instance()
 	{
@@ -13,6 +11,8 @@ public:
 		return p;
 	}
 protected:
+	static SubClass *p;
+
 	Singleton() {}
 	~Singleton() { delete p; p = 0; }
 };

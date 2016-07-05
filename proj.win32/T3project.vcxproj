@@ -145,15 +145,27 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\Dungeon.cpp" />
     <ClCompile Include="..\Classes\DungeonBuilder.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\RandomNumber.cpp" />
+    <ClCompile Include="..\Classes\Storey.cpp" />
+    <ClCompile Include="..\Classes\StoreyBuilder.cpp">
+      <BrowseInformationFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Directory)</BrowseInformationFile>
+      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</BrowseInformation>
+    </ClCompile>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\Dungeon.h" />
     <ClInclude Include="..\Classes\DungeonBuilder.h" />
+    <ClInclude Include="..\Classes\FieldEnum.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\RandomNumber.h" />
     <ClInclude Include="..\Classes\Singleton.h" />
+    <ClInclude Include="..\Classes\Storey.h" />
+    <ClInclude Include="..\Classes\StoreyBuilder.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

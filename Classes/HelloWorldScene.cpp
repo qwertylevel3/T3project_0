@@ -1,8 +1,11 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
 #include"DungeonBuilder.h"
+#include"RandomNumber.h"
+#include"StoreyBuilder.h"
 
 USING_NS_CC;
+using namespace Field;
 
 Scene* HelloWorld::createScene()
 {
@@ -55,9 +58,12 @@ bool HelloWorld::init()
 
     // add a label shows "Hello World"
     // create and initialize a label
-	DungeonBuilder::instance()->init(120);
-	DungeonBuilder::instance()->generate();
-	DungeonBuilder::instance()->writeToFile();
+
+	RandomNumber::instance()->setSeed(101);
+
+	StoreyBuilder::instance()->init();
+	StoreyBuilder::instance()->generate();
+	StoreyBuilder::instance()->writeToFile();
 	
     auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
     
