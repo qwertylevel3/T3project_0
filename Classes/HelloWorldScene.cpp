@@ -61,9 +61,9 @@ bool HelloWorld::init()
 
 	RandomNumber::instance()->setSeed(101);
 
-	StoreyBuilder::instance()->init();
-	StoreyBuilder::instance()->generate();
-	StoreyBuilder::instance()->writeToFile();
+	DungeonBuilder::instance()->init();
+	DungeonBuilder::instance()->generate(4);
+	DungeonBuilder::instance()->writeToFile();
 	
     auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
     

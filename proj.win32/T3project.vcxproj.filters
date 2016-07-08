@@ -10,6 +10,9 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Field">
+      <UniqueIdentifier>{6755a3e4-f3c0-4c73-a1af-75e3149d55d6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,20 +24,20 @@
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\DungeonBuilder.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Dungeon.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Storey.cpp">
+    <ClCompile Include="..\Classes\RandomNumber.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\StoreyBuilder.cpp">
-      <Filter>src</Filter>
+      <Filter>src\Field</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\RandomNumber.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\Storey.cpp">
+      <Filter>src\Field</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DungeonBuilder.cpp">
+      <Filter>src\Field</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Dungeon.cpp">
+      <Filter>src\Field</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -47,26 +50,26 @@
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\DungeonBuilder.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Singleton.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Dungeon.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Storey.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\StoreyBuilder.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\RandomNumber.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\StoreyBuilder.h">
+      <Filter>src\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Storey.h">
+      <Filter>src\Field</Filter>
+    </ClInclude>
     <ClInclude Include="..\Classes\FieldEnum.h">
-      <Filter>src</Filter>
+      <Filter>src\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DungeonBuilder.h">
+      <Filter>src\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Dungeon.h">
+      <Filter>src\Field</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -16,7 +16,6 @@ namespace Field {
 
 		Storey* generate();
 		void init();
-		void writeToFile();
 	private:
 		bool createFeature();
 		bool createFeature(int x, int y, Direction dir);

@@ -9,11 +9,8 @@ namespace Field {
 	public:
 		Dungeon();
 		~Dungeon();
-
-		int getFloorNum();
-		void addStorey(Storey* storey);
-		Storey* getStorey(int floor);
 	protected:
+		int floor;
 		std::vector<Storey*> storeys;
 	};
 
