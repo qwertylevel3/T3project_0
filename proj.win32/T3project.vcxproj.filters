@@ -39,6 +39,7 @@
     <ClCompile Include="..\Classes\Dungeon.cpp">
       <Filter>src\Field</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Debug.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -71,6 +72,7 @@
     <ClInclude Include="..\Classes\Dungeon.h">
       <Filter>src\Field</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Debug.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

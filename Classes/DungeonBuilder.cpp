@@ -4,6 +4,7 @@
 #include"StoreyBuilder.h"
 #include<sstream>
 #include"RandomNumber.h"
+#include"Debug.h"
 using namespace Field;
 
 DungeonBuilder::DungeonBuilder()
@@ -26,6 +27,10 @@ Dungeon * Field::DungeonBuilder::generate(int floorNum)
 	for (int i = 0; i < floorNum; i++)
 	{
 		//RandomNumber::instance()->setSeed(i+100);
+		if (i == 2)
+		{
+			Debug::instance()->setDebugFlag(true);
+		}
 		Storey* tempStorey=StoreyBuilder::instance()->generate();
 		dungeon->addStorey(tempStorey);
 	}

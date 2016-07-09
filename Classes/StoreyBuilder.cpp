@@ -2,6 +2,7 @@
 #include"FieldEnum.h"
 #include"RandomNumber.h"
 #include"cocos2d.h"
+#include"Debug.h"
 
 using namespace Field;
 USING_NS_CC;
@@ -22,6 +23,8 @@ void StoreyBuilder::init()
 
 Storey* StoreyBuilder::generate()
 {
+	rooms.clear();
+	exits.clear();
 	storey = new Storey(100,100);
 
 	int maxFeatures=50;
@@ -31,6 +34,12 @@ Storey* StoreyBuilder::generate()
 		CCLOG("Unable to place the first room\n");
 		exit(-1);
 	}
+	
+	if (Debug::instance()->getDebugFlag())
+	{
+		storey->writeToFile("firstRoom");
+	}
+
 
 	// we already placed 1 feature (the first room)
 	for (int i = 1; i < maxFeatures; ++i)
@@ -40,6 +49,11 @@ Storey* StoreyBuilder::generate()
 			CCLOG("Unable to place more features(place %d)\n", i);
 			exit(-1);
 		}
+		if (Debug::instance()->getDebugFlag())
+		{
+			storey->writeToFile("temp");
+		}
+
 	}
 
 	if (!placeObject(UpStairs))
@@ -304,6 +318,11 @@ bool StoreyBuilder::placeObject(int tile)
 	int r = RandomNumber::instance()->randomInt(rooms.size()); // choose a random room
 	int x = RandomNumber::instance()->randomInt(rooms[r].x + 1, rooms[r].x + rooms[r].width - 2);
 	int y = RandomNumber::instance()->randomInt(rooms[r].y + 1, rooms[r].y + rooms[r].height - 2);
+
+	if (rooms.size() == 29)
+	{
+		storey->writeToFile("temp");
+	}
 
 	int temp=storey->getTile(x, y);
 	if (storey->getTile(x, y) == Floor)

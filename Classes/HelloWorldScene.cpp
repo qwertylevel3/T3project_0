@@ -59,7 +59,7 @@ bool HelloWorld::init()
     // add a label shows "Hello World"
     // create and initialize a label
 
-	RandomNumber::instance()->setSeed(101);
+	RandomNumber::instance()->setSeed(100);
 
 	DungeonBuilder::instance()->init();
 	DungeonBuilder::instance()->generate(4);
