@@ -54,12 +54,12 @@ Storey* StoreyBuilder::generate()
 
 	}
 
-	if (!placeObject(UpStairs))
+	if (!placeObject(UpStair))
 	{
 		CCAssert(false, "Unable to place up staris\n");
 	}
 
-	if (!placeObject(DownStairs))
+	if (!placeObject(DownStair))
 	{
 		CCAssert(false, "Unable to place down stairs\n");
 	}
@@ -315,14 +315,18 @@ bool StoreyBuilder::placeObject(int tile)
 	int x = RandomNumber::getInstance()->randomInt(rooms[r].x + 1, rooms[r].x + rooms[r].width - 2);
 	int y = RandomNumber::getInstance()->randomInt(rooms[r].y + 1, rooms[r].y + rooms[r].height - 2);
 
-	if (rooms.size() == 29)
-	{
-		storey->writeToFile("temp");
-	}
 
 	int temp=storey->getTile(x, y);
 	if (storey->getTile(x, y) == Floor)
 	{
+		if (tile == UpStair)
+		{
+			storey->setUpPosition(cocos2d::Point(x, y));
+		}
+		else if (tile == DownStair)
+		{
+			storey->setDownPosition(cocos2d::Point(x, y));
+		}
 		storey->setTile(x, y, tile);
 
 		// place one object in one room (optional)

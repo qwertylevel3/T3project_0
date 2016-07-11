@@ -39,26 +39,31 @@ bool HelloWorld::init()
 
 	DungeonBuilder::getInstance()->init();
 	Dungeon* dungeon=DungeonBuilder::getInstance()->generate(4);
-	dungeon->writeToFile();
+//	dungeon->writeToFile();
+	Storey* floor0 = dungeon->getStorey(0);
 
-	std::string fileName = "1.tmx";
+//	dungeon->writeToFile();
+//	std::string fileName = "1.tmx";
+//	std::string filePath = FileUtils::getInstance()->getWritablePath();
+//	filePath=filePath+fileName;
+//	auto str = String::createWithContentsOfFile(filePath);
 
-	std::string filePath = FileUtils::getInstance()->getWritablePath();
-	filePath=filePath+fileName;
-
-	auto str = String::createWithContentsOfFile(filePath);
-
-	tileMap = TMXTiledMap::createWithXML(str->getCString(), "");
-
+	tileMap = TMXTiledMap::createWithXML(floor0->getFileContent(), "");
 
 	addChild(tileMap, -1);
 
-	setViewPointCenter(Point(5000, 5000));
+	cocos2d::Point startPosition = floor0->getUpPosition();
+	//cocos2d::Point startPosition(0, 0);
 
+	player = Sprite::create("Player.png");
+	player->setPosition(startPosition.x*32+16, (100-startPosition.y)*32-16);
+//	player->setPosition(32, 32);
+	addChild(player);
+
+	setViewPointCenter(player->getPosition());
     
     return true;
 }
-
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
@@ -68,7 +73,6 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
     exit(0);
 #endif
 }
-
 
 void HelloWorld::setViewPointCenter(Point position) {
 	auto winSize = Director::getInstance()->getWinSize();

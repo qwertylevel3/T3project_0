@@ -1,6 +1,6 @@
 #include "Storey.h"
 #include"FieldEnum.h"
-#include"cocos2d.h"
+
 
 using namespace Field;
 USING_NS_CC;
@@ -58,6 +58,15 @@ void Storey::writeToFile(std::string floor)
 	pDoc->SaveFile(filePath.c_str());
 	//pDoc->Print();
 	delete pDoc;
+}
+
+std::string Field::Storey::getFileContent()
+{
+	tinyxml2::XMLDocument* pDoc=getPDoc();
+	tinyxml2::XMLPrinter printer;
+	pDoc->Print(&printer);
+
+	return printer.CStr();
 }
 
 tinyxml2::XMLDocument * Field::Storey::getPDoc()
@@ -132,9 +141,9 @@ tinyxml2::XMLDocument * Field::Storey::getPDoc()
 	terrainlayerElement->LinkEndChild(terraindataElement);
 
 	//Ìí¼ÓdataÊı¾İ
-	for (int i = 0; i < this->getWidth(); i++)
+	for (int j = 0; j < this->getHeight(); j++)
 	{
-		for (int j = 0; j < this->getHeight(); j++)
+		for (int i = 0; i < this->getWidth(); i++)
 		{
 			tinyxml2::XMLElement *tempElement = pDoc->NewElement("tile");
 			tempElement->SetAttribute("gid", this->getTile(i,j));

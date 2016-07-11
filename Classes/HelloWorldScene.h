@@ -19,6 +19,7 @@ public:
 
 private:
 	cocos2d::TMXTiledMap *tileMap;
+	cocos2d::Sprite* player;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

@@ -10,8 +10,8 @@ namespace Field {
 		Wall = 110,
 		ClosedDoor = 21,
 		OpenDoor = 21,
-		UpStairs = 7,
-		DownStairs = 8
+		UpStair = 7,
+		DownStair = 8
 	};
 	enum Direction
 	{
