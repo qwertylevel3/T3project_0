@@ -18,6 +18,8 @@ public:
     CREATE_FUNC(HelloWorld);
 
 private:
+	void movePlayer(cocos2d::EventKeyboard::KeyCode keyCode);
+	void movePlayer(cocos2d::Point position);
 	cocos2d::TMXTiledMap *tileMap;
 	cocos2d::Sprite* player;
 };

@@ -61,8 +61,18 @@ bool HelloWorld::init()
 	addChild(player);
 
 	setViewPointCenter(player->getPosition());
-    
-    return true;
+
+	auto listener = EventListenerKeyboard::create();
+	listener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event* event) {
+
+		this->movePlayer(keyCode);
+
+
+
+	};
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
+	return true;
 }
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
@@ -86,4 +96,39 @@ void HelloWorld::setViewPointCenter(Point position) {
 	auto centerOfView = Point(winSize.width / 2, winSize.height / 2);
 	auto viewPoint = centerOfView - actualPosition;
 	this->setPosition(viewPoint);
+}
+
+void HelloWorld::movePlayer(EventKeyboard::KeyCode keyCode)
+{
+	cocos2d::Point position;
+	switch (keyCode)
+	{
+	case EventKeyboard::KeyCode::KEY_UP_ARROW:
+
+		position.x = player->getPosition().x;
+		position.y = player->getPosition().y + 32;
+		movePlayer(position);
+		break;
+	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
+		position.x = player->getPosition().x;
+		position.y = player->getPosition().y - 32;
+		movePlayer(position);
+		break;
+	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
+		position.x = player->getPosition().x - 32;
+		position.y = player->getPosition().y;
+		movePlayer(position);
+		break;
+	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
+		position.x = player->getPosition().x + 32;
+		position.y = player->getPosition().y;
+		movePlayer(position);
+		break;
+	}
+}
+
+void HelloWorld::movePlayer(cocos2d::Point position)
+{
+	player->setPosition(position);
+	this->setViewPointCenter(player->getPosition());
 }
