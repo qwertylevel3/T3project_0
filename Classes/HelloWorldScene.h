@@ -12,9 +12,13 @@ public:
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
+	void setViewPointCenter(cocos2d::Point position);
     
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
+
+private:
+	cocos2d::TMXTiledMap *tileMap;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

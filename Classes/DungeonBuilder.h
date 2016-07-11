@@ -15,7 +15,6 @@ namespace Field {
 		DungeonBuilder();
 		void init();
 		Dungeon* generate(int floorNum);
-		void writeToFile();
 	private:
 		Dungeon* dungeon;
 	};

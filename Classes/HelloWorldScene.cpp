@@ -35,53 +35,26 @@ bool HelloWorld::init()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
+	RandomNumber::getInstance()->setSeed(100);
 
-    // add a "close" icon to exit the progress. it's an autorelease object
-    auto closeItem = MenuItemImage::create(
-                                           "CloseNormal.png",
-                                           "CloseSelected.png",
-                                           CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
-    
-    closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
-                                origin.y + closeItem->getContentSize().height/2));
+	DungeonBuilder::getInstance()->init();
+	Dungeon* dungeon=DungeonBuilder::getInstance()->generate(4);
+	dungeon->writeToFile();
 
-    // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Vec2::ZERO);
-    this->addChild(menu, 1);
+	std::string fileName = "1.tmx";
 
-    /////////////////////////////
-    // 3. add your codes below...
+	std::string filePath = FileUtils::getInstance()->getWritablePath();
+	filePath=filePath+fileName;
 
-    // add a label shows "Hello World"
-    // create and initialize a label
+	auto str = String::createWithContentsOfFile(filePath);
 
-	RandomNumber::instance()->setSeed(100);
+	tileMap = TMXTiledMap::createWithXML(str->getCString(), "");
 
-	DungeonBuilder::instance()->init();
-	DungeonBuilder::instance()->generate(4);
-	DungeonBuilder::instance()->writeToFile();
-	
-    auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
-    
-    // position the label on the center of the screen
-    label->setPosition(Vec2(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height - label->getContentSize().height));
 
-    // add the label as a child to this layer
-    this->addChild(label, 1);
+	addChild(tileMap, -1);
 
-    // add "HelloWorld" splash screen"
-    auto sprite = Sprite::create("HelloWorld.png");
+	setViewPointCenter(Point(5000, 5000));
 
-    // position the sprite on the center of the screen
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-
-    // add the sprite as a child to this layer
-    this->addChild(sprite, 0);
     
     return true;
 }
@@ -94,4 +67,19 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);
 #endif
+}
+
+
+void HelloWorld::setViewPointCenter(Point position) {
+	auto winSize = Director::getInstance()->getWinSize();
+
+	int x = MAX(position.x, winSize.width / 2);
+	int y = MAX(position.y, winSize.height / 2);
+	x = MIN(x, (tileMap->getMapSize().width * this->tileMap->getTileSize().width) - winSize.width / 2);
+	y = MIN(y, (tileMap->getMapSize().height * tileMap->getTileSize().height) - winSize.height / 2);
+	auto actualPosition = Point(x, y);
+
+	auto centerOfView = Point(winSize.width / 2, winSize.height / 2);
+	auto viewPoint = centerOfView - actualPosition;
+	this->setPosition(viewPoint);
 }

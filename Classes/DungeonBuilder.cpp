@@ -29,23 +29,10 @@ Dungeon * Field::DungeonBuilder::generate(int floorNum)
 		//RandomNumber::instance()->setSeed(i+100);
 		if (i == 2)
 		{
-			Debug::instance()->setDebugFlag(true);
+			Debug::getInstance()->setDebugFlag(true);
 		}
-		Storey* tempStorey=StoreyBuilder::instance()->generate();
+		Storey* tempStorey=StoreyBuilder::getInstance()->generate();
 		dungeon->addStorey(tempStorey);
 	}
 	return dungeon;
-}
-
-void DungeonBuilder::writeToFile()
-{
-	for (int i = 0; i < dungeon->getFloorNum(); i++)
-	{
-		Storey* tempStorey=dungeon->getStorey(i);
-		std::stringstream stream;
-		stream << i;
-		std::string f;
-		stream >> f;
-		tempStorey->writeToFile(f);
-	}
 }

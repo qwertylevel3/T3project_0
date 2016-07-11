@@ -4,7 +4,7 @@ template<class SubClass>
 class Singleton
 {
 public:
-	static SubClass * instance()
+	static SubClass * getInstance()
 	{
 		if (!p)
 			p = new SubClass();

@@ -1,7 +1,6 @@
 #include "Storey.h"
 #include"FieldEnum.h"
 #include"cocos2d.h"
-#include<tinyxml2\tinyxml2.h>
 
 using namespace Field;
 USING_NS_CC;
@@ -13,6 +12,7 @@ Storey::Storey(int w,int h)
 	{
 		tiles.push_back(Unused);
 	}
+	picturePath = FileUtils::getInstance()->fullPathForFilename("tile.png");
 	width = w;
 	height = h;
 }
@@ -52,8 +52,16 @@ void Storey::writeToFile(std::string floor)
 {
 	std::string filePath = FileUtils::getInstance()->getWritablePath();
 	filePath=filePath+floor+".tmx";
-	std::string picturePath = FileUtils::getInstance()->fullPathForFilename("tile.png");
 
+	tinyxml2::XMLDocument* pDoc=getPDoc();
+
+	pDoc->SaveFile(filePath.c_str());
+	//pDoc->Print();
+	delete pDoc;
+}
+
+tinyxml2::XMLDocument * Field::Storey::getPDoc()
+{
 	tinyxml2::XMLDocument *pDoc=new tinyxml2::XMLDocument();
 	//xml 声明（参数可选）
 	tinyxml2::XMLDeclaration *pDel = pDoc->NewDeclaration("xml version=\"1.0\" encoding=\"UTF-8\"");
@@ -134,9 +142,7 @@ void Storey::writeToFile(std::string floor)
 		}
 	}
 
-	pDoc->SaveFile(filePath.c_str());
-	pDoc->Print();
-	delete pDoc;
+	return pDoc;
 }
 
 

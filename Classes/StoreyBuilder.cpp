@@ -29,13 +29,12 @@ Storey* StoreyBuilder::generate()
 
 	int maxFeatures=50;
 	// place the first room in the center
-	if (!makeRoom(storey->getWidth() / 2, storey->getHeight() / 2, static_cast<Direction>(RandomNumber::instance()->randomInt(4), true)))
+	if (!makeRoom(storey->getWidth() / 2, storey->getHeight() / 2, static_cast<Direction>(RandomNumber::getInstance()->randomInt(4), true)))
 	{
-		CCLOG("Unable to place the first room\n");
-		exit(-1);
+		CCAssert(false, "Unable to place the first room\n");
 	}
 	
-	if (Debug::instance()->getDebugFlag())
+	if (Debug::getInstance()->getDebugFlag())
 	{
 		storey->writeToFile("firstRoom");
 	}
@@ -46,10 +45,9 @@ Storey* StoreyBuilder::generate()
 	{
 		if (!createFeature())
 		{
-			CCLOG("Unable to place more features(place %d)\n", i);
-			exit(-1);
+			CCAssert(false, "Unable to place more features\n");
 		}
-		if (Debug::instance()->getDebugFlag())
+		if (Debug::getInstance()->getDebugFlag())
 		{
 			storey->writeToFile("temp");
 		}
@@ -58,14 +56,12 @@ Storey* StoreyBuilder::generate()
 
 	if (!placeObject(UpStairs))
 	{
-		CCLOG("Unable to place up stairs\n");
-		exit(-1);
+		CCAssert(false, "Unable to place up staris\n");
 	}
 
 	if (!placeObject(DownStairs))
 	{
-		CCLOG("Unable to place down stairs\n");
-		exit(-1);
+		CCAssert(false, "Unable to place down stairs\n");
 	}
 
 //	for (int& tile : tiles)
@@ -87,9 +83,9 @@ bool StoreyBuilder::createFeature()
 			break;
 
 		//从当前所有的可能出口矩形中随机选一个，再在这个矩形中选一个随机的xy坐标
-		int r =RandomNumber::instance()->randomInt(exits.size());
-		int x =RandomNumber::instance()->randomInt(exits[r].x, exits[r].x + exits[r].width - 1);
-		int y =RandomNumber::instance()->randomInt(exits[r].y, exits[r].y + exits[r].height - 1);
+		int r =RandomNumber::getInstance()->randomInt(exits.size());
+		int x =RandomNumber::getInstance()->randomInt(exits[r].x, exits[r].x + exits[r].width - 1);
+		int y =RandomNumber::getInstance()->randomInt(exits[r].y, exits[r].y + exits[r].height - 1);
 
 		//用这个xy坐标和4个可能方向生成
 		for (int j = 0; j < DirectionCount; ++j)
@@ -124,7 +120,7 @@ bool StoreyBuilder::createFeature(int x, int y, Direction dir)
 	if (storey->getTile(x + dx, y + dy) != Floor && storey->getTile(x + dx, y + dy) != Corridor)
 		return false;
 
-	if (RandomNumber::instance()->randomInt(100) < roomChance)
+	if (RandomNumber::getInstance()->randomInt(100) < roomChance)
 	{
 		if (makeRoom(x, y, dir))
 		{
@@ -155,8 +151,8 @@ bool StoreyBuilder::makeRoom(int x, int y, Direction dir, bool firstRoom /*= fal
 	static const int maxRoomSize = 15;
 
 	Rect room;
-	room.width = RandomNumber::instance()->randomInt(minRoomSize, maxRoomSize);
-	room.height = RandomNumber::instance()->randomInt(minRoomSize, maxRoomSize);
+	room.width = RandomNumber::getInstance()->randomInt(minRoomSize, maxRoomSize);
+	room.height = RandomNumber::getInstance()->randomInt(minRoomSize, maxRoomSize);
 
 	//room并非以xy为中心生成，而是根据朝向，偏移一半的width或者heigh
 	if (dir == North)
@@ -213,16 +209,16 @@ bool StoreyBuilder::makeCorridor(int x, int y, Direction dir)
 	corridor.x = x;
 	corridor.y = y;
 
-	if (RandomNumber::instance()->randomBool()) // horizontal corridor
+	if (RandomNumber::getInstance()->randomBool()) // horizontal corridor
 	{
-		corridor.width = RandomNumber::instance()->randomInt(minCorridorLength, maxCorridorLength);
+		corridor.width = RandomNumber::getInstance()->randomInt(minCorridorLength, maxCorridorLength);
 		corridor.height = 1;
 
 		if (dir == North)
 		{
 			corridor.y = y - 1;
 
-			if (RandomNumber::instance()->randomBool()) // west
+			if (RandomNumber::getInstance()->randomBool()) // west
 				corridor.x = x - corridor.width + 1;
 		}
 
@@ -230,7 +226,7 @@ bool StoreyBuilder::makeCorridor(int x, int y, Direction dir)
 		{
 			corridor.y = y + 1;
 
-			if (RandomNumber::instance()->randomBool()) // west
+			if (RandomNumber::getInstance()->randomBool()) // west
 				corridor.x = x - corridor.width + 1;
 		}
 
@@ -244,7 +240,7 @@ bool StoreyBuilder::makeCorridor(int x, int y, Direction dir)
 	else // vertical corridor
 	{
 		corridor.width = 1;
-		corridor.height = RandomNumber::instance()->randomInt(minCorridorLength, maxCorridorLength);
+		corridor.height = RandomNumber::getInstance()->randomInt(minCorridorLength, maxCorridorLength);
 
 		if (dir == North)
 			corridor.y = y - corridor.height;
@@ -256,7 +252,7 @@ bool StoreyBuilder::makeCorridor(int x, int y, Direction dir)
 		{
 			corridor.x = x - 1;
 
-			if (RandomNumber::instance()->randomBool()) // north
+			if (RandomNumber::getInstance()->randomBool()) // north
 				corridor.y = y - corridor.height + 1;
 		}
 
@@ -264,7 +260,7 @@ bool StoreyBuilder::makeCorridor(int x, int y, Direction dir)
 		{
 			corridor.x = x + 1;
 
-			if (RandomNumber::instance()->randomBool()) // north
+			if (RandomNumber::getInstance()->randomBool()) // north
 				corridor.y = y - corridor.height + 1;
 		}
 	}
@@ -315,9 +311,9 @@ bool StoreyBuilder::placeObject(int tile)
 	if (rooms.empty())
 		return false;
 
-	int r = RandomNumber::instance()->randomInt(rooms.size()); // choose a random room
-	int x = RandomNumber::instance()->randomInt(rooms[r].x + 1, rooms[r].x + rooms[r].width - 2);
-	int y = RandomNumber::instance()->randomInt(rooms[r].y + 1, rooms[r].y + rooms[r].height - 2);
+	int r = RandomNumber::getInstance()->randomInt(rooms.size()); // choose a random room
+	int x = RandomNumber::getInstance()->randomInt(rooms[r].x + 1, rooms[r].x + rooms[r].width - 2);
+	int y = RandomNumber::getInstance()->randomInt(rooms[r].y + 1, rooms[r].y + rooms[r].height - 2);
 
 	if (rooms.size() == 29)
 	{
