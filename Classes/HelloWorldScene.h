@@ -2,6 +2,7 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include"Character.h"
 
 class HelloWorld : public cocos2d::Layer
 {
@@ -21,7 +22,7 @@ private:
 	void movePlayer(cocos2d::EventKeyboard::KeyCode keyCode);
 	void movePlayer(cocos2d::Point position);
 	cocos2d::TMXTiledMap *tileMap;
-	cocos2d::Sprite* player;
+	Character* player;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

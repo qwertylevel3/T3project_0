@@ -148,6 +148,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\Character.cpp" />
     <ClCompile Include="..\Classes\Debug.cpp" />
     <ClCompile Include="..\Classes\Dungeon.cpp" />
     <ClCompile Include="..\Classes\DungeonBuilder.cpp" />
@@ -162,6 +163,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\Character.h" />
     <ClInclude Include="..\Classes\Debug.h" />
     <ClInclude Include="..\Classes\Dungeon.h" />
     <ClInclude Include="..\Classes\DungeonBuilder.h" />

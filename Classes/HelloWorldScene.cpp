@@ -55,7 +55,8 @@ bool HelloWorld::init()
 	cocos2d::Point startPosition = floor0->getUpPosition();
 	//cocos2d::Point startPosition(0, 0);
 
-	player = Sprite::create("Player.png");
+	player = Character::create("Player.png");
+
 	player->setPosition(startPosition.x*32+16, (100-startPosition.y)*32-16);
 //	player->setPosition(32, 32);
 	addChild(player);
@@ -64,11 +65,7 @@ bool HelloWorld::init()
 
 	auto listener = EventListenerKeyboard::create();
 	listener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event* event) {
-
 		this->movePlayer(keyCode);
-
-
-
 	};
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
@@ -77,10 +74,10 @@ bool HelloWorld::init()
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
-    Director::getInstance()->end();
+	Director::getInstance()->end();
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
+	exit(0);
 #endif
 }
 
