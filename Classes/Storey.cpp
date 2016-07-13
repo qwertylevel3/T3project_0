@@ -27,9 +27,14 @@ int Storey::getTile(int x,int y)
 	if (x < 0 || y < 0 || x >= width || y >= height)
 	{
 		return Unused;
-		exit(-1);
+		CCAssert(false, "tile position out of range");
 	}
 	return tiles[x + y * width];
+}
+
+int Field::Storey::getTile(cocos2d::Point position)
+{
+	return getTile(position.x, position.y);
 }
 
 void Storey::setTile(int x, int y,int tile)

@@ -1,6 +1,8 @@
 #pragma once
 
 #include"Storey.h"
+#include"platform\CCPlatformMacros.h"
+
 
 namespace Field {
 
@@ -12,10 +14,13 @@ namespace Field {
 
 		int getFloorNum();
 		void addStorey(Storey* storey);
-		Storey* getStorey(int floor);
+		Storey* getStorey();
 		void writeToFile();
+		void changeFloor(int floor);
+		void nextFloor();
 	protected:
 		std::vector<Storey*> storeys;
+		CC_SYNTHESIZE(int, curFloor, CurFloor);
 	};
 
 }

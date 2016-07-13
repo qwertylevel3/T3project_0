@@ -38,9 +38,9 @@ bool HelloWorld::init()
 	RandomNumber::getInstance()->setSeed(100);
 
 	DungeonBuilder::getInstance()->init();
-	Dungeon* dungeon=DungeonBuilder::getInstance()->generate(4);
+	dungeon=DungeonBuilder::getInstance()->generate(4);
 //	dungeon->writeToFile();
-	Storey* floor0 = dungeon->getStorey(0);
+	Storey* floor0 = dungeon->getStorey();
 
 //	dungeon->writeToFile();
 //	std::string fileName = "1.tmx";
@@ -58,6 +58,7 @@ bool HelloWorld::init()
 	player = Character::create("Player.png");
 
 	player->setPosition(startPosition.x*32+16, (100-startPosition.y)*32-16);
+	player->setMapCoord(floor0->getUpPosition());
 //	player->setPosition(32, 32);
 	addChild(player);
 
@@ -97,29 +98,37 @@ void HelloWorld::setViewPointCenter(Point position) {
 
 void HelloWorld::movePlayer(EventKeyboard::KeyCode keyCode)
 {
+	if (!isMoveAble(keyCode))
+	{
+		return;
+	}
 	cocos2d::Point position;
+	cocos2d::Point mapCoord = player->getMapCoord();
 	switch (keyCode)
 	{
 	case EventKeyboard::KeyCode::KEY_UP_ARROW:
-
 		position.x = player->getPosition().x;
 		position.y = player->getPosition().y + 32;
 		movePlayer(position);
+		player->setMapCoord(cocos2d::Point(mapCoord.x, mapCoord.y - 1));
 		break;
 	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
 		position.x = player->getPosition().x;
 		position.y = player->getPosition().y - 32;
 		movePlayer(position);
+		player->setMapCoord(cocos2d::Point(mapCoord.x, mapCoord.y + 1));
 		break;
 	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
 		position.x = player->getPosition().x - 32;
 		position.y = player->getPosition().y;
 		movePlayer(position);
+		player->setMapCoord(cocos2d::Point(mapCoord.x - 1, mapCoord.y));
 		break;
 	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
 		position.x = player->getPosition().x + 32;
 		position.y = player->getPosition().y;
 		movePlayer(position);
+		player->setMapCoord(cocos2d::Point(mapCoord.x + 1, mapCoord.y));
 		break;
 	}
 }
@@ -128,4 +137,33 @@ void HelloWorld::movePlayer(cocos2d::Point position)
 {
 	player->setPosition(position);
 	this->setViewPointCenter(player->getPosition());
+}
+
+bool HelloWorld::isMoveAble(EventKeyboard::KeyCode keyCode)
+{
+	Storey* storey = dungeon->getStorey();
+	cocos2d::Point position = player->getMapCoord();
+	switch (keyCode)
+	{
+	case EventKeyboard::KeyCode::KEY_UP_ARROW:
+		position.y -= 1;
+		break;
+	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
+		position.y += 1;
+		break;
+	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
+		position.x -= 1;
+		break;
+	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
+		position.x += 1;
+		break;
+	default:
+		return false;
+	}
+
+	if (storey->getTile(position) == Field::Floor)
+	{
+		return true;
+	}
+	return false;
 }

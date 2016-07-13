@@ -13,6 +13,7 @@ namespace Field {
 		Storey(int w, int h);
 		~Storey();
 		int getTile(int x, int y);
+		int getTile(cocos2d::Point position);
 		void setTile(int x, int y, int tile);
 
 		int getHeight();
@@ -28,6 +29,5 @@ namespace Field {
 		std::string picturePath;
 		std::vector<int> tiles;
 	};
-
 }
 

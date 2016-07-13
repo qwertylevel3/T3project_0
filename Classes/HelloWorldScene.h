@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include"Character.h"
+#include"Dungeon.h"
 
 class HelloWorld : public cocos2d::Layer
 {
@@ -22,7 +23,9 @@ private:
 	void movePlayer(cocos2d::EventKeyboard::KeyCode keyCode);
 	void movePlayer(cocos2d::Point position);
 	cocos2d::TMXTiledMap *tileMap;
+	Field::Dungeon* dungeon;
 	Character* player;
+	bool isMoveAble(cocos2d::EventKeyboard::KeyCode keyCode);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

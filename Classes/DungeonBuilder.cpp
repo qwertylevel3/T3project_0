@@ -24,6 +24,7 @@ Dungeon * Field::DungeonBuilder::generate(int floorNum)
 	}
 	dungeon = new Dungeon();
 
+
 	for (int i = 0; i < floorNum; i++)
 	{
 		//RandomNumber::instance()->setSeed(i+100);
