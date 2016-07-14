@@ -13,6 +13,9 @@
     <Filter Include="src\Field">
       <UniqueIdentifier>{6755a3e4-f3c0-4c73-a1af-75e3149d55d6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\skill">
+      <UniqueIdentifier>{7ac80208-8d13-4572-84de-d279be4081bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -45,6 +48,10 @@
     <ClCompile Include="..\Classes\Debug.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Skill.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Attack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -83,6 +90,10 @@
     <ClInclude Include="..\Classes\Debug.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Skill.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Attack.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

@@ -50,7 +50,7 @@ bool HelloWorld::init()
 
 	tileMap = TMXTiledMap::createWithXML(floor0->getFileContent(), "");
 
-	addChild(tileMap, -1);
+	Layer::addChild(tileMap, -1);
 
 	cocos2d::Point startPosition = floor0->getUpPosition();
 	//cocos2d::Point startPosition(0, 0);
@@ -166,4 +166,10 @@ bool HelloWorld::isMoveAble(EventKeyboard::KeyCode keyCode)
 		return true;
 	}
 	return false;
+}
+
+void HelloWorld::addChild(Character * character)
+{
+	Layer::addChild(character);
+	character->setDungeon(dungeon);
 }

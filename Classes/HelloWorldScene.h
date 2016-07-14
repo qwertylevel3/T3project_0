@@ -26,6 +26,7 @@ private:
 	Field::Dungeon* dungeon;
 	Character* player;
 	bool isMoveAble(cocos2d::EventKeyboard::KeyCode keyCode);
+	void addChild(Character* character);
 };
 
 #endif // __HELLOWORLD_SCENE_H__
