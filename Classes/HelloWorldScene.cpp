@@ -66,9 +66,11 @@ bool HelloWorld::init()
 
 	auto listener = EventListenerKeyboard::create();
 	listener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event* event) {
-		this->movePlayer(keyCode);
+		this->handleKey(keyCode);
 	};
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
+	controlMode = MoveMode;
 
 	return true;
 }
@@ -96,8 +98,42 @@ void HelloWorld::setViewPointCenter(Point position) {
 	this->setPosition(viewPoint);
 }
 
-void HelloWorld::movePlayer(EventKeyboard::KeyCode keyCode)
+void HelloWorld::handleKey(cocos2d::EventKeyboard::KeyCode keyCode)
 {
+	switch (controlMode)
+	{
+	case AttackMode:
+		playerAttack(keyCode);
+		break;
+	case MoveMode:
+		playerMove(keyCode);
+		break;
+	}
+}
+
+void HelloWorld::playerAttack(cocos2d::EventKeyboard::KeyCode keyCode)
+{
+	switch (keyCode)
+	{
+	case EventKeyboard::KeyCode::KEY_UP_ARROW:
+	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
+	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
+	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
+		CCLOG("attack");
+		break;
+	case EventKeyboard::KeyCode::KEY_ESCAPE:
+		controlMode = MoveMode;
+		break;
+	}
+}
+
+void HelloWorld::playerMove(EventKeyboard::KeyCode keyCode)
+{
+	if (keyCode == EventKeyboard::KeyCode::KEY_ENTER)
+	{
+		controlMode = AttackMode;
+		return;
+	}
 	if (!isMoveAble(keyCode))
 	{
 		return;
@@ -109,31 +145,32 @@ void HelloWorld::movePlayer(EventKeyboard::KeyCode keyCode)
 	case EventKeyboard::KeyCode::KEY_UP_ARROW:
 		position.x = player->getPosition().x;
 		position.y = player->getPosition().y + 32;
-		movePlayer(position);
+		playerMove(position);
 		player->setMapCoord(cocos2d::Point(mapCoord.x, mapCoord.y - 1));
 		break;
 	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
 		position.x = player->getPosition().x;
 		position.y = player->getPosition().y - 32;
-		movePlayer(position);
+		playerMove(position);
 		player->setMapCoord(cocos2d::Point(mapCoord.x, mapCoord.y + 1));
 		break;
 	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
 		position.x = player->getPosition().x - 32;
 		position.y = player->getPosition().y;
-		movePlayer(position);
+		playerMove(position);
 		player->setMapCoord(cocos2d::Point(mapCoord.x - 1, mapCoord.y));
 		break;
 	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
 		position.x = player->getPosition().x + 32;
 		position.y = player->getPosition().y;
-		movePlayer(position);
+		playerMove(position);
 		player->setMapCoord(cocos2d::Point(mapCoord.x + 1, mapCoord.y));
 		break;
+
 	}
 }
 
-void HelloWorld::movePlayer(cocos2d::Point position)
+void HelloWorld::playerMove(cocos2d::Point position)
 {
 	player->setPosition(position);
 	this->setViewPointCenter(player->getPosition());

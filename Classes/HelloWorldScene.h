@@ -7,6 +7,11 @@
 
 class HelloWorld : public cocos2d::Layer
 {
+	enum ControlMode
+	{
+		MoveMode,
+		AttackMode
+	};
 public:
     static cocos2d::Scene* createScene();
 
@@ -20,13 +25,18 @@ public:
     CREATE_FUNC(HelloWorld);
 
 private:
-	void movePlayer(cocos2d::EventKeyboard::KeyCode keyCode);
-	void movePlayer(cocos2d::Point position);
+	void handleKey(cocos2d::EventKeyboard::KeyCode keyCode);
+	void playerAttack(cocos2d::EventKeyboard::KeyCode keyCode);
+	void playerMove(cocos2d::EventKeyboard::KeyCode keyCode);
+	void playerMove(cocos2d::Point position);
 	cocos2d::TMXTiledMap *tileMap;
 	Field::Dungeon* dungeon;
 	Character* player;
 	bool isMoveAble(cocos2d::EventKeyboard::KeyCode keyCode);
 	void addChild(Character* character);
+
+	ControlMode controlMode;
+
 };
 
 #endif // __HELLOWORLD_SCENE_H__
