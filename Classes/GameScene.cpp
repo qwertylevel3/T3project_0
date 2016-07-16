@@ -1,4 +1,4 @@
-#include "HelloWorldScene.h"
+#include "GameScene.h"
 #include "SimpleAudioEngine.h"
 #include"DungeonBuilder.h"
 #include"RandomNumber.h"
@@ -7,13 +7,13 @@
 USING_NS_CC;
 using namespace Field;
 
-Scene* HelloWorld::createScene()
+Scene* GameScene::createScene()
 {
     // 'scene' is an autorelease object
     auto scene = Scene::create();
     
     // 'layer' is an autorelease object
-    auto layer = HelloWorld::create();
+    auto layer = GameScene::create();
 
     // add layer as a child to scene
     scene->addChild(layer);
@@ -23,7 +23,7 @@ Scene* HelloWorld::createScene()
 }
 
 // on "init" you need to initialize your instance
-bool HelloWorld::init()
+bool GameScene::init()
 {
     //////////////////////////////
     // 1. super init first
@@ -55,12 +55,14 @@ bool HelloWorld::init()
 	cocos2d::Point startPosition = floor0->getUpPosition();
 	//cocos2d::Point startPosition(0, 0);
 
-	player = Character::create("Player.png");
+	player = Character::create("test_character.plist");
+
+	this->addCharacter(player);
 
 	player->setPosition(startPosition.x*32+16, (100-startPosition.y)*32-16);
+	
 	player->setMapCoord(floor0->getUpPosition());
 //	player->setPosition(32, 32);
-	addChild(player);
 
 	setViewPointCenter(player->getPosition());
 
@@ -75,7 +77,7 @@ bool HelloWorld::init()
 	return true;
 }
 
-void HelloWorld::menuCloseCallback(Ref* pSender)
+void GameScene::menuCloseCallback(Ref* pSender)
 {
 	Director::getInstance()->end();
 
@@ -84,7 +86,7 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 #endif
 }
 
-void HelloWorld::setViewPointCenter(Point position) {
+void GameScene::setViewPointCenter(Point position) {
 	auto winSize = Director::getInstance()->getWinSize();
 
 	int x = MAX(position.x, winSize.width / 2);
@@ -98,7 +100,7 @@ void HelloWorld::setViewPointCenter(Point position) {
 	this->setPosition(viewPoint);
 }
 
-void HelloWorld::handleKey(cocos2d::EventKeyboard::KeyCode keyCode)
+void GameScene::handleKey(cocos2d::EventKeyboard::KeyCode keyCode)
 {
 	switch (controlMode)
 	{
@@ -111,7 +113,7 @@ void HelloWorld::handleKey(cocos2d::EventKeyboard::KeyCode keyCode)
 	}
 }
 
-void HelloWorld::playerAttack(cocos2d::EventKeyboard::KeyCode keyCode)
+void GameScene::playerAttack(cocos2d::EventKeyboard::KeyCode keyCode)
 {
 	switch (keyCode)
 	{
@@ -127,7 +129,7 @@ void HelloWorld::playerAttack(cocos2d::EventKeyboard::KeyCode keyCode)
 	}
 }
 
-void HelloWorld::playerMove(EventKeyboard::KeyCode keyCode)
+void GameScene::playerMove(EventKeyboard::KeyCode keyCode)
 {
 	if (keyCode == EventKeyboard::KeyCode::KEY_ENTER)
 	{
@@ -138,45 +140,26 @@ void HelloWorld::playerMove(EventKeyboard::KeyCode keyCode)
 	{
 		return;
 	}
-	cocos2d::Point position;
-	cocos2d::Point mapCoord = player->getMapCoord();
 	switch (keyCode)
 	{
 	case EventKeyboard::KeyCode::KEY_UP_ARROW:
-		position.x = player->getPosition().x;
-		position.y = player->getPosition().y + 32;
-		playerMove(position);
-		player->setMapCoord(cocos2d::Point(mapCoord.x, mapCoord.y - 1));
+		player->moveUp();
 		break;
 	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
-		position.x = player->getPosition().x;
-		position.y = player->getPosition().y - 32;
-		playerMove(position);
-		player->setMapCoord(cocos2d::Point(mapCoord.x, mapCoord.y + 1));
+		player->moveDown();
 		break;
 	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
-		position.x = player->getPosition().x - 32;
-		position.y = player->getPosition().y;
-		playerMove(position);
-		player->setMapCoord(cocos2d::Point(mapCoord.x - 1, mapCoord.y));
+		player->moveLeft();
 		break;
 	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
-		position.x = player->getPosition().x + 32;
-		position.y = player->getPosition().y;
-		playerMove(position);
-		player->setMapCoord(cocos2d::Point(mapCoord.x + 1, mapCoord.y));
+		player->moveRight();
 		break;
 
 	}
 }
 
-void HelloWorld::playerMove(cocos2d::Point position)
-{
-	player->setPosition(position);
-	this->setViewPointCenter(player->getPosition());
-}
 
-bool HelloWorld::isMoveAble(EventKeyboard::KeyCode keyCode)
+bool GameScene::isMoveAble(EventKeyboard::KeyCode keyCode)
 {
 	Storey* storey = dungeon->getStorey();
 	cocos2d::Point position = player->getMapCoord();
@@ -205,8 +188,9 @@ bool HelloWorld::isMoveAble(EventKeyboard::KeyCode keyCode)
 	return false;
 }
 
-void HelloWorld::addChild(Character * character)
+void GameScene::addCharacter(Character * character)
 {
-	Layer::addChild(character);
+	Layer::addChild(character->getSprite());
 	character->setDungeon(dungeon);
+	character->setScene(this);
 }
