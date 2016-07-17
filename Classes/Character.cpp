@@ -30,23 +30,56 @@ void Character::moveUp()
 {
 	cocos2d::Point position = sprite->getPosition();
 
-	CCActionInterval* moveAction = CCMoveTo::create(2.0, cocos2d::Vec2(position.x, position.y + 32));
+	CCActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x, position.y + 32));
 
+	CCAnimate* action = CCAnimate::create(moveUpAnimation);
+	action->setDuration(0.2);
+	sprite->runAction(action);
 	sprite->runAction(moveAction);
+
 	setMapCoord(cocos2d::Point(mapCoord.x, mapCoord.y - 1));
-	scene->setViewPointCenter(sprite->getPosition());
 }
 
 void Character::moveDown()
 {
+	cocos2d::Point position = sprite->getPosition();
+
+	CCActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x, position.y - 32));
+
+	CCAnimate* action = CCAnimate::create(moveDownAnimation);
+	action->setDuration(0.2);
+	sprite->runAction(action);
+	sprite->runAction(moveAction);
+
+	setMapCoord(cocos2d::Point(mapCoord.x, mapCoord.y + 1));
 }
 
 void Character::moveLeft()
 {
+	cocos2d::Point position = sprite->getPosition();
+
+	CCActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x - 32, position.y));
+
+	CCAnimate* action = CCAnimate::create(moveLeftAnimation);
+	action->setDuration(0.2);
+	sprite->runAction(action);
+	sprite->runAction(moveAction);
+
+	setMapCoord(cocos2d::Point(mapCoord.x - 1, mapCoord.y));
 }
 
 void Character::moveRight()
 {
+	cocos2d::Point position = sprite->getPosition();
+
+	CCActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x + 32, position.y));
+
+	CCAnimate* action = CCAnimate::create(moveRightAnimation);
+	action->setDuration(0.2);
+	sprite->runAction(action);
+	sprite->runAction(moveAction);
+
+	setMapCoord(cocos2d::Point(mapCoord.x + 1, mapCoord.y));
 }
 
 cocos2d::Point Character::getPosition()
@@ -66,6 +99,14 @@ Character::Character()
 
 Character::~Character()
 {
+	moveUpAnimation->release();
+	moveDownAnimation->release();
+	moveLeftAnimation->release();
+	moveRightAnimation->release();
+	stopUpAnimation->release();
+	stopDownAnimation->release();
+	stopLeftAnimation->release();
+	stopRightAnimation->release();
 }
 
 void Character::setFrameCache(std::string filename)
@@ -85,6 +126,7 @@ void Character::createMoveUpAnimation()
 		sfme.pushBack(fname);
 	}
 	moveUpAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
+	moveUpAnimation->retain();
 }
 
 void Character::createMoveDownAnimation()
@@ -98,6 +140,7 @@ void Character::createMoveDownAnimation()
 		sfme.pushBack(fname);
 	}
 	moveDownAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
+	moveDownAnimation->retain();
 }
 
 void Character::createMoveLeftAnimation()
@@ -111,6 +154,7 @@ void Character::createMoveLeftAnimation()
 		sfme.pushBack(fname);
 	}
 	moveLeftAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
+	moveLeftAnimation->retain();
 }
 
 void Character::createMoveRightAnimation()
@@ -124,6 +168,7 @@ void Character::createMoveRightAnimation()
 		sfme.pushBack(fname);
 	}
 	moveRightAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
+	moveRightAnimation->retain();
 }
 
 void Character::createStopUpAnimation()
@@ -134,6 +179,7 @@ void Character::createStopUpAnimation()
 	SpriteFrame *fname = cache->spriteFrameByName(str);
 	sfme.pushBack(fname);
 	stopUpAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
+	stopUpAnimation->retain();
 }
 
 void Character::createStopDownAnimation()
@@ -144,6 +190,7 @@ void Character::createStopDownAnimation()
 	SpriteFrame *fname = cache->spriteFrameByName(str);
 	sfme.pushBack(fname);
 	stopDownAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
+	stopDownAnimation->retain();
 }
 
 void Character::createStopLeftAnimation()
@@ -154,6 +201,7 @@ void Character::createStopLeftAnimation()
 	SpriteFrame *fname = cache->spriteFrameByName(str);
 	sfme.pushBack(fname);
 	stopLeftAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
+	stopLeftAnimation->retain();
 }
 
 void Character::createStopRightAnimation()
@@ -164,4 +212,5 @@ void Character::createStopRightAnimation()
 	SpriteFrame *fname = cache->spriteFrameByName(str);
 	sfme.pushBack(fname);
 	stopRightAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
+	stopRightAnimation->retain();
 }

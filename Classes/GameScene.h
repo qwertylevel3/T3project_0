@@ -26,7 +26,7 @@ public:
    
     // implement the "static create()" method manually
     CREATE_FUNC(GameScene);
-
+	void update(float dt);
 private:
 	void handleKey(cocos2d::EventKeyboard::KeyCode keyCode);
 	void playerAttack(cocos2d::EventKeyboard::KeyCode keyCode);

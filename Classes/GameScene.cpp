@@ -74,6 +74,8 @@ bool GameScene::init()
 
 	controlMode = MoveMode;
 
+	this->scheduleUpdate();
+
 	return true;
 }
 
@@ -98,6 +100,11 @@ void GameScene::setViewPointCenter(Point position) {
 	auto centerOfView = Point(winSize.width / 2, winSize.height / 2);
 	auto viewPoint = centerOfView - actualPosition;
 	this->setPosition(viewPoint);
+}
+
+void GameScene::update(float dt)
+{
+	this->setViewPointCenter(player->getPosition());
 }
 
 void GameScene::handleKey(cocos2d::EventKeyboard::KeyCode keyCode)
