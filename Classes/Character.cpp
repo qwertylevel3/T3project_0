@@ -17,11 +17,6 @@ Character * Character::create(const std::string & filename)
 	character->createMoveDownAnimation();
 	character->createMoveLeftAnimation();
 	character->createMoveRightAnimation();
-	character->createStopUpAnimation();
-	character->createStopDownAnimation();
-	character->createStopLeftAnimation();
-	character->createStopRightAnimation();
-
 
 	return character;
 }
@@ -169,48 +164,4 @@ void Character::createMoveRightAnimation()
 	}
 	moveRightAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
 	moveRightAnimation->retain();
-}
-
-void Character::createStopUpAnimation()
-{
-	Vector<SpriteFrame* > sfme = Vector<SpriteFrame*>::Vector();
-	char str[20] = { 0 };
-	sprintf(str, "Actor1_10.png");
-	SpriteFrame *fname = cache->spriteFrameByName(str);
-	sfme.pushBack(fname);
-	stopUpAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
-	stopUpAnimation->retain();
-}
-
-void Character::createStopDownAnimation()
-{
-	Vector<SpriteFrame* > sfme = Vector<SpriteFrame*>::Vector();
-	char str[20] = { 0 };
-	sprintf(str, "Actor1_01.png");
-	SpriteFrame *fname = cache->spriteFrameByName(str);
-	sfme.pushBack(fname);
-	stopDownAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
-	stopDownAnimation->retain();
-}
-
-void Character::createStopLeftAnimation()
-{
-	Vector<SpriteFrame* > sfme = Vector<SpriteFrame*>::Vector();
-	char str[20] = { 0 };
-	sprintf(str, "Actor1_04.png");
-	SpriteFrame *fname = cache->spriteFrameByName(str);
-	sfme.pushBack(fname);
-	stopLeftAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
-	stopLeftAnimation->retain();
-}
-
-void Character::createStopRightAnimation()
-{
-	Vector<SpriteFrame* > sfme = Vector<SpriteFrame*>::Vector();
-	char str[20] = { 0 };
-	sprintf(str, "Actor1_07.png");
-	SpriteFrame *fname = cache->spriteFrameByName(str);
-	sfme.pushBack(fname);
-	stopRightAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
-	stopRightAnimation->retain();
 }

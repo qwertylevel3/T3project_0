@@ -16,6 +16,9 @@
     <Filter Include="src\skill">
       <UniqueIdentifier>{7ac80208-8d13-4572-84de-d279be4081bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\character">
+      <UniqueIdentifier>{03efe03f-75c4-4d3e-b82d-1999cda3c8b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -39,18 +42,26 @@
     <ClCompile Include="..\Classes\Dungeon.cpp">
       <Filter>src\Field</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Character.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Debug.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Skill.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Attack.cpp" />
     <ClCompile Include="..\Classes\GameScene.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Attack.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CharacterManager.cpp">
+      <Filter>src\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CharacterModel.cpp">
+      <Filter>src\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Character.cpp">
+      <Filter>src\character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -81,18 +92,26 @@
     <ClInclude Include="..\Classes\Dungeon.h">
       <Filter>src\Field</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Character.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Debug.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Skill.h">
       <Filter>src\skill</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Attack.h" />
     <ClInclude Include="..\Classes\GameScene.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Attack.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CharacterManager.h">
+      <Filter>src\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CharacterModel.h">
+      <Filter>src\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Character.h">
+      <Filter>src\character</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -39,10 +39,6 @@ protected:
 	void createMoveDownAnimation();
 	void createMoveLeftAnimation();
 	void createMoveRightAnimation();
-	void createStopUpAnimation();
-	void createStopDownAnimation();
-	void createStopLeftAnimation();
-	void createStopRightAnimation();
 
 
 	cocos2d::CCAnimation* moveUpAnimation;
