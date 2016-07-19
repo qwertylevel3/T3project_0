@@ -3,24 +3,6 @@
 
 USING_NS_CC;
 
-Character * Character::create(const std::string & filename)
-{
-	Character* character = new Character();
-
-	character->setFrameCache(filename);
-
-	CCSprite* sp = CCSprite::createWithSpriteFrameName("Actor1_01.png");
-
-	character->setSprite(sp);
-
-	character->createMoveUpAnimation();
-	character->createMoveDownAnimation();
-	character->createMoveLeftAnimation();
-	character->createMoveRightAnimation();
-
-	return character;
-}
-
 void Character::moveUp()
 {
 	cocos2d::Point position = sprite->getPosition();
@@ -98,16 +80,6 @@ Character::~Character()
 	moveDownAnimation->release();
 	moveLeftAnimation->release();
 	moveRightAnimation->release();
-	stopUpAnimation->release();
-	stopDownAnimation->release();
-	stopLeftAnimation->release();
-	stopRightAnimation->release();
-}
-
-void Character::setFrameCache(std::string filename)
-{
-	cache=CCSpriteFrameCache::sharedSpriteFrameCache();
-	cache->addSpriteFramesWithFile(filename);
 }
 
 void Character::createMoveUpAnimation()
@@ -117,7 +89,7 @@ void Character::createMoveUpAnimation()
 	for (int i = 10; i < 13; ++i)
 	{
 		sprintf(str, "Actor1_%02d.png", i);
-		SpriteFrame *fname = cache->spriteFrameByName(str);
+		SpriteFrame *fname = CCSpriteFrameCache::getInstance()->getSpriteFrameByName(str);
 		sfme.pushBack(fname);
 	}
 	moveUpAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
@@ -131,7 +103,7 @@ void Character::createMoveDownAnimation()
 	for (int i = 1; i < 4; ++i)
 	{
 		sprintf(str, "Actor1_%02d.png", i);
-		SpriteFrame *fname = cache->spriteFrameByName(str);
+		SpriteFrame *fname = CCSpriteFrameCache::getInstance()->getSpriteFrameByName(str);
 		sfme.pushBack(fname);
 	}
 	moveDownAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
@@ -145,7 +117,7 @@ void Character::createMoveLeftAnimation()
 	for (int i = 4; i < 7; ++i)
 	{
 		sprintf(str, "Actor1_%02d.png", i);
-		SpriteFrame *fname = cache->spriteFrameByName(str);
+		SpriteFrame *fname = CCSpriteFrameCache::getInstance()->getSpriteFrameByName(str);
 		sfme.pushBack(fname);
 	}
 	moveLeftAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
@@ -159,9 +131,29 @@ void Character::createMoveRightAnimation()
 	for (int i = 7; i < 10; ++i)
 	{
 		sprintf(str, "Actor1_%02d.png", i);
-		SpriteFrame *fname = cache->spriteFrameByName(str);
+		SpriteFrame *fname = CCSpriteFrameCache::getInstance()->getSpriteFrameByName(str);
 		sfme.pushBack(fname);
 	}
 	moveRightAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
 	moveRightAnimation->retain();
+}
+
+void Character::setMoveUpAnimation(cocos2d::CCAnimation* animation)
+{
+	moveUpAnimation = animation;
+}
+
+void Character::setMoveDownAnimation(cocos2d::CCAnimation* animation)
+{
+	moveDownAnimation = animation;
+}
+
+void Character::setMoveLeftAnimation(cocos2d::CCAnimation* animation)
+{
+	moveLeftAnimation = animation;
+}
+
+void Character::setMoveRightAnimation(cocos2d::CCAnimation* animation)
+{
+	moveRightAnimation = animation;
 }

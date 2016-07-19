@@ -17,9 +17,15 @@ void CharacterManager::init()
 {
 	cache=CCSpriteFrameCache::sharedSpriteFrameCache();
 	cache->addSpriteFramesWithFile("test_character.plist");
+
+	CharacterModel* actor0Model = new CharacterModel();
+	actor0Model->setName("Actor0");
+
+	modelMap["Actor0"] = actor0Model;
 }
 
 Character * CharacterManager::getCharacter(std::string characterName)
 {
-	return nullptr;
+	return modelMap[characterName]->makeCharacter();
 }
+

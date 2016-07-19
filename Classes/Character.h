@@ -8,7 +8,9 @@ class GameScene;
 class Character
 {
 public:
-	static Character* create(const std::string& filename);
+	Character();
+	~Character();
+
 	void moveUp();
 	void moveDown();
 	void moveLeft();
@@ -16,8 +18,7 @@ public:
 	cocos2d::Point getPosition();
 	void setPosition(float x, float y);
 protected:
-	Character();
-	~Character();
+
 	CC_SYNTHESIZE(cocos2d::Point, mapCoord, MapCoord);
 	CC_SYNTHESIZE(int, strength, Strength);
 	CC_SYNTHESIZE(int, intellect, Intellect);
@@ -30,24 +31,19 @@ protected:
 	CC_SYNTHESIZE(GameScene*, scene, Scene);
 	CC_SYNTHESIZE(cocos2d::CCSprite*, sprite, Sprite);
 
-	cocos2d::CCSpriteFrameCache * cache;
-
-
-	void setFrameCache(std::string filename);
-
 	void createMoveUpAnimation();
 	void createMoveDownAnimation();
 	void createMoveLeftAnimation();
 	void createMoveRightAnimation();
 
+	void setMoveUpAnimation(cocos2d::CCAnimation* animation);
+	void setMoveDownAnimation(cocos2d::CCAnimation* animation);
+	void setMoveLeftAnimation(cocos2d::CCAnimation* animation);
+	void setMoveRightAnimation(cocos2d::CCAnimation* animation);
 
 	cocos2d::CCAnimation* moveUpAnimation;
 	cocos2d::CCAnimation* moveDownAnimation;
 	cocos2d::CCAnimation* moveLeftAnimation;
 	cocos2d::CCAnimation* moveRightAnimation;
-	cocos2d::CCAnimation* stopUpAnimation;
-	cocos2d::CCAnimation* stopDownAnimation;
-	cocos2d::CCAnimation* stopLeftAnimation;
-	cocos2d::CCAnimation* stopRightAnimation;
 
 };

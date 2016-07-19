@@ -3,6 +3,7 @@
 #include"DungeonBuilder.h"
 #include"RandomNumber.h"
 #include"StoreyBuilder.h"
+#include"CharacterManager.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -38,6 +39,11 @@ bool GameScene::init()
 	RandomNumber::getInstance()->setSeed(100);
 
 	DungeonBuilder::getInstance()->init();
+	CharacterManager::getInstance()->init();
+
+
+
+
 	dungeon=DungeonBuilder::getInstance()->generate(4);
 //	dungeon->writeToFile();
 	Storey* floor0 = dungeon->getStorey();
@@ -55,7 +61,8 @@ bool GameScene::init()
 	cocos2d::Point startPosition = floor0->getUpPosition();
 	//cocos2d::Point startPosition(0, 0);
 
-	player = Character::create("test_character.plist");
+	//player = Character::create("test_character.plist");
+	player = CharacterManager::getInstance()->getCharacter("Actor0");
 
 	this->addCharacter(player);
 
