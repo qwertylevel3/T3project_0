@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characterBox>
+	<character>
+		<name>Actor0</name>
+		<firstFrame>Actor1_01.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>Actor1_10.png</frameName>
+			<frameName>Actor1_11.png</frameName>
+			<frameName>Actor1_12.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>Actor1_01.png</frameName>
+			<frameName>Actor1_02.png</frameName>
+			<frameName>Actor1_03.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>Actor1_04.png</frameName>
+			<frameName>Actor1_05.png</frameName>
+			<frameName>Actor1_06.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>Actor1_07.png</frameName>
+			<frameName>Actor1_08.png</frameName>
+			<frameName>Actor1_09.png</frameName>
+		</moveRightAnimation>
+	</character>
+</characterBox>

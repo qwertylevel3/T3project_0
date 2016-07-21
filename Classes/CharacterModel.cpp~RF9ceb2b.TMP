@@ -1,0 +1,90 @@
+#include "CharacterModel.h"
+
+USING_NS_CC;
+
+
+CharacterModel::CharacterModel()
+{
+}
+
+
+CharacterModel::~CharacterModel()
+{
+}
+
+Character * CharacterModel::makeCharacter()
+{
+	Character* character = new Character();
+
+	CCSprite* sp = CCSprite::createWithSpriteFrameName("Actor1_01.png");
+
+	character->setSprite(sp);
+
+	character->createMoveUpAnimation();
+	character->createMoveDownAnimation();
+	character->createMoveLeftAnimation();
+	character->createMoveRightAnimation();
+
+	return character;
+}
+
+void CharacterModel::createMoveUpAnimation(const std::vector<std::string>& frameList)
+{
+	Vector< SpriteFrame* > sfme = Vector< SpriteFrame* >::Vector();
+	char str[20] = { 0 };
+
+	for (int i = 0; i < frameList.size(); i++)
+	{
+		SpriteFrame *fname = CCSpriteFrameCache::getInstance()->getSpriteFrameByName(str);
+	}
+	for (int i = 10; i < 13; ++i)
+	{
+		sprintf(str, "Actor1_%02d.png", i);
+		SpriteFrame *fname = CCSpriteFrameCache::getInstance()->getSpriteFrameByName(str);
+		sfme.pushBack(fname);
+	}
+	moveUpAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
+	moveUpAnimation->retain();
+}
+
+void CharacterModel::createMoveDownAnimation(const std::vector<std::string>& frameList)
+{
+	Vector< SpriteFrame* > sfme = Vector< SpriteFrame* >::Vector();
+	char str[20] = { 0 };
+	for (int i = 1; i < 4; ++i)
+	{
+		sprintf(str, "Actor1_%02d.png", i);
+		SpriteFrame *fname = CCSpriteFrameCache::getInstance()->getSpriteFrameByName(str);
+		sfme.pushBack(fname);
+	}
+	moveDownAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
+	moveDownAnimation->retain();
+}
+
+void CharacterModel::createMoveLeftAnimation(const std::vector<std::string>& frameList)
+{
+	Vector< SpriteFrame* > sfme = Vector< SpriteFrame* >::Vector();
+	char str[20] = { 0 };
+	for (int i = 4; i < 7; ++i)
+	{
+		sprintf(str, "Actor1_%02d.png", i);
+		SpriteFrame *fname = CCSpriteFrameCache::getInstance()->getSpriteFrameByName(str);
+		sfme.pushBack(fname);
+	}
+	moveLeftAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
+	moveLeftAnimation->retain();
+}
+
+void CharacterModel::createMoveRightAnimation(const std::vector<std::string>& frameList)
+{
+	Vector< SpriteFrame* > sfme = Vector< SpriteFrame* >::Vector();
+	char str[20] = { 0 };
+	for (int i = 7; i < 10; ++i)
+	{
+		sprintf(str, "Actor1_%02d.png", i);
+		SpriteFrame *fname = CCSpriteFrameCache::getInstance()->getSpriteFrameByName(str);
+		sfme.pushBack(fname);
+	}
+	moveRightAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
+	moveRightAnimation->retain();
+}

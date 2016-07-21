@@ -15,6 +15,8 @@ public:
 	void init();
 	Character* getCharacter(std::string characterName);
 protected:
+	void initCharacterModel(const std::string fileName);
+
 	cocos2d::CCSpriteFrameCache * cache;
 	std::map<std::string, CharacterModel*> modelMap;
 };
