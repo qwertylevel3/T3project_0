@@ -19,6 +19,12 @@
     <Filter Include="src\character">
       <UniqueIdentifier>{03efe03f-75c4-4d3e-b82d-1999cda3c8b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\inventory">
+      <UniqueIdentifier>{1b2de235-6fe2-41ba-88a0-bf052f062ab5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\inventory\weapon">
+      <UniqueIdentifier>{4963d718-27f6-425d-939c-073b11e5c46e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -63,6 +69,16 @@
     <ClCompile Include="..\Classes\Character.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Weapon.cpp">
+      <Filter>src\inventory\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Inventory.cpp">
+      <Filter>src\inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\WeaponType.cpp">
+      <Filter>src\inventory\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\WeaponAdj.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -113,6 +129,16 @@
     <ClInclude Include="..\Classes\Character.h">
       <Filter>src\character</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Weapon.h">
+      <Filter>src\inventory\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Inventory.h">
+      <Filter>src\inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WeaponType.h">
+      <Filter>src\inventory\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WeaponAdj.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
