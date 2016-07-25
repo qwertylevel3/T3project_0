@@ -1,5 +1,5 @@
 #include "Skill.h"
-
+#include"Character.h"
 
 
 Skill::Skill(Character* character)

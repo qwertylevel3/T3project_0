@@ -159,6 +159,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Inventory.cpp" />
     <ClCompile Include="..\Classes\RandomNumber.cpp" />
     <ClCompile Include="..\Classes\Skill.cpp" />
+    <ClCompile Include="..\Classes\SkillManager.cpp" />
     <ClCompile Include="..\Classes\Storey.cpp" />
     <ClCompile Include="..\Classes\StoreyBuilder.cpp">
       <BrowseInformationFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Directory)</BrowseInformationFile>
@@ -184,6 +185,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\RandomNumber.h" />
     <ClInclude Include="..\Classes\Singleton.h" />
     <ClInclude Include="..\Classes\Skill.h" />
+    <ClInclude Include="..\Classes\SkillManager.h" />
     <ClInclude Include="..\Classes\Storey.h" />
     <ClInclude Include="..\Classes\StoreyBuilder.h" />
     <ClInclude Include="..\Classes\Weapon.h" />

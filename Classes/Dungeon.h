@@ -18,8 +18,9 @@ namespace Field {
 		void writeToFile();
 		void changeFloor(int floor);
 		void nextFloor();
+		void addCharacter(Character* character);
 	protected:
-		std::vector<Storey*> storeys;
+		std::vector<Storey*> storeyVec;
 		CC_SYNTHESIZE(int, curFloor, CurFloor);
 	};
 

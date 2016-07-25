@@ -4,6 +4,7 @@
 #include"RandomNumber.h"
 #include"StoreyBuilder.h"
 #include"CharacterManager.h"
+#include"SkillManager.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -40,8 +41,7 @@ bool GameScene::init()
 
 	DungeonBuilder::getInstance()->init();
 	CharacterManager::getInstance()->init();
-
-
+	SkillManager::getInstance()->init();
 
 
 	dungeon=DungeonBuilder::getInstance()->generate(4);
@@ -63,10 +63,13 @@ bool GameScene::init()
 
 	//player = Character::create("test_character.plist");
 	player = CharacterManager::getInstance()->getCharacter("Actor0");
+	Character* testCharacter = CharacterManager::getInstance()->getCharacter("Actor0");
 
+	this->addCharacter(testCharacter);
 	this->addCharacter(player);
 
 	player->setPosition(startPosition.x*32+16, (100-startPosition.y)*32-16);
+	testCharacter->setPosition((startPosition.x + 1) * 32 + 16, (100 - startPosition.y) * 32 - 16);
 	
 	player->setMapCoord(floor0->getUpPosition());
 //	player->setPosition(32, 32);
@@ -135,7 +138,7 @@ void GameScene::playerAttack(cocos2d::EventKeyboard::KeyCode keyCode)
 	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
 	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
 	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
-		CCLOG("attack");
+		player->runSkill("attack");
 		break;
 	case EventKeyboard::KeyCode::KEY_ESCAPE:
 		controlMode = MoveMode;
@@ -205,6 +208,7 @@ bool GameScene::isMoveAble(EventKeyboard::KeyCode keyCode)
 void GameScene::addCharacter(Character * character)
 {
 	Layer::addChild(character->getSprite());
-	character->setDungeon(dungeon);
+
 	character->setScene(this);
+	dungeon->addCharacter(character);
 }

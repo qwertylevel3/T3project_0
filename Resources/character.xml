@@ -23,5 +23,17 @@
 			<frameName>Actor1_08.png</frameName>
 			<frameName>Actor1_09.png</frameName>
 		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>Actor1_10.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>Actor1_01.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>Actor1_04.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>Actor1_07.png</frameName>
+		</standRightAnimation>
 	</character>
 </characterBox>

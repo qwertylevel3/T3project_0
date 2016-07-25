@@ -1,5 +1,6 @@
 #include "Character.h"
 #include"GameScene.h"
+#include"Attack.h"
 
 USING_NS_CC;
 
@@ -69,10 +70,22 @@ void Character::setPosition(float x, float y)
 	sprite->setPosition(x, y);
 }
 
-Character::Character()
+cocos2d::Node * Character::getParent()
 {
+	return sprite->getParent();
+	
 }
 
+void Character::runSkill(std::string skillName)
+{
+	skillBox[skillName]->run();
+}
+
+Character::Character()
+{
+	Attack* attack = new Attack(this);
+	skillBox["attack"] = attack;
+}
 
 Character::~Character()
 {
@@ -82,61 +95,6 @@ Character::~Character()
 	moveRightAnimation->release();
 }
 
-void Character::createMoveUpAnimation()
-{
-	Vector< SpriteFrame* > sfme = Vector< SpriteFrame* >::Vector();
-	char str[20] = { 0 };
-	for (int i = 10; i < 13; ++i)
-	{
-		sprintf(str, "Actor1_%02d.png", i);
-		SpriteFrame *fname = CCSpriteFrameCache::getInstance()->getSpriteFrameByName(str);
-		sfme.pushBack(fname);
-	}
-	moveUpAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
-	moveUpAnimation->retain();
-}
-
-void Character::createMoveDownAnimation()
-{
-	Vector< SpriteFrame* > sfme = Vector< SpriteFrame* >::Vector();
-	char str[20] = { 0 };
-	for (int i = 1; i < 4; ++i)
-	{
-		sprintf(str, "Actor1_%02d.png", i);
-		SpriteFrame *fname = CCSpriteFrameCache::getInstance()->getSpriteFrameByName(str);
-		sfme.pushBack(fname);
-	}
-	moveDownAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
-	moveDownAnimation->retain();
-}
-
-void Character::createMoveLeftAnimation()
-{
-	Vector< SpriteFrame* > sfme = Vector< SpriteFrame* >::Vector();
-	char str[20] = { 0 };
-	for (int i = 4; i < 7; ++i)
-	{
-		sprintf(str, "Actor1_%02d.png", i);
-		SpriteFrame *fname = CCSpriteFrameCache::getInstance()->getSpriteFrameByName(str);
-		sfme.pushBack(fname);
-	}
-	moveLeftAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
-	moveLeftAnimation->retain();
-}
-
-void Character::createMoveRightAnimation()
-{
-	Vector< SpriteFrame* > sfme = Vector< SpriteFrame* >::Vector();
-	char str[20] = { 0 };
-	for (int i = 7; i < 10; ++i)
-	{
-		sprintf(str, "Actor1_%02d.png", i);
-		SpriteFrame *fname = CCSpriteFrameCache::getInstance()->getSpriteFrameByName(str);
-		sfme.pushBack(fname);
-	}
-	moveRightAnimation = CCAnimation::createWithSpriteFrames(sfme, 0.1f);
-	moveRightAnimation->retain();
-}
 
 void Character::setMoveUpAnimation(cocos2d::CCAnimation* animation)
 {
@@ -156,4 +114,24 @@ void Character::setMoveLeftAnimation(cocos2d::CCAnimation* animation)
 void Character::setMoveRightAnimation(cocos2d::CCAnimation* animation)
 {
 	moveRightAnimation = animation;
+}
+
+void Character::setStandUpAnimation(cocos2d::CCAnimation * animation)
+{
+	standUpAnimation = animation;
+}
+
+void Character::setStandDownAnimation(cocos2d::CCAnimation * animation)
+{
+	standDownAnimation = animation;
+}
+
+void Character::setStandLeftAnimation(cocos2d::CCAnimation * animation)
+{
+	standLeftAnimation = animation;
+}
+
+void Character::setStandRightAnimation(cocos2d::CCAnimation * animation)
+{
+	standRightAnimation = animation;
 }

@@ -1,7 +1,9 @@
 #pragma once
 
-#include"Character.h"
-#include"platform\CCPlatformMacros.h"
+#include"cocos2d.h"
+#include"2d\CCNode.h"
+
+class Character;
 
 class Skill
 {
@@ -16,8 +18,9 @@ class Skill
 public:
 	Skill(Character* character);
 	~Skill();
+	CC_SYNTHESIZE(Direction, direction, Direction);
+	cocos2d::Animation* animation;
 	virtual int run()=0;
 	Character* caster;
-	CC_SYNTHESIZE(Direction, directioni, Direction);
 };
 

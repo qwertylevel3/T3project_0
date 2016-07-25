@@ -36,7 +36,6 @@ private:
 	Character* player;
 	bool isMoveAble(cocos2d::EventKeyboard::KeyCode keyCode);
 	ControlMode controlMode;
-
 };
 
 #endif // __HELLOWORLD_SCENE_H__

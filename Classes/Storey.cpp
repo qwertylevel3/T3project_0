@@ -1,5 +1,6 @@
 #include "Storey.h"
 #include"FieldEnum.h"
+#include"Character.h"
 
 
 using namespace Field;
@@ -11,6 +12,10 @@ Storey::Storey(int w,int h)
 	for (int i = 0; i < w*h; i++)
 	{
 		tiles.push_back(Unused);
+	}
+	for (int i = 0; i < w*h; i++)
+	{
+		characterMap.push_back(nullptr);
 	}
 	picturePath = FileUtils::getInstance()->fullPathForFilename("tile.png");
 	width = w;
@@ -40,6 +45,21 @@ int Field::Storey::getTile(cocos2d::Point position)
 void Storey::setTile(int x, int y,int tile)
 {
 	tiles[x + y * width] = tile;
+}
+
+Character * Field::Storey::getCharacter(int x, int y)
+{
+	return characterMap[x + y*width];
+}
+
+Character * Field::Storey::getCharacter(cocos2d::Point position)
+{
+	return getCharacter(position.x ,position.y);
+}
+
+void Field::Storey::setCharacter(int x, int y, Character * character)
+{
+	characterMap[x + y*width] = character;
 }
 
 int Storey::getHeight()

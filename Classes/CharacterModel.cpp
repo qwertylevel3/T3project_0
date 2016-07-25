@@ -69,5 +69,28 @@ void CharacterModel::createMoveRightAnimation(const std::vector<std::string>& fr
 {
 	moveRightAnimation=createAnimation(frameList);
 	moveRightAnimation->retain();
+}
 
+void CharacterModel::createStandUpAnimation(const std::vector<std::string>& frameList)
+{
+	standUpAnimation = createAnimation(frameList);
+	standUpAnimation->retain();
+}
+
+void CharacterModel::createStandDownAnimation(const std::vector<std::string>& frameList)
+{
+	standDownAnimation = createAnimation(frameList);
+	standDownAnimation->retain();
+}
+
+void CharacterModel::createStandLeftAnimation(const std::vector<std::string>& frameList)
+{
+	standLeftAnimation = createAnimation(frameList);
+	standLeftAnimation->retain();
+}
+
+void CharacterModel::createStandRightAnimation(const std::vector<std::string>& frameList)
+{
+	standRightAnimation = createAnimation(frameList);
+	standRightAnimation->retain();
 }

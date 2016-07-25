@@ -1,5 +1,5 @@
 #include "CharacterManager.h"
-#include"tinyxml2\tinyxml2.h"
+
 #include<vector>
 
 USING_NS_CC;
@@ -16,8 +16,7 @@ CharacterManager::~CharacterManager()
 
 void CharacterManager::init()
 {
-	cache=CCSpriteFrameCache::sharedSpriteFrameCache();
-	cache->addSpriteFramesWithFile("test_character.plist");
+	CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("test_character.plist");
 
 	initCharacterModel("character.xml");
 }
@@ -47,53 +46,47 @@ void CharacterManager::initCharacterModel(const std::string fileName)
 
 		std::vector<std::string> frameVector;
 
-		tinyxml2::XMLElement* moveUpElement = character->FirstChildElement("moveUpAnimation");
-		tinyxml2::XMLElement* moveUpFrameElement = moveUpElement->FirstChildElement();
-		while (moveUpFrameElement)
-		{
-			std::string frameName = moveUpFrameElement->GetText();
-			frameVector.push_back(frameName);
-			moveUpFrameElement = moveUpFrameElement->NextSiblingElement();
-		}
+		createNextAnimationVector(character, "moveUpAnimation", frameVector);
 		model->createMoveUpAnimation(frameVector);
 		frameVector.clear();
-
-		tinyxml2::XMLElement* moveDownElement = character->FirstChildElement("moveDownAnimation");
-		tinyxml2::XMLElement* moveDownFrameElement = moveDownElement->FirstChildElement();
-		while (moveDownFrameElement)
-		{
-			std::string frameName = moveDownFrameElement->GetText();
-			frameVector.push_back(frameName);
-			moveDownFrameElement = moveDownFrameElement->NextSiblingElement();
-		}
+		createNextAnimationVector(character, "moveDownAnimation", frameVector);
 		model->createMoveDownAnimation(frameVector);
 		frameVector.clear();
-
-		tinyxml2::XMLElement* moveLeftElement = character->FirstChildElement("moveLeftAnimation");
-		tinyxml2::XMLElement* moveLeftFrameElement = moveLeftElement->FirstChildElement();
-		while (moveLeftFrameElement)
-		{
-			std::string frameName = moveLeftFrameElement->GetText();
-			frameVector.push_back(frameName);
-			moveLeftFrameElement = moveLeftFrameElement->NextSiblingElement();
-		}
+		createNextAnimationVector(character, "moveLeftAnimation", frameVector);
 		model->createMoveLeftAnimation(frameVector);
 		frameVector.clear();
-
-		tinyxml2::XMLElement* moveRightElement = character->FirstChildElement("moveRightAnimation");
-		tinyxml2::XMLElement* moveRightFrameElement = moveRightElement->FirstChildElement();
-		while (moveRightFrameElement)
-		{
-			std::string frameName = moveRightFrameElement->GetText();
-			frameVector.push_back(frameName);
-			moveRightFrameElement = moveRightFrameElement->NextSiblingElement();
-		}
+		createNextAnimationVector(character, "moveRightAnimation", frameVector);
 		model->createMoveRightAnimation(frameVector);
+		frameVector.clear();
+
+		createNextAnimationVector(character, "standUpAnimation", frameVector);
+		model->createStandUpAnimation(frameVector);
+		frameVector.clear();
+		createNextAnimationVector(character, "standDownAnimation", frameVector);
+		model->createStandDownAnimation(frameVector);
+		frameVector.clear();
+		createNextAnimationVector(character, "standLeftAnimation", frameVector);
+		model->createStandLeftAnimation(frameVector);
+		frameVector.clear();
+		createNextAnimationVector(character, "standRightAnimation", frameVector);
+		model->createStandRightAnimation(frameVector);
 		frameVector.clear();
 
 		modelMap[model->getName()] = model;
 
 		character = character->NextSiblingElement();
+	}
+}
+
+void CharacterManager::createNextAnimationVector(tinyxml2::XMLElement * root,std::string animationName,std::vector<std::string>& frameVec)
+{
+	tinyxml2::XMLElement* element = root->FirstChildElement(animationName.c_str());
+	tinyxml2::XMLElement* frameElement = element->FirstChildElement();
+	while (frameElement)
+	{
+		std::string frameName = frameElement->GetText();
+		frameVec.push_back(frameName);
+		frameElement = frameElement->NextSiblingElement();
 	}
 }
 

@@ -3,6 +3,7 @@
 #include"Singleton.h"
 #include"cocos2d.h"
 #include"Character.h"
+#include"tinyxml2\tinyxml2.h"
 
 #include"CharacterModel.h"
 #include<map>
@@ -16,8 +17,10 @@ public:
 	Character* getCharacter(std::string characterName);
 protected:
 	void initCharacterModel(const std::string fileName);
+	void createNextAnimationVector(tinyxml2::XMLElement* root,
+		std::string animationName,
+		std::vector<std::string>& frameVec);
 
-	cocos2d::CCSpriteFrameCache * cache;
 	std::map<std::string, CharacterModel*> modelMap;
 };
 

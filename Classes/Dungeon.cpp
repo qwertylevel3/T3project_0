@@ -1,8 +1,7 @@
 #include "Dungeon.h"
 #include<sstream>
+#include"Character.h"
 
-
-using namespace Field;
 
 using namespace Field;
 
@@ -18,24 +17,24 @@ Dungeon::~Dungeon()
 
 int Field::Dungeon::getFloorNum()
 {
-	return storeys.size();
+	return storeyVec.size();
 }
 
 void Field::Dungeon::addStorey(Storey * storey)
 {
-	storeys.push_back(storey);
+	storeyVec.push_back(storey);
 }
 
 Storey * Field::Dungeon::getStorey()
 {
-	return storeys[curFloor];
+	return storeyVec[curFloor];
 }
 
 void Field::Dungeon::writeToFile()
 {
 	for (int i = 0; i < getFloorNum(); i++)
 	{
-		Storey* tempStorey = storeys[i];
+		Storey* tempStorey = storeyVec[i];
 		std::stringstream stream;
 		stream << i;
 		std::string f;
@@ -46,7 +45,7 @@ void Field::Dungeon::writeToFile()
 
 void Field::Dungeon::changeFloor(int floor)
 {
-	if (floor >= 0 && floor < storeys.size())
+	if (floor >= 0 && floor < storeyVec.size())
 	{
 		curFloor = floor;
 	}
@@ -55,8 +54,15 @@ void Field::Dungeon::changeFloor(int floor)
 
 void Field::Dungeon::nextFloor()
 {
-	if (curFloor < storeys.size() - 1)
+	if (curFloor < storeyVec.size() - 1)
 	{
 		curFloor++;
 	}
+}
+
+void Field::Dungeon::addCharacter(Character * character)
+{
+	cocos2d::Point position = character->getMapCoord();
+	storeyVec[curFloor]->setCharacter(position.x,position.y,character);
+	character->setDungeon(this);
 }
