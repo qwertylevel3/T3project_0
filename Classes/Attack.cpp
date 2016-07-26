@@ -29,21 +29,26 @@ int Attack::run()
 	Point castCoord = curCoord;
 	castCoord.x++;
 
+	showEffect();
+	
+	return 0;
+}
+
+void Attack::showEffect()
+{
+	Field::Dungeon* dungeon = caster->getDungeon();
+	Point position = caster->getPosition();
+
 	cocos2d::Node* scene = caster->getParent();
 
 	cocos2d::Sprite* node = Sprite::create();//Sprite::createWithSpriteFrameName("effect_0.png");
-	node->setPosition(Point(position.x, position.y+32));
+	node->setPosition(Point(position.x, position.y + 32));
 	node->setVisible(true);
-	scene->addChild(node,2);
+	scene->addChild(node, 2);
 
 	CCAnimate* animate = CCAnimate::create(animation);
-	animate->setDuration(0.5);
-	node->runAction(animate);
+	animate->setDuration(0.3);
 
-//	Character* testCharacter = CharacterManager::getInstance()->getCharacter("Actor0");
-//	scene->addChild(testCharacter->getSprite());
-//	testCharacter->setPosition(position.x, position.y + 32);
-//	testCharacter->moveUp();
-	
-	return 0;
+	node->runAction(Sequence::create(animate, CallFunc::create(CC_CALLBACK_0(Sprite::removeFromParent, node)), NULL));
+
 }

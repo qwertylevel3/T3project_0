@@ -8,5 +8,7 @@ public:
 	Attack(Character* character);
 	~Attack();
 	int run();
+protected:
+	void showEffect();
 };
 

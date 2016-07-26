@@ -16,6 +16,8 @@ void Character::moveUp()
 	sprite->runAction(moveAction);
 
 	setMapCoord(cocos2d::Point(mapCoord.x, mapCoord.y - 1));
+
+	setOrientation(Orientation::UP);
 }
 
 void Character::moveDown()
@@ -30,6 +32,9 @@ void Character::moveDown()
 	sprite->runAction(moveAction);
 
 	setMapCoord(cocos2d::Point(mapCoord.x, mapCoord.y + 1));
+
+	setOrientation(Orientation::DOWN);
+
 }
 
 void Character::moveLeft()
@@ -44,6 +49,8 @@ void Character::moveLeft()
 	sprite->runAction(moveAction);
 
 	setMapCoord(cocos2d::Point(mapCoord.x - 1, mapCoord.y));
+
+	setOrientation(Orientation::LEFT);
 }
 
 void Character::moveRight()
@@ -58,7 +65,42 @@ void Character::moveRight()
 	sprite->runAction(moveAction);
 
 	setMapCoord(cocos2d::Point(mapCoord.x + 1, mapCoord.y));
+
+	setOrientation(Orientation::RIGHT);
 }
+
+void Character::orientationUp()
+{
+	CCAnimate* action = CCAnimate::create(standUpAnimation);
+	action->setDuration(0.1);
+	sprite->runAction(action);
+	setOrientation(Orientation::UP);
+}
+
+void Character::orientationDown()
+{
+	CCAnimate* action = CCAnimate::create(standDownAnimation);
+	action->setDuration(0.1);
+	sprite->runAction(action);
+	setOrientation(Orientation::DOWN);
+}
+
+void Character::orientationLeft()
+{
+	CCAnimate* action = CCAnimate::create(standLeftAnimation);
+	action->setDuration(0.1);
+	sprite->runAction(action);
+	setOrientation(Orientation::LEFT);
+}
+
+void Character::orientationRight()
+{
+	CCAnimate* action = CCAnimate::create(standRightAnimation);
+	action->setDuration(0.1);
+	sprite->runAction(action);
+	setOrientation(Orientation::RIGHT);
+}
+
 
 cocos2d::Point Character::getPosition()
 {
@@ -85,6 +127,8 @@ Character::Character()
 {
 	Attack* attack = new Attack(this);
 	skillBox["attack"] = attack;
+
+	orientation = DOWN;
 }
 
 Character::~Character()

@@ -10,6 +10,7 @@ class GameScene : public cocos2d::Layer
 	enum ControlMode
 	{
 		MoveMode,
+		StandMode,
 		AttackMode
 	};
 public:
@@ -28,9 +29,11 @@ public:
     CREATE_FUNC(GameScene);
 	void update(float dt);
 private:
-	void handleKey(cocos2d::EventKeyboard::KeyCode keyCode);
+	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
+	void handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode);
 	void playerAttack(cocos2d::EventKeyboard::KeyCode keyCode);
 	void playerMove(cocos2d::EventKeyboard::KeyCode keyCode);
+	void playerSetOrientation(cocos2d::EventKeyboard::KeyCode keyCode);
 	cocos2d::TMXTiledMap *tileMap;
 	Field::Dungeon* dungeon;
 	Character* player;

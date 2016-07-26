@@ -77,8 +77,13 @@ bool GameScene::init()
 	setViewPointCenter(player->getPosition());
 
 	auto listener = EventListenerKeyboard::create();
-	listener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event* event) {
-		this->handleKey(keyCode);
+	listener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event* event)
+	{
+		this->handleKeyPressed(keyCode);
+	};
+	listener->onKeyReleased = [=](EventKeyboard::KeyCode keyCode, Event* event)
+	{
+		this->handleKeyReleased(keyCode);
 	};
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
@@ -117,7 +122,7 @@ void GameScene::update(float dt)
 	this->setViewPointCenter(player->getPosition());
 }
 
-void GameScene::handleKey(cocos2d::EventKeyboard::KeyCode keyCode)
+void GameScene::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
 	switch (controlMode)
 	{
@@ -125,7 +130,28 @@ void GameScene::handleKey(cocos2d::EventKeyboard::KeyCode keyCode)
 		playerAttack(keyCode);
 		break;
 	case MoveMode:
+		if (keyCode == EventKeyboard::KeyCode::KEY_CTRL)
+		{
+			controlMode = StandMode;
+			break;
+		}
 		playerMove(keyCode);
+		break;
+	case StandMode:
+		playerSetOrientation(keyCode);
+		break;
+	}
+}
+
+void GameScene::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
+{
+	switch (controlMode)
+	{
+	case StandMode:
+		if (keyCode == EventKeyboard::KeyCode::KEY_CTRL)
+		{
+			controlMode = MoveMode;
+		}
 		break;
 	}
 }
@@ -170,6 +196,26 @@ void GameScene::playerMove(EventKeyboard::KeyCode keyCode)
 		break;
 	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
 		player->moveRight();
+		break;
+
+	}
+}
+
+void GameScene::playerSetOrientation(cocos2d::EventKeyboard::KeyCode keyCode)
+{
+	switch (keyCode)
+	{
+	case EventKeyboard::KeyCode::KEY_UP_ARROW:
+		player->orientationUp();
+		break;
+	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
+		player->orientationDown();
+		break;
+	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
+		player->orientationLeft();
+		break;
+	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
+		player->orientationRight();
 		break;
 
 	}

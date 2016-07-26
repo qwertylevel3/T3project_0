@@ -9,6 +9,10 @@ class GameScene;
 
 class Character
 {
+	enum Orientation
+	{
+		UP,DOWN,LEFT,RIGHT
+	};
 public:
 	Character();
 	~Character();
@@ -17,12 +21,18 @@ public:
 	void moveDown();
 	void moveLeft();
 	void moveRight();
+	void orientationUp();
+	void orientationDown();
+	void orientationLeft();
+	void orientationRight();
+
 	cocos2d::Point getPosition();
 	void setPosition(float x, float y);
 	cocos2d::Node* getParent();
 	void runSkill(std::string skillName);
 protected:
 	std::map<std::string, Skill*> skillBox;
+
 	CC_SYNTHESIZE(cocos2d::Point, mapCoord, MapCoord);
 	CC_SYNTHESIZE(int, strength, Strength);
 	CC_SYNTHESIZE(int, intellect, Intellect);
@@ -34,6 +44,7 @@ protected:
 	CC_SYNTHESIZE(Field::Dungeon*, dungeon, Dungeon);
 	CC_SYNTHESIZE(GameScene*, scene, Scene);
 	CC_SYNTHESIZE(cocos2d::CCSprite*, sprite, Sprite);
+	CC_SYNTHESIZE(Orientation, orientation, Orientation);
 
 	void setMoveUpAnimation(cocos2d::CCAnimation* animation);
 	void setMoveDownAnimation(cocos2d::CCAnimation* animation);

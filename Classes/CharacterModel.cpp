@@ -29,7 +29,10 @@ Character * CharacterModel::makeCharacter()
 	character->setMoveDownAnimation(moveDownAnimation);
 	character->setMoveLeftAnimation(moveLeftAnimation);
 	character->setMoveRightAnimation(moveRightAnimation);
-
+	character->setStandUpAnimation(standUpAnimation);
+	character->setStandDownAnimation(standDownAnimation);
+	character->setStandLeftAnimation(standLeftAnimation);
+	character->setStandRightAnimation(standRightAnimation);
 	return character;
 }
 
