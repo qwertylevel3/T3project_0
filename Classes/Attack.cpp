@@ -11,11 +11,10 @@ Attack::Attack(Character* character)
 	SpriteFrame* frame0 = CCSpriteFrameCache::getInstance()->getSpriteFrameByName("effect_0.png");
 	Vector<SpriteFrame*> frameVec;
 	frameVec.pushBack(frame0);
-	animation = Animation::createWithSpriteFrames(frameVec,0.1f);
+	animation = Animation::createWithSpriteFrames(frameVec, 0.1f);
 	//animation->setDelayPerUnit(0.5);
 	animation->retain();
 }
-
 
 Attack::~Attack()
 {
@@ -30,7 +29,7 @@ int Attack::run()
 	castCoord.x++;
 
 	showEffect();
-	
+
 	return 0;
 }
 
@@ -42,7 +41,23 @@ void Attack::showEffect()
 	cocos2d::Node* scene = caster->getParent();
 
 	cocos2d::Sprite* node = Sprite::create();//Sprite::createWithSpriteFrameName("effect_0.png");
-	node->setPosition(Point(position.x, position.y + 32));
+
+	switch (caster->getOrientation())
+	{
+	case Character::Orientation::UP:
+		node->setPosition(Point(position.x, position.y + 32));
+		break;
+	case Character::Orientation::DOWN:
+		node->setPosition(Point(position.x, position.y - 32));
+		break;
+	case Character::Orientation::LEFT:
+		node->setPosition(Point(position.x - 32, position.y));
+		break;
+	case Character::Orientation::RIGHT:
+		node->setPosition(Point(position.x + 32, position.y));
+		break;
+	}
+
 	node->setVisible(true);
 	scene->addChild(node, 2);
 
@@ -50,5 +65,4 @@ void Attack::showEffect()
 	animate->setDuration(0.3);
 
 	node->runAction(Sequence::create(animate, CallFunc::create(CC_CALLBACK_0(Sprite::removeFromParent, node)), NULL));
-
 }

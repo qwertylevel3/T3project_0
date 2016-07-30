@@ -84,6 +84,7 @@
     <ClCompile Include="..\Classes\WeaponAdj.cpp">
       <Filter>src\inventory\weapon</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\HudLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -149,6 +150,7 @@
     <ClInclude Include="..\Classes\WeaponAdj.h">
       <Filter>src\inventory\weapon</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\HudLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

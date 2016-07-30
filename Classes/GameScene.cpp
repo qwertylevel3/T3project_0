@@ -5,6 +5,8 @@
 #include"StoreyBuilder.h"
 #include"CharacterManager.h"
 #include"SkillManager.h"
+#include"Debug.h"
+#include"HudLayer.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -16,9 +18,12 @@ Scene* GameScene::createScene()
     
     // 'layer' is an autorelease object
     auto layer = GameScene::create();
+	auto hudLayer = HudLayer::getInstance();
 
     // add layer as a child to scene
+	scene->addChild(hudLayer,1);
     scene->addChild(layer);
+
 
     // return the scene
     return scene;
@@ -33,6 +38,9 @@ bool GameScene::init()
     {
         return false;
     }
+
+
+	/////////////////////////////
     
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -42,9 +50,11 @@ bool GameScene::init()
 	DungeonBuilder::getInstance()->init();
 	CharacterManager::getInstance()->init();
 	SkillManager::getInstance()->init();
+	Debug::getInstance()->init(HudLayer::getInstance());
 
+	Debug::getInstance()->showMessage("test", cocos2d::Point(100, 100));
 
-	dungeon=DungeonBuilder::getInstance()->generate(4);
+	dungeon=DungeonBuilder::getInstance()->generate(1);
 //	dungeon->writeToFile();
 	Storey* floor0 = dungeon->getStorey();
 

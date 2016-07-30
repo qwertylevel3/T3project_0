@@ -9,11 +9,11 @@ class GameScene;
 
 class Character
 {
+public:
 	enum Orientation
 	{
 		UP,DOWN,LEFT,RIGHT
 	};
-public:
 	Character();
 	~Character();
 
