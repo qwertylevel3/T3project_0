@@ -51,13 +51,14 @@ bool GameScene::init()
 	DungeonBuilder::getInstance()->init();
 	CharacterManager::getInstance()->init();
 	SkillManager::getInstance()->init();
-	Debug::getInstance()->init(HudLayer::getInstance());
+//	Debug::getInstance()->init(HudLayer::getInstance());
 
-	std::stringstream ss;
-	std::string str;
-	ss << RoundCounter::getInstance()->getRoundCount();
-	ss >> str;
-	Debug::getInstance()->showMessage(str, cocos2d::Point(100, 100));
+//	std::stringstream ss;
+//	std::string str;
+//	ss << RoundCounter::getInstance()->getRoundCount();
+//	ss >> str;
+//	Debug::getInstance()->showMessage(str, cocos2d::Point(100, 100));
+	HudLayer::getInstance()->addSender(RoundCounter::getInstance());
 
 	dungeon=DungeonBuilder::getInstance()->generate(1);
 //	dungeon->writeToFile();
@@ -135,6 +136,7 @@ void GameScene::setViewPointCenter(Point position) {
 void GameScene::update(float dt)
 {
 	this->setViewPointCenter(player->getPosition());
+	HudLayer::getInstance()->update();
 }
 
 void GameScene::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)

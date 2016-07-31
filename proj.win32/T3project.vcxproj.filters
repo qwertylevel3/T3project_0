@@ -93,6 +93,9 @@
     <ClCompile Include="..\Classes\HudLayer.cpp">
       <Filter>src\HUD</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\HudSender.cpp">
+      <Filter>src\HUD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -162,6 +165,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HudLayer.h">
+      <Filter>src\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudSender.h">
       <Filter>src\HUD</Filter>
     </ClInclude>
   </ItemGroup>
