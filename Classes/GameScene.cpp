@@ -200,6 +200,7 @@ void GameScene::playerMove(EventKeyboard::KeyCode keyCode)
 	{
 		return;
 	}
+	RoundCounter::getInstance()->nextRound();
 	switch (keyCode)
 	{
 	case EventKeyboard::KeyCode::KEY_UP_ARROW:
