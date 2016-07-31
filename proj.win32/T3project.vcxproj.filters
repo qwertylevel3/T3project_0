@@ -25,6 +25,9 @@
     <Filter Include="src\inventory\weapon">
       <UniqueIdentifier>{4963d718-27f6-425d-939c-073b11e5c46e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\HUD">
+      <UniqueIdentifier>{4dd4675b-99eb-45b3-a0d4-4c130fb78045}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -84,7 +87,12 @@
     <ClCompile Include="..\Classes\WeaponAdj.cpp">
       <Filter>src\inventory\weapon</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudLayer.cpp" />
+    <ClCompile Include="..\Classes\RoundCounter.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudLayer.cpp">
+      <Filter>src\HUD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -150,7 +158,12 @@
     <ClInclude Include="..\Classes\WeaponAdj.h">
       <Filter>src\inventory\weapon</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudLayer.h" />
+    <ClInclude Include="..\Classes\RoundCounter.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudLayer.h">
+      <Filter>src\HUD</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

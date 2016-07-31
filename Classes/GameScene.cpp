@@ -7,6 +7,7 @@
 #include"SkillManager.h"
 #include"Debug.h"
 #include"HudLayer.h"
+#include"RoundCounter.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -52,7 +53,11 @@ bool GameScene::init()
 	SkillManager::getInstance()->init();
 	Debug::getInstance()->init(HudLayer::getInstance());
 
-	Debug::getInstance()->showMessage("test", cocos2d::Point(100, 100));
+	std::stringstream ss;
+	std::string str;
+	ss << RoundCounter::getInstance()->getRoundCount();
+	ss >> str;
+	Debug::getInstance()->showMessage(str, cocos2d::Point(100, 100));
 
 	dungeon=DungeonBuilder::getInstance()->generate(1);
 //	dungeon->writeToFile();

@@ -8,5 +8,6 @@ class HudLayer:public cocos2d::Layer,public Singleton<HudLayer>
 public:
 	HudLayer();
 	~HudLayer();
+	void update();
 };
 
