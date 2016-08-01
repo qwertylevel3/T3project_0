@@ -43,23 +43,32 @@ void Attack::showEffect()
 	cocos2d::Sprite* node = Sprite::create();//Sprite::createWithSpriteFrameName("effect_0.png");
 
 	int rotateAngle = 0;
+	cocos2d::Point targetPosition;
 
 	switch (caster->getOrientation())
 	{
 	case Character::Orientation::UP:
 		node->setPosition(Point(position.x, position.y + 32));
+		targetPosition.x = caster->getMapCoord().x;
+		targetPosition.y = caster->getMapCoord().y-1;
 		rotateAngle = 0;
 		break;
 	case Character::Orientation::DOWN:
 		node->setPosition(Point(position.x, position.y - 32));
+		targetPosition.x = caster->getMapCoord().x;
+		targetPosition.y = caster->getMapCoord().y + 1;
 		rotateAngle = 180;
 		break;
 	case Character::Orientation::LEFT:
 		node->setPosition(Point(position.x - 32, position.y));
+		targetPosition.x = caster->getMapCoord().x - 1;
+		targetPosition.y = caster->getMapCoord().y;
 		rotateAngle = 270;
 		break;
 	case Character::Orientation::RIGHT:
 		node->setPosition(Point(position.x + 32, position.y));
+		targetPosition.x = caster->getMapCoord().x + 1;
+		targetPosition.y = caster->getMapCoord().y;
 		rotateAngle = 90;
 		break;
 	}
@@ -74,4 +83,13 @@ void Attack::showEffect()
 	//node->runAction(rotateAction);
 
 	node->runAction(Sequence::create(rotateAction,animate, CallFunc::create(CC_CALLBACK_0(Sprite::removeFromParent, node)), NULL));
+
+	//attack an character;
+	Character* targetCharacter = dungeon->getCharacter(targetPosition.x, targetPosition.y);
+	if (targetCharacter)
+	{
+		int curHp = targetCharacter->getCurHP();
+		targetCharacter->setCurHP(curHp - 10);
+	}
+
 }

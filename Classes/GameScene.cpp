@@ -81,14 +81,18 @@ bool GameScene::init()
 	player = CharacterManager::getInstance()->getCharacter("Actor0");
 	Character* testCharacter = CharacterManager::getInstance()->getCharacter("Actor0");
 
+	player->setPosition(startPosition.x*32+16, (100-startPosition.y)*32-16);
+	testCharacter->setPosition((startPosition.x + 1) * 32 + 16, (100 - startPosition.y) * 32 - 16);
+
+	player->setMapCoord(floor0->getUpPosition());
+	Point testCharacterPosition=player->getMapCoord();
+	testCharacterPosition.x = testCharacterPosition.x + 1;
+	testCharacter->setMapCoord(testCharacterPosition);
+//	player->setPosition(32, 32);
+	
 	this->addCharacter(testCharacter);
 	this->addCharacter(player);
 
-	player->setPosition(startPosition.x*32+16, (100-startPosition.y)*32-16);
-	testCharacter->setPosition((startPosition.x + 1) * 32 + 16, (100 - startPosition.y) * 32 - 16);
-	
-	player->setMapCoord(floor0->getUpPosition());
-//	player->setPosition(32, 32);
 
 	setViewPointCenter(player->getPosition());
 

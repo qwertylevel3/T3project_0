@@ -66,3 +66,8 @@ void Field::Dungeon::addCharacter(Character * character)
 	storeyVec[curFloor]->setCharacter(position.x,position.y,character);
 	character->setDungeon(this);
 }
+
+Character * Field::Dungeon::getCharacter(int x,int y)
+{
+	return storeyVec[curFloor]->getCharacter(x,y);
+}

@@ -129,6 +129,9 @@ Character::Character()
 	skillBox["attack"] = attack;
 
 	orientation = DOWN;
+
+	HP = 100;
+	curHP = 100;
 }
 
 Character::~Character()

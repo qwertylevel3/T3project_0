@@ -19,6 +19,9 @@ namespace Field {
 		void changeFloor(int floor);
 		void nextFloor();
 		void addCharacter(Character* character);
+
+		//返回当前坐标的character，如果没有，返回nullPtr
+		Character* getCharacter(int x,int y);
 	protected:
 		std::vector<Storey*> storeyVec;
 		CC_SYNTHESIZE(int, curFloor, CurFloor);
