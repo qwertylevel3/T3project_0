@@ -21,6 +21,8 @@ namespace Field {
 		Character* getCharacter(int x, int y);
 		Character* getCharacter(cocos2d::Point position);
 		void setCharacter(int x, int y, Character* character);
+		void removeCharacter(int x, int y);
+		void characterMove(cocos2d::Point oriPosition, cocos2d::Point tarPosition);
 
 		int getHeight();
 		int getWidth();

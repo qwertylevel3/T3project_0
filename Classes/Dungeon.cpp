@@ -67,6 +67,11 @@ void Field::Dungeon::addCharacter(Character * character)
 	character->setDungeon(this);
 }
 
+void Field::Dungeon::characterMove(cocos2d::Point oriPosition, cocos2d::Point tarPosition)
+{
+	storeyVec[curFloor]->characterMove(oriPosition, tarPosition);
+}
+
 Character * Field::Dungeon::getCharacter(int x,int y)
 {
 	return storeyVec[curFloor]->getCharacter(x,y);

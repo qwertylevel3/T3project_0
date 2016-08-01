@@ -62,6 +62,21 @@ void Field::Storey::setCharacter(int x, int y, Character * character)
 	characterMap[x + y*width] = character;
 }
 
+void Field::Storey::removeCharacter(int x, int y)
+{
+	characterMap[x + y*width] = nullptr;
+}
+
+void Field::Storey::characterMove(cocos2d::Point oriPosition, cocos2d::Point tarPosition)
+{
+	Character* character = getCharacter(oriPosition);
+	if (character)
+	{
+		removeCharacter(oriPosition.x,oriPosition.y);
+		setCharacter(tarPosition.x, tarPosition.y,character);
+	}
+}
+
 int Storey::getHeight()
 {
 	return height;

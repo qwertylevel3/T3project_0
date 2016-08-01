@@ -18,6 +18,10 @@ void Character::moveUp()
 	setMapCoord(cocos2d::Point(mapCoord.x, mapCoord.y - 1));
 
 	setOrientation(Orientation::UP);
+
+	Point tarMapCoord = getMapCoord();
+	tarMapCoord.y = tarMapCoord.y - 1;
+	dungeon->characterMove(getMapCoord(), tarMapCoord);
 }
 
 void Character::moveDown()
@@ -35,6 +39,9 @@ void Character::moveDown()
 
 	setOrientation(Orientation::DOWN);
 
+	Point tarMapCoord = getMapCoord();
+	tarMapCoord.y = tarMapCoord.y + 1;
+	dungeon->characterMove(getMapCoord(), tarMapCoord);
 }
 
 void Character::moveLeft()
@@ -51,6 +58,10 @@ void Character::moveLeft()
 	setMapCoord(cocos2d::Point(mapCoord.x - 1, mapCoord.y));
 
 	setOrientation(Orientation::LEFT);
+
+	Point tarMapCoord = getMapCoord();
+	tarMapCoord.x = tarMapCoord.x - 1;
+	dungeon->characterMove(getMapCoord(), tarMapCoord);
 }
 
 void Character::moveRight()
@@ -67,6 +78,10 @@ void Character::moveRight()
 	setMapCoord(cocos2d::Point(mapCoord.x + 1, mapCoord.y));
 
 	setOrientation(Orientation::RIGHT);
+
+	Point tarMapCoord = getMapCoord();
+	tarMapCoord.x = tarMapCoord.x + 1;
+	dungeon->characterMove(getMapCoord(), tarMapCoord);
 }
 
 void Character::orientationUp()
