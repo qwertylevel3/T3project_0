@@ -21,18 +21,22 @@ public:
 	void moveDown();
 	void moveLeft();
 	void moveRight();
-	void orientationUp();
-	void orientationDown();
-	void orientationLeft();
-	void orientationRight();
+	void setOrientationUp();
+	void setOrientationDown();
+	void setOrientationLeft();
+	void setOrientationRight();
 
 	cocos2d::Point getPosition();
 	void setPosition(float x, float y);
+
 	cocos2d::Node* getParent();
+
 	void runSkill(std::string skillName);
 protected:
+	//Skill......
 	std::map<std::string, Skill*> skillBox;
 
+	//attribute......
 	CC_SYNTHESIZE(cocos2d::Point, mapCoord, MapCoord);
 	CC_SYNTHESIZE(int, strength, Strength);
 	CC_SYNTHESIZE(int, intellect, Intellect);
@@ -46,6 +50,7 @@ protected:
 	CC_SYNTHESIZE(cocos2d::CCSprite*, sprite, Sprite);
 	CC_SYNTHESIZE(Orientation, orientation, Orientation);
 
+	//Animation......
 	void setMoveUpAnimation(cocos2d::CCAnimation* animation);
 	void setMoveDownAnimation(cocos2d::CCAnimation* animation);
 	void setMoveLeftAnimation(cocos2d::CCAnimation* animation);

@@ -96,6 +96,7 @@
     <ClCompile Include="..\Classes\HudSender.cpp">
       <Filter>src\HUD</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -170,6 +171,7 @@
     <ClInclude Include="..\Classes\HudSender.h">
       <Filter>src\HUD</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Player.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

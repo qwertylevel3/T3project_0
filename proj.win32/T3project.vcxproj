@@ -159,6 +159,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudLayer.cpp" />
     <ClCompile Include="..\Classes\HudSender.cpp" />
     <ClCompile Include="..\Classes\Inventory.cpp" />
+    <ClCompile Include="..\Classes\Player.cpp" />
     <ClCompile Include="..\Classes\RandomNumber.cpp" />
     <ClCompile Include="..\Classes\RoundCounter.cpp" />
     <ClCompile Include="..\Classes\Skill.cpp" />
@@ -187,6 +188,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudLayer.h" />
     <ClInclude Include="..\Classes\HudSender.h" />
     <ClInclude Include="..\Classes\Inventory.h" />
+    <ClInclude Include="..\Classes\Player.h" />
     <ClInclude Include="..\Classes\RandomNumber.h" />
     <ClInclude Include="..\Classes\RoundCounter.h" />
     <ClInclude Include="..\Classes\Singleton.h" />

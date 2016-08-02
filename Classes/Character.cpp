@@ -84,7 +84,7 @@ void Character::moveRight()
 	dungeon->characterMove(getMapCoord(), tarMapCoord);
 }
 
-void Character::orientationUp()
+void Character::setOrientationUp()
 {
 	CCAnimate* action = CCAnimate::create(standUpAnimation);
 	action->setDuration(0.1);
@@ -92,7 +92,7 @@ void Character::orientationUp()
 	setOrientation(Orientation::UP);
 }
 
-void Character::orientationDown()
+void Character::setOrientationDown()
 {
 	CCAnimate* action = CCAnimate::create(standDownAnimation);
 	action->setDuration(0.1);
@@ -100,7 +100,7 @@ void Character::orientationDown()
 	setOrientation(Orientation::DOWN);
 }
 
-void Character::orientationLeft()
+void Character::setOrientationLeft()
 {
 	CCAnimate* action = CCAnimate::create(standLeftAnimation);
 	action->setDuration(0.1);
@@ -108,7 +108,7 @@ void Character::orientationLeft()
 	setOrientation(Orientation::LEFT);
 }
 
-void Character::orientationRight()
+void Character::setOrientationRight()
 {
 	CCAnimate* action = CCAnimate::create(standRightAnimation);
 	action->setDuration(0.1);

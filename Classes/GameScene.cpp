@@ -8,6 +8,7 @@
 #include"Debug.h"
 #include"HudLayer.h"
 #include"RoundCounter.h"
+#include"Player.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -51,6 +52,7 @@ bool GameScene::init()
 	DungeonBuilder::getInstance()->init();
 	CharacterManager::getInstance()->init();
 	SkillManager::getInstance()->init();
+	Player::getInstance()->init();
 //	Debug::getInstance()->init(HudLayer::getInstance());
 
 //	std::stringstream ss;
@@ -78,9 +80,9 @@ bool GameScene::init()
 	//cocos2d::Point startPosition(0, 0);
 
 	//player = Character::create("test_character.plist");
-	player = CharacterManager::getInstance()->getCharacter("Actor0");
 	Character* testCharacter = CharacterManager::getInstance()->getCharacter("Actor0");
 
+	Character* player = Player::getInstance()->getcharacterPtr();
 	player->setPosition(startPosition.x*32+16, (100-startPosition.y)*32-16);
 	testCharacter->setPosition((startPosition.x + 1) * 32 + 16, (100 - startPosition.y) * 32 - 16);
 
@@ -99,15 +101,16 @@ bool GameScene::init()
 	auto listener = EventListenerKeyboard::create();
 	listener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event* event)
 	{
-		this->handleKeyPressed(keyCode);
+		//this->handleKeyPressed(keyCode);
+		Player::getInstance()->handleKeyPressed(keyCode);
 	};
 	listener->onKeyReleased = [=](EventKeyboard::KeyCode keyCode, Event* event)
 	{
-		this->handleKeyReleased(keyCode);
+		//this->handleKeyReleased(keyCode);
+		Player::getInstance()->handleKeyReleased(keyCode);
 	};
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
-	controlMode = MoveMode;
 
 	this->scheduleUpdate();
 
@@ -139,138 +142,9 @@ void GameScene::setViewPointCenter(Point position) {
 
 void GameScene::update(float dt)
 {
+	Character* player = Player::getInstance()->getcharacterPtr();
 	this->setViewPointCenter(player->getPosition());
 	HudLayer::getInstance()->update();
-}
-
-void GameScene::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
-{
-	switch (controlMode)
-	{
-	case AttackMode:
-		playerAttack(keyCode);
-		break;
-	case MoveMode:
-		if (keyCode == EventKeyboard::KeyCode::KEY_CTRL)
-		{
-			controlMode = StandMode;
-			break;
-		}
-		playerMove(keyCode);
-		break;
-	case StandMode:
-		playerSetOrientation(keyCode);
-		break;
-	}
-}
-
-void GameScene::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
-{
-	switch (controlMode)
-	{
-	case StandMode:
-		if (keyCode == EventKeyboard::KeyCode::KEY_CTRL)
-		{
-			controlMode = MoveMode;
-		}
-		break;
-	}
-}
-
-void GameScene::playerAttack(cocos2d::EventKeyboard::KeyCode keyCode)
-{
-	switch (keyCode)
-	{
-	case EventKeyboard::KeyCode::KEY_UP_ARROW:
-	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
-	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
-	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
-		player->runSkill("attack");
-		break;
-	case EventKeyboard::KeyCode::KEY_ESCAPE:
-		controlMode = MoveMode;
-		break;
-	}
-}
-
-void GameScene::playerMove(EventKeyboard::KeyCode keyCode)
-{
-	if (keyCode == EventKeyboard::KeyCode::KEY_ENTER)
-	{
-		controlMode = AttackMode;
-		return;
-	}
-	if (!isMoveAble(keyCode))
-	{
-		return;
-	}
-	RoundCounter::getInstance()->nextRound();
-	switch (keyCode)
-	{
-	case EventKeyboard::KeyCode::KEY_UP_ARROW:
-		player->moveUp();
-		break;
-	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
-		player->moveDown();
-		break;
-	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
-		player->moveLeft();
-		break;
-	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
-		player->moveRight();
-		break;
-
-	}
-}
-
-void GameScene::playerSetOrientation(cocos2d::EventKeyboard::KeyCode keyCode)
-{
-	switch (keyCode)
-	{
-	case EventKeyboard::KeyCode::KEY_UP_ARROW:
-		player->orientationUp();
-		break;
-	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
-		player->orientationDown();
-		break;
-	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
-		player->orientationLeft();
-		break;
-	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
-		player->orientationRight();
-		break;
-
-	}
-}
-
-
-bool GameScene::isMoveAble(EventKeyboard::KeyCode keyCode)
-{
-	Storey* storey = dungeon->getStorey();
-	cocos2d::Point position = player->getMapCoord();
-	switch (keyCode)
-	{
-	case EventKeyboard::KeyCode::KEY_UP_ARROW:
-		position.y -= 1;
-		break;
-	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
-		position.y += 1;
-		break;
-	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
-		position.x -= 1;
-		break;
-	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
-		position.x += 1;
-		break;
-	default:
-		return false;
-	}
-
-	if (storey->getTile(position) == Field::Floor)
-	{
-		return true;
-	}
-	return false;
 }
 
 void GameScene::addCharacter(Character * character)
