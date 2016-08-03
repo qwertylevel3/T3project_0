@@ -28,7 +28,6 @@ public:
     CREATE_FUNC(GameScene);
 	void update(float dt);
 private:
-	cocos2d::TMXTiledMap *tileMap;
 	Field::Dungeon* dungeon;
 };
 

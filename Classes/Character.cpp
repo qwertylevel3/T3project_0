@@ -1,6 +1,8 @@
 #include "Character.h"
 #include"GameScene.h"
 #include"Attack.h"
+#include"Dungeon.h"
+#include"FieldEnum.h"
 
 USING_NS_CC;
 
@@ -155,6 +157,16 @@ Character::~Character()
 	moveDownAnimation->release();
 	moveLeftAnimation->release();
 	moveRightAnimation->release();
+}
+
+bool Character::isMoveAble(cocos2d::Point position)
+{
+	Field::Storey* storey = dungeon->getStorey();
+	if (storey->getTile(position) == Field::Floor)
+	{
+		return true;
+	}
+	return false;
 }
 
 

@@ -20,11 +20,13 @@ Storey::Storey(int w,int h)
 	picturePath = FileUtils::getInstance()->fullPathForFilename("tile.png");
 	width = w;
 	height = h;
+	tileMap = nullptr;
 }
 
 
 Storey::~Storey()
 {
+	tileMap->release();
 }
 
 int Storey::getTile(int x,int y)
@@ -192,6 +194,16 @@ tinyxml2::XMLDocument * Field::Storey::getPDoc()
 	}
 
 	return pDoc;
+}
+
+cocos2d::TMXTiledMap * Field::Storey::getTileMap()
+{
+	if (!tileMap)
+	{
+		tileMap = TMXTiledMap::createWithXML(getFileContent(), "");
+		tileMap->retain();
+	}
+	return tileMap;
 }
 
 

@@ -24,8 +24,6 @@ void Player::init()
 
 bool Player::isMoveAble(cocos2d::EventKeyboard::KeyCode keyCode)
 {
-	Dungeon* dungeon = characterPtr->getDungeon();
-	Storey* storey = dungeon->getStorey();
 	cocos2d::Point position = characterPtr->getMapCoord();
 	switch (keyCode)
 	{
@@ -44,12 +42,7 @@ bool Player::isMoveAble(cocos2d::EventKeyboard::KeyCode keyCode)
 	default:
 		return false;
 	}
-
-	if (storey->getTile(position) == Field::Floor)
-	{
-		return true;
-	}
-	return false;
+	return characterPtr->isMoveAble(position);
 }
 
 void Player::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)

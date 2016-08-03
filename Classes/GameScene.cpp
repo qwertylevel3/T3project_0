@@ -72,9 +72,7 @@ bool GameScene::init()
 //	filePath=filePath+fileName;
 //	auto str = String::createWithContentsOfFile(filePath);
 
-	tileMap = TMXTiledMap::createWithXML(floor0->getFileContent(), "");
-
-	Layer::addChild(tileMap, -1);
+	Layer::addChild(floor0->getTileMap(), -1);
 
 	cocos2d::Point startPosition = floor0->getUpPosition();
 	//cocos2d::Point startPosition(0, 0);
@@ -101,12 +99,10 @@ bool GameScene::init()
 	auto listener = EventListenerKeyboard::create();
 	listener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event* event)
 	{
-		//this->handleKeyPressed(keyCode);
 		Player::getInstance()->handleKeyPressed(keyCode);
 	};
 	listener->onKeyReleased = [=](EventKeyboard::KeyCode keyCode, Event* event)
 	{
-		//this->handleKeyReleased(keyCode);
 		Player::getInstance()->handleKeyReleased(keyCode);
 	};
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
@@ -127,11 +123,13 @@ void GameScene::menuCloseCallback(Ref* pSender)
 }
 
 void GameScene::setViewPointCenter(Point position) {
+	Storey* storey = dungeon->getStorey();
+	TMXTiledMap* tileMap = storey->getTileMap();
 	auto winSize = Director::getInstance()->getWinSize();
 
 	int x = MAX(position.x, winSize.width / 2);
 	int y = MAX(position.y, winSize.height / 2);
-	x = MIN(x, (tileMap->getMapSize().width * this->tileMap->getTileSize().width) - winSize.width / 2);
+	x = MIN(x, (tileMap->getMapSize().width * tileMap->getTileSize().width) - winSize.width / 2);
 	y = MIN(y, (tileMap->getMapSize().height * tileMap->getTileSize().height) - winSize.height / 2);
 	auto actualPosition = Point(x, y);
 

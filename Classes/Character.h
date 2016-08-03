@@ -17,6 +17,8 @@ public:
 	Character();
 	~Character();
 
+	bool isMoveAble(cocos2d::Point position);
+
 	void moveUp();
 	void moveDown();
 	void moveLeft();

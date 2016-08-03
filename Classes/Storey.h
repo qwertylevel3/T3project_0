@@ -29,14 +29,19 @@ namespace Field {
 		void writeToFile(std::string floor);
 		std::string getFileContent();
 		tinyxml2::XMLDocument* getPDoc();
+		cocos2d::TMXTiledMap *getTileMap();
 	protected:
 		int height;
 		int width;
 		CC_SYNTHESIZE(cocos2d::Point, upPosition, UpPosition);
 		CC_SYNTHESIZE(cocos2d::Point, downPosition, DownPosition);
 		std::string picturePath;
+		//逻辑地图
 		std::vector<int> tiles;
+		//所有角色列表
 		std::vector<Character*> characterMap;
+		//用于显示
+		cocos2d::TMXTiledMap *tileMap;
 	};
 }
 
