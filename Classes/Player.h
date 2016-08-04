@@ -8,9 +8,8 @@ class Player:public Singleton<Player>
 public:
 	enum ControlMode
 	{
-		MoveMode,
-		StandMode,
-		AttackMode
+		NormalMode,
+		HaltMode
 	};
 	Player();
 	~Player();
@@ -25,5 +24,6 @@ public:
 protected:
 	CC_SYNTHESIZE(Character*, characterPtr, characterPtr);
 	ControlMode controlMode;
+
 };
 

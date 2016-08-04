@@ -3,6 +3,7 @@
 #include"Dungeon.h"
 #include"FieldEnum.h"
 #include"RoundCounter.h"
+#include"Inventory.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -19,7 +20,13 @@ Player::~Player()
 void Player::init()
 {
 	characterPtr = CharacterManager::getInstance()->getCharacter("Actor0");
-	controlMode = MoveMode;
+	controlMode = NormalMode;
+
+	//testInventory......
+	Inventory* testInventory = new Inventory();
+	testInventory->setName("apple");
+	characterPtr->addInventory(testInventory);
+
 }
 
 bool Player::isMoveAble(cocos2d::EventKeyboard::KeyCode keyCode)
@@ -49,18 +56,20 @@ void Player::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
 	switch (controlMode)
 	{
-	case AttackMode:
-		playerAttack(keyCode);
-		break;
-	case MoveMode:
+	case NormalMode:
+		if (keyCode == EventKeyboard::KeyCode::KEY_A)
+		{
+			playerAttack(keyCode);
+			break;
+		}
 		if (keyCode == EventKeyboard::KeyCode::KEY_CTRL)
 		{
-			controlMode = StandMode;
+			controlMode = HaltMode;
 			break;
 		}
 		playerMove(keyCode);
 		break;
-	case StandMode:
+	case HaltMode:
 		playerSetOrientation(keyCode);
 		break;
 	}
@@ -71,10 +80,10 @@ void Player::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 {
 	switch (controlMode)
 	{
-	case StandMode:
+	case HaltMode:
 		if (keyCode == EventKeyboard::KeyCode::KEY_CTRL)
 		{
-			controlMode = MoveMode;
+			controlMode = NormalMode;
 		}
 		break;
 	}
@@ -82,27 +91,11 @@ void Player::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 
 void Player::playerAttack(cocos2d::EventKeyboard::KeyCode keyCode)
 {
-	switch (keyCode)
-	{
-	case EventKeyboard::KeyCode::KEY_UP_ARROW:
-	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
-	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
-	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
-		characterPtr->runSkill("attack");
-		break;
-	case EventKeyboard::KeyCode::KEY_ESCAPE:
-		controlMode = MoveMode;
-		break;
-	}
+	characterPtr->runSkill("attack");
 }
 
 void Player::playerMove(cocos2d::EventKeyboard::KeyCode keyCode)
 {
-	if (keyCode == EventKeyboard::KeyCode::KEY_ENTER)
-	{
-		controlMode = AttackMode;
-		return;
-	}
 	if (!isMoveAble(keyCode))
 	{
 		return;

@@ -6,6 +6,7 @@
 #include"Skill.h"
 
 class GameScene;
+class Inventory;
 
 class Character
 {
@@ -34,9 +35,15 @@ public:
 	cocos2d::Node* getParent();
 
 	void runSkill(std::string skillName);
+
+	void addInventory(Inventory* inventory);
+	std::vector<Inventory*>& getInventoryList();
 protected:
 	//Skill......
 	std::map<std::string, Skill*> skillBox;
+
+	//Inventory......
+	std::vector<Inventory*> inventoryList;
 
 	//attribute......
 	CC_SYNTHESIZE(cocos2d::Point, mapCoord, MapCoord);

@@ -28,6 +28,9 @@
     <Filter Include="src\HUD">
       <UniqueIdentifier>{4dd4675b-99eb-45b3-a0d4-4c130fb78045}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\HUD\InventoryMenu">
+      <UniqueIdentifier>{0556006e-b6a6-4088-9fcf-bf9be224a3cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -96,7 +99,13 @@
     <ClCompile Include="..\Classes\HudSender.cpp">
       <Filter>src\HUD</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Player.cpp" />
+    <ClCompile Include="..\Classes\Player.cpp">
+      <Filter>src\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\InventoryMenu.cpp">
+      <Filter>src\HUD\InventoryMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\InventoryMenuItem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -171,7 +180,13 @@
     <ClInclude Include="..\Classes\HudSender.h">
       <Filter>src\HUD</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Player.h" />
+    <ClInclude Include="..\Classes\Player.h">
+      <Filter>src\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\InventoryMenu.h">
+      <Filter>src\HUD\InventoryMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\InventoryMenuItem.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

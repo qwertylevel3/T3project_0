@@ -9,6 +9,7 @@
 #include"HudLayer.h"
 #include"RoundCounter.h"
 #include"Player.h"
+#include"InventoryMenu.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -41,6 +42,7 @@ bool GameScene::init()
         return false;
     }
 
+	isControlPlayer = true;
 
 	/////////////////////////////
     
@@ -53,6 +55,7 @@ bool GameScene::init()
 	CharacterManager::getInstance()->init();
 	SkillManager::getInstance()->init();
 	Player::getInstance()->init();
+
 //	Debug::getInstance()->init(HudLayer::getInstance());
 
 //	std::stringstream ss;
@@ -93,17 +96,18 @@ bool GameScene::init()
 	this->addCharacter(testCharacter);
 	this->addCharacter(player);
 
-
 	setViewPointCenter(player->getPosition());
 
 	auto listener = EventListenerKeyboard::create();
 	listener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event* event)
 	{
-		Player::getInstance()->handleKeyPressed(keyCode);
+		this->handleKeyPressed(keyCode);
+		//Player::getInstance()->handleKeyPressed(keyCode);
 	};
 	listener->onKeyReleased = [=](EventKeyboard::KeyCode keyCode, Event* event)
 	{
-		Player::getInstance()->handleKeyReleased(keyCode);
+		this->handleKeyReleased(keyCode);
+		//Player::getInstance()->handleKeyReleased(keyCode);
 	};
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
@@ -143,6 +147,47 @@ void GameScene::update(float dt)
 	Character* player = Player::getInstance()->getcharacterPtr();
 	this->setViewPointCenter(player->getPosition());
 	HudLayer::getInstance()->update();
+}
+
+void GameScene::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
+{
+	if (keyCode == EventKeyboard::KeyCode::KEY_ENTER)
+	{
+		switchControl();
+	}
+	if (isControlPlayer)
+	{
+		Player::getInstance()->handleKeyPressed(keyCode);
+	}
+	else
+	{
+
+	}
+}
+
+void GameScene::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
+{
+	if (isControlPlayer)
+	{
+		Player::getInstance()->handleKeyReleased(keyCode);
+	}
+	else
+	{
+
+	}
+}
+
+void GameScene::switchControl()
+{
+	if (isControlPlayer)
+	{
+		InventoryMenu::getInstance()->show();
+	}
+	else
+	{
+		InventoryMenu::getInstance()->hide();
+	}
+	isControlPlayer = !isControlPlayer;
 }
 
 void GameScene::addCharacter(Character * character)

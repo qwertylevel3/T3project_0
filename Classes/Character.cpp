@@ -140,6 +140,16 @@ void Character::runSkill(std::string skillName)
 	skillBox[skillName]->run();
 }
 
+void Character::addInventory(Inventory * inventory)
+{
+	inventoryList.push_back(inventory);
+}
+
+std::vector<Inventory*>& Character::getInventoryList()
+{
+	return inventoryList;
+}
+
 Character::Character()
 {
 	Attack* attack = new Attack(this);

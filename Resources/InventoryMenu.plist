@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>InventoryMenu.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{331,439}</string>
+                <key>spriteSourceSize</key>
+                <string>{331,439}</string>
+                <key>textureRect</key>
+                <string>{{0,0},{331,439}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>InventoryMenu.png</string>
+            <key>size</key>
+            <string>{331,439}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:feac376ec1168af7bdc96d1a1a1c6937:fbec65cc5e51ff3904acca032da10ae5:d8b74b3f4950d8754e9aad646757157e$</string>
+            <key>textureFileName</key>
+            <string>InventoryMenu.png</string>
+        </dict>
+    </dict>
+</plist>

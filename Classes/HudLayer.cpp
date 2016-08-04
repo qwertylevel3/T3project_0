@@ -1,9 +1,12 @@
 #include "HudLayer.h"
+#include"InventoryMenu.h"
 
 USING_NS_CC;
 
 HudLayer::HudLayer()
 {
+	InventoryMenu::getInstance()->init();
+	this->addChild(InventoryMenu::getInstance()->getSprite(), 2);
 }
 
 

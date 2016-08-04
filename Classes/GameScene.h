@@ -7,12 +7,6 @@
 
 class GameScene : public cocos2d::Layer
 {
-	enum ControlMode
-	{
-		MoveMode,
-		StandMode,
-		AttackMode
-	};
 public:
     static cocos2d::Scene* createScene();
 
@@ -27,8 +21,14 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(GameScene);
 	void update(float dt);
+
+	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
+	void handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode);
+
+	void switchControl();
 private:
 	Field::Dungeon* dungeon;
+	bool isControlPlayer;
 };
 
 
