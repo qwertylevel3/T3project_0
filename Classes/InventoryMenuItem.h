@@ -5,10 +5,11 @@
 class InventoryMenuItem
 {
 public:
-	InventoryMenuItem();
+	InventoryMenuItem(Inventory* inv);
 	~InventoryMenuItem();
+	cocos2d::Label* getLable();
 protected:
-	CC_SYNTHESIZE(Inventory*, inventory, Inventory);
+	Inventory* inventory;
 	cocos2d::Label* itemLabel;
 };
 

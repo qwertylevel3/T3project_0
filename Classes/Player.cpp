@@ -23,10 +23,13 @@ void Player::init()
 	controlMode = NormalMode;
 
 	//testInventory......
-	Inventory* testInventory = new Inventory();
-	testInventory->setName("apple");
-	characterPtr->addInventory(testInventory);
+	Inventory* testInventory0 = new Inventory();
+	testInventory0->setName("apple");
+	characterPtr->addInventory(testInventory0);
 
+	Inventory* testInventory1 = new Inventory();
+	testInventory1->setName("sword");
+	characterPtr->addInventory(testInventory1);
 }
 
 bool Player::isMoveAble(cocos2d::EventKeyboard::KeyCode keyCode)
