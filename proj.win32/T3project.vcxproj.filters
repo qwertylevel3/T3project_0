@@ -105,7 +105,9 @@
     <ClCompile Include="..\Classes\InventoryMenu.cpp">
       <Filter>src\HUD\InventoryMenu</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\InventoryMenuItem.cpp" />
+    <ClCompile Include="..\Classes\InventoryMenuItem.cpp">
+      <Filter>src\HUD\InventoryMenu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -186,7 +188,9 @@
     <ClInclude Include="..\Classes\InventoryMenu.h">
       <Filter>src\HUD\InventoryMenu</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\InventoryMenuItem.h" />
+    <ClInclude Include="..\Classes\InventoryMenuItem.h">
+      <Filter>src\HUD\InventoryMenu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

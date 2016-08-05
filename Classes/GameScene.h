@@ -25,7 +25,8 @@ public:
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 	void handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode);
 
-	void switchControl();
+	void switchControlToPlayer();
+	void switchControlToHud();
 private:
 	Field::Dungeon* dungeon;
 	bool isControlPlayer;

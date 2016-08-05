@@ -151,9 +151,15 @@ void GameScene::update(float dt)
 
 void GameScene::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
-	if (keyCode == EventKeyboard::KeyCode::KEY_ENTER)
+	if (keyCode == EventKeyboard::KeyCode::KEY_ENTER
+		&& isControlPlayer)
 	{
-		switchControl();
+		switchControlToHud();
+	}
+	if (keyCode == EventKeyboard::KeyCode::KEY_ESCAPE
+		&& !isControlPlayer)
+	{
+		switchControlToPlayer();
 	}
 	if (isControlPlayer)
 	{
@@ -177,17 +183,17 @@ void GameScene::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 	}
 }
 
-void GameScene::switchControl()
+
+void GameScene::switchControlToPlayer()
 {
-	if (isControlPlayer)
-	{
-		InventoryMenu::getInstance()->show();
-	}
-	else
-	{
-		InventoryMenu::getInstance()->hide();
-	}
-	isControlPlayer = !isControlPlayer;
+	InventoryMenu::getInstance()->hide();
+	isControlPlayer = true;
+}
+
+void GameScene::switchControlToHud()
+{
+	InventoryMenu::getInstance()->show();
+	isControlPlayer = false;
 }
 
 void GameScene::addCharacter(Character * character)
