@@ -5,6 +5,7 @@
 #include"FieldEnum.h"
 
 USING_NS_CC;
+using namespace Field;
 
 void Character::moveUp()
 {
@@ -23,7 +24,7 @@ void Character::moveUp()
 
 	Point tarMapCoord = getMapCoord();
 	tarMapCoord.y = tarMapCoord.y - 1;
-	dungeon->characterMove(getMapCoord(), tarMapCoord);
+	Dungeon::getInstance()->characterMove(getMapCoord(), tarMapCoord);
 }
 
 void Character::moveDown()
@@ -43,7 +44,7 @@ void Character::moveDown()
 
 	Point tarMapCoord = getMapCoord();
 	tarMapCoord.y = tarMapCoord.y + 1;
-	dungeon->characterMove(getMapCoord(), tarMapCoord);
+	Dungeon::getInstance()->characterMove(getMapCoord(), tarMapCoord);
 }
 
 void Character::moveLeft()
@@ -63,7 +64,7 @@ void Character::moveLeft()
 
 	Point tarMapCoord = getMapCoord();
 	tarMapCoord.x = tarMapCoord.x - 1;
-	dungeon->characterMove(getMapCoord(), tarMapCoord);
+	Dungeon::getInstance()->characterMove(getMapCoord(), tarMapCoord);
 }
 
 void Character::moveRight()
@@ -83,7 +84,7 @@ void Character::moveRight()
 
 	Point tarMapCoord = getMapCoord();
 	tarMapCoord.x = tarMapCoord.x + 1;
-	dungeon->characterMove(getMapCoord(), tarMapCoord);
+	Dungeon::getInstance()->characterMove(getMapCoord(), tarMapCoord);
 }
 
 void Character::setOrientationUp()
@@ -171,7 +172,7 @@ Character::~Character()
 
 bool Character::isMoveAble(cocos2d::Point position)
 {
-	Field::Storey* storey = dungeon->getStorey();
+	Field::Storey* storey = Dungeon::getInstance()->getStorey();
 	if (storey->getTile(position) == Field::Floor)
 	{
 		return true;

@@ -48,9 +48,6 @@
     <ClCompile Include="..\Classes\Storey.cpp">
       <Filter>src\Field</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\DungeonBuilder.cpp">
-      <Filter>src\Field</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Dungeon.cpp">
       <Filter>src\Field</Filter>
     </ClCompile>
@@ -129,9 +126,6 @@
       <Filter>src\Field</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\FieldEnum.h">
-      <Filter>src\Field</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\DungeonBuilder.h">
       <Filter>src\Field</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Dungeon.h">

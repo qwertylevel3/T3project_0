@@ -28,7 +28,6 @@ public:
 	void switchControlToPlayer();
 	void switchControlToHud();
 private:
-	Field::Dungeon* dungeon;
 	bool isControlPlayer;
 };
 

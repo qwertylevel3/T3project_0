@@ -1,6 +1,7 @@
 #include "Dungeon.h"
 #include<sstream>
 #include"Character.h"
+#include"StoreyBuilder.h"
 
 
 using namespace Field;
@@ -13,6 +14,16 @@ Dungeon::Dungeon()
 
 Dungeon::~Dungeon()
 {
+}
+
+void Field::Dungeon::generate(int floorNum)
+{
+	clear();
+	for (int i = 0; i < floorNum; i++)
+	{
+		Storey* tempStorey=StoreyBuilder::getInstance()->generate();
+		this->addStorey(tempStorey);
+	}
 }
 
 int Field::Dungeon::getFloorNum()
@@ -64,12 +75,21 @@ void Field::Dungeon::addCharacter(Character * character)
 {
 	cocos2d::Point position = character->getMapCoord();
 	storeyVec[curFloor]->setCharacter(position.x,position.y,character);
-	character->setDungeon(this);
 }
 
 void Field::Dungeon::characterMove(cocos2d::Point oriPosition, cocos2d::Point tarPosition)
 {
 	storeyVec[curFloor]->characterMove(oriPosition, tarPosition);
+}
+
+//TODO......TEST......
+void Field::Dungeon::clear()
+{
+	for (int i = 0; i < storeyVec.size(); i++)
+	{
+		delete storeyVec[i];
+	}
+	storeyVec.clear();
 }
 
 Character * Field::Dungeon::getCharacter(int x,int y)

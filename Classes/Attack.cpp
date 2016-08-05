@@ -22,7 +22,6 @@ Attack::~Attack()
 
 int Attack::run()
 {
-	Field::Dungeon* dungeon = caster->getDungeon();
 	Point position = caster->getPosition();
 	Point curCoord = caster->getMapCoord();
 	Point castCoord = curCoord;
@@ -35,7 +34,6 @@ int Attack::run()
 
 void Attack::showEffect()
 {
-	Field::Dungeon* dungeon = caster->getDungeon();
 	Point position = caster->getPosition();
 
 	cocos2d::Node* scene = caster->getParent();
@@ -85,7 +83,7 @@ void Attack::showEffect()
 	node->runAction(Sequence::create(rotateAction,animate, CallFunc::create(CC_CALLBACK_0(Sprite::removeFromParent, node)), NULL));
 
 	//attack an character;
-	Character* targetCharacter = dungeon->getCharacter(targetPosition.x, targetPosition.y);
+	Character* targetCharacter = Field::Dungeon::getInstance()->getCharacter(targetPosition.x, targetPosition.y);
 	if (targetCharacter)
 	{
 		int curHp = targetCharacter->getCurHP();

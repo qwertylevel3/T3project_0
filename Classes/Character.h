@@ -54,7 +54,7 @@ protected:
 	CC_SYNTHESIZE(int, MP, MP);
 	CC_SYNTHESIZE(int, curHP, CurHP);
 	CC_SYNTHESIZE(int, curMP, CurMP);
-	CC_SYNTHESIZE(Field::Dungeon*, dungeon, Dungeon);
+	//CC_SYNTHESIZE(Field::Dungeon*, dungeon, Dungeon);
 	CC_SYNTHESIZE(GameScene*, scene, Scene);
 	CC_SYNTHESIZE(cocos2d::CCSprite*, sprite, Sprite);
 	CC_SYNTHESIZE(Orientation, orientation, Orientation);

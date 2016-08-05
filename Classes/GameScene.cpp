@@ -1,6 +1,5 @@
 #include "GameScene.h"
 #include "SimpleAudioEngine.h"
-#include"DungeonBuilder.h"
 #include"RandomNumber.h"
 #include"StoreyBuilder.h"
 #include"CharacterManager.h"
@@ -10,6 +9,7 @@
 #include"RoundCounter.h"
 #include"Player.h"
 #include"InventoryMenu.h"
+#include"Dungeon.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -51,7 +51,6 @@ bool GameScene::init()
 
 	RandomNumber::getInstance()->setSeed(100);
 
-	DungeonBuilder::getInstance()->init();
 	CharacterManager::getInstance()->init();
 	SkillManager::getInstance()->init();
 	Player::getInstance()->init();
@@ -65,9 +64,9 @@ bool GameScene::init()
 //	Debug::getInstance()->showMessage(str, cocos2d::Point(100, 100));
 	HudLayer::getInstance()->addSender(RoundCounter::getInstance());
 
-	dungeon=DungeonBuilder::getInstance()->generate(1);
+	Dungeon::getInstance()->generate(1);
 //	dungeon->writeToFile();
-	Storey* floor0 = dungeon->getStorey();
+	Storey* floor0 = Dungeon::getInstance()->getStorey();
 
 //	dungeon->writeToFile();
 //	std::string fileName = "1.tmx";
@@ -127,7 +126,7 @@ void GameScene::menuCloseCallback(Ref* pSender)
 }
 
 void GameScene::setViewPointCenter(Point position) {
-	Storey* storey = dungeon->getStorey();
+	Storey* storey = Dungeon::getInstance()->getStorey();
 	TMXTiledMap* tileMap = storey->getTileMap();
 	auto winSize = Director::getInstance()->getWinSize();
 
@@ -201,5 +200,5 @@ void GameScene::addCharacter(Character * character)
 	Layer::addChild(character->getSprite());
 
 	character->setScene(this);
-	dungeon->addCharacter(character);
+	Dungeon::getInstance()->addCharacter(character);
 }
