@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inventoryList>
+	<inventory>
+		<name>sword</name>
+		<cname>剑</cname>
+		<price>10</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+	</inventory>
+</inventoryList>

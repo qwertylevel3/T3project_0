@@ -22,9 +22,6 @@
     <Filter Include="src\inventory">
       <UniqueIdentifier>{1b2de235-6fe2-41ba-88a0-bf052f062ab5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\inventory\weapon">
-      <UniqueIdentifier>{4963d718-27f6-425d-939c-073b11e5c46e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\HUD">
       <UniqueIdentifier>{4dd4675b-99eb-45b3-a0d4-4c130fb78045}</UniqueIdentifier>
     </Filter>
@@ -72,20 +69,11 @@
     <ClCompile Include="..\Classes\Character.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Weapon.cpp">
-      <Filter>src\inventory\weapon</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Inventory.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\WeaponType.cpp">
-      <Filter>src\inventory\weapon</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\SkillManager.cpp">
       <Filter>src\skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\WeaponAdj.cpp">
-      <Filter>src\inventory\weapon</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\RoundCounter.cpp">
       <Filter>src</Filter>
@@ -104,6 +92,15 @@
     </ClCompile>
     <ClCompile Include="..\Classes\InventoryMenuItem.cpp">
       <Filter>src\HUD\InventoryMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Weapon.cpp">
+      <Filter>src\inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\InventoryManager.cpp">
+      <Filter>src\inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\InventoryModel.cpp">
+      <Filter>src\inventory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,20 +149,11 @@
     <ClInclude Include="..\Classes\Character.h">
       <Filter>src\character</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Weapon.h">
-      <Filter>src\inventory\weapon</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Inventory.h">
       <Filter>src\inventory</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\WeaponType.h">
-      <Filter>src\inventory\weapon</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\SkillManager.h">
       <Filter>src\skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\WeaponAdj.h">
-      <Filter>src\inventory\weapon</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\RoundCounter.h">
       <Filter>src</Filter>
@@ -184,6 +172,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\InventoryMenuItem.h">
       <Filter>src\HUD\InventoryMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Weapon.h">
+      <Filter>src\inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\InventoryManager.h">
+      <Filter>src\inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\InventoryModel.h">
+      <Filter>src\inventory</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

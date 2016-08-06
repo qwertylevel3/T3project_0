@@ -158,8 +158,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudLayer.cpp" />
     <ClCompile Include="..\Classes\HudSender.cpp" />
     <ClCompile Include="..\Classes\Inventory.cpp" />
+    <ClCompile Include="..\Classes\InventoryManager.cpp" />
     <ClCompile Include="..\Classes\InventoryMenu.cpp" />
     <ClCompile Include="..\Classes\InventoryMenuItem.cpp" />
+    <ClCompile Include="..\Classes\InventoryModel.cpp" />
     <ClCompile Include="..\Classes\Player.cpp" />
     <ClCompile Include="..\Classes\RandomNumber.cpp" />
     <ClCompile Include="..\Classes\RoundCounter.cpp" />
@@ -171,8 +173,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</BrowseInformation>
     </ClCompile>
     <ClCompile Include="..\Classes\Weapon.cpp" />
-    <ClCompile Include="..\Classes\WeaponAdj.cpp" />
-    <ClCompile Include="..\Classes\WeaponType.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -188,8 +188,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudLayer.h" />
     <ClInclude Include="..\Classes\HudSender.h" />
     <ClInclude Include="..\Classes\Inventory.h" />
+    <ClInclude Include="..\Classes\InventoryManager.h" />
     <ClInclude Include="..\Classes\InventoryMenu.h" />
     <ClInclude Include="..\Classes\InventoryMenuItem.h" />
+    <ClInclude Include="..\Classes\InventoryModel.h" />
     <ClInclude Include="..\Classes\Player.h" />
     <ClInclude Include="..\Classes\RandomNumber.h" />
     <ClInclude Include="..\Classes\RoundCounter.h" />
@@ -199,8 +201,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Storey.h" />
     <ClInclude Include="..\Classes\StoreyBuilder.h" />
     <ClInclude Include="..\Classes\Weapon.h" />
-    <ClInclude Include="..\Classes\WeaponAdj.h" />
-    <ClInclude Include="..\Classes\WeaponType.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

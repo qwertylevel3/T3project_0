@@ -10,6 +10,7 @@
 #include"Player.h"
 #include"InventoryMenu.h"
 #include"Dungeon.h"
+#include"InventoryManager.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -51,6 +52,7 @@ bool GameScene::init()
 
 	RandomNumber::getInstance()->setSeed(100);
 
+	InventoryManager::getInstance()->init();
 	CharacterManager::getInstance()->init();
 	SkillManager::getInstance()->init();
 	Player::getInstance()->init();
