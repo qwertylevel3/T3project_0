@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inventoryList>
 	<inventory>
+		<type>weapon</type>
 		<name>sword</name>
 		<cname>剑</cname>
 		<price>10</price>

@@ -102,6 +102,15 @@
     <ClCompile Include="..\Classes\InventoryModel.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Accessory.cpp">
+      <Filter>src\inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Armor.cpp">
+      <Filter>src\inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Supply.cpp">
+      <Filter>src\inventory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -180,6 +189,15 @@
       <Filter>src\inventory</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\InventoryModel.h">
+      <Filter>src\inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Accessory.h">
+      <Filter>src\inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Armor.h">
+      <Filter>src\inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Supply.h">
       <Filter>src\inventory</Filter>
     </ClInclude>
   </ItemGroup>

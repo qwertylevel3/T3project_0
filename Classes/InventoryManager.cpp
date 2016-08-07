@@ -28,6 +28,10 @@ void InventoryManager::init()
 	{
 		InventoryModel* model = new InventoryModel();
 
+		tinyxml2::XMLElement* typeElement = inventory->FirstChildElement("type");
+		std::string type = typeElement->GetText();
+		model->setType(type);
+
 		tinyxml2::XMLElement* nameElement = inventory->FirstChildElement("name");
 		std::string name = nameElement->GetText();
 		model->setName(name);
