@@ -36,7 +36,7 @@ void CharacterManager::initCharacterModel(const std::string fileName)
 	{
 		CharacterModel* model = new CharacterModel();
 
-		tinyxml2::XMLElement *nameElement = character->FirstChildElement();
+		tinyxml2::XMLElement *nameElement = character->FirstChildElement("name");
 		std::string modelName = nameElement->GetText();
 		model->setName(modelName);
 

@@ -16,9 +16,7 @@ Character * CharacterModel::makeCharacter()
 {
 	Character* character = new Character();
 
-	CCSprite* sp = CCSprite::createWithSpriteFrameName(firstFrameName);
-
-	character->setSprite(sp);
+	character->setSprite(firstFrameName);
 
 	//character->createMoveUpAnimation();
 	//character->createMoveDownAnimation();

@@ -11,9 +11,13 @@ class Inventory;
 class Character
 {
 public:
+	enum Type
+	{
+		Good, Neutral, Bad
+	};
 	enum Orientation
 	{
-		UP,DOWN,LEFT,RIGHT
+		UP, DOWN, LEFT, RIGHT
 	};
 	Character();
 	~Character();
@@ -38,6 +42,9 @@ public:
 
 	void addInventory(Inventory* inventory);
 	std::vector<Inventory*>& getInventoryList();
+
+	cocos2d::CCSprite* getSprite();
+	void setSprite(std::string spriteName);
 protected:
 	//Skill......
 	std::map<std::string, Skill*> skillBox;
@@ -56,8 +63,9 @@ protected:
 	CC_SYNTHESIZE(int, curMP, CurMP);
 	//CC_SYNTHESIZE(Field::Dungeon*, dungeon, Dungeon);
 	CC_SYNTHESIZE(GameScene*, scene, Scene);
-	CC_SYNTHESIZE(cocos2d::CCSprite*, sprite, Sprite);
+	cocos2d::CCSprite* sprite;
 	CC_SYNTHESIZE(Orientation, orientation, Orientation);
+	CC_SYNTHESIZE(Type, characterType, CharacterType);
 
 	//Animation......
 	void setMoveUpAnimation(cocos2d::CCAnimation* animation);

@@ -25,6 +25,7 @@ namespace Field {
 
 		bool placeRect(const Rect& rect, int tile);
 		bool placeObject(int tile);
+		void placeMonster(const Rect& rect);
 
 
 

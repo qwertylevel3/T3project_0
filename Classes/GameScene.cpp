@@ -66,39 +66,7 @@ bool GameScene::init()
 //	Debug::getInstance()->showMessage(str, cocos2d::Point(100, 100));
 	HudLayer::getInstance()->addSender(RoundCounter::getInstance());
 
-	Dungeon::getInstance()->generate(1);
-//	dungeon->writeToFile();
-	Storey* floor0 = Dungeon::getInstance()->getStorey();
-
-//	dungeon->writeToFile();
-//	std::string fileName = "1.tmx";
-//	std::string filePath = FileUtils::getInstance()->getWritablePath();
-//	filePath=filePath+fileName;
-//	auto str = String::createWithContentsOfFile(filePath);
-
-	Layer::addChild(floor0->getTileMap(), -1);
-
-	cocos2d::Point startPosition = floor0->getUpPosition();
-	//cocos2d::Point startPosition(0, 0);
-
-	//player = Character::create("test_character.plist");
-	Character* testCharacter = CharacterManager::getInstance()->getCharacter("Actor0");
-
-	Character* player = Player::getInstance()->getcharacterPtr();
-	player->setPosition(startPosition.x*32+16, (100-startPosition.y)*32-16);
-	testCharacter->setPosition((startPosition.x + 1) * 32 + 16, (100 - startPosition.y) * 32 - 16);
-
-	player->setMapCoord(floor0->getUpPosition());
-	Point testCharacterPosition=player->getMapCoord();
-	testCharacterPosition.x = testCharacterPosition.x + 1;
-	testCharacter->setMapCoord(testCharacterPosition);
-//	player->setPosition(32, 32);
-	
-	this->addCharacter(testCharacter);
-	this->addCharacter(player);
-
-	setViewPointCenter(player->getPosition());
-
+	loadStorey();
 	auto listener = EventListenerKeyboard::create();
 	listener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event* event)
 	{
@@ -195,6 +163,43 @@ void GameScene::switchControlToHud()
 {
 	InventoryMenu::getInstance()->show();
 	isControlPlayer = false;
+}
+
+
+void GameScene::loadStorey()
+{
+	Dungeon::getInstance()->generate(1);
+//	dungeon->writeToFile();
+	Storey* floor0 = Dungeon::getInstance()->getStorey();
+
+//	dungeon->writeToFile();
+//	std::string fileName = "1.tmx";
+//	std::string filePath = FileUtils::getInstance()->getWritablePath();
+//	filePath=filePath+fileName;
+//	auto str = String::createWithContentsOfFile(filePath);
+
+	Layer::addChild(floor0->getTileMap(), -1);
+
+	cocos2d::Point startPosition = floor0->getUpCoord();
+	//cocos2d::Point startPosition(0, 0);
+
+	//player = Character::create("test_character.plist");
+
+	std::vector<Character*> chVec = floor0->getAllCharacter();
+	for (int i = 0; i < chVec.size(); i++)
+	{
+		if (chVec[i])
+		{
+			this->addCharacter(chVec[i]);
+		}
+	}
+	Character* player = Player::getInstance()->getcharacterPtr();
+
+	player->setMapCoord(floor0->getUpCoord());
+	this->addCharacter(player);
+
+	setViewPointCenter(player->getPosition());
+
 }
 
 void GameScene::addCharacter(Character * character)

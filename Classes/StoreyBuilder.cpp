@@ -3,6 +3,7 @@
 #include"RandomNumber.h"
 #include"cocos2d.h"
 #include"Debug.h"
+#include"CharacterManager.h"
 
 using namespace Field;
 USING_NS_CC;
@@ -33,6 +34,10 @@ Storey* StoreyBuilder::generate()
 	{
 		CCAssert(false, "Unable to place the first room\n");
 	}
+	if (!placeObject(UpStair))
+	{
+		CCAssert(false, "Unable to place up staris\n");
+	}
 	
 	if (Debug::getInstance()->getDebugFlag())
 	{
@@ -54,10 +59,7 @@ Storey* StoreyBuilder::generate()
 
 	}
 
-	if (!placeObject(UpStair))
-	{
-		CCAssert(false, "Unable to place up staris\n");
-	}
+	
 
 	if (!placeObject(DownStair))
 	{
@@ -182,6 +184,8 @@ bool StoreyBuilder::makeRoom(int x, int y, Direction dir, bool firstRoom /*= fal
 	if (placeRect(room, Floor))
 	{
 		rooms.emplace_back(room);
+
+		placeMonster(room);
 
 		//房间的出口在非朝向的三个方向，如果是第一个房间，那么4个方向都可作为出口
 		//将当前步骤生成的可能的所有出口放入exits里面
@@ -321,11 +325,11 @@ bool StoreyBuilder::placeObject(int tile)
 	{
 		if (tile == UpStair)
 		{
-			storey->setUpPosition(cocos2d::Point(x, y));
+			storey->setUpCoord(cocos2d::Point(x, y));
 		}
 		else if (tile == DownStair)
 		{
-			storey->setDownPosition(cocos2d::Point(x, y));
+			storey->setDownCoord(cocos2d::Point(x, y));
 		}
 		storey->setTile(x, y, tile);
 
@@ -336,4 +340,14 @@ bool StoreyBuilder::placeObject(int tile)
 	}
 
 	return false;
+}
+
+void Field::StoreyBuilder::placeMonster(const Rect & rect)
+{
+	int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
+	int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+
+	Character* monster = CharacterManager::getInstance()->getCharacter("Actor0");
+
+	storey->setCharacter(x, y, monster);
 }

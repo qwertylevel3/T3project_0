@@ -27,6 +27,7 @@ public:
 
 	void switchControlToPlayer();
 	void switchControlToHud();
+	void loadStorey();
 private:
 	bool isControlPlayer;
 };

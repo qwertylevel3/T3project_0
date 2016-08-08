@@ -61,6 +61,9 @@ Character * Field::Storey::getCharacter(cocos2d::Point position)
 
 void Field::Storey::setCharacter(int x, int y, Character * character)
 {
+	character->setMapCoord(cocos2d::Point(x,y));
+	character->setPosition((x) * 32 + 16, (100 - y) * 32 - 16);
+
 	characterMap[x + y*width] = character;
 }
 
@@ -204,6 +207,11 @@ cocos2d::TMXTiledMap * Field::Storey::getTileMap()
 		tileMap->retain();
 	}
 	return tileMap;
+}
+
+std::vector<Character*>& Field::Storey::getAllCharacter()
+{
+	return characterMap;
 }
 
 

@@ -30,11 +30,12 @@ namespace Field {
 		std::string getFileContent();
 		tinyxml2::XMLDocument* getPDoc();
 		cocos2d::TMXTiledMap *getTileMap();
+		std::vector<Character*>& getAllCharacter();
 	protected:
 		int height;
 		int width;
-		CC_SYNTHESIZE(cocos2d::Point, upPosition, UpPosition);
-		CC_SYNTHESIZE(cocos2d::Point, downPosition, DownPosition);
+		CC_SYNTHESIZE(cocos2d::Point, upCoord, UpCoord);
+		CC_SYNTHESIZE(cocos2d::Point, downCoord, DownCoord);
 		std::string picturePath;
 		//Âß¼­µØÍ¼
 		std::vector<int> tiles;

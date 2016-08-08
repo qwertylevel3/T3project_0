@@ -151,6 +151,18 @@ std::vector<Inventory*>& Character::getInventoryList()
 	return inventoryList;
 }
 
+CCSprite * Character::getSprite()
+{
+	return sprite;
+}
+
+void Character::setSprite(std::string spriteName)
+{
+	sprite = CCSprite::createWithSpriteFrameName(spriteName);
+	sprite->retain();
+}
+
+
 Character::Character()
 {
 	Attack* attack = new Attack(this);
@@ -164,6 +176,7 @@ Character::Character()
 
 Character::~Character()
 {
+	sprite->release();
 	moveUpAnimation->release();
 	moveDownAnimation->release();
 	moveLeftAnimation->release();

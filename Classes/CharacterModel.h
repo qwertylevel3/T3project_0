@@ -27,6 +27,7 @@ public:
 protected:
 	CC_SYNTHESIZE(std::string, name, Name);
 	CC_SYNTHESIZE(std::string, firstFrameName, FirstFrameName);
+	CC_SYNTHESIZE(std::string, type, Type);
 
 	cocos2d::CCAnimation* moveUpAnimation;
 	cocos2d::CCAnimation* moveDownAnimation;
