@@ -11,6 +11,7 @@
 #include"InventoryMenu.h"
 #include"Dungeon.h"
 #include"InventoryManager.h"
+#include"MonsterManager.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -56,6 +57,7 @@ bool GameScene::init()
 	CharacterManager::getInstance()->init();
 	SkillManager::getInstance()->init();
 	Player::getInstance()->init();
+	MonsterManager::getInstance()->init();
 
 //	Debug::getInstance()->init(HudLayer::getInstance());
 
@@ -67,6 +69,7 @@ bool GameScene::init()
 	HudLayer::getInstance()->addSender(RoundCounter::getInstance());
 
 	loadStorey();
+
 	auto listener = EventListenerKeyboard::create();
 	listener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event* event)
 	{

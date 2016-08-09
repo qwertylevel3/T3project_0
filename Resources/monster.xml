@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monsterBox>
+	<monster>
+		<name>testMonster</name>
+		<characterName>Actor0</characterName>
+		<strength>10</strength>
+		<intellect>10</intellect>
+		<agility>10</agility>
+		<HP>100</HP>
+		<MP>50</MP>
+	</monster>
+</monsterBox>

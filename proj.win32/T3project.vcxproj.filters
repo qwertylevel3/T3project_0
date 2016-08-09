@@ -111,6 +111,9 @@
     <ClCompile Include="..\Classes\Supply.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\MonsterManager.cpp" />
+    <ClCompile Include="..\Classes\MonsterModel.cpp" />
+    <ClCompile Include="..\Classes\ToolFunction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -200,6 +203,9 @@
     <ClInclude Include="..\Classes\Supply.h">
       <Filter>src\inventory</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\MonsterManager.h" />
+    <ClInclude Include="..\Classes\MonsterModel.h" />
+    <ClInclude Include="..\Classes\ToolFunction.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
