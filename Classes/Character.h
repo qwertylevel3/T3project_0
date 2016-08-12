@@ -24,6 +24,9 @@ public:
 
 	bool isMoveAble(cocos2d::Point position);
 
+	void sufferDamage(int damage);
+	void die();
+	bool isDead();
 	void moveUp();
 	void moveDown();
 	void moveLeft();
@@ -32,6 +35,11 @@ public:
 	void setOrientationDown();
 	void setOrientationLeft();
 	void setOrientationRight();
+
+	void equipLeftHand(Inventory* inventory);
+	void unequipLeftHand();
+	void equipRightHand(Inventory* inventory);
+	void unequipRightHand();
 
 	cocos2d::Point getPosition();
 	void setPosition(float x, float y);
@@ -45,12 +53,18 @@ public:
 
 	cocos2d::CCSprite* getSprite();
 	void setSprite(std::string spriteName);
+
+	int getAttack();
 protected:
 	//Skill......
 	std::map<std::string, Skill*> skillBox;
 
 	//Inventory......
 	std::vector<Inventory*> inventoryList;
+
+	Inventory* leftHand;
+	Inventory* rightHand;
+	Inventory* armor;
 
 	//attribute......
 	CC_SYNTHESIZE(cocos2d::Point, mapCoord, MapCoord);
@@ -61,11 +75,13 @@ protected:
 	CC_SYNTHESIZE(int, MP, MP);
 	CC_SYNTHESIZE(int, curHP, CurHP);
 	CC_SYNTHESIZE(int, curMP, CurMP);
-	//CC_SYNTHESIZE(Field::Dungeon*, dungeon, Dungeon);
+	CC_SYNTHESIZE(Type, characterType, CharacterType);
+	bool dead;
+
 	CC_SYNTHESIZE(GameScene*, scene, Scene);
 	cocos2d::CCSprite* sprite;
 	CC_SYNTHESIZE(Orientation, orientation, Orientation);
-	CC_SYNTHESIZE(Type, characterType, CharacterType);
+
 
 	//Animation......
 	void setMoveUpAnimation(cocos2d::CCAnimation* animation);

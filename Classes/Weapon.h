@@ -9,8 +9,8 @@ class Weapon:public Inventory
 public:
 	Weapon();
 	~Weapon();
-	void equip();
-	void unwield();
+	void equip(Character* character);
+	void unequip(Character* character);
 protected:
 	CC_SYNTHESIZE(int, damage, Damage);
 };

@@ -3,9 +3,30 @@
 #include"Attack.h"
 #include"Dungeon.h"
 #include"FieldEnum.h"
+#include"Inventory.h"
 
 USING_NS_CC;
 using namespace Field;
+
+void Character::sufferDamage(int damage)
+{
+	curHP -= damage;
+	if (curHP <= 0)
+	{
+		die();
+	}
+}
+
+void Character::die()
+{
+	sprite->setVisible(false);
+	dead = true;
+}
+
+bool Character::isDead()
+{
+	return dead;
+}
 
 void Character::moveUp()
 {
@@ -119,6 +140,38 @@ void Character::setOrientationRight()
 	setOrientation(Orientation::RIGHT);
 }
 
+void Character::equipLeftHand(Inventory * inventory)
+{
+	CCAssert(inventory, "null inventory to equip");
+	leftHand = inventory;
+	inventory->equip(this);
+}
+
+void Character::unequipLeftHand()
+{
+	if (leftHand)
+	{
+		leftHand->unequip(this);
+	}
+	leftHand = nullptr;
+}
+
+void Character::equipRightHand(Inventory * inventory)
+{
+	CCAssert(inventory, "null inventory to equip");
+	rightHand = inventory;
+	inventory->equip(this);
+}
+
+void Character::unequipRightHand()
+{
+	if (rightHand)
+	{
+		rightHand->unequip(this);
+	}
+	rightHand = nullptr;
+}
+
 
 cocos2d::Point Character::getPosition()
 {
@@ -162,6 +215,11 @@ void Character::setSprite(std::string spriteName)
 	sprite->retain();
 }
 
+int Character::getAttack()
+{
+	return 10;
+}
+
 
 Character::Character()
 {
@@ -169,9 +227,7 @@ Character::Character()
 	skillBox["attack"] = attack;
 
 	orientation = DOWN;
-
-	HP = 100;
-	curHP = 100;
+	dead = false;
 }
 
 Character::~Character()

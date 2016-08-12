@@ -86,8 +86,8 @@ void Attack::showEffect()
 	Character* targetCharacter = Field::Dungeon::getInstance()->getCharacter(targetPosition.x, targetPosition.y);
 	if (targetCharacter)
 	{
-		int curHp = targetCharacter->getCurHP();
-		targetCharacter->setCurHP(curHp - 10);
+		int attackPoint = caster->getAttack();
+		targetCharacter->sufferDamage(attackPoint);
 	}
 
 }

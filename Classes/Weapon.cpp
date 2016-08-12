@@ -4,6 +4,7 @@
 
 Weapon::Weapon()
 {
+	setInventoryType(Type::Weapon);
 }
 
 
@@ -11,10 +12,10 @@ Weapon::~Weapon()
 {
 }
 
-void Weapon::equip()
+void Weapon::equip(Character* character)
 {
 }
 
-void Weapon::unwield()
+void Weapon::unequip(Character* character)
 {
 }
