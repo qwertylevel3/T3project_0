@@ -20,8 +20,11 @@ public:
 	void addChildItem(HudMenuItem* item);
 	cocos2d::Sprite* getSprite();
 	void setPosition(cocos2d::Point position);
+	int getWidth();
+	int getHeight();
 protected:
 	CC_SYNTHESIZE(std::string, name, Name);
+	CC_SYNTHESIZE(cocos2d::Point, marginal, marginal);
 	cocos2d::Sprite* sprite;
 	std::vector<HudMenuItem* > childList;
 	std::vector<cocos2d::Label* > labelList;

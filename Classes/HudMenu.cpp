@@ -16,16 +16,19 @@ HudMenu::~HudMenu()
 
 void HudMenu::init()
 {
-	menu = new HudMenuItem(cocos2d::Rect(0, 0, 100, 500));
+	menu = new HudMenuItem(cocos2d::Rect(0, 0, 150, 500));
 	HudLayer::getInstance()->addChild(menu->getSprite(),2);
-	menu->setPosition(cocos2d::Point(100, 300));
+	menu->setPosition(cocos2d::Point(50, 550));
 
 	HudMenuItem* inventoryMenu = new HudMenuItem(cocos2d::Rect(100, 100, 100, 100));
 	inventoryMenu->setName("inventory");
 	menu->addChildItem(inventoryMenu);
 
-	hide();
+	HudMenuItem* activeMenu = new HudMenuItem(cocos2d::Rect(100, 100, 100, 100));
+	activeMenu->setName("active");
+	menu->addChildItem(activeMenu);
 
+	hide();
 }
 
 void HudMenu::show()
