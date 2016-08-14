@@ -59,6 +59,8 @@ bool GameScene::init()
 	Player::getInstance()->init();
 	MonsterManager::getInstance()->init();
 
+	HudLayer::getInstance()->initLayer();
+
 //	Debug::getInstance()->init(HudLayer::getInstance());
 
 //	std::stringstream ss;
@@ -139,7 +141,7 @@ void GameScene::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 	}
 	else
 	{
-
+		HudLayer::getInstance()->handleKeyPressed(keyCode);
 	}
 }
 
@@ -158,13 +160,15 @@ void GameScene::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 
 void GameScene::switchControlToPlayer()
 {
-	InventoryMenu::getInstance()->hide();
+	//InventoryMenu::getInstance()->hide();
+	HudLayer::getInstance()->hide();
 	isControlPlayer = true;
 }
 
 void GameScene::switchControlToHud()
 {
-	InventoryMenu::getInstance()->show();
+	//InventoryMenu::getInstance()->show();
+	HudLayer::getInstance()->show();
 	isControlPlayer = false;
 }
 

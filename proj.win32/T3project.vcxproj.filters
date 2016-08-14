@@ -120,6 +120,13 @@
     <ClCompile Include="..\Classes\ToolFunction.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\HudMenuItem.cpp">
+      <Filter>src\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudCursor.cpp">
+      <Filter>src\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -218,6 +225,13 @@
     <ClInclude Include="..\Classes\ToolFunction.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\HudMenuItem.h">
+      <Filter>src\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudCursor.h">
+      <Filter>src\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

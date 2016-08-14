@@ -1,17 +1,26 @@
 #include "HudLayer.h"
 #include"InventoryMenu.h"
+#include"HudMenuItem.h"
+#include"HudSender.h"
+#include"HudMenu.h"
 
 USING_NS_CC;
 
 HudLayer::HudLayer()
 {
-	InventoryMenu::getInstance()->init();
-	this->addChild(InventoryMenu::getInstance()->getSprite(), 2);
+	//InventoryMenu::getInstance()->init();
+	//this->addChild(InventoryMenu::getInstance()->getSprite(), 2);
+
 }
 
 
 HudLayer::~HudLayer()
 {
+}
+
+void HudLayer::initLayer()
+{
+	HudMenu::getInstance()->init();
 }
 
 void HudLayer::update()
@@ -20,6 +29,16 @@ void HudLayer::update()
 	{
 		senderList[i]->updateSender();
 	}
+}
+
+void HudLayer::show()
+{
+	HudMenu::getInstance()->show();
+}
+
+void HudLayer::hide()
+{
+	HudMenu::getInstance()->hide();
 }
 
 void HudLayer::addSender(HudSender* sender)
@@ -34,4 +53,8 @@ void HudLayer::addSender(HudSender* sender)
 		origin.y + 100 - label->getContentSize().height));
 
 	this->addChild(label, 2);
+}
+
+void HudLayer::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
+{
 }
