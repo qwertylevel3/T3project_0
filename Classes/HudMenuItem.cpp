@@ -1,4 +1,7 @@
 #include "HudMenuItem.h"
+#include"ToolFunction.h"
+#include"HudCursor.h"
+#include"HudLayer.h"
 
 
 
@@ -19,10 +22,15 @@ HudMenuItem::~HudMenuItem()
 
 void HudMenuItem::handleUp()
 {
+	curIndex = curIndex == 0 ? curIndex : curIndex - 1;
+	chooseChildItem(curIndex);
+
 }
 
 void HudMenuItem::handleDown()
 {
+	curIndex = curIndex == childList.size() - 1 ? curIndex : curIndex + 1;
+	chooseChildItem(curIndex);
 }
 
 void HudMenuItem::handleLeft()
@@ -32,6 +40,12 @@ void HudMenuItem::handleLeft()
 void HudMenuItem::handleRight()
 {
 }
+
+void HudMenuItem::initCursor()
+{
+	chooseChildItem(0);
+}
+
 
 void HudMenuItem::show()
 {
@@ -55,7 +69,7 @@ void HudMenuItem::addChildItem(HudMenuItem * item)
 {
 	int index = childList.size();
 	childList.push_back(item);
-	cocos2d::Label* itemLabel = cocos2d::Label::createWithTTF(item->getName(), "fonts/arial.ttf", 24);
+	cocos2d::Label* itemLabel = cocos2d::Label::createWithTTF(item->getUTF8name(), "fonts/arialuni.ttf", 24);
 	sprite->addChild(itemLabel);
 	itemLabel->setMaxLineWidth(getWidth() - 2 * marginal.x);
 
@@ -87,6 +101,11 @@ void HudMenuItem::setPosition(cocos2d::Point position)
 	sprite->setPosition(position);
 }
 
+cocos2d::Point HudMenuItem::getPosition()
+{
+	return sprite->getPosition();
+}
+
 int HudMenuItem::getWidth()
 {
 	return sprite->getTextureRect().size.width;
@@ -95,4 +114,22 @@ int HudMenuItem::getWidth()
 int HudMenuItem::getHeight()
 {
 	return sprite->getTextureRect().size.height;
+}
+
+std::string HudMenuItem::getUTF8name()
+{
+	return ToolFunction::WStr2UTF8(getName());
+}
+
+void HudMenuItem::chooseChildItem(int index)
+{
+	curIndex = index;
+
+	cocos2d::Point position = labelList[curIndex]->getPosition();
+//	position = labelList[curIndex]->convertToWorldSpace(position);
+//	position = HudLayer::getInstance()->convertToNodeSpace(position);
+	position.x -= labelList[curIndex]->getMaxLineWidth() / 2;
+	position.x -= HudCursor::getInstance()->getSprite()->getTextureRect().size.width / 2;
+
+	HudCursor::getInstance()->setPosition(position);
 }

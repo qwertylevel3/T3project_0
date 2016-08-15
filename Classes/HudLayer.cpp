@@ -3,14 +3,12 @@
 #include"HudMenuItem.h"
 #include"HudSender.h"
 #include"HudMenu.h"
+#include"HudCursor.h"
 
 USING_NS_CC;
 
 HudLayer::HudLayer()
 {
-	//InventoryMenu::getInstance()->init();
-	//this->addChild(InventoryMenu::getInstance()->getSprite(), 2);
-
 }
 
 
@@ -34,11 +32,13 @@ void HudLayer::update()
 void HudLayer::show()
 {
 	HudMenu::getInstance()->show();
+	HudCursor::getInstance()->show();
 }
 
 void HudLayer::hide()
 {
 	HudMenu::getInstance()->hide();
+	HudCursor::getInstance()->hide();
 }
 
 void HudLayer::addSender(HudSender* sender)
@@ -57,4 +57,5 @@ void HudLayer::addSender(HudSender* sender)
 
 void HudLayer::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
+	HudCursor::getInstance()->handleKeyPressed(keyCode);
 }
