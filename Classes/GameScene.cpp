@@ -8,7 +8,6 @@
 #include"HudLayer.h"
 #include"RoundCounter.h"
 #include"Player.h"
-#include"InventoryMenu.h"
 #include"Dungeon.h"
 #include"InventoryManager.h"
 #include"MonsterManager.h"
@@ -51,7 +50,7 @@ bool GameScene::init()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	RandomNumber::getInstance()->setSeed(100);
+	RandomNumber::getInstance()->setSeed(101);
 
 	InventoryManager::getInstance()->init();
 	CharacterManager::getInstance()->init();
@@ -125,6 +124,10 @@ void GameScene::update(float dt)
 
 void GameScene::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
+	if(keyCode==EventKeyboard::KeyCode::KEY_SPACE)
+	{
+		Player::getInstance()->autoNextStep();
+	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_ENTER
 		&& isControlPlayer)
 	{
@@ -176,7 +179,7 @@ void GameScene::switchControlToHud()
 void GameScene::loadStorey()
 {
 	Dungeon::getInstance()->generate(1);
-//	dungeon->writeToFile();
+	//Dungeon::getInstance()->writeToFile();
 	Storey* floor0 = Dungeon::getInstance()->getStorey();
 
 //	dungeon->writeToFile();

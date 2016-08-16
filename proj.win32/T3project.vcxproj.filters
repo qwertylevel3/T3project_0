@@ -25,8 +25,8 @@
     <Filter Include="src\HUD">
       <UniqueIdentifier>{4dd4675b-99eb-45b3-a0d4-4c130fb78045}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\HUD\InventoryMenu">
-      <UniqueIdentifier>{0556006e-b6a6-4088-9fcf-bf9be224a3cb}</UniqueIdentifier>
+    <Filter Include="src\tool">
+      <UniqueIdentifier>{d6205382-1ddb-48b4-9b9c-3cc06df22875}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -87,12 +87,6 @@
     <ClCompile Include="..\Classes\Player.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\InventoryMenu.cpp">
-      <Filter>src\HUD\InventoryMenu</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\InventoryMenuItem.cpp">
-      <Filter>src\HUD\InventoryMenu</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Weapon.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
@@ -117,16 +111,21 @@
     <ClCompile Include="..\Classes\MonsterModel.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ToolFunction.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\HudMenuItem.cpp">
       <Filter>src\HUD</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\HudCursor.cpp">
       <Filter>src\HUD</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudMenu.cpp" />
+    <ClCompile Include="..\Classes\HudMenu.cpp">
+      <Filter>src\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ToolFunction.cpp">
+      <Filter>src\tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AStar.cpp">
+      <Filter>src\tool</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -192,12 +191,6 @@
     <ClInclude Include="..\Classes\Player.h">
       <Filter>src\character</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\InventoryMenu.h">
-      <Filter>src\HUD\InventoryMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\InventoryMenuItem.h">
-      <Filter>src\HUD\InventoryMenu</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Weapon.h">
       <Filter>src\inventory</Filter>
     </ClInclude>
@@ -222,16 +215,21 @@
     <ClInclude Include="..\Classes\MonsterModel.h">
       <Filter>src\character</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\ToolFunction.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\HudMenuItem.h">
       <Filter>src\HUD</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HudCursor.h">
       <Filter>src\HUD</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudMenu.h" />
+    <ClInclude Include="..\Classes\HudMenu.h">
+      <Filter>src\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ToolFunction.h">
+      <Filter>src\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AStar.h">
+      <Filter>src\tool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

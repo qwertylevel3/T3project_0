@@ -1,5 +1,4 @@
 #include "HudLayer.h"
-#include"InventoryMenu.h"
 #include"HudMenuItem.h"
 #include"HudSender.h"
 #include"HudMenu.h"

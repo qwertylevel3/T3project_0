@@ -4,6 +4,7 @@
 #include"FieldEnum.h"
 #include"RoundCounter.h"
 #include"InventoryManager.h"
+#include"ToolFunction.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -26,6 +27,34 @@ void Player::init()
 
 	Inventory* testInventory0 = InventoryManager::getInstance()->getInventory("sword");
 	characterPtr->addInventory(testInventory0);
+}
+
+void Player::autoNextStep()
+{
+	cocos2d::Point startPoint = characterPtr->getMapCoord();
+	cocos2d::Point endPoint = Dungeon::getInstance()->getStorey()->getDownCoord();
+	cocos2d::Point nextStep = ToolFunction::nextStep(startPoint, endPoint);
+
+	if (nextStep.x == startPoint.x + 1
+		&& nextStep.y == startPoint.y)
+	{
+		handleKeyPressed(cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW);
+	}
+	else if (nextStep.x == startPoint.x - 1
+		&& nextStep.y==startPoint.y)
+	{
+		handleKeyPressed(cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW);
+	}
+	else if (nextStep.x == startPoint.x
+		&& nextStep.y == startPoint.y - 1)
+	{
+		handleKeyPressed(cocos2d::EventKeyboard::KeyCode::KEY_UP_ARROW);
+	}
+	else if (nextStep.x == startPoint.x
+		&& nextStep.y == startPoint.y + 1)
+	{
+		handleKeyPressed(cocos2d::EventKeyboard::KeyCode::KEY_DOWN_ARROW);
+	}
 }
 
 bool Player::isMoveAble(cocos2d::EventKeyboard::KeyCode keyCode)

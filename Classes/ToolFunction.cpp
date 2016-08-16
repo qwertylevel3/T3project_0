@@ -1,7 +1,9 @@
 #include "ToolFunction.h"
 #include<sstream>
+#include"AStar.h"
+#include"Dungeon.h"
 
-
+using namespace Field;
 
 ToolFunction::ToolFunction()
 {
@@ -68,4 +70,26 @@ std::string ToolFunction::WStr2UTF8(const std::wstring & src)
 
 	}
 	return dest;
+}
+
+cocos2d::Point ToolFunction::nextStep(cocos2d::Point src, cocos2d::Point dest)
+{
+	Storey* storey = Dungeon::getInstance()->getStorey();
+
+	AStar astar(src, dest, storey);
+	return astar.nextStep();
+}
+
+std::vector<cocos2d::Point> ToolFunction::findPath(cocos2d::Point src, cocos2d::Point dest)
+{
+	Storey* storey = Dungeon::getInstance()->getStorey();
+
+	AStar astar(src, dest, storey);
+	return astar.findPath();
+}
+
+std::vector<cocos2d::Point> ToolFunction::findPath(Storey * s, cocos2d::Point src, cocos2d::Point dest)
+{
+	AStar astar(src, dest, s);
+	return astar.findPath();
 }
