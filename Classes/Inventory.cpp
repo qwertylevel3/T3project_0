@@ -5,6 +5,13 @@
 
 Inventory::Inventory()
 {
+	evadeProAdd = 0;
+	accuracyProAdd = 0;
+	criticalProAdd = 0;
+	criticalAdd = 0;
+	blockProAdd = 0;
+	blockAdd = 0;
+	comboProAdd = 0;
 }
 
 

@@ -12,6 +12,9 @@ public:
 	void equip(Character* character);
 	void unequip(Character* character);
 protected:
-	CC_SYNTHESIZE(int, damage, Damage);
+	CC_SYNTHESIZE(int, weaponDamage, WeaponDamage);
+	CC_SYNTHESIZE(int, strRequire, StrRequire);
+	CC_SYNTHESIZE(int, agiRequire, AgiRequire);
+	CC_SYNTHESIZE(int, intRequire, IntRequire);
 };
 

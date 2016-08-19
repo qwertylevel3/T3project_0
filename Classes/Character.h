@@ -7,6 +7,9 @@
 
 class GameScene;
 class Inventory;
+class Weapon;
+class Armor;
+class Accessory;
 
 class Character
 {
@@ -36,9 +39,9 @@ public:
 	void setOrientationLeft();
 	void setOrientationRight();
 
-	void equipLeftHand(Inventory* inventory);
+	void equipLeftHand(Weapon* inventory);
 	void unequipLeftHand();
-	void equipRightHand(Inventory* inventory);
+	void equipRightHand(Weapon* inventory);
 	void unequipRightHand();
 
 	cocos2d::Point getPosition();
@@ -62,9 +65,10 @@ protected:
 	//Inventory......
 	std::vector<Inventory*> inventoryList;
 
-	Inventory* leftHand;
-	Inventory* rightHand;
-	Inventory* armor;
+	CC_SYNTHESIZE(Weapon*, leftHand, LeftHand);
+	CC_SYNTHESIZE(Weapon*, rightHand, RightHand);
+	CC_SYNTHESIZE(Armor*, armor, Armor);
+	CC_SYNTHESIZE(Accessory*, accessory, Accessory);
 
 	//attribute......
 	CC_SYNTHESIZE(cocos2d::Point, mapCoord, MapCoord);

@@ -5,6 +5,9 @@
 #include"RoundCounter.h"
 #include"InventoryManager.h"
 #include"ToolFunction.h"
+#include "Weapon.h"
+#include "Accessory.h"
+#include "Armor.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -23,10 +26,23 @@ void Player::init()
 	characterPtr = CharacterManager::getInstance()->getCharacter("Actor0");
 	controlMode = NormalMode;
 
+	characterPtr->setStrength(10);
+	characterPtr->setAgility(10);
+	characterPtr->setIntellect(10);
+
 	//testInventory......
 
-	Inventory* testInventory0 = InventoryManager::getInstance()->getInventory("sword");
-	characterPtr->addInventory(testInventory0);
+	Weapon* sword = new Weapon();
+	sword->setWeaponDamage(20);
+	characterPtr->setLeftHand(sword);
+
+	Weapon* spear = new Weapon();
+	spear->setWeaponDamage(20);
+	characterPtr->setRightHand(spear);
+
+	Armor* armor = new Armor();
+	armor->setArmorCount(5);
+	characterPtr->setArmor(armor);
 }
 
 void Player::autoNextStep()

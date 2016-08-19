@@ -2,6 +2,7 @@
 #include"Dungeon.h"
 #include"Character.h"
 #include"CharacterManager.h"
+#include "BattleSystem.h"
 
 USING_NS_CC;
 
@@ -32,6 +33,7 @@ int Attack::run()
 	return 0;
 }
 
+
 void Attack::showEffect()
 {
 	Point position = caster->getPosition();
@@ -41,32 +43,32 @@ void Attack::showEffect()
 	cocos2d::Sprite* node = Sprite::create();//Sprite::createWithSpriteFrameName("effect_0.png");
 
 	int rotateAngle = 0;
-	cocos2d::Point targetPosition;
+	cocos2d::Point targetCoord;
 
 	switch (caster->getOrientation())
 	{
 	case Character::Orientation::UP:
 		node->setPosition(Point(position.x, position.y + 32));
-		targetPosition.x = caster->getMapCoord().x;
-		targetPosition.y = caster->getMapCoord().y-1;
+		targetCoord.x = caster->getMapCoord().x;
+		targetCoord.y = caster->getMapCoord().y-1;
 		rotateAngle = 0;
 		break;
 	case Character::Orientation::DOWN:
 		node->setPosition(Point(position.x, position.y - 32));
-		targetPosition.x = caster->getMapCoord().x;
-		targetPosition.y = caster->getMapCoord().y + 1;
+		targetCoord.x = caster->getMapCoord().x;
+		targetCoord.y = caster->getMapCoord().y + 1;
 		rotateAngle = 180;
 		break;
 	case Character::Orientation::LEFT:
 		node->setPosition(Point(position.x - 32, position.y));
-		targetPosition.x = caster->getMapCoord().x - 1;
-		targetPosition.y = caster->getMapCoord().y;
+		targetCoord.x = caster->getMapCoord().x - 1;
+		targetCoord.y = caster->getMapCoord().y;
 		rotateAngle = 270;
 		break;
 	case Character::Orientation::RIGHT:
 		node->setPosition(Point(position.x + 32, position.y));
-		targetPosition.x = caster->getMapCoord().x + 1;
-		targetPosition.y = caster->getMapCoord().y;
+		targetCoord.x = caster->getMapCoord().x + 1;
+		targetCoord.y = caster->getMapCoord().y;
 		rotateAngle = 90;
 		break;
 	}
@@ -83,11 +85,9 @@ void Attack::showEffect()
 	node->runAction(Sequence::create(rotateAction,animate, CallFunc::create(CC_CALLBACK_0(Sprite::removeFromParent, node)), NULL));
 
 	//attack an character;
-	Character* targetCharacter = Field::Dungeon::getInstance()->getCharacter(targetPosition.x, targetPosition.y);
+	Character* targetCharacter = Field::Dungeon::getInstance()->getCharacter(targetCoord.x, targetCoord.y);
 	if (targetCharacter)
 	{
-		int attackPoint = caster->getAttack();
-		targetCharacter->sufferDamage(attackPoint);
+		BattleSystem::getInstance()->attack(caster, targetCharacter);
 	}
-
 }

@@ -4,6 +4,9 @@
 #include"Dungeon.h"
 #include"FieldEnum.h"
 #include"Inventory.h"
+#include "Weapon.h"
+#include "Armor.h"
+#include "Accessory.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -140,7 +143,7 @@ void Character::setOrientationRight()
 	setOrientation(Orientation::RIGHT);
 }
 
-void Character::equipLeftHand(Inventory * inventory)
+void Character::equipLeftHand(Weapon* inventory)
 {
 	CCAssert(inventory, "null inventory to equip");
 	leftHand = inventory;
@@ -156,7 +159,7 @@ void Character::unequipLeftHand()
 	leftHand = nullptr;
 }
 
-void Character::equipRightHand(Inventory * inventory)
+void Character::equipRightHand(Weapon* inventory)
 {
 	CCAssert(inventory, "null inventory to equip");
 	rightHand = inventory;
@@ -228,6 +231,11 @@ Character::Character()
 
 	orientation = DOWN;
 	dead = false;
+
+	leftHand = nullptr;
+	rightHand = nullptr;
+	armor = nullptr;
+	accessory = nullptr;
 }
 
 Character::~Character()

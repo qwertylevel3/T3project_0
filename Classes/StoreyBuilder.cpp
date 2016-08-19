@@ -4,7 +4,6 @@
 #include"cocos2d.h"
 #include"Debug.h"
 #include"MonsterManager.h"
-#include"ToolFunction.h"
 
 using namespace Field;
 USING_NS_CC;
@@ -66,20 +65,13 @@ Storey* StoreyBuilder::generate()
 	{
 		CCAssert(false, "Unable to place down stairs\n");
 	}
-
-	std::vector<cocos2d::Point> path = ToolFunction::findPath(storey, storey->getUpCoord(), storey->getDownCoord());
-	for (int i = 0; i < path.size(); i++)
-	{
-		Character* monster = MonsterManager::getInstance()->getMonster("testMonster");
-		CCAssert(monster, "get a null monster");
-		storey->setCharacter(path[i].x, path[i].y, monster);
-	}
-	//	for (int& tile : tiles)
-	//	{
-	//		if (tile == Unused)
-	//			tile = 1;
-	//		else if (tile == Floor || tile == Corridor)
-//			tile = 2;
+//  //起点到终点的路径
+//	std::vector<cocos2d::Point> path = ToolFunction::findPath(storey, storey->getUpCoord(), storey->getDownCoord());
+//	for (int i = 0; i < path.size(); i++)
+//	{
+//		Character* monster = MonsterManager::getInstance()->getMonster("testMonster");
+//		CCAssert(monster, "get a null monster");
+//		storey->setCharacter(path[i].x, path[i].y, monster);
 //	}
 	return storey;
 }

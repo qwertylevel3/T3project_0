@@ -152,6 +152,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Armor.cpp" />
     <ClCompile Include="..\Classes\AStar.cpp" />
     <ClCompile Include="..\Classes\Attack.cpp" />
+    <ClCompile Include="..\Classes\BattleSystem.cpp" />
     <ClCompile Include="..\Classes\Character.cpp" />
     <ClCompile Include="..\Classes\CharacterManager.cpp" />
     <ClCompile Include="..\Classes\CharacterModel.cpp" />
@@ -189,6 +190,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Armor.h" />
     <ClInclude Include="..\Classes\AStar.h" />
     <ClInclude Include="..\Classes\Attack.h" />
+    <ClInclude Include="..\Classes\BattleSystem.h" />
     <ClInclude Include="..\Classes\Character.h" />
     <ClInclude Include="..\Classes\CharacterManager.h" />
     <ClInclude Include="..\Classes\CharacterModel.h" />

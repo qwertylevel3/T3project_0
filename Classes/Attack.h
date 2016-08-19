@@ -1,6 +1,7 @@
 #pragma once
 
 #include"Skill.h"
+#include<vector>
 
 class Attack:public Skill
 {

@@ -28,5 +28,13 @@ protected:
 	CC_SYNTHESIZE(int, weight, Weight);
 	CC_SYNTHESIZE(cocos2d::Sprite*, icon, Icon);
 	CC_SYNTHESIZE(Inventory::Type, inventoryType, InventoryType);
+
+	CC_SYNTHESIZE(int, evadeProAdd, EvadeProAdd);
+	CC_SYNTHESIZE(int, accuracyProAdd, AccuracyProAdd);
+	CC_SYNTHESIZE(int, criticalProAdd, CriticalProAdd);
+	CC_SYNTHESIZE(int, criticalAdd, CriticalAdd);
+	CC_SYNTHESIZE(int, blockProAdd, BlockProAdd);
+	CC_SYNTHESIZE(int, blockAdd, BlockAdd);
+	CC_SYNTHESIZE(int, comboProAdd, ComboProAdd);
 };
 

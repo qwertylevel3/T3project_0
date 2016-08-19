@@ -11,6 +11,7 @@
 #include"Dungeon.h"
 #include"InventoryManager.h"
 #include"MonsterManager.h"
+#include "BattleSystem.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -50,13 +51,14 @@ bool GameScene::init()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	RandomNumber::getInstance()->setSeed(101);
+	RandomNumber::getInstance()->setSeed(100);
 
 	InventoryManager::getInstance()->init();
 	CharacterManager::getInstance()->init();
 	SkillManager::getInstance()->init();
 	Player::getInstance()->init();
 	MonsterManager::getInstance()->init();
+	BattleSystem::getInstance()->init();
 
 	HudLayer::getInstance()->initLayer();
 
