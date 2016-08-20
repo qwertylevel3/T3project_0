@@ -48,6 +48,14 @@ Inventory * InventoryModel::makeInventory()
 	inv->setWeight(weight);
 	inv->setIcon(CCSprite::createWithSpriteFrameName(spriteName));
 
+	inv->setEvadeProAdd(evadeProAdd);
+	inv->setAccuracyProAdd(accuracyProAdd);
+	inv->setCriticalAdd(criticalAdd);
+	inv->setCriticalProAdd(criticalProAdd);
+	inv->setBlockAdd(blockAdd);
+	inv->setBlockProAdd(blockProAdd);
+	inv->setComboProAdd(comboProAdd);
+
 	return inv;
 }
 

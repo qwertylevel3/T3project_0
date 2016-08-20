@@ -4,6 +4,7 @@
 
 Supply::Supply()
 {
+	setInventoryType(Inventory::Supply);
 }
 
 

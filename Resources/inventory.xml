@@ -7,5 +7,12 @@
 		<price>10</price>
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
+		<evadeProAdd>0</evadeProAdd>
+		<accuracyProAdd>0</accuracyProAdd>
+		<criticalProAdd>0</criticalProAdd>
+		<criticalAdd>0</criticalAdd>
+		<blockProAdd>0</blockProAdd>
+		<blockAdd>0</blockAdd>
+		<comboProAdd>0</comboProAdd>
 	</inventory>
 </inventoryList>

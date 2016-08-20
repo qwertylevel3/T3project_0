@@ -1,7 +1,7 @@
 #include "InventoryManager.h"
 #include"cocos2d.h"
-#include"tinyxml2\tinyxml2.h"
 #include<sstream>
+#include "ToolFunction.h"
 
 USING_NS_CC;
 
@@ -28,35 +28,20 @@ void InventoryManager::init()
 	{
 		InventoryModel* model = new InventoryModel();
 
-		tinyxml2::XMLElement* typeElement = inventory->FirstChildElement("type");
-		std::string type = typeElement->GetText();
-		model->setType(type);
+		model->setType(getInventoryStrAttr(inventory,"type"));
+		model->setName(getInventoryStrAttr(inventory,"name"));
+		model->setCname(getInventoryWStrAttr(inventory,"cname"));
+		model->setPrice(getInventoryIntAttr(inventory,"price"));
+		model->setWeight(getInventoryIntAttr(inventory,"weight"));
+		model->setSpriteName(getInventoryStrAttr(inventory,"spriteName"));
 
-		tinyxml2::XMLElement* nameElement = inventory->FirstChildElement("name");
-		std::string name = nameElement->GetText();
-		model->setName(name);
-
-		tinyxml2::XMLElement* cnameElement = inventory->FirstChildElement("cname");
-		std::string cname = cnameElement->GetText();
-		std::wstring wcname(cname.length(), L' ');
-		std::copy(cname.begin(), cname.end(), wcname.begin());
-		model->setCname(wcname);
-
-		tinyxml2::XMLElement* priceElement = inventory->FirstChildElement("price");
-		std::stringstream priceStream(priceElement->GetText());
-		int price;
-		priceStream >> price;
-		model->setPrice(price);
-
-		tinyxml2::XMLElement* weightElement = inventory->FirstChildElement("weight");
-		std::stringstream weightStream(weightElement->GetText());
-		int weight;
-		weightStream >> weight;
-		model->setWeight(weight);
-
-		tinyxml2::XMLElement* spriteNameElement = inventory->FirstChildElement("spriteName");
-		std::string spriteName = spriteNameElement->GetText();
-		model->setSpriteName(spriteName);
+		model->setEvadeProAdd(getInventoryIntAttr(inventory,"evadeProAdd"));
+		model->setAccuracyProAdd(getInventoryIntAttr(inventory, "accuracyProAdd"));
+		model->setCriticalProAdd(getInventoryIntAttr(inventory, "criticalProAdd"));
+		model->setCriticalAdd(getInventoryIntAttr(inventory, "criticalAdd"));
+		model->setBlockProAdd(getInventoryIntAttr(inventory, "blockProAdd"));
+		model->setBlockAdd(getInventoryIntAttr(inventory, "blockAdd"));
+		model->setComboProAdd(getInventoryIntAttr(inventory, "comboProAdd"));
 
 		inventoryMap[model->getName()] = model;
 
@@ -68,4 +53,30 @@ void InventoryManager::init()
 Inventory * InventoryManager::getInventory(std::string inventoryName)
 {
 	return inventoryMap[inventoryName]->makeInventory();
+}
+
+
+std::string InventoryManager::getInventoryStrAttr(tinyxml2::XMLElement* inventory, std::string attrName)
+{
+	tinyxml2::XMLElement* childElement = getChildElement(inventory, attrName);
+	return childElement->GetText();
+}
+
+std::wstring InventoryManager::getInventoryWStrAttr(tinyxml2::XMLElement* inventory, std::string attrName)
+{
+	tinyxml2::XMLElement* childElement = getChildElement(inventory, attrName);
+	return ToolFunction::string2wstring(childElement->GetText());
+}
+
+int InventoryManager::getInventoryIntAttr(tinyxml2::XMLElement* inventory, std::string attrName)
+{
+	tinyxml2::XMLElement* childElement = getChildElement(inventory, attrName);
+	return ToolFunction::string2int(childElement->GetText());
+}
+
+tinyxml2::XMLElement* InventoryManager::getChildElement(tinyxml2::XMLElement* parent, std::string name)
+{
+	tinyxml2::XMLElement* element = parent->FirstChildElement(name.c_str());
+	CCAssert(element, (std::string("unknow element type") + name).c_str());
+	return element;
 }

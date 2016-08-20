@@ -10,11 +10,11 @@ class Inventory
 public:
 	enum Type
 	{
-		Weapon, Armor, Supply, Accessory
+		Weapon, Armor, Supply, Accessory,Other
 	};
 
 	Inventory();
-	~Inventory();
+	virtual ~Inventory()=0;
 	virtual void equip(Character* character);
 	virtual void unequip(Character* character);
 	virtual void load(Character* character);

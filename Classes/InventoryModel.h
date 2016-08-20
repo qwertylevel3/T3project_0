@@ -27,5 +27,13 @@ protected:
 	CC_SYNTHESIZE(int, weight, Weight);
 	CC_SYNTHESIZE(std::string, spriteName, SpriteName);
 	CC_SYNTHESIZE(std::string, type, Type);
+
+	CC_SYNTHESIZE(int, evadeProAdd, EvadeProAdd);
+	CC_SYNTHESIZE(int, accuracyProAdd, AccuracyProAdd);
+	CC_SYNTHESIZE(int, criticalProAdd, CriticalProAdd);
+	CC_SYNTHESIZE(int, criticalAdd, CriticalAdd);
+	CC_SYNTHESIZE(int, blockProAdd, BlockProAdd);
+	CC_SYNTHESIZE(int, blockAdd, BlockAdd);
+	CC_SYNTHESIZE(int, comboProAdd, ComboProAdd);
 };
 

@@ -4,6 +4,7 @@
 
 Armor::Armor()
 {
+	setInventoryType(Inventory::Armor);
 }
 
 

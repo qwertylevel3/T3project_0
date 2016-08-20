@@ -4,6 +4,7 @@
 
 Accessory::Accessory()
 {
+	setInventoryType(Inventory::Accessory);
 }
 
 

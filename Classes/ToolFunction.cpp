@@ -22,6 +22,13 @@ int ToolFunction::string2int(const std::string & str)
 	return temp;
 }
 
+std::wstring ToolFunction::string2wstring(std::string str)
+{
+	std::wstring wstr(str.length(), L' ');
+	std::copy(str.begin(), str.end(), wstr.begin());
+	return wstr;
+}
+
 std::string ToolFunction::WStr2UTF8(const std::wstring & src)
 {
 	std::string dest;
