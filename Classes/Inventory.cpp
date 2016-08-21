@@ -22,12 +22,24 @@ Inventory::~Inventory()
 {
 }
 
-void Inventory::equip(Character* character)
+void Inventory::equipLeftHand(Character* character)
 {
+
 }
 
-void Inventory::unequip(Character* character)
+void Inventory::unequipLeftHand(Character* character)
 {
+
+}
+
+void Inventory::equipRightHand(Character* character)
+{
+
+}
+
+void Inventory::unequipRightHand(Character* character)
+{
+
 }
 
 void Inventory::load(Character* character)

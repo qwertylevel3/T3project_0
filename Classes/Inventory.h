@@ -16,8 +16,10 @@ public:
 	Inventory();
 	virtual ~Inventory()=0;
 	virtual Inventory* clone()=0;
-	virtual void equip(Character* character);
-	virtual void unequip(Character* character);
+	virtual void equipLeftHand(Character* character);
+	virtual void unequipLeftHand(Character* character);
+	virtual void equipRightHand(Character* character);
+	virtual void unequipRightHand(Character* character);
 	virtual void load(Character* character);
 	virtual void unload(Character* character);
 	virtual void use(Character* character);

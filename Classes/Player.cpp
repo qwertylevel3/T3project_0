@@ -32,13 +32,11 @@ void Player::init()
 
 	//testInventory......
 
-	Weapon* sword = new Weapon();
-	sword->setWeaponDamage(20);
-	characterPtr->setLeftHand(sword);
+	Inventory* woodSword = InventoryManager::getInstance()->getInventory("sword000");
+	woodSword->equipLeftHand(characterPtr);
 
-	Weapon* spear = new Weapon();
-	spear->setWeaponDamage(20);
-	characterPtr->setRightHand(spear);
+	Inventory* ironSword = InventoryManager::getInstance()->getInventory("sword001");
+	ironSword->equipRightHand(characterPtr);
 
 //	Armor* armor = new Armor();
 //	armor->setArmorCount(5);

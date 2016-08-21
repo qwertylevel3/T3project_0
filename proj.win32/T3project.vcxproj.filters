@@ -123,7 +123,9 @@
     <ClCompile Include="..\Classes\AStar.cpp">
       <Filter>src\tool</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BattleSystem.cpp" />
+    <ClCompile Include="..\Classes\BattleSystem.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -225,7 +227,9 @@
     <ClInclude Include="..\Classes\AStar.h">
       <Filter>src\tool</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BattleSystem.h" />
+    <ClInclude Include="..\Classes\BattleSystem.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

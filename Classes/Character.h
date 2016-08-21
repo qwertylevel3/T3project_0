@@ -39,10 +39,6 @@ public:
 	void setOrientationLeft();
 	void setOrientationRight();
 
-	void equipLeftHand(Weapon* inventory);
-	void unequipLeftHand();
-	void equipRightHand(Weapon* inventory);
-	void unequipRightHand();
 
 	cocos2d::Point getPosition();
 	void setPosition(float x, float y);

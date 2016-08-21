@@ -8,6 +8,7 @@ class Armor:public Inventory
 public:
 	Armor();
 	~Armor();
+	Armor* clone();
 protected:
 	CC_SYNTHESIZE(int, armorCount, ArmorCount);
 };

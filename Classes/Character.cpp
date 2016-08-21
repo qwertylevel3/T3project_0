@@ -143,38 +143,6 @@ void Character::setOrientationRight()
 	setOrientation(Orientation::RIGHT);
 }
 
-void Character::equipLeftHand(Weapon* inventory)
-{
-	CCAssert(inventory, "null inventory to equip");
-	leftHand = inventory;
-	inventory->equip(this);
-}
-
-void Character::unequipLeftHand()
-{
-	if (leftHand)
-	{
-		leftHand->unequip(this);
-	}
-	leftHand = nullptr;
-}
-
-void Character::equipRightHand(Weapon* inventory)
-{
-	CCAssert(inventory, "null inventory to equip");
-	rightHand = inventory;
-	inventory->equip(this);
-}
-
-void Character::unequipRightHand()
-{
-	if (rightHand)
-	{
-		rightHand->unequip(this);
-	}
-	rightHand = nullptr;
-}
-
 
 cocos2d::Point Character::getPosition()
 {

@@ -1,4 +1,5 @@
 #include "Weapon.h"
+#include "Character.h"
 
 
 
@@ -12,12 +13,24 @@ Weapon::~Weapon()
 {
 }
 
-void Weapon::equip(Character* character)
+void Weapon::equipLeftHand(Character* character)
 {
+	character->setLeftHand(this);
 }
 
-void Weapon::unequip(Character* character)
+void Weapon::unequipLeftHand(Character* character)
 {
+	character->setLeftHand(nullptr);
+}
+
+void Weapon::equipRightHand(Character* character)
+{
+	character->setRightHand(this);
+}
+
+void Weapon::unequipRightHand(Character* character)
+{
+	character->setRightHand(nullptr);
 }
 
 Weapon* Weapon::clone()
