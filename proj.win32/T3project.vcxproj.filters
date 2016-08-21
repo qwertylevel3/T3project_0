@@ -93,9 +93,6 @@
     <ClCompile Include="..\Classes\InventoryManager.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\InventoryModel.cpp">
-      <Filter>src\inventory</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Accessory.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
@@ -196,9 +193,6 @@
       <Filter>src\inventory</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\InventoryManager.h">
-      <Filter>src\inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\InventoryModel.h">
       <Filter>src\inventory</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Accessory.h">

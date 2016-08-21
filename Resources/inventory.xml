@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
 <inventoryList>
 	<inventory>
 		<type>weapon</type>
-		<name>sword</name>
-		<cname>剑</cname>
+		<name>sword000</name>
+		<cname>木剑</cname>
+		<price>8</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<evadeProAdd>0</evadeProAdd>
+		<accuracyProAdd>0</accuracyProAdd>
+		<criticalProAdd>0</criticalProAdd>
+		<criticalAdd>0</criticalAdd>
+		<blockProAdd>0</blockProAdd>
+		<blockAdd>0</blockAdd>
+		<comboProAdd>3</comboProAdd>
+		<weaponDamage>4</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+	</inventory>
+	<inventory>
+		<type>weapon</type>
+		<name>sword001</name>
+		<cname>铁剑</cname>
 		<price>10</price>
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -14,5 +34,28 @@
 		<blockProAdd>0</blockProAdd>
 		<blockAdd>0</blockAdd>
 		<comboProAdd>0</comboProAdd>
+		<weaponDamage>6</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+	</inventory>
+	<inventory>
+		<type>weapon</type>
+		<name>sword002</name>
+		<cname>钢剑</cname>
+		<price>14</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<evadeProAdd>0</evadeProAdd>
+		<accuracyProAdd>0</accuracyProAdd>
+		<criticalProAdd>0</criticalProAdd>
+		<criticalAdd>0</criticalAdd>
+		<blockProAdd>0</blockProAdd>
+		<blockAdd>0</blockAdd>
+		<comboProAdd>0</comboProAdd>
+		<weaponDamage>8</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
 	</inventory>
 </inventoryList>

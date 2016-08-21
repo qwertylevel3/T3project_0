@@ -15,19 +15,25 @@ public:
 
 	Inventory();
 	virtual ~Inventory()=0;
+	virtual Inventory* clone()=0;
 	virtual void equip(Character* character);
 	virtual void unequip(Character* character);
 	virtual void load(Character* character);
 	virtual void unload(Character* character);
 	virtual void use(Character* character);
+	void copyData(Inventory* inventory);
+	cocos2d::Sprite* getIcon();
+
 protected:
 	CC_SYNTHESIZE(int, id, Id);
 	CC_SYNTHESIZE(std::string, name, Name);
 	CC_SYNTHESIZE(std::wstring, cname, Cname);
 	CC_SYNTHESIZE(int, price, Price);
 	CC_SYNTHESIZE(int, weight, Weight);
-	CC_SYNTHESIZE(cocos2d::Sprite*, icon, Icon);
+	CC_SYNTHESIZE(std::string, spriteName, SpriteName);
 	CC_SYNTHESIZE(Inventory::Type, inventoryType, InventoryType);
+
+	cocos2d::Sprite* icon;
 
 	CC_SYNTHESIZE(int, evadeProAdd, EvadeProAdd);
 	CC_SYNTHESIZE(int, accuracyProAdd, AccuracyProAdd);

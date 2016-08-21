@@ -40,9 +40,9 @@ void Player::init()
 	spear->setWeaponDamage(20);
 	characterPtr->setRightHand(spear);
 
-	Armor* armor = new Armor();
-	armor->setArmorCount(5);
-	characterPtr->setArmor(armor);
+//	Armor* armor = new Armor();
+//	armor->setArmorCount(5);
+//	characterPtr->setArmor(armor);
 }
 
 void Player::autoNextStep()

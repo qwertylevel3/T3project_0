@@ -11,6 +11,7 @@ public:
 	~Weapon();
 	void equip(Character* character);
 	void unequip(Character* character);
+	Weapon* clone();
 protected:
 	CC_SYNTHESIZE(int, weaponDamage, WeaponDamage);
 	CC_SYNTHESIZE(int, strRequire, StrRequire);

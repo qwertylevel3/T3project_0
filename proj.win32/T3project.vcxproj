@@ -166,7 +166,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudSender.cpp" />
     <ClCompile Include="..\Classes\Inventory.cpp" />
     <ClCompile Include="..\Classes\InventoryManager.cpp" />
-    <ClCompile Include="..\Classes\InventoryModel.cpp" />
     <ClCompile Include="..\Classes\MonsterManager.cpp" />
     <ClCompile Include="..\Classes\MonsterModel.cpp" />
     <ClCompile Include="..\Classes\Player.cpp" />
@@ -205,7 +204,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudSender.h" />
     <ClInclude Include="..\Classes\Inventory.h" />
     <ClInclude Include="..\Classes\InventoryManager.h" />
-    <ClInclude Include="..\Classes\InventoryModel.h" />
     <ClInclude Include="..\Classes\MonsterManager.h" />
     <ClInclude Include="..\Classes\MonsterModel.h" />
     <ClInclude Include="..\Classes\Player.h" />
