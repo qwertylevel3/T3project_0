@@ -21,37 +21,7 @@ void MonsterManager::init()
 	tinyxml2::XMLElement* monsterElement = monsterBoxElement->FirstChildElement();
 	while (monsterElement)
 	{
-		MonsterModel* model = new MonsterModel();
-
-		tinyxml2::XMLElement* nameElement = monsterElement->FirstChildElement("name");
-		std::string name = nameElement->GetText();
-		model->setName(name);
-
-		tinyxml2::XMLElement* characterNameElement = monsterElement->FirstChildElement("characterName");
-		std::string characterName = characterNameElement->GetText();
-		model->setCharacterName(characterName);
-
-		tinyxml2::XMLElement* strengthElement = monsterElement->FirstChildElement("strength");
-		std::string strengthStr = strengthElement->GetText();
-		model->setStrength(ToolFunction::string2int(strengthStr));
-
-		tinyxml2::XMLElement* intellectElement = monsterElement->FirstChildElement("intellect");
-		std::string intellectStr = intellectElement->GetText();
-		model->setIntellect(ToolFunction::string2int(intellectStr));
-
-		tinyxml2::XMLElement* agilityElement = monsterElement->FirstChildElement("agility");
-		std::string agilityStr = agilityElement->GetText();
-		model->setAgility(ToolFunction::string2int(agilityStr));
-
-		tinyxml2::XMLElement* HPElement = monsterElement->FirstChildElement("HP");
-		std::string HPStr = HPElement->GetText();
-		model->setHP(ToolFunction::string2int(HPStr));
-
-		tinyxml2::XMLElement* MPElement = monsterElement->FirstChildElement("MP");
-		std::string MPStr = MPElement->GetText();
-		model->setMP(ToolFunction::string2int(MPStr));
-
-		monsterMap[model->getName()] = model;
+		initModel(monsterElement);
 
 		monsterElement = monsterElement->NextSiblingElement();
 	}
@@ -60,4 +30,31 @@ void MonsterManager::init()
 Character * MonsterManager::getMonster(std::string name)
 {
 	return monsterMap[name]->makeMonster();
+}
+
+void MonsterManager::initModel(tinyxml2::XMLElement* monsterElement)
+{
+	MonsterModel* model = new MonsterModel();
+
+	model->setName(getStrAttr(monsterElement,"name"));
+	model->setCharacterName(getStrAttr(monsterElement,"characterName"));
+	model->setStrength(getIntAttr(monsterElement,"strength"));
+	model->setIntellect(getIntAttr(monsterElement,"intellect"));
+	model->setAgility(getIntAttr(monsterElement,"agility"));
+	model->setHP(getIntAttr(monsterElement,"HP"));
+	model->setMP(getIntAttr(monsterElement,"MP"));
+
+	monsterMap[model->getName()] = model;
+}
+
+int MonsterManager::getIntAttr(tinyxml2::XMLElement* element, const std::string& attrName)
+{
+	tinyxml2::XMLElement* attrElement = element->FirstChildElement(attrName.c_str());
+	return ToolFunction::string2int(attrElement->GetText());
+}
+
+std::string MonsterManager::getStrAttr(tinyxml2::XMLElement* element, const std::string& attrName)
+{
+	tinyxml2::XMLElement* attrElement = element->FirstChildElement(attrName.c_str());
+	return attrElement->GetText();
 }
