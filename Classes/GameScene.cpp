@@ -134,11 +134,13 @@ void GameScene::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 		&& isControlPlayer)
 	{
 		switchControlToHud();
+		return;
 	}
 	if (keyCode == EventKeyboard::KeyCode::KEY_ESCAPE
 		&& !isControlPlayer)
 	{
 		switchControlToPlayer();
+		return;
 	}
 	if (isControlPlayer)
 	{

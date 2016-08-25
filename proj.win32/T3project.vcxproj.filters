@@ -126,6 +126,7 @@
     <ClCompile Include="..\Classes\BattleSystem.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\HudMenuSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -230,6 +231,7 @@
     <ClInclude Include="..\Classes\BattleSystem.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\HudMenuSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

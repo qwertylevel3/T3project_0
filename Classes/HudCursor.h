@@ -3,7 +3,7 @@
 #include"Singleton.h"
 #include"base\CCEventKeyboard.h"
 #include"2d\CCSprite.h"
-class HudMenuItem;
+class HudMenu;
 
 class HudCursor:public Singleton<HudCursor>
 {
@@ -18,14 +18,14 @@ public:
 	void show();
 	void hide();
 	cocos2d::Sprite* getSprite();
-	void setCurItem(HudMenuItem* item);
+	void setCurMenu(HudMenu* menu);
 
 	void handleLeft();
 	void handleRight();
 	void handleUp();
 	void handleDown();
 protected:
-	HudMenuItem* curItem;
+	HudMenu* curMenu;
 	cocos2d::Sprite* sprite;
 };
 

@@ -1,6 +1,6 @@
 #include "HudCursor.h"
 #include"cocos2d.h"
-#include"HudMenuItem.h"
+#include"HudMenu.h"
 
 
 USING_NS_CC;
@@ -71,34 +71,34 @@ cocos2d::Sprite * HudCursor::getSprite()
 	return sprite;
 }
 
-void HudCursor::setCurItem(HudMenuItem * item)
+void HudCursor::setCurMenu(HudMenu* menu)
 {
 	cocos2d::Node* parent = sprite->getParent();
 	if (parent)
 	{
 		parent->removeChild(sprite);
 	}
-	curItem = item;
-	item->getSprite()->addChild(sprite, 2);
-	item->initCursor();
+	curMenu = menu;
+	menu->getSprite()->addChild(sprite, 2);
+	menu->initCursor();
 }
 
 void HudCursor::handleLeft()
 {
-	curItem->handleLeft();
+	curMenu->handleLeft();
 }
 
 void HudCursor::handleRight()
 {
-	curItem->handleRight();
+	curMenu->handleRight();
 }
 
 void HudCursor::handleUp()
 {
-	curItem->handleUp();
+	curMenu->handleUp();
 }
 
 void HudCursor::handleDown()
 {
-	curItem->handleDown();
+	curMenu->handleDown();
 }
