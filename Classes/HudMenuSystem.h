@@ -16,6 +16,8 @@ public:
 	void hide();
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 protected:
+	void initMainMenu();
+	void initInventoryMenu();
 	HudMenu* mainMenu;
 	HudInventoryMenu* inventoryMenu;
 };

@@ -14,6 +14,7 @@ HudMenu::HudMenu(cocos2d::Rect rect)
 	sprite->retain();
 	marginal.x = 10;
 	marginal.y = 10;
+	parent = nullptr;
 }
 
 
@@ -30,19 +31,19 @@ void HudMenu::update()
 
 void HudMenu::handleUp()
 {
-	itemIndex = itemIndex == 0 ? itemIndex : itemIndex - 1;
+	decreaseIndex();
 	chooseItem(itemIndex);
 }
 
 void HudMenu::handleDown()
 {
-	itemIndex = itemIndex == itemList.size() - 1 ? itemIndex : itemIndex + 1;
+	increaseIndex();
 	chooseItem(itemIndex);
 }
 
 void HudMenu::handleLeft()
 {
-
+	closeMenu();
 }
 
 void HudMenu::handleRight()
@@ -80,7 +81,7 @@ void HudMenu::setCursorPosition(int index)
 
 void HudMenu::initCursor()
 {
-	chooseItem(0);
+	chooseItem(itemIndex);
 }
 
 void HudMenu::addItem(HudMenuItem* item)
@@ -143,6 +144,10 @@ void HudMenu::chooseItem(int index)
 
 void HudMenu::activeChildMenu(int index)
 {
+	if (itemList.empty())
+	{
+		return;
+	}
 	HudMenu* childMenu = itemList[index]->getRelateMenu();
 	if (childMenu)
 	{
@@ -156,6 +161,27 @@ void HudMenu::setParent(HudMenu* p)
 {
 	parent = p;
 }
+
+void HudMenu::closeMenu()
+{
+	if (!parent)
+	{
+		return;
+	}
+	hide();
+	HudCursor::getInstance()->setCurMenu(parent);
+}
+
+void HudMenu::increaseIndex()
+{
+	itemIndex = itemIndex == itemList.size() - 1 ? itemIndex : itemIndex + 1;
+}
+
+void HudMenu::decreaseIndex()
+{
+	itemIndex = itemIndex == 0 ? itemIndex : itemIndex - 1;
+}
+
 
 void HudMenu::clear()
 {

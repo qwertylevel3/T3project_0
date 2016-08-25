@@ -12,6 +12,7 @@ HudMenuItem::HudMenuItem(const std::string& name)
 	label->retain();
 	marginal.x = 10;
 	marginal.y = 10;
+	relateMenu = nullptr;
 }
 
 

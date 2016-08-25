@@ -28,6 +28,9 @@ public:
 	void chooseItem(int index);
 	void activeChildMenu(int index);
 	void setParent(HudMenu* p);
+	void closeMenu();
+	void increaseIndex();
+	void decreaseIndex();
 protected:
 	void clear();
 	HudMenu* parent;
