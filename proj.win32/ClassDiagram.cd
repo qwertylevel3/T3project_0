@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AppDelegate" Collapsed="true">
+    <Position X="34.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAACAAQAAAEAAAAAAAAAAAAk=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\AppDelegate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BattleSystem" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACEABUAAAAAIAAIAAGgAAABjBAAAFAKCAAAGAAAAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\BattleSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Debug" Collapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAgAAAIAIAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\Debug.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameScene" Collapsed="true">
+    <Position X="36.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAYAAAAAQAAAAAAARAIIAhAAEABEAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\GameScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomNumber" Collapsed="true">
+    <Position X="21" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAEAAAACAAIAAAAAgQ=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\RandomNumber.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoundCounter" Collapsed="true">
+    <Position X="16.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAoAAAAAAAIAAFAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\RoundCounter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Singleton&lt;SubClass&gt;" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAUAAEAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\Singleton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Attack" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAEIAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\Attack.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Skill" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAIAAgAgAAAAABAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\Skill.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SkillManager" Collapsed="true">
+    <Position X="14.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAABAAAAAAAAAAAAgAAAAAIAAAiAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\SkillManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Character" Collapsed="true">
+    <Position X="38.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>pQIgKAAxAKACUgAAARAgIAgSABQQAAMKAACACFEAKgA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\Character.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CharacterManager" Collapsed="true">
+    <Position X="23.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAFAAAAAAIAAAAAABAAAACAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\CharacterManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CharacterModel" Collapsed="true">
+    <Position X="34.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIAAAiAgAAACAgAAwAAgAAwCAAAAAgEgABAAEBAAAIA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\CharacterModel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterManager" Collapsed="true">
+    <Position X="30" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAECAABQAAAAAQAAAAAAAIAAAgAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\MonsterManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterModel" Collapsed="true">
+    <Position X="34.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAEAAAAAAEAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\MonsterModel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQBAAAAgAAAAAAIAACAAAAAAAAAAAAoAQgAAAQBAABA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Accessory" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\Accessory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Armor" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAgAAAAAAAAAAAAAAAAAEAAAEAAAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\Armor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Inventory" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAgAIAgAABAAABCAAAAAAAAAAAABQAAUgAQAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\Inventory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryManager" Collapsed="true">
+    <Position X="27.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAIAECAAABAAAAACAAAEJIAAgAIIAAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\InventoryManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Supply" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\Supply.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Weapon" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAgAAAgAAAAAAACAAAAAAAAAAgAAAAAUAAAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\Weapon.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HudLayer" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAEAAAAABAAAABACAAABgAIAAAEAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\HudLayer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HudSender" Collapsed="true">
+    <Position X="25.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAoAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\HudSender.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HudCursor" Collapsed="true">
+    <Position X="16.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABACIAAAAAABACABACARQAAAAABhAEAEAAABA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\HudCursor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HudMenu" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEAAAAAAAAAAAADAQBCIABACAJQARAAEBhAEiEREABA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\HudMenu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HudMenuItem" Collapsed="true">
+    <Position X="38.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAIAAgAAAAABAAgAAAABACAAAAUAAIBAAAAAAAIAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\HudMenuItem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HudMenuSystem" Collapsed="true">
+    <Position X="32.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAEAEAIQJgAAIABAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\HudMenuSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HudInventoryMenu" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAEAAI=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\HudInventoryMenu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AStar" Collapsed="true">
+    <Position X="36.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAJBiAAAAAAAAEAiAEAAAAAAgAAAAAABAAAAIAAAAAQ=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\AStar.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ToolFunction" Collapsed="true">
+    <Position X="38.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIARAAAAAAAAAADAAAAAAAAgCAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\ToolFunction.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Field::Dungeon" Collapsed="true">
+    <Position X="18.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BEEgAAAgAAYIgAAAAAAAYAAAAAgAAAAAQAAAJAAAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\Dungeon.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Field::Storey" Collapsed="true">
+    <Position X="36.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YgAAAAAgAAQIACQAQAAAAAIAAgAASIAEAIIABQEQAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\Storey.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Field::StoreyBuilder" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CACAAAAAAAAAAAAAAAIAAAQAAgAAAAIDQAABAAAAAgA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\StoreyBuilder.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Field::Rect" Collapsed="true">
+    <Position X="34.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAQAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\FieldEnum.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="Field::Tile" Collapsed="true">
+    <Position X="36.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAggAAAAABAQAAABAAAQAAEAAAAAAAQA=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\FieldEnum.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Field::Direction" Collapsed="true">
+    <Position X="34.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAgAAAAAAAEAAAAAAAAAAAAAABAAQ=</HashCode>
+      <FileName>C:\Users\Administrator\asd\cocos\T3project\Classes\FieldEnum.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

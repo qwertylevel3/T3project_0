@@ -10,6 +10,7 @@ class Inventory;
 class Weapon;
 class Armor;
 class Accessory;
+class AIBase;
 
 class Character
 {
@@ -24,6 +25,7 @@ public:
 	};
 	Character();
 	~Character();
+	void update();
 
 	bool isMoveAble(cocos2d::Point position);
 
@@ -53,8 +55,11 @@ public:
 	cocos2d::CCSprite* getSprite();
 	void setSprite(std::string spriteName);
 
-	int getAttack();
+	void setAI(AIBase* a);
 protected:
+	//AI......
+	AIBase* ai;
+
 	//Skill......
 	std::map<std::string, Skill*> skillBox;
 
@@ -71,11 +76,12 @@ protected:
 	CC_SYNTHESIZE(int, strength, Strength);
 	CC_SYNTHESIZE(int, intellect, Intellect);
 	CC_SYNTHESIZE(int, agility, Agility);
+	CC_SYNTHESIZE(int, maxHP, MaxHP);
+	CC_SYNTHESIZE(int, maxMP, MaxMP);
 	CC_SYNTHESIZE(int, HP, HP);
 	CC_SYNTHESIZE(int, MP, MP);
-	CC_SYNTHESIZE(int, curHP, CurHP);
-	CC_SYNTHESIZE(int, curMP, CurMP);
 	CC_SYNTHESIZE(Type, characterType, CharacterType);
+	CC_SYNTHESIZE(int, viewSize, ViewSize);
 	bool dead;
 
 	CC_SYNTHESIZE(GameScene*, scene, Scene);

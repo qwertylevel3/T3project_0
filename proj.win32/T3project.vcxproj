@@ -148,6 +148,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\Accessory.cpp" />
+    <ClCompile Include="..\Classes\AIBase.cpp" />
+    <ClCompile Include="..\Classes\AICommonEnemy.cpp" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\Armor.cpp" />
     <ClCompile Include="..\Classes\AStar.cpp" />
@@ -187,6 +189,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\Accessory.h" />
+    <ClInclude Include="..\Classes\AIBase.h" />
+    <ClInclude Include="..\Classes\AICommonEnemy.h" />
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\Armor.h" />
     <ClInclude Include="..\Classes\AStar.h" />
@@ -237,6 +241,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

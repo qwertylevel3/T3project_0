@@ -21,8 +21,8 @@ Character * MonsterModel::makeMonster()
 	monster->setAgility(agility);
 	monster->setHP(HP);
 	monster->setMP(MP);
-	monster->setCurHP(HP);
-	monster->setCurMP(MP);
+	monster->setMaxHP(HP);
+	monster->setMaxMP(MP);
 	monster->setCharacterType(Character::Bad);
 
 	return monster;

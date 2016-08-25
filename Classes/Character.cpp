@@ -7,14 +7,15 @@
 #include "Weapon.h"
 #include "Armor.h"
 #include "Accessory.h"
+#include "AIBase.h"
 
 USING_NS_CC;
 using namespace Field;
 
 void Character::sufferDamage(int damage)
 {
-	curHP -= damage;
-	if (curHP <= 0)
+	HP -= damage;
+	if (HP <= 0)
 	{
 		die();
 	}
@@ -186,11 +187,12 @@ void Character::setSprite(std::string spriteName)
 	sprite->retain();
 }
 
-int Character::getAttack()
-{
-	return 10;
-}
 
+void Character::setAI(AIBase* a)
+{
+	ai = a;
+	ai->setCharacter(this);
+}
 
 Character::Character()
 {
@@ -204,6 +206,8 @@ Character::Character()
 	rightHand = nullptr;
 	armor = nullptr;
 	accessory = nullptr;
+
+	ai = nullptr;
 }
 
 Character::~Character()
@@ -213,6 +217,14 @@ Character::~Character()
 	moveDownAnimation->release();
 	moveLeftAnimation->release();
 	moveRightAnimation->release();
+}
+
+void Character::update()
+{
+	if (ai)
+	{
+		ai->update();
+	}
 }
 
 bool Character::isMoveAble(cocos2d::Point position)

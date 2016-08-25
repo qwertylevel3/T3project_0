@@ -17,5 +17,6 @@ protected:
 	CC_SYNTHESIZE(int, agility, Agility);
 	CC_SYNTHESIZE(int, HP, HP);
 	CC_SYNTHESIZE(int, MP, MP);
+	CC_SYNTHESIZE(int, viewSize, ViewSize);
 };
 

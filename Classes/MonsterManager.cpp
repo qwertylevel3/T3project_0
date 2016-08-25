@@ -27,7 +27,7 @@ void MonsterManager::init()
 	}
 }
 
-Character * MonsterManager::getMonster(std::string name)
+Character * MonsterManager::getMonster(const std::string& name)
 {
 	return monsterMap[name]->makeMonster();
 }
@@ -43,6 +43,7 @@ void MonsterManager::initModel(tinyxml2::XMLElement* monsterElement)
 	model->setAgility(getIntAttr(monsterElement,"agility"));
 	model->setHP(getIntAttr(monsterElement,"HP"));
 	model->setMP(getIntAttr(monsterElement,"MP"));
+	model->setViewSize(getIntAttr(monsterElement,"viewSize"));
 
 	monsterMap[model->getName()] = model;
 }

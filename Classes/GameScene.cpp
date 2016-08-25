@@ -51,7 +51,7 @@ bool GameScene::init()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	RandomNumber::getInstance()->setSeed(101);
+	RandomNumber::getInstance()->setSeed(100);
 
 	InventoryManager::getInstance()->init();
 	CharacterManager::getInstance()->init();
@@ -64,11 +64,6 @@ bool GameScene::init()
 
 //	Debug::getInstance()->init(HudLayer::getInstance());
 
-//	std::stringstream ss;
-//	std::string str;
-//	ss << RoundCounter::getInstance()->getRoundCount();
-//	ss >> str;
-//	Debug::getInstance()->showMessage(str, cocos2d::Point(100, 100));
 	HudLayer::getInstance()->addSender(RoundCounter::getInstance());
 
 	loadStorey();
@@ -120,6 +115,7 @@ void GameScene::setViewPointCenter(Point position) {
 void GameScene::update(float dt)
 {
 	Character* player = Player::getInstance()->getcharacterPtr();
+	player->update();
 	this->setViewPointCenter(player->getPosition());
 	HudLayer::getInstance()->update();
 }

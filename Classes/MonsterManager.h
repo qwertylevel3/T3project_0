@@ -14,7 +14,7 @@ public:
 	MonsterManager();
 	~MonsterManager();
 	void init();
-	Character* getMonster(std::string name);
+	Character* getMonster(const std::string& name);
 protected:
 	void initModel(tinyxml2::XMLElement* monsterElement);
 	int getIntAttr(tinyxml2::XMLElement* element,const std::string& attrName);

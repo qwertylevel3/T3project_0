@@ -8,6 +8,8 @@
 #include "Weapon.h"
 #include "Accessory.h"
 #include "Armor.h"
+//test
+#include "AICommonEnemy.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -50,6 +52,10 @@ void Player::init()
 //	Armor* armor = new Armor();
 //	armor->setArmorCount(5);
 //	characterPtr->setArmor(armor);
+
+	AICommonEnemy* ai = new AICommonEnemy();
+
+	characterPtr->setAI(ai);
 }
 
 void Player::autoNextStep()

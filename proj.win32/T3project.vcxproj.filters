@@ -31,6 +31,9 @@
     <Filter Include="src\HUD\menu">
       <UniqueIdentifier>{ff7d8308-3303-4a31-8d1c-5ee0310b2851}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\character\AI">
+      <UniqueIdentifier>{74871ae6-495b-49ef-8f22-2cdc2fa553ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -135,6 +138,10 @@
     <ClCompile Include="..\Classes\HudInventoryMenu.cpp">
       <Filter>src\HUD\menu</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\AIBase.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AICommonEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -245,10 +252,17 @@
     <ClInclude Include="..\Classes\HudInventoryMenu.h">
       <Filter>src\HUD\menu</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\AIBase.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AICommonEnemy.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
       <Filter>resource</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
