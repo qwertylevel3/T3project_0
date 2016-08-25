@@ -4,6 +4,7 @@
 #include"base\CCEventKeyboard.h"
 
 class HudMenu;
+class HudInventoryMenu;
 
 class HudMenuSystem:public Singleton<HudMenuSystem>
 {
@@ -15,6 +16,7 @@ public:
 	void hide();
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 protected:
-	HudMenu* menu;
+	HudMenu* mainMenu;
+	HudInventoryMenu* inventoryMenu;
 };
 

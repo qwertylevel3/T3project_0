@@ -160,6 +160,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Dungeon.cpp" />
     <ClCompile Include="..\Classes\GameScene.cpp" />
     <ClCompile Include="..\Classes\HudCursor.cpp" />
+    <ClCompile Include="..\Classes\HudInventoryMenu.cpp" />
     <ClCompile Include="..\Classes\HudLayer.cpp" />
     <ClCompile Include="..\Classes\HudMenu.cpp" />
     <ClCompile Include="..\Classes\HudMenuItem.cpp" />
@@ -199,6 +200,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\FieldEnum.h" />
     <ClInclude Include="..\Classes\GameScene.h" />
     <ClInclude Include="..\Classes\HudCursor.h" />
+    <ClInclude Include="..\Classes\HudInventoryMenu.h" />
     <ClInclude Include="..\Classes\HudLayer.h" />
     <ClInclude Include="..\Classes\HudMenu.h" />
     <ClInclude Include="..\Classes\HudMenuItem.h" />

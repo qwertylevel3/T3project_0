@@ -11,6 +11,7 @@ class HudMenu
 public:
 	HudMenu(cocos2d::Rect rect);
 	~HudMenu();
+	virtual void update();
 	virtual void handleUp();
 	virtual void handleDown();
 	virtual void handleLeft();
@@ -25,7 +26,11 @@ public:
 	int getHeight();
 	cocos2d::Sprite* getSprite();
 	void chooseItem(int index);
+	void activeChildMenu(int index);
+	void setParent(HudMenu* p);
 protected:
+	void clear();
+	HudMenu* parent;
 	//ÄÚ±ß¿ò¾à
 	cocos2d::Vec2 marginal;
 	cocos2d::Sprite* sprite;

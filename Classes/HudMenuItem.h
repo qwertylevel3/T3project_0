@@ -9,7 +9,7 @@ class HudMenu;
 class HudMenuItem
 {
 public:
-	HudMenuItem(const std::wstring& name);
+	HudMenuItem(const std::string& name);
 	~HudMenuItem();
 
 	void show();
@@ -17,14 +17,12 @@ public:
 	void setPosition(cocos2d::Point position);
 	void setMenu(HudMenu* menu);
 	cocos2d::Point getPosition();
-	std::string getUTF8name();
 	int getHeight();
 	int getWidth();
 	cocos2d::Label* getLabel();
 protected:
-	CC_SYNTHESIZE(std::wstring, name, Name);
 	CC_SYNTHESIZE(cocos2d::Point, marginal, marginal);
-	HudMenu* relateMenu;
+	CC_SYNTHESIZE(HudMenu*, relateMenu, RelateMenu);
 	cocos2d::Label* label;
 };
 

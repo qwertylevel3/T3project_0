@@ -28,6 +28,9 @@
     <Filter Include="src\tool">
       <UniqueIdentifier>{d6205382-1ddb-48b4-9b9c-3cc06df22875}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\HUD\menu">
+      <UniqueIdentifier>{ff7d8308-3303-4a31-8d1c-5ee0310b2851}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -108,15 +111,6 @@
     <ClCompile Include="..\Classes\MonsterModel.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudMenuItem.cpp">
-      <Filter>src\HUD</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\HudCursor.cpp">
-      <Filter>src\HUD</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\HudMenu.cpp">
-      <Filter>src\HUD</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\ToolFunction.cpp">
       <Filter>src\tool</Filter>
     </ClCompile>
@@ -126,7 +120,21 @@
     <ClCompile Include="..\Classes\BattleSystem.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudMenuSystem.cpp" />
+    <ClCompile Include="..\Classes\HudCursor.cpp">
+      <Filter>src\HUD\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudMenu.cpp">
+      <Filter>src\HUD\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudMenuItem.cpp">
+      <Filter>src\HUD\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudMenuSystem.cpp">
+      <Filter>src\HUD\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudInventoryMenu.cpp">
+      <Filter>src\HUD\menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -213,15 +221,6 @@
     <ClInclude Include="..\Classes\MonsterModel.h">
       <Filter>src\character</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudMenuItem.h">
-      <Filter>src\HUD</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\HudCursor.h">
-      <Filter>src\HUD</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\HudMenu.h">
-      <Filter>src\HUD</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\ToolFunction.h">
       <Filter>src\tool</Filter>
     </ClInclude>
@@ -231,7 +230,21 @@
     <ClInclude Include="..\Classes\BattleSystem.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudMenuSystem.h" />
+    <ClInclude Include="..\Classes\HudCursor.h">
+      <Filter>src\HUD\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudMenu.h">
+      <Filter>src\HUD\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudMenuItem.h">
+      <Filter>src\HUD\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudMenuSystem.h">
+      <Filter>src\HUD\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudInventoryMenu.h">
+      <Filter>src\HUD\menu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

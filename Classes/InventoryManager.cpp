@@ -77,7 +77,7 @@ void InventoryManager::initModel(tinyxml2::XMLElement* inventoryElement,const st
 void InventoryManager::initBaseData(tinyxml2::XMLElement* inventoryElement,Inventory* model)
 {
 	model->setName(getInventoryStrAttr(inventoryElement, "name"));
-	model->setCname(getInventoryWStrAttr(inventoryElement, "cname"));
+	model->setCname(getInventoryStrAttr(inventoryElement, "cname"));
 	model->setPrice(getInventoryIntAttr(inventoryElement, "price"));
 	model->setWeight(getInventoryIntAttr(inventoryElement, "weight"));
 	model->setSpriteName(getInventoryStrAttr(inventoryElement, "spriteName"));
@@ -108,6 +108,7 @@ std::string InventoryManager::getInventoryStrAttr(tinyxml2::XMLElement* inventor
 std::wstring InventoryManager::getInventoryWStrAttr(tinyxml2::XMLElement* inventoryElement, std::string attrName)
 {
 	tinyxml2::XMLElement* childElement = getChildElement(inventoryElement, attrName);
+	std::string temp=childElement->GetText();
 	return ToolFunction::string2wstring(childElement->GetText());
 }
 

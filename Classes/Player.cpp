@@ -38,6 +38,15 @@ void Player::init()
 	Inventory* ironSword = InventoryManager::getInstance()->getInventory("sword001");
 	ironSword->equipRightHand(characterPtr);
 
+	Inventory* testItem0 = InventoryManager::getInstance()->getInventory("sword001");
+	Inventory* testItem1 = InventoryManager::getInstance()->getInventory("sword001");
+	Inventory* testItem2 = InventoryManager::getInstance()->getInventory("sword001");
+	Inventory* testItem3 = InventoryManager::getInstance()->getInventory("sword001");
+	characterPtr->addInventory(testItem0);
+	characterPtr->addInventory(testItem1);
+	characterPtr->addInventory(testItem2);
+	characterPtr->addInventory(testItem3);
+
 //	Armor* armor = new Armor();
 //	armor->setArmorCount(5);
 //	characterPtr->setArmor(armor);
@@ -179,4 +188,9 @@ void Player::playerSetOrientation(cocos2d::EventKeyboard::KeyCode keyCode)
 		break;
 
 	}
+}
+
+std::vector<Inventory*>& Player::getInventoryList()
+{
+	return characterPtr->getInventoryList();
 }

@@ -19,7 +19,13 @@ HudMenu::HudMenu(cocos2d::Rect rect)
 
 HudMenu::~HudMenu()
 {
+	clear();
 	sprite->release();
+}
+
+void HudMenu::update()
+{
+
 }
 
 void HudMenu::handleUp()
@@ -41,13 +47,13 @@ void HudMenu::handleLeft()
 
 void HudMenu::handleRight()
 {
-
+	activeChildMenu(itemIndex);
 }
 
 void HudMenu::show()
 {
 	sprite->setVisible(true);
-	for (int i = 0; i < itemList.size(); i++)
+	for (size_t i = 0; i < itemList.size(); i++)
 	{
 		itemList[i]->show();
 	}
@@ -56,7 +62,7 @@ void HudMenu::show()
 void HudMenu::hide()
 {
 	sprite->setVisible(false);
-	for (int i = 0; i < itemList.size(); i++)
+	for (size_t i = 0; i < itemList.size(); i++)
 	{
 		itemList[i]->hide();
 	}
@@ -118,6 +124,12 @@ cocos2d::Sprite* HudMenu::getSprite()
 
 void HudMenu::chooseItem(int index)
 {
+	if (itemList.empty())
+	{
+		HudCursor::getInstance()->hide();
+		return;
+	}
+
 	itemIndex = index;
 
 	cocos2d::Point position = itemList[itemIndex]->getPosition();
@@ -127,4 +139,29 @@ void HudMenu::chooseItem(int index)
 	position.x -= HudCursor::getInstance()->getSprite()->getTextureRect().size.width / 2;
 
 	HudCursor::getInstance()->setPosition(position);
+}
+
+void HudMenu::activeChildMenu(int index)
+{
+	HudMenu* childMenu = itemList[index]->getRelateMenu();
+	if (childMenu)
+	{
+		childMenu->update();
+		childMenu->show();
+		HudCursor::getInstance()->setCurMenu(childMenu);
+	}
+}
+
+void HudMenu::setParent(HudMenu* p)
+{
+	parent = p;
+}
+
+void HudMenu::clear()
+{
+	for (size_t i = 0; i < itemList.size(); i++)
+	{
+		delete itemList[i];
+	}
+	itemList.clear();
 }

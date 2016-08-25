@@ -3,6 +3,8 @@
 #include "HudMenu.h"
 #include "HudLayer.h"
 #include "HudMenuItem.h"
+#include "HudInventoryMenu.h"
+#include "ToolFunction.h"
 
 
 
@@ -17,30 +19,37 @@ HudMenuSystem::~HudMenuSystem()
 
 void HudMenuSystem::init()
 {
-	menu = new HudMenu(cocos2d::Rect(0, 0, 150, 500));
-	HudLayer::getInstance()->addChild(menu->getSprite(), 2);
-	menu->setPosition(150, 300);
+	mainMenu = new HudMenu(cocos2d::Rect(0, 0, 150, 500));
+	HudLayer::getInstance()->addChild(mainMenu->getSprite(), 2);
+	mainMenu->setPosition(150, 300);
 
-	HudMenuItem* activeMenuItem = new HudMenuItem(L"活动");
-	menu->addItem(activeMenuItem);
+	HudMenuItem* activeMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"活动"));
+	mainMenu->addItem(activeMenuItem);
 
-	HudMenuItem* inventoryMenuItem = new HudMenuItem(L"物品");
-	menu->addItem(inventoryMenuItem);
+	HudMenuItem* inventoryMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"物品"));
+	mainMenu->addItem(inventoryMenuItem);
 
-	HudCursor::getInstance()->setCurMenu(menu);
+	inventoryMenu = new HudInventoryMenu(cocos2d::Rect(0, 0, 300, 500));
+	HudLayer::getInstance()->addChild(inventoryMenu->getSprite(), 2);
+	inventoryMenu->setPosition(400, 300);
+	inventoryMenuItem->setRelateMenu(inventoryMenu);
+
+	HudCursor::getInstance()->setCurMenu(mainMenu);
 	hide();
 }
 
 void HudMenuSystem::show()
 {
+	HudCursor::getInstance()->setCurMenu(mainMenu);
 	HudCursor::getInstance()->show();
-	menu->show();
+	mainMenu->show();
 }
 
 void HudMenuSystem::hide()
 {
 	HudCursor::getInstance()->hide();
-	menu->hide();
+	inventoryMenu->hide();
+	mainMenu->hide();
 }
 
 void HudMenuSystem::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)

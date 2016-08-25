@@ -22,7 +22,7 @@ void HudLayer::initLayer()
 
 void HudLayer::update()
 {
-	for (int i = 0; i < senderList.size(); i++)
+	for (size_t i = 0; i < senderList.size(); i++)
 	{
 		senderList[i]->updateSender();
 	}

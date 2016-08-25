@@ -6,10 +6,9 @@
 
 
 
-HudMenuItem::HudMenuItem(const std::wstring& name)
+HudMenuItem::HudMenuItem(const std::string& name)
 {
-	setName(name);
-	label = cocos2d::Label::createWithTTF(ToolFunction::WStr2UTF8(name), "fonts/arialuni.ttf", 24);
+	label = cocos2d::Label::createWithTTF(name, "fonts/arialuni.ttf", 24);
 	label->retain();
 	marginal.x = 10;
 	marginal.y = 10;
@@ -64,7 +63,3 @@ int HudMenuItem::getHeight()
 	return label->getHeight();
 }
 
-std::string HudMenuItem::getUTF8name()
-{
-	return ToolFunction::WStr2UTF8(getName());
-}

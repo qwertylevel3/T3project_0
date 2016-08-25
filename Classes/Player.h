@@ -23,6 +23,7 @@ public:
 	void playerAttack(cocos2d::EventKeyboard::KeyCode keyCode);
 	void playerMove(cocos2d::EventKeyboard::KeyCode keyCode);
 	void playerSetOrientation(cocos2d::EventKeyboard::KeyCode keyCode);
+	std::vector<Inventory*>& getInventoryList();
 protected:
 	CC_SYNTHESIZE(Character*, characterPtr, characterPtr);
 	ControlMode controlMode;
