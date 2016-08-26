@@ -31,6 +31,14 @@ public:
 	bool isMoveAble(cocos2d::Point position);
 
 	void sufferDamage(int damage);
+
+	//************************************
+	// Method:    die
+	// FullName:  Character::die
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: 这里不将该character从storey中移除。移除的工作由storey统一负责
+	//************************************
 	void die();
 	bool isDead();
 	void moveUp();

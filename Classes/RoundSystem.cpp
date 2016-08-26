@@ -40,6 +40,9 @@ void RoundSystem::nextRound()
 	roundCount++;
 	for each (Character*  character in allCharacter)
 	{
-		character->update();
+		if (!character->isDead())
+		{
+			character->update();
+		}
 	}
 }

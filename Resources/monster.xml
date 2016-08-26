@@ -9,6 +9,6 @@
 		<agility>10</agility>
 		<HP>100</HP>
 		<MP>50</MP>
-		<viewSize>10</viewSize>
+		<viewSize>20</viewSize>
 	</monster>
 </monsterBox>

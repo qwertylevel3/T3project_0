@@ -1,6 +1,7 @@
 #include "AICommonEnemy.h"
 #include "Character.h"
 #include "ToolFunction.h"
+#include "Player.h"
 
 
 
@@ -22,10 +23,7 @@ void AICommonEnemy::update()
 	Character* targetCharacter = searchTarget();
 	if (targetCharacter)
 	{
-		if (targetCharacter->getCharacterType()==Character::Bad)
-		{
-			return;
-		}
+		CCAssert(targetCharacter == Player::getInstance()->getcharacterPtr(), "target is not player");
 
 		cocos2d::Point startPoint = characterPtr->getMapCoord();
 		cocos2d::Point endPoint = targetCharacter->getMapCoord();
@@ -55,6 +53,10 @@ void AICommonEnemy::update()
 			&& nextStep.y == startPoint.y + 1)
 		{
 			characterPtr->moveDown();
+		}
+		else
+		{
+			CCAssert(false, "error nextStep");
 		}
 	}
 }

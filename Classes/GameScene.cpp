@@ -195,14 +195,13 @@ void GameScene::loadStorey()
 
 	//player = Character::create("test_character.plist");
 
-	std::vector<Character*> chVec = floor0->getCharacterMap();
-	for (size_t i = 0; i < chVec.size(); i++)
+	std::list<Character* > chList = floor0->getAllCharacter();
+	for each (Character*  character in chList)
 	{
-		if (chVec[i])
-		{
-			this->addCharacter(chVec[i]);
-		}
+		Layer::addChild(character->getSprite());
+		character->setScene(this);
 	}
+
 	Character* player = Player::getInstance()->getcharacterPtr();
 
 	player->setMapCoord(floor0->getUpCoord());

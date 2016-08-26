@@ -62,7 +62,8 @@ Character* AIBase::searchTarget()
 						continue;
 					}
 
-					if (storey->getCharacter(position))
+					if (storey->getCharacter(position)
+						&& storey->getCharacter(position)->getCharacterType()==Character::Good)
 					{
 						return storey->getCharacter(position);
 					}

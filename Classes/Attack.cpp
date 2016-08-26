@@ -86,7 +86,7 @@ void Attack::showEffect()
 
 	//attack an character;
 	Character* targetCharacter = Field::Dungeon::getInstance()->getCharacter(targetCoord.x, targetCoord.y);
-	if (targetCharacter)
+	if (targetCharacter && !targetCharacter->isDead())
 	{
 		BattleSystem::getInstance()->attack(caster, targetCharacter);
 	}

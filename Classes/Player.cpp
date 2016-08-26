@@ -151,11 +151,6 @@ void Player::playerAttack(cocos2d::EventKeyboard::KeyCode keyCode)
 
 void Player::playerMove(cocos2d::EventKeyboard::KeyCode keyCode)
 {
-	if (!isMoveAble(keyCode))
-	{
-		return;
-	}
-
 	switch (keyCode)
 	{
 	case EventKeyboard::KeyCode::KEY_UP_ARROW:

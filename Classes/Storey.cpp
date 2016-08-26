@@ -61,7 +61,7 @@ std::list<Character* >& Field::Storey::getAllCharacter()
 
 void Field::Storey::characterMoveUp(Character* character)
 {
-	character->setOrientation(Character::UP);
+	character->setOrientationUp();
 
 	cocos2d::Point targetCoord = character->getMapCoord();
 	targetCoord.y--;
@@ -86,7 +86,7 @@ void Field::Storey::characterMoveUp(Character* character)
 
 void Field::Storey::characterMoveDown(Character* character)
 {
-	character->setOrientation(Character::DOWN);
+	character->setOrientationDown();
 
 	cocos2d::Point targetCoord = character->getMapCoord();
 	targetCoord.y++;
@@ -111,7 +111,7 @@ void Field::Storey::characterMoveDown(Character* character)
 
 void Field::Storey::characterMoveLeft(Character* character)
 {
-	character->setOrientation(Character::LEFT);
+	character->setOrientationLeft();
 
 	cocos2d::Point targetCoord = character->getMapCoord();
 	targetCoord.x--;
@@ -136,7 +136,7 @@ void Field::Storey::characterMoveLeft(Character* character)
 
 void Field::Storey::characterMoveRight(Character* character)
 {
-	character->setOrientation(Character::RIGHT);
+	character->setOrientationRight();
 
 	cocos2d::Point targetCoord = character->getMapCoord();
 	targetCoord.x++;
@@ -218,6 +218,10 @@ void Field::Storey::characterMove(cocos2d::Point oriPosition, cocos2d::Point tar
 
 bool Field::Storey::isMoveAble(cocos2d::Point position)
 {
+	if (getCharacter(position) && !getCharacter(position)->isDead())
+	{
+		return false;
+	}
 	if (getTile(position) == Field::Floor)
 	{
 		return true;
