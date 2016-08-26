@@ -140,6 +140,7 @@
     </ClCompile>
     <ClCompile Include="..\Classes\AICommonEnemy.cpp" />
     <ClCompile Include="..\Classes\RoundSystem.cpp" />
+    <ClCompile Include="..\Classes\WeaponAtkArea.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -252,6 +253,7 @@
     </ClInclude>
     <ClInclude Include="..\Classes\AICommonEnemy.h" />
     <ClInclude Include="..\Classes\RoundSystem.h" />
+    <ClInclude Include="..\Classes\WeaponAtkArea.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

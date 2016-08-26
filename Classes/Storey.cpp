@@ -1,6 +1,7 @@
 #include "Storey.h"
 #include"FieldEnum.h"
 #include"Character.h"
+#include "Player.h"
 
 
 using namespace Field;
@@ -27,9 +28,16 @@ Storey::Storey(int w,int h)
 Storey::~Storey()
 {
 	tileMap->release();
+	for each (Character* character in characterList)
+	{
+		if (character != Player::getInstance()->getcharacterPtr())
+		{
+			delete character;
+		}
+	}
 }
 
-int Storey::getTile(int x,int y)
+int Storey::getTile(int x, int y)
 {
 	if (x < 0 || y < 0 || x >= width || y >= height)
 	{
