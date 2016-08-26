@@ -6,12 +6,12 @@
 #include"SkillManager.h"
 #include"Debug.h"
 #include"HudLayer.h"
-#include"RoundCounter.h"
 #include"Player.h"
 #include"Dungeon.h"
 #include"InventoryManager.h"
 #include"MonsterManager.h"
 #include "BattleSystem.h"
+#include "RoundSystem.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -64,9 +64,10 @@ bool GameScene::init()
 
 //	Debug::getInstance()->init(HudLayer::getInstance());
 
-	HudLayer::getInstance()->addSender(RoundCounter::getInstance());
-
 	loadStorey();
+	RoundSystem::getInstance()->init();
+	RoundSystem::getInstance()->loadStorey();
+
 
 	auto listener = EventListenerKeyboard::create();
 	listener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event* event)
@@ -115,7 +116,6 @@ void GameScene::setViewPointCenter(Point position) {
 void GameScene::update(float dt)
 {
 	Character* player = Player::getInstance()->getcharacterPtr();
-	player->update();
 	this->setViewPointCenter(player->getPosition());
 	HudLayer::getInstance()->update();
 }
@@ -195,7 +195,7 @@ void GameScene::loadStorey()
 
 	//player = Character::create("test_character.plist");
 
-	std::vector<Character*> chVec = floor0->getAllCharacter();
+	std::vector<Character*> chVec = floor0->getCharacterMap();
 	for (size_t i = 0; i < chVec.size(); i++)
 	{
 		if (chVec[i])

@@ -22,6 +22,10 @@ void AICommonEnemy::update()
 	Character* targetCharacter = searchTarget();
 	if (targetCharacter)
 	{
+		if (targetCharacter->getCharacterType()==Character::Bad)
+		{
+			return;
+		}
 
 		cocos2d::Point startPoint = characterPtr->getMapCoord();
 		cocos2d::Point endPoint = targetCharacter->getMapCoord();

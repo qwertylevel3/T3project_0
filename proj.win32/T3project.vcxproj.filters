@@ -81,9 +81,6 @@
     <ClCompile Include="..\Classes\SkillManager.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\RoundCounter.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\HudLayer.cpp">
       <Filter>src\HUD</Filter>
     </ClCompile>
@@ -142,6 +139,7 @@
       <Filter>src\character\AI</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\AICommonEnemy.cpp" />
+    <ClCompile Include="..\Classes\RoundSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -194,9 +192,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\SkillManager.h">
       <Filter>src\skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\RoundCounter.h">
-      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HudLayer.h">
       <Filter>src\HUD</Filter>
@@ -256,6 +251,7 @@
       <Filter>src\character\AI</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AICommonEnemy.h" />
+    <ClInclude Include="..\Classes\RoundSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

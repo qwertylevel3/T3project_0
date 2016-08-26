@@ -1,5 +1,6 @@
 #include "MonsterModel.h"
 #include"CharacterManager.h"
+#include "AICommonEnemy.h"
 
 
 
@@ -23,7 +24,10 @@ Character * MonsterModel::makeMonster()
 	monster->setMP(MP);
 	monster->setMaxHP(HP);
 	monster->setMaxMP(MP);
+	monster->setViewSize(viewSize);
 	monster->setCharacterType(Character::Bad);
+	AICommonEnemy* ai = new AICommonEnemy();
+	monster->setAI(ai);
 
 	return monster;
 }

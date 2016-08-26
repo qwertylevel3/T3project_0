@@ -174,7 +174,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\MonsterModel.cpp" />
     <ClCompile Include="..\Classes\Player.cpp" />
     <ClCompile Include="..\Classes\RandomNumber.cpp" />
-    <ClCompile Include="..\Classes\RoundCounter.cpp" />
+    <ClCompile Include="..\Classes\RoundSystem.cpp" />
     <ClCompile Include="..\Classes\Skill.cpp" />
     <ClCompile Include="..\Classes\SkillManager.cpp" />
     <ClCompile Include="..\Classes\Storey.cpp" />
@@ -216,7 +216,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MonsterModel.h" />
     <ClInclude Include="..\Classes\Player.h" />
     <ClInclude Include="..\Classes\RandomNumber.h" />
-    <ClInclude Include="..\Classes\RoundCounter.h" />
+    <ClInclude Include="..\Classes\RoundSystem.h" />
     <ClInclude Include="..\Classes\Singleton.h" />
     <ClInclude Include="..\Classes\Skill.h" />
     <ClInclude Include="..\Classes\SkillManager.h" />

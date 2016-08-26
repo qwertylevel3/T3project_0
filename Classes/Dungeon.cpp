@@ -85,7 +85,7 @@ void Field::Dungeon::characterMove(cocos2d::Point oriPosition, cocos2d::Point ta
 //TODO......TEST......
 void Field::Dungeon::clear()
 {
-	for (int i = 0; i < storeyVec.size(); i++)
+	for (size_t i = 0; i < storeyVec.size(); i++)
 	{
 		delete storeyVec[i];
 	}

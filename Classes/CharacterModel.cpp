@@ -37,7 +37,7 @@ Character * CharacterModel::makeCharacter()
 cocos2d::Animation* CharacterModel::createAnimation(const std::vector<std::string>& frameList)
 {
 	Vector< SpriteFrame* > sfme = Vector< SpriteFrame* >::Vector();
-	for (int i = 0; i < frameList.size(); i++)
+	for (size_t i = 0; i < frameList.size(); i++)
 	{
 		std::string str = frameList[i];
 		SpriteFrame *fname = CCSpriteFrameCache::getInstance()->getSpriteFrameByName(str);

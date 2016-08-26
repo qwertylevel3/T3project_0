@@ -76,10 +76,10 @@ void Attack::showEffect()
 	node->setVisible(true);
 	scene->addChild(node, 2);
 
-	CCAnimate* animate = CCAnimate::create(animation);
+	Animate* animate = CCAnimate::create(animation);
 	animate->setDuration(0.3);
 
-	CCActionInterval* rotateAction = CCRotateTo::create(0.0, rotateAngle);
+	ActionInterval* rotateAction = CCRotateTo::create(0.0, rotateAngle);
 	//node->runAction(rotateAction);
 
 	node->runAction(Sequence::create(rotateAction,animate, CallFunc::create(CC_CALLBACK_0(Sprite::removeFromParent, node)), NULL));

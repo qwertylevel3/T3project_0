@@ -27,6 +27,7 @@ public:
 	~Character();
 	void update();
 
+	//discard......
 	bool isMoveAble(cocos2d::Point position);
 
 	void sufferDamage(int damage);
@@ -40,6 +41,10 @@ public:
 	void setOrientationDown();
 	void setOrientationLeft();
 	void setOrientationRight();
+	void showMoveUpAnimation();
+	void showMoveDownAnimation();
+	void showMoveLeftAnimation();
+	void showMoveRightAnimation();
 
 
 	cocos2d::Point getPosition();
@@ -109,4 +114,5 @@ protected:
 	cocos2d::CCAnimation* standDownAnimation;
 	cocos2d::CCAnimation* standLeftAnimation;
 	cocos2d::CCAnimation* standRightAnimation;
+
 };

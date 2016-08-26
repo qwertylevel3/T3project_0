@@ -35,9 +35,10 @@ Character* AIBase::searchTarget()
 	int searchDeep = characterPtr->getViewSize();
 
 	std::queue<cocos2d::Point> pointQueue;
+	std::set<cocos2d::Point> discardPoint;
+
 	pointQueue.push(startPoint);
 
-	std::set<cocos2d::Point> discardPoint;
 
 	while (!pointQueue.empty() 
 		&& searchDeep!=0)
@@ -63,15 +64,12 @@ Character* AIBase::searchTarget()
 
 					if (storey->getCharacter(position))
 					{
-						if (storey->getCharacter(position) == characterPtr)
-						{
-							continue;
-						}
 						return storey->getCharacter(position);
 					}
 					else
 					{
 						pointQueue.push(position);
+						discardPoint.insert(position);
 					}
 				}
 			}

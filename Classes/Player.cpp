@@ -2,14 +2,12 @@
 #include"CharacterManager.h"
 #include"Dungeon.h"
 #include"FieldEnum.h"
-#include"RoundCounter.h"
 #include"InventoryManager.h"
 #include"ToolFunction.h"
 #include "Weapon.h"
 #include "Accessory.h"
 #include "Armor.h"
-//test
-#include "AICommonEnemy.h"
+#include "RoundSystem.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -31,6 +29,7 @@ void Player::init()
 	characterPtr->setStrength(10);
 	characterPtr->setAgility(10);
 	characterPtr->setIntellect(10);
+	characterPtr->setCharacterType(Character::Good);
 
 	//testInventory......
 
@@ -53,9 +52,6 @@ void Player::init()
 //	armor->setArmorCount(5);
 //	characterPtr->setArmor(armor);
 
-	AICommonEnemy* ai = new AICommonEnemy();
-
-	characterPtr->setAI(ai);
 }
 
 void Player::autoNextStep()
@@ -148,7 +144,9 @@ void Player::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 
 void Player::playerAttack(cocos2d::EventKeyboard::KeyCode keyCode)
 {
+
 	characterPtr->runSkill("attack");
+	RoundSystem::getInstance()->nextRound();
 }
 
 void Player::playerMove(cocos2d::EventKeyboard::KeyCode keyCode)
@@ -157,7 +155,7 @@ void Player::playerMove(cocos2d::EventKeyboard::KeyCode keyCode)
 	{
 		return;
 	}
-	RoundCounter::getInstance()->nextRound();
+
 	switch (keyCode)
 	{
 	case EventKeyboard::KeyCode::KEY_UP_ARROW:
@@ -172,8 +170,8 @@ void Player::playerMove(cocos2d::EventKeyboard::KeyCode keyCode)
 	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
 		characterPtr->moveRight();
 		break;
-
 	}
+	RoundSystem::getInstance()->nextRound();
 }
 
 void Player::playerSetOrientation(cocos2d::EventKeyboard::KeyCode keyCode)

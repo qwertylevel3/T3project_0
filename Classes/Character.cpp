@@ -34,87 +34,27 @@ bool Character::isDead()
 
 void Character::moveUp()
 {
-	cocos2d::Point position = sprite->getPosition();
-
-	CCActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x, position.y + 32));
-
-	CCAnimate* action = CCAnimate::create(moveUpAnimation);
-	action->setDuration(0.2);
-	sprite->runAction(action);
-	sprite->runAction(moveAction);
-
-	setMapCoord(cocos2d::Point(mapCoord.x, mapCoord.y - 1));
-
-	setOrientation(Orientation::UP);
-
-	Point tarMapCoord = getMapCoord();
-	tarMapCoord.y = tarMapCoord.y - 1;
-	Dungeon::getInstance()->characterMove(getMapCoord(), tarMapCoord);
+	Dungeon::getInstance()->getStorey()->characterMoveUp(this);
 }
 
 void Character::moveDown()
 {
-	cocos2d::Point position = sprite->getPosition();
-
-	CCActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x, position.y - 32));
-
-	CCAnimate* action = CCAnimate::create(moveDownAnimation);
-	action->setDuration(0.2);
-	sprite->runAction(action);
-	sprite->runAction(moveAction);
-
-	setMapCoord(cocos2d::Point(mapCoord.x, mapCoord.y + 1));
-
-	setOrientation(Orientation::DOWN);
-
-	Point tarMapCoord = getMapCoord();
-	tarMapCoord.y = tarMapCoord.y + 1;
-	Dungeon::getInstance()->characterMove(getMapCoord(), tarMapCoord);
+	Dungeon::getInstance()->getStorey()->characterMoveDown(this);
 }
 
 void Character::moveLeft()
 {
-	cocos2d::Point position = sprite->getPosition();
-
-	CCActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x - 32, position.y));
-
-	CCAnimate* action = CCAnimate::create(moveLeftAnimation);
-	action->setDuration(0.2);
-	sprite->runAction(action);
-	sprite->runAction(moveAction);
-
-	setMapCoord(cocos2d::Point(mapCoord.x - 1, mapCoord.y));
-
-	setOrientation(Orientation::LEFT);
-
-	Point tarMapCoord = getMapCoord();
-	tarMapCoord.x = tarMapCoord.x - 1;
-	Dungeon::getInstance()->characterMove(getMapCoord(), tarMapCoord);
+	Dungeon::getInstance()->getStorey()->characterMoveLeft(this);
 }
 
 void Character::moveRight()
 {
-	cocos2d::Point position = sprite->getPosition();
-
-	CCActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x + 32, position.y));
-
-	CCAnimate* action = CCAnimate::create(moveRightAnimation);
-	action->setDuration(0.2);
-	sprite->runAction(action);
-	sprite->runAction(moveAction);
-
-	setMapCoord(cocos2d::Point(mapCoord.x + 1, mapCoord.y));
-
-	setOrientation(Orientation::RIGHT);
-
-	Point tarMapCoord = getMapCoord();
-	tarMapCoord.x = tarMapCoord.x + 1;
-	Dungeon::getInstance()->characterMove(getMapCoord(), tarMapCoord);
+	Dungeon::getInstance()->getStorey()->characterMoveRight(this);
 }
 
 void Character::setOrientationUp()
 {
-	CCAnimate* action = CCAnimate::create(standUpAnimation);
+	Animate* action = Animate::create(standUpAnimation);
 	action->setDuration(0.1);
 	sprite->runAction(action);
 	setOrientation(Orientation::UP);
@@ -122,7 +62,7 @@ void Character::setOrientationUp()
 
 void Character::setOrientationDown()
 {
-	CCAnimate* action = CCAnimate::create(standDownAnimation);
+	Animate* action = Animate::create(standDownAnimation);
 	action->setDuration(0.1);
 	sprite->runAction(action);
 	setOrientation(Orientation::DOWN);
@@ -130,7 +70,7 @@ void Character::setOrientationDown()
 
 void Character::setOrientationLeft()
 {
-	CCAnimate* action = CCAnimate::create(standLeftAnimation);
+	Animate* action = Animate::create(standLeftAnimation);
 	action->setDuration(0.1);
 	sprite->runAction(action);
 	setOrientation(Orientation::LEFT);
@@ -138,12 +78,40 @@ void Character::setOrientationLeft()
 
 void Character::setOrientationRight()
 {
-	CCAnimate* action = CCAnimate::create(standRightAnimation);
+	Animate* action = Animate::create(standRightAnimation);
 	action->setDuration(0.1);
 	sprite->runAction(action);
 	setOrientation(Orientation::RIGHT);
 }
 
+
+void Character::showMoveUpAnimation()
+{
+	Animate* action = Animate::create(moveUpAnimation);
+	action->setDuration(0.2);
+	sprite->runAction(action);
+}
+
+void Character::showMoveDownAnimation()
+{
+	Animate* action = Animate::create(moveDownAnimation);
+	action->setDuration(0.2);
+	sprite->runAction(action);
+}
+
+void Character::showMoveLeftAnimation()
+{
+	Animate* action = Animate::create(moveLeftAnimation);
+	action->setDuration(0.2);
+	sprite->runAction(action);
+}
+
+void Character::showMoveRightAnimation()
+{
+	Animate* action = Animate::create(moveRightAnimation);
+	action->setDuration(0.2);
+	sprite->runAction(action);
+}
 
 cocos2d::Point Character::getPosition()
 {
@@ -176,14 +144,14 @@ std::vector<Inventory*>& Character::getInventoryList()
 	return inventoryList;
 }
 
-CCSprite * Character::getSprite()
+Sprite * Character::getSprite()
 {
 	return sprite;
 }
 
 void Character::setSprite(std::string spriteName)
 {
-	sprite = CCSprite::createWithSpriteFrameName(spriteName);
+	sprite = Sprite::createWithSpriteFrameName(spriteName);
 	sprite->retain();
 }
 
@@ -217,6 +185,10 @@ Character::~Character()
 	moveDownAnimation->release();
 	moveLeftAnimation->release();
 	moveRightAnimation->release();
+	if (ai)
+	{
+		delete ai;
+	}
 }
 
 void Character::update()
@@ -227,53 +199,51 @@ void Character::update()
 	}
 }
 
+
 bool Character::isMoveAble(cocos2d::Point position)
 {
 	Field::Storey* storey = Dungeon::getInstance()->getStorey();
-	if (storey->getTile(position) == Field::Floor)
-	{
-		return true;
-	}
-	return false;
+	return storey->isMoveAble(position);
 }
 
 
-void Character::setMoveUpAnimation(cocos2d::CCAnimation* animation)
+void Character::setMoveUpAnimation(cocos2d::Animation* animation)
 {
 	moveUpAnimation = animation;
 }
 
-void Character::setMoveDownAnimation(cocos2d::CCAnimation* animation)
+void Character::setMoveDownAnimation(cocos2d::Animation* animation)
 {
 	moveDownAnimation = animation;
 }
 
-void Character::setMoveLeftAnimation(cocos2d::CCAnimation* animation)
+void Character::setMoveLeftAnimation(cocos2d::Animation* animation)
 {
 	moveLeftAnimation = animation;
 }
 
-void Character::setMoveRightAnimation(cocos2d::CCAnimation* animation)
+void Character::setMoveRightAnimation(cocos2d::Animation* animation)
 {
 	moveRightAnimation = animation;
 }
 
-void Character::setStandUpAnimation(cocos2d::CCAnimation * animation)
+void Character::setStandUpAnimation(cocos2d::Animation * animation)
 {
 	standUpAnimation = animation;
 }
 
-void Character::setStandDownAnimation(cocos2d::CCAnimation * animation)
+void Character::setStandDownAnimation(cocos2d::Animation * animation)
 {
 	standDownAnimation = animation;
 }
 
-void Character::setStandLeftAnimation(cocos2d::CCAnimation * animation)
+void Character::setStandLeftAnimation(cocos2d::Animation * animation)
 {
 	standLeftAnimation = animation;
 }
 
-void Character::setStandRightAnimation(cocos2d::CCAnimation * animation)
+void Character::setStandRightAnimation(cocos2d::Animation * animation)
 {
 	standRightAnimation = animation;
 }
+
