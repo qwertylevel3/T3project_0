@@ -9,6 +9,15 @@
 class GameScene : public cocos2d::Layer,public Singleton<GameScene>
 {
 public:
+	//************************************
+	// Method:    getWorldPosition
+	// FullName:  GameScene::getWorldPosition
+	// Access:    public static 
+	// Returns:   cocos2d::Point
+	// Qualifier: 由本地坐标返回屏幕坐标
+	// Parameter: cocos2d::Point position
+	//************************************
+	cocos2d::Point getWorldPosition(cocos2d::Point position);
 
     virtual bool init();
     

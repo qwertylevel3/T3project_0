@@ -47,6 +47,11 @@ int Storey::getTile(int x, int y)
 	return tiles[x + y * width];
 }
 
+cocos2d::Point Field::Storey::getTilePosition(cocos2d::Point coord)
+{
+	return cocos2d::Point(coord.x * 32 + 16, (100 - coord.y) * 32 - 16);
+}
+
 int Field::Storey::getTile(cocos2d::Point coord)
 {
 	return getTile(coord.x, coord.y);

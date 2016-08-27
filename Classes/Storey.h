@@ -14,6 +14,7 @@ namespace Field {
 	public:
 		Storey(int w, int h);
 		~Storey();
+		cocos2d::Point getTilePosition(cocos2d::Point coord);
 		int getTile(int x, int y);
 		int getTile(cocos2d::Point coord);
 		void setTile(int x, int y, int tile);

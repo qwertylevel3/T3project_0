@@ -98,6 +98,8 @@ void GameScene::setViewPointCenter(Point position) {
 	auto viewPoint = centerOfView - actualPosition;
 	//移动整个层，将position移到屏幕中心
 	this->setPosition(viewPoint);
+	//顺带移动mask层
+	MaskLayer::getInstance()->setPosition(viewPoint);
 }
 
 void GameScene::update(float dt)
@@ -187,7 +189,6 @@ void GameScene::loadStorey()
 	for each (Character*  character in chList)
 	{
 		Layer::addChild(character->getSprite());
-		character->setScene(this);
 	}
 
 	Character* player = Player::getInstance()->getcharacterPtr();
@@ -196,13 +197,16 @@ void GameScene::loadStorey()
 	this->addCharacter(player);
 
 	setViewPointCenter(player->getPosition());
-
 }
 
 void GameScene::addCharacter(Character * character)
 {
 	Layer::addChild(character->getSprite());
 
-	character->setScene(this);
 	Dungeon::getInstance()->addCharacter(character);
+}
+
+cocos2d::Point GameScene::getWorldPosition(cocos2d::Point position)
+{
+	return position + this->getPosition();
 }

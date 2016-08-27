@@ -100,7 +100,6 @@ protected:
 	CC_SYNTHESIZE(int, viewSize, ViewSize);
 	bool dead;
 
-	CC_SYNTHESIZE(GameScene*, scene, Scene);
 	cocos2d::CCSprite* sprite;
 	CC_SYNTHESIZE(Orientation, orientation, Orientation);
 
