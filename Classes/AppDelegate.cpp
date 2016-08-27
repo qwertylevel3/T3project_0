@@ -1,5 +1,7 @@
 #include "AppDelegate.h"
 #include "GameScene.h"
+#include "HudLayer.h"
+#include "MaskLayer.h"
 
 USING_NS_CC;
 
@@ -76,8 +78,21 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     // create a scene. it's an autorelease object
-    auto scene = GameScene::createScene();
+    auto scene = Scene::create();
+    
+    // 'layer' is an autorelease object
+	auto gameSceneLayer = GameScene::getInstance();
+	auto hudLayer = HudLayer::getInstance();
+	auto maskLayer = MaskLayer::getInstance();
 
+    // add layer as a child to scene
+    scene->addChild(gameSceneLayer,0);
+	scene->addChild(maskLayer, 1);
+	scene->addChild(hudLayer,2);
+
+	GameScene::getInstance()->init();
+	HudLayer::getInstance()->init();
+	MaskLayer::getInstance()->init();
 
     // run
     director->runWithScene(scene);

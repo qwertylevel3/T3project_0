@@ -15,8 +15,13 @@ MaskLayer::~MaskLayer()
 {
 }
 
-void MaskLayer::initLayer()
+bool MaskLayer::init()
 {
+	if (!Layer::init())
+	{
+		return false;
+	}
+
     auto s = Director::getInstance()->getWinSize();
     
     auto draw = DrawNode::create();
@@ -26,6 +31,7 @@ void MaskLayer::initLayer()
 	cocos2d::Point startPoint = getTilePosition(Point(1, 1));
     draw->drawLine(startPoint, Vec2(s.width, s.height), Color4F(1.0, 0.0, 0.0, 0.5));
     
+	return true;
 }
 
 void MaskLayer::update()

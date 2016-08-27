@@ -17,25 +17,6 @@
 USING_NS_CC;
 using namespace Field;
 
-Scene* GameScene::createScene()
-{
-    // 'scene' is an autorelease object
-    auto scene = Scene::create();
-    
-    // 'layer' is an autorelease object
-    auto layer = GameScene::create();
-	auto hudLayer = HudLayer::getInstance();
-	auto maskLayer = MaskLayer::getInstance();
-
-    // add layer as a child to scene
-	scene->addChild(hudLayer,2);
-	scene->addChild(maskLayer, 1);
-    scene->addChild(layer,0);
-
-
-    // return the scene
-    return scene;
-}
 
 // on "init" you need to initialize your instance
 bool GameScene::init()
@@ -63,7 +44,7 @@ bool GameScene::init()
 	MonsterManager::getInstance()->init();
 	BattleSystem::getInstance()->init();
 
-	HudLayer::getInstance()->initLayer();
+
 
 
 //	Debug::getInstance()->init(HudLayer::getInstance());
@@ -72,7 +53,7 @@ bool GameScene::init()
 	RoundSystem::getInstance()->init();
 	RoundSystem::getInstance()->loadStorey();
 
-	MaskLayer::getInstance()->initLayer();
+
 
 	auto listener = EventListenerKeyboard::create();
 	listener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event* event)

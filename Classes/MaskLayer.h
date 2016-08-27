@@ -11,7 +11,7 @@ class MaskLayer:public cocos2d::Layer,public Singleton<MaskLayer>
 public:
 	MaskLayer();
 	~MaskLayer();
-	void initLayer();
+	virtual bool init();
 	void update();
 protected:
 	std::vector<LightEdge> edges;

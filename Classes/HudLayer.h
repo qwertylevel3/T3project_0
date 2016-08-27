@@ -11,7 +11,7 @@ class HudLayer:public cocos2d::Layer,public Singleton<HudLayer>
 public:
 	HudLayer();
 	~HudLayer();
-	void initLayer();
+	virtual bool init();
 	void update();
 	void show();
 	void hide();

@@ -15,9 +15,14 @@ HudLayer::~HudLayer()
 {
 }
 
-void HudLayer::initLayer()
+bool HudLayer::init()
 {
+	if (!Layer::init())
+	{
+		return false;
+	}
 	HudMenuSystem::getInstance()->init();
+	return true;
 }
 
 void HudLayer::update()

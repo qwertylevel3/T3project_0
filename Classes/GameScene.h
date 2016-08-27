@@ -4,11 +4,11 @@
 #include "cocos2d.h"
 #include"Character.h"
 #include"Dungeon.h"
+#include "Singleton.h"
 
-class GameScene : public cocos2d::Layer
+class GameScene : public cocos2d::Layer,public Singleton<GameScene>
 {
 public:
-    static cocos2d::Scene* createScene();
 
     virtual bool init();
     
