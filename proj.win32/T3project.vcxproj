@@ -64,6 +64,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
@@ -170,6 +171,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudSender.cpp" />
     <ClCompile Include="..\Classes\Inventory.cpp" />
     <ClCompile Include="..\Classes\InventoryManager.cpp" />
+    <ClCompile Include="..\Classes\LightEdge.cpp" />
+    <ClCompile Include="..\Classes\MaskLayer.cpp" />
     <ClCompile Include="..\Classes\MonsterManager.cpp" />
     <ClCompile Include="..\Classes\MonsterModel.cpp" />
     <ClCompile Include="..\Classes\Player.cpp" />
@@ -213,6 +216,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudSender.h" />
     <ClInclude Include="..\Classes\Inventory.h" />
     <ClInclude Include="..\Classes\InventoryManager.h" />
+    <ClInclude Include="..\Classes\LightEdge.h" />
+    <ClInclude Include="..\Classes\MaskLayer.h" />
     <ClInclude Include="..\Classes\MonsterManager.h" />
     <ClInclude Include="..\Classes\MonsterModel.h" />
     <ClInclude Include="..\Classes\Player.h" />

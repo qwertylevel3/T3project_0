@@ -34,6 +34,9 @@
     <Filter Include="src\character\AI">
       <UniqueIdentifier>{74871ae6-495b-49ef-8f22-2cdc2fa553ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\mask">
+      <UniqueIdentifier>{bb73f273-9b20-4a86-9542-46682845f159}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -138,9 +141,19 @@
     <ClCompile Include="..\Classes\AIBase.cpp">
       <Filter>src\character\AI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AICommonEnemy.cpp" />
-    <ClCompile Include="..\Classes\RoundSystem.cpp" />
-    <ClCompile Include="..\Classes\WeaponAtkArea.cpp" />
+    <ClCompile Include="..\Classes\RoundSystem.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\WeaponAtkArea.cpp">
+      <Filter>src\inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AICommonEnemy.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MaskLayer.cpp">
+      <Filter>src\mask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LightEdge.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -251,9 +264,19 @@
     <ClInclude Include="..\Classes\AIBase.h">
       <Filter>src\character\AI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AICommonEnemy.h" />
-    <ClInclude Include="..\Classes\RoundSystem.h" />
-    <ClInclude Include="..\Classes\WeaponAtkArea.h" />
+    <ClInclude Include="..\Classes\RoundSystem.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WeaponAtkArea.h">
+      <Filter>src\inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AICommonEnemy.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MaskLayer.h">
+      <Filter>src\mask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LightEdge.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

@@ -15,7 +15,7 @@ namespace Field {
 		Storey(int w, int h);
 		~Storey();
 		int getTile(int x, int y);
-		int getTile(cocos2d::Point position);
+		int getTile(cocos2d::Point coord);
 		void setTile(int x, int y, int tile);
 
 		Character* getCharacter(int x, int y);

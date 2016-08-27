@@ -55,7 +55,10 @@ public:
 	void showMoveRightAnimation();
 
 
+	//返回在当前layer中的坐标
 	cocos2d::Point getPosition();
+	//返回世界坐标
+	cocos2d::Point getWorldPosition();
 	void setPosition(float x, float y);
 
 	cocos2d::Node* getParent();

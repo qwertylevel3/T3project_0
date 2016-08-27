@@ -12,6 +12,7 @@
 #include"MonsterManager.h"
 #include "BattleSystem.h"
 #include "RoundSystem.h"
+#include "MaskLayer.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -24,10 +25,12 @@ Scene* GameScene::createScene()
     // 'layer' is an autorelease object
     auto layer = GameScene::create();
 	auto hudLayer = HudLayer::getInstance();
+	auto maskLayer = MaskLayer::getInstance();
 
     // add layer as a child to scene
-	scene->addChild(hudLayer,1);
-    scene->addChild(layer);
+	scene->addChild(hudLayer,2);
+	scene->addChild(maskLayer, 1);
+    scene->addChild(layer,0);
 
 
     // return the scene
@@ -62,12 +65,14 @@ bool GameScene::init()
 
 	HudLayer::getInstance()->initLayer();
 
+
 //	Debug::getInstance()->init(HudLayer::getInstance());
 
 	loadStorey();
 	RoundSystem::getInstance()->init();
 	RoundSystem::getInstance()->loadStorey();
 
+	MaskLayer::getInstance()->initLayer();
 
 	auto listener = EventListenerKeyboard::create();
 	listener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event* event)
@@ -110,6 +115,7 @@ void GameScene::setViewPointCenter(Point position) {
 
 	auto centerOfView = Point(winSize.width / 2, winSize.height / 2);
 	auto viewPoint = centerOfView - actualPosition;
+	//移动整个层，将position移到屏幕中心
 	this->setPosition(viewPoint);
 }
 
@@ -118,6 +124,7 @@ void GameScene::update(float dt)
 	Character* player = Player::getInstance()->getcharacterPtr();
 	this->setViewPointCenter(player->getPosition());
 	HudLayer::getInstance()->update();
+	MaskLayer::getInstance()->update();
 }
 
 void GameScene::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)

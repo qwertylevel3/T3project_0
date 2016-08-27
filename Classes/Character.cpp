@@ -118,6 +118,16 @@ cocos2d::Point Character::getPosition()
 	return sprite->getPosition();
 }
 
+cocos2d::Point Character::getWorldPosition()
+{
+	Node* layer = sprite->getParent();
+
+	cocos2d::Point spritePosition = sprite->getPosition();
+	cocos2d::Point layerPositioin = layer->getPosition();
+
+	return spritePosition+layerPositioin;
+}
+
 void Character::setPosition(float x, float y)
 {
 	sprite->setPosition(x, y);
