@@ -93,9 +93,6 @@
     <ClCompile Include="..\Classes\Player.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Weapon.cpp">
-      <Filter>src\inventory</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\InventoryManager.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
@@ -154,6 +151,13 @@
       <Filter>src\mask</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\LightEdge.cpp" />
+    <ClCompile Include="..\Classes\InventoryInHand.cpp">
+      <Filter>src\inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\OneHandWeapon.cpp" />
+    <ClCompile Include="..\Classes\TwoHandWeapon.cpp" />
+    <ClCompile Include="..\Classes\Shield.cpp" />
+    <ClCompile Include="..\Classes\Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -216,9 +220,6 @@
     <ClInclude Include="..\Classes\Player.h">
       <Filter>src\character</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Weapon.h">
-      <Filter>src\inventory</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\InventoryManager.h">
       <Filter>src\inventory</Filter>
     </ClInclude>
@@ -277,6 +278,13 @@
       <Filter>src\mask</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\LightEdge.h" />
+    <ClInclude Include="..\Classes\InventoryInHand.h">
+      <Filter>src\inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\OneHandWeapon.h" />
+    <ClInclude Include="..\Classes\TwoHandWeapon.h" />
+    <ClInclude Include="..\Classes\Shield.h" />
+    <ClInclude Include="..\Classes\Weapon.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

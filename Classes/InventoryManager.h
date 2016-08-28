@@ -4,7 +4,7 @@
 #include"Singleton.h"
 #include "tinyxml2/tinyxml2.h"
 
-class Weapon;
+class OneHandWeapon;
 
 class InventoryManager:public Singleton<InventoryManager>
 {
@@ -16,7 +16,7 @@ public:
 protected:
 	void initModel(tinyxml2::XMLElement* inventoryElement,const std::string& type);
 	void initBaseData(tinyxml2::XMLElement* inventoryElement,Inventory* model);
-	void initWeaponData(tinyxml2::XMLElement* inventoryElement, Weapon* weaponModel);
+	void initOneHandWeaponData(tinyxml2::XMLElement* inventoryElement, OneHandWeapon* weaponModel);
 
 	std::string getInventoryStrAttr(tinyxml2::XMLElement* inventoryElement, std::string attrName);
 	std::wstring getInventoryWStrAttr(tinyxml2::XMLElement* inventoryElement, std::string attrName);

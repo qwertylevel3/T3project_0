@@ -4,7 +4,7 @@
 #include"FieldEnum.h"
 #include"InventoryManager.h"
 #include"ToolFunction.h"
-#include "Weapon.h"
+#include "InventoryInHand.h"
 #include "Accessory.h"
 #include "Armor.h"
 #include "RoundSystem.h"
@@ -51,7 +51,6 @@ void Player::init()
 //	Armor* armor = new Armor();
 //	armor->setArmorCount(5);
 //	characterPtr->setArmor(armor);
-
 }
 
 void Player::autoNextStep()

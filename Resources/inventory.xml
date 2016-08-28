@@ -2,7 +2,7 @@
 <!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
 <inventoryList>
 	<inventory>
-		<type>weapon</type>
+		<type>oneHandWeapon</type>
 		<name>sword000</name>
 		<cname>木剑</cname>
 		<price>8</price>
@@ -21,7 +21,7 @@
 		<intRequire>0</intRequire>
 	</inventory>
 	<inventory>
-		<type>weapon</type>
+		<type>oneHandWeapon</type>
 		<name>sword001</name>
 		<cname>铁剑</cname>
 		<price>10</price>
@@ -40,7 +40,7 @@
 		<intRequire>0</intRequire>
 	</inventory>
 	<inventory>
-		<type>weapon</type>
+		<type>oneHandWeapon</type>
 		<name>sword002</name>
 		<cname>钢剑</cname>
 		<price>14</price>

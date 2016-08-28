@@ -1,8 +1,10 @@
 #include "InventoryManager.h"
 #include"cocos2d.h"
 #include<sstream>
+#include "OneHandWeapon.h"
+#include "TwoHandWeapon.h"
+#include "Shield.h"
 #include "ToolFunction.h"
-#include "Weapon.h"
 #include "Accessory.h"
 #include "Armor.h"
 #include "Supply.h"
@@ -46,15 +48,22 @@ Inventory * InventoryManager::getInventory(std::string inventoryName)
 
 void InventoryManager::initModel(tinyxml2::XMLElement* inventoryElement,const std::string& type)
 {
-	if (type == "weapon")
+	if (type == "oneHandWeapon")
 	{
-		Weapon* model = new Weapon();
-		model->setInventoryType(Inventory::Weapon);
+		OneHandWeapon* model = new OneHandWeapon();
+		model->setInventoryType(Inventory::OneHandWeapon);
 
 		initBaseData(inventoryElement, model);
-		initWeaponData(inventoryElement, model);
+		initOneHandWeaponData(inventoryElement, model);
 
 		inventoryMap[model->getName()] = model;
+	}
+	else if (type == "twoHandWeapon")
+	{
+	}
+	else if (type == "shield")
+	{
+
 	}
 	else if (type == "armor")
 	{
@@ -91,7 +100,7 @@ void InventoryManager::initBaseData(tinyxml2::XMLElement* inventoryElement,Inven
 	model->setComboProAdd(getInventoryIntAttr(inventoryElement, "comboProAdd"));
 }
 
-void InventoryManager::initWeaponData(tinyxml2::XMLElement* inventoryElement, Weapon* weaponModel)
+void InventoryManager::initOneHandWeaponData(tinyxml2::XMLElement* inventoryElement, OneHandWeapon* weaponModel)
 {
 	weaponModel->setWeaponDamage(getInventoryIntAttr(inventoryElement, "weaponDamage"));
 	weaponModel->setStrRequire(getInventoryIntAttr(inventoryElement, "strRequire"));

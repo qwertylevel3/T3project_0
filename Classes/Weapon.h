@@ -1,23 +1,13 @@
 #pragma once
-
-#include"Inventory.h"
-#include"platform\CCPlatformMacros.h"
-#include<vector>
-
-class Weapon:public Inventory
+#include "InventoryInHand.h"
+class Weapon :
+	public InventoryInHand
 {
 public:
 	Weapon();
-	~Weapon();
-	void equipLeftHand(Character* character);
-	void unequipLeftHand(Character* character);
-	void equipRightHand(Character* character);
-	void unequipRightHand(Character* character);
-	Weapon* clone();
+	virtual ~Weapon();
+	void copyData(Weapon* inventory);
 protected:
 	CC_SYNTHESIZE(int, weaponDamage, WeaponDamage);
-	CC_SYNTHESIZE(int, strRequire, StrRequire);
-	CC_SYNTHESIZE(int, agiRequire, AgiRequire);
-	CC_SYNTHESIZE(int, intRequire, IntRequire);
 };
 

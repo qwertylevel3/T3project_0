@@ -1,10 +1,11 @@
 #include "BattleSystem.h"
 #include<cstdlib>
 #include<ctime>
-#include"weapon.h"
 #include"armor.h"
 #include"accessory.h"
 #include"Character.h"
+#include "platform/CCPlatformMacros.h"
+#include "Weapon.h"
 
 
 
@@ -22,25 +23,50 @@ void BattleSystem::init()
 	srand(unsigned(time(0)));
 }
 
+Weapon* BattleSystem::getWeapon(Character* c,AttackHand hand)
+{
+	Weapon* weapon;
+	Inventory::Type type;
+	switch (hand)
+	{
+	case LeftHand:
+	case DoubleHand:
+		type = c->getLeftHand()->getInventoryType();
+		CCAssert(type == Inventory::OneHandWeapon || type == Inventory::TwoHandWeapon,
+			"inventory in left hand is not weapon");
+		weapon = static_cast<Weapon*>(c->getLeftHand());
+		break;
+	case RightHand:
+		type = c->getRightHand()->getInventoryType();
+		CCAssert(type == Inventory::OneHandWeapon || type == Inventory::TwoHandWeapon,
+			"inventory in right hand is not weapon");
+		weapon = static_cast<Weapon*>(c->getRightHand());
+		break;
+	}
+	return weapon;
+}
+
 void BattleSystem::attack(Character * a, Character * b)
 {
 	combo = 0;
 	do
 	{
-		if (isEvade(a, b))
+		if (a->getLeftHand()->getInventoryType() == Inventory::OneHandWeapon)
 		{
-			break;
+			attack(a, b, LeftHand);
+			if (a->getRightHand()->getInventoryType() == Inventory::OneHandWeapon)
+			{
+				attack(a, b, RightHand);
+			}
 		}
-		int attackCount = 0;
-		if (isCritical(a))
+		else if (a->getRightHand()->getInventoryType()==Inventory::OneHandWeapon)
 		{
-			attackCount = getCriticalAttackCount(a);
+			attack(a, b, RightHand);
 		}
-		else
+		else if (a->getLeftHand()->getInventoryType() == Inventory::TwoHandWeapon)
 		{
-			attackCount = getAttackCount(a);
+			attack(a, b, DoubleHand);
 		}
-		sufferAttack(b, attackCount);
 
 		if (!isCombo(a))
 		{
@@ -51,6 +77,25 @@ void BattleSystem::attack(Character * a, Character * b)
 			combo++;
 		}
 	} while (true);
+}
+
+void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
+{
+	if (isEvade(a,b,hand))
+	{
+		return;
+	}
+
+	int attackCount = 0;
+	if (isCritical(a, hand))
+	{
+		attackCount = getCriticalAttackCount(a, hand);
+	}
+	else
+	{
+		attackCount = getAttackCount(a, hand);
+	}
+	sufferAttack(b, attackCount);
 }
 
 void BattleSystem::sufferAttack(Character * c, int attackCount)
@@ -72,63 +117,39 @@ void BattleSystem::sufferAttack(Character * c, int attackCount)
 	c->sufferDamage(attackCount);
 }
 
-int BattleSystem::getAttackCount(Character* a)
+int BattleSystem::getAttackCount(Character* a,AttackHand hand)
 {
-	int agility = a->getAgility();
-	int strength = a->getStrength();
+	double agility = a->getAgility();
+	double strength = a->getStrength();
 
-	Weapon* leftHand = a->getLeftHand();
-	int leftHandAgiReq = 0;
-	int leftHandStrReq = 0;
-	double leftHandAttack = 0;
-	Weapon* rightHand = a->getRightHand();
-	int rightHandAgiReq = 0;
-	int rightHandStrReq = 0;
-	double rightHandAttack = 0;
+	Weapon* weapon = getWeapon(a, hand);
+	double agiReq = 0;
+	double strReq = 0;
+	double attackCount = 0;
 
-	if (leftHand)
-	{
-		leftHandAgiReq = leftHand->getAgiRequire();
-		leftHandStrReq = leftHand->getStrRequire();
+		agiReq = weapon->getAgiRequire();
+		strReq = weapon->getStrRequire();
 
-		leftHandAttack = leftHand->getWeaponDamage();
+		attackCount = weapon->getWeaponDamage();
 
-		if (leftHandAgiReq != 0 && leftHandAgiReq >= agility)
+		if (agiReq != 0 && agiReq >= agility)
 		{
-			leftHandAttack = leftHandAttack*double(agility) / double(leftHandAgiReq);
+			attackCount = attackCount*agility / agiReq;
 		}
-		if (leftHandStrReq != 0 && leftHandStrReq >= strength)
+		if (strReq != 0 && strReq >= strength)
 		{
-			leftHandAttack = leftHandAttack*double(strength) / double(leftHandStrReq);
+			attackCount = attackCount*strength / strReq;
 		}
 
-
-	}
-	if (rightHand)
-	{
-		rightHandAgiReq = rightHand->getAgiRequire();
-		rightHandStrReq = rightHand->getStrRequire();
-
-		rightHandAttack = rightHand->getWeaponDamage();
-
-		if (rightHandAgiReq != 0 && rightHandAgiReq >= agility)
-		{
-			rightHandAttack = rightHandAttack*double(strength) / double(rightHandStrReq);
-		}
-		if (rightHandStrReq != 0 && rightHandStrReq >= strength)
-		{
-			rightHandAttack = rightHandAttack*double(agility) / double(rightHandAgiReq);
-		}
-	}
-	return int(leftHandAttack + rightHandAttack);
+	return int(attackCount<1?1:attackCount);
 }
 
-int BattleSystem::getCriticalAttackCount(Character* c)
+int BattleSystem::getCriticalAttackCount(Character* c,AttackHand hand)
 {
 	double k1 = 0.01;
-	int attackCount = getAttackCount(c);
-	double criticalAttack = double(attackCount)*(1 + k1*double(c->getStrength())) + getCriticalAdd(c);
-	return int(criticalAttack);
+	int attackCount = getAttackCount(c,hand);
+	double criticalAttack = double(attackCount)*(1 + k1*double(c->getStrength())) + getCriticalAdd(c,hand);
+	return int(criticalAttack<1?1:attackCount);
 }
 
 int BattleSystem::getBlockCount(Character* c)
@@ -139,12 +160,12 @@ int BattleSystem::getBlockCount(Character* c)
 	return int(count);
 }
 
-bool BattleSystem::isEvade(Character* a, Character* b)
+bool BattleSystem::isEvade(Character* a,Character* b, AttackHand hand)
 {
 	double B_agi = b->getAgility();
 	double B_evadeAdd = getEvadeProAdd(b);
 	double A_agi = a->getAgility();
-	double A_accuracyAdd = getAccuracyProAdd(a);
+	double A_accuracyAdd = getAccuracyProAdd(a,hand);
 
 	double k1 = 1;
 	double k2 = 1;
@@ -157,12 +178,12 @@ bool BattleSystem::isEvade(Character* a, Character* b)
 	return roll(temp);
 }
 
-bool BattleSystem::isCritical(Character* c)
+bool BattleSystem::isCritical(Character* c,AttackHand hand)
 {
 	double k1 = 1;
 	double agi = c->getAgility();
 
-	double criProAdd = getCriticalProAdd(c);
+	double criProAdd = getCriticalProAdd(c,hand);
 
 	double criPro = agi*k1 + criProAdd + 5;
 
@@ -228,56 +249,47 @@ int BattleSystem::getEvadeProAdd(Character* c)
 		+ accessoryEvadeProAdd;
 }
 
-int BattleSystem::getAccuracyProAdd(Character* c)
+int BattleSystem::getAccuracyProAdd(Character* c,AttackHand hand)
 {
-	Inventory* leftHand = c->getLeftHand();
-	Inventory* rightHand = c->getRightHand();
+	Weapon* weapon = getWeapon(c, hand);
 	Inventory* armor = c->getArmor();
 	Inventory* accessory = c->getAccessory();
 
-	int leftHandAccProAdd = leftHand ? leftHand->getAccuracyProAdd() : 0;
-	int rightHandAccProAdd = rightHand ? rightHand->getAccuracyProAdd() : 0;
+	int weaponAccProAdd = weapon ? weapon->getAccuracyProAdd() : 0;
 	int armorAccProAdd = armor ? armor->getAccuracyProAdd() : 0;
 	int accessoryAccProAdd = accessory ? accessory->getAccuracyProAdd() : 0;
 
-	return leftHandAccProAdd
-		+ rightHandAccProAdd
+	return weaponAccProAdd
 		+ armorAccProAdd
 		+ accessoryAccProAdd;
 }
 
-int BattleSystem::getCriticalProAdd(Character* c)
+int BattleSystem::getCriticalProAdd(Character* c,AttackHand hand)
 {
-	Inventory* leftHand = c->getLeftHand();
-	Inventory* rightHand = c->getRightHand();
+	Weapon* weapon = getWeapon(c, hand);
 	Inventory* armor = c->getArmor();
 	Inventory* accessory = c->getAccessory();
 
-	int leftHandCriProAdd = leftHand ? leftHand->getCriticalProAdd() : 0;
-	int rightHandCriProAdd = rightHand ? rightHand->getCriticalProAdd() : 0;
+	int weaponCriProAdd = weapon ? weapon->getCriticalProAdd() : 0;
 	int armorCriProAdd = armor ? armor->getCriticalProAdd() : 0;
 	int accessoryCriProAdd = accessory ? accessory->getCriticalProAdd() : 0;
 
-	return leftHandCriProAdd
-		+ rightHandCriProAdd
+	return weaponCriProAdd
 		+ armorCriProAdd
 		+ accessoryCriProAdd;
 }
 
-int BattleSystem::getCriticalAdd(Character* c)
+int BattleSystem::getCriticalAdd(Character* c,AttackHand hand)
 {
-	Inventory* leftHand = c->getLeftHand();
-	Inventory* rightHand = c->getRightHand();
+	Weapon* weapon = getWeapon(c, hand);
 	Inventory* armor = c->getArmor();
 	Inventory* accessory = c->getAccessory();
 
-	int leftHandCriAdd = leftHand ? leftHand->getCriticalAdd() : 0;
-	int rightHandCriAdd = rightHand ? rightHand->getCriticalAdd() : 0;
+	int weaponCriAdd = weapon ? weapon->getCriticalAdd() : 0;
 	int armorCriAdd = armor ? armor->getCriticalAdd() : 0;
 	int accessoryCriAdd = accessory ? accessory->getCriticalAdd() : 0;
 
-	return leftHandCriAdd
-		+ rightHandCriAdd
+	return weaponCriAdd
 		+ armorCriAdd
 		+ accessoryCriAdd;
 }

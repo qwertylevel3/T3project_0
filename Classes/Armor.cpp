@@ -18,6 +18,7 @@ Armor* Armor::clone()
 
 	this->copyData(newArmor);
 
+	newArmor->setInventoryType(Inventory::Armor);
 	newArmor->setArmorCount(armorCount);
 
 	return newArmor;

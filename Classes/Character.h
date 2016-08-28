@@ -7,7 +7,7 @@
 
 class GameScene;
 class Inventory;
-class Weapon;
+class InventoryInHand;
 class Armor;
 class Accessory;
 class AIBase;
@@ -82,8 +82,8 @@ protected:
 	//Inventory......
 	std::vector<Inventory*> inventoryList;
 
-	CC_SYNTHESIZE(Weapon*, leftHand, LeftHand);
-	CC_SYNTHESIZE(Weapon*, rightHand, RightHand);
+	CC_SYNTHESIZE(InventoryInHand*, leftHand, LeftHand);
+	CC_SYNTHESIZE(InventoryInHand*, rightHand, RightHand);
 	CC_SYNTHESIZE(Armor*, armor, Armor);
 	CC_SYNTHESIZE(Accessory*, accessory, Accessory);
 

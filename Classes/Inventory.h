@@ -10,12 +10,12 @@ class Inventory
 public:
 	enum Type
 	{
-		Weapon, Armor, Supply, Accessory,Other
+		OneHandWeapon,TwoHandWeapon, Shield, Armor, Supply, Accessory, Other
 	};
 
 	Inventory();
-	virtual ~Inventory()=0;
-	virtual Inventory* clone()=0;
+	virtual ~Inventory() = 0;
+	virtual Inventory* clone() = 0;
 	virtual void equipLeftHand(Character* character);
 	virtual void unequipLeftHand(Character* character);
 	virtual void equipRightHand(Character* character);
@@ -23,7 +23,7 @@ public:
 	virtual void load(Character* character);
 	virtual void unload(Character* character);
 	virtual void use(Character* character);
-	void copyData(Inventory* inventory);
+	virtual void copyData(Inventory* inventory);
 	cocos2d::Sprite* getIcon();
 
 protected:

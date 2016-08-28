@@ -178,6 +178,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Player.cpp" />
     <ClCompile Include="..\Classes\RandomNumber.cpp" />
     <ClCompile Include="..\Classes\RoundSystem.cpp" />
+    <ClCompile Include="..\Classes\Shield.cpp" />
     <ClCompile Include="..\Classes\Skill.cpp" />
     <ClCompile Include="..\Classes\SkillManager.cpp" />
     <ClCompile Include="..\Classes\Storey.cpp" />
@@ -187,6 +188,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     </ClCompile>
     <ClCompile Include="..\Classes\Supply.cpp" />
     <ClCompile Include="..\Classes\ToolFunction.cpp" />
+    <ClCompile Include="..\Classes\InventoryInHand.cpp" />
+    <ClCompile Include="..\Classes\OneHandWeapon.cpp" />
+    <ClCompile Include="..\Classes\TwoHandWeapon.cpp" />
     <ClCompile Include="..\Classes\Weapon.cpp" />
     <ClCompile Include="..\Classes\WeaponAtkArea.cpp" />
     <ClCompile Include="main.cpp" />
@@ -223,6 +227,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Player.h" />
     <ClInclude Include="..\Classes\RandomNumber.h" />
     <ClInclude Include="..\Classes\RoundSystem.h" />
+    <ClInclude Include="..\Classes\Shield.h" />
     <ClInclude Include="..\Classes\Singleton.h" />
     <ClInclude Include="..\Classes\Skill.h" />
     <ClInclude Include="..\Classes\SkillManager.h" />
@@ -230,6 +235,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\StoreyBuilder.h" />
     <ClInclude Include="..\Classes\Supply.h" />
     <ClInclude Include="..\Classes\ToolFunction.h" />
+    <ClInclude Include="..\Classes\InventoryInHand.h" />
+    <ClInclude Include="..\Classes\OneHandWeapon.h" />
+    <ClInclude Include="..\Classes\TwoHandWeapon.h" />
     <ClInclude Include="..\Classes\Weapon.h" />
     <ClInclude Include="..\Classes\WeaponAtkArea.h" />
     <ClInclude Include="main.h" />

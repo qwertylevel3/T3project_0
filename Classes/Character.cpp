@@ -4,7 +4,7 @@
 #include"Dungeon.h"
 #include"FieldEnum.h"
 #include"Inventory.h"
-#include "Weapon.h"
+#include "InventoryInHand.h"
 #include "Armor.h"
 #include "Accessory.h"
 #include "AIBase.h"
