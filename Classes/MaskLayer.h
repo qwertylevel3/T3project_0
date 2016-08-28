@@ -14,7 +14,10 @@ public:
 	~MaskLayer();
 	virtual bool init();
 	void update();
+	void darkOn();
+	void darkOff();
 protected:
+	bool darkSwitch;
 	cocos2d::Sprite* dark;
 	cocos2d::Sprite* lightClipe;
 	cocos2d::Sprite* light;

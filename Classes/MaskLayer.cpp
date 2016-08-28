@@ -36,8 +36,10 @@ bool MaskLayer::init()
 	dark->setScale(s.width / dark->getTexture()->getPixelsWide());
 //	this->addChild(dark);
 
-	lightClipe = Sprite::create("testlight.png");
-	light = Sprite::create("testlight.png");
+	lightClipe = Sprite::create("light.png");
+	light = Sprite::create("light.png");
+	lightClipe->setScale(1.5);
+	light->setScale(1.5);
 	this->addChild(light);
 
 	
@@ -54,6 +56,7 @@ bool MaskLayer::init()
 //	light->setInverted(true);
 //	this->addChild(light);
 
+	darkOff();
 	return true;
 }
 
@@ -78,5 +81,21 @@ cocos2d::Point MaskLayer::getTilePosition(cocos2d::Point coord)
 void MaskLayer::calculateEdge(cocos2d::Point position)
 {
 
+}
+
+void MaskLayer::darkOn()
+{
+	darkSwitch = true;
+	dark->setVisible(true);
+	lightClipe->setVisible(true);
+	light->setVisible(true);
+}
+
+void MaskLayer::darkOff()
+{
+	darkSwitch = false;
+	dark->setVisible(false);
+	lightClipe->setVisible(false);
+	light->setVisible(false);
 }
 
