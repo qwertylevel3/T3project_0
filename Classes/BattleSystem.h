@@ -25,6 +25,7 @@ protected:
 	int getCriticalAttackCount(Character* c,AttackHand hand);
 	int getBlockCount(Character* c);
 
+	bool isInAtkArea(Character* a,Character* b,AttackHand hand);
 	bool isEvade(Character* a, Character* b,AttackHand hand);
 	bool isCritical(Character* c,AttackHand hand);
 	bool isBlock(Character* c);

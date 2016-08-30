@@ -16,7 +16,6 @@ public:
 	void init();
 	//test...
 	void autoNextStep();
-
 	bool isMoveAble(cocos2d::EventKeyboard::KeyCode keyCode);
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 	void handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode);

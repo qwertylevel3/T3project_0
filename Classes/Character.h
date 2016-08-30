@@ -4,6 +4,7 @@
 #include"Dungeon.h"
 #include<map>
 #include"Skill.h"
+#include <vector>
 
 class GameScene;
 class Inventory;
@@ -26,9 +27,6 @@ public:
 	Character();
 	~Character();
 	void update();
-
-	//discard......
-	bool isMoveAble(cocos2d::Point position);
 
 	void sufferDamage(int damage);
 
@@ -54,6 +52,9 @@ public:
 	void showMoveLeftAnimation();
 	void showMoveRightAnimation();
 
+
+	std::vector<cocos2d::Point > getLeftHandAtkArea();
+	std::vector<cocos2d::Point > getRightHandAtkArea();
 
 	//返回在当前layer中的坐标
 	cocos2d::Point getPosition();

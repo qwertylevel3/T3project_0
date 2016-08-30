@@ -32,7 +32,7 @@ void InventoryManager::init()
 	tinyxml2::XMLElement* inventory = inventoryList->FirstChildElement();
 	while (inventory)
 	{
-		std::string type = getInventoryStrAttr(inventory, "type");
+		std::string type = getChildElementStrAttr(inventory, "type");
 
 		initModel(inventory, type);
 
@@ -54,7 +54,7 @@ void InventoryManager::initModel(tinyxml2::XMLElement* inventoryElement,const st
 		model->setInventoryType(Inventory::OneHandWeapon);
 
 		initBaseData(inventoryElement, model);
-		initOneHandWeaponData(inventoryElement, model);
+		initWeaponData(inventoryElement, model);
 
 		inventoryMap[model->getName()] = model;
 	}
@@ -85,45 +85,58 @@ void InventoryManager::initModel(tinyxml2::XMLElement* inventoryElement,const st
 
 void InventoryManager::initBaseData(tinyxml2::XMLElement* inventoryElement,Inventory* model)
 {
-	model->setName(getInventoryStrAttr(inventoryElement, "name"));
-	model->setCname(getInventoryStrAttr(inventoryElement, "cname"));
-	model->setPrice(getInventoryIntAttr(inventoryElement, "price"));
-	model->setWeight(getInventoryIntAttr(inventoryElement, "weight"));
-	model->setSpriteName(getInventoryStrAttr(inventoryElement, "spriteName"));
+	model->setName(getChildElementStrAttr(inventoryElement, "name"));
+	model->setCname(getChildElementStrAttr(inventoryElement, "cname"));
+	model->setPrice(getChildElementIntAttr(inventoryElement, "price"));
+	model->setWeight(getChildElementIntAttr(inventoryElement, "weight"));
+	model->setSpriteName(getChildElementStrAttr(inventoryElement, "spriteName"));
 
-	model->setEvadeProAdd(getInventoryIntAttr(inventoryElement, "evadeProAdd"));
-	model->setAccuracyProAdd(getInventoryIntAttr(inventoryElement, "accuracyProAdd"));
-	model->setCriticalProAdd(getInventoryIntAttr(inventoryElement, "criticalProAdd"));
-	model->setCriticalAdd(getInventoryIntAttr(inventoryElement, "criticalAdd"));
-	model->setBlockProAdd(getInventoryIntAttr(inventoryElement, "blockProAdd"));
-	model->setBlockAdd(getInventoryIntAttr(inventoryElement, "blockAdd"));
-	model->setComboProAdd(getInventoryIntAttr(inventoryElement, "comboProAdd"));
+	model->setEvadeProAdd(getChildElementIntAttr(inventoryElement, "evadeProAdd"));
+	model->setAccuracyProAdd(getChildElementIntAttr(inventoryElement, "accuracyProAdd"));
+	model->setCriticalProAdd(getChildElementIntAttr(inventoryElement, "criticalProAdd"));
+	model->setCriticalAdd(getChildElementIntAttr(inventoryElement, "criticalAdd"));
+	model->setBlockProAdd(getChildElementIntAttr(inventoryElement, "blockProAdd"));
+	model->setBlockAdd(getChildElementIntAttr(inventoryElement, "blockAdd"));
+	model->setComboProAdd(getChildElementIntAttr(inventoryElement, "comboProAdd"));
 }
 
-void InventoryManager::initOneHandWeaponData(tinyxml2::XMLElement* inventoryElement, OneHandWeapon* weaponModel)
+void InventoryManager::initWeaponData(tinyxml2::XMLElement* inventoryElement, Weapon* weaponModel)
 {
-	weaponModel->setWeaponDamage(getInventoryIntAttr(inventoryElement, "weaponDamage"));
-	weaponModel->setStrRequire(getInventoryIntAttr(inventoryElement, "strRequire"));
-	weaponModel->setAgiRequire(getInventoryIntAttr(inventoryElement, "agiRequire"));
-	weaponModel->setIntRequire(getInventoryIntAttr(inventoryElement, "intRequire"));
+	weaponModel->setWeaponDamage(getChildElementIntAttr(inventoryElement, "weaponDamage"));
+	weaponModel->setStrRequire(getChildElementIntAttr(inventoryElement, "strRequire"));
+	weaponModel->setAgiRequire(getChildElementIntAttr(inventoryElement, "agiRequire"));
+	weaponModel->setIntRequire(getChildElementIntAttr(inventoryElement, "intRequire"));
+	tinyxml2::XMLElement* weaponAtkAreaElement = getChildElement(inventoryElement, "weaponAtkArea");
+	tinyxml2::XMLElement* pointElement = getChildElement(weaponAtkAreaElement, "point");
+	while (pointElement)
+	{
+		int x = getChildElementIntAttr(pointElement, "x");
+		int y = getChildElementIntAttr(pointElement, "y");
+		cocos2d::Point point;
+		point.x = x;
+		point.y = y;
+		weaponModel->addAtkAreaPoint(point);
+
+		pointElement = pointElement->NextSiblingElement();
+	}
 }
 
-std::string InventoryManager::getInventoryStrAttr(tinyxml2::XMLElement* inventoryElement, std::string attrName)
+std::string InventoryManager::getChildElementStrAttr(tinyxml2::XMLElement* element, std::string attrName)
 {
-	tinyxml2::XMLElement* childElement = getChildElement(inventoryElement, attrName);
+	tinyxml2::XMLElement* childElement = getChildElement(element, attrName);
 	return childElement->GetText();
 }
 
-std::wstring InventoryManager::getInventoryWStrAttr(tinyxml2::XMLElement* inventoryElement, std::string attrName)
+std::wstring InventoryManager::getChildElementWStrAttr(tinyxml2::XMLElement* element, std::string attrName)
 {
-	tinyxml2::XMLElement* childElement = getChildElement(inventoryElement, attrName);
+	tinyxml2::XMLElement* childElement = getChildElement(element, attrName);
 	std::string temp=childElement->GetText();
 	return ToolFunction::string2wstring(childElement->GetText());
 }
 
-int InventoryManager::getInventoryIntAttr(tinyxml2::XMLElement* inventoryElement, std::string attrName)
+int InventoryManager::getChildElementIntAttr(tinyxml2::XMLElement* element, std::string attrName)
 {
-	tinyxml2::XMLElement* childElement = getChildElement(inventoryElement, attrName);
+	tinyxml2::XMLElement* childElement = getChildElement(element, attrName);
 	return ToolFunction::string2int(childElement->GetText());
 }
 

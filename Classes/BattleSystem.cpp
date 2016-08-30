@@ -81,6 +81,10 @@ void BattleSystem::attack(Character * a, Character * b)
 
 void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 {
+	if (!isInAtkArea(a, b, hand))
+	{
+		return;
+	}
 	if (isEvade(a,b,hand))
 	{
 		return;
@@ -160,7 +164,29 @@ int BattleSystem::getBlockCount(Character* c)
 	return int(count);
 }
 
-bool BattleSystem::isEvade(Character* a,Character* b, AttackHand hand)
+bool BattleSystem::isInAtkArea(Character* a, Character* b, AttackHand hand)
+{
+	
+	std::vector<cocos2d::Point> atkArea;
+	if (hand == LeftHand)
+	{
+		atkArea = a->getLeftHandAtkArea();
+	}
+	else if (hand == RightHand)
+	{
+		atkArea = a->getRightHandAtkArea();
+	}
+	for each (cocos2d::Point point in atkArea)
+	{
+		if (point==b->getMapCoord())
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+bool BattleSystem::isEvade(Character* a, Character* b, AttackHand hand)
 {
 	double B_agi = b->getAgility();
 	double B_evadeAdd = getEvadeProAdd(b);

@@ -19,6 +19,12 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
+		<weaponAtkArea>
+			<point>
+				<x>0</x>
+				<y>1</y>
+			</point>
+		</weaponAtkArea>
 	</inventory>
 	<inventory>
 		<type>oneHandWeapon</type>
@@ -38,6 +44,20 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
+		<weaponAtkArea>
+			<point>
+				<x>0</x>
+				<y>1</y>
+			</point>
+			<point>
+				<x>1</x>
+				<y>1</y>
+			</point>
+			<point>
+				<x>-1</x>
+				<y>1</y>
+			</point>
+		</weaponAtkArea>
 	</inventory>
 	<inventory>
 		<type>oneHandWeapon</type>
@@ -57,5 +77,19 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
+		<weaponAtkArea>
+			<point>
+				<x>0</x>
+				<y>1</y>
+			</point>
+			<point>
+				<x>1</x>
+				<y>1</y>
+			</point>
+			<point>
+				<x>-1</x>
+				<y>1</y>
+			</point>
+		</weaponAtkArea>
 	</inventory>
 </inventoryList>

@@ -25,14 +25,36 @@ int Attack::run()
 {
 	Point position = caster->getPosition();
 	Point curCoord = caster->getMapCoord();
-	Point castCoord = curCoord;
-	castCoord.x++;
 
 	showEffect();
 
 	return 0;
 }
 
+
+std::set<Character* > Attack::getAllTargetCharacter()
+{
+	std::set<Character* > targetCharacters;
+	std::vector<cocos2d::Point> leftHandAtkArea = caster->getLeftHandAtkArea();
+	for each (cocos2d::Point point in leftHandAtkArea)
+	{
+		Character* target = Field::Dungeon::getInstance()->getCharacter(point.x, point.y);
+		if (target && !target->isDead())
+		{
+			targetCharacters.insert(target);
+		}
+	}
+	std::vector<cocos2d::Point> rightHandAtkArea = caster->getRightHandAtkArea();
+	for each (cocos2d::Point point in rightHandAtkArea)
+	{
+		Character* target = Field::Dungeon::getInstance()->getCharacter(point.x, point.y);
+		if (target && !target->isDead())
+		{
+			targetCharacters.insert(target);
+		}
+	}
+	return targetCharacters;
+}
 
 void Attack::showEffect()
 {
@@ -85,9 +107,9 @@ void Attack::showEffect()
 	node->runAction(Sequence::create(rotateAction,animate, CallFunc::create(CC_CALLBACK_0(Sprite::removeFromParent, node)), NULL));
 
 	//attack an character;
-	Character* targetCharacter = Field::Dungeon::getInstance()->getCharacter(targetCoord.x, targetCoord.y);
-	if (targetCharacter && !targetCharacter->isDead())
+	std::set<Character* >targetCharacters = getAllTargetCharacter();
+	for each (Character*  target in targetCharacters)
 	{
-		BattleSystem::getInstance()->attack(caster, targetCharacter);
+		BattleSystem::getInstance()->attack(caster, target);
 	}
 }

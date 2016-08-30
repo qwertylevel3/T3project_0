@@ -5,6 +5,7 @@
 #include"FieldEnum.h"
 #include"Inventory.h"
 #include "InventoryInHand.h"
+#include "Weapon.h"
 #include "Armor.h"
 #include "Accessory.h"
 #include "AIBase.h"
@@ -113,6 +114,30 @@ void Character::showMoveRightAnimation()
 	sprite->runAction(action);
 }
 
+std::vector<cocos2d::Point > Character::getLeftHandAtkArea()
+{
+	std::vector<cocos2d::Point> atkArea;
+	if (leftHand->getInventoryType()==Inventory::OneHandWeapon 
+		|| leftHand->getInventoryType()==Inventory::TwoHandWeapon)
+	{
+		Weapon* weapon = static_cast<Weapon*>(leftHand);
+		return weapon->getAtkArea(this);
+	}
+	return atkArea;
+}
+
+std::vector<cocos2d::Point > Character::getRightHandAtkArea()
+{
+	std::vector<cocos2d::Point> atkArea;
+	if (rightHand->getInventoryType()==Inventory::OneHandWeapon 
+		|| rightHand->getInventoryType()==Inventory::TwoHandWeapon)
+	{
+		Weapon* weapon = static_cast<Weapon*>(rightHand);
+		return weapon->getAtkArea(this);
+	}
+	return atkArea;
+}
+
 cocos2d::Point Character::getPosition()
 {
 	return sprite->getPosition();
@@ -210,11 +235,6 @@ void Character::update()
 }
 
 
-bool Character::isMoveAble(cocos2d::Point position)
-{
-	Field::Storey* storey = Dungeon::getInstance()->getStorey();
-	return storey->isMoveAble(position);
-}
 
 
 void Character::setMoveUpAnimation(cocos2d::Animation* animation)

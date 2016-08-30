@@ -37,6 +37,9 @@
     <Filter Include="src\mask">
       <UniqueIdentifier>{bb73f273-9b20-4a86-9542-46682845f159}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\inventory\weapon">
+      <UniqueIdentifier>{e9a7b07c-ffc6-4ea1-a326-8d052e43b940}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -141,23 +144,33 @@
     <ClCompile Include="..\Classes\RoundSystem.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\WeaponAtkArea.cpp">
-      <Filter>src\inventory</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\AICommonEnemy.cpp">
       <Filter>src\character\AI</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\MaskLayer.cpp">
       <Filter>src\mask</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\LightEdge.cpp" />
     <ClCompile Include="..\Classes\InventoryInHand.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\OneHandWeapon.cpp" />
-    <ClCompile Include="..\Classes\TwoHandWeapon.cpp" />
-    <ClCompile Include="..\Classes\Shield.cpp" />
-    <ClCompile Include="..\Classes\Weapon.cpp" />
+    <ClCompile Include="..\Classes\Shield.cpp">
+      <Filter>src\inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LightEdge.cpp">
+      <Filter>src\mask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\OneHandWeapon.cpp">
+      <Filter>src\inventory\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TwoHandWeapon.cpp">
+      <Filter>src\inventory\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Weapon.cpp">
+      <Filter>src\inventory\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\WeaponAtkArea.cpp">
+      <Filter>src\inventory\weapon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -268,23 +281,33 @@
     <ClInclude Include="..\Classes\RoundSystem.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\WeaponAtkArea.h">
-      <Filter>src\inventory</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\AICommonEnemy.h">
       <Filter>src\character\AI</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MaskLayer.h">
       <Filter>src\mask</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\LightEdge.h" />
     <ClInclude Include="..\Classes\InventoryInHand.h">
       <Filter>src\inventory</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\OneHandWeapon.h" />
-    <ClInclude Include="..\Classes\TwoHandWeapon.h" />
-    <ClInclude Include="..\Classes\Shield.h" />
-    <ClInclude Include="..\Classes\Weapon.h" />
+    <ClInclude Include="..\Classes\Shield.h">
+      <Filter>src\inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LightEdge.h">
+      <Filter>src\mask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\OneHandWeapon.h">
+      <Filter>src\inventory\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TwoHandWeapon.h">
+      <Filter>src\inventory\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Weapon.h">
+      <Filter>src\inventory\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WeaponAtkArea.h">
+      <Filter>src\inventory\weapon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
