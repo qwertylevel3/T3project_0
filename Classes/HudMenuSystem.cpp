@@ -5,6 +5,7 @@
 #include "HudMenuItem.h"
 #include "HudInventoryMenu.h"
 #include "ToolFunction.h"
+#include "cocos2d.h"
 
 
 
@@ -19,6 +20,8 @@ HudMenuSystem::~HudMenuSystem()
 
 void HudMenuSystem::init()
 {
+	windowSize = cocos2d::Director::getInstance()->getWinSize();
+
 	initMainMenu();
 
 	HudMenuItem* activeMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"活动"));
@@ -51,9 +54,18 @@ void HudMenuSystem::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 
 void HudMenuSystem::initMainMenu()
 {
-	mainMenu = new HudMenu(cocos2d::Rect(0, 0, 150, 500));
+	mainMenu = new HudMenu(cocos2d::Rect(0, 0, 150, 400));
 	HudLayer::getInstance()->addChild(mainMenu->getSprite(), 2);
-	mainMenu->setPosition(150, 300);
+
+	cocos2d::Point topLeft;
+	topLeft.x = 50;
+	topLeft.y = 50;
+
+	cocos2d::Point position;
+	position.x = mainMenu->getWidth() / 2+topLeft.x;
+	position.y = windowSize.y-mainMenu->getHeight() / 2-topLeft.y;
+
+	mainMenu->setPosition(position.x, position.y);
 }
 
 void HudMenuSystem::initInventoryMenu()
@@ -61,9 +73,16 @@ void HudMenuSystem::initInventoryMenu()
 	HudMenuItem* inventoryMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"物品"));
 	mainMenu->addItem(inventoryMenuItem);
 
-	inventoryMenu = new HudInventoryMenu(cocos2d::Rect(0, 0, 300, 500));
+	inventoryMenu = new HudInventoryMenu(cocos2d::Rect(0, 0, 300, 400));
 	HudLayer::getInstance()->addChild(inventoryMenu->getSprite(), 2);
-	inventoryMenu->setPosition(400, 300);
+
+	int mainMenuWidth = mainMenu->getWidth();
+
+	cocos2d::Point position;
+	position.x = mainMenuWidth + inventoryMenu->getWidth() / 2 + 10+50;
+	position.y = windowSize.y - inventoryMenu->getHeight() / 2 - 50;
+
+	inventoryMenu->setPosition(position.x, position.y);
 	inventoryMenu->setParent(mainMenu);
 
 	inventoryMenuItem->setRelateMenu(inventoryMenu);

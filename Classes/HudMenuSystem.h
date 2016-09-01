@@ -2,6 +2,7 @@
 
 #include "Singleton.h"
 #include"base\CCEventKeyboard.h"
+#include "base\ccTypes.h"
 
 class HudMenu;
 class HudInventoryMenu;
@@ -20,5 +21,6 @@ protected:
 	void initInventoryMenu();
 	HudMenu* mainMenu;
 	HudInventoryMenu* inventoryMenu;
+	cocos2d::Vec2 windowSize;
 };
 
