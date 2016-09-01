@@ -24,6 +24,11 @@ protected:
 	int getAttackCount(Character* a,AttackHand hand);
 	int getCriticalAttackCount(Character* c,AttackHand hand);
 	int getBlockCount(Character* c);
+	int getEvadeCount(Character* c);
+	int getAccuracyCount(Character* c, AttackHand hand);
+	int getCriticalProCount(Character* c,AttackHand hand);
+	int getBlockProCount(Character* c);
+	int getComboProCount(Character* c);
 
 	bool isInAtkArea(Character* a,Character* b,AttackHand hand);
 	bool isEvade(Character* a, Character* b,AttackHand hand);
@@ -32,8 +37,11 @@ protected:
 	bool isCombo(Character* c);
 
 	double getRandom(double start, double end);
-	bool roll(double m);//0-100,m为下界，当roll值小于m返回true
 
+	//0-100,m为下界，当roll值小于m返回true
+	bool roll(double m);
+
+	//装备加成
 	int getEvadeProAdd(Character* c);
 	int getAccuracyProAdd(Character* c,AttackHand hand);
 	int getCriticalProAdd(Character* c,AttackHand hand);

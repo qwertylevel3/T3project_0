@@ -23,7 +23,7 @@ void BattleSystem::init()
 	srand(unsigned(time(0)));
 }
 
-Weapon* BattleSystem::getWeapon(Character* c,AttackHand hand)
+Weapon* BattleSystem::getWeapon(Character* c, AttackHand hand)
 {
 	Weapon* weapon;
 	Inventory::Type type;
@@ -59,7 +59,7 @@ void BattleSystem::attack(Character * a, Character * b)
 				attack(a, b, RightHand);
 			}
 		}
-		else if (a->getRightHand()->getInventoryType()==Inventory::OneHandWeapon)
+		else if (a->getRightHand()->getInventoryType() == Inventory::OneHandWeapon)
 		{
 			attack(a, b, RightHand);
 		}
@@ -85,7 +85,7 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 	{
 		return;
 	}
-	if (isEvade(a,b,hand))
+	if (isEvade(a, b, hand))
 	{
 		return;
 	}
@@ -121,7 +121,7 @@ void BattleSystem::sufferAttack(Character * c, int attackCount)
 	c->sufferDamage(attackCount);
 }
 
-int BattleSystem::getAttackCount(Character* a,AttackHand hand)
+int BattleSystem::getAttackCount(Character* a, AttackHand hand)
 {
 	double agility = a->getAgility();
 	double strength = a->getStrength();
@@ -131,29 +131,29 @@ int BattleSystem::getAttackCount(Character* a,AttackHand hand)
 	double strReq = 0;
 	double attackCount = 0;
 
-		agiReq = weapon->getAgiRequire();
-		strReq = weapon->getStrRequire();
+	agiReq = weapon->getAgiRequire();
+	strReq = weapon->getStrRequire();
 
-		attackCount = weapon->getWeaponDamage();
+	attackCount = weapon->getWeaponDamage();
 
-		if (agiReq != 0 && agiReq >= agility)
-		{
-			attackCount = attackCount*agility / agiReq;
-		}
-		if (strReq != 0 && strReq >= strength)
-		{
-			attackCount = attackCount*strength / strReq;
-		}
+	if (agiReq != 0 && agiReq >= agility)
+	{
+		attackCount = attackCount*agility / agiReq;
+	}
+	if (strReq != 0 && strReq >= strength)
+	{
+		attackCount = attackCount*strength / strReq;
+	}
 
-	return int(attackCount<1?1:attackCount);
+	return int(attackCount < 1 ? 1 : attackCount);
 }
 
-int BattleSystem::getCriticalAttackCount(Character* c,AttackHand hand)
+int BattleSystem::getCriticalAttackCount(Character* c, AttackHand hand)
 {
 	double k1 = 0.01;
-	int attackCount = getAttackCount(c,hand);
-	double criticalAttack = double(attackCount)*(1 + k1*double(c->getStrength())) + getCriticalAdd(c,hand);
-	return int(criticalAttack<1?1:attackCount);
+	int attackCount = getAttackCount(c, hand);
+	double criticalAttack = double(attackCount)*(1 + k1*double(c->getStrength())) + getCriticalAdd(c, hand);
+	return int(criticalAttack < 1 ? 1 : attackCount);
 }
 
 int BattleSystem::getBlockCount(Character* c)
@@ -166,7 +166,7 @@ int BattleSystem::getBlockCount(Character* c)
 
 bool BattleSystem::isInAtkArea(Character* a, Character* b, AttackHand hand)
 {
-	
+
 	std::vector<cocos2d::Point> atkArea;
 	if (hand == LeftHand)
 	{
@@ -178,7 +178,7 @@ bool BattleSystem::isInAtkArea(Character* a, Character* b, AttackHand hand)
 	}
 	for each (cocos2d::Point point in atkArea)
 	{
-		if (point==b->getMapCoord())
+		if (point == b->getMapCoord())
 		{
 			return true;
 		}
@@ -188,55 +188,31 @@ bool BattleSystem::isInAtkArea(Character* a, Character* b, AttackHand hand)
 
 bool BattleSystem::isEvade(Character* a, Character* b, AttackHand hand)
 {
-	double B_agi = b->getAgility();
-	double B_evadeAdd = getEvadeProAdd(b);
-	double A_agi = a->getAgility();
-	double A_accuracyAdd = getAccuracyProAdd(a,hand);
-
-	double k1 = 1;
-	double k2 = 1;
-	double k3 = 1;
-	double temp = ((B_agi*k1 + B_evadeAdd) - (A_agi*k2 + A_accuracyAdd));
+	double temp = getEvadeCount(b) - getAccuracyCount(a,hand);
 	temp = temp > 0 ? temp : 0;
-	temp = temp*k3 + 5;
+	temp = temp < 5 ? 5 : temp;
 	temp = temp > 95 ? 95 : temp;
 
 	return roll(temp);
 }
 
-bool BattleSystem::isCritical(Character* c,AttackHand hand)
+bool BattleSystem::isCritical(Character* c, AttackHand hand)
 {
-	double k1 = 1;
-	double agi = c->getAgility();
-
-	double criProAdd = getCriticalProAdd(c,hand);
-
-	double criPro = agi*k1 + criProAdd + 5;
+	int criPro = getCriticalProCount(c, hand);
 
 	return roll(criPro);
 }
 
 bool BattleSystem::isBlock(Character* c)
 {
-	double k1 = 1;
-	double agi = c->getAgility();
-	double blockProAdd = getBlockProAdd(c);
-
-	double blockPro = agi*k1 + blockProAdd + 5;
+	int blockPro = getBlockProCount(c);
 
 	return roll(blockPro);
 }
 
 bool BattleSystem::isCombo(Character* c)
 {
-	double k1 = 0.1;
-	double k2 = 5;
-	double agility = c->getAgility();
-	double comboProAdd = getComboProAdd(c);
-
-	double comboPro = agility*k1 + comboProAdd + 5;
-	comboPro = comboPro - k2*combo;
-	comboPro = comboPro < 0 ? 0 : comboPro;
+	int comboPro = getComboProCount(c);
 
 	return roll(comboPro);
 }
@@ -257,6 +233,57 @@ bool BattleSystem::roll(double m)
 	return false;
 }
 
+int BattleSystem::getEvadeCount(Character* c)
+{
+	double k1 = 1;
+	double agility = c->getAgility();
+	double evadeCount = agility* k1 + getEvadeProAdd(c);
+	return int(evadeCount);
+}
+
+int BattleSystem::getAccuracyCount(Character* c, AttackHand hand)
+{
+	double k1=1;
+	double agility = c->getAgility();
+	double accuracyAdd = getAccuracyProAdd(c, hand);
+	double accuracyCount = agility*k1 + accuracyAdd;
+	return int(accuracyCount);
+}
+
+int BattleSystem::getCriticalProCount(Character* c, AttackHand hand)
+{
+	double k1 = 1;
+	double agility = c->getAgility();
+
+	double criProAdd = getCriticalProAdd(c, hand);
+
+	double criPro = agility*k1 + criProAdd + 5;
+	return int(criPro);
+}
+
+int BattleSystem::getBlockProCount(Character* c)
+{
+	double k1 = 1;
+	double agility = c->getAgility();
+	double blockProAdd = getBlockProAdd(c);
+
+	double blockPro = agility*k1 + blockProAdd + 5;
+	return int(blockPro);
+}
+
+int BattleSystem::getComboProCount(Character* c)
+{
+	double k1 = 0.1;
+	double k2 = 5;
+	double agility = c->getAgility();
+	double comboProAdd = getComboProAdd(c);
+
+	double comboPro = agility*k1 + comboProAdd + 5;
+	comboPro = comboPro - k2*combo;
+	comboPro = comboPro < 0 ? 0 : comboPro;
+	return int(comboPro);
+}
+
 int BattleSystem::getEvadeProAdd(Character* c)
 {
 	Inventory* leftHand = c->getLeftHand();
@@ -275,7 +302,7 @@ int BattleSystem::getEvadeProAdd(Character* c)
 		+ accessoryEvadeProAdd;
 }
 
-int BattleSystem::getAccuracyProAdd(Character* c,AttackHand hand)
+int BattleSystem::getAccuracyProAdd(Character* c, AttackHand hand)
 {
 	Weapon* weapon = getWeapon(c, hand);
 	Inventory* armor = c->getArmor();
@@ -290,7 +317,7 @@ int BattleSystem::getAccuracyProAdd(Character* c,AttackHand hand)
 		+ accessoryAccProAdd;
 }
 
-int BattleSystem::getCriticalProAdd(Character* c,AttackHand hand)
+int BattleSystem::getCriticalProAdd(Character* c, AttackHand hand)
 {
 	Weapon* weapon = getWeapon(c, hand);
 	Inventory* armor = c->getArmor();
@@ -305,7 +332,7 @@ int BattleSystem::getCriticalProAdd(Character* c,AttackHand hand)
 		+ accessoryCriProAdd;
 }
 
-int BattleSystem::getCriticalAdd(Character* c,AttackHand hand)
+int BattleSystem::getCriticalAdd(Character* c, AttackHand hand)
 {
 	Weapon* weapon = getWeapon(c, hand);
 	Inventory* armor = c->getArmor();
