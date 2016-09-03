@@ -11,6 +11,8 @@ public:
 	~HudStateSystem();
 	void init();
 	void update();
+	void show();
+	void hide();
 protected:
 	void setPosition();
 	cocos2d::Sprite* bk;

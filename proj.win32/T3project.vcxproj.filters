@@ -171,7 +171,9 @@
     <ClCompile Include="..\Classes\WeaponAtkArea.cpp">
       <Filter>src\inventory\weapon</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudStateSystem.cpp" />
+    <ClCompile Include="..\Classes\HudStateSystem.cpp">
+      <Filter>src\HUD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -309,7 +311,9 @@
     <ClInclude Include="..\Classes\WeaponAtkArea.h">
       <Filter>src\inventory\weapon</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudStateSystem.h" />
+    <ClInclude Include="..\Classes\HudStateSystem.h">
+      <Filter>src\HUD</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

@@ -23,50 +23,52 @@ void HudStateSystem::init()
 	HudLayer::getInstance()->addChild(bk);
 
 	playerNameLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(playerNameLabel);
+	bk->addChild(playerNameLabel);
 
 	hpLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(hpLabel);
+	bk->addChild(hpLabel);
 
 	mpLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(mpLabel);
+	bk->addChild(mpLabel);
 
 	strLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(strLabel);
+	bk->addChild(strLabel);
 	agiLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(agiLabel);
+	bk->addChild(agiLabel);
 	intLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(intLabel);
+	bk->addChild(intLabel);
 
 	leftAtkLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(leftAtkLabel);
+	bk->addChild(leftAtkLabel);
 	rightAtkLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(rightAtkLabel);
+	bk->addChild(rightAtkLabel);
 	leftCriAtkLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(leftCriAtkLabel);
+	bk->addChild(leftCriAtkLabel);
 	rightCriAtkLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(rightCriAtkLabel);
+	bk->addChild(rightCriAtkLabel);
 	leftCriProLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(leftCriProLabel);
+	bk->addChild(leftCriProLabel);
 	rightCriProLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(rightCriProLabel);
+	bk->addChild(rightCriProLabel);
 	leftAccuracyCountLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(leftAccuracyCountLabel);
+	bk->addChild(leftAccuracyCountLabel);
 	rightAccuracyCountLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(rightAccuracyCountLabel);
+	bk->addChild(rightAccuracyCountLabel);
 
 	evadeCountLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(evadeCountLabel);
+	bk->addChild(evadeCountLabel);
 	blockCountLable = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(blockCountLable);
+	bk->addChild(blockCountLable);
 	blockProCountLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(blockProCountLabel);
+	bk->addChild(blockProCountLabel);
 	comboProCountLable = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	HudLayer::getInstance()->addChild(comboProCountLable);
+	bk->addChild(comboProCountLable);
 
 	setPosition();
 
 	update();
+
+	//hide();
 }
 
 void HudStateSystem::update()
@@ -153,6 +155,16 @@ void HudStateSystem::update()
 	);
 	comboProCountLable->setString(comboCount);
 
+}
+
+void HudStateSystem::show()
+{
+	bk->setVisible(true);
+}
+
+void HudStateSystem::hide()
+{
+	bk->setVisible(false);
 }
 
 void HudStateSystem::setPosition()
