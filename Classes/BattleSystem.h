@@ -15,11 +15,6 @@ public:
 	~BattleSystem();
 	void init();
 	void attack(Character* a, Character* b);
-protected:
-	bool showMessage;
-	Weapon* getWeapon(Character* c,AttackHand hand);
-	void attack(Character* a, Character* b, AttackHand hand);
-	void sufferAttack(Character* c, int attackCount);
 
 	int getAttackCount(Character* a,AttackHand hand);
 	int getCriticalAttackCount(Character* c,AttackHand hand);
@@ -29,6 +24,11 @@ protected:
 	int getCriticalProCount(Character* c,AttackHand hand);
 	int getBlockProCount(Character* c);
 	int getComboProCount(Character* c);
+protected:
+	bool showMessage;
+	Weapon* getWeapon(Character* c,AttackHand hand);
+	void attack(Character* a, Character* b, AttackHand hand);
+	void sufferAttack(Character* c, int attackCount);
 
 	bool isInAtkArea(Character* a,Character* b,AttackHand hand);
 	bool isEvade(Character* a, Character* b,AttackHand hand);

@@ -3,6 +3,7 @@
 #include"HudSender.h"
 #include"HudCursor.h"
 #include "HudMenuSystem.h"
+#include "HudStateSystem.h"
 
 USING_NS_CC;
 
@@ -22,6 +23,7 @@ bool HudLayer::init()
 		return false;
 	}
 	HudMenuSystem::getInstance()->init();
+	HudStateSystem::getInstance()->init();
 	return true;
 }
 
@@ -31,6 +33,8 @@ void HudLayer::update()
 	{
 		senderList[i]->updateSender();
 	}
+	HudMenuSystem::getInstance()->update();
+	HudStateSystem::getInstance()->update();
 }
 
 void HudLayer::show()

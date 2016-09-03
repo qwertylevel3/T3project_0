@@ -25,6 +25,7 @@ public:
 	std::vector<Inventory*>& getInventoryList();
 protected:
 	CC_SYNTHESIZE(Character*, characterPtr, characterPtr);
+	CC_SYNTHESIZE(std::string, name, Name);
 	ControlMode controlMode;
 
 };

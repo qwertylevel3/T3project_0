@@ -13,6 +13,7 @@ public:
 	HudMenuSystem();
 	~HudMenuSystem();
 	void init();
+	void update();
 	void show();
 	void hide();
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);

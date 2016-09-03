@@ -33,6 +33,11 @@ void HudMenuSystem::init()
 	hide();
 }
 
+void HudMenuSystem::update()
+{
+
+}
+
 void HudMenuSystem::show()
 {
 	HudCursor::getInstance()->setCurMenu(mainMenu);

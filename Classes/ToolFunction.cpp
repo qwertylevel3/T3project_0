@@ -22,6 +22,14 @@ int ToolFunction::string2int(const std::string & str)
 	return temp;
 }
 
+std::string ToolFunction::int2string(int i)
+{
+	std::stringstream stream;
+	stream << i;
+	std::string str = stream.str();
+	return str;
+}
+
 std::wstring ToolFunction::string2wstring(std::string str)
 {
 	std::wstring wstr(str.length(), L' ');

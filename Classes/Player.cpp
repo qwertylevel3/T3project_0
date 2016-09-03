@@ -23,8 +23,17 @@ Player::~Player()
 
 void Player::init()
 {
+	name = "qwerty";
+
+
+
 	characterPtr = CharacterManager::getInstance()->getCharacter("Actor0");
 	controlMode = NormalMode;
+
+	characterPtr->setHP(100);
+	characterPtr->setMaxHP(100);
+	characterPtr->setMP(100);
+	characterPtr->setMaxMP(100);
 
 	characterPtr->setStrength(10);
 	characterPtr->setAgility(10);
