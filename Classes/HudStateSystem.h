@@ -2,6 +2,7 @@
 
 #include "Singleton.h"
 #include "2d/CCLabel.h"
+#include "2d/CCSprite.h"
 
 class HudStateSystem:public Singleton<HudStateSystem>
 {
@@ -12,6 +13,7 @@ public:
 	void update();
 protected:
 	void setPosition();
+	cocos2d::Sprite* bk;
 
 	cocos2d::Label* playerNameLabel;
 	cocos2d::Label* hpLabel;

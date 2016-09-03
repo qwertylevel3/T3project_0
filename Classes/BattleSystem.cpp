@@ -20,6 +20,7 @@ BattleSystem::~BattleSystem()
 
 void BattleSystem::init()
 {
+	combo = 0;
 	srand(unsigned(time(0)));
 }
 

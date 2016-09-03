@@ -19,46 +19,49 @@ HudStateSystem::~HudStateSystem()
 
 void HudStateSystem::init()
 {
-	playerNameLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	bk = Sprite::create("StateMenu.png");
+	HudLayer::getInstance()->addChild(bk);
+
+	playerNameLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(playerNameLabel);
 
-	hpLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	hpLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(hpLabel);
 
-	mpLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	mpLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(mpLabel);
 
-	strLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	strLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(strLabel);
-	agiLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	agiLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(agiLabel);
-	intLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	intLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(intLabel);
 
-	leftAtkLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	leftAtkLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(leftAtkLabel);
-	rightAtkLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	rightAtkLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(rightAtkLabel);
-	leftCriAtkLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	leftCriAtkLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(leftCriAtkLabel);
-	rightCriAtkLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	rightCriAtkLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(rightCriAtkLabel);
-	leftCriProLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	leftCriProLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(leftCriProLabel);
-	rightCriProLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	rightCriProLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(rightCriProLabel);
-	leftAccuracyCountLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	leftAccuracyCountLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(leftAccuracyCountLabel);
-	rightAccuracyCountLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	rightAccuracyCountLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(rightAccuracyCountLabel);
 
-	evadeCountLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	evadeCountLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(evadeCountLabel);
-	blockCountLable = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	blockCountLable = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(blockCountLable);
-	blockProCountLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	blockProCountLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(blockProCountLabel);
-	comboProCountLable = Label::createWithTTF("", "fonts/arialuni.ttf", 18);
+	comboProCountLable = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	HudLayer::getInstance()->addChild(comboProCountLable);
 
 	setPosition();
@@ -75,65 +78,65 @@ void HudStateSystem::update()
 
 	std::string maxHP = ToolFunction::int2string(playerPtr->getMaxHP());
 	std::string HP = ToolFunction::int2string(playerPtr->getHP());
-	hpLabel->setString("HP:" + HP + "/" + maxHP);
+	hpLabel->setString(HP + "/" + maxHP);
 
 	std::string maxMP = ToolFunction::int2string(playerPtr->getMaxMP());
 	std::string MP = ToolFunction::int2string(playerPtr->getMP());
-	mpLabel->setString("MP:" + MP + "/" + maxMP);
+	mpLabel->setString(MP + "/" + maxMP);
 
 	std::string strength = ToolFunction::int2string(playerPtr->getStrength());
-	strLabel->setString("strength:" + strength);
+	strLabel->setString(strength);
 
 	std::string agility = ToolFunction::int2string(playerPtr->getAgility());
-	agiLabel->setString("agility:" + agility);
+	agiLabel->setString(agility);
 
 	std::string intellect = ToolFunction::int2string(playerPtr->getIntellect());
-	intLabel->setString("intellect:" + intellect);
+	intLabel->setString(intellect);
 
 	std::string leftAtk = ToolFunction::int2string(
 		BattleSystem::getInstance()->getAttackCount(playerPtr, BattleSystem::AttackHand::LeftHand)
 	);
-	leftAtkLabel->setString("leftAtk:" + leftAtk);
+	leftAtkLabel->setString(leftAtk);
 
 	std::string rightAtk = ToolFunction::int2string(
 		BattleSystem::getInstance()->getAttackCount(playerPtr, BattleSystem::AttackHand::RightHand)
 	);
-	rightAtkLabel->setString("rightAtk:" + rightAtk);
+	rightAtkLabel->setString(rightAtk);
 
 	std::string leftCriAtk = ToolFunction::int2string(
 		BattleSystem::getInstance()->getCriticalAttackCount(playerPtr, BattleSystem::AttackHand::LeftHand)
 	);
-	leftCriAtkLabel->setString("leftCriticalAtk:" + leftCriAtk);
+	leftCriAtkLabel->setString(leftCriAtk);
 
 	std::string rightCriAtk = ToolFunction::int2string(
 		BattleSystem::getInstance()->getCriticalAttackCount(playerPtr, BattleSystem::AttackHand::RightHand)
 	);
-	rightCriAtkLabel->setString("rightCriticalAtk:" + rightCriAtk);
+	rightCriAtkLabel->setString(rightCriAtk);
 
 	std::string leftCriPro = ToolFunction::int2string(
 		BattleSystem::getInstance()->getCriticalProCount(playerPtr, BattleSystem::AttackHand::LeftHand)
 	);
-	leftCriProLabel->setString("leftCriticalPro:" + leftCriPro);
+	leftCriProLabel->setString(leftCriPro);
 
 	std::string rightCriPro = ToolFunction::int2string(
 		BattleSystem::getInstance()->getCriticalProCount(playerPtr, BattleSystem::AttackHand::RightHand)
 	);
-	rightCriProLabel->setString("rightCriticalPro:" + rightCriPro);
+	rightCriProLabel->setString(rightCriPro);
 
 	std::string leftAccuracuCount = ToolFunction::int2string(
 		BattleSystem::getInstance()->getAccuracyCount(playerPtr, BattleSystem::AttackHand::LeftHand)
 	);
-	leftAccuracyCountLabel->setString("leftAccuracy:" + leftAccuracuCount);
+	leftAccuracyCountLabel->setString(leftAccuracuCount);
 
 	std::string rightAccuracyCount = ToolFunction::int2string(
 		BattleSystem::getInstance()->getAccuracyCount(playerPtr, BattleSystem::AttackHand::RightHand)
 	);
-	rightAccuracyCountLabel->setString("rightAccuracy:" + rightAccuracyCount);
+	rightAccuracyCountLabel->setString(rightAccuracyCount);
 
 	std::string evadeCount = ToolFunction::int2string(
 		BattleSystem::getInstance()->getEvadeCount(playerPtr)
 	);
-	evadeCountLabel->setString("evadeCount:" + evadeCount);
+	evadeCountLabel->setString(evadeCount);
 
 	std::string blockCount = ToolFunction::int2string(
 		BattleSystem::getInstance()->getBlockCount(playerPtr)
@@ -154,22 +157,28 @@ void HudStateSystem::update()
 
 void HudStateSystem::setPosition()
 {
-	playerNameLabel->setPosition(100, 100);
-	hpLabel->setPosition(100, 70);
-	mpLabel->setPosition(100, 40);
+	bk->setPosition(bk->getTexture()->getPixelsWide() / 2, bk->getTexture()->getPixelsHigh() / 2);
 
-	strLabel->setPosition(230, 100);
-	agiLabel->setPosition(230, 70);
-	intLabel->setPosition(230, 40);
+	playerNameLabel->setPosition(100, 90);
+	hpLabel->setPosition(100, 60);
+	mpLabel->setPosition(100, 30);
 
-	leftAtkLabel->setPosition(430, 100);
-	rightAtkLabel->setPosition(430, 70);
-	leftCriAtkLabel->setPosition(430, 40);
+	strLabel->setPosition(200, 90);
+	agiLabel->setPosition(200, 60);
+	intLabel->setPosition(200, 30);
 
-	rightCriAtkLabel->setPosition(630, 100);
-	leftCriProLabel->setPosition(630, 70);
-	rightCriProLabel->setPosition(630, 40);
+	leftAtkLabel->setPosition(375, 78);
+	leftCriAtkLabel->setPosition(375, 60);
+	leftCriProLabel->setPosition(375, 40);
+	leftAccuracyCountLabel->setPosition(375, 22);
 
-//	leftAccuracyCountLabel->setPosition(230, 40);
-//	rightAccuracyCountLabel->setPosition(230, 40);
+	rightAtkLabel->setPosition(545, 78);
+	rightCriAtkLabel->setPosition(545, 60);
+	rightCriProLabel->setPosition(545, 40);
+	rightAccuracyCountLabel->setPosition(545, 22);
+
+	evadeCountLabel->setPosition(755,95);
+	blockCountLable->setPosition(755,70);
+	blockProCountLabel->setPosition(755,45);
+	comboProCountLable->setPosition(755,20);
 }
