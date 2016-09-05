@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--这里next为从0开始计-->
+<dialogueBox>
+	<dialogue>
+		<name>testDialogue</name>
+		<sentence>
+			<actorName>testActor0.png</actorName>
+			<word>台词测试0</word>
+			<next>1</next>
+		</sentence>
+		<sentence>
+			<actorName>testActor1.png</actorName>
+			<word>台词测试1</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<actorName>testActor0.png</actorName>
+			<word>台词测试结束</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+</dialogueBox>

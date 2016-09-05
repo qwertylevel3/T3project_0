@@ -22,9 +22,9 @@ protected:
 	std::wstring getChildElementWStrAttr(tinyxml2::XMLElement* element, std::string attrName);
 	int getChildElementIntAttr(tinyxml2::XMLElement* element, std::string attrName);
 
-	std::map<std::string, Inventory*> inventoryMap;
 	tinyxml2::XMLElement* getChildElement(tinyxml2::XMLElement* parent, std::string name);
 
+	std::map<std::string, Inventory*> inventoryMap;
 	tinyxml2::XMLElement* curInventoryElement;
 };
 

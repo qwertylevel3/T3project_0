@@ -40,6 +40,9 @@
     <Filter Include="src\inventory\weapon">
       <UniqueIdentifier>{e9a7b07c-ffc6-4ea1-a326-8d052e43b940}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\dialogue">
+      <UniqueIdentifier>{3d243ef8-b2bd-4344-adf4-aeb84e6973cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -174,6 +177,18 @@
     <ClCompile Include="..\Classes\HudStateSystem.cpp">
       <Filter>src\HUD</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Dialogue.cpp">
+      <Filter>src\dialogue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DialogueSystem.cpp">
+      <Filter>src\dialogue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Sentence.cpp">
+      <Filter>src\dialogue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Question.cpp" />
+    <ClCompile Include="..\Classes\Statement.cpp" />
+    <ClCompile Include="..\Classes\DialogueDriver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -314,6 +329,18 @@
     <ClInclude Include="..\Classes\HudStateSystem.h">
       <Filter>src\HUD</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Dialogue.h">
+      <Filter>src\dialogue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DialogueSystem.h">
+      <Filter>src\dialogue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Sentence.h">
+      <Filter>src\dialogue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Question.h" />
+    <ClInclude Include="..\Classes\Statement.h" />
+    <ClInclude Include="..\Classes\DialogueDriver.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
