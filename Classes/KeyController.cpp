@@ -1,6 +1,7 @@
 #include "KeyController.h"
 #include "Player.h"
-#include "HudLayer.h"
+#include "HudMenuSystem.h"
+#include "DialogueSystem.h"
 
 
 
@@ -29,25 +30,35 @@ void KeyController::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 	{
 		Player::getInstance()->autoNextStep();
 	}
+
+
+	//open or close menu
 	if (keyCode == cocos2d::EventKeyboard::KeyCode::KEY_ENTER
 		&& control==PLAYER)
 	{
-		switchControlToHud();
+		switchCtrlFromPlayerToMenu();
 		return;
 	}
 	if (keyCode == cocos2d::EventKeyboard::KeyCode::KEY_ESCAPE
-		&& control!=PLAYER)
+		&& control==MENU)
 	{
-		switchControlToPlayer();
+		switchCtrlFromMenuToPlayer();
 		return;
 	}
+
+
+	//handle key
 	if (control==PLAYER)
 	{
 		Player::getInstance()->handleKeyPressed(keyCode);
 	}
-	else
+	else if(control==MENU)
 	{
-		HudLayer::getInstance()->handleKeyPressed(keyCode);
+		HudMenuSystem::getInstance()->handleKeyPressed(keyCode);
+	}
+	else if (control == DIALOG)
+	{
+		DialogueSystem::getInstance()->handleKeyPressed(keyCode);
 	}
 }
 
@@ -62,18 +73,23 @@ void KeyController::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 
 	}
 }
-void KeyController::switchControlToPlayer()
+void KeyController::switchCtrlFromMenuToPlayer()
 {
 	//InventoryMenu::getInstance()->hide();
-	HudLayer::getInstance()->hide();
+	HudMenuSystem::getInstance()->hide();
+
 	control = PLAYER;
 }
 
-void KeyController::switchControlToHud()
+void KeyController::switchCtrlFromPlayerToMenu()
 {
 	//InventoryMenu::getInstance()->show();
-	HudLayer::getInstance()->show();
-	control = HUD;
+	HudMenuSystem::getInstance()->show();
+	control = MENU;
 }
 
+void KeyController::switchCtrlFromMenuToDialog()
+{
+	control = DIALOG;
+}
 
