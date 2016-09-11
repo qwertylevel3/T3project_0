@@ -10,8 +10,7 @@ Statement::~Statement()
 {
 }
 
-int Statement::run()
+int Statement::next()
 {
-
-	return next;
+	return nextIndex;
 }

@@ -175,6 +175,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudStateSystem.cpp" />
     <ClCompile Include="..\Classes\Inventory.cpp" />
     <ClCompile Include="..\Classes\InventoryManager.cpp" />
+    <ClCompile Include="..\Classes\KeyController.cpp" />
     <ClCompile Include="..\Classes\LightEdge.cpp" />
     <ClCompile Include="..\Classes\MaskLayer.cpp" />
     <ClCompile Include="..\Classes\MonsterManager.cpp" />
@@ -231,6 +232,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudStateSystem.h" />
     <ClInclude Include="..\Classes\Inventory.h" />
     <ClInclude Include="..\Classes\InventoryManager.h" />
+    <ClInclude Include="..\Classes\KeyController.h" />
     <ClInclude Include="..\Classes\LightEdge.h" />
     <ClInclude Include="..\Classes\MaskLayer.h" />
     <ClInclude Include="..\Classes\MonsterManager.h" />

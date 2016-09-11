@@ -6,6 +6,7 @@
 #include "Singleton.h"
 #include"tinyxml2\tinyxml2.h"
 #include "Dialogue.h"
+#include "base\CCEventKeyboard.h"
 
 class DialogueSystem:public Singleton<DialogueSystem>
 {
@@ -14,6 +15,7 @@ public:
 	~DialogueSystem();
 	void init();
 	int run(const std::string& dialogueName);
+	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 protected:
 	std::map<std::string, Dialogue*> dialogueBox;
 

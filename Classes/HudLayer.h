@@ -19,5 +19,6 @@ public:
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 protected:
 	std::vector<HudSender* > senderList;
+	bool isTalk;
 };
 

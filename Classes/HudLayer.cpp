@@ -26,6 +26,7 @@ bool HudLayer::init()
 	HudMenuSystem::getInstance()->init();
 	HudStateSystem::getInstance()->init();
 	DialogueSystem::getInstance()->init();
+	isTalk = false;
 	return true;
 }
 
@@ -65,5 +66,12 @@ void HudLayer::addSender(HudSender* sender)
 
 void HudLayer::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
-	HudMenuSystem::getInstance()->handleKeyPressed(keyCode);
+	if (!isTalk)
+	{
+		HudMenuSystem::getInstance()->handleKeyPressed(keyCode);
+	}
+	else
+	{
+		DialogueSystem::getInstance()->handleKeyPressed(keyCode);
+	}
 }

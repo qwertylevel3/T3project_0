@@ -9,8 +9,8 @@ class Dialogue
 public:
 	Dialogue();
 	~Dialogue();
-	int run();
 	void addSentence(Sentence* sentence);
+	Sentence* getSentence(int index);
 protected:
 	CC_SYNTHESIZE(std::string, name, Name);
 	std::vector<Sentence*> script;

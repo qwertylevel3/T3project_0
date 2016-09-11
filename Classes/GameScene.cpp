@@ -13,6 +13,7 @@
 #include "BattleSystem.h"
 #include "RoundSystem.h"
 #include "MaskLayer.h"
+#include "KeyController.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -44,7 +45,7 @@ bool GameScene::init()
 	MonsterManager::getInstance()->init();
 	BattleSystem::getInstance()->init();
 
-
+	KeyController::getInstance()->init();
 
 
 //	Debug::getInstance()->init(HudLayer::getInstance());
@@ -112,42 +113,12 @@ void GameScene::update(float dt)
 
 void GameScene::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
-	if(keyCode==EventKeyboard::KeyCode::KEY_SPACE)
-	{
-		Player::getInstance()->autoNextStep();
-	}
-	if (keyCode == EventKeyboard::KeyCode::KEY_ENTER
-		&& isControlPlayer)
-	{
-		switchControlToHud();
-		return;
-	}
-	if (keyCode == EventKeyboard::KeyCode::KEY_ESCAPE
-		&& !isControlPlayer)
-	{
-		switchControlToPlayer();
-		return;
-	}
-	if (isControlPlayer)
-	{
-		Player::getInstance()->handleKeyPressed(keyCode);
-	}
-	else
-	{
-		HudLayer::getInstance()->handleKeyPressed(keyCode);
-	}
+	KeyController::getInstance()->handleKeyPressed(keyCode);
 }
 
 void GameScene::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 {
-	if (isControlPlayer)
-	{
-		Player::getInstance()->handleKeyReleased(keyCode);
-	}
-	else
-	{
-
-	}
+	KeyController::getInstance()->handleKeyReleased(keyCode);
 }
 
 

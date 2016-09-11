@@ -2,6 +2,8 @@
 
 #include "HudLayer.h"
 #include "Sentence.h"
+#include "base\ccMacros.h"
+#include "Dialogue.h"
 
 USING_NS_CC;
 
@@ -38,7 +40,7 @@ void DialogueDriver::init()
 	textLabel->setVisible(false);
 }
 
-void DialogueDriver::run(Sentence* sentence)
+int DialogueDriver::run(Sentence* sentence)
 {
 	std::string actorSpriteName = sentence->getActorSpriteName();
 	std::string word = sentence->getWord();
@@ -47,4 +49,31 @@ void DialogueDriver::run(Sentence* sentence)
 	dialogBk->setVisible(true);
 	textLabel->setString(word);
 
+	return sentence->next();
+}
+
+int DialogueDriver::run(Dialogue* dialogue)
+{
+	Sentence* sentence = dialogue->getSentence(0);
+
+	int nextIndex = run(sentence);
+	while (nextIndex >= 0)
+	{
+		sentence = dialogue->getSentence(nextIndex);
+		nextIndex = run(sentence);
+	}
+	return nextIndex;
+}
+
+void DialogueDriver::nextSentence()
+{
+	//todo.....
+}
+
+void DialogueDriver::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
+{
+	if (keyCode==cocos2d::EventKeyboard::KeyCode::KEY_ENTER)
+	{
+		nextSentence();
+	}
 }

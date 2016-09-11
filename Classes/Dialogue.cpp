@@ -11,19 +11,13 @@ Dialogue::~Dialogue()
 {
 }
 
-int Dialogue::run()
-{
-	CCAssert(!script.empty(), "dialogue is empty");
-
-	int nextIndex = script[0]->run();
-	while (nextIndex >= 0)
-	{
-		nextIndex = script[nextIndex]->run();
-	}
-	return nextIndex;
-}
-
 void Dialogue::addSentence(Sentence* sentence)
 {
 	script.push_back(sentence);
+}
+
+Sentence* Dialogue::getSentence(int index)
+{
+	CCAssert(index >= 0 && index < script.size(), "index is out of script size");
+	return script.at(index);
 }

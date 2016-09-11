@@ -2,6 +2,8 @@
 #include "Statement.h"
 #include "ToolFunction.h"
 #include "DialogueDriver.h"
+#include "HudMenuSystem.h"
+#include "HudStateSystem.h"
 
 USING_NS_CC;
 
@@ -35,7 +37,7 @@ void DialogueSystem::init()
 
 			sentence->setActorSpriteName(getChildElementStrAttr(sentenceElement, "actorName"));
 			sentence->setWord(getChildElementStrAttr(sentenceElement, "word"));
-			sentence->setNext(getChildElementIntAttr(sentenceElement, "next"));
+			sentence->setNextIndex(getChildElementIntAttr(sentenceElement, "next"));
 
 			dialogue->addSentence(sentence);
 
@@ -51,7 +53,16 @@ void DialogueSystem::init()
 
 int DialogueSystem::run(const std::string& dialogueName)
 {
-	return dialogueBox[dialogueName]->run();
+	HudMenuSystem::getInstance()->hide();
+	HudStateSystem::getInstance()->hide();
+	int index = DialogueDriver::getInstance()->run(dialogueBox[dialogueName]);
+	HudStateSystem::getInstance()->show();
+	return index;
+}
+
+void DialogueSystem::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
+{
+
 }
 
 std::string DialogueSystem::getChildElementStrAttr(tinyxml2::XMLElement* element, std::string attrName)

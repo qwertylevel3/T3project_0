@@ -189,6 +189,7 @@
     <ClCompile Include="..\Classes\Question.cpp" />
     <ClCompile Include="..\Classes\Statement.cpp" />
     <ClCompile Include="..\Classes\DialogueDriver.cpp" />
+    <ClCompile Include="..\Classes\KeyController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -341,6 +342,7 @@
     <ClInclude Include="..\Classes\Question.h" />
     <ClInclude Include="..\Classes\Statement.h" />
     <ClInclude Include="..\Classes\DialogueDriver.h" />
+    <ClInclude Include="..\Classes\KeyController.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
