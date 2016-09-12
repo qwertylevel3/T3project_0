@@ -4,6 +4,7 @@
 #include "Sentence.h"
 #include "base\ccMacros.h"
 #include "Dialogue.h"
+#include "KeyController.h"
 
 USING_NS_CC;
 
@@ -19,9 +20,18 @@ DialogueDriver::~DialogueDriver()
 
 void DialogueDriver::init()
 {
-	dialogBk = cocos2d::Sprite::create("menu.png",cocos2d::Rect(0,0,600,120));
+	curIndex = 0;
+	curDialogue = nullptr;
+
+	dialogBk = cocos2d::Sprite::create("menu.png",cocos2d::Rect(0,0,700,150));
 	HudLayer::getInstance()->addChild(dialogBk);
+	dialogBk->setLocalZOrder(1);
 	dialogBk->setVisible(false);
+
+
+
+	dialogBk->setPosition(400, 100);
+
 	cocos2d::CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("actor.plist");
 	
 	Sprite* testActor0Sprite = Sprite::createWithSpriteFrameName("testActor0.png");
@@ -29,6 +39,8 @@ void DialogueDriver::init()
 
 	testActor0Sprite->setVisible(false);
 	testActor1Sprite->setVisible(false);
+	testActor0Sprite->setPosition(400, 300);
+	testActor1Sprite->setPosition(400, 300);
 
 	actorSpriteBox["testActor0.png"] = testActor0Sprite;
 	actorSpriteBox["testActor1.png"] = testActor1Sprite;
@@ -36,44 +48,68 @@ void DialogueDriver::init()
 	HudLayer::getInstance()->addChild(testActor0Sprite);
 	HudLayer::getInstance()->addChild(testActor1Sprite);
 
-	textLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	testActor0Sprite->setLocalZOrder(0);
+	testActor1Sprite->setLocalZOrder(0);
+
+	textLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 24);
 	textLabel->setVisible(false);
+	HudLayer::getInstance()->addChild(textLabel);
+	textLabel->setLocalZOrder(3);
+	textLabel->setPosition(400, 100);
 }
 
-int DialogueDriver::run(Sentence* sentence)
+void DialogueDriver::run(Sentence* sentence)
 {
 	std::string actorSpriteName = sentence->getActorSpriteName();
 	std::string word = sentence->getWord();
 
 	actorSpriteBox[actorSpriteName]->setVisible(true);
 	dialogBk->setVisible(true);
+	textLabel->setVisible(true);
 	textLabel->setString(word);
-
-	return sentence->next();
 }
 
-int DialogueDriver::run(Dialogue* dialogue)
+void DialogueDriver::startDialogue(Dialogue* dialogue)
 {
-	Sentence* sentence = dialogue->getSentence(0);
+	curIndex = 0;
+	curDialogue = dialogue;
+	curSentence = dialogue->getSentence(curIndex);
+	run(curSentence);
+}
 
-	int nextIndex = run(sentence);
-	while (nextIndex >= 0)
+int DialogueDriver::nextSentence()
+{
+	std::string actorSpriteName = curSentence->getActorSpriteName();
+	actorSpriteBox[actorSpriteName]->setVisible(false);
+
+	curIndex = curSentence->next();
+	if (curIndex<0)
 	{
-		sentence = dialogue->getSentence(nextIndex);
-		nextIndex = run(sentence);
+		return curIndex;
 	}
-	return nextIndex;
-}
-
-void DialogueDriver::nextSentence()
-{
-	//todo.....
+	curSentence = curDialogue->getSentence(curIndex);
+	run(curSentence);
+	return curIndex;
 }
 
 void DialogueDriver::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
 	if (keyCode==cocos2d::EventKeyboard::KeyCode::KEY_ENTER)
 	{
-		nextSentence();
+		if (nextSentence() < 0)
+		{
+			endDialogue();
+		}
 	}
+}
+
+void DialogueDriver::endDialogue()
+{
+	dialogBk->setVisible(false);
+	textLabel->setVisible(false);
+
+	std::string actorSpriteName = curSentence->getActorSpriteName();
+	actorSpriteBox[actorSpriteName]->setVisible(false);
+
+	KeyController::getInstance()->switchCtrlToPlayer();
 }

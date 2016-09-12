@@ -34,11 +34,8 @@ public:
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 	void handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode);
 
-	void switchControlToPlayer();
-	void switchControlToHud();
 	void loadStorey();
 private:
-	bool isControlPlayer;
 };
 
 

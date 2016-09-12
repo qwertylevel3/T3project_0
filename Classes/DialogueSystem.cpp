@@ -4,6 +4,7 @@
 #include "DialogueDriver.h"
 #include "HudMenuSystem.h"
 #include "HudStateSystem.h"
+#include "KeyController.h"
 
 USING_NS_CC;
 
@@ -51,18 +52,16 @@ void DialogueSystem::init()
 	DialogueDriver::getInstance()->init();
 }
 
-int DialogueSystem::run(const std::string& dialogueName)
+void DialogueSystem::run(const std::string& dialogueName)
 {
-	HudMenuSystem::getInstance()->hide();
-	HudStateSystem::getInstance()->hide();
-	int index = DialogueDriver::getInstance()->run(dialogueBox[dialogueName]);
-	HudStateSystem::getInstance()->show();
-	return index;
+	KeyController::getInstance()->switchCtrlToDialog();
+
+	DialogueDriver::getInstance()->startDialogue(dialogueBox[dialogueName]);
 }
 
 void DialogueSystem::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
-
+	DialogueDriver::getInstance()->handleKeyPressed(keyCode);
 }
 
 std::string DialogueSystem::getChildElementStrAttr(tinyxml2::XMLElement* element, std::string attrName)

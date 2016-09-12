@@ -68,7 +68,7 @@ void HudStateSystem::init()
 
 	update();
 
-	//hide();
+	hide();
 }
 
 void HudStateSystem::update()

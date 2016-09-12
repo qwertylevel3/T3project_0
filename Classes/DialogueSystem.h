@@ -14,7 +14,7 @@ public:
 	DialogueSystem();
 	~DialogueSystem();
 	void init();
-	int run(const std::string& dialogueName);
+	void run(const std::string& dialogueName);
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 protected:
 	std::map<std::string, Dialogue*> dialogueBox;

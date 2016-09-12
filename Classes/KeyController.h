@@ -13,13 +13,15 @@ public:
 	KeyController();
 	~KeyController();
 	void init();
-	void changeControl(CurControl c);
+	void switchCtrlToDialog();
+	void switchCtrlToPlayer();
+	void switchCtrlToMenu();
+
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 	void handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode);
 protected:
-	void switchCtrlFromMenuToPlayer();
-	void switchCtrlFromPlayerToMenu();
-	void switchCtrlFromMenuToDialog();
+
+
 	CurControl control;
 };
 

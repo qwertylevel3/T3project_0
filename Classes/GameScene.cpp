@@ -4,16 +4,15 @@
 #include"StoreyBuilder.h"
 #include"CharacterManager.h"
 #include"SkillManager.h"
-#include"Debug.h"
-#include"HudLayer.h"
 #include"Player.h"
 #include"Dungeon.h"
 #include"InventoryManager.h"
 #include"MonsterManager.h"
 #include "BattleSystem.h"
 #include "RoundSystem.h"
-#include "MaskLayer.h"
 #include "KeyController.h"
+#include "MaskLayer.h"
+#include "HudLayer.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -28,8 +27,6 @@ bool GameScene::init()
     {
         return false;
     }
-
-	isControlPlayer = true;
 
 	/////////////////////////////
     
@@ -121,20 +118,6 @@ void GameScene::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 	KeyController::getInstance()->handleKeyReleased(keyCode);
 }
 
-
-void GameScene::switchControlToPlayer()
-{
-	//InventoryMenu::getInstance()->hide();
-	HudLayer::getInstance()->hide();
-	isControlPlayer = true;
-}
-
-void GameScene::switchControlToHud()
-{
-	//InventoryMenu::getInstance()->show();
-	HudLayer::getInstance()->show();
-	isControlPlayer = false;
-}
 
 
 void GameScene::loadStorey()

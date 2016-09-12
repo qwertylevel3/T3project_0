@@ -15,13 +15,17 @@ public:
 	DialogueDriver();
 	~DialogueDriver();
 	void init();
-	int run(Dialogue* dialogue);
+	void startDialogue(Dialogue* dialogue);
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
+	void endDialogue();
 protected:
 	std::map<std::string, cocos2d::Sprite* > actorSpriteBox;
 	cocos2d::Sprite* dialogBk;
 	cocos2d::Label* textLabel;
-	int run(Sentence* sentence);
-	void nextSentence();
+	void run(Sentence* sentence);
+	int nextSentence();
+	int curIndex;
+	Dialogue* curDialogue;
+	Sentence* curSentence;
 };
 
