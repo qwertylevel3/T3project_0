@@ -23,9 +23,11 @@ public:
 	void playerMove(cocos2d::EventKeyboard::KeyCode keyCode);
 	void playerSetOrientation(cocos2d::EventKeyboard::KeyCode keyCode);
 	std::vector<Inventory*>& getInventoryList();
+	std::string getName();
+	void setName(const std::string& name);
 protected:
 	CC_SYNTHESIZE(Character*, characterPtr, characterPtr);
-	CC_SYNTHESIZE(std::string, name, Name);
+
 	ControlMode controlMode;
 
 };

@@ -1,12 +1,15 @@
 #include "BattleSystem.h"
+#include <iostream>
 #include<cstdlib>
 #include<ctime>
 #include"armor.h"
 #include"accessory.h"
 #include"Character.h"
-#include "platform/CCPlatformMacros.h"
 #include "Weapon.h"
 
+#define SHOWMESSAGE
+
+using namespace std;
 
 
 BattleSystem::BattleSystem()
@@ -49,23 +52,40 @@ Weapon* BattleSystem::getWeapon(Character* c, AttackHand hand)
 
 void BattleSystem::attack(Character * a, Character * b)
 {
+#ifdef SHOWMESSAGE
+	cout << "-----attack start------" << endl;
+	cout << a->getName() << "(HP:" << a->getHP() << ")" << " -> "
+		<< b->getName() << "(HP:" << b->getHP() << ")" << endl;
+#endif
 	combo = 0;
 	do
 	{
 		if (a->getLeftHand()->getInventoryType() == Inventory::OneHandWeapon)
 		{
+#ifdef SHOWMESSAGE
+			cout << "~leftHand:" << endl;
+#endif
 			attack(a, b, LeftHand);
 			if (a->getRightHand()->getInventoryType() == Inventory::OneHandWeapon)
 			{
+#ifdef SHOWMESSAGE
+			cout << "~rightHand:" << endl;
+#endif
 				attack(a, b, RightHand);
 			}
 		}
 		else if (a->getRightHand()->getInventoryType() == Inventory::OneHandWeapon)
 		{
+#ifdef SHOWMESSAGE
+			cout << "~rightHand:" << endl;
+#endif
 			attack(a, b, RightHand);
 		}
 		else if (a->getLeftHand()->getInventoryType() == Inventory::TwoHandWeapon)
 		{
+#ifdef SHOWMESSAGE
+			cout << "~doubleHand:" << endl;
+#endif
 			attack(a, b, DoubleHand);
 		}
 
@@ -75,19 +95,34 @@ void BattleSystem::attack(Character * a, Character * b)
 		}
 		else
 		{
+#ifdef SHOWMESSAGE
+			cout << "combo!" << endl;
+#endif
 			combo++;
 		}
 	} while (true);
+#ifdef SHOWMESSAGE
+	cout << "-----attack end------" << endl;
+	cout << a->getName() << "(HP:" << a->getHP() << ")" << " -> "
+		<< b->getName() << "(HP:" << b->getHP() << ")" << endl;
+	cout << "---------------------" << endl;
+#endif
 }
 
 void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 {
 	if (!isInAtkArea(a, b, hand))
 	{
+#ifdef SHOWMESSAGE
+		cout << "is not in atk area" << endl;
+#endif
 		return;
 	}
 	if (isEvade(a, b, hand))
 	{
+#ifdef SHOWMESSAGE
+		cout << "evade!" << endl;
+#endif
 		return;
 	}
 
@@ -95,10 +130,17 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 	if (isCritical(a, hand))
 	{
 		attackCount = getCriticalAttackCount(a, hand);
+#ifdef SHOWMESSAGE
+		cout << "critical atk!" << endl;
+		cout << "atk count:" << attackCount << endl;
+#endif
 	}
 	else
 	{
 		attackCount = getAttackCount(a, hand);
+#ifdef SHOWMESSAGE
+		cout << "atk count:" << attackCount << endl;
+#endif
 	}
 	sufferAttack(b, attackCount);
 }
@@ -115,10 +157,17 @@ void BattleSystem::sufferAttack(Character * c, int attackCount)
 	if (isBlock(c))
 	{
 		blockCount = getBlockCount(c);
+#ifdef SHOWMESSAGE
+		cout << "block!" << endl;
+		cout << "blockCount:" << blockCount << endl;
+#endif
 	}
 
 	attackCount = attackCount - armorCount - blockCount;
 	attackCount = attackCount >= 1 ? attackCount : 1;
+#ifdef SHOWMESSAGE
+	cout << "suffer damage:" << attackCount << endl;
+#endif
 	c->sufferDamage(attackCount);
 }
 
@@ -193,20 +242,27 @@ bool BattleSystem::isEvade(Character* a, Character* b, AttackHand hand)
 	temp = temp > 0 ? temp : 0;
 	temp = temp < 5 ? 5 : temp;
 	temp = temp > 95 ? 95 : temp;
-
+#ifdef SHOWMESSAGE
+	cout << "evade chance:" << temp << endl;
+#endif
 	return roll(temp);
 }
 
 bool BattleSystem::isCritical(Character* c, AttackHand hand)
 {
 	int criPro = getCriticalProCount(c, hand);
-
+#ifdef SHOWMESSAGE
+	cout << "cirtical chance:" << criPro << endl;
+#endif
 	return roll(criPro);
 }
 
 bool BattleSystem::isBlock(Character* c)
 {
 	int blockPro = getBlockProCount(c);
+#ifdef SHOWMESSAGE
+	cout << "block chance:" << blockPro << endl;
+#endif
 
 	return roll(blockPro);
 }
@@ -214,7 +270,9 @@ bool BattleSystem::isBlock(Character* c)
 bool BattleSystem::isCombo(Character* c)
 {
 	int comboPro = getComboProCount(c);
-
+#ifdef SHOWMESSAGE
+	cout << "combo chance:" << comboPro << endl;
+#endif
 	return roll(comboPro);
 }
 
@@ -226,7 +284,9 @@ double BattleSystem::getRandom(double start, double end)
 bool BattleSystem::roll(double m)
 {
 	double rand = getRandom(0, 100);
-
+#ifdef SHOWMESSAGE
+	cout << "	(roll:" << rand <<")"<< endl;
+#endif
 	if (rand < m)
 	{
 		return true;

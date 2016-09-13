@@ -25,7 +25,6 @@ public:
 	int getBlockProCount(Character* c);
 	int getComboProCount(Character* c);
 protected:
-	bool showMessage;
 	Weapon* getWeapon(Character* c,AttackHand hand);
 	void attack(Character* a, Character* b, AttackHand hand);
 	void sufferAttack(Character* c, int attackCount);

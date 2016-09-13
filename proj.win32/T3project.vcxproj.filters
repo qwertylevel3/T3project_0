@@ -186,10 +186,19 @@
     <ClCompile Include="..\Classes\Sentence.cpp">
       <Filter>src\dialogue</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Question.cpp" />
-    <ClCompile Include="..\Classes\Statement.cpp" />
-    <ClCompile Include="..\Classes\DialogueDriver.cpp" />
-    <ClCompile Include="..\Classes\KeyController.cpp" />
+    <ClCompile Include="..\Classes\Statement.cpp">
+      <Filter>src\dialogue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Question.cpp">
+      <Filter>src\dialogue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DialogueDriver.cpp">
+      <Filter>src\dialogue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\KeyController.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -339,10 +348,19 @@
     <ClInclude Include="..\Classes\Sentence.h">
       <Filter>src\dialogue</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Question.h" />
-    <ClInclude Include="..\Classes\Statement.h" />
-    <ClInclude Include="..\Classes\DialogueDriver.h" />
-    <ClInclude Include="..\Classes\KeyController.h" />
+    <ClInclude Include="..\Classes\Statement.h">
+      <Filter>src\dialogue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Question.h">
+      <Filter>src\dialogue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DialogueDriver.h">
+      <Filter>src\dialogue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\KeyController.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleTest.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

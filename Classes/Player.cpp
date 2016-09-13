@@ -23,11 +23,10 @@ Player::~Player()
 
 void Player::init()
 {
-	name = "qwerty";
-
-
-
 	characterPtr = CharacterManager::getInstance()->getCharacter("Actor0");
+
+	setName("qwerty");
+
 	controlMode = NormalMode;
 
 	characterPtr->setHP(100);
@@ -200,4 +199,15 @@ void Player::playerSetOrientation(cocos2d::EventKeyboard::KeyCode keyCode)
 std::vector<Inventory*>& Player::getInventoryList()
 {
 	return characterPtr->getInventoryList();
+}
+
+std::string Player::getName()
+{
+	return characterPtr->getName();
+}
+
+void Player::setName(const std::string& name)
+{
+	CCAssert(characterPtr, "characterPtr is null");
+	characterPtr->setName(name);
 }

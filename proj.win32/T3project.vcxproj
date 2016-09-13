@@ -201,6 +201,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\TwoHandWeapon.cpp" />
     <ClCompile Include="..\Classes\Weapon.cpp" />
     <ClCompile Include="..\Classes\WeaponAtkArea.cpp" />
+    <ClCompile Include="BattleTest.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -256,6 +257,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\TwoHandWeapon.h" />
     <ClInclude Include="..\Classes\Weapon.h" />
     <ClInclude Include="..\Classes\WeaponAtkArea.h" />
+    <ClInclude Include="BattleTest.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

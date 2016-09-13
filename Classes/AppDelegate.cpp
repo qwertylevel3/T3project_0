@@ -2,6 +2,7 @@
 #include "GameScene.h"
 #include "HudLayer.h"
 #include "MaskLayer.h"
+#include <iostream>
 
 USING_NS_CC;
 
@@ -77,6 +78,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     register_all_packages();
 
+#ifdef _DEBUG		// Release版禁用
+	AllocConsole();						//打开控制台窗口以显示调试信息
+	SetConsoleTitleA("console");			//设置标题
+
+	freopen("CONIN$", "r+t", stdin); // 重定向 STDIN
+	freopen("CONOUT$", "w+t", stdout); // 重定向STDOUT 
+#endif
+
     // create a scene. it's an autorelease object
     auto scene = Scene::create();
     
@@ -96,6 +105,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // run
     director->runWithScene(scene);
+
+
+	std::cout << "console" << std::endl;
 
     return true;
 }

@@ -1,7 +1,6 @@
 #pragma once
 
 #include<cocos2d.h>
-#include"Dungeon.h"
 #include<map>
 #include"Skill.h"
 #include <vector>
@@ -89,6 +88,7 @@ protected:
 	CC_SYNTHESIZE(Accessory*, accessory, Accessory);
 
 	//attribute......
+	CC_SYNTHESIZE(std::string, name, Name);
 	CC_SYNTHESIZE(cocos2d::Point, mapCoord, MapCoord);
 	CC_SYNTHESIZE(int, strength, Strength);
 	CC_SYNTHESIZE(int, intellect, Intellect);
@@ -125,5 +125,4 @@ protected:
 	cocos2d::CCAnimation* standDownAnimation;
 	cocos2d::CCAnimation* standLeftAnimation;
 	cocos2d::CCAnimation* standRightAnimation;
-
 };

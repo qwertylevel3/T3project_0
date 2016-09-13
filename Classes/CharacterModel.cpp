@@ -17,6 +17,7 @@ Character * CharacterModel::makeCharacter()
 	Character* character = new Character();
 
 	character->setSprite(firstFrameName);
+	character->setName(name);
 
 	//character->createMoveUpAnimation();
 	//character->createMoveDownAnimation();
