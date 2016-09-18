@@ -28,7 +28,7 @@ void AIBase::setCharacter(Character* character)
 	characterPtr = character;
 }
 
-Character* AIBase::searchTarget()
+Character* AIBase::searchTargetBFS()
 {
 	Storey* storey=Dungeon::getInstance()->getStorey();
 	cocos2d::Point startPoint = characterPtr->getMapCoord();

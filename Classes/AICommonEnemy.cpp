@@ -7,7 +7,7 @@
 
 AICommonEnemy::AICommonEnemy()
 {
-	deadLine = 50;
+	deadLine = 20;
 }
 
 AICommonEnemy::~AICommonEnemy()
@@ -21,7 +21,7 @@ void AICommonEnemy::update()
 		return;
 	}
 	int viewSize = characterPtr->getViewSize();
-	Character* targetCharacter = searchTarget();
+	Character* targetCharacter = searchTargetBFS();
 	if (targetCharacter)
 	{
 		if (isDangerous())
@@ -30,17 +30,24 @@ void AICommonEnemy::update()
 		}
 		else
 		{
-			seek(targetCharacter);
+			if (!isInAttackArea(targetCharacter))
+			{
+				seek(targetCharacter);
+			}
+			else
+			{
+				characterPtr->runSkill("attack");
+			}
 		}
 	}
 }
 
-void AICommonEnemy::seek(Character* character)
+void AICommonEnemy::seek(Character* target)
 {
-	CCAssert(character == Player::getInstance()->getcharacterPtr(), "target is not player");
+	CCAssert(target == Player::getInstance()->getcharacterPtr(), "target is not player");
 
 	cocos2d::Point startPoint = characterPtr->getMapCoord();
-	cocos2d::Point endPoint = character->getMapCoord();
+	cocos2d::Point endPoint = target->getMapCoord();
 	cocos2d::Point nextStep = ToolFunction::nextStep(startPoint, endPoint);
 
 	if (nextStep == endPoint)
@@ -74,12 +81,12 @@ void AICommonEnemy::seek(Character* character)
 	}
 }
 
-void AICommonEnemy::flee(Character* character)
+void AICommonEnemy::flee(Character* target)
 {
-	CCAssert(character == Player::getInstance()->getcharacterPtr(), "target is not player");
+	CCAssert(target == Player::getInstance()->getcharacterPtr(), "target is not player");
 
 	cocos2d::Point startPoint = characterPtr->getMapCoord();
-	cocos2d::Point endPoint = character->getMapCoord();
+	cocos2d::Point endPoint = target->getMapCoord();
 	cocos2d::Point nextStep = ToolFunction::nextStep(startPoint, endPoint);
 
 	if (nextStep.x == startPoint.x + 1
@@ -116,6 +123,28 @@ bool AICommonEnemy::isDangerous()
 	if (HP * 100 / maxHP < deadLine)
 	{
 		return true;
+	}
+	return false;
+}
+
+bool AICommonEnemy::isInAttackArea(Character* target)
+{
+	std::vector<cocos2d::Point>& leftHandAtkArea = characterPtr->getLeftHandAtkArea();
+	std::vector<cocos2d::Point>& rightHandAtkArea = characterPtr->getRightHandAtkArea();
+
+	for each (cocos2d::Point point in leftHandAtkArea)
+	{
+		if (target->getMapCoord()==point)
+		{
+			return true;
+		}
+	}
+	for each (cocos2d::Point point in rightHandAtkArea)
+	{
+		if (target->getMapCoord()==point)
+		{
+			return true;
+		}
 	}
 	return false;
 }

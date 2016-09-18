@@ -59,13 +59,13 @@ void BattleSystem::attack(Character * a, Character * b)
 	combo = 0;
 	do
 	{
-		if (a->getLeftHand()->getInventoryType() == Inventory::OneHandWeapon)
+		if (a->getLeftHand() && a->getLeftHand()->getInventoryType() == Inventory::OneHandWeapon)
 		{
 #ifdef SHOWMESSAGE
 			cout << "~leftHand:" << endl;
 #endif
 			attack(a, b, LeftHand);
-			if (a->getRightHand()->getInventoryType() == Inventory::OneHandWeapon)
+			if (a->getRightHand() && a->getRightHand()->getInventoryType() == Inventory::OneHandWeapon)
 			{
 #ifdef SHOWMESSAGE
 			cout << "~rightHand:" << endl;
@@ -73,14 +73,14 @@ void BattleSystem::attack(Character * a, Character * b)
 				attack(a, b, RightHand);
 			}
 		}
-		else if (a->getRightHand()->getInventoryType() == Inventory::OneHandWeapon)
+		else if (a->getRightHand() && a->getRightHand()->getInventoryType() == Inventory::OneHandWeapon)
 		{
 #ifdef SHOWMESSAGE
 			cout << "~rightHand:" << endl;
 #endif
 			attack(a, b, RightHand);
 		}
-		else if (a->getLeftHand()->getInventoryType() == Inventory::TwoHandWeapon)
+		else if (a->getLeftHand() && a->getLeftHand()->getInventoryType() == Inventory::TwoHandWeapon)
 		{
 #ifdef SHOWMESSAGE
 			cout << "~doubleHand:" << endl;

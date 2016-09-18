@@ -52,7 +52,21 @@ public:
 	void showMoveRightAnimation();
 
 
+	//************************************
+	// Method:    getLeftHandAtkArea
+	// FullName:  Character::getLeftHandAtkArea
+	// Access:    public 
+	// Returns:   std::vector<cocos2d::Point >
+	// Qualifier: 返回左手武器攻击范围
+	//************************************
 	std::vector<cocos2d::Point > getLeftHandAtkArea();
+	//************************************
+	// Method:    getRightHandAtkArea
+	// FullName:  Character::getRightHandAtkArea
+	// Access:    public 
+	// Returns:   std::vector<cocos2d::Point >
+	// Qualifier: 返回右手武器攻击范围
+	//************************************
 	std::vector<cocos2d::Point > getRightHandAtkArea();
 
 	//返回在当前layer中的坐标

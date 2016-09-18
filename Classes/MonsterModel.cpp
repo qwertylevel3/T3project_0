@@ -1,6 +1,7 @@
 #include "MonsterModel.h"
 #include"CharacterManager.h"
 #include "AICommonEnemy.h"
+#include "InventoryManager.h"
 
 
 
@@ -28,6 +29,9 @@ Character * MonsterModel::makeMonster()
 	monster->setCharacterType(Character::Bad);
 	AICommonEnemy* ai = new AICommonEnemy();
 	monster->setAI(ai);
+
+	Inventory* woodSword = InventoryManager::getInstance()->getInventory("sword000");
+	woodSword->equipLeftHand(monster);
 
 	return monster;
 }

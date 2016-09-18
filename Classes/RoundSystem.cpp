@@ -1,6 +1,7 @@
 #include "RoundSystem.h"
 #include "Character.h"
 #include "Dungeon.h"
+#include "Marco.h"
 
 using namespace Field;
 
@@ -38,6 +39,9 @@ int RoundSystem::getRoundCount()
 void RoundSystem::nextRound()
 {
 	roundCount++;
+#ifdef CONSOLE
+	std::cout << "round:" <<roundCount<< std::endl;
+#endif
 	for each (Character*  character in allCharacter)
 	{
 		if (!character->isDead())

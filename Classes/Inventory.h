@@ -10,7 +10,7 @@ class Inventory
 public:
 	enum Type
 	{
-		OneHandWeapon,TwoHandWeapon, Shield, Armor, Supply, Accessory, Other
+		Empty,OneHandWeapon,TwoHandWeapon, Shield, Armor, Supply, Accessory, Other
 	};
 
 	Inventory();

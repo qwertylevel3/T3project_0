@@ -9,7 +9,7 @@ public:
 	virtual ~AIBase();
 	virtual void update();
 	void setCharacter(Character* character);
-	Character* searchTarget();
+	Character* searchTargetBFS();
 protected:
 	Character* characterPtr;
 };

@@ -117,6 +117,10 @@ void Character::showMoveRightAnimation()
 std::vector<cocos2d::Point > Character::getLeftHandAtkArea()
 {
 	std::vector<cocos2d::Point> atkArea;
+	if (!leftHand)
+	{
+		return atkArea;
+	}
 	if (leftHand->getInventoryType()==Inventory::OneHandWeapon 
 		|| leftHand->getInventoryType()==Inventory::TwoHandWeapon)
 	{
@@ -129,6 +133,10 @@ std::vector<cocos2d::Point > Character::getLeftHandAtkArea()
 std::vector<cocos2d::Point > Character::getRightHandAtkArea()
 {
 	std::vector<cocos2d::Point> atkArea;
+	if (!rightHand)
+	{
+		return atkArea;
+	}
 	if (rightHand->getInventoryType()==Inventory::OneHandWeapon 
 		|| rightHand->getInventoryType()==Inventory::TwoHandWeapon)
 	{
