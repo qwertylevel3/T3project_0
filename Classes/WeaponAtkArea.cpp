@@ -23,7 +23,7 @@ std::vector<cocos2d::Point> WeaponAtkArea::getAtkArea(Character* attacker)
 		{
 			cocos2d::Point tempPoint;
 			tempPoint.x = point.x + basePoint.x;
-			tempPoint.y = point.y + basePoint.y;
+			tempPoint.y = -point.y + basePoint.y;
 			tempArea.push_back(tempPoint);
 		}
 		break;
@@ -32,7 +32,7 @@ std::vector<cocos2d::Point> WeaponAtkArea::getAtkArea(Character* attacker)
 		{
 			cocos2d::Point tempPoint;
 			tempPoint.x = -point.x + basePoint.x;
-			tempPoint.y = -point.y + basePoint.y;
+			tempPoint.y = point.y + basePoint.y;
 			tempArea.push_back(tempPoint);
 		}
 		break;

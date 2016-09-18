@@ -6,8 +6,7 @@
 #include"accessory.h"
 #include"Character.h"
 #include "Weapon.h"
-
-#define SHOWMESSAGE
+#include "Marco.h"
 
 using namespace std;
 

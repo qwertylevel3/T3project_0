@@ -27,7 +27,7 @@ bool HudLayer::init()
 	HudStateSystem::getInstance()->init();
 	DialogueSystem::getInstance()->init();
 
-	DialogueSystem::getInstance()->run("testDialogue");
+	//DialogueSystem::getInstance()->run("testDialogue");
 
 	return true;
 }

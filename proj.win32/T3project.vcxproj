@@ -201,7 +201,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\TwoHandWeapon.cpp" />
     <ClCompile Include="..\Classes\Weapon.cpp" />
     <ClCompile Include="..\Classes\WeaponAtkArea.cpp" />
-    <ClCompile Include="BattleTest.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +234,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\InventoryManager.h" />
     <ClInclude Include="..\Classes\KeyController.h" />
     <ClInclude Include="..\Classes\LightEdge.h" />
+    <ClInclude Include="..\Classes\Marco.h" />
     <ClInclude Include="..\Classes\MaskLayer.h" />
     <ClInclude Include="..\Classes\MonsterManager.h" />
     <ClInclude Include="..\Classes\MonsterModel.h" />
@@ -257,7 +257,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\TwoHandWeapon.h" />
     <ClInclude Include="..\Classes\Weapon.h" />
     <ClInclude Include="..\Classes\WeaponAtkArea.h" />
-    <ClInclude Include="BattleTest.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

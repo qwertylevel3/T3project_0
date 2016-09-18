@@ -3,6 +3,7 @@
 #include "HudLayer.h"
 #include "MaskLayer.h"
 #include <iostream>
+#include "Marco.h"
 
 USING_NS_CC;
 
@@ -78,7 +79,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     register_all_packages();
 
-#ifdef _DEBUG		// Release版禁用
+#ifdef CONSOLE		// Release版禁用
 	AllocConsole();						//打开控制台窗口以显示调试信息
 	SetConsoleTitleA("console");			//设置标题
 

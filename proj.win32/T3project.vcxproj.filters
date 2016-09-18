@@ -198,7 +198,6 @@
     <ClCompile Include="..\Classes\KeyController.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="BattleTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -360,7 +359,9 @@
     <ClInclude Include="..\Classes\KeyController.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="BattleTest.h" />
+    <ClInclude Include="..\Classes\Marco.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
