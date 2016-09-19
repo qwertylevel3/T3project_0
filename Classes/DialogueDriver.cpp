@@ -2,6 +2,8 @@
 
 #include "HudLayer.h"
 #include "Sentence.h"
+#include "Question.h"
+#include "Statement.h"
 #include "base\ccMacros.h"
 #include "Dialogue.h"
 #include "KeyController.h"
@@ -27,7 +29,6 @@ void DialogueDriver::init()
 	HudLayer::getInstance()->addChild(dialogBk);
 	dialogBk->setLocalZOrder(1);
 	dialogBk->setVisible(false);
-
 
 
 	dialogBk->setPosition(400, 100);
@@ -58,10 +59,11 @@ void DialogueDriver::init()
 	textLabel->setPosition(400, 100);
 }
 
-void DialogueDriver::run(Sentence* sentence)
+
+void DialogueDriver::run(Statement* statement)
 {
-	std::string actorSpriteName = sentence->getActorSpriteName();
-	std::string word = sentence->getWord();
+	std::string actorSpriteName = statement->getActorSpriteName();
+	std::string word = statement->getWord();
 
 	actorSpriteBox[actorSpriteName]->setVisible(true);
 	dialogBk->setVisible(true);
@@ -69,12 +71,17 @@ void DialogueDriver::run(Sentence* sentence)
 	textLabel->setString(word);
 }
 
+void DialogueDriver::run(Question* question)
+{
+
+}
+
 void DialogueDriver::startDialogue(Dialogue* dialogue)
 {
 	curIndex = 0;
 	curDialogue = dialogue;
 	curSentence = dialogue->getSentence(curIndex);
-	run(curSentence);
+	curSentence->run();
 }
 
 int DialogueDriver::nextSentence()
@@ -88,7 +95,7 @@ int DialogueDriver::nextSentence()
 		return curIndex;
 	}
 	curSentence = curDialogue->getSentence(curIndex);
-	run(curSentence);
+	curSentence->run();
 	return curIndex;
 }
 

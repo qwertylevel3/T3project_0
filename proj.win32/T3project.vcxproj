@@ -162,7 +162,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Debug.cpp" />
     <ClCompile Include="..\Classes\Dialogue.cpp" />
     <ClCompile Include="..\Classes\DialogueDriver.cpp" />
-    <ClCompile Include="..\Classes\DialogueSystem.cpp" />
+    <ClCompile Include="..\Classes\DialogueManager.cpp" />
     <ClCompile Include="..\Classes\Dungeon.cpp" />
     <ClCompile Include="..\Classes\GameScene.cpp" />
     <ClCompile Include="..\Classes\HudCursor.cpp" />
@@ -218,7 +218,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Debug.h" />
     <ClInclude Include="..\Classes\Dialogue.h" />
     <ClInclude Include="..\Classes\DialogueDriver.h" />
-    <ClInclude Include="..\Classes\DialogueSystem.h" />
+    <ClInclude Include="..\Classes\DialogueManager.h" />
     <ClInclude Include="..\Classes\Dungeon.h" />
     <ClInclude Include="..\Classes\FieldEnum.h" />
     <ClInclude Include="..\Classes\GameScene.h" />

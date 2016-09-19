@@ -180,9 +180,6 @@
     <ClCompile Include="..\Classes\Dialogue.cpp">
       <Filter>src\dialogue</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\DialogueSystem.cpp">
-      <Filter>src\dialogue</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Sentence.cpp">
       <Filter>src\dialogue</Filter>
     </ClCompile>
@@ -197,6 +194,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\KeyController.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DialogueManager.cpp">
+      <Filter>src\dialogue</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -341,9 +341,6 @@
     <ClInclude Include="..\Classes\Dialogue.h">
       <Filter>src\dialogue</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\DialogueSystem.h">
-      <Filter>src\dialogue</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Sentence.h">
       <Filter>src\dialogue</Filter>
     </ClInclude>
@@ -361,6 +358,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Marco.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DialogueManager.h">
+      <Filter>src\dialogue</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

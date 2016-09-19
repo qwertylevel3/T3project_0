@@ -4,7 +4,7 @@
 #include"HudCursor.h"
 #include "HudMenuSystem.h"
 #include "HudStateSystem.h"
-#include "DialogueSystem.h"
+#include "DialogueManager.h"
 
 USING_NS_CC;
 
@@ -25,9 +25,9 @@ bool HudLayer::init()
 	}
 	HudMenuSystem::getInstance()->init();
 	HudStateSystem::getInstance()->init();
-	DialogueSystem::getInstance()->init();
+	DialogueManager::getInstance()->init();
 
-	//DialogueSystem::getInstance()->run("testDialogue");
+	DialogueManager::getInstance()->run("testDialogue");
 
 	return true;
 }

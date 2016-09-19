@@ -1,4 +1,5 @@
 #include "Statement.h"
+#include "DialogueDriver.h"
 
 
 
@@ -10,7 +11,7 @@ Statement::~Statement()
 {
 }
 
-int Statement::next()
+void Statement::run()
 {
-	return nextIndex;
+	DialogueDriver::getInstance()->run(this);
 }

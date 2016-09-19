@@ -1,4 +1,4 @@
-#include "DialogueSystem.h"
+#include "DialogueManager.h"
 #include "Statement.h"
 #include "ToolFunction.h"
 #include "DialogueDriver.h"
@@ -9,16 +9,16 @@
 USING_NS_CC;
 
 
-DialogueSystem::DialogueSystem()
+DialogueManager::DialogueManager()
 {
 }
 
 
-DialogueSystem::~DialogueSystem()
+DialogueManager::~DialogueManager()
 {
 }
 
-void DialogueSystem::init()
+void DialogueManager::init()
 {
 	tinyxml2::XMLDocument doc;
 	doc.LoadFile("dialogue.xml");
@@ -52,38 +52,38 @@ void DialogueSystem::init()
 	DialogueDriver::getInstance()->init();
 }
 
-void DialogueSystem::run(const std::string& dialogueName)
+void DialogueManager::run(const std::string& dialogueName)
 {
 	KeyController::getInstance()->switchCtrlToDialog();
 
 	DialogueDriver::getInstance()->startDialogue(dialogueBox[dialogueName]);
 }
 
-void DialogueSystem::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
+void DialogueManager::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
 	DialogueDriver::getInstance()->handleKeyPressed(keyCode);
 }
 
-std::string DialogueSystem::getChildElementStrAttr(tinyxml2::XMLElement* element, std::string attrName)
+std::string DialogueManager::getChildElementStrAttr(tinyxml2::XMLElement* element, std::string attrName)
 {
 	tinyxml2::XMLElement* childElement = getChildElement(element, attrName);
 	return childElement->GetText();
 }
 
-std::wstring DialogueSystem::getChildElementWStrAttr(tinyxml2::XMLElement* element, std::string attrName)
+std::wstring DialogueManager::getChildElementWStrAttr(tinyxml2::XMLElement* element, std::string attrName)
 {
 	tinyxml2::XMLElement* childElement = getChildElement(element, attrName);
 	std::string temp=childElement->GetText();
 	return ToolFunction::string2wstring(childElement->GetText());
 }
 
-int DialogueSystem::getChildElementIntAttr(tinyxml2::XMLElement* element, std::string attrName)
+int DialogueManager::getChildElementIntAttr(tinyxml2::XMLElement* element, std::string attrName)
 {
 	tinyxml2::XMLElement* childElement = getChildElement(element, attrName);
 	return ToolFunction::string2int(childElement->GetText());
 }
 
-tinyxml2::XMLElement* DialogueSystem::getChildElement(tinyxml2::XMLElement* parent, std::string name)
+tinyxml2::XMLElement* DialogueManager::getChildElement(tinyxml2::XMLElement* parent, std::string name)
 {
 	tinyxml2::XMLElement* element = parent->FirstChildElement(name.c_str());
 	CCAssert(element, (std::string("unknow element type ") + name).c_str());

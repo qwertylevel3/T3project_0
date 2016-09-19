@@ -8,11 +8,11 @@
 #include "Dialogue.h"
 #include "base\CCEventKeyboard.h"
 
-class DialogueSystem:public Singleton<DialogueSystem>
+class DialogueManager:public Singleton<DialogueManager>
 {
 public:
-	DialogueSystem();
-	~DialogueSystem();
+	DialogueManager();
+	~DialogueManager();
 	void init();
 	void run(const std::string& dialogueName);
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);

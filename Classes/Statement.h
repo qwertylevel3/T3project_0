@@ -8,8 +8,6 @@ class Statement :
 public:
 	Statement();
 	~Statement();
-	int next();
-protected:
-	CC_SYNTHESIZE(int, nextIndex, NextIndex);
+	void run();
 };
 

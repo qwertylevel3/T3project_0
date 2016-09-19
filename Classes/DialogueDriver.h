@@ -8,6 +8,8 @@
 
 class Dialogue;
 class Sentence;
+class Statement;
+class Question;
 
 class DialogueDriver:public Singleton<DialogueDriver>
 {
@@ -18,11 +20,13 @@ public:
 	void startDialogue(Dialogue* dialogue);
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 	void endDialogue();
+	void run(Statement* statement);
+	void run(Question* question);
 protected:
 	std::map<std::string, cocos2d::Sprite* > actorSpriteBox;
 	cocos2d::Sprite* dialogBk;
 	cocos2d::Label* textLabel;
-	void run(Sentence* sentence);
+
 	int nextSentence();
 	int curIndex;
 	Dialogue* curDialogue;
