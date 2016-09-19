@@ -108,9 +108,25 @@ void HudMenu::addItem(HudMenuItem* item)
 	itemLabel->setPosition(position.x, position.y);
 }
 
+void HudMenu::setWidth(int w)
+{
+	sprite->setTextureRect(cocos2d::Rect(0,0,w,getHeight()));
+	for each (HudMenuItem* item in itemList)
+	{
+		item->setWidth(w);
+	}
+}
+
+void HudMenu::setHeight(int h)
+{
+	sprite->setTextureRect(cocos2d::Rect(0,0,getWidth(),h));
+}
+
 int HudMenu::getWidth()
 {
 	return sprite->getTextureRect().size.width;
+
+
 }
 
 int HudMenu::getHeight()
@@ -190,4 +206,14 @@ void HudMenu::clear()
 		delete itemList[i];
 	}
 	itemList.clear();
+}
+
+int HudMenu::getMarginalWidth()
+{
+	return marginal.x;
+}
+
+int HudMenu::getMarginalHeight()
+{
+	return marginal.y;
 }

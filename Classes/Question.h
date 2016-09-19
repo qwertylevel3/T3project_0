@@ -14,8 +14,10 @@ public:
 	void addOption(std::string option);
 	void changeOption(int index);
 	void run();
+	std::vector<std::string>& getAllOption();
+	int getSize();
 protected:
-	int optionIndex;
+	int curIndex;
 	//选项index到下一句index的映射
 	std::map<int, int> optionMap;
 	std::vector<std::string> options;

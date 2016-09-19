@@ -5,7 +5,7 @@
 
 Question::Question()
 {
-	optionIndex = 0;
+	curIndex = 0;
 }
 
 
@@ -25,11 +25,21 @@ void Question::addOption(std::string option)
 
 void Question::changeOption(int index)
 {
-	optionIndex = index;
-	nextIndex = optionMap[optionIndex];
+	curIndex = index;
+	nextIndex = optionMap[curIndex];
 }
 
 void Question::run()
 {
 	DialogueDriver::getInstance()->run(this);
+}
+
+std::vector<std::string>& Question::getAllOption()
+{
+	return options;
+}
+
+int Question::getSize()
+{
+	return options.size();
 }

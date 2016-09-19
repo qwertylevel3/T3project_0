@@ -3,6 +3,7 @@
 #include "HudMenuSystem.h"
 #include "DialogueManager.h"
 #include "HudStateSystem.h"
+#include "OptionCheckDialog.h"
 
 
 
@@ -56,6 +57,10 @@ void KeyController::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 	{
 		DialogueManager::getInstance()->handleKeyPressed(keyCode);
 	}
+	else if (control == OPTION)
+	{
+		OptionCheckDialog::getInstance()->handleKeyPressed(keyCode);
+	}
 }
 
 void KeyController::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
@@ -83,6 +88,12 @@ void KeyController::switchCtrlToMenu()
 	HudStateSystem::getInstance()->show();
 	HudMenuSystem::getInstance()->show();
 	control = MENU;
+}
+
+void KeyController::switchCtrlToOption()
+{
+
+	control = OPTION;
 }
 
 void KeyController::switchCtrlToDialog()

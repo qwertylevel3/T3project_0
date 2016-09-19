@@ -54,6 +54,16 @@ int HudMenuItem::getWidth()
 	return label->getMaxLineWidth();
 }
 
+void HudMenuItem::setWidth(int w)
+{
+	label->setMaxLineWidth(w);
+}
+
+void HudMenuItem::setHeight(int h)
+{
+	label->setHeight(h);
+}
+
 cocos2d::Label* HudMenuItem::getLabel()
 {
 	return label;

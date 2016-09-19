@@ -7,6 +7,7 @@
 #include "base\ccMacros.h"
 #include "Dialogue.h"
 #include "KeyController.h"
+#include "OptionCheckDialog.h"
 
 USING_NS_CC;
 
@@ -57,6 +58,8 @@ void DialogueDriver::init()
 	HudLayer::getInstance()->addChild(textLabel);
 	textLabel->setLocalZOrder(3);
 	textLabel->setPosition(400, 100);
+
+	OptionCheckDialog::getInstance()->init();
 }
 
 
@@ -73,7 +76,16 @@ void DialogueDriver::run(Statement* statement)
 
 void DialogueDriver::run(Question* question)
 {
+	std::string actorSpriteName = question->getActorSpriteName();
+	std::string word = question->getWord();
 
+	actorSpriteBox[actorSpriteName]->setVisible(true);
+	dialogBk->setVisible(true);
+	textLabel->setVisible(true);
+	textLabel->setString(word);
+
+	OptionCheckDialog::getInstance()->clear();
+	OptionCheckDialog::getInstance()->run(question);
 }
 
 void DialogueDriver::startDialogue(Dialogue* dialogue)

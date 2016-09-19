@@ -8,6 +8,9 @@
 #include "Dialogue.h"
 #include "base\CCEventKeyboard.h"
 
+class Question;
+class Statement;
+
 class DialogueManager:public Singleton<DialogueManager>
 {
 public:
@@ -18,6 +21,9 @@ public:
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 protected:
 	std::map<std::string, Dialogue*> dialogueBox;
+
+	Statement* initStatement(tinyxml2::XMLElement *sentenceElement);
+	Question* initQuestion(tinyxml2::XMLElement *sentenceElement);
 
 	std::string getChildElementStrAttr(tinyxml2::XMLElement* element, std::string attrName);
 	std::wstring getChildElementWStrAttr(tinyxml2::XMLElement* element, std::string attrName);

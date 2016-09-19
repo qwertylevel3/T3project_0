@@ -4,16 +4,34 @@
 	<dialogue>
 		<name>testDialogue</name>
 		<sentence>
+			<type>statement</type>
 			<actorName>testActor0.png</actorName>
 			<word>台词测试0</word>
 			<next>1</next>
 		</sentence>
 		<sentence>
+			<type>statement</type>
 			<actorName>testActor1.png</actorName>
 			<word>台词测试1</word>
 			<next>2</next>
 		</sentence>
 		<sentence>
+			<type>question</type>
+			<actorName>testActor1.png</actorName>
+			<word>问题测试,选择：</word>
+			<optionList>
+				<option>
+					<label>结束对话</label>
+					<next>3</next>
+				</option>
+				<option>
+					<label>回到第一句</label>
+					<next>0</next>
+				</option>
+			</optionList>
+		</sentence>
+		<sentence>
+			<type>statement</type>
 			<actorName>testActor0.png</actorName>
 			<word>台词测试结束</word>
 			<next>-1</next>

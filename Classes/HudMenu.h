@@ -12,27 +12,35 @@ public:
 	HudMenu(cocos2d::Rect rect);
 	~HudMenu();
 	virtual void update();
+
+	//处理键盘按键
 	virtual void handleUp();
 	virtual void handleDown();
 	virtual void handleLeft();
 	virtual void handleRight();
+
 	void show();
 	void hide();
+
 	void setPosition(int x,int y);
 	void setCursorPosition(int index);
 	void initCursor();
 	void addItem(HudMenuItem* item);
+	void setWidth(int w);
+	void setHeight(int h);
 	int getWidth();
 	int getHeight();
-	cocos2d::Sprite* getSprite();
 	void chooseItem(int index);
 	void activeChildMenu(int index);
 	void setParent(HudMenu* p);
 	void closeMenu();
 	void increaseIndex();
 	void decreaseIndex();
-protected:
+	cocos2d::Sprite* getSprite();
 	void clear();
+	int getMarginalWidth();
+	int getMarginalHeight();
+protected:
 	HudMenu* parent;
 	//内边框距
 	cocos2d::Vec2 marginal;

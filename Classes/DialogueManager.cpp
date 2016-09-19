@@ -1,5 +1,6 @@
 #include "DialogueManager.h"
 #include "Statement.h"
+#include "Question.h"
 #include "ToolFunction.h"
 #include "DialogueDriver.h"
 #include "HudMenuSystem.h"
@@ -34,12 +35,16 @@ void DialogueManager::init()
 		tinyxml2::XMLElement *sentenceElement = getChildElement(dialogueElement, "sentence");
 		while (sentenceElement)
 		{
-			Statement* sentence = new Statement();
-
-			sentence->setActorSpriteName(getChildElementStrAttr(sentenceElement, "actorName"));
-			sentence->setWord(getChildElementStrAttr(sentenceElement, "word"));
-			sentence->setNextIndex(getChildElementIntAttr(sentenceElement, "next"));
-
+			Sentence* sentence;
+			std::string type = getChildElementStrAttr(sentenceElement, "type");
+			if (type == "statement")
+			{
+				sentence = initStatement(sentenceElement);
+			}
+			else if(type=="question")
+			{
+				sentence = initQuestion(sentenceElement);
+			}
 			dialogue->addSentence(sentence);
 
 			sentenceElement = sentenceElement->NextSiblingElement();
@@ -62,6 +67,39 @@ void DialogueManager::run(const std::string& dialogueName)
 void DialogueManager::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
 	DialogueDriver::getInstance()->handleKeyPressed(keyCode);
+}
+
+Statement* DialogueManager::initStatement(tinyxml2::XMLElement *sentenceElement)
+{
+	Statement* sentence = new Statement();
+
+	sentence->setActorSpriteName(getChildElementStrAttr(sentenceElement, "actorName"));
+	sentence->setWord(getChildElementStrAttr(sentenceElement, "word"));
+	sentence->setNextIndex(getChildElementIntAttr(sentenceElement, "next"));
+
+	return sentence;
+}
+
+Question* DialogueManager::initQuestion(tinyxml2::XMLElement *sentenceElement)
+{
+	Question* sentence = new Question();
+
+	sentence->setActorSpriteName(getChildElementStrAttr(sentenceElement, "actorName"));
+	sentence->setWord(getChildElementStrAttr(sentenceElement, "word"));
+
+	tinyxml2::XMLElement* optionListElement = getChildElement(sentenceElement,"optionList");
+
+	tinyxml2::XMLElement* option = getChildElement(optionListElement, "option");
+	int count = 0;
+	while (option)
+	{
+		sentence->addOption(getChildElementStrAttr(option, "label"));
+		sentence->addOptionMap(count,getChildElementIntAttr(option, "next"));
+
+		option = option->NextSiblingElement();
+		count++;
+	}
+	return sentence;
 }
 
 std::string DialogueManager::getChildElementStrAttr(tinyxml2::XMLElement* element, std::string attrName)
