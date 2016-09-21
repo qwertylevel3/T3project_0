@@ -26,7 +26,7 @@ void DialogueDriver::init()
 	curIndex = 0;
 	curDialogue = nullptr;
 
-	dialogBk = cocos2d::Sprite::create("menu.png",cocos2d::Rect(0,0,700,150));
+	dialogBk = cocos2d::Sprite::create("menu.png",cocos2d::Rect(0,0,740,150));
 	HudLayer::getInstance()->addChild(dialogBk);
 	dialogBk->setLocalZOrder(1);
 	dialogBk->setVisible(false);
@@ -58,6 +58,12 @@ void DialogueDriver::init()
 	HudLayer::getInstance()->addChild(textLabel);
 	textLabel->setLocalZOrder(3);
 	textLabel->setPosition(400, 100);
+	textLabel->setAlignment(CCTextAlignment::LEFT, CCVerticalTextAlignment::TOP);
+	textLabel->setWidth(700);
+	textLabel->setHeight(24 * 4);
+	textLabel->setMaxLineWidth(700);
+	textLabel->setLineBreakWithoutSpace(false);
+	textLabel->enableShadow();
 
 	OptionCheckDialog::getInstance()->init();
 }

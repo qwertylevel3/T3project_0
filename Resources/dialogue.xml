@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
 <!--这里next为从0开始计-->
 <dialogueBox>
 	<dialogue>
@@ -16,13 +17,20 @@
 			<next>2</next>
 		</sentence>
 		<sentence>
+			<type>statement</type>
+			<actorName>testActor1.png</actorName>
+			<word>台词测试：
+超多文字超多文字超多文字超多文字超多文字超多文字超多文字超多文字超多文字</word>
+			<next>3</next>
+		</sentence>
+		<sentence>
 			<type>question</type>
 			<actorName>testActor1.png</actorName>
-			<word>问题测试,选择：</word>
+			<word>问题测试,选择</word>
 			<optionList>
 				<option>
 					<label>结束对话</label>
-					<next>3</next>
+					<next>4</next>
 				</option>
 				<option>
 					<label>回到第一句</label>
