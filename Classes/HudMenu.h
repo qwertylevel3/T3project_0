@@ -9,7 +9,7 @@ class HudMenuItem;
 class HudMenu
 {
 public:
-	HudMenu(cocos2d::Rect rect);
+	HudMenu(cocos2d::Rect rect=cocos2d::Rect(0,0,0,0));
 	~HudMenu();
 	virtual void update();
 

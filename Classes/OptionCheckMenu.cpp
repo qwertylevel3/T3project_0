@@ -18,32 +18,48 @@ OptionCheckMenu::~OptionCheckMenu()
 {
 }
 
-void OptionCheckMenu::init()
+void OptionCheckMenu::handleUp()
 {
-	curQuestion = nullptr;
-	dialog = new HudMenu(cocos2d::Rect(0, 0, 200, 20));
-	HudLayer::getInstance()->addChild(dialog->getSprite());
-	dialog->setPosition(400, 400);
+	HudMenu::handleUp();
+	choosePrevious();
+}
 
+void OptionCheckMenu::handleDown()
+{
+	HudMenu::handleDown();
+	chooseNext();
+}
+
+void OptionCheckMenu::handleRight()
+{
+	HudMenu::handleRight();
+	KeyController::getInstance()->switchCtrlToDialog();
 	hide();
+	DialogueDriver::getInstance()->handleKeyPressed(cocos2d::EventKeyboard::KeyCode::KEY_ENTER);
 }
 
 void OptionCheckMenu::show()
 {
+	HudMenu::show();
 	HudCursor::getInstance()->show();
-	dialog->show();
 }
 
 void OptionCheckMenu::hide()
 {
+	HudMenu::hide();
 	HudCursor::getInstance()->hide();
-	dialog->hide();
 }
 
-void OptionCheckMenu::clear()
+void OptionCheckMenu::init()
 {
-	dialog->clear();
+	curQuestion = nullptr;
+	HudLayer::getInstance()->addChild(this->getSprite());
+	this->setPosition(cocos2d::Point(400, 400));
+	this->setWidth(200);
+
+	hide();
 }
+
 
 void OptionCheckMenu::run(Question* question)
 {
@@ -58,7 +74,7 @@ void OptionCheckMenu::run(Question* question)
 	}
 
 	KeyController::getInstance()->switchCtrlToOption();
-	HudCursor::getInstance()->setCurMenu(dialog);
+	HudCursor::getInstance()->setCurMenu(this);
 
 	show();
 }
@@ -80,12 +96,12 @@ void OptionCheckMenu::chooseNext()
 void OptionCheckMenu::addOption(const std::string& optionLabel)
 {
 	HudMenuItem* item = new HudMenuItem(optionLabel);
-	dialog->addItem(item);
+	this->addItem(item);
 }
 
 void OptionCheckMenu::setPosition(cocos2d::Point position)
 {
-	dialog->setPosition(position.x, position.y);
+	HudMenu::setPosition(position.x,position.y);
 }
 
 void OptionCheckMenu::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
@@ -99,11 +115,11 @@ void OptionCheckMenu::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 		break;
 	case cocos2d::EventKeyboard::KeyCode::KEY_UP_ARROW:
 		choosePrevious();
-		dialog->handleUp();
+		this->handleUp();
 		break;
 	case cocos2d::EventKeyboard::KeyCode::KEY_DOWN_ARROW:
 		chooseNext();
-		dialog->handleDown();
+		this->handleDown();
 		break;
 	}
 }
@@ -112,5 +128,5 @@ void OptionCheckMenu::initHeight()
 {
 	int optionCount = curQuestion->getSize();
 	int height = optionCount*24+40;
-	dialog->setHeight(height);
+	this->setHeight(height);
 }

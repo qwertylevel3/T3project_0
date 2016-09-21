@@ -5,20 +5,24 @@
 #include <string>
 #include "base\ccTypes.h"
 #include "base\CCEventKeyboard.h"
+#include "HudMenu.h"
 
-class HudMenu;
 class Question;
 
 
-class OptionCheckMenu:public Singleton<OptionCheckMenu>
+class OptionCheckMenu:public HudMenu,public Singleton<OptionCheckMenu>
 {
 public:
 	OptionCheckMenu();
 	~OptionCheckMenu();
-	void init();
+
+	virtual void handleUp();
+	virtual void handleDown();
+	virtual void handleRight();
+
 	void show();
 	void hide();
-	void clear();
+	void init();
 	void run(Question* question);
 	void choosePrevious();
 	void chooseNext();
@@ -27,7 +31,6 @@ public:
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 protected:
 	void initHeight();
-	HudMenu* dialog;
 	int curIndex;
 	Question* curQuestion;
 };

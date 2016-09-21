@@ -94,7 +94,6 @@ void KeyController::switchCtrlToMenu()
 
 void KeyController::switchCtrlToOption()
 {
-
 	control = OPTION;
 }
 
