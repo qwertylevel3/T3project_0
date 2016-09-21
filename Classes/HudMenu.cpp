@@ -91,7 +91,8 @@ void HudMenu::addItem(HudMenuItem* item)
 
 	cocos2d::Label* itemLabel = item->getLabel();
 	sprite->addChild(itemLabel);
-	itemLabel->setMaxLineWidth(getWidth() - 2 * marginal.x);
+	item->setWidth(getWidth() - 2 * marginal.x);
+	//itemLabel->setMaxLineWidth(getWidth() - 2 * marginal.x);
 
 	//设置坐标为坐上角对齐
 	cocos2d::Point position;

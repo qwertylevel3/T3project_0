@@ -27,3 +27,9 @@ void HudInventoryMenu::update()
 		this->addItem(inventoryItem);
 	}
 }
+
+void HudInventoryMenu::addItem(HudMenuItem* item)
+{
+	HudMenu::addItem(item);
+	item->setAliginment(cocos2d::TextHAlignment::LEFT);
+}

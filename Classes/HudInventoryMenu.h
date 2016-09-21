@@ -9,6 +9,7 @@ public:
 	HudInventoryMenu(cocos2d::Rect rect);
 	~HudInventoryMenu();
 	void update();
+	void addItem(HudMenuItem* item);
 protected:
 };
 

@@ -31,7 +31,6 @@ void DialogueDriver::init()
 	dialogBk->setLocalZOrder(1);
 	dialogBk->setVisible(false);
 
-
 	dialogBk->setPosition(400, 100);
 
 	cocos2d::CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("actor.plist");

@@ -49,6 +49,7 @@ void OptionCheckDialog::run(Question* question)
 {
 	curIndex = 0;
 	curQuestion = question;
+	curQuestion->changeOption(curIndex);
 	clear();
 	initHeight();
 	for each (std::string option in question->getAllOption())
@@ -67,7 +68,6 @@ void OptionCheckDialog::choosePrevious()
 	curIndex--;
 	curIndex = curIndex < 0 ? 0 : curIndex;
 	curQuestion->changeOption(curIndex);
-
 }
 
 void OptionCheckDialog::chooseNext()

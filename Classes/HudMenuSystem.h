@@ -20,6 +20,7 @@ public:
 protected:
 	void initMainMenu();
 	void initInventoryMenu();
+	void initActiveMenu();
 	HudMenu* mainMenu;
 	HudInventoryMenu* inventoryMenu;
 	cocos2d::Vec2 windowSize;

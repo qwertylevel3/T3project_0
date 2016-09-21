@@ -23,10 +23,7 @@ void HudMenuSystem::init()
 	windowSize = cocos2d::Director::getInstance()->getWinSize();
 
 	initMainMenu();
-
-	HudMenuItem* activeMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"活动"));
-	mainMenu->addItem(activeMenuItem);
-
+	initActiveMenu();
 	initInventoryMenu();
 
 	HudCursor::getInstance()->setCurMenu(mainMenu);
@@ -91,4 +88,11 @@ void HudMenuSystem::initInventoryMenu()
 	inventoryMenu->setParent(mainMenu);
 
 	inventoryMenuItem->setRelateMenu(inventoryMenu);
+}
+
+void HudMenuSystem::initActiveMenu()
+{
+	HudMenuItem* activeMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"活动"));
+	mainMenu->addItem(activeMenuItem);
+
 }

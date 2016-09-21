@@ -9,6 +9,8 @@
 HudMenuItem::HudMenuItem(const std::string& name)
 {
 	label = cocos2d::Label::createWithTTF(name, "fonts/arialuni.ttf", 24);
+	label->setAlignment(cocos2d::TextHAlignment::CENTER);
+	label->enableShadow();
 	label->retain();
 	marginal.x = 10;
 	marginal.y = 10;
@@ -56,12 +58,18 @@ int HudMenuItem::getWidth()
 
 void HudMenuItem::setWidth(int w)
 {
+	label->setWidth(w);
 	label->setMaxLineWidth(w);
 }
 
 void HudMenuItem::setHeight(int h)
 {
 	label->setHeight(h);
+}
+
+void HudMenuItem::setAliginment(cocos2d::TextHAlignment alignment)
+{
+	label->setHorizontalAlignment(alignment);
 }
 
 cocos2d::Label* HudMenuItem::getLabel()

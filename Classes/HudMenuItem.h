@@ -21,6 +21,7 @@ public:
 	int getWidth();
 	void setWidth(int w);
 	void setHeight(int h);
+	void setAliginment(cocos2d::TextHAlignment alignment);
 	cocos2d::Label* getLabel();
 protected:
 	CC_SYNTHESIZE(cocos2d::Point, marginal, marginal);

@@ -25,7 +25,7 @@ public:
 	void setPosition(int x,int y);
 	void setCursorPosition(int index);
 	void initCursor();
-	void addItem(HudMenuItem* item);
+	virtual void addItem(HudMenuItem* item);
 	void setWidth(int w);
 	void setHeight(int h);
 	int getWidth();
