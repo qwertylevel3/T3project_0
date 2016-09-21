@@ -7,7 +7,7 @@
 #include "base\ccMacros.h"
 #include "Dialogue.h"
 #include "KeyController.h"
-#include "OptionCheckDialog.h"
+#include "OptionCheckMenu.h"
 
 USING_NS_CC;
 
@@ -64,7 +64,7 @@ void DialogueDriver::init()
 	textLabel->setLineBreakWithoutSpace(false);
 	textLabel->enableShadow();
 
-	OptionCheckDialog::getInstance()->init();
+	OptionCheckMenu::getInstance()->init();
 }
 
 
@@ -89,8 +89,8 @@ void DialogueDriver::run(Question* question)
 	textLabel->setVisible(true);
 	textLabel->setString(word);
 
-	OptionCheckDialog::getInstance()->clear();
-	OptionCheckDialog::getInstance()->run(question);
+	OptionCheckMenu::getInstance()->clear();
+	OptionCheckMenu::getInstance()->run(question);
 }
 
 void DialogueDriver::startDialogue(Dialogue* dialogue)

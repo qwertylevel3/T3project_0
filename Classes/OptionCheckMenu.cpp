@@ -1,4 +1,4 @@
-#include "OptionCheckDialog.h"
+#include "OptionCheckMenu.h"
 #include "HudMenu.h"
 #include "HudMenuItem.h"
 #include "HudLayer.h"
@@ -9,16 +9,16 @@
 
 
 
-OptionCheckDialog::OptionCheckDialog()
+OptionCheckMenu::OptionCheckMenu()
 {
 }
 
 
-OptionCheckDialog::~OptionCheckDialog()
+OptionCheckMenu::~OptionCheckMenu()
 {
 }
 
-void OptionCheckDialog::init()
+void OptionCheckMenu::init()
 {
 	curQuestion = nullptr;
 	dialog = new HudMenu(cocos2d::Rect(0, 0, 200, 20));
@@ -28,24 +28,24 @@ void OptionCheckDialog::init()
 	hide();
 }
 
-void OptionCheckDialog::show()
+void OptionCheckMenu::show()
 {
 	HudCursor::getInstance()->show();
 	dialog->show();
 }
 
-void OptionCheckDialog::hide()
+void OptionCheckMenu::hide()
 {
 	HudCursor::getInstance()->hide();
 	dialog->hide();
 }
 
-void OptionCheckDialog::clear()
+void OptionCheckMenu::clear()
 {
 	dialog->clear();
 }
 
-void OptionCheckDialog::run(Question* question)
+void OptionCheckMenu::run(Question* question)
 {
 	curIndex = 0;
 	curQuestion = question;
@@ -63,32 +63,32 @@ void OptionCheckDialog::run(Question* question)
 	show();
 }
 
-void OptionCheckDialog::choosePrevious()
+void OptionCheckMenu::choosePrevious()
 {
 	curIndex--;
 	curIndex = curIndex < 0 ? 0 : curIndex;
 	curQuestion->changeOption(curIndex);
 }
 
-void OptionCheckDialog::chooseNext()
+void OptionCheckMenu::chooseNext()
 {
 	curIndex++;
 	curIndex = curIndex >= curQuestion->getSize()-1 ? curQuestion->getSize() - 1 : curIndex;
 	curQuestion->changeOption(curIndex);
 }
 
-void OptionCheckDialog::addOption(const std::string& optionLabel)
+void OptionCheckMenu::addOption(const std::string& optionLabel)
 {
 	HudMenuItem* item = new HudMenuItem(optionLabel);
 	dialog->addItem(item);
 }
 
-void OptionCheckDialog::setPosition(cocos2d::Point position)
+void OptionCheckMenu::setPosition(cocos2d::Point position)
 {
 	dialog->setPosition(position.x, position.y);
 }
 
-void OptionCheckDialog::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
+void OptionCheckMenu::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
 	switch (keyCode)
 	{
@@ -108,7 +108,7 @@ void OptionCheckDialog::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode
 	}
 }
 
-void OptionCheckDialog::initHeight()
+void OptionCheckMenu::initHeight()
 {
 	int optionCount = curQuestion->getSize();
 	int height = optionCount*24+40;

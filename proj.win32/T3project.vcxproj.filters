@@ -198,7 +198,7 @@
     <ClCompile Include="..\Classes\DialogueManager.cpp">
       <Filter>src\dialogue</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\OptionCheckDialog.cpp">
+    <ClCompile Include="..\Classes\OptionCheckMenu.cpp">
       <Filter>src\dialogue</Filter>
     </ClCompile>
   </ItemGroup>
@@ -365,7 +365,7 @@
     <ClInclude Include="..\Classes\DialogueManager.h">
       <Filter>src\dialogue</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\OptionCheckDialog.h">
+    <ClInclude Include="..\Classes\OptionCheckMenu.h">
       <Filter>src\dialogue</Filter>
     </ClInclude>
   </ItemGroup>

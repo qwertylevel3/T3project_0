@@ -10,11 +10,11 @@ class HudMenu;
 class Question;
 
 
-class OptionCheckDialog:public Singleton<OptionCheckDialog>
+class OptionCheckMenu:public Singleton<OptionCheckMenu>
 {
 public:
-	OptionCheckDialog();
-	~OptionCheckDialog();
+	OptionCheckMenu();
+	~OptionCheckMenu();
 	void init();
 	void show();
 	void hide();
