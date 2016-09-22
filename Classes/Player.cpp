@@ -204,10 +204,6 @@ void Player::playerSetOrientation(cocos2d::EventKeyboard::KeyCode keyCode)
 	}
 }
 
-std::vector<Inventory*>& Player::getInventoryList()
-{
-	return characterPtr->getInventoryList();
-}
 
 std::string Player::getName()
 {

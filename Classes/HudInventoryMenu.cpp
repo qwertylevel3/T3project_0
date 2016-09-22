@@ -3,6 +3,9 @@
 #include "Inventory.h"
 #include "HudMenuItem.h"
 #include "ToolFunction.h"
+#include "InventoryHandler.h"
+#include "InventoryManager.h"
+#include "ToolFunction.h"
 
 
 
@@ -19,12 +22,21 @@ HudInventoryMenu::~HudInventoryMenu()
 void HudInventoryMenu::update()
 {
 	clear();
-	std::vector<Inventory*>& inventoryList = Player::getInstance()->getInventoryList();
-	for (size_t i=0;i<inventoryList.size();i++)
+	InventoryHandler* inventoryHandler = Player::getInstance()->getcharacterPtr()->getInventoryHandler();
+	//std::vector<Inventory*>& inventoryList = Player::getInstance()->getInventoryList();
+
+	std::map<std::string, int> inventoryMap = inventoryHandler->getAllInventory();
+
+	std::map<std::string, int>::const_iterator iter = inventoryMap.cbegin();
+	while (iter != inventoryMap.cend())
 	{
-		std::string cname = inventoryList[i]->getCname();
-		HudMenuItem* inventoryItem = new HudMenuItem(cname);
+		std::string cname = InventoryManager::getInstance()->getCname(iter->first);
+		std::string count = ToolFunction::int2string(iter->second);
+
+		HudMenuItem* inventoryItem = new HudMenuItem(cname+" x"+count);
 		this->addItem(inventoryItem);
+
+		iter++;
 	}
 }
 

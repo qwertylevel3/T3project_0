@@ -22,7 +22,6 @@ public:
 	void playerAttack(cocos2d::EventKeyboard::KeyCode keyCode);
 	void playerMove(cocos2d::EventKeyboard::KeyCode keyCode);
 	void playerSetOrientation(cocos2d::EventKeyboard::KeyCode keyCode);
-	std::vector<Inventory*>& getInventoryList();
 	std::string getName();
 	void setName(const std::string& name);
 protected:

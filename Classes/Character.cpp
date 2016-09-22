@@ -9,6 +9,7 @@
 #include "Armor.h"
 #include "Accessory.h"
 #include "AIBase.h"
+#include "InventoryHandler.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -177,14 +178,19 @@ void Character::runSkill(std::string skillName)
 	skillBox[skillName]->run();
 }
 
-void Character::addInventory(Inventory * inventory)
+InventoryHandler* Character::getInventoryHandler()
 {
-	inventoryList.push_back(inventory);
+	return inventoryHandler;
 }
 
-std::vector<Inventory*>& Character::getInventoryList()
+void Character::addInventory(Inventory * inventory)
 {
-	return inventoryList;
+	inventoryHandler->addInventory(inventory);
+}
+
+void Character::addInventory(const std::string& inventoryName)
+{
+	inventoryHandler->addInventory(inventoryName, 1);
 }
 
 Sprite * Character::getSprite()
@@ -219,6 +225,8 @@ Character::Character()
 	accessory = nullptr;
 
 	ai = nullptr;
+
+	inventoryHandler = new InventoryHandler();
 }
 
 Character::~Character()

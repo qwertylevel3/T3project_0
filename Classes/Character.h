@@ -11,6 +11,7 @@ class InventoryInHand;
 class Armor;
 class Accessory;
 class AIBase;
+class InventoryHandler;
 
 class Character
 {
@@ -79,8 +80,11 @@ public:
 
 	void runSkill(std::string skillName);
 
+
+	InventoryHandler* getInventoryHandler();
+	//discard
 	void addInventory(Inventory* inventory);
-	std::vector<Inventory*>& getInventoryList();
+	void addInventory(const std::string& inventoryName);
 
 	cocos2d::CCSprite* getSprite();
 	void setSprite(std::string spriteName);
@@ -94,7 +98,8 @@ protected:
 	std::map<std::string, Skill*> skillBox;
 
 	//Inventory......
-	std::vector<Inventory*> inventoryList;
+	InventoryHandler* inventoryHandler;
+	//std::vector<Inventory*> inventoryList;
 
 	CC_SYNTHESIZE(InventoryInHand*, leftHand, LeftHand);
 	CC_SYNTHESIZE(InventoryInHand*, rightHand, RightHand);

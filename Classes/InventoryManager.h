@@ -14,6 +14,7 @@ public:
 	~InventoryManager();
 	void init();
 	Inventory* getInventory(std::string inventoryName);
+	std::string getCname(const std::string& inventoryName);
 protected:
 	void initModel(tinyxml2::XMLElement* inventoryElement,const std::string& type);
 	void initBaseData(tinyxml2::XMLElement* inventoryElement,Inventory* model);

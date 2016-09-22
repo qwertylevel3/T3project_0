@@ -44,7 +44,7 @@ bool MaskLayer::init()
 
 	
 
-	CCClippingNode* clipeNode = CCClippingNode::create();
+	ClippingNode* clipeNode = ClippingNode::create();
 	clipeNode->setInverted(true);
 
 	this->addChild(clipeNode);

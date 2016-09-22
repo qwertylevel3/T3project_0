@@ -46,7 +46,12 @@ Inventory * InventoryManager::getInventory(std::string inventoryName)
 }
 
 
-void InventoryManager::initModel(tinyxml2::XMLElement* inventoryElement,const std::string& type)
+std::string InventoryManager::getCname(const std::string& inventoryName)
+{
+	return inventoryMap[inventoryName]->getCname();
+}
+
+void InventoryManager::initModel(tinyxml2::XMLElement* inventoryElement, const std::string& type)
 {
 	if (type == "oneHandWeapon")
 	{
