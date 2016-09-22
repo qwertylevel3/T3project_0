@@ -155,6 +155,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Armor.cpp" />
     <ClCompile Include="..\Classes\AStar.cpp" />
     <ClCompile Include="..\Classes\Attack.cpp" />
+    <ClCompile Include="..\Classes\BaseManager.cpp" />
     <ClCompile Include="..\Classes\BattleSystem.cpp" />
     <ClCompile Include="..\Classes\Character.cpp" />
     <ClCompile Include="..\Classes\CharacterManager.cpp" />
@@ -163,6 +164,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Dialogue.cpp" />
     <ClCompile Include="..\Classes\DialogueDriver.cpp" />
     <ClCompile Include="..\Classes\DialogueManager.cpp" />
+    <ClCompile Include="..\Classes\DialogueSystem.cpp" />
     <ClCompile Include="..\Classes\Dungeon.cpp" />
     <ClCompile Include="..\Classes\GameScene.cpp" />
     <ClCompile Include="..\Classes\HudCursor.cpp" />
@@ -212,6 +214,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Armor.h" />
     <ClInclude Include="..\Classes\AStar.h" />
     <ClInclude Include="..\Classes\Attack.h" />
+    <ClInclude Include="..\Classes\BaseManager.h" />
     <ClInclude Include="..\Classes\BattleSystem.h" />
     <ClInclude Include="..\Classes\Character.h" />
     <ClInclude Include="..\Classes\CharacterManager.h" />
@@ -220,6 +223,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Dialogue.h" />
     <ClInclude Include="..\Classes\DialogueDriver.h" />
     <ClInclude Include="..\Classes\DialogueManager.h" />
+    <ClInclude Include="..\Classes\DialogueSystem.h" />
     <ClInclude Include="..\Classes\Dungeon.h" />
     <ClInclude Include="..\Classes\FieldEnum.h" />
     <ClInclude Include="..\Classes\GameScene.h" />

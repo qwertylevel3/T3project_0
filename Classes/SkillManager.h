@@ -5,6 +5,8 @@
 #include<map>
 #include"Skill.h"
 
+
+//discard
 class SkillManager:public Singleton<SkillManager>
 {
 public:

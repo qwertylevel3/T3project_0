@@ -201,6 +201,8 @@
     <ClCompile Include="..\Classes\OptionCheckMenu.cpp">
       <Filter>src\dialogue</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\BaseManager.cpp" />
+    <ClCompile Include="..\Classes\DialogueSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -368,6 +370,8 @@
     <ClInclude Include="..\Classes\OptionCheckMenu.h">
       <Filter>src\dialogue</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\BaseManager.h" />
+    <ClInclude Include="..\Classes\DialogueSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

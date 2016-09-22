@@ -1,7 +1,7 @@
 #include "KeyController.h"
 #include "Player.h"
 #include "HudMenuSystem.h"
-#include "DialogueManager.h"
+#include "DialogueSystem.h"
 #include "HudStateSystem.h"
 #include "OptionCheckMenu.h"
 #include "HudCursor.h"
@@ -57,11 +57,12 @@ void KeyController::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 	}
 	else if (control == DIALOG)
 	{
-		DialogueManager::getInstance()->handleKeyPressed(keyCode);
+		DialogueSystem::getInstance()->handleKeyPressed(keyCode);
 	}
 	else if (control == OPTION)
 	{
-		OptionCheckMenu::getInstance()->handleKeyPressed(keyCode);
+		HudCursor::getInstance()->handleKeyPressed(keyCode);
+		//OptionCheckMenu::getInstance()->handleKeyPressed(keyCode);
 	}
 }
 

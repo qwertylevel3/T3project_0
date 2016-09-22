@@ -36,26 +36,14 @@ void MonsterManager::initModel(tinyxml2::XMLElement* monsterElement)
 {
 	MonsterModel* model = new MonsterModel();
 
-	model->setName(getStrAttr(monsterElement,"name"));
-	model->setCharacterName(getStrAttr(monsterElement,"characterName"));
-	model->setStrength(getIntAttr(monsterElement,"strength"));
-	model->setIntellect(getIntAttr(monsterElement,"intellect"));
-	model->setAgility(getIntAttr(monsterElement,"agility"));
-	model->setHP(getIntAttr(monsterElement,"HP"));
-	model->setMP(getIntAttr(monsterElement,"MP"));
-	model->setViewSize(getIntAttr(monsterElement,"viewSize"));
+	model->setName(getChildElementStrAttr(monsterElement,"name"));
+	model->setCharacterName(getChildElementStrAttr(monsterElement,"characterName"));
+	model->setStrength(getChildElementIntAttr(monsterElement,"strength"));
+	model->setIntellect(getChildElementIntAttr(monsterElement,"intellect"));
+	model->setAgility(getChildElementIntAttr(monsterElement,"agility"));
+	model->setHP(getChildElementIntAttr(monsterElement,"HP"));
+	model->setMP(getChildElementIntAttr(monsterElement,"MP"));
+	model->setViewSize(getChildElementIntAttr(monsterElement,"viewSize"));
 
 	monsterMap[model->getName()] = model;
-}
-
-int MonsterManager::getIntAttr(tinyxml2::XMLElement* element, const std::string& attrName)
-{
-	tinyxml2::XMLElement* attrElement = element->FirstChildElement(attrName.c_str());
-	return ToolFunction::string2int(attrElement->GetText());
-}
-
-std::string MonsterManager::getStrAttr(tinyxml2::XMLElement* element, const std::string& attrName)
-{
-	tinyxml2::XMLElement* attrElement = element->FirstChildElement(attrName.c_str());
-	return attrElement->GetText();
 }

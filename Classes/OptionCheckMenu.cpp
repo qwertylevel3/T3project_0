@@ -21,13 +21,13 @@ OptionCheckMenu::~OptionCheckMenu()
 void OptionCheckMenu::handleUp()
 {
 	HudMenu::handleUp();
-	choosePrevious();
+	curQuestion->changeOption(itemIndex);
 }
 
 void OptionCheckMenu::handleDown()
 {
 	HudMenu::handleDown();
-	chooseNext();
+	curQuestion->changeOption(itemIndex);
 }
 
 void OptionCheckMenu::handleRight()
@@ -54,7 +54,7 @@ void OptionCheckMenu::init()
 {
 	curQuestion = nullptr;
 	HudLayer::getInstance()->addChild(this->getSprite());
-	this->setPosition(cocos2d::Point(400, 400));
+	this->setPosition(400, 400);
 	this->setWidth(200);
 
 	hide();
@@ -63,9 +63,8 @@ void OptionCheckMenu::init()
 
 void OptionCheckMenu::run(Question* question)
 {
-	curIndex = 0;
 	curQuestion = question;
-	curQuestion->changeOption(curIndex);
+	curQuestion->changeOption(itemIndex);
 	clear();
 	initHeight();
 	for each (std::string option in question->getAllOption())
@@ -79,49 +78,10 @@ void OptionCheckMenu::run(Question* question)
 	show();
 }
 
-void OptionCheckMenu::choosePrevious()
-{
-	curIndex--;
-	curIndex = curIndex < 0 ? 0 : curIndex;
-	curQuestion->changeOption(curIndex);
-}
-
-void OptionCheckMenu::chooseNext()
-{
-	curIndex++;
-	curIndex = curIndex >= curQuestion->getSize()-1 ? curQuestion->getSize() - 1 : curIndex;
-	curQuestion->changeOption(curIndex);
-}
-
 void OptionCheckMenu::addOption(const std::string& optionLabel)
 {
 	HudMenuItem* item = new HudMenuItem(optionLabel);
 	this->addItem(item);
-}
-
-void OptionCheckMenu::setPosition(cocos2d::Point position)
-{
-	HudMenu::setPosition(position.x,position.y);
-}
-
-void OptionCheckMenu::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
-{
-	switch (keyCode)
-	{
-	case cocos2d::EventKeyboard::KeyCode::KEY_ENTER:
-		KeyController::getInstance()->switchCtrlToDialog();
-		hide();
-		DialogueDriver::getInstance()->handleKeyPressed(keyCode);
-		break;
-	case cocos2d::EventKeyboard::KeyCode::KEY_UP_ARROW:
-		choosePrevious();
-		this->handleUp();
-		break;
-	case cocos2d::EventKeyboard::KeyCode::KEY_DOWN_ARROW:
-		chooseNext();
-		this->handleDown();
-		break;
-	}
 }
 
 void OptionCheckMenu::initHeight()

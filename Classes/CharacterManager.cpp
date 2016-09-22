@@ -89,4 +89,3 @@ void CharacterManager::createNextAnimationVector(tinyxml2::XMLElement * root,std
 		frameElement = frameElement->NextSiblingElement();
 	}
 }
-

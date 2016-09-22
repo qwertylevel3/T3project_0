@@ -120,29 +120,3 @@ void InventoryManager::initWeaponData(tinyxml2::XMLElement* inventoryElement, We
 		pointElement = pointElement->NextSiblingElement();
 	}
 }
-
-std::string InventoryManager::getChildElementStrAttr(tinyxml2::XMLElement* element, std::string attrName)
-{
-	tinyxml2::XMLElement* childElement = getChildElement(element, attrName);
-	return childElement->GetText();
-}
-
-std::wstring InventoryManager::getChildElementWStrAttr(tinyxml2::XMLElement* element, std::string attrName)
-{
-	tinyxml2::XMLElement* childElement = getChildElement(element, attrName);
-	std::string temp=childElement->GetText();
-	return ToolFunction::string2wstring(childElement->GetText());
-}
-
-int InventoryManager::getChildElementIntAttr(tinyxml2::XMLElement* element, std::string attrName)
-{
-	tinyxml2::XMLElement* childElement = getChildElement(element, attrName);
-	return ToolFunction::string2int(childElement->GetText());
-}
-
-tinyxml2::XMLElement* InventoryManager::getChildElement(tinyxml2::XMLElement* parent, std::string name)
-{
-	tinyxml2::XMLElement* element = parent->FirstChildElement(name.c_str());
-	CCAssert(element, (std::string("unknow element type ") + name).c_str());
-	return element;
-}

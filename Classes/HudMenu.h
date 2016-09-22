@@ -22,25 +22,39 @@ public:
 	void show();
 	void hide();
 
-	void setPosition(int x,int y);
-	void setCursorPosition(int index);
-	void initCursor();
-	virtual void addItem(HudMenuItem* item);
+	void clear();
+
 	void setWidth(int w);
 	void setHeight(int h);
 	int getWidth();
 	int getHeight();
+
+	void setPosition(int x,int y);
+
+	void initCursor();
+	virtual void addItem(HudMenuItem* item);
+
 	void chooseItem(int index);
 	void activeChildMenu(int index);
 	void setParent(HudMenu* p);
+
+	//************************************
+	// Method:    closeMenu
+	// FullName:  HudMenu::closeMenu
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: 关闭当前菜单，返回上级菜单
+	//************************************
 	void closeMenu();
-	void increaseIndex();
-	void decreaseIndex();
+
 	cocos2d::Sprite* getSprite();
-	void clear();
 	int getMarginalWidth();
 	int getMarginalHeight();
 protected:
+	void setCursorPosition(int index);
+	void increaseIndex();
+	void decreaseIndex();
+
 	HudMenu* parent;
 	//内边框距
 	cocos2d::Vec2 marginal;

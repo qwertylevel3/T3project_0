@@ -54,19 +54,12 @@ void DialogueManager::init()
 		dialogueElement = dialogueBoxElement->NextSiblingElement();
 	}
 
-	DialogueDriver::getInstance()->init();
 }
 
-void DialogueManager::run(const std::string& dialogueName)
-{
-	KeyController::getInstance()->switchCtrlToDialog();
 
-	DialogueDriver::getInstance()->startDialogue(dialogueBox[dialogueName]);
-}
-
-void DialogueManager::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
+Dialogue* DialogueManager::getDialogue(const std::string& dialogueName)
 {
-	DialogueDriver::getInstance()->handleKeyPressed(keyCode);
+	return dialogueBox[dialogueName];
 }
 
 Statement* DialogueManager::initStatement(tinyxml2::XMLElement *sentenceElement)
@@ -100,31 +93,5 @@ Question* DialogueManager::initQuestion(tinyxml2::XMLElement *sentenceElement)
 		count++;
 	}
 	return sentence;
-}
-
-std::string DialogueManager::getChildElementStrAttr(tinyxml2::XMLElement* element, std::string attrName)
-{
-	tinyxml2::XMLElement* childElement = getChildElement(element, attrName);
-	return childElement->GetText();
-}
-
-std::wstring DialogueManager::getChildElementWStrAttr(tinyxml2::XMLElement* element, std::string attrName)
-{
-	tinyxml2::XMLElement* childElement = getChildElement(element, attrName);
-	std::string temp=childElement->GetText();
-	return ToolFunction::string2wstring(childElement->GetText());
-}
-
-int DialogueManager::getChildElementIntAttr(tinyxml2::XMLElement* element, std::string attrName)
-{
-	tinyxml2::XMLElement* childElement = getChildElement(element, attrName);
-	return ToolFunction::string2int(childElement->GetText());
-}
-
-tinyxml2::XMLElement* DialogueManager::getChildElement(tinyxml2::XMLElement* parent, std::string name)
-{
-	tinyxml2::XMLElement* element = parent->FirstChildElement(name.c_str());
-	CCAssert(element, (std::string("unknow element type ") + name).c_str());
-	return element;
 }
 

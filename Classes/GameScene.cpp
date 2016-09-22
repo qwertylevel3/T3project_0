@@ -40,6 +40,7 @@ bool GameScene::init()
 	SkillManager::getInstance()->init();
 	Player::getInstance()->init();
 	MonsterManager::getInstance()->init();
+
 	BattleSystem::getInstance()->init();
 
 	KeyController::getInstance()->init();

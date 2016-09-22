@@ -24,14 +24,9 @@ public:
 	void hide();
 	void init();
 	void run(Question* question);
-	void choosePrevious();
-	void chooseNext();
 	void addOption(const std::string& optionLabel);
-	void setPosition(cocos2d::Point position);
-	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 protected:
 	void initHeight();
-	int curIndex;
 	Question* curQuestion;
 };
 
