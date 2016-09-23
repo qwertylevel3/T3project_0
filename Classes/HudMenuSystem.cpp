@@ -4,6 +4,7 @@
 #include "HudLayer.h"
 #include "HudMenuItem.h"
 #include "HudInventoryMenu.h"
+#include "HudEquipMenu.h"
 #include "ToolFunction.h"
 #include "cocos2d.h"
 
@@ -25,6 +26,7 @@ void HudMenuSystem::init()
 	initMainMenu();
 	initActiveMenu();
 	initInventoryMenu();
+	initEquipMenu();
 
 	HudCursor::getInstance()->setCurMenu(mainMenu);
 	hide();
@@ -46,6 +48,7 @@ void HudMenuSystem::hide()
 {
 	HudCursor::getInstance()->hide();
 	inventoryMenu->hide();
+	equipMenu->hide();
 	mainMenu->hide();
 }
 
@@ -95,4 +98,24 @@ void HudMenuSystem::initActiveMenu()
 	HudMenuItem* activeMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"活动"));
 	mainMenu->addItem(activeMenuItem);
 
+}
+
+void HudMenuSystem::initEquipMenu()
+{
+	HudMenuItem* equipMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"装备"));
+	mainMenu->addItem(equipMenuItem);
+
+	equipMenu = new HudEquipMenu(cocos2d::Rect(0, 0, 300, 400));
+	HudLayer::getInstance()->addChild(equipMenu->getSprite(), 2);
+
+	int mainMenuWidth = mainMenu->getWidth();
+
+	cocos2d::Point position;
+	position.x = mainMenuWidth + equipMenu->getWidth() / 2 + 10+50;
+	position.y = windowSize.y - equipMenu->getHeight() / 2 - 50;
+
+	equipMenu->setPosition(position.x, position.y);
+	equipMenu->setParent(mainMenu);
+
+	equipMenuItem->setRelateMenu(equipMenu);
 }

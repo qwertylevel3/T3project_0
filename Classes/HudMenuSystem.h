@@ -6,6 +6,7 @@
 
 class HudMenu;
 class HudInventoryMenu;
+class HudEquipMenu;
 
 class HudMenuSystem:public Singleton<HudMenuSystem>
 {
@@ -21,8 +22,10 @@ protected:
 	void initMainMenu();
 	void initInventoryMenu();
 	void initActiveMenu();
+	void initEquipMenu();
 	HudMenu* mainMenu;
 	HudInventoryMenu* inventoryMenu;
+	HudEquipMenu* equipMenu;
 	cocos2d::Vec2 windowSize;
 };
 

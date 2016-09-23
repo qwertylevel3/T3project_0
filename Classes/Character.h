@@ -123,7 +123,6 @@ protected:
 	cocos2d::CCSprite* sprite;
 	CC_SYNTHESIZE(Orientation, orientation, Orientation);
 
-
 	//Animation......
 	void setMoveUpAnimation(cocos2d::CCAnimation* animation);
 	void setMoveDownAnimation(cocos2d::CCAnimation* animation);

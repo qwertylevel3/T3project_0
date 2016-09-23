@@ -82,7 +82,6 @@ void Field::Dungeon::characterMove(cocos2d::Point oriPosition, cocos2d::Point ta
 	storeyVec[curFloor]->characterMove(oriPosition, tarPosition);
 }
 
-//TODO......TEST......
 void Field::Dungeon::clear()
 {
 	for (size_t i = 0; i < storeyVec.size(); i++)
