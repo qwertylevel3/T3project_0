@@ -3,7 +3,8 @@
 #include"HudCursor.h"
 #include"HudLayer.h"
 #include "cocos2d.h"
-
+#include "HudMenu.h"
+#include "HudMenuItemTrigger.h"
 
 
 HudMenuItem::HudMenuItem(const std::string& name)
@@ -14,7 +15,7 @@ HudMenuItem::HudMenuItem(const std::string& name)
 	label->retain();
 	marginal.x = 10;
 	marginal.y = 10;
-	relateMenu = nullptr;
+	trigger = nullptr;
 }
 
 
@@ -23,6 +24,20 @@ HudMenuItem::~HudMenuItem()
 	label->release();
 }
 
+
+void HudMenuItem::active()
+{
+	if (trigger)
+	{
+		trigger->run();
+	}
+}
+
+void HudMenuItem::setTrigger(HudMenuItemTrigger* t)
+{
+	trigger = t;
+	t->setMenuItem(this);
+}
 
 void HudMenuItem::show()
 {
@@ -39,11 +54,6 @@ void HudMenuItem::setPosition(cocos2d::Point position)
 	position.x += getWidth()/2;
 	position.y -= getHeight()/2;
 	label->setPosition(position);
-}
-
-void HudMenuItem::setMenu(HudMenu* menu)
-{
-	relateMenu = menu;
 }
 
 cocos2d::Point HudMenuItem::getPosition()

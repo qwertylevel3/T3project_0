@@ -11,5 +11,7 @@ public:
 	void update();
 	void addItem(HudMenuItem* item);
 protected:
+	void setItemTrigger(const std::string& inventoryName,HudMenuItem* item);
+	void initEquipableInventory(HudMenuItem* item);
 };
 

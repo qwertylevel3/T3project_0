@@ -165,13 +165,7 @@ void HudMenu::activeChildMenu(int index)
 	{
 		return;
 	}
-	HudMenu* childMenu = itemList[index]->getRelateMenu();
-	if (childMenu)
-	{
-		childMenu->update();
-		childMenu->show();
-		HudCursor::getInstance()->setCurMenu(childMenu);
-	}
+	itemList[index]->active();
 }
 
 void HudMenu::setParent(HudMenu* p)

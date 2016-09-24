@@ -5,17 +5,20 @@
 #include"2d\CCSprite.h"
 #include"platform\CCPlatformMacros.h"
 class HudMenu;
+class HudMenuItemTrigger;
+
 
 class HudMenuItem
 {
 public:
 	HudMenuItem(const std::string& name);
-	~HudMenuItem();
+	virtual ~HudMenuItem();
+	void active();
+	void setTrigger(HudMenuItemTrigger* t);
 
 	void show();
 	void hide();
 	void setPosition(cocos2d::Point position);
-	void setMenu(HudMenu* menu);
 	cocos2d::Point getPosition();
 	int getHeight();
 	int getWidth();
@@ -24,8 +27,8 @@ public:
 	void setAliginment(cocos2d::TextHAlignment alignment);
 	cocos2d::Label* getLabel();
 protected:
-	CC_SYNTHESIZE(cocos2d::Point, marginal, marginal);
-	CC_SYNTHESIZE(HudMenu*, relateMenu, RelateMenu);
+	CC_SYNTHESIZE(cocos2d::Point, marginal, Marginal);
 	cocos2d::Label* label;
+	HudMenuItemTrigger* trigger;
 };
 

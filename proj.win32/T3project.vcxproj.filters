@@ -28,9 +28,6 @@
     <Filter Include="src\tool">
       <UniqueIdentifier>{d6205382-1ddb-48b4-9b9c-3cc06df22875}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\HUD\menu">
-      <UniqueIdentifier>{ff7d8308-3303-4a31-8d1c-5ee0310b2851}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\character\AI">
       <UniqueIdentifier>{74871ae6-495b-49ef-8f22-2cdc2fa553ee}</UniqueIdentifier>
     </Filter>
@@ -42,6 +39,21 @@
     </Filter>
     <Filter Include="src\dialogue">
       <UniqueIdentifier>{3d243ef8-b2bd-4344-adf4-aeb84e6973cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\HUD\menuSystem">
+      <UniqueIdentifier>{ff7d8308-3303-4a31-8d1c-5ee0310b2851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\HUD\menuSystem\menuItem">
+      <UniqueIdentifier>{f4435139-307f-4b41-a038-4f6f190e7dc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\HUD\menuSystem\menu">
+      <UniqueIdentifier>{68a12542-3968-4b1e-9e11-9916c19b3893}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\HUD\menuSystem\menu\inventoryMenu">
+      <UniqueIdentifier>{7271f485-1f2d-496d-a896-c897996bbda4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\HUD\menuSystem\menuItem\trigger">
+      <UniqueIdentifier>{71e59487-192c-4fe3-8932-997c723f4a59}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -127,19 +139,10 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\HudCursor.cpp">
-      <Filter>src\HUD\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\HudMenu.cpp">
-      <Filter>src\HUD\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\HudMenuItem.cpp">
-      <Filter>src\HUD\menu</Filter>
+      <Filter>src\HUD\menuSystem</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\HudMenuSystem.cpp">
-      <Filter>src\HUD\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\HudInventoryMenu.cpp">
-      <Filter>src\HUD\menu</Filter>
+      <Filter>src\HUD\menuSystem</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\AIBase.cpp">
       <Filter>src\character\AI</Filter>
@@ -207,8 +210,30 @@
     <ClCompile Include="..\Classes\BaseManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\InventoryHandler.cpp" />
-    <ClCompile Include="..\Classes\HudEquipMenu.cpp" />
+    <ClCompile Include="..\Classes\InventoryHandler.cpp">
+      <Filter>src\inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudEquipMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudInventoryMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudMenuItem.cpp">
+      <Filter>src\HUD\menuSystem\menuItem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudMenuItemTrigger.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudTrigActChildMenu.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudEquipableInventoryMenu.cpp">
+      <Filter>src\HUD\menuSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -299,19 +324,10 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HudCursor.h">
-      <Filter>src\HUD\menu</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\HudMenu.h">
-      <Filter>src\HUD\menu</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\HudMenuItem.h">
-      <Filter>src\HUD\menu</Filter>
+      <Filter>src\HUD\menuSystem</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HudMenuSystem.h">
-      <Filter>src\HUD\menu</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\HudInventoryMenu.h">
-      <Filter>src\HUD\menu</Filter>
+      <Filter>src\HUD\menuSystem</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AIBase.h">
       <Filter>src\character\AI</Filter>
@@ -382,8 +398,30 @@
     <ClInclude Include="..\Classes\BaseManager.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\InventoryHandler.h" />
-    <ClInclude Include="..\Classes\HudEquipMenu.h" />
+    <ClInclude Include="..\Classes\InventoryHandler.h">
+      <Filter>src\inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudEquipMenu.h">
+      <Filter>src\HUD\menuSystem\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudMenu.h">
+      <Filter>src\HUD\menuSystem\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudInventoryMenu.h">
+      <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudMenuItem.h">
+      <Filter>src\HUD\menuSystem\menuItem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudMenuItemTrigger.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudTrigActChildMenu.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudEquipableInventoryMenu.h">
+      <Filter>src\HUD\menuSystem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

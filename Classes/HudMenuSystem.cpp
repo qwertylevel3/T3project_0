@@ -6,7 +6,9 @@
 #include "HudInventoryMenu.h"
 #include "HudEquipMenu.h"
 #include "ToolFunction.h"
+#include "HudTrigActChildMenu.h"
 #include "cocos2d.h"
+
 
 
 
@@ -90,7 +92,8 @@ void HudMenuSystem::initInventoryMenu()
 	inventoryMenu->setPosition(position.x, position.y);
 	inventoryMenu->setParent(mainMenu);
 
-	inventoryMenuItem->setRelateMenu(inventoryMenu);
+	HudTrigActChildMenu* trigger = new HudTrigActChildMenu(inventoryMenu);
+	inventoryMenuItem->setTrigger(trigger);
 }
 
 void HudMenuSystem::initActiveMenu()
@@ -117,5 +120,6 @@ void HudMenuSystem::initEquipMenu()
 	equipMenu->setPosition(position.x, position.y);
 	equipMenu->setParent(mainMenu);
 
-	equipMenuItem->setRelateMenu(equipMenu);
+	HudTrigActChildMenu* trigger = new HudTrigActChildMenu(equipMenu);
+	equipMenuItem->setTrigger(trigger);
 }
