@@ -2,13 +2,13 @@
 
 #include"Inventory.h"
 #include"Singleton.h"
-#include "BaseManager.h"
+#include "XMLConfigure.h"
 #include "tinyxml2/tinyxml2.h"
 #include "Inventory.h"
 
 class Weapon;
 
-class InventoryManager:public BaseManager,public Singleton<InventoryManager>
+class InventoryManager:public XMLConfigure,public Singleton<InventoryManager>
 {
 public:
 	InventoryManager();

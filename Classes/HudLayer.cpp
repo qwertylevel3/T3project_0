@@ -5,6 +5,7 @@
 #include "HudMenuSystem.h"
 #include "HudStateSystem.h"
 #include "DialogueSystem.h"
+#include "HudLayout.h"
 
 USING_NS_CC;
 
@@ -23,6 +24,7 @@ bool HudLayer::init()
 	{
 		return false;
 	}
+	HudLayout::getInstance()->init();
 	HudMenuSystem::getInstance()->init();
 	HudStateSystem::getInstance()->init();
 	DialogueSystem::getInstance()->init();

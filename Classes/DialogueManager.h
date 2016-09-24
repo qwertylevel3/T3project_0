@@ -6,12 +6,12 @@
 #include "Singleton.h"
 #include "Dialogue.h"
 #include "base\CCEventKeyboard.h"
-#include "BaseManager.h"
+#include "XMLConfigure.h"
 
 class Question;
 class Statement;
 
-class DialogueManager:public BaseManager,public Singleton<DialogueManager>
+class DialogueManager:public XMLConfigure,public Singleton<DialogueManager>
 {
 public:
 	DialogueManager();

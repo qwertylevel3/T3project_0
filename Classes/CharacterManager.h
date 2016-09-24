@@ -3,12 +3,12 @@
 #include"Singleton.h"
 #include"cocos2d.h"
 #include"Character.h"
-#include "BaseManager.h"
+#include "XMLConfigure.h"
 
 #include"CharacterModel.h"
 #include<map>
 
-class CharacterManager:public BaseManager,public Singleton<CharacterManager>
+class CharacterManager:public XMLConfigure,public Singleton<CharacterManager>
 {
 public:
 	CharacterManager();

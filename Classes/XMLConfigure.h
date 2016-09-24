@@ -3,11 +3,11 @@
 #include "tinyxml2/tinyxml2.h"
 #include <string>
 
-class BaseManager
+class XMLConfigure
 {
 public:
-	BaseManager();
-	~BaseManager();
+	XMLConfigure();
+	~XMLConfigure();
 	virtual void init()=0;
 protected:
 	std::string getChildElementStrAttr(tinyxml2::XMLElement* element, std::string attrName);

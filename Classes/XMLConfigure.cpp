@@ -1,38 +1,38 @@
-#include "BaseManager.h"
+#include "XMLConfigure.h"
 #include "ToolFunction.h"
 #include "base/ccMacros.h"
 
 
 
-BaseManager::BaseManager()
+XMLConfigure::XMLConfigure()
 {
 }
 
 
-BaseManager::~BaseManager()
+XMLConfigure::~XMLConfigure()
 {
 }
 
-std::string BaseManager::getChildElementStrAttr(tinyxml2::XMLElement* element, std::string attrName)
+std::string XMLConfigure::getChildElementStrAttr(tinyxml2::XMLElement* element, std::string attrName)
 {
 	tinyxml2::XMLElement* childElement = getChildElement(element, attrName);
 	return childElement->GetText();
 }
 
-std::wstring BaseManager::getChildElementWStrAttr(tinyxml2::XMLElement* element, std::string attrName)
+std::wstring XMLConfigure::getChildElementWStrAttr(tinyxml2::XMLElement* element, std::string attrName)
 {
 	tinyxml2::XMLElement* childElement = getChildElement(element, attrName);
 	std::string temp=childElement->GetText();
 	return ToolFunction::string2wstring(childElement->GetText());
 }
 
-int BaseManager::getChildElementIntAttr(tinyxml2::XMLElement* element, std::string attrName)
+int XMLConfigure::getChildElementIntAttr(tinyxml2::XMLElement* element, std::string attrName)
 {
 	tinyxml2::XMLElement* childElement = getChildElement(element, attrName);
 	return ToolFunction::string2int(childElement->GetText());
 }
 
-tinyxml2::XMLElement* BaseManager::getChildElement(tinyxml2::XMLElement* parent, std::string name)
+tinyxml2::XMLElement* XMLConfigure::getChildElement(tinyxml2::XMLElement* parent, std::string name)
 {
 	tinyxml2::XMLElement* element = parent->FirstChildElement(name.c_str());
 	CCAssert(element, (std::string("unknow element type ") + name).c_str());

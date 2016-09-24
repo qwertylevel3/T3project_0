@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
+<layout>
+	<mainMenuSize>
+		<x>150</x>
+		<y>400</y>
+	</mainMenuSize>
+	<mainMenuPosition>
+		<x>125</x>
+		<y>350</y>
+	</mainMenuPosition>
+	<mediumMenuSize>
+		<x>300</x>
+		<y>400</y>
+	</mediumMenuSize>
+	<mediumMenuPosition>
+		<x>360</x>
+		<y>350</y>
+	</mediumMenuPosition>
+	<leafMenuSize>
+		<x>100</x>
+		<y>120</y>
+	</leafMenuSize>
+	<leafMenuPosition>
+		<x>570</x>
+		<y>490</y>
+	</leafMenuPosition>
+</layout>

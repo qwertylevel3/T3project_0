@@ -207,9 +207,6 @@
     <ClCompile Include="..\Classes\DialogueSystem.cpp">
       <Filter>src\dialogue</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BaseManager.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\InventoryHandler.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
@@ -233,6 +230,10 @@
     </ClCompile>
     <ClCompile Include="..\Classes\HudEquipableInventoryMenu.cpp">
       <Filter>src\HUD\menuSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudLayout.cpp" />
+    <ClCompile Include="..\Classes\XMLConfigure.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -395,9 +396,6 @@
     <ClInclude Include="..\Classes\DialogueSystem.h">
       <Filter>src\dialogue</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BaseManager.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\InventoryHandler.h">
       <Filter>src\inventory</Filter>
     </ClInclude>
@@ -421,6 +419,10 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HudEquipableInventoryMenu.h">
       <Filter>src\HUD\menuSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudLayout.h" />
+    <ClInclude Include="..\Classes\XMLConfigure.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

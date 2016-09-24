@@ -8,6 +8,7 @@
 #include "ToolFunction.h"
 #include "HudTrigActChildMenu.h"
 #include "cocos2d.h"
+#include "HudLayout.h"
 
 
 
@@ -61,35 +62,28 @@ void HudMenuSystem::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 
 void HudMenuSystem::initMainMenu()
 {
-	mainMenu = new HudMenu(cocos2d::Rect(0, 0, 150, 400));
+	cocos2d::Size mainMenuSize = HudLayout::getInstance()->getmainMenuSize();
+	cocos2d::Point mainMenuPosition = HudLayout::getInstance()->getMainMenuPosition();
+
+	mainMenu = new HudMenu(cocos2d::Rect(0, 0, mainMenuSize.width, mainMenuSize.height));
+
 	HudLayer::getInstance()->addChild(mainMenu->getSprite(), 2);
 
-	cocos2d::Point topLeft;
-	topLeft.x = 50;
-	topLeft.y = 50;
-
-	cocos2d::Point position;
-	position.x = mainMenu->getWidth() / 2+topLeft.x;
-	position.y = windowSize.y-mainMenu->getHeight() / 2-topLeft.y;
-
-	mainMenu->setPosition(position.x, position.y);
+	mainMenu->setPosition(mainMenuPosition.x, mainMenuPosition.y);
 }
 
 void HudMenuSystem::initInventoryMenu()
 {
 	HudMenuItem* inventoryMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"物品"));
 	mainMenu->addItem(inventoryMenuItem);
+	
+	cocos2d::Size inventoryMenuSize = HudLayout::getInstance()->getMediumMenuSize();
+	cocos2d::Point inventoryMenuPosition = HudLayout::getInstance()->getMediumMenuPosition();
 
-	inventoryMenu = new HudInventoryMenu(cocos2d::Rect(0, 0, 300, 400));
+	inventoryMenu = new HudInventoryMenu(cocos2d::Rect(0, 0, inventoryMenuSize.width, inventoryMenuSize.height));
 	HudLayer::getInstance()->addChild(inventoryMenu->getSprite(), 2);
 
-	int mainMenuWidth = mainMenu->getWidth();
-
-	cocos2d::Point position;
-	position.x = mainMenuWidth + inventoryMenu->getWidth() / 2 + 10+50;
-	position.y = windowSize.y - inventoryMenu->getHeight() / 2 - 50;
-
-	inventoryMenu->setPosition(position.x, position.y);
+	inventoryMenu->setPosition(inventoryMenuPosition.x, inventoryMenuPosition.y);
 	inventoryMenu->setParent(mainMenu);
 
 	HudTrigActChildMenu* trigger = new HudTrigActChildMenu(inventoryMenu);
@@ -108,16 +102,14 @@ void HudMenuSystem::initEquipMenu()
 	HudMenuItem* equipMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"装备"));
 	mainMenu->addItem(equipMenuItem);
 
-	equipMenu = new HudEquipMenu(cocos2d::Rect(0, 0, 300, 400));
+	cocos2d::Size equipMenuSize = HudLayout::getInstance()->getMediumMenuSize();
+	cocos2d::Point equipMenuPosition = HudLayout::getInstance()->getMediumMenuPosition();
+
+
+	equipMenu = new HudEquipMenu(cocos2d::Rect(0, 0, equipMenuSize.width, equipMenuSize.height));
 	HudLayer::getInstance()->addChild(equipMenu->getSprite(), 2);
 
-	int mainMenuWidth = mainMenu->getWidth();
-
-	cocos2d::Point position;
-	position.x = mainMenuWidth + equipMenu->getWidth() / 2 + 10+50;
-	position.y = windowSize.y - equipMenu->getHeight() / 2 - 50;
-
-	equipMenu->setPosition(position.x, position.y);
+	equipMenu->setPosition(equipMenuPosition.x, equipMenuPosition.y);
 	equipMenu->setParent(mainMenu);
 
 	HudTrigActChildMenu* trigger = new HudTrigActChildMenu(equipMenu);

@@ -3,13 +3,13 @@
 #include"Singleton.h"
 #include<string>
 #include<map>
-#include "BaseManager.h"
+#include "XMLConfigure.h"
 #include "tinyxml2/tinyxml2.h"
 
 class Character;
 class MonsterModel;
 
-class MonsterManager:public BaseManager,public Singleton<MonsterManager>
+class MonsterManager:public XMLConfigure,public Singleton<MonsterManager>
 {
 public:
 	MonsterManager();

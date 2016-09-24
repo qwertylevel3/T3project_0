@@ -9,6 +9,7 @@
 #include "HudTrigActChildMenu.h"
 #include "HudEquipableInventoryMenu.h"
 #include "HudLayer.h"
+#include "HudLayout.h"
 
 
 
@@ -76,17 +77,13 @@ void HudInventoryMenu::setItemTrigger(const std::string& inventoryName,HudMenuIt
 
 void HudInventoryMenu::initEquipableInventory(HudMenuItem* item)
 {
-	HudEquipableInventoryMenu* menu = new HudEquipableInventoryMenu(cocos2d::Rect(0,0,100,300));
+	cocos2d::Size leafMenuSize = HudLayout::getInstance()->getLeafMenuSize();
+	cocos2d::Point leafMenuPosition = HudLayout::getInstance()->getLeafMenuPosition();
+	HudEquipableInventoryMenu* menu = new HudEquipableInventoryMenu(cocos2d::Rect(0,0,leafMenuSize.width,leafMenuSize.height));
 
 	HudLayer::getInstance()->addChild(menu->getSprite(), 2);
 
-	int inventoryMenuWidth = this->getWidth();
-
-	cocos2d::Point position;
-	position.x = inventoryMenuWidth + menu->getWidth() / 2 + 20 + 200;
-	position.y = 400;
-
-	menu->setPosition(position.x, position.y);
+	menu->setPosition(leafMenuPosition.x, leafMenuPosition.y);
 	menu->setParent(this);
 
 	HudTrigActChildMenu* trigger = new HudTrigActChildMenu(menu);

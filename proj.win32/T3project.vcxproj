@@ -155,7 +155,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Armor.cpp" />
     <ClCompile Include="..\Classes\AStar.cpp" />
     <ClCompile Include="..\Classes\Attack.cpp" />
-    <ClCompile Include="..\Classes\BaseManager.cpp" />
+    <ClCompile Include="..\Classes\XMLConfigure.cpp" />
     <ClCompile Include="..\Classes\BattleSystem.cpp" />
     <ClCompile Include="..\Classes\Character.cpp" />
     <ClCompile Include="..\Classes\CharacterManager.cpp" />
@@ -172,6 +172,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudEquipMenu.cpp" />
     <ClCompile Include="..\Classes\HudInventoryMenu.cpp" />
     <ClCompile Include="..\Classes\HudLayer.cpp" />
+    <ClCompile Include="..\Classes\HudLayout.cpp" />
     <ClCompile Include="..\Classes\HudMenu.cpp" />
     <ClCompile Include="..\Classes\HudMenuItem.cpp" />
     <ClCompile Include="..\Classes\HudMenuItemTrigger.cpp" />
@@ -219,7 +220,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Armor.h" />
     <ClInclude Include="..\Classes\AStar.h" />
     <ClInclude Include="..\Classes\Attack.h" />
-    <ClInclude Include="..\Classes\BaseManager.h" />
+    <ClInclude Include="..\Classes\XMLConfigure.h" />
     <ClInclude Include="..\Classes\BattleSystem.h" />
     <ClInclude Include="..\Classes\Character.h" />
     <ClInclude Include="..\Classes\CharacterManager.h" />
@@ -237,6 +238,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudEquipMenu.h" />
     <ClInclude Include="..\Classes\HudInventoryMenu.h" />
     <ClInclude Include="..\Classes\HudLayer.h" />
+    <ClInclude Include="..\Classes\HudLayout.h" />
     <ClInclude Include="..\Classes\HudMenu.h" />
     <ClInclude Include="..\Classes\HudMenuItem.h" />
     <ClInclude Include="..\Classes\HudMenuItemTrigger.h" />
