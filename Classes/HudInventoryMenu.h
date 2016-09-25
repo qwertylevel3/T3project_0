@@ -3,12 +3,13 @@
 #include "Singleton.h"
 #include "HudMenu.h"
 
-class HudInventoryMenu:public HudMenu
+class HudInventoryMenu:public HudMenu,public Singleton<HudInventoryMenu>
 {
 public:
-	HudInventoryMenu(cocos2d::Rect rect);
+	HudInventoryMenu();
 	~HudInventoryMenu();
 	void update();
+	void init();
 	void addItem(HudMenuItem* item);
 protected:
 	void setItemTrigger(const std::string& inventoryName,HudMenuItem* item);

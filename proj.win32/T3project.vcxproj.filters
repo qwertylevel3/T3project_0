@@ -222,9 +222,6 @@
     <ClCompile Include="..\Classes\HudMenuItem.cpp">
       <Filter>src\HUD\menuSystem\menuItem</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudMenuItemTrigger.cpp">
-      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\HudTrigActChildMenu.cpp">
       <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
     </ClCompile>
@@ -240,6 +237,11 @@
     <ClCompile Include="..\Classes\HudEquipMenu.cpp">
       <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\HudTrigEquip.cpp" />
+    <ClCompile Include="..\Classes\HudTrigger.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudMainMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -413,9 +415,6 @@
     <ClInclude Include="..\Classes\HudMenuItem.h">
       <Filter>src\HUD\menuSystem\menuItem</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudMenuItemTrigger.h">
-      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\HudTrigActChildMenu.h">
       <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
     </ClInclude>
@@ -431,6 +430,11 @@
     <ClInclude Include="..\Classes\HudEquipMenu.h">
       <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\HudTrigEquip.h" />
+    <ClInclude Include="..\Classes\HudTrigger.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudMainMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

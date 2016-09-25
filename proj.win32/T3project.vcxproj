@@ -155,6 +155,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Armor.cpp" />
     <ClCompile Include="..\Classes\AStar.cpp" />
     <ClCompile Include="..\Classes\Attack.cpp" />
+    <ClCompile Include="..\Classes\HudMainMenu.cpp" />
+    <ClCompile Include="..\Classes\HudTrigEquip.cpp" />
     <ClCompile Include="..\Classes\XMLConfigure.cpp" />
     <ClCompile Include="..\Classes\BattleSystem.cpp" />
     <ClCompile Include="..\Classes\Character.cpp" />
@@ -175,7 +177,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudLayout.cpp" />
     <ClCompile Include="..\Classes\HudMenu.cpp" />
     <ClCompile Include="..\Classes\HudMenuItem.cpp" />
-    <ClCompile Include="..\Classes\HudMenuItemTrigger.cpp" />
+    <ClCompile Include="..\Classes\HudTrigger.cpp" />
     <ClCompile Include="..\Classes\HudMenuSystem.cpp" />
     <ClCompile Include="..\Classes\HudSender.cpp" />
     <ClCompile Include="..\Classes\HudStateSystem.cpp" />
@@ -220,6 +222,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Armor.h" />
     <ClInclude Include="..\Classes\AStar.h" />
     <ClInclude Include="..\Classes\Attack.h" />
+    <ClInclude Include="..\Classes\HudMainMenu.h" />
+    <ClInclude Include="..\Classes\HudTrigEquip.h" />
     <ClInclude Include="..\Classes\XMLConfigure.h" />
     <ClInclude Include="..\Classes\BattleSystem.h" />
     <ClInclude Include="..\Classes\Character.h" />
@@ -241,7 +245,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudLayout.h" />
     <ClInclude Include="..\Classes\HudMenu.h" />
     <ClInclude Include="..\Classes\HudMenuItem.h" />
-    <ClInclude Include="..\Classes\HudMenuItemTrigger.h" />
+    <ClInclude Include="..\Classes\HudTrigger.h" />
     <ClInclude Include="..\Classes\HudMenuSystem.h" />
     <ClInclude Include="..\Classes\HudSender.h" />
     <ClInclude Include="..\Classes\HudStateSystem.h" />

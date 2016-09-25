@@ -2,11 +2,11 @@
 
 class HudMenuItem;
 
-class HudMenuItemTrigger
+class HudTrigger
 {
 public:
-	HudMenuItemTrigger();
-	~HudMenuItemTrigger();
+	HudTrigger();
+	~HudTrigger();
 	virtual void run() = 0;
 	void setMenuItem(HudMenuItem* item);
 protected:

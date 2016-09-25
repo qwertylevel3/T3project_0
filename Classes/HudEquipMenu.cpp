@@ -5,17 +5,27 @@
 #include "InventoryInHand.h"
 #include "Armor.h"
 #include "Accessory.h"
+#include "HudLayout.h"
 
 
 
-HudEquipMenu::HudEquipMenu(cocos2d::Rect rect)
-	:HudMenu(rect)
+HudEquipMenu::HudEquipMenu()
+	:HudMenu(cocos2d::Rect(
+		0,0,
+		HudLayout::getInstance()->getMediumMenuSize().width,
+		HudLayout::getInstance()->getMediumMenuSize().height))
 {
-
+	this->setPosition(HudLayout::getInstance()->getMediumMenuPosition().x,
+		HudLayout::getInstance()->getMediumMenuPosition().y);
 }
 
 HudEquipMenu::~HudEquipMenu()
 {
+}
+
+void HudEquipMenu::init()
+{
+
 }
 
 void HudEquipMenu::update()

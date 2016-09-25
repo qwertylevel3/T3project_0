@@ -5,7 +5,7 @@
 #include"2d\CCSprite.h"
 #include"platform\CCPlatformMacros.h"
 class HudMenu;
-class HudMenuItemTrigger;
+class HudTrigger;
 
 
 class HudMenuItem
@@ -14,7 +14,7 @@ public:
 	HudMenuItem(const std::string& name);
 	virtual ~HudMenuItem();
 	void active();
-	void setTrigger(HudMenuItemTrigger* t);
+	void setTrigger(HudTrigger* t);
 
 	void show();
 	void hide();
@@ -28,7 +28,8 @@ public:
 	cocos2d::Label* getLabel();
 protected:
 	CC_SYNTHESIZE(cocos2d::Point, marginal, Marginal);
+	CC_SYNTHESIZE(HudMenu*, parentMenu, ParentMenu);
 	cocos2d::Label* label;
-	HudMenuItemTrigger* trigger;
+	HudTrigger* trigger;
 };
 

@@ -12,10 +12,14 @@
 #include "HudLayout.h"
 
 
-
-HudInventoryMenu::HudInventoryMenu(cocos2d::Rect rect)
-	:HudMenu(rect)
+HudInventoryMenu::HudInventoryMenu()
+	:HudMenu(cocos2d::Rect(
+		0,0,
+		HudLayout::getInstance()->getMediumMenuSize().width,
+		HudLayout::getInstance()->getMediumMenuSize().height))
 {
+	this->setPosition(HudLayout::getInstance()->getMediumMenuPosition().x,
+		HudLayout::getInstance()->getMediumMenuPosition().y);
 }
 
 
@@ -44,6 +48,11 @@ void HudInventoryMenu::update()
 
 		iter++;
 	}
+}
+
+void HudInventoryMenu::init()
+{
+
 }
 
 void HudInventoryMenu::addItem(HudMenuItem* item)

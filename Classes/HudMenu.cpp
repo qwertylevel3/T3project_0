@@ -87,6 +87,8 @@ void HudMenu::initCursor()
 
 void HudMenu::addItem(HudMenuItem* item)
 {
+	item->setParentMenu(this);
+
 	int index = itemList.size();
 	itemList.push_back(item);
 

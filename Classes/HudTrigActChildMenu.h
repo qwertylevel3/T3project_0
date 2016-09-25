@@ -1,11 +1,11 @@
 #pragma once
 
-#include "HudMenuItemTrigger.h"
+#include "HudTrigger.h"
 #include "base\ccMacros.h"
 
 class HudMenu;
 
-class HudTrigActChildMenu:public HudMenuItemTrigger
+class HudTrigActChildMenu:public HudTrigger
 {
 public:
 	HudTrigActChildMenu();

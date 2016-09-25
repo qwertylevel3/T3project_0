@@ -1,12 +1,14 @@
 #pragma once
 
 #include "HudMenu.h"
+#include "Singleton.h"
 
-class HudEquipMenu:public HudMenu
+class HudEquipMenu:public HudMenu,public Singleton<HudEquipMenu>
 {
 public:
-	HudEquipMenu(cocos2d::Rect rect);
+	HudEquipMenu();
 	~HudEquipMenu();
+	void init();
 protected:
 	void update();
 };

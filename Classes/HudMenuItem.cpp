@@ -4,7 +4,7 @@
 #include"HudLayer.h"
 #include "cocos2d.h"
 #include "HudMenu.h"
-#include "HudMenuItemTrigger.h"
+#include "HudTrigger.h"
 
 
 HudMenuItem::HudMenuItem(const std::string& name)
@@ -33,7 +33,7 @@ void HudMenuItem::active()
 	}
 }
 
-void HudMenuItem::setTrigger(HudMenuItemTrigger* t)
+void HudMenuItem::setTrigger(HudTrigger* t)
 {
 	trigger = t;
 	t->setMenuItem(this);
