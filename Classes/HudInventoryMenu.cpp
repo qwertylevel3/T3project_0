@@ -38,6 +38,7 @@ void HudInventoryMenu::update()
 		std::string count = ToolFunction::int2string(iter->second);
 
 		HudMenuItem* inventoryItem = new HudMenuItem(cname+" x"+count);
+
 		setItemTrigger(iter->first,inventoryItem);
 		this->addItem(inventoryItem);
 
@@ -62,7 +63,7 @@ void HudInventoryMenu::setItemTrigger(const std::string& inventoryName,HudMenuIt
 	case Inventory::TwoHandWeapon:
 	case Inventory::Shield:
 	case Inventory::Armor:
-		initEquipableInventory(item);
+		initEquipableInventoryMenu(item);
 		break;
 	case Inventory::Supply:
 		break;
@@ -75,13 +76,12 @@ void HudInventoryMenu::setItemTrigger(const std::string& inventoryName,HudMenuIt
 	}
 }
 
-void HudInventoryMenu::initEquipableInventory(HudMenuItem* item)
+void HudInventoryMenu::initEquipableInventoryMenu(HudMenuItem* item)
 {
 	cocos2d::Size leafMenuSize = HudLayout::getInstance()->getLeafMenuSize();
 	cocos2d::Point leafMenuPosition = HudLayout::getInstance()->getLeafMenuPosition();
-	HudEquipableInventoryMenu* menu = new HudEquipableInventoryMenu(cocos2d::Rect(0,0,leafMenuSize.width,leafMenuSize.height));
 
-	HudLayer::getInstance()->addChild(menu->getSprite(), 2);
+	HudEquipableInventoryMenu* menu = new HudEquipableInventoryMenu(cocos2d::Rect(0,0,leafMenuSize.width,leafMenuSize.height));
 
 	menu->setPosition(leafMenuPosition.x, leafMenuPosition.y);
 	menu->setParent(this);

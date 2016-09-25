@@ -33,7 +33,7 @@ bool GameScene::init()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	RandomNumber::getInstance()->setSeed(100);
+	RandomNumber::getInstance()->setSeed(101);
 
 	InventoryManager::getInstance()->init();
 	CharacterManager::getInstance()->init();

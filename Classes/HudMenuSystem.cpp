@@ -12,7 +12,6 @@
 
 
 
-
 HudMenuSystem::HudMenuSystem()
 {
 }
@@ -66,9 +65,6 @@ void HudMenuSystem::initMainMenu()
 	cocos2d::Point mainMenuPosition = HudLayout::getInstance()->getMainMenuPosition();
 
 	mainMenu = new HudMenu(cocos2d::Rect(0, 0, mainMenuSize.width, mainMenuSize.height));
-
-	HudLayer::getInstance()->addChild(mainMenu->getSprite(), 2);
-
 	mainMenu->setPosition(mainMenuPosition.x, mainMenuPosition.y);
 }
 
@@ -81,7 +77,6 @@ void HudMenuSystem::initInventoryMenu()
 	cocos2d::Point inventoryMenuPosition = HudLayout::getInstance()->getMediumMenuPosition();
 
 	inventoryMenu = new HudInventoryMenu(cocos2d::Rect(0, 0, inventoryMenuSize.width, inventoryMenuSize.height));
-	HudLayer::getInstance()->addChild(inventoryMenu->getSprite(), 2);
 
 	inventoryMenu->setPosition(inventoryMenuPosition.x, inventoryMenuPosition.y);
 	inventoryMenu->setParent(mainMenu);
@@ -105,9 +100,7 @@ void HudMenuSystem::initEquipMenu()
 	cocos2d::Size equipMenuSize = HudLayout::getInstance()->getMediumMenuSize();
 	cocos2d::Point equipMenuPosition = HudLayout::getInstance()->getMediumMenuPosition();
 
-
 	equipMenu = new HudEquipMenu(cocos2d::Rect(0, 0, equipMenuSize.width, equipMenuSize.height));
-	HudLayer::getInstance()->addChild(equipMenu->getSprite(), 2);
 
 	equipMenu->setPosition(equipMenuPosition.x, equipMenuPosition.y);
 	equipMenu->setParent(mainMenu);

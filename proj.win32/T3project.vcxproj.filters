@@ -55,6 +55,9 @@
     <Filter Include="src\HUD\menuSystem\menuItem\trigger">
       <UniqueIdentifier>{71e59487-192c-4fe3-8932-997c723f4a59}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\HUD\menuSystem\menu\equipMenu">
+      <UniqueIdentifier>{72d855ff-4d14-4a41-b225-4bcf78d41009}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -210,9 +213,6 @@
     <ClCompile Include="..\Classes\InventoryHandler.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudEquipMenu.cpp">
-      <Filter>src\HUD\menuSystem\menu</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\HudMenu.cpp">
       <Filter>src\HUD\menuSystem\menu</Filter>
     </ClCompile>
@@ -228,12 +228,17 @@
     <ClCompile Include="..\Classes\HudTrigActChildMenu.cpp">
       <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudEquipableInventoryMenu.cpp">
-      <Filter>src\HUD\menuSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\HudLayout.cpp" />
     <ClCompile Include="..\Classes\XMLConfigure.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudLayout.cpp">
+      <Filter>src\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudEquipableInventoryMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudEquipMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -399,9 +404,6 @@
     <ClInclude Include="..\Classes\InventoryHandler.h">
       <Filter>src\inventory</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudEquipMenu.h">
-      <Filter>src\HUD\menuSystem\menu</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\HudMenu.h">
       <Filter>src\HUD\menuSystem\menu</Filter>
     </ClInclude>
@@ -417,12 +419,17 @@
     <ClInclude Include="..\Classes\HudTrigActChildMenu.h">
       <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudEquipableInventoryMenu.h">
-      <Filter>src\HUD\menuSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\HudLayout.h" />
     <ClInclude Include="..\Classes\XMLConfigure.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudLayout.h">
+      <Filter>src\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudEquipableInventoryMenu.h">
+      <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudEquipMenu.h">
+      <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

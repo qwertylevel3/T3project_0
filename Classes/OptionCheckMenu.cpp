@@ -53,7 +53,6 @@ void OptionCheckMenu::hide()
 void OptionCheckMenu::init()
 {
 	curQuestion = nullptr;
-	HudLayer::getInstance()->addChild(this->getSprite());
 	this->setPosition(400, 400);
 	this->setWidth(200);
 
