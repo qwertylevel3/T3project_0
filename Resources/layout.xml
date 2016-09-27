@@ -18,11 +18,11 @@
 		<y>350</y>
 	</mediumMenuPosition>
 	<leafMenuSize>
-		<x>100</x>
-		<y>120</y>
+		<x>150</x>
+		<y>400</y>
 	</leafMenuSize>
 	<leafMenuPosition>
-		<x>570</x>
-		<y>490</y>
+		<x>600</x>
+		<y>350</y>
 	</leafMenuPosition>
 </layout>

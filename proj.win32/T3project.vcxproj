@@ -157,6 +157,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Attack.cpp" />
     <ClCompile Include="..\Classes\HudMainMenu.cpp" />
     <ClCompile Include="..\Classes\HudTrigEquipLeft.cpp" />
+    <ClCompile Include="..\Classes\HudTrigEquipRight.cpp" />
+    <ClCompile Include="..\Classes\HudTrigUnequipLeft.cpp" />
     <ClCompile Include="..\Classes\XMLConfigure.cpp" />
     <ClCompile Include="..\Classes\BattleSystem.cpp" />
     <ClCompile Include="..\Classes\Character.cpp" />
@@ -224,6 +226,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Attack.h" />
     <ClInclude Include="..\Classes\HudMainMenu.h" />
     <ClInclude Include="..\Classes\HudTrigEquipLeft.h" />
+    <ClInclude Include="..\Classes\HudTrigEquipRight.h" />
+    <ClInclude Include="..\Classes\HudTrigUnequipLeft.h" />
     <ClInclude Include="..\Classes\XMLConfigure.h" />
     <ClInclude Include="..\Classes\BattleSystem.h" />
     <ClInclude Include="..\Classes\Character.h" />

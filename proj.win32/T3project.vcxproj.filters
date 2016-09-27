@@ -246,6 +246,8 @@
     <ClCompile Include="..\Classes\HudTrigEquipLeft.cpp">
       <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\HudTrigEquipRight.cpp" />
+    <ClCompile Include="..\Classes\HudTrigUnequipLeft.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -443,6 +445,8 @@
     <ClInclude Include="..\Classes\HudTrigEquipLeft.h">
       <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\HudTrigEquipRight.h" />
+    <ClInclude Include="..\Classes\HudTrigUnequipLeft.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
