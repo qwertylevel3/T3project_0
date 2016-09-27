@@ -4,11 +4,11 @@
 #include "2d/CCLabel.h"
 #include "2d/CCSprite.h"
 
-class HudStateSystem:public Singleton<HudStateSystem>
+class HudPlayerStateMenu:public Singleton<HudPlayerStateMenu>
 {
 public:
-	HudStateSystem();
-	~HudStateSystem();
+	HudPlayerStateMenu();
+	~HudPlayerStateMenu();
 	void init();
 	void update();
 	void show();

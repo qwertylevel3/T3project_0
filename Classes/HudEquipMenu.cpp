@@ -6,6 +6,7 @@
 #include "Armor.h"
 #include "Accessory.h"
 #include "HudLayout.h"
+#include "ToolFunction.h"
 
 
 
@@ -28,6 +29,12 @@ void HudEquipMenu::init()
 
 }
 
+void HudEquipMenu::addItem(HudMenuItem* item)
+{
+	HudMenu::addItem(item);
+	item->setAliginment(cocos2d::TextHAlignment::LEFT);
+}
+
 void HudEquipMenu::update()
 {
 	clear();
@@ -43,6 +50,11 @@ void HudEquipMenu::update()
 	std::string rightInventoryLabel = rightInventory ? rightInventory->getCname() : "empty";
 	std::string armorLabel = armor ? armor->getCname() : "empty";
 	std::string accessoryLabel = accessory ? accessory->getCname() : "empty";
+
+	leftInventoryLabel = ToolFunction::WStr2UTF8(L"左手:") + leftInventoryLabel;
+	rightInventoryLabel = ToolFunction::WStr2UTF8(L"右手:") + rightInventoryLabel;
+	armorLabel = ToolFunction::WStr2UTF8(L"护甲:") + armorLabel;
+	accessoryLabel = ToolFunction::WStr2UTF8(L"附件:") + accessoryLabel;
 
 	HudMenuItem* leftInventoryItem = new HudMenuItem(leftInventoryLabel);
 	HudMenuItem* rightInventoryItem = new HudMenuItem(rightInventoryLabel);

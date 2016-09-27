@@ -4,7 +4,7 @@
 #include "ToolFunction.h"
 #include "DialogueDriver.h"
 #include "HudMenuSystem.h"
-#include "HudStateSystem.h"
+#include "HudPlayerStateMenu.h"
 #include "KeyController.h"
 
 USING_NS_CC;

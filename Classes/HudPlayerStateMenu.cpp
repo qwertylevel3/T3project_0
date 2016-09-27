@@ -1,4 +1,4 @@
-#include "HudStateSystem.h"
+#include "HudPlayerStateMenu.h"
 #include "cocos2d.h"
 #include "Player.h"
 #include "BattleSystem.h"
@@ -8,16 +8,16 @@
 
 USING_NS_CC;
 
-HudStateSystem::HudStateSystem()
+HudPlayerStateMenu::HudPlayerStateMenu()
 {
 }
 
 
-HudStateSystem::~HudStateSystem()
+HudPlayerStateMenu::~HudPlayerStateMenu()
 {
 }
 
-void HudStateSystem::init()
+void HudPlayerStateMenu::init()
 {
 	bk = Sprite::create("StateMenu.png");
 	HudLayer::getInstance()->addChild(bk);
@@ -71,7 +71,7 @@ void HudStateSystem::init()
 	hide();
 }
 
-void HudStateSystem::update()
+void HudPlayerStateMenu::update()
 {
 	Character* playerPtr = Player::getInstance()->getcharacterPtr();
 
@@ -157,17 +157,17 @@ void HudStateSystem::update()
 
 }
 
-void HudStateSystem::show()
+void HudPlayerStateMenu::show()
 {
 	bk->setVisible(true);
 }
 
-void HudStateSystem::hide()
+void HudPlayerStateMenu::hide()
 {
 	bk->setVisible(false);
 }
 
-void HudStateSystem::setPosition()
+void HudPlayerStateMenu::setPosition()
 {
 	bk->setPosition(bk->getTexture()->getPixelsWide() / 2, bk->getTexture()->getPixelsHigh() / 2);
 

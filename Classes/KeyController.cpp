@@ -2,7 +2,7 @@
 #include "Player.h"
 #include "HudMenuSystem.h"
 #include "DialogueSystem.h"
-#include "HudStateSystem.h"
+#include "HudPlayerStateMenu.h"
 #include "OptionCheckMenu.h"
 #include "HudCursor.h"
 
@@ -81,14 +81,14 @@ void KeyController::switchCtrlToPlayer()
 {
 	//InventoryMenu::getInstance()->hide();
 	HudMenuSystem::getInstance()->hide();
-	HudStateSystem::getInstance()->hide();
+	HudPlayerStateMenu::getInstance()->hide();
 	control = PLAYER;
 }
 
 void KeyController::switchCtrlToMenu()
 {
 	//InventoryMenu::getInstance()->show();
-	HudStateSystem::getInstance()->show();
+	HudPlayerStateMenu::getInstance()->show();
 	HudMenuSystem::getInstance()->show();
 	control = MENU;
 }
@@ -101,7 +101,7 @@ void KeyController::switchCtrlToOption()
 void KeyController::switchCtrlToDialog()
 {
 	HudMenuSystem::getInstance()->hide();
-	HudStateSystem::getInstance()->hide();
+	HudPlayerStateMenu::getInstance()->hide();
 	control = DIALOG;
 }
 

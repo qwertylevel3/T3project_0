@@ -9,6 +9,7 @@ public:
 	HudEquipMenu();
 	~HudEquipMenu();
 	void init();
+	void addItem(HudMenuItem* item);
 protected:
 	void update();
 };

@@ -1,9 +1,8 @@
 #include "HudLayer.h"
 #include"HudMenuItem.h"
-#include"HudSender.h"
 #include"HudCursor.h"
 #include "HudMenuSystem.h"
-#include "HudStateSystem.h"
+#include "HudPlayerStateMenu.h"
 #include "DialogueSystem.h"
 #include "HudLayout.h"
 
@@ -26,7 +25,7 @@ bool HudLayer::init()
 	}
 	HudLayout::getInstance()->init();
 	HudMenuSystem::getInstance()->init();
-	HudStateSystem::getInstance()->init();
+	HudPlayerStateMenu::getInstance()->init();
 	DialogueSystem::getInstance()->init();
 
 	DialogueSystem::getInstance()->runDialogue("testDialogue");
@@ -36,12 +35,8 @@ bool HudLayer::init()
 
 void HudLayer::update()
 {
-	for (size_t i = 0; i < senderList.size(); i++)
-	{
-		senderList[i]->updateSender();
-	}
 	HudMenuSystem::getInstance()->update();
-	HudStateSystem::getInstance()->update();
+	HudPlayerStateMenu::getInstance()->update();
 }
 
 void HudLayer::show()
@@ -52,18 +47,4 @@ void HudLayer::show()
 void HudLayer::hide()
 {
 	HudMenuSystem::getInstance()->hide();
-}
-
-void HudLayer::addSender(HudSender* sender)
-{
-	senderList.push_back(sender);
-
-	auto visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
-	Vec2 origin = cocos2d::Director::getInstance()->getVisibleOrigin();
-
-	auto label = sender->getSenderLable();
-	label->setPosition(Vec2(origin.x + 100,
-		origin.y + 100 - label->getContentSize().height));
-
-	this->addChild(label, 2);
 }

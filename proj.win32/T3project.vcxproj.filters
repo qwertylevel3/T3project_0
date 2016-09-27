@@ -108,9 +108,6 @@
     <ClCompile Include="..\Classes\HudLayer.cpp">
       <Filter>src\HUD</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudSender.cpp">
-      <Filter>src\HUD</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Player.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
@@ -180,9 +177,6 @@
     <ClCompile Include="..\Classes\WeaponAtkArea.cpp">
       <Filter>src\inventory\weapon</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudStateSystem.cpp">
-      <Filter>src\HUD</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Dialogue.cpp">
       <Filter>src\dialogue</Filter>
     </ClCompile>
@@ -246,8 +240,15 @@
     <ClCompile Include="..\Classes\HudTrigEquipLeft.cpp">
       <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudTrigEquipRight.cpp" />
-    <ClCompile Include="..\Classes\HudTrigUnequipLeft.cpp" />
+    <ClCompile Include="..\Classes\HudTrigEquipRight.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudTrigUnequipLeft.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudPlayerStateMenu.cpp">
+      <Filter>src\HUD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -302,9 +303,6 @@
       <Filter>src\skill</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HudLayer.h">
-      <Filter>src\HUD</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\HudSender.h">
       <Filter>src\HUD</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Player.h">
@@ -376,9 +374,6 @@
     <ClInclude Include="..\Classes\WeaponAtkArea.h">
       <Filter>src\inventory\weapon</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudStateSystem.h">
-      <Filter>src\HUD</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Dialogue.h">
       <Filter>src\dialogue</Filter>
     </ClInclude>
@@ -445,8 +440,15 @@
     <ClInclude Include="..\Classes\HudTrigEquipLeft.h">
       <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudTrigEquipRight.h" />
-    <ClInclude Include="..\Classes\HudTrigUnequipLeft.h" />
+    <ClInclude Include="..\Classes\HudTrigEquipRight.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudTrigUnequipLeft.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudPlayerStateMenu.h">
+      <Filter>src\HUD</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
