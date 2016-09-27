@@ -34,16 +34,27 @@ Weapon* BattleSystem::getWeapon(Character* c, AttackHand hand)
 	{
 	case LeftHand:
 	case DoubleHand:
-		type = c->getLeftHand()->getInventoryType();
-		CCAssert(type == Inventory::OneHandWeapon || type == Inventory::TwoHandWeapon,
-			"inventory in left hand is not weapon");
-		weapon = static_cast<Weapon*>(c->getLeftHand());
+		type = c->getLeftHand() ? c->getLeftHand()->getInventoryType() : Inventory::Type::Empty;
+		if (type == Inventory::OneHandWeapon || type == Inventory::TwoHandWeapon)
+		{
+			weapon = static_cast<Weapon*>(c->getLeftHand());
+		}
+		else
+		{
+			weapon = nullptr;
+		}
+
 		break;
 	case RightHand:
-		type = c->getRightHand()->getInventoryType();
-		CCAssert(type == Inventory::OneHandWeapon || type == Inventory::TwoHandWeapon,
-			"inventory in right hand is not weapon");
-		weapon = static_cast<Weapon*>(c->getRightHand());
+		type = c->getRightHand() ? c->getRightHand()->getInventoryType() : Inventory::Empty;
+		if (type == Inventory::OneHandWeapon || type == Inventory::TwoHandWeapon)
+		{
+			weapon = static_cast<Weapon*>(c->getRightHand());
+		}
+		else
+		{
+			weapon = nullptr;
+		}
 		break;
 	}
 	return weapon;
@@ -179,6 +190,11 @@ int BattleSystem::getAttackCount(Character* a, AttackHand hand)
 	double agiReq = 0;
 	double strReq = 0;
 	double attackCount = 0;
+
+	if (!weapon)
+	{
+		return 0;
+	}
 
 	agiReq = weapon->getAgiRequire();
 	strReq = weapon->getStrRequire();

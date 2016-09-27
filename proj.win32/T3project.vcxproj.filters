@@ -249,6 +249,7 @@
     <ClCompile Include="..\Classes\HudPlayerStateMenu.cpp">
       <Filter>src\HUD</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\HudUnequipLeftMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -449,6 +450,7 @@
     <ClInclude Include="..\Classes\HudPlayerStateMenu.h">
       <Filter>src\HUD</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\HudUnequipLeftMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

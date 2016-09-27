@@ -3,12 +3,18 @@
 #include "ToolFunction.h"
 #include "HudTrigEquipLeft.h"
 #include "HudTrigEquipRight.h"
+#include "HudLayout.h"
 
 
 
-HudEquipableInventoryMenu::HudEquipableInventoryMenu(cocos2d::Rect rect)
-	:HudMenu(rect)
+HudEquipableInventoryMenu::HudEquipableInventoryMenu()
+	:HudMenu(cocos2d::Rect(0,0,
+		HudLayout::getInstance()->getLeafMenuSize().width,
+		HudLayout::getInstance()->getLeafMenuSize().height))
 {
+	this->setPosition(HudLayout::getInstance()->getLeafMenuPosition().x,
+		HudLayout::getInstance()->getLeafMenuPosition().y);
+
 	HudMenuItem* equipLeftMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"×°±¸×óÊÖ"));
 	HudTrigEquipLeft* equipLeftTrig = new HudTrigEquipLeft();
 	equipLeftMenuItem->setTrigger(equipLeftTrig);

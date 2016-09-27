@@ -10,7 +10,6 @@ public:
 	~HudEquipMenu();
 	void init();
 	void addItem(HudMenuItem* item);
-protected:
 	void update();
 };
 

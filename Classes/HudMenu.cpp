@@ -16,6 +16,7 @@ HudMenu::HudMenu(cocos2d::Rect rect)
 	marginal.y = 10;
 	parent = nullptr;
 	HudLayer::getInstance()->addChild(sprite, 2);
+	hide();
 }
 
 

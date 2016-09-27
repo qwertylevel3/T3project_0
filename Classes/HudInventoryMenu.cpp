@@ -87,12 +87,8 @@ void HudInventoryMenu::setItemTrigger(const std::string& inventoryName,HudMenuIt
 
 void HudInventoryMenu::initEquipableInventoryMenu(HudMenuItem* item)
 {
-	cocos2d::Size leafMenuSize = HudLayout::getInstance()->getLeafMenuSize();
-	cocos2d::Point leafMenuPosition = HudLayout::getInstance()->getLeafMenuPosition();
+	HudEquipableInventoryMenu* menu = new HudEquipableInventoryMenu();
 
-	HudEquipableInventoryMenu* menu = new HudEquipableInventoryMenu(cocos2d::Rect(0,0,leafMenuSize.width,leafMenuSize.height));
-
-	menu->setPosition(leafMenuPosition.x, leafMenuPosition.y);
 	menu->setParent(this);
 
 	HudTrigActChildMenu* trigger = new HudTrigActChildMenu(menu);

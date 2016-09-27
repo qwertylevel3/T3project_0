@@ -7,6 +7,8 @@
 #include "Accessory.h"
 #include "HudLayout.h"
 #include "ToolFunction.h"
+#include "HudTrigActChildMenu.h"
+#include "HudUnequipLeftMenu.h"
 
 
 
@@ -57,6 +59,12 @@ void HudEquipMenu::update()
 	accessoryLabel = ToolFunction::WStr2UTF8(L"¸½¼þ:") + accessoryLabel;
 
 	HudMenuItem* leftInventoryItem = new HudMenuItem(leftInventoryLabel);
+
+	HudUnequipLeftMenu* unequipLeftInventoryMenu = new HudUnequipLeftMenu();
+	unequipLeftInventoryMenu->setParent(this);
+	HudTrigActChildMenu* leftInventoryTrigger = new HudTrigActChildMenu(unequipLeftInventoryMenu);
+	leftInventoryItem->setTrigger(leftInventoryTrigger);
+
 	HudMenuItem* rightInventoryItem = new HudMenuItem(rightInventoryLabel);
 	HudMenuItem* armorInventoryItem = new HudMenuItem(armorLabel);
 	HudMenuItem* accessoryInventoryItem = new HudMenuItem(accessoryLabel);

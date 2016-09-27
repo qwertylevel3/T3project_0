@@ -7,7 +7,7 @@ class HudEquipableInventoryMenu :
 	public HudMenu
 {
 public:
-	HudEquipableInventoryMenu(cocos2d::Rect rect);
+	HudEquipableInventoryMenu();
 	~HudEquipableInventoryMenu();
 };
 
