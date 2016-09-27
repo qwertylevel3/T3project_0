@@ -52,6 +52,17 @@ public:
 	void showMoveLeftAnimation();
 	void showMoveRightAnimation();
 
+	void equipLeftHand(Inventory* inventory);
+	void equipRightHand(Inventory* inventory);
+	void equipArmor(Inventory* inventory);
+	void equipAccessory(Inventory* inventory);
+
+	void unequipLeftHand();
+	void unequipRightHand();
+	void unequipArmor();
+	void unequipAccessory();
+
+
 
 	//************************************
 	// Method:    getLeftHandAtkArea
@@ -104,7 +115,7 @@ protected:
 	CC_SYNTHESIZE(InventoryInHand*, leftHand, LeftHand);
 	CC_SYNTHESIZE(InventoryInHand*, rightHand, RightHand);
 	CC_SYNTHESIZE(Armor*, armor, Armor);
-	CC_SYNTHESIZE(Accessory*, accessory, Accessory);
+	CC_SYNTHESIZE(Accessory* ,accessory, Accessory);
 
 	//attribute......
 	CC_SYNTHESIZE(std::string, name, Name);

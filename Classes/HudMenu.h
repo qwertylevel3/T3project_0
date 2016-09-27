@@ -19,6 +19,8 @@ public:
 	virtual void handleLeft();
 	virtual void handleRight();
 
+	int getCurIndex();
+
 	void show();
 	void hide();
 

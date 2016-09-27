@@ -29,13 +29,14 @@ void InventoryHandler::addInventory(Inventory* inventory)
 	delete inventory;
 }
 
-void InventoryHandler::removeInventory(const std::string& inventoryName, int count)
+void InventoryHandler::removeInventory(std::string inventoryName, int count)
 {
 	if (inventoryBox.count(inventoryName))
 	{
 		if (inventoryBox[inventoryName]<=count)
 		{
 			inventoryBox[inventoryName] = 0;
+			inventoryBox.erase(inventoryName);
 		}
 		else
 		{
@@ -58,12 +59,24 @@ int InventoryHandler::getCount(const std::string& inventoryName)
 	return 0;
 }
 
-Inventory* InventoryHandler::getInventory(const std::string& inventoryName)
+Inventory* InventoryHandler::getInventory(std::string inventoryName)
 {
 	if (inventoryBox.count(inventoryName) && inventoryBox[inventoryName]>0)
 	{
-		inventoryBox[inventoryName] = inventoryBox[inventoryName] - 1;
+		removeInventory(inventoryName, 1);
 		return InventoryManager::getInstance()->getInventory(inventoryName);
 	}
 	return nullptr;
+}
+
+Inventory* InventoryHandler::getInventory(int index)
+{
+	int count = 0;
+	std::map<std::string, int>::const_iterator iter = inventoryBox.cbegin();
+	while (count != index)
+	{
+		iter++;
+		count++;
+	}
+	return getInventory(iter->first);
 }

@@ -52,6 +52,11 @@ void HudMenu::handleRight()
 	activeChildMenu(itemIndex);
 }
 
+int HudMenu::getCurIndex()
+{
+	return itemIndex;
+}
+
 void HudMenu::show()
 {
 	sprite->setVisible(true);

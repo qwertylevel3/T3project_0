@@ -1,5 +1,7 @@
 #pragma once
+
 #include "InventoryInHand.h"
+
 class Shield :
 	public InventoryInHand
 {

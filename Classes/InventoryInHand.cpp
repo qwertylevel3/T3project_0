@@ -17,22 +17,22 @@ InventoryInHand::~InventoryInHand()
 
 void InventoryInHand::equipLeftHand(Character* character)
 {
+	character->unequipLeftHand();
 	character->setLeftHand(this);
 }
 
 void InventoryInHand::unequipLeftHand(Character* character)
 {
-	character->setLeftHand(nullptr);
 }
 
 void InventoryInHand::equipRightHand(Character* character)
 {
+	character->unequipRightHand();
 	character->setRightHand(this);
 }
 
 void InventoryInHand::unequipRightHand(Character* character)
 {
-	character->setRightHand(nullptr);
 }
 
 

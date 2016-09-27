@@ -21,6 +21,7 @@ HudMenuItem::HudMenuItem(const std::string& name)
 
 HudMenuItem::~HudMenuItem()
 {
+	label->removeFromParent();
 	label->release();
 }
 

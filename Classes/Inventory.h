@@ -20,6 +20,8 @@ public:
 	virtual void unequipLeftHand(Character* character);
 	virtual void equipRightHand(Character* character);
 	virtual void unequipRightHand(Character* character);
+	virtual void equipArmor(Character* character);
+	virtual void equipAccessory(Character* character);
 	virtual void load(Character* character);
 	virtual void unload(Character* character);
 	virtual void use(Character* character);

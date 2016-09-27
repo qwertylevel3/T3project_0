@@ -42,6 +42,16 @@ void Inventory::unequipRightHand(Character* character)
 
 }
 
+void Inventory::equipArmor(Character* character)
+{
+
+}
+
+void Inventory::equipAccessory(Character* character)
+{
+
+}
+
 void Inventory::load(Character* character)
 {
 }

@@ -115,6 +115,54 @@ void Character::showMoveRightAnimation()
 	sprite->runAction(action);
 }
 
+void Character::equipLeftHand(Inventory* inventory)
+{
+	inventory->equipLeftHand(this);
+}
+
+void Character::equipRightHand(Inventory* inventory)
+{
+	inventory->equipRightHand(this);
+}
+
+void Character::equipArmor(Inventory* inventory)
+{
+	inventory->equipArmor(this);
+}
+
+void Character::equipAccessory(Inventory* inventory)
+{
+	inventory->equipAccessory(this);
+}
+
+void Character::unequipLeftHand()
+{
+	if (leftHand)
+	{
+		//查看添加后lefthand是否为空
+		inventoryHandler->addInventory(leftHand);
+		leftHand = nullptr;
+	}
+}
+
+void Character::unequipRightHand()
+{
+	if (rightHand)
+	{
+		inventoryHandler->addInventory(rightHand);
+	}
+}
+
+void Character::unequipArmor()
+{
+
+}
+
+void Character::unequipAccessory()
+{
+
+}
+
 std::vector<cocos2d::Point > Character::getLeftHandAtkArea()
 {
 	std::vector<cocos2d::Point> atkArea;
