@@ -9,6 +9,7 @@
 #include "ToolFunction.h"
 #include "HudTrigActChildMenu.h"
 #include "HudUnequipLeftMenu.h"
+#include "HudUnequipRightMenu.h"
 
 
 
@@ -66,6 +67,12 @@ void HudEquipMenu::update()
 	leftInventoryItem->setTrigger(leftInventoryTrigger);
 
 	HudMenuItem* rightInventoryItem = new HudMenuItem(rightInventoryLabel);
+
+	HudUnequipRightMenu* unequipRightInventoryMenu = new HudUnequipRightMenu();
+	unequipRightInventoryMenu->setParent(this);
+	HudTrigActChildMenu* rightInventoryTrigger = new HudTrigActChildMenu(unequipRightInventoryMenu);
+	rightInventoryItem->setTrigger(rightInventoryTrigger);
+
 	HudMenuItem* armorInventoryItem = new HudMenuItem(armorLabel);
 	HudMenuItem* accessoryInventoryItem = new HudMenuItem(accessoryLabel);
 

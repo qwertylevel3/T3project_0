@@ -150,6 +150,7 @@ void Character::unequipRightHand()
 	if (rightHand)
 	{
 		inventoryHandler->addInventory(rightHand);
+		rightHand = nullptr;
 	}
 }
 

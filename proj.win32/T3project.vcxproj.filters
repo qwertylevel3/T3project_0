@@ -249,7 +249,11 @@
     <ClCompile Include="..\Classes\HudPlayerStateMenu.cpp">
       <Filter>src\HUD</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudUnequipLeftMenu.cpp" />
+    <ClCompile Include="..\Classes\HudUnequipLeftMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudUnequipRightMenu.cpp" />
+    <ClCompile Include="..\Classes\HudTrigUnequipRight.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -450,7 +454,11 @@
     <ClInclude Include="..\Classes\HudPlayerStateMenu.h">
       <Filter>src\HUD</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudUnequipLeftMenu.h" />
+    <ClInclude Include="..\Classes\HudUnequipLeftMenu.h">
+      <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudUnequipRightMenu.h" />
+    <ClInclude Include="..\Classes\HudTrigUnequipRight.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
