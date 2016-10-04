@@ -25,6 +25,5 @@ void HudTrigEquipRight::run()
 
 	characterPtr->equipRightHand(inventory);
 
-	HudInventoryMenu::getInstance()->update();
 	menuItem->getParentMenu()->closeMenu();
 }

@@ -23,6 +23,7 @@ HudMenuItem::~HudMenuItem()
 {
 	label->removeFromParent();
 	label->release();
+	delete trigger;
 }
 
 

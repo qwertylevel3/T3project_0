@@ -18,6 +18,7 @@ HudTrigActChildMenu::HudTrigActChildMenu(HudMenu* relateMenu)
 
 HudTrigActChildMenu::~HudTrigActChildMenu()
 {
+	delete relateMenu;
 }
 
 void HudTrigActChildMenu::run()

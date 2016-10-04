@@ -6,6 +6,7 @@
 #include "HudInventoryMenu.h"
 #include "HudEquipMenu.h"
 #include "HudTrigActChildMenu.h"
+#include "HudGroundMenu.h"
 
 
 
@@ -29,6 +30,8 @@ void HudMainMenu::init()
 	HudInventoryMenu::getInstance()->init();
 	HudEquipMenu::getInstance()->init();
 
+	//////////////////////////////////////////////////////////////////////////
+
 	HudMenuItem* inventoryMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"物品"));
 	this->addItem(inventoryMenuItem);
 
@@ -46,4 +49,15 @@ void HudMainMenu::init()
 
 	HudTrigActChildMenu* equipTrigger = new HudTrigActChildMenu(HudEquipMenu::getInstance());
 	equipMenuItem->setTrigger(equipTrigger);
+
+	//////////////////////////////////////////////////////////////////////////
+
+	HudMenuItem* groundMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"地面"));
+	this->addItem(groundMenuItem);
+
+	HudGroundMenu::getInstance()->setParent(this);
+
+	HudTrigActChildMenu* groundTrigger = new HudTrigActChildMenu(HudGroundMenu::getInstance());
+	groundMenuItem->setTrigger(groundTrigger);
+
 }

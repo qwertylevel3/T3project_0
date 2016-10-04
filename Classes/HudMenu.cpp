@@ -11,11 +11,11 @@ HudMenu::HudMenu(cocos2d::Rect rect)
 {
 	itemIndex = 0;
 	sprite = cocos2d::Sprite::create("menu.png", rect);
-	sprite->retain();
+	HudLayer::getInstance()->addChild(sprite, 2);
 	marginal.x = 10;
 	marginal.y = 10;
 	parent = nullptr;
-	HudLayer::getInstance()->addChild(sprite, 2);
+
 	hide();
 }
 
@@ -23,7 +23,8 @@ HudMenu::HudMenu(cocos2d::Rect rect)
 HudMenu::~HudMenu()
 {
 	clear();
-	sprite->release();
+	sprite->removeFromParent();
+	removeFromParentMenu();
 }
 
 void HudMenu::update()
@@ -73,6 +74,10 @@ void HudMenu::hide()
 	for (size_t i = 0; i < itemList.size(); i++)
 	{
 		itemList[i]->hide();
+	}
+	for each (HudMenu* child in childMenu)
+	{
+		child->hide();
 	}
 }
 
@@ -159,6 +164,11 @@ void HudMenu::chooseItem(int index)
 
 	itemIndex = index;
 
+	itemIndex = itemIndex > itemList.size() - 1 ? itemList.size()-1 : itemIndex;
+	itemIndex = itemIndex < 0 ? 0 : itemIndex;
+
+
+
 	cocos2d::Point position = itemList[itemIndex]->getPosition();
 //	position = labelList[curIndex]->convertToWorldSpace(position);
 //	position = HudLayer::getInstance()->convertToNodeSpace(position);
@@ -180,6 +190,12 @@ void HudMenu::activeChildMenu(int index)
 void HudMenu::setParent(HudMenu* p)
 {
 	parent = p;
+	p->addChildMenu(this);
+}
+
+void HudMenu::addChildMenu(HudMenu* c)
+{
+	childMenu.push_back(c);
 }
 
 void HudMenu::closeMenu()
@@ -190,6 +206,7 @@ void HudMenu::closeMenu()
 	}
 	hide();
 	HudCursor::getInstance()->setCurMenu(parent);
+	parent->update();
 }
 
 void HudMenu::increaseIndex()
@@ -202,6 +219,14 @@ void HudMenu::decreaseIndex()
 	itemIndex = itemIndex == 0 ? itemIndex : itemIndex - 1;
 }
 
+
+void HudMenu::removeFromParentMenu()
+{
+	if (parent)
+	{
+		parent->removeChild(this);
+	}
+}
 
 void HudMenu::clear()
 {
@@ -220,4 +245,17 @@ int HudMenu::getMarginalWidth()
 int HudMenu::getMarginalHeight()
 {
 	return marginal.y;
+}
+
+void HudMenu::removeChild(HudMenu* c)
+{
+	std::vector<HudMenu*>::iterator iter = childMenu.begin();
+	while (iter != childMenu.end())
+	{
+		if (*iter == c)
+		{
+			childMenu.erase(iter);
+			return;
+		}
+	}
 }

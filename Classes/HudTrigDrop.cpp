@@ -28,6 +28,5 @@ void HudTrigDrop::run()
 	Field::Storey* storey=Field::Dungeon::getInstance()->getStorey();
 	storey->getInventoryHandler()->addInventory(inventory,characterPtr->getMapCoord().x,characterPtr->getMapCoord().y);
 
-	HudInventoryMenu::getInstance()->update();
 	menuItem->getParentMenu()->closeMenu();
 }

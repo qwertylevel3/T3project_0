@@ -55,6 +55,11 @@ bool TileInventoryHandler::isEmpty()
 	return inventoryBox.empty();
 }
 
+std::vector<Inventory*>& TileInventoryHandler::getInventoryBox()
+{
+	return inventoryBox;
+}
+
 //////////////////////////////////////////////////////////////////////////
 
 StoreyInventoryHandler::StoreyInventoryHandler(int w,int h)

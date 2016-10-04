@@ -18,6 +18,7 @@ public:
 	void addInventory(Inventory* inventory);
 	void removeInventory(int index);
 	bool isEmpty();
+	std::vector<Inventory*>& getInventoryBox();
 protected:
 	std::vector<Inventory*> inventoryBox;
 	//用于显示在地图上的sprite

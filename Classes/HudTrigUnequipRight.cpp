@@ -19,6 +19,5 @@ void HudTrigUnequipRight::run()
 	Character* characterPtr = Player::getInstance()->getcharacterPtr();
 	characterPtr->unequipRightHand();
 
-	HudEquipMenu::getInstance()->update();
 	menuItem->getParentMenu()->closeMenu();
 }

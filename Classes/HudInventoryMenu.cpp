@@ -48,6 +48,11 @@ void HudInventoryMenu::update()
 
 		iter++;
 	}
+	if (itemList.empty())
+	{
+		HudMenuItem* emptyItem = new HudMenuItem("empty");
+		this->addItem(emptyItem);
+	}
 }
 
 void HudInventoryMenu::init()
@@ -61,7 +66,8 @@ void HudInventoryMenu::addItem(HudMenuItem* item)
 	item->setAliginment(cocos2d::TextHAlignment::LEFT);
 }
 
-void HudInventoryMenu::setItemTrigger(const std::string& inventoryName,HudMenuItem* item)
+
+void HudInventoryMenu::setItemTrigger(const std::string& inventoryName, HudMenuItem* item)
 {
 	Inventory::Type inventoryType = InventoryManager::getInstance()->getInventoryType(inventoryName);
 	switch (inventoryType)

@@ -10,7 +10,7 @@ class HudMenu
 {
 public:
 	HudMenu(cocos2d::Rect rect=cocos2d::Rect(0,0,0,0));
-	~HudMenu();
+	virtual ~HudMenu();
 	virtual void update();
 
 	//处理键盘按键
@@ -40,6 +40,7 @@ public:
 	void activeChildMenu(int index);
 	void setParent(HudMenu* p);
 
+
 	//************************************
 	// Method:    closeMenu
 	// FullName:  HudMenu::closeMenu
@@ -52,12 +53,16 @@ public:
 	cocos2d::Sprite* getSprite();
 	int getMarginalWidth();
 	int getMarginalHeight();
+	void removeChild(HudMenu* c);
 protected:
+	void addChildMenu(HudMenu* c);
 	void setCursorPosition(int index);
 	void increaseIndex();
 	void decreaseIndex();
+	void removeFromParentMenu();
 
 	HudMenu* parent;
+	std::vector<HudMenu*> childMenu;
 	//内边框距
 	cocos2d::Vec2 marginal;
 	cocos2d::Sprite* sprite;

@@ -155,10 +155,13 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Armor.cpp" />
     <ClCompile Include="..\Classes\AStar.cpp" />
     <ClCompile Include="..\Classes\Attack.cpp" />
+    <ClCompile Include="..\Classes\HudGroundInventoryMenu.cpp" />
+    <ClCompile Include="..\Classes\HudGroundMenu.cpp" />
     <ClCompile Include="..\Classes\HudMainMenu.cpp" />
     <ClCompile Include="..\Classes\HudTrigDrop.cpp" />
     <ClCompile Include="..\Classes\HudTrigEquipLeft.cpp" />
     <ClCompile Include="..\Classes\HudTrigEquipRight.cpp" />
+    <ClCompile Include="..\Classes\HudTrigPick.cpp" />
     <ClCompile Include="..\Classes\HudTrigUnequipLeft.cpp" />
     <ClCompile Include="..\Classes\HudTrigUnequipRight.cpp" />
     <ClCompile Include="..\Classes\HudUnequipLeftMenu.cpp" />
@@ -228,10 +231,13 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Armor.h" />
     <ClInclude Include="..\Classes\AStar.h" />
     <ClInclude Include="..\Classes\Attack.h" />
+    <ClInclude Include="..\Classes\HudGroundInventoryMenu.h" />
+    <ClInclude Include="..\Classes\HudGroundMenu.h" />
     <ClInclude Include="..\Classes\HudMainMenu.h" />
     <ClInclude Include="..\Classes\HudTrigDrop.h" />
     <ClInclude Include="..\Classes\HudTrigEquipLeft.h" />
     <ClInclude Include="..\Classes\HudTrigEquipRight.h" />
+    <ClInclude Include="..\Classes\HudTrigPick.h" />
     <ClInclude Include="..\Classes\HudTrigUnequipLeft.h" />
     <ClInclude Include="..\Classes\HudTrigUnequipRight.h" />
     <ClInclude Include="..\Classes\HudUnequipLeftMenu.h" />

@@ -58,6 +58,9 @@
     <Filter Include="src\HUD\menuSystem\menu\equipMenu">
       <UniqueIdentifier>{72d855ff-4d14-4a41-b225-4bcf78d41009}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\HUD\menuSystem\menu\groundMenu">
+      <UniqueIdentifier>{1edf1825-4298-4cca-9900-d2f7cddd62c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -255,11 +258,20 @@
     <ClCompile Include="..\Classes\HudUnequipRightMenu.cpp">
       <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudTrigDrop.cpp" />
-    <ClCompile Include="..\Classes\StoreyInventoryHandler.cpp" />
     <ClCompile Include="..\Classes\MainLayer.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\HudTrigDrop.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StoreyInventoryHandler.cpp">
+      <Filter>src\inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudGroundMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu\groundMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudGroundInventoryMenu.cpp" />
+    <ClCompile Include="..\Classes\HudTrigPick.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -466,11 +478,20 @@
     <ClInclude Include="..\Classes\HudUnequipRightMenu.h">
       <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudTrigDrop.h" />
-    <ClInclude Include="..\Classes\StoreyInventoryHandler.h" />
     <ClInclude Include="..\Classes\MainLayer.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\HudTrigDrop.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StoreyInventoryHandler.h">
+      <Filter>src\inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudGroundMenu.h">
+      <Filter>src\HUD\menuSystem\menu\groundMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudGroundInventoryMenu.h" />
+    <ClInclude Include="..\Classes\HudTrigPick.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
