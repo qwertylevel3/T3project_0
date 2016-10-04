@@ -45,6 +45,22 @@ void InventoryHandler::removeInventory(std::string inventoryName, int count)
 	}
 }
 
+void InventoryHandler::removeInventory(int index, int count)
+{
+	int iterCount = 0;
+	std::map<std::string, int>::iterator iter = inventoryBox.begin();
+	while (iter != inventoryBox.end())
+	{
+		if (iterCount == index)
+		{
+			removeInventory(iter->first, count);
+			return;
+		}
+		iterCount++;
+		iter++;
+	}
+}
+
 std::map<std::string, int>& InventoryHandler::getAllInventory()
 {
 	return inventoryBox;

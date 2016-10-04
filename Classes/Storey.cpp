@@ -2,6 +2,7 @@
 #include"FieldEnum.h"
 #include"Character.h"
 #include "Player.h"
+#include "StoreyInventoryHandler.h"
 
 
 using namespace Field;
@@ -9,7 +10,6 @@ USING_NS_CC;
 
 Storey::Storey(int w,int h)
 {
-
 	for (int i = 0; i < w*h; i++)
 	{
 		tiles.push_back(Unused);
@@ -18,6 +18,7 @@ Storey::Storey(int w,int h)
 	{
 		characterMap.push_back(nullptr);
 	}
+	inventoryHandler = new StoreyInventoryHandler(w, h);
 	picturePath = FileUtils::getInstance()->fullPathForFilename("tile.png");
 	width = w;
 	height = h;
@@ -227,6 +228,11 @@ void Field::Storey::characterMove(cocos2d::Point oriPosition, cocos2d::Point tar
 		removeCharacter(oriPosition.x,oriPosition.y);
 		setCharacter(tarPosition.x, tarPosition.y,character);
 	}
+}
+
+StoreyInventoryHandler* Field::Storey::getInventoryHandler()
+{
+	return inventoryHandler;
 }
 
 bool Field::Storey::isMoveAble(cocos2d::Point position)

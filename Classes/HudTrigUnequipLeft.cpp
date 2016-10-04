@@ -1,6 +1,7 @@
 #include "HudTrigUnequipLeft.h"
 #include "Player.h"
 #include "HudEquipMenu.h"
+#include "HudMenuItem.h"
 
 
 
@@ -19,4 +20,5 @@ void HudTrigUnequipLeft::run()
 	characterPtr->unequipLeftHand();
 
 	HudEquipMenu::getInstance()->update();
+	menuItem->getParentMenu()->closeMenu();
 }

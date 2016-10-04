@@ -1,5 +1,5 @@
 #include "AppDelegate.h"
-#include "GameScene.h"
+#include "MainLayer.h"
 #include "HudLayer.h"
 #include "MaskLayer.h"
 #include <iostream>
@@ -91,7 +91,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto scene = Scene::create();
     
     // 'layer' is an autorelease object
-	auto gameSceneLayer = GameScene::getInstance();
+	auto gameSceneLayer = MainLayer::getInstance();
 	auto hudLayer = HudLayer::getInstance();
 	auto maskLayer = MaskLayer::getInstance();
 
@@ -100,7 +100,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	scene->addChild(maskLayer, 1);
 	scene->addChild(hudLayer,2);
 
-	GameScene::getInstance()->init();
+	MainLayer::getInstance()->init();
 	HudLayer::getInstance()->init();
 	MaskLayer::getInstance()->init();
 

@@ -16,6 +16,7 @@ Dungeon::~Dungeon()
 {
 }
 
+
 void Field::Dungeon::generate(int floorNum)
 {
 	clear();

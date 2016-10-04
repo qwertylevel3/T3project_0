@@ -6,7 +6,7 @@
 #include"Dungeon.h"
 #include "Singleton.h"
 
-class GameScene : public cocos2d::Layer,public Singleton<GameScene>
+class MainLayer : public cocos2d::Layer,public Singleton<MainLayer>
 {
 public:
 	//************************************
@@ -28,7 +28,7 @@ public:
  	void addCharacter(Character* character);
 
     // implement the "static create()" method manually
-    CREATE_FUNC(GameScene);
+    CREATE_FUNC(MainLayer);
 	void update(float dt);
 
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);

@@ -156,12 +156,14 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AStar.cpp" />
     <ClCompile Include="..\Classes\Attack.cpp" />
     <ClCompile Include="..\Classes\HudMainMenu.cpp" />
+    <ClCompile Include="..\Classes\HudTrigDrop.cpp" />
     <ClCompile Include="..\Classes\HudTrigEquipLeft.cpp" />
     <ClCompile Include="..\Classes\HudTrigEquipRight.cpp" />
     <ClCompile Include="..\Classes\HudTrigUnequipLeft.cpp" />
     <ClCompile Include="..\Classes\HudTrigUnequipRight.cpp" />
     <ClCompile Include="..\Classes\HudUnequipLeftMenu.cpp" />
     <ClCompile Include="..\Classes\HudUnequipRightMenu.cpp" />
+    <ClCompile Include="..\Classes\StoreyInventoryHandler.cpp" />
     <ClCompile Include="..\Classes\XMLConfigure.cpp" />
     <ClCompile Include="..\Classes\BattleSystem.cpp" />
     <ClCompile Include="..\Classes\Character.cpp" />
@@ -173,7 +175,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\DialogueManager.cpp" />
     <ClCompile Include="..\Classes\DialogueSystem.cpp" />
     <ClCompile Include="..\Classes\Dungeon.cpp" />
-    <ClCompile Include="..\Classes\GameScene.cpp" />
+    <ClCompile Include="..\Classes\MainLayer.cpp" />
     <ClCompile Include="..\Classes\HudCursor.cpp" />
     <ClCompile Include="..\Classes\HudEquipableInventoryMenu.cpp" />
     <ClCompile Include="..\Classes\HudEquipMenu.cpp" />
@@ -227,12 +229,14 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AStar.h" />
     <ClInclude Include="..\Classes\Attack.h" />
     <ClInclude Include="..\Classes\HudMainMenu.h" />
+    <ClInclude Include="..\Classes\HudTrigDrop.h" />
     <ClInclude Include="..\Classes\HudTrigEquipLeft.h" />
     <ClInclude Include="..\Classes\HudTrigEquipRight.h" />
     <ClInclude Include="..\Classes\HudTrigUnequipLeft.h" />
     <ClInclude Include="..\Classes\HudTrigUnequipRight.h" />
     <ClInclude Include="..\Classes\HudUnequipLeftMenu.h" />
     <ClInclude Include="..\Classes\HudUnequipRightMenu.h" />
+    <ClInclude Include="..\Classes\StoreyInventoryHandler.h" />
     <ClInclude Include="..\Classes\XMLConfigure.h" />
     <ClInclude Include="..\Classes\BattleSystem.h" />
     <ClInclude Include="..\Classes\Character.h" />
@@ -245,7 +249,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\DialogueSystem.h" />
     <ClInclude Include="..\Classes\Dungeon.h" />
     <ClInclude Include="..\Classes\FieldEnum.h" />
-    <ClInclude Include="..\Classes\GameScene.h" />
+    <ClInclude Include="..\Classes\MainLayer.h" />
     <ClInclude Include="..\Classes\HudCursor.h" />
     <ClInclude Include="..\Classes\HudEquipableInventoryMenu.h" />
     <ClInclude Include="..\Classes\HudEquipMenu.h" />

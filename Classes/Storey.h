@@ -5,6 +5,7 @@
 #include <list>
 
 class Character;
+class StoreyInventoryHandler;
 
 
 namespace Field {
@@ -31,6 +32,8 @@ namespace Field {
 		void removeCharacter(Character* character);
 		void characterMove(cocos2d::Point oriPosition, cocos2d::Point tarPosition);
 
+		StoreyInventoryHandler* getInventoryHandler();
+
 		bool isMoveAble(cocos2d::Point position);
 
 		int getHeight();
@@ -54,6 +57,8 @@ namespace Field {
 		std::list<Character*> characterList;
 		//”√”⁄œ‘ æ
 		cocos2d::TMXTiledMap *tileMap;
+
+		StoreyInventoryHandler* inventoryHandler;
 	};
 }
 

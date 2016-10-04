@@ -1,5 +1,5 @@
 #include "Character.h"
-#include"GameScene.h"
+#include"MainLayer.h"
 #include"Attack.h"
 #include"Dungeon.h"
 #include"FieldEnum.h"

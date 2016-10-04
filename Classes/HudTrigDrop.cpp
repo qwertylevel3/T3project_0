@@ -1,20 +1,23 @@
-#include "HudTrigEquipLeft.h"
+#include "HudTrigDrop.h"
 #include "Player.h"
 #include "HudInventoryMenu.h"
 #include "InventoryHandler.h"
-#include "Inventory.h"
+#include "Dungeon.h"
+#include "StoreyInventoryHandler.h"
 #include "HudMenuItem.h"
 
 
-HudTrigEquipLeft::HudTrigEquipLeft()
+
+HudTrigDrop::HudTrigDrop()
 {
 }
 
-HudTrigEquipLeft::~HudTrigEquipLeft()
+
+HudTrigDrop::~HudTrigDrop()
 {
 }
 
-void HudTrigEquipLeft::run()
+void HudTrigDrop::run()
 {
 	int curIndex = HudInventoryMenu::getInstance()->getCurIndex();
 	Character* characterPtr = Player::getInstance()->getcharacterPtr();
@@ -22,7 +25,8 @@ void HudTrigEquipLeft::run()
 	InventoryHandler* inventoryHandler = characterPtr->getInventoryHandler();
 	Inventory* inventory = inventoryHandler->getInventory(curIndex);
 
-	characterPtr->equipLeftHand(inventory);
+	Field::Storey* storey=Field::Dungeon::getInstance()->getStorey();
+	storey->getInventoryHandler()->addInventory(inventory,characterPtr->getMapCoord().x,characterPtr->getMapCoord().y);
 
 	HudInventoryMenu::getInstance()->update();
 	menuItem->getParentMenu()->closeMenu();

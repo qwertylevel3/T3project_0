@@ -21,6 +21,7 @@ public:
 	//************************************
 	void addInventory(Inventory* inventory);
 	void removeInventory(std::string inventoryName, int count);
+	void removeInventory(int index, int count);
 	std::map<std::string, int>& getAllInventory();
 	int getCount(const std::string& inventoryName);
 	Inventory* getInventory(std::string inventoryName);

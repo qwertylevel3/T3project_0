@@ -1,4 +1,4 @@
-#include "GameScene.h"
+#include "MainLayer.h"
 #include "SimpleAudioEngine.h"
 #include"RandomNumber.h"
 #include"StoreyBuilder.h"
@@ -19,7 +19,7 @@ using namespace Field;
 
 
 // on "init" you need to initialize your instance
-bool GameScene::init()
+bool MainLayer::init()
 {
     //////////////////////////////
     // 1. super init first
@@ -33,7 +33,7 @@ bool GameScene::init()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	RandomNumber::getInstance()->setSeed(101);
+	RandomNumber::getInstance()->setSeed(100);
 
 	InventoryManager::getInstance()->init();
 	CharacterManager::getInstance()->init();
@@ -73,7 +73,7 @@ bool GameScene::init()
 	return true;
 }
 
-void GameScene::menuCloseCallback(Ref* pSender)
+void MainLayer::menuCloseCallback(Ref* pSender)
 {
 	Director::getInstance()->end();
 
@@ -82,7 +82,7 @@ void GameScene::menuCloseCallback(Ref* pSender)
 #endif
 }
 
-void GameScene::setViewPointCenter(Point position) {
+void MainLayer::setViewPointCenter(Point position) {
 	Storey* storey = Dungeon::getInstance()->getStorey();
 	TMXTiledMap* tileMap = storey->getTileMap();
 	auto winSize = Director::getInstance()->getWinSize();
@@ -101,7 +101,7 @@ void GameScene::setViewPointCenter(Point position) {
 	MaskLayer::getInstance()->setPosition(viewPoint);
 }
 
-void GameScene::update(float dt)
+void MainLayer::update(float dt)
 {
 	Character* player = Player::getInstance()->getcharacterPtr();
 	this->setViewPointCenter(player->getPosition());
@@ -109,19 +109,19 @@ void GameScene::update(float dt)
 	MaskLayer::getInstance()->update();
 }
 
-void GameScene::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
+void MainLayer::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
 	KeyController::getInstance()->handleKeyPressed(keyCode);
 }
 
-void GameScene::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
+void MainLayer::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 {
 	KeyController::getInstance()->handleKeyReleased(keyCode);
 }
 
 
 
-void GameScene::loadStorey()
+void MainLayer::loadStorey()
 {
 	Dungeon::getInstance()->generate(1);
 	//Dungeon::getInstance()->writeToFile();
@@ -154,14 +154,14 @@ void GameScene::loadStorey()
 	setViewPointCenter(player->getPosition());
 }
 
-void GameScene::addCharacter(Character * character)
+void MainLayer::addCharacter(Character * character)
 {
-	Layer::addChild(character->getSprite());
+	Layer::addChild(character->getSprite(),10);
 
 	Dungeon::getInstance()->addCharacter(character);
 }
 
-cocos2d::Point GameScene::getWorldPosition(cocos2d::Point position)
+cocos2d::Point MainLayer::getWorldPosition(cocos2d::Point position)
 {
 	return position + this->getPosition();
 }

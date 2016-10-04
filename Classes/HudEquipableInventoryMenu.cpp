@@ -3,6 +3,7 @@
 #include "ToolFunction.h"
 #include "HudTrigEquipLeft.h"
 #include "HudTrigEquipRight.h"
+#include "HudTrigDrop.h"
 #include "HudLayout.h"
 
 
@@ -26,7 +27,11 @@ HudEquipableInventoryMenu::HudEquipableInventoryMenu()
 	this->addItem(equipRightMenuItem);
 
 	HudMenuItem* dropMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"¶ªÆú"));
+	HudTrigDrop* dropTrig = new HudTrigDrop();
+	dropMenuItem->setTrigger(dropTrig);
 	this->addItem(dropMenuItem);
+
+
 	HudMenuItem* throwMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"Í¶ÖÀ"));
 	this->addItem(throwMenuItem);
 

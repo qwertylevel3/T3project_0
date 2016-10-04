@@ -5,7 +5,7 @@
 #include"Skill.h"
 #include <vector>
 
-class GameScene;
+class MainLayer;
 class Inventory;
 class InventoryInHand;
 class Armor;

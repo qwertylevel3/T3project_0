@@ -13,7 +13,6 @@ namespace Field {
 		Dungeon();
 		~Dungeon();
 
-
 		void generate(int floorNum);
 		int getFloorNum();
 		void addStorey(Storey* storey);

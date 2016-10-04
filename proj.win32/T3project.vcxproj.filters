@@ -84,9 +84,6 @@
     <ClCompile Include="..\Classes\Skill.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GameScene.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Attack.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
@@ -252,8 +249,17 @@
     <ClCompile Include="..\Classes\HudUnequipLeftMenu.cpp">
       <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudUnequipRightMenu.cpp" />
-    <ClCompile Include="..\Classes\HudTrigUnequipRight.cpp" />
+    <ClCompile Include="..\Classes\HudTrigUnequipRight.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudUnequipRightMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudTrigDrop.cpp" />
+    <ClCompile Include="..\Classes\StoreyInventoryHandler.cpp" />
+    <ClCompile Include="..\Classes\MainLayer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -285,9 +291,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Skill.h">
       <Filter>src\skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\GameScene.h">
-      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Attack.h">
       <Filter>src\skill</Filter>
@@ -457,8 +460,17 @@
     <ClInclude Include="..\Classes\HudUnequipLeftMenu.h">
       <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudUnequipRightMenu.h" />
-    <ClInclude Include="..\Classes\HudTrigUnequipRight.h" />
+    <ClInclude Include="..\Classes\HudTrigUnequipRight.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudUnequipRightMenu.h">
+      <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudTrigDrop.h" />
+    <ClInclude Include="..\Classes\StoreyInventoryHandler.h" />
+    <ClInclude Include="..\Classes\MainLayer.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

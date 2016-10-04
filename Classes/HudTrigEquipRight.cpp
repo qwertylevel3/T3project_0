@@ -2,6 +2,7 @@
 #include "HudInventoryMenu.h"
 #include "Player.h"
 #include "InventoryHandler.h"
+#include "HudMenuItem.h"
 
 
 
@@ -25,4 +26,5 @@ void HudTrigEquipRight::run()
 	characterPtr->equipRightHand(inventory);
 
 	HudInventoryMenu::getInstance()->update();
+	menuItem->getParentMenu()->closeMenu();
 }
