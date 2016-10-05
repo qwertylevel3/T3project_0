@@ -18,6 +18,7 @@ public:
 	void addInventory(Inventory* inventory);
 	void removeInventory(int index);
 	bool isEmpty();
+	Inventory* getInventory(int index);
 	std::vector<Inventory*>& getInventoryBox();
 protected:
 	std::vector<Inventory*> inventoryBox;
@@ -33,6 +34,7 @@ public:
 	~StoreyInventoryHandler();
 	void addInventory(Inventory* inventory, int x, int y);
 	void removeInventory(int index, int x, int y);
+	Inventory* getInventory(int index, int x, int y);
 	TileInventoryHandler* getTileInventoryHandler(int x,int y);
 protected:
 	std::vector<TileInventoryHandler*> handlerMap;

@@ -23,9 +23,9 @@ void InventoryHandler::addInventory(const std::string& inventoryName, int count)
 	}
 }
 
-void InventoryHandler::addInventory(Inventory* inventory)
+void InventoryHandler::addInventory(Inventory* inventory,int count)
 {
-	addInventory(inventory->getName(), 1);
+	addInventory(inventory->getName(), count);
 	delete inventory;
 }
 

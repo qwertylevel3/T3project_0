@@ -10,7 +10,7 @@ class InventoryHandler
 public:
 	InventoryHandler();
 	~InventoryHandler();
-	void addInventory(const std::string& inventoryName,int count);
+	void addInventory(const std::string& inventoryName,int count=1);
 	//************************************
 	// Method:    addInventory
 	// FullName:  InventoryHandler::addInventory
@@ -19,7 +19,7 @@ public:
 	// Qualifier: ª·œ˙ªŸ inventory ÷∏’Î
 	// Parameter: Inventory * inventory
 	//************************************
-	void addInventory(Inventory* inventory);
+	void addInventory(Inventory* inventory,int count=1);
 	void removeInventory(std::string inventoryName, int count);
 	void removeInventory(int index, int count);
 	std::map<std::string, int>& getAllInventory();

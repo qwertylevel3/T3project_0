@@ -55,6 +55,23 @@ bool TileInventoryHandler::isEmpty()
 	return inventoryBox.empty();
 }
 
+Inventory* TileInventoryHandler::getInventory(int index)
+{
+	int count = 0;
+	std::vector<Inventory*>::iterator iter = inventoryBox.begin();
+	while (iter != inventoryBox.end())
+	{
+		if (count == index)
+		{
+			Inventory* inventory = *iter;
+			return inventory;
+		}
+		count++;
+		iter++;
+	}
+	return nullptr;
+}
+
 std::vector<Inventory*>& TileInventoryHandler::getInventoryBox()
 {
 	return inventoryBox;
@@ -92,6 +109,11 @@ void StoreyInventoryHandler::addInventory(Inventory* inventory, int x, int y)
 void StoreyInventoryHandler::removeInventory(int index, int x, int y)
 {
 	handlerMap[x + y*width]->removeInventory(index);
+}
+
+Inventory* StoreyInventoryHandler::getInventory(int index, int x, int y)
+{
+	return handlerMap[x + width*y]->getInventory(index);
 }
 
 TileInventoryHandler* StoreyInventoryHandler::getTileInventoryHandler(int x, int y)
