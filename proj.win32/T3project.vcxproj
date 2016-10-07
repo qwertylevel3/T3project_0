@@ -166,6 +166,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudTrigUnequipRight.cpp" />
     <ClCompile Include="..\Classes\HudUnequipLeftMenu.cpp" />
     <ClCompile Include="..\Classes\HudUnequipRightMenu.cpp" />
+    <ClCompile Include="..\Classes\skill\RunnerBase.cpp" />
+    <ClCompile Include="..\Classes\skill\SelectorBase.cpp" />
+    <ClCompile Include="..\Classes\skill\SkillBase.cpp" />
     <ClCompile Include="..\Classes\StoreyInventoryHandler.cpp" />
     <ClCompile Include="..\Classes\XMLConfigure.cpp" />
     <ClCompile Include="..\Classes\BattleSystem.cpp" />
@@ -242,6 +245,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudTrigUnequipRight.h" />
     <ClInclude Include="..\Classes\HudUnequipLeftMenu.h" />
     <ClInclude Include="..\Classes\HudUnequipRightMenu.h" />
+    <ClInclude Include="..\Classes\skill\RunnerBase.h" />
+    <ClInclude Include="..\Classes\skill\SelectorBase.h" />
+    <ClInclude Include="..\Classes\skill\SkillBase.h" />
     <ClInclude Include="..\Classes\StoreyInventoryHandler.h" />
     <ClInclude Include="..\Classes\XMLConfigure.h" />
     <ClInclude Include="..\Classes\BattleSystem.h" />

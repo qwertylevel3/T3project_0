@@ -61,6 +61,12 @@
     <Filter Include="src\HUD\menuSystem\menu\groundMenu">
       <UniqueIdentifier>{1edf1825-4298-4cca-9900-d2f7cddd62c6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\skill\runner">
+      <UniqueIdentifier>{d2e18a5a-a3cd-47ba-b018-c9e59d8c6820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\skill\selector">
+      <UniqueIdentifier>{11a82f50-1af5-4588-8a23-2146e4c4efa9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -270,8 +276,17 @@
     <ClCompile Include="..\Classes\HudGroundMenu.cpp">
       <Filter>src\HUD\menuSystem\menu\groundMenu</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudGroundInventoryMenu.cpp" />
-    <ClCompile Include="..\Classes\HudTrigPick.cpp" />
+    <ClCompile Include="..\Classes\HudTrigPick.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudGroundInventoryMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu\groundMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\SkillBase.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\SelectorBase.cpp" />
+    <ClCompile Include="..\Classes\skill\RunnerBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -490,8 +505,17 @@
     <ClInclude Include="..\Classes\HudGroundMenu.h">
       <Filter>src\HUD\menuSystem\menu\groundMenu</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudGroundInventoryMenu.h" />
-    <ClInclude Include="..\Classes\HudTrigPick.h" />
+    <ClInclude Include="..\Classes\HudTrigPick.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudGroundInventoryMenu.h">
+      <Filter>src\HUD\menuSystem\menu\groundMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\SkillBase.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\SelectorBase.h" />
+    <ClInclude Include="..\Classes\skill\RunnerBase.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

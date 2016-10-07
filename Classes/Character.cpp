@@ -341,4 +341,3 @@ void Character::setStandRightAnimation(cocos2d::Animation * animation)
 {
 	standRightAnimation = animation;
 }
-
