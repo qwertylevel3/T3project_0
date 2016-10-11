@@ -276,12 +276,6 @@
     <ClCompile Include="..\Classes\HudGroundInventoryMenu.cpp">
       <Filter>src\HUD\menuSystem\menu\groundMenu</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\SkillTemp.cpp">
-      <Filter>src\skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\AttackTemp.cpp">
-      <Filter>src\skill</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\SkillBase.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
@@ -517,12 +511,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HudGroundInventoryMenu.h">
       <Filter>src\HUD\menuSystem\menu\groundMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\SkillTemp.h">
-      <Filter>src\skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\AttackTemp.h">
-      <Filter>src\skill</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\SkillBase.h">
       <Filter>src\skill</Filter>

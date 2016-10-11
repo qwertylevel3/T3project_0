@@ -156,7 +156,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AStar.cpp" />
     <ClCompile Include="..\Classes\Attack.cpp" />
     <ClCompile Include="..\Classes\AttackEffect.cpp" />
-    <ClCompile Include="..\Classes\AttackTemp.cpp" />
     <ClCompile Include="..\Classes\EffectBase.cpp" />
     <ClCompile Include="..\Classes\FrontSelector.cpp" />
     <ClCompile Include="..\Classes\HudGroundInventoryMenu.cpp" />
@@ -212,7 +211,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\RoundSystem.cpp" />
     <ClCompile Include="..\Classes\Sentence.cpp" />
     <ClCompile Include="..\Classes\Shield.cpp" />
-    <ClCompile Include="..\Classes\SkillTemp.cpp" />
     <ClCompile Include="..\Classes\SkillManager.cpp" />
     <ClCompile Include="..\Classes\Statement.cpp" />
     <ClCompile Include="..\Classes\Storey.cpp" />
@@ -238,7 +236,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AStar.h" />
     <ClInclude Include="..\Classes\Attack.h" />
     <ClInclude Include="..\Classes\AttackEffect.h" />
-    <ClInclude Include="..\Classes\AttackTemp.h" />
     <ClInclude Include="..\Classes\EffectBase.h" />
     <ClInclude Include="..\Classes\FrontSelector.h" />
     <ClInclude Include="..\Classes\HudGroundInventoryMenu.h" />
@@ -297,7 +294,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Sentence.h" />
     <ClInclude Include="..\Classes\Shield.h" />
     <ClInclude Include="..\Classes\Singleton.h" />
-    <ClInclude Include="..\Classes\SkillTemp.h" />
     <ClInclude Include="..\Classes\SkillManager.h" />
     <ClInclude Include="..\Classes\Statement.h" />
     <ClInclude Include="..\Classes\Storey.h" />
