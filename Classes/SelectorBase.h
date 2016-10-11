@@ -3,6 +3,7 @@
 #include <vector>
 #include "base/ccTypes.h"
 
+class Character;
 
 namespace Skill
 {
@@ -11,6 +12,6 @@ namespace Skill
 	public:
 		SelectorBase();
 		virtual ~SelectorBase();
-		virtual std::vector<cocos2d::Point> select()=0;
+		virtual std::vector<cocos2d::Point> select(Character* caster)=0;
 	};
 }

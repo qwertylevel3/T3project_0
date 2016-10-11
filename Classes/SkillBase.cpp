@@ -1,17 +1,18 @@
 #include "SkillBase.h"
 #include "SelectorBase.h"
-#include "RunnerBase.h"
+#include "EffectBase.h"
 #include "base/ccTypes.h"
 #include <vector>
 
 
 using namespace Skill;
 
-SkillBase::SkillBase()
+SkillBase::SkillBase(Character* character)
 {
+	caster = character;
 	selector = nullptr;
-	runner = nullptr;
-	childSkill = nullptr;
+	effector = nullptr;
+	nextSkill = nullptr;
 }
 
 
@@ -24,15 +25,15 @@ void Skill::SkillBase::active()
 	std::vector<cocos2d::Point> targetPositionVec;
 	if (selector)
 	{
-		targetPositionVec = selector->select();
+		targetPositionVec = selector->select(caster);
 	}
 
-	if (runner)
+	if (effector)
 	{
-		runner->run(targetPositionVec);
+		effector->run(caster,targetPositionVec);
 	}
-	if (childSkill)
+	if (nextSkill)
 	{
-		childSkill->active();
+		nextSkill->active();
 	}
 }

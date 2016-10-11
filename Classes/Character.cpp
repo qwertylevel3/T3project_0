@@ -1,6 +1,5 @@
 #include "Character.h"
 #include"MainLayer.h"
-#include"Attack.h"
 #include"Dungeon.h"
 #include"FieldEnum.h"
 #include"Inventory.h"
@@ -10,6 +9,8 @@
 #include "Accessory.h"
 #include "AIBase.h"
 #include "InventoryHandler.h"
+#include "SkillBase.h"
+#include "Attack.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -224,7 +225,7 @@ cocos2d::Node * Character::getParent()
 
 void Character::runSkill(std::string skillName)
 {
-	skillBox[skillName]->run();
+	skillBox[skillName]->active();
 }
 
 InventoryHandler* Character::getInventoryHandler()
@@ -262,7 +263,7 @@ void Character::setAI(AIBase* a)
 
 Character::Character()
 {
-	Attack* attack = new Attack(this);
+	Skill::Attack* attack = new Skill::Attack(this);
 	skillBox["attack"] = attack;
 
 	orientation = DOWN;

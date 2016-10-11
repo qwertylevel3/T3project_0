@@ -1,17 +1,13 @@
 #pragma once
 
-#include"Skill.h"
-#include<vector>
-#include <set>
+#include "SkillBase.h"
 
-class Attack:public Skill
+namespace Skill
 {
-public:
-	Attack(Character* character);
-	~Attack();
-	int run();
-	std::set<Character* > getAllTargetCharacter();
-protected:
-	void showEffect();
-};
-
+	class Attack :public SkillBase
+	{
+	public:
+		Attack(Character* caster);
+		~Attack();
+	};
+}

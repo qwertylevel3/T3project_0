@@ -61,11 +61,11 @@
     <Filter Include="src\HUD\menuSystem\menu\groundMenu">
       <UniqueIdentifier>{1edf1825-4298-4cca-9900-d2f7cddd62c6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\skill\runner">
-      <UniqueIdentifier>{d2e18a5a-a3cd-47ba-b018-c9e59d8c6820}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\skill\selector">
       <UniqueIdentifier>{11a82f50-1af5-4588-8a23-2146e4c4efa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\skill\effector">
+      <UniqueIdentifier>{d2e18a5a-a3cd-47ba-b018-c9e59d8c6820}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -89,12 +89,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Debug.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Skill.cpp">
-      <Filter>src\skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Attack.cpp">
-      <Filter>src\skill</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\CharacterManager.cpp">
       <Filter>src\character</Filter>
@@ -282,11 +276,30 @@
     <ClCompile Include="..\Classes\HudGroundInventoryMenu.cpp">
       <Filter>src\HUD\menuSystem\menu\groundMenu</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\skill\SkillBase.cpp">
+    <ClCompile Include="..\Classes\SkillTemp.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\skill\SelectorBase.cpp" />
-    <ClCompile Include="..\Classes\skill\RunnerBase.cpp" />
+    <ClCompile Include="..\Classes\AttackTemp.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SkillBase.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Attack.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AttackEffect.cpp">
+      <Filter>src\skill\effector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EffectBase.cpp">
+      <Filter>src\skill\effector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SelectorBase.cpp">
+      <Filter>src\skill\selector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FrontSelector.cpp">
+      <Filter>src\skill\selector</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -315,12 +328,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Debug.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Skill.h">
-      <Filter>src\skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Attack.h">
-      <Filter>src\skill</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\CharacterManager.h">
       <Filter>src\character</Filter>
@@ -511,11 +518,30 @@
     <ClInclude Include="..\Classes\HudGroundInventoryMenu.h">
       <Filter>src\HUD\menuSystem\menu\groundMenu</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\skill\SkillBase.h">
+    <ClInclude Include="..\Classes\SkillTemp.h">
       <Filter>src\skill</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\skill\SelectorBase.h" />
-    <ClInclude Include="..\Classes\skill\RunnerBase.h" />
+    <ClInclude Include="..\Classes\AttackTemp.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SkillBase.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Attack.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AttackEffect.h">
+      <Filter>src\skill\effector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EffectBase.h">
+      <Filter>src\skill\effector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SelectorBase.h">
+      <Filter>src\skill\selector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FrontSelector.h">
+      <Filter>src\skill\selector</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

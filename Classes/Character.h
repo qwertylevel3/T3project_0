@@ -2,7 +2,6 @@
 
 #include<cocos2d.h>
 #include<map>
-#include"Skill.h"
 #include <vector>
 
 class MainLayer;
@@ -12,6 +11,11 @@ class Armor;
 class Accessory;
 class AIBase;
 class InventoryHandler;
+
+namespace Skill
+{
+class SkillBase;
+}
 
 class Character
 {
@@ -106,7 +110,7 @@ protected:
 	AIBase* ai;
 
 	//Skill......
-	std::map<std::string, Skill*> skillBox;
+	std::map<std::string, Skill::SkillBase*> skillBox;
 
 	//Inventory......
 	InventoryHandler* inventoryHandler;

@@ -3,22 +3,27 @@
 #include "base/ccMacros.h"
 #include <string>
 
+class Character;
+
 namespace Skill
 {
 	class SelectorBase;
-	class RunnerBase;
+	class EffectBase;
 
 	class SkillBase
 	{
 	public:
-		SkillBase();
+		SkillBase(Character* character);
 		virtual ~SkillBase();
 	protected:
 		CC_SYNTHESIZE(std::string, name, Name);
+		CC_SYNTHESIZE(Character*, caster, Caster);
 
 		CC_SYNTHESIZE(SelectorBase*, selector, Selector);
-		CC_SYNTHESIZE(RunnerBase*, runner, Runner);
-		CC_SYNTHESIZE(SkillBase*, childSill, ChildSkill);
+		CC_SYNTHESIZE(EffectBase*, effector, Effector);
+
+		//∫Û–¯÷∏’Î
+		CC_SYNTHESIZE(SkillBase*, nextSkill, NextSkill);
 		void active();
 	};
 }

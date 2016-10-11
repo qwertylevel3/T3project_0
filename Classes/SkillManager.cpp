@@ -1,5 +1,5 @@
 #include "SkillManager.h"
-#include"Attack.h"
+#include"AttackTemp.h"
 
 
 USING_NS_CC;
@@ -19,7 +19,7 @@ void SkillManager::init()
 	initSkill();
 }
 
-Skill * SkillManager::getSkill(std::string skillName)
+SkillTemp * SkillManager::getSkill(std::string skillName)
 {
 	return skillBox[skillName];
 }

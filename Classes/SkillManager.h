@@ -3,7 +3,7 @@
 #include"Singleton.h"
 #include"cocos2d.h"
 #include<map>
-#include"Skill.h"
+#include"SkillTemp.h"
 
 
 //discard
@@ -14,9 +14,9 @@ public:
 	~SkillManager();
 	void init();
 
-	Skill* getSkill(std::string skillName);
+	SkillTemp* getSkill(std::string skillName);
 protected:
 	void initSkill();
-	std::map<std::string, Skill*> skillBox;
+	std::map<std::string, SkillTemp*> skillBox;
 };
 

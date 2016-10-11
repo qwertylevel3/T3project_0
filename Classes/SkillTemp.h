@@ -5,7 +5,7 @@
 
 class Character;
 
-class Skill
+class SkillTemp
 {
 	enum Direction
 	{
@@ -16,8 +16,8 @@ class Skill
 		DirectionCount
 	};
 public:
-	Skill(Character* character);
-	~Skill();
+	SkillTemp(Character* character);
+	~SkillTemp();
 	CC_SYNTHESIZE(Direction, direction, Direction);
 	cocos2d::Animation* animation;
 	virtual int run()=0;
