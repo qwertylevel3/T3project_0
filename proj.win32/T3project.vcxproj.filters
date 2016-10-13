@@ -291,7 +291,9 @@
     <ClCompile Include="..\Classes\FrontSelector.cpp">
       <Filter>src\skill\selector</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudTrigThrow.cpp" />
+    <ClCompile Include="..\Classes\HudTrigThrow.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -525,7 +527,9 @@
     <ClInclude Include="..\Classes\FrontSelector.h">
       <Filter>src\skill\selector</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudTrigThrow.h" />
+    <ClInclude Include="..\Classes\HudTrigThrow.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
