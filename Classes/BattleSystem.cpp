@@ -231,16 +231,8 @@ int BattleSystem::getBlockCount(Character* c)
 
 bool BattleSystem::isInAtkArea(Character* a, Character* b, AttackHand hand)
 {
-
 	std::vector<cocos2d::Point> atkArea;
-	if (hand == LeftHand)
-	{
-		atkArea = a->getLeftHandAtkArea();
-	}
-	else if (hand == RightHand)
-	{
-		atkArea = a->getRightHandAtkArea();
-	}
+	atkArea = a->getAtkArea();
 	for each (cocos2d::Point point in atkArea)
 	{
 		if (point == b->getMapCoord())

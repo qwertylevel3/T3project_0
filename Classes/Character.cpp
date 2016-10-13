@@ -165,37 +165,6 @@ void Character::unequipAccessory()
 
 }
 
-std::vector<cocos2d::Point > Character::getLeftHandAtkArea()
-{
-	std::vector<cocos2d::Point> atkArea;
-	if (!leftHand)
-	{
-		return atkArea;
-	}
-	if (leftHand->getInventoryType()==Inventory::OneHandWeapon 
-		|| leftHand->getInventoryType()==Inventory::TwoHandWeapon)
-	{
-		Weapon* weapon = static_cast<Weapon*>(leftHand);
-		return weapon->getAtkArea(this);
-	}
-	return atkArea;
-}
-
-std::vector<cocos2d::Point > Character::getRightHandAtkArea()
-{
-	std::vector<cocos2d::Point> atkArea;
-	if (!rightHand)
-	{
-		return atkArea;
-	}
-	if (rightHand->getInventoryType()==Inventory::OneHandWeapon 
-		|| rightHand->getInventoryType()==Inventory::TwoHandWeapon)
-	{
-		Weapon* weapon = static_cast<Weapon*>(rightHand);
-		return weapon->getAtkArea(this);
-	}
-	return atkArea;
-}
 
 cocos2d::Point Character::getPosition()
 {
@@ -226,6 +195,32 @@ cocos2d::Node * Character::getParent()
 void Character::runSkill(std::string skillName)
 {
 	skillBox[skillName]->active();
+}
+
+std::vector<cocos2d::Point> Character::getAtkArea()
+{
+	std::vector<cocos2d::Point> vec;
+	cocos2d::Point targetPosition=getMapCoord();
+
+	switch (orientation)
+	{
+	case Character::UP:
+		targetPosition.y -= 1;
+		break;
+	case Character::DOWN:
+		targetPosition.y += 1;
+		break;
+	case Character::LEFT:
+		targetPosition.x -= 1;
+		break;
+	case Character::RIGHT:
+		targetPosition.x += 1;
+		break;
+	default:
+		break;
+	}
+	vec.push_back(targetPosition);
+	return vec;
 }
 
 InventoryHandler* Character::getInventoryHandler()

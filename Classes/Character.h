@@ -67,24 +67,6 @@ public:
 	void unequipAccessory();
 
 
-
-	//************************************
-	// Method:    getLeftHandAtkArea
-	// FullName:  Character::getLeftHandAtkArea
-	// Access:    public 
-	// Returns:   std::vector<cocos2d::Point >
-	// Qualifier: 返回左手武器攻击范围
-	//************************************
-	std::vector<cocos2d::Point > getLeftHandAtkArea();
-	//************************************
-	// Method:    getRightHandAtkArea
-	// FullName:  Character::getRightHandAtkArea
-	// Access:    public 
-	// Returns:   std::vector<cocos2d::Point >
-	// Qualifier: 返回右手武器攻击范围
-	//************************************
-	std::vector<cocos2d::Point > getRightHandAtkArea();
-
 	//返回在当前layer中的坐标
 	cocos2d::Point getPosition();
 	//返回世界坐标
@@ -94,6 +76,8 @@ public:
 	cocos2d::Node* getParent();
 
 	void runSkill(std::string skillName);
+
+	std::vector<cocos2d::Point> getAtkArea();
 
 
 	InventoryHandler* getInventoryHandler();

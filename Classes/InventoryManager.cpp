@@ -116,17 +116,4 @@ void InventoryManager::initWeaponData(tinyxml2::XMLElement* inventoryElement, We
 	weaponModel->setStrRequire(getChildElementIntAttr(inventoryElement, "strRequire"));
 	weaponModel->setAgiRequire(getChildElementIntAttr(inventoryElement, "agiRequire"));
 	weaponModel->setIntRequire(getChildElementIntAttr(inventoryElement, "intRequire"));
-	tinyxml2::XMLElement* weaponAtkAreaElement = getChildElement(inventoryElement, "weaponAtkArea");
-	tinyxml2::XMLElement* pointElement = getChildElement(weaponAtkAreaElement, "point");
-	while (pointElement)
-	{
-		int x = getChildElementIntAttr(pointElement, "x");
-		int y = getChildElementIntAttr(pointElement, "y");
-		cocos2d::Point point;
-		point.x = x;
-		point.y = y;
-		weaponModel->addAtkAreaPoint(point);
-
-		pointElement = pointElement->NextSiblingElement();
-	}
 }

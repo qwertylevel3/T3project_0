@@ -129,17 +129,8 @@ bool AICommonEnemy::isDangerous()
 
 bool AICommonEnemy::isInAttackArea(Character* target)
 {
-	std::vector<cocos2d::Point>& leftHandAtkArea = characterPtr->getLeftHandAtkArea();
-	std::vector<cocos2d::Point>& rightHandAtkArea = characterPtr->getRightHandAtkArea();
-
-	for each (cocos2d::Point point in leftHandAtkArea)
-	{
-		if (target->getMapCoord()==point)
-		{
-			return true;
-		}
-	}
-	for each (cocos2d::Point point in rightHandAtkArea)
+	std::vector<cocos2d::Point> atkArea = characterPtr->getAtkArea();
+	for each (cocos2d::Point point in atkArea)
 	{
 		if (target->getMapCoord()==point)
 		{
