@@ -19,6 +19,7 @@ AttackEffect::AttackEffect()
 
 AttackEffect::~AttackEffect()
 {
+	animation->release();
 }
 
 void Skill::AttackEffect::run(Character* caster, std::vector<cocos2d::Point>& coord)
@@ -77,5 +78,4 @@ void Skill::AttackEffect::run(Character* caster, std::vector<cocos2d::Point>& co
 	//node->runAction(rotateAction);
 
 	node->runAction(cocos2d::Sequence::create(rotateAction, animate, cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, node)), NULL));
-
 }

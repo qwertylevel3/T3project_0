@@ -90,6 +90,10 @@ public:
 
 	void setAI(AIBase* a);
 protected:
+	std::vector<cocos2d::Point> getOneHandAtkArea();
+	std::vector<cocos2d::Point> getTwoHandAtkArea();
+	std::vector<cocos2d::Point> getBowAtkArea();
+
 	//AI......
 	AIBase* ai;
 

@@ -200,26 +200,16 @@ void Character::runSkill(std::string skillName)
 std::vector<cocos2d::Point> Character::getAtkArea()
 {
 	std::vector<cocos2d::Point> vec;
-	cocos2d::Point targetPosition=getMapCoord();
-
-	switch (orientation)
+	if ((leftHand && leftHand->getInventoryType() == Inventory::OneHandWeapon) ||
+		(rightHand && rightHand->getInventoryType()==Inventory::OneHandWeapon)
+		)
 	{
-	case Character::UP:
-		targetPosition.y -= 1;
-		break;
-	case Character::DOWN:
-		targetPosition.y += 1;
-		break;
-	case Character::LEFT:
-		targetPosition.x -= 1;
-		break;
-	case Character::RIGHT:
-		targetPosition.x += 1;
-		break;
-	default:
-		break;
+		return getOneHandAtkArea();
 	}
-	vec.push_back(targetPosition);
+	else if (leftHand && leftHand->getInventoryType() == Inventory::TwoHandWeapon)
+	{
+		return getTwoHandAtkArea();
+	}
 	return vec;
 }
 
@@ -296,7 +286,92 @@ void Character::update()
 }
 
 
+std::vector<cocos2d::Point> Character::getOneHandAtkArea()
+{
+	std::vector<cocos2d::Point> vec;
+	cocos2d::Point targetPosition=getMapCoord();
 
+	switch (orientation)
+	{
+	case Character::UP:
+		targetPosition.y -= 1;
+		break;
+	case Character::DOWN:
+		targetPosition.y += 1;
+		break;
+	case Character::LEFT:
+		targetPosition.x -= 1;
+		break;
+	case Character::RIGHT:
+		targetPosition.x += 1;
+		break;
+	default:
+		break;
+	}
+	vec.push_back(targetPosition);
+	return vec;
+}
+
+// x | x | x		
+//-----------
+//   | c |
+//-----------
+//   |   |
+std::vector<cocos2d::Point> Character::getTwoHandAtkArea()
+{
+	std::vector<cocos2d::Point> vec;
+	cocos2d::Point targetPosition_0=getMapCoord();
+	cocos2d::Point targetPosition_1=getMapCoord();
+	cocos2d::Point targetPosition_2=getMapCoord();
+
+	switch (orientation)
+	{
+	case Character::UP:
+		targetPosition_0.y -= 1;
+		targetPosition_1.y -= 1;
+		targetPosition_2.y -= 1;
+
+		targetPosition_1.x -= 1;
+		targetPosition_2.x += 1;
+		break;
+	case Character::DOWN:
+		targetPosition_0.y += 1;
+		targetPosition_1.y += 1;
+		targetPosition_2.y += 1;
+
+		targetPosition_1.x -= 1;
+		targetPosition_2.x += 1;
+		break;
+	case Character::LEFT:
+		targetPosition_0.x -= 1;
+		targetPosition_1.x -= 1;
+		targetPosition_2.x -= 1;
+
+		targetPosition_1.y += 1;
+		targetPosition_2.y -= 1;
+		break;
+	case Character::RIGHT:
+		targetPosition_0.x += 1;
+		targetPosition_1.x += 1;
+		targetPosition_2.x += 1;
+
+		targetPosition_1.y += 1;
+		targetPosition_2.y -= 1;
+		break;
+	default:
+		break;
+	}
+	vec.push_back(targetPosition_0);
+	vec.push_back(targetPosition_1);
+	vec.push_back(targetPosition_2);
+	return vec;
+}
+
+std::vector<cocos2d::Point> Character::getBowAtkArea()
+{
+	std::vector<cocos2d::Point> vec;
+	return vec;
+}
 
 void Character::setMoveUpAnimation(cocos2d::Animation* animation)
 {

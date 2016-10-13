@@ -21,7 +21,7 @@ namespace Field {
 		void setTile(int x, int y, int tile);
 
 		Character* getCharacter(int x, int y);
-		Character* getCharacter(cocos2d::Point position);
+		Character* getCharacter(cocos2d::Point mapCoord);
 		std::list<Character* >& getAllCharacter();
 		void characterMoveUp(Character* character);
 		void characterMoveDown(Character* character);

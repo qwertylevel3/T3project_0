@@ -68,6 +68,7 @@ void Inventory::copyData(Inventory* inventory)
 {
 	inventory->setName(name);
 	inventory->setCname(cname);
+	inventory->setLevel(level);
 	inventory->setPrice(price);
 	inventory->setWeight(weight);
 	inventory->setSpriteName(spriteName);

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "InventoryInHand.h"
-#include "WeaponAtkArea.h"
 
 
 class Weapon :

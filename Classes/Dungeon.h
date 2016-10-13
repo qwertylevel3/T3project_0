@@ -26,6 +26,7 @@ namespace Field {
 
 		//返回当前坐标的character，如果没有，返回nullPtr
 		Character* getCharacter(int x,int y);
+		Character* getCharacter(cocos2d::Point mapCoord);
 	protected:
 		std::vector<Storey*> storeyVec;
 		CC_SYNTHESIZE(int, curFloor, CurFloor);

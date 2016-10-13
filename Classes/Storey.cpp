@@ -173,9 +173,9 @@ void Field::Storey::characterMoveRight(Character* character)
 	characterList.push_back(character);
 }
 
-Character * Field::Storey::getCharacter(cocos2d::Point position)
+Character * Field::Storey::getCharacter(cocos2d::Point mapCoord)
 {
-	return getCharacter(position.x ,position.y);
+	return getCharacter(mapCoord.x,mapCoord.y);
 }
 
 void Field::Storey::setCharacter(int x, int y, Character * character)

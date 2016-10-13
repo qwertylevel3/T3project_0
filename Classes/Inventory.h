@@ -10,7 +10,9 @@ class Inventory
 public:
 	enum Type
 	{
-		Empty,OneHandWeapon,TwoHandWeapon, Shield, Armor, Supply, Accessory, Other
+		Empty,
+		OneHandWeapon,TwoHandWeapon,Bow,Shield,Arrow, 
+		Armor, Supply, Accessory, Other
 	};
 
 	Inventory();
@@ -34,6 +36,7 @@ protected:
 	CC_SYNTHESIZE(std::string, cname, Cname);
 	CC_SYNTHESIZE(int, price, Price);
 	CC_SYNTHESIZE(int, weight, Weight);
+	CC_SYNTHESIZE(int, level, Level);
 	CC_SYNTHESIZE(std::string, spriteName, SpriteName);
 	CC_SYNTHESIZE(Inventory::Type, inventoryType, InventoryType);
 

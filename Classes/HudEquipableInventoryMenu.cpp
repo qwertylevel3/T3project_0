@@ -5,6 +5,7 @@
 #include "HudTrigEquipRight.h"
 #include "HudTrigDrop.h"
 #include "HudLayout.h"
+#include "HudTrigThrow.h"
 
 
 
@@ -33,6 +34,8 @@ HudEquipableInventoryMenu::HudEquipableInventoryMenu()
 
 
 	HudMenuItem* throwMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"Í¶ÖÀ"));
+	HudTrigThrow* throwTrig = new HudTrigThrow();
+	throwMenuItem->setTrigger(throwTrig);
 	this->addItem(throwMenuItem);
 
 	hide();

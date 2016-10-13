@@ -174,9 +174,6 @@
     <ClCompile Include="..\Classes\Weapon.cpp">
       <Filter>src\inventory\weapon</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\WeaponAtkArea.cpp">
-      <Filter>src\inventory\weapon</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Dialogue.cpp">
       <Filter>src\dialogue</Filter>
     </ClCompile>
@@ -294,6 +291,7 @@
     <ClCompile Include="..\Classes\FrontSelector.cpp">
       <Filter>src\skill\selector</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\HudTrigThrow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -405,9 +403,6 @@
       <Filter>src\inventory\weapon</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Weapon.h">
-      <Filter>src\inventory\weapon</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\WeaponAtkArea.h">
       <Filter>src\inventory\weapon</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Dialogue.h">
@@ -530,6 +525,7 @@
     <ClInclude Include="..\Classes\FrontSelector.h">
       <Filter>src\skill\selector</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\HudTrigThrow.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

@@ -5,6 +5,7 @@
 		<type>oneHandWeapon</type>
 		<name>sword000</name>
 		<cname>木剑</cname>
+		<level>1</level>
 		<price>8</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -24,6 +25,7 @@
 		<type>oneHandWeapon</type>
 		<name>sword001</name>
 		<cname>铁剑</cname>
+		<level>1</level>
 		<price>10</price>
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -43,6 +45,7 @@
 		<type>oneHandWeapon</type>
 		<name>sword002</name>
 		<cname>钢剑</cname>
+		<level>1</level>
 		<price>14</price>
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>

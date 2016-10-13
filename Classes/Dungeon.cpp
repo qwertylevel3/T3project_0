@@ -96,3 +96,8 @@ Character * Field::Dungeon::getCharacter(int x,int y)
 {
 	return storeyVec[curFloor]->getCharacter(x,y);
 }
+
+Character* Field::Dungeon::getCharacter(cocos2d::Point mapCoord)
+{
+	return storeyVec[curFloor]->getCharacter(mapCoord);
+}
