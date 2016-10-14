@@ -34,8 +34,11 @@ Weapon* BattleSystem::getWeapon(Character* c, AttackHand hand)
 	{
 	case LeftHand:
 	case DoubleHand:
+	case Bow:
 		type = c->getLeftHand() ? c->getLeftHand()->getInventoryType() : Inventory::Type::Empty;
-		if (type == Inventory::OneHandWeapon || type == Inventory::TwoHandWeapon)
+		if (type == Inventory::OneHandWeapon || 
+			type == Inventory::TwoHandWeapon ||
+			type==Inventory::Bow)
 		{
 			weapon = static_cast<Weapon*>(c->getLeftHand());
 		}
@@ -47,7 +50,9 @@ Weapon* BattleSystem::getWeapon(Character* c, AttackHand hand)
 		break;
 	case RightHand:
 		type = c->getRightHand() ? c->getRightHand()->getInventoryType() : Inventory::Empty;
-		if (type == Inventory::OneHandWeapon || type == Inventory::TwoHandWeapon)
+		if (type == Inventory::OneHandWeapon 
+			|| type == Inventory::TwoHandWeapon
+			|| type==Inventory::Bow)
 		{
 			weapon = static_cast<Weapon*>(c->getRightHand());
 		}
@@ -98,6 +103,15 @@ void BattleSystem::attack(Character * a, Character * b)
 #endif
 			attack(a, b, DoubleHand);
 		}
+		else if (a->getLeftHand() && a->getLeftHand()->getInventoryType() == Inventory::Bow)
+		{
+#ifdef SHOWMESSAGE
+			cout << "~doubleHand:" << endl;
+#endif
+			attack(a, b, Bow);
+		}
+
+
 
 		if (!isCombo(a))
 		{

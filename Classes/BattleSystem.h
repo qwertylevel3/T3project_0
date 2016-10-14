@@ -9,7 +9,7 @@ class BattleSystem:public Singleton<BattleSystem>
 public:
 	enum AttackHand
 	{
-		LeftHand, RightHand, DoubleHand
+		LeftHand, RightHand, DoubleHand,Bow
 	};
 	BattleSystem();
 	~BattleSystem();

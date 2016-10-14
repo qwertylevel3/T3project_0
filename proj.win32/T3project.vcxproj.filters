@@ -300,6 +300,7 @@
     <ClCompile Include="..\Classes\LinerSelector.cpp" />
     <ClCompile Include="..\Classes\Bow.cpp" />
     <ClCompile Include="..\Classes\Arrow.cpp" />
+    <ClCompile Include="..\Classes\AttackSelector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -542,6 +543,7 @@
     <ClInclude Include="..\Classes\LinerSelector.h" />
     <ClInclude Include="..\Classes\Bow.h" />
     <ClInclude Include="..\Classes\Arrow.h" />
+    <ClInclude Include="..\Classes\AttackSelector.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

@@ -13,6 +13,7 @@
 #include "Attack.h"
 #include "Dungeon.h"
 #include "FixedSelector.h"
+#include "LinerSelector.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -227,6 +228,10 @@ std::vector<cocos2d::Point> Character::getAtkArea()
 	{
 		return getTwoHandAtkArea();
 	}
+	else if (leftHand && leftHand->getInventoryType() == Inventory::Bow)
+	{
+		return getBowAtkArea();
+	}
 	return vec;
 }
 
@@ -349,45 +354,8 @@ std::vector<cocos2d::Point> Character::getTwoHandAtkArea()
 
 std::vector<cocos2d::Point> Character::getBowAtkArea()
 {
-	std::vector<cocos2d::Point> vec;
-	const int maxLength = 5;
-
-	cocos2d::Point targetCoord = getMapCoord();
-	cocos2d::Point offset(0, 0);
-
-	switch (orientation)
-	{
-	case Character::UP:
-		offset.y--;
-		break;
-	case Character::DOWN:
-		offset.y++;
-		break;
-	case Character::LEFT:
-		offset.x--;
-		break;
-	case Character::RIGHT:
-		offset.x++;
-		break;
-	default:
-		break;
-	}
-
-	for (int i = 0; i < maxLength; i++)
-	{
-		targetCoord += offset;
-		Character* targetCharacter = Field::Dungeon::getInstance()->getCharacter(targetCoord);
-		if (targetCharacter)
-		{
-			vec.push_back(targetCoord);
-			return vec;
-		}
-	}
-	//////////////////////////////////////////////////////////////////////////
-
-//	targetCoord = getMapCoord();
-
-	return vec;
+	Skill::LinerSelector selector;
+	return selector.select(this);
 }
 
 void Character::setMoveUpAnimation(cocos2d::Animation* animation)

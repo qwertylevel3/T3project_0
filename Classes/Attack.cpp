@@ -1,5 +1,5 @@
 #include "Attack.h"
-#include "FrontSelector.h"
+#include "AttackSelector.h"
 #include "AttackEffect.h"
 
 
@@ -8,8 +8,8 @@ using namespace Skill;
 Attack::Attack(Character* caster)
 	:SkillBase(caster)
 {
-	FrontSelector* frontSelector = new FrontSelector();
-	this->setSelector(frontSelector);
+	AttackSelector* selector = new AttackSelector();
+	this->setSelector(selector);
 	AttackEffect* attackEffect = new AttackEffect();
 	this->setEffector(attackEffect);
 

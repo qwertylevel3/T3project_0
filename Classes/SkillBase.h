@@ -24,6 +24,6 @@ namespace Skill
 
 		//∫Û–¯÷∏’Î
 		CC_SYNTHESIZE(SkillBase*, nextSkill, NextSkill);
-		void active();
+		virtual void active();
 	};
 }

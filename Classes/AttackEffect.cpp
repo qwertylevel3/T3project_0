@@ -2,6 +2,7 @@
 #include "BattleSystem.h"
 #include "Dungeon.h"
 #include "2d/CCAnimation.h"
+#include "InventoryInHand.h"
 
 using namespace Skill;
 
@@ -37,12 +38,27 @@ void Skill::AttackEffect::run(Character* caster, std::vector<cocos2d::Point>& co
 	{
 		BattleSystem::getInstance()->attack(caster, target);
 	}
+	InventoryInHand* leftHand = caster->getLeftHand();
+	InventoryInHand* rightHand = caster->getRightHand();
+	if (leftHand && leftHand->getInventoryType() == Inventory::TwoHandWeapon)
+	{
+		showTwoHandEffect(caster, coord);
+	}
+	else if (leftHand && leftHand->getInventoryType() == Inventory::Bow)
+	{
+		showBowEffect(caster, coord);
+	}
+	else if ((leftHand && leftHand->getInventoryType() == Inventory::OneHandWeapon) ||
+		(rightHand && rightHand->getInventoryType() == Inventory::OneHandWeapon))
+	{
+		showOneHandEffect(caster, coord);
+	}
+}
 
-
+void Skill::AttackEffect::showOneHandEffect(Character* caster, std::vector<cocos2d::Point>& coord)
+{
 	cocos2d::Point position = caster->getPosition();
-
 	cocos2d::Node* scene = caster->getParent();
-
 	cocos2d::Sprite* node = cocos2d::Sprite::create();//Sprite::createWithSpriteFrameName("effect_0.png");
 
 	int rotateAngle = 0;
@@ -78,4 +94,50 @@ void Skill::AttackEffect::run(Character* caster, std::vector<cocos2d::Point>& co
 	//node->runAction(rotateAction);
 
 	node->runAction(cocos2d::Sequence::create(rotateAction, animate, cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, node)), NULL));
+}
+
+void Skill::AttackEffect::showTwoHandEffect(Character* caster, std::vector<cocos2d::Point>& coord)
+{
+	showOneHandEffect(caster, coord);
+}
+
+void Skill::AttackEffect::showBowEffect(Character* caster, std::vector<cocos2d::Point>& coord)
+{
+	if (coord.empty())
+	{
+		return;
+	}
+	cocos2d::Point targetCoord=coord[0];
+	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+	cocos2d::Point oriPosition = caster->getPosition();
+	cocos2d::Point targetPosition = storey->getTilePosition(targetCoord);
+	cocos2d::Node* scene = caster->getParent();
+
+	cocos2d::Sprite* arrowSprite = cocos2d::Sprite::create("arrow_effect.png");
+	arrowSprite->setPosition(oriPosition);
+	scene->addChild(arrowSprite, 15);
+	cocos2d::ActionInterval* moveAction = cocos2d::CCMoveTo::create(0.1, cocos2d::Vec2(targetPosition));
+
+
+	int rotateAngle = 0;
+	switch (caster->getOrientation())
+	{
+	case Character::Orientation::UP:
+		rotateAngle = 0;
+		break;
+	case Character::Orientation::DOWN:
+		rotateAngle = 180;
+		break;
+	case Character::Orientation::LEFT:
+		rotateAngle = 270;
+		break;
+	case Character::Orientation::RIGHT:
+		rotateAngle = 90;
+		break;
+	}
+	cocos2d::ActionInterval* rotateAction = cocos2d::CCRotateTo::create(0.0, rotateAngle);
+
+	arrowSprite->runAction(cocos2d::Sequence::create(
+		rotateAction,moveAction, 
+		cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, arrowSprite)), NULL));
 }
