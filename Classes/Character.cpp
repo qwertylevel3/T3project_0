@@ -140,18 +140,34 @@ void Character::equipAccessory(Inventory* inventory)
 
 void Character::unequipLeftHand()
 {
-	if (leftHand)
+	if (leftHand && leftHand->getInventoryType()==Inventory::OneHandWeapon)
 	{
 		inventoryHandler->addInventory(leftHand);
 		leftHand = nullptr;
+	}
+	else if (leftHand &&
+		(leftHand->getInventoryType() == Inventory::TwoHandWeapon ||
+			leftHand->getInventoryType() == Inventory::Bow))
+	{
+		inventoryHandler->addInventory(leftHand);
+		leftHand = nullptr;
+		rightHand = nullptr;
 	}
 }
 
 void Character::unequipRightHand()
 {
-	if (rightHand)
+	if (rightHand && rightHand->getInventoryType()==Inventory::OneHandWeapon)
 	{
 		inventoryHandler->addInventory(rightHand);
+		rightHand = nullptr;
+	}
+	else if (rightHand &&
+		(rightHand->getInventoryType() == Inventory::TwoHandWeapon ||
+			rightHand->getInventoryType() == Inventory::Bow))
+	{
+		inventoryHandler->addInventory(rightHand);
+		leftHand = nullptr;
 		rightHand = nullptr;
 	}
 }

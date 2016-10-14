@@ -8,6 +8,8 @@
 #include "Accessory.h"
 #include "Armor.h"
 #include "Supply.h"
+#include "Bow.h"
+#include "Arrow.h"
 
 USING_NS_CC;
 
@@ -70,6 +72,31 @@ void InventoryManager::initModel(tinyxml2::XMLElement* inventoryElement, const s
 	}
 	else if (type == "twoHandWeapon")
 	{
+		TwoHandWeapon* model = new TwoHandWeapon();
+		model->setInventoryType(Inventory::TwoHandWeapon);
+
+		initBaseData(inventoryElement, model);
+		initWeaponData(inventoryElement, model);
+
+		inventoryMap[model->getName()] = model;
+	}
+	else if (type == "bow")
+	{
+		Bow* model = new Bow();
+		model->setInventoryType(Inventory::Bow);
+
+		initBaseData(inventoryElement, model);
+		initWeaponData(inventoryElement, model);
+
+		inventoryMap[model->getName()] = model;
+	}
+	else if (type=="arrow")
+	{
+		Arrow* model = new Arrow();
+		initBaseData(inventoryElement, model);
+		initArrowData(inventoryElement, model);
+
+		inventoryMap[model->getName()] = model;
 	}
 	else if (type == "shield")
 	{
@@ -117,4 +144,9 @@ void InventoryManager::initWeaponData(tinyxml2::XMLElement* inventoryElement, We
 	weaponModel->setStrRequire(getChildElementIntAttr(inventoryElement, "strRequire"));
 	weaponModel->setAgiRequire(getChildElementIntAttr(inventoryElement, "agiRequire"));
 	weaponModel->setIntRequire(getChildElementIntAttr(inventoryElement, "intRequire"));
+}
+
+void InventoryManager::initArrowData(tinyxml2::XMLElement* inventoryElement, Arrow* model)
+{
+	model->setDamage(getChildElementIntAttr(inventoryElement, "damage"));
 }

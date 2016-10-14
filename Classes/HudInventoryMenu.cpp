@@ -78,6 +78,7 @@ void HudInventoryMenu::setItemTrigger(const std::string& inventoryName, HudMenuI
 	case Inventory::TwoHandWeapon:
 	case Inventory::Shield:
 	case Inventory::Armor:
+	case Inventory::Bow:
 		initEquipableInventoryMenu(item);
 		break;
 	case Inventory::Supply:

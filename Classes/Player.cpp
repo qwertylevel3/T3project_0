@@ -51,10 +51,20 @@ void Player::init()
 	Inventory* testItem1 = InventoryManager::getInstance()->getInventory("sword001");
 	Inventory* testItem2 = InventoryManager::getInstance()->getInventory("sword001");
 	Inventory* testItem3 = InventoryManager::getInstance()->getInventory("sword001");
+	Inventory* testItem4 = InventoryManager::getInstance()->getInventory("bow000");
+
 	characterPtr->addInventory(testItem0);
 	characterPtr->addInventory(testItem1);
 	characterPtr->addInventory(testItem2);
 	characterPtr->addInventory(testItem3);
+	characterPtr->addInventory(testItem4);
+
+
+
+	for (int i = 0; i < 20; i++)
+	{
+		characterPtr->addInventory("arrow000");
+	}
 
 //	Armor* armor = new Armor();
 //	armor->setArmorCount(5);

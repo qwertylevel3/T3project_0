@@ -299,6 +299,7 @@
     </ClCompile>
     <ClCompile Include="..\Classes\LinerSelector.cpp" />
     <ClCompile Include="..\Classes\Bow.cpp" />
+    <ClCompile Include="..\Classes\Arrow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -540,6 +541,7 @@
     </ClInclude>
     <ClInclude Include="..\Classes\LinerSelector.h" />
     <ClInclude Include="..\Classes\Bow.h" />
+    <ClInclude Include="..\Classes\Arrow.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

@@ -7,6 +7,7 @@
 #include "Inventory.h"
 
 class Weapon;
+class Arrow;
 
 class InventoryManager:public XMLConfigure,public Singleton<InventoryManager>
 {
@@ -21,6 +22,7 @@ protected:
 	void initModel(tinyxml2::XMLElement* inventoryElement,const std::string& type);
 	void initBaseData(tinyxml2::XMLElement* inventoryElement,Inventory* model);
 	void initWeaponData(tinyxml2::XMLElement* inventoryElement, Weapon* weaponModel);
+	void initArrowData(tinyxml2::XMLElement* inventoryElement, Arrow* model);
 
 	std::map<std::string, Inventory*> inventoryMap;
 	tinyxml2::XMLElement* curInventoryElement;

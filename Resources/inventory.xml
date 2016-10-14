@@ -61,4 +61,41 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 	</inventory>
+	<inventory>
+		<type>bow</type>
+		<name>bow000</name>
+		<cname>弓</cname>
+		<level>1</level>
+		<price>14</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<evadeProAdd>0</evadeProAdd>
+		<accuracyProAdd>0</accuracyProAdd>
+		<criticalProAdd>0</criticalProAdd>
+		<criticalAdd>0</criticalAdd>
+		<blockProAdd>0</blockProAdd>
+		<blockAdd>0</blockAdd>
+		<comboProAdd>0</comboProAdd>
+		<weaponDamage>6</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+	</inventory>
+	<inventory>
+		<type>arrow</type>
+		<name>arrow000</name>
+		<cname>箭</cname>
+		<level>1</level>
+		<price>1</price>
+		<weight>0</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<evadeProAdd>0</evadeProAdd>
+		<accuracyProAdd>0</accuracyProAdd>
+		<criticalProAdd>0</criticalProAdd>
+		<criticalAdd>0</criticalAdd>
+		<blockProAdd>0</blockProAdd>
+		<blockAdd>0</blockAdd>
+		<comboProAdd>0</comboProAdd>
+		<damage>6</damage>
+	</inventory>
 </inventoryList>
