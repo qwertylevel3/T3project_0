@@ -156,6 +156,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AStar.cpp" />
     <ClCompile Include="..\Classes\Attack.cpp" />
     <ClCompile Include="..\Classes\AttackEffect.cpp" />
+    <ClCompile Include="..\Classes\Bow.cpp" />
     <ClCompile Include="..\Classes\EffectBase.cpp" />
     <ClCompile Include="..\Classes\FixedSelector.cpp" />
     <ClCompile Include="..\Classes\FrontSelector.cpp" />
@@ -171,6 +172,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudTrigUnequipRight.cpp" />
     <ClCompile Include="..\Classes\HudUnequipLeftMenu.cpp" />
     <ClCompile Include="..\Classes\HudUnequipRightMenu.cpp" />
+    <ClCompile Include="..\Classes\LinerSelector.cpp" />
     <ClCompile Include="..\Classes\SelectorBase.cpp" />
     <ClCompile Include="..\Classes\SkillBase.cpp" />
     <ClCompile Include="..\Classes\StoreyInventoryHandler.cpp" />
@@ -237,6 +239,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AStar.h" />
     <ClInclude Include="..\Classes\Attack.h" />
     <ClInclude Include="..\Classes\AttackEffect.h" />
+    <ClInclude Include="..\Classes\Bow.h" />
     <ClInclude Include="..\Classes\EffectBase.h" />
     <ClInclude Include="..\Classes\FixedSelector.h" />
     <ClInclude Include="..\Classes\FrontSelector.h" />
@@ -252,6 +255,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudTrigUnequipRight.h" />
     <ClInclude Include="..\Classes\HudUnequipLeftMenu.h" />
     <ClInclude Include="..\Classes\HudUnequipRightMenu.h" />
+    <ClInclude Include="..\Classes\LinerSelector.h" />
     <ClInclude Include="..\Classes\SelectorBase.h" />
     <ClInclude Include="..\Classes\SkillBase.h" />
     <ClInclude Include="..\Classes\StoreyInventoryHandler.h" />

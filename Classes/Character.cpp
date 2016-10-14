@@ -142,7 +142,6 @@ void Character::unequipLeftHand()
 {
 	if (leftHand)
 	{
-		//查看添加后lefthand是否为空
 		inventoryHandler->addInventory(leftHand);
 		leftHand = nullptr;
 	}

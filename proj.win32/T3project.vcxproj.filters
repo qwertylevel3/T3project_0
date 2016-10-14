@@ -297,6 +297,8 @@
     <ClCompile Include="..\Classes\FixedSelector.cpp">
       <Filter>src\skill\selector</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\LinerSelector.cpp" />
+    <ClCompile Include="..\Classes\Bow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -536,6 +538,8 @@
     <ClInclude Include="..\Classes\FixedSelector.h">
       <Filter>src\skill\selector</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\LinerSelector.h" />
+    <ClInclude Include="..\Classes\Bow.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

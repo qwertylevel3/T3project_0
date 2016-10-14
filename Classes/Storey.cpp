@@ -235,17 +235,22 @@ StoreyInventoryHandler* Field::Storey::getInventoryHandler()
 	return inventoryHandler;
 }
 
-bool Field::Storey::isMoveAble(cocos2d::Point position)
+bool Field::Storey::isMoveAble(cocos2d::Point mapCoord)
 {
-	if (getCharacter(position) && !getCharacter(position)->isDead())
+	if (getCharacter(mapCoord) && !getCharacter(mapCoord)->isDead())
 	{
 		return false;
 	}
-	if (getTile(position) == Field::Floor)
+	if (getTile(mapCoord) == Field::Floor)
 	{
 		return true;
 	}
 	return false;
+}
+
+bool Field::Storey::isValid(cocos2d::Point mapCoord)
+{
+	return mapCoord.x >= 0 && mapCoord.y >= 0 && mapCoord.x < width && mapCoord.y < height;
 }
 
 int Storey::getHeight()
