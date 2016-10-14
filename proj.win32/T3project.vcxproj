@@ -157,6 +157,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Attack.cpp" />
     <ClCompile Include="..\Classes\AttackEffect.cpp" />
     <ClCompile Include="..\Classes\EffectBase.cpp" />
+    <ClCompile Include="..\Classes\FixedSelector.cpp" />
     <ClCompile Include="..\Classes\FrontSelector.cpp" />
     <ClCompile Include="..\Classes\HudGroundInventoryMenu.cpp" />
     <ClCompile Include="..\Classes\HudGroundMenu.cpp" />
@@ -237,6 +238,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Attack.h" />
     <ClInclude Include="..\Classes\AttackEffect.h" />
     <ClInclude Include="..\Classes\EffectBase.h" />
+    <ClInclude Include="..\Classes\FixedSelector.h" />
     <ClInclude Include="..\Classes\FrontSelector.h" />
     <ClInclude Include="..\Classes\HudGroundInventoryMenu.h" />
     <ClInclude Include="..\Classes\HudGroundMenu.h" />

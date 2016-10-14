@@ -11,6 +11,8 @@
 #include "InventoryHandler.h"
 #include "SkillBase.h"
 #include "Attack.h"
+#include "Dungeon.h"
+#include "FixedSelector.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -288,28 +290,32 @@ void Character::update()
 
 std::vector<cocos2d::Point> Character::getOneHandAtkArea()
 {
-	std::vector<cocos2d::Point> vec;
-	cocos2d::Point targetPosition=getMapCoord();
+	Skill::FixedSelector selector;
+	selector.addRelativeCoord(cocos2d::Point(0, 1));
+	return selector.select(this);
 
-	switch (orientation)
-	{
-	case Character::UP:
-		targetPosition.y -= 1;
-		break;
-	case Character::DOWN:
-		targetPosition.y += 1;
-		break;
-	case Character::LEFT:
-		targetPosition.x -= 1;
-		break;
-	case Character::RIGHT:
-		targetPosition.x += 1;
-		break;
-	default:
-		break;
-	}
-	vec.push_back(targetPosition);
-	return vec;
+//	std::vector<cocos2d::Point> vec;
+//	cocos2d::Point targetPosition=getMapCoord();
+
+//	switch (orientation)
+//	{
+//	case Character::UP:
+//		targetPosition.y -= 1;
+//		break;
+//	case Character::DOWN:
+//		targetPosition.y += 1;
+//		break;
+//	case Character::LEFT:
+//		targetPosition.x -= 1;
+//		break;
+//	case Character::RIGHT:
+//		targetPosition.x += 1;
+//		break;
+//	default:
+//		break;
+//	}
+//	vec.push_back(targetPosition);
+//	return vec;
 }
 
 // x | x | x		
@@ -319,57 +325,53 @@ std::vector<cocos2d::Point> Character::getOneHandAtkArea()
 //   |   |
 std::vector<cocos2d::Point> Character::getTwoHandAtkArea()
 {
-	std::vector<cocos2d::Point> vec;
-	cocos2d::Point targetPosition_0=getMapCoord();
-	cocos2d::Point targetPosition_1=getMapCoord();
-	cocos2d::Point targetPosition_2=getMapCoord();
-
-	switch (orientation)
-	{
-	case Character::UP:
-		targetPosition_0.y -= 1;
-		targetPosition_1.y -= 1;
-		targetPosition_2.y -= 1;
-
-		targetPosition_1.x -= 1;
-		targetPosition_2.x += 1;
-		break;
-	case Character::DOWN:
-		targetPosition_0.y += 1;
-		targetPosition_1.y += 1;
-		targetPosition_2.y += 1;
-
-		targetPosition_1.x -= 1;
-		targetPosition_2.x += 1;
-		break;
-	case Character::LEFT:
-		targetPosition_0.x -= 1;
-		targetPosition_1.x -= 1;
-		targetPosition_2.x -= 1;
-
-		targetPosition_1.y += 1;
-		targetPosition_2.y -= 1;
-		break;
-	case Character::RIGHT:
-		targetPosition_0.x += 1;
-		targetPosition_1.x += 1;
-		targetPosition_2.x += 1;
-
-		targetPosition_1.y += 1;
-		targetPosition_2.y -= 1;
-		break;
-	default:
-		break;
-	}
-	vec.push_back(targetPosition_0);
-	vec.push_back(targetPosition_1);
-	vec.push_back(targetPosition_2);
-	return vec;
+	Skill::FixedSelector selector;
+	selector.addRelativeCoord(0, 1);
+	selector.addRelativeCoord(-1, 1);
+	selector.addRelativeCoord(1, 1);
+	return selector.select(this);
 }
 
 std::vector<cocos2d::Point> Character::getBowAtkArea()
 {
 	std::vector<cocos2d::Point> vec;
+	const int maxLength = 5;
+
+	cocos2d::Point targetCoord = getMapCoord();
+	cocos2d::Point offset(0, 0);
+
+	switch (orientation)
+	{
+	case Character::UP:
+		offset.y--;
+		break;
+	case Character::DOWN:
+		offset.y++;
+		break;
+	case Character::LEFT:
+		offset.x--;
+		break;
+	case Character::RIGHT:
+		offset.x++;
+		break;
+	default:
+		break;
+	}
+
+	for (int i = 0; i < maxLength; i++)
+	{
+		targetCoord += offset;
+		Character* targetCharacter = Field::Dungeon::getInstance()->getCharacter(targetCoord);
+		if (targetCharacter)
+		{
+			vec.push_back(targetCoord);
+			return vec;
+		}
+	}
+	//////////////////////////////////////////////////////////////////////////
+
+//	targetCoord = getMapCoord();
+
 	return vec;
 }
 

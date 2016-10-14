@@ -294,6 +294,9 @@
     <ClCompile Include="..\Classes\HudTrigThrow.cpp">
       <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\FixedSelector.cpp">
+      <Filter>src\skill\selector</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -529,6 +532,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HudTrigThrow.h">
       <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FixedSelector.h">
+      <Filter>src\skill\selector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

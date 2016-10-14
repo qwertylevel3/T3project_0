@@ -36,7 +36,6 @@ void HudTrigThrow::run()
 
 	showEffect(inventory,targetCoord);
 	//////////////////////////////////////////////////////////////////////////
-//	throwResult();
 
 
 	menuItem->getParentMenu()->closeMenu();
