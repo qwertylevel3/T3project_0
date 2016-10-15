@@ -309,7 +309,9 @@
     <ClCompile Include="..\Classes\Arrow.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\SingleDirectionSearchSelector.cpp" />
+    <ClCompile Include="..\Classes\SingleDirectionSearchSelector.cpp">
+      <Filter>src\selector</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -561,7 +563,9 @@
     <ClInclude Include="..\Classes\Arrow.h">
       <Filter>src\inventory</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\SingleDirectionSearchSelector.h" />
+    <ClInclude Include="..\Classes\SingleDirectionSearchSelector.h">
+      <Filter>src\selector</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

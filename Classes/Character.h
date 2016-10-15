@@ -78,6 +78,7 @@ public:
 	void runSkill(std::string skillName);
 
 	std::vector<cocos2d::Point> getAtkArea();
+	std::vector<cocos2d::Point> getAtkSelect();
 
 
 	InventoryHandler* getInventoryHandler();
@@ -92,7 +93,10 @@ public:
 protected:
 	std::vector<cocos2d::Point> getOneHandAtkArea();
 	std::vector<cocos2d::Point> getTwoHandAtkArea();
+	//返回弓类武器攻击范围
 	std::vector<cocos2d::Point> getBowAtkArea();
+	//返回弓类武器真实选择坐标
+	std::vector<cocos2d::Point> getBowAtkSelect();
 
 	//AI......
 	AIBase* ai;

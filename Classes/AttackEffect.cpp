@@ -3,6 +3,8 @@
 #include "Dungeon.h"
 #include "2d/CCAnimation.h"
 #include "InventoryInHand.h"
+#include "Arrow.h"
+#include "InventoryHandler.h"
 
 using namespace Skill;
 
@@ -34,8 +36,24 @@ void Skill::AttackEffect::run(Character* caster, std::vector<cocos2d::Point>& co
 			targetCharacters.insert(target);
 		}
 	}
+
 	for each (Character* target in targetCharacters)
 	{
+
+		if (caster->getLeftHand() &&
+			caster->getLeftHand()->getInventoryType() == Inventory::Bow)
+		{
+			Inventory* arrow = caster->getInventoryHandler()->getInventory("arrow000");
+			if (arrow)
+			{
+				delete arrow;
+			}
+			else
+			{
+				return;
+			}
+		}
+
 		BattleSystem::getInstance()->attack(caster, target);
 	}
 	InventoryInHand* leftHand = caster->getLeftHand();

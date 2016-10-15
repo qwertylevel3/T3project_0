@@ -236,6 +236,26 @@ std::vector<cocos2d::Point> Character::getAtkArea()
 	return vec;
 }
 
+std::vector<cocos2d::Point> Character::getAtkSelect()
+{
+	std::vector<cocos2d::Point> vec;
+	if ((leftHand && leftHand->getInventoryType() == Inventory::OneHandWeapon) ||
+		(rightHand && rightHand->getInventoryType()==Inventory::OneHandWeapon)
+		)
+	{
+		return getOneHandAtkArea();
+	}
+	else if (leftHand && leftHand->getInventoryType() == Inventory::TwoHandWeapon)
+	{
+		return getTwoHandAtkArea();
+	}
+	else if (leftHand && leftHand->getInventoryType() == Inventory::Bow)
+	{
+		return getBowAtkSelect();
+	}
+	return vec;
+}
+
 InventoryHandler* Character::getInventoryHandler()
 {
 	return inventoryHandler;
@@ -314,29 +334,6 @@ std::vector<cocos2d::Point> Character::getOneHandAtkArea()
 	FixedSelector selector;
 	selector.addRelativeCoord(cocos2d::Point(0, 1));
 	return selector.select(this);
-
-//	std::vector<cocos2d::Point> vec;
-//	cocos2d::Point targetPosition=getMapCoord();
-
-//	switch (orientation)
-//	{
-//	case Character::UP:
-//		targetPosition.y -= 1;
-//		break;
-//	case Character::DOWN:
-//		targetPosition.y += 1;
-//		break;
-//	case Character::LEFT:
-//		targetPosition.x -= 1;
-//		break;
-//	case Character::RIGHT:
-//		targetPosition.x += 1;
-//		break;
-//	default:
-//		break;
-//	}
-//	vec.push_back(targetPosition);
-//	return vec;
 }
 
 // x | x | x		
@@ -354,6 +351,13 @@ std::vector<cocos2d::Point> Character::getTwoHandAtkArea()
 }
 
 std::vector<cocos2d::Point> Character::getBowAtkArea()
+{
+	SingleDirectionSearchSelector selector;
+	selector.setImpactNumber(-1);
+	return selector.select(this);
+}
+
+std::vector<cocos2d::Point> Character::getBowAtkSelect()
 {
 	SingleDirectionSearchSelector selector;
 	selector.setImpactNumber(1);
