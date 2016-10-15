@@ -3,16 +3,16 @@
 
 
 
-Skill::AttackSelector::AttackSelector()
+AttackSelector::AttackSelector()
 {
 }
 
 
-Skill::AttackSelector::~AttackSelector()
+AttackSelector::~AttackSelector()
 {
 }
 
-std::vector<cocos2d::Point> Skill::AttackSelector::select(Character* caster)
+std::vector<cocos2d::Point> AttackSelector::select(Character* caster)
 {
 	return caster->getAtkArea();
 }

@@ -2,13 +2,10 @@
 
 #include "SelectorBase.h"
 
-namespace Skill
+class AttackSelector :public SelectorBase
 {
-	class AttackSelector:public SelectorBase
-	{
-	public:
-		AttackSelector();
-		~AttackSelector();
-		std::vector<cocos2d::Point> select(Character* caster);
-	};
-}
+public:
+	AttackSelector();
+	~AttackSelector();
+	std::vector<cocos2d::Point> select(Character* caster);
+};

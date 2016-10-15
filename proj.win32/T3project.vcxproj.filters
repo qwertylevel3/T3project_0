@@ -61,11 +61,11 @@
     <Filter Include="src\HUD\menuSystem\menu\groundMenu">
       <UniqueIdentifier>{1edf1825-4298-4cca-9900-d2f7cddd62c6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\skill\selector">
-      <UniqueIdentifier>{11a82f50-1af5-4588-8a23-2146e4c4efa9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\skill\effector">
       <UniqueIdentifier>{d2e18a5a-a3cd-47ba-b018-c9e59d8c6820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\selector">
+      <UniqueIdentifier>{11a82f50-1af5-4588-8a23-2146e4c4efa9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -286,21 +286,29 @@
       <Filter>src\skill\effector</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\SelectorBase.cpp">
-      <Filter>src\skill\selector</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\FrontSelector.cpp">
-      <Filter>src\skill\selector</Filter>
+      <Filter>src\selector</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\HudTrigThrow.cpp">
       <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\FixedSelector.cpp">
-      <Filter>src\skill\selector</Filter>
+      <Filter>src\selector</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\LinerSelector.cpp" />
-    <ClCompile Include="..\Classes\Bow.cpp" />
-    <ClCompile Include="..\Classes\Arrow.cpp" />
-    <ClCompile Include="..\Classes\AttackSelector.cpp" />
+    <ClCompile Include="..\Classes\LinerSelector.cpp">
+      <Filter>src\selector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AttackSelector.cpp">
+      <Filter>src\selector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AreaSearchSelector.cpp">
+      <Filter>src\selector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Bow.cpp">
+      <Filter>src\inventory\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Arrow.cpp">
+      <Filter>src\inventory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -529,21 +537,29 @@
       <Filter>src\skill\effector</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\SelectorBase.h">
-      <Filter>src\skill\selector</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\FrontSelector.h">
-      <Filter>src\skill\selector</Filter>
+      <Filter>src\selector</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HudTrigThrow.h">
       <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\FixedSelector.h">
-      <Filter>src\skill\selector</Filter>
+      <Filter>src\selector</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\LinerSelector.h" />
-    <ClInclude Include="..\Classes\Bow.h" />
-    <ClInclude Include="..\Classes\Arrow.h" />
-    <ClInclude Include="..\Classes\AttackSelector.h" />
+    <ClInclude Include="..\Classes\LinerSelector.h">
+      <Filter>src\selector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AttackSelector.h">
+      <Filter>src\selector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AreaSearchSelector.h">
+      <Filter>src\selector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Bow.h">
+      <Filter>src\inventory\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Arrow.h">
+      <Filter>src\inventory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

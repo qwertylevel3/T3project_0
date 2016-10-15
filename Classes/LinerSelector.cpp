@@ -4,7 +4,7 @@
 
 
 
-Skill::LinerSelector::LinerSelector()
+LinerSelector::LinerSelector()
 {
 	orientation = UP;
 	impactNumber = 1;
@@ -12,11 +12,11 @@ Skill::LinerSelector::LinerSelector()
 }
 
 
-Skill::LinerSelector::~LinerSelector()
+LinerSelector::~LinerSelector()
 {
 }
 
-std::vector<cocos2d::Point> Skill::LinerSelector::select(Character* caster)
+std::vector<cocos2d::Point> LinerSelector::select(Character* caster)
 {
 	std::vector<cocos2d::Point> vec;
 	cocos2d::Point offset = getOffset(caster);
@@ -52,53 +52,53 @@ std::vector<cocos2d::Point> Skill::LinerSelector::select(Character* caster)
 	return vec;
 }
 
-void Skill::LinerSelector::setOrientation(LinerOrientation ori)
+void LinerSelector::setOrientation(LinerOrientation ori)
 {
 	orientation = ori;
 }
 
-void Skill::LinerSelector::setImpactNumber(int number)
+void LinerSelector::setImpactNumber(int number)
 {
 	impactNumber = number;
 }
 
-void Skill::LinerSelector::setMaxLength(int length)
+void LinerSelector::setMaxLength(int length)
 {
 	maxLength = length;
 }
 
-cocos2d::Point Skill::LinerSelector::getOffset(Character* caster)
+cocos2d::Point LinerSelector::getOffset(Character* caster)
 {
 	cocos2d::Point offset(0, 0);
 	switch (orientation)
 	{
-	case Skill::LinerSelector::ZERO:
+	case LinerSelector::ZERO:
 		break;
-	case Skill::LinerSelector::UP:
+	case LinerSelector::UP:
 		offset.y--;
 		break;
-	case Skill::LinerSelector::DOWN:
+	case LinerSelector::DOWN:
 		offset.y++;
 		break;
-	case Skill::LinerSelector::LEFT:
+	case LinerSelector::LEFT:
 		offset.x--;
 		break;
-	case Skill::LinerSelector::RIGHT:
+	case LinerSelector::RIGHT:
 		offset.x++;
 		break;
-	case Skill::LinerSelector::UPLEFT:
+	case LinerSelector::UPLEFT:
 		offset.x--;
 		offset.y--;
 		break;
-	case Skill::LinerSelector::UPRIGHT:
+	case LinerSelector::UPRIGHT:
 		offset.x++;
 		offset.y--;
 		break;
-	case Skill::LinerSelector::DOWNLEFT:
+	case LinerSelector::DOWNLEFT:
 		offset.x--;
 		offset.y++;
 		break;
-	case Skill::LinerSelector::DOWNRIGHT:
+	case LinerSelector::DOWNRIGHT:
 		offset.x++;
 		offset.y++;
 		break;

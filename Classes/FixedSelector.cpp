@@ -3,16 +3,16 @@
 
 
 
-Skill::FixedSelector::FixedSelector()
+FixedSelector::FixedSelector()
 {
 }
 
 
-Skill::FixedSelector::~FixedSelector()
+FixedSelector::~FixedSelector()
 {
 }
 
-std::vector<cocos2d::Point> Skill::FixedSelector::select(Character* caster)
+std::vector<cocos2d::Point> FixedSelector::select(Character* caster)
 {
 	cocos2d::Point basePoint = caster->getMapCoord();
 	std::vector<cocos2d::Point> tempArea;
@@ -59,12 +59,12 @@ std::vector<cocos2d::Point> Skill::FixedSelector::select(Character* caster)
 	return tempArea;
 }
 
-void Skill::FixedSelector::addRelativeCoord(cocos2d::Point coord)
+void FixedSelector::addRelativeCoord(cocos2d::Point coord)
 {
 	relativeCoord.push_back(coord);
 }
 
-void Skill::FixedSelector::addRelativeCoord(int x, int y)
+void FixedSelector::addRelativeCoord(int x, int y)
 {
 	relativeCoord.push_back(cocos2d::Point(x, y));
 }

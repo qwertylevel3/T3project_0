@@ -310,7 +310,7 @@ void Character::update()
 
 std::vector<cocos2d::Point> Character::getOneHandAtkArea()
 {
-	Skill::FixedSelector selector;
+	FixedSelector selector;
 	selector.addRelativeCoord(cocos2d::Point(0, 1));
 	return selector.select(this);
 
@@ -345,7 +345,7 @@ std::vector<cocos2d::Point> Character::getOneHandAtkArea()
 //   |   |
 std::vector<cocos2d::Point> Character::getTwoHandAtkArea()
 {
-	Skill::FixedSelector selector;
+	FixedSelector selector;
 	selector.addRelativeCoord(0, 1);
 	selector.addRelativeCoord(-1, 1);
 	selector.addRelativeCoord(1, 1);
@@ -354,7 +354,7 @@ std::vector<cocos2d::Point> Character::getTwoHandAtkArea()
 
 std::vector<cocos2d::Point> Character::getBowAtkArea()
 {
-	Skill::LinerSelector selector;
+	LinerSelector selector;
 	return selector.select(this);
 }
 

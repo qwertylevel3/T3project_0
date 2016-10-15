@@ -4,10 +4,11 @@
 #include <string>
 
 class Character;
+class SelectorBase;
 
 namespace Skill
 {
-	class SelectorBase;
+
 	class EffectBase;
 
 	class SkillBase
