@@ -116,26 +116,15 @@ void Skill::AttackEffect::showBowEffect(Character* caster, std::vector<cocos2d::
 	cocos2d::Sprite* arrowSprite = cocos2d::Sprite::create("arrow_effect.png");
 	arrowSprite->setPosition(oriPosition);
 	scene->addChild(arrowSprite, 15);
-	cocos2d::ActionInterval* moveAction = cocos2d::CCMoveTo::create(0.1, cocos2d::Vec2(targetPosition));
+	cocos2d::ActionInterval* moveAction = cocos2d::CCMoveTo::create(0.3, cocos2d::Vec2(targetPosition));
 
 
-	int rotateAngle = 0;
-	switch (caster->getOrientation())
-	{
-	case Character::Orientation::UP:
-		rotateAngle = 0;
-		break;
-	case Character::Orientation::DOWN:
-		rotateAngle = 180;
-		break;
-	case Character::Orientation::LEFT:
-		rotateAngle = 270;
-		break;
-	case Character::Orientation::RIGHT:
-		rotateAngle = 90;
-		break;
-	}
-	cocos2d::ActionInterval* rotateAction = cocos2d::CCRotateTo::create(0.0, rotateAngle);
+	cocos2d::Vec2 targetVec = targetPosition - oriPosition;
+
+	float angle=-cocos2d::ccpAngle(cocos2d::Vec2(0, 1), targetVec);
+	angle = angle * 180.0 / 3.14;
+
+	cocos2d::ActionInterval* rotateAction = cocos2d::CCRotateTo::create(0.0, angle);
 
 	arrowSprite->runAction(cocos2d::Sequence::create(
 		rotateAction,moveAction, 

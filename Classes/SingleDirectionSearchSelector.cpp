@@ -77,7 +77,7 @@ std::vector<cocos2d::Point> SingleDirectionSearchSelector::select(Character* cas
 			tempVec.push_back(rightCoord);
 		}
 
-		if (impactNumber = -1)
+		if (impactNumber == -1)
 		{
 			for each (cocos2d::Point target in tempVec)
 			{

@@ -355,7 +355,8 @@ std::vector<cocos2d::Point> Character::getTwoHandAtkArea()
 
 std::vector<cocos2d::Point> Character::getBowAtkArea()
 {
-	LinerSelector selector;
+	SingleDirectionSearchSelector selector;
+	selector.setImpactNumber(1);
 	return selector.select(this);
 }
 
