@@ -176,6 +176,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudUnequipRightMenu.cpp" />
     <ClCompile Include="..\Classes\LinerSelector.cpp" />
     <ClCompile Include="..\Classes\SelectorBase.cpp" />
+    <ClCompile Include="..\Classes\SingleDirectionSearchSelector.cpp" />
     <ClCompile Include="..\Classes\SkillBase.cpp" />
     <ClCompile Include="..\Classes\StoreyInventoryHandler.cpp" />
     <ClCompile Include="..\Classes\XMLConfigure.cpp" />
@@ -261,6 +262,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudUnequipRightMenu.h" />
     <ClInclude Include="..\Classes\LinerSelector.h" />
     <ClInclude Include="..\Classes\SelectorBase.h" />
+    <ClInclude Include="..\Classes\SingleDirectionSearchSelector.h" />
     <ClInclude Include="..\Classes\SkillBase.h" />
     <ClInclude Include="..\Classes\StoreyInventoryHandler.h" />
     <ClInclude Include="..\Classes\XMLConfigure.h" />

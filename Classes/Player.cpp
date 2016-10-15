@@ -8,6 +8,7 @@
 #include "Accessory.h"
 #include "Armor.h"
 #include "RoundSystem.h"
+#include "MainLayer.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -135,12 +136,15 @@ void Player::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 		if (keyCode == EventKeyboard::KeyCode::KEY_CTRL)
 		{
 			controlMode = HaltMode;
+			showAtkArea();
 			break;
 		}
 		playerMove(keyCode);
 		break;
 	case HaltMode:
 		playerSetOrientation(keyCode);
+		hideAtkArea();
+		showAtkArea();
 		break;
 	}
 
@@ -154,6 +158,7 @@ void Player::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 		if (keyCode == EventKeyboard::KeyCode::KEY_CTRL)
 		{
 			controlMode = NormalMode;
+			hideAtkArea();
 		}
 		break;
 	}
@@ -224,4 +229,28 @@ void Player::setName(const std::string& name)
 {
 	CCAssert(characterPtr, "characterPtr is null");
 	characterPtr->setName(name);
+}
+
+void Player::showAtkArea()
+{
+	std::vector<cocos2d::Point> atkCoords = characterPtr->getAtkArea();
+	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+
+	for each (cocos2d::Point atkCoord in atkCoords)
+	{
+		cocos2d::Point atkPosition = storey->getTilePosition(atkCoord);
+		cocos2d::Sprite* atkSprite = cocos2d::Sprite::create("targetArea.png");
+		targetSprites.push_back(atkSprite);
+		atkSprite->setPosition(atkPosition);
+		MainLayer::getInstance()->addChild(atkSprite, 20);
+	}
+}
+
+void Player::hideAtkArea()
+{
+	for each (cocos2d::Sprite* targetSprite in targetSprites)
+	{
+		targetSprite->removeFromParent();
+	}
+	targetSprites.clear();
 }

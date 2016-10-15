@@ -2,17 +2,16 @@
 
 #include "SelectorBase.h"
 
-
-class AreaSearchSelector:public SelectorBase
+class SingleDirectionSearchSelector:public SelectorBase
 {
 public:
-	AreaSearchSelector();
-	~AreaSearchSelector();
+	SingleDirectionSearchSelector();
+	~SingleDirectionSearchSelector();
 	std::vector<cocos2d::Point> select(Character* caster);
-	void setDeepth(int d);
 	void setImpactNumber(int number);
+	void setDeepth(int d);
 protected:
-	int deepth;
 	int impactNumber;
+	int deepth;
 };
 

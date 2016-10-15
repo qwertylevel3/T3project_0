@@ -14,6 +14,7 @@
 #include "Dungeon.h"
 #include "FixedSelector.h"
 #include "LinerSelector.h"
+#include "SingleDirectionSearchSelector.h"
 
 USING_NS_CC;
 using namespace Field;

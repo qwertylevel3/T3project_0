@@ -25,9 +25,12 @@ public:
 	std::string getName();
 	void setName(const std::string& name);
 protected:
+	void showAtkArea();
+	void hideAtkArea();
 	CC_SYNTHESIZE(Character*, characterPtr, characterPtr);
 
 	ControlMode controlMode;
 
+	std::vector<cocos2d::Sprite*> targetSprites;
 };
 
