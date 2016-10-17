@@ -1,4 +1,5 @@
 #include "TwoHandWeapon.h"
+#include "Character.h"
 
 
 
@@ -13,7 +14,10 @@ TwoHandWeapon::~TwoHandWeapon()
 
 void TwoHandWeapon::equipLeftHand(Character* character)
 {
-
+	character->unequipLeftHand();
+	character->unequipRightHand();
+	character->setLeftHand(this);
+	character->setRightHand(this);
 }
 
 void TwoHandWeapon::unequipLeftHand(Character* character)
@@ -23,7 +27,10 @@ void TwoHandWeapon::unequipLeftHand(Character* character)
 
 void TwoHandWeapon::equipRightHand(Character* character)
 {
-
+	character->unequipLeftHand();
+	character->unequipRightHand();
+	character->setLeftHand(this);
+	character->setRightHand(this);
 }
 
 void TwoHandWeapon::unequipRightHand(Character* character)

@@ -68,7 +68,7 @@ std::vector<cocos2d::Point> SingleDirectionSearchSelector::select(Character* cas
 		std::vector<cocos2d::Point> tempVec;
 		tempVec.push_back(directionCoord);
 		
-		for (int j=1;j<=deepth-i;j++)
+		for (int j=1;j<=i && j+i<=deepth;j++)
 		{
 			cocos2d::Point leftCoord = directionCoord + leftOffset*j;
 			cocos2d::Point rightCoord = directionCoord + rightOffset*j;

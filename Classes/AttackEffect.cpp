@@ -106,7 +106,7 @@ void Skill::AttackEffect::showOneHandEffect(Character* caster, std::vector<cocos
 	scene->addChild(node, 15);
 
 	cocos2d::Animate* animate = cocos2d::CCAnimate::create(animation);
-	animate->setDuration(0.3);
+	animate->setDuration(0.2);
 
 	cocos2d::ActionInterval* rotateAction = cocos2d::CCRotateTo::create(0.0, rotateAngle);
 	//node->runAction(rotateAction);
@@ -116,7 +116,44 @@ void Skill::AttackEffect::showOneHandEffect(Character* caster, std::vector<cocos
 
 void Skill::AttackEffect::showTwoHandEffect(Character* caster, std::vector<cocos2d::Point>& coord)
 {
-	showOneHandEffect(caster, coord);
+	cocos2d::Point position = caster->getPosition();
+	cocos2d::Node* scene = caster->getParent();
+	cocos2d::Sprite* node = cocos2d::Sprite::create();//Sprite::createWithSpriteFrameName("effect_0.png");
+
+	int rotateAngle = 0;
+	cocos2d::Point targetCoord;
+
+	switch (caster->getOrientation())
+	{
+	case Character::Orientation::UP:
+		node->setPosition(cocos2d::Point(position.x, position.y + 32));
+		rotateAngle = 0;
+		break;
+	case Character::Orientation::DOWN:
+		node->setPosition(cocos2d::Point(position.x, position.y - 32));
+		rotateAngle = 180;
+		break;
+	case Character::Orientation::LEFT:
+		node->setPosition(cocos2d::Point(position.x - 32, position.y));
+		rotateAngle = 270;
+		break;
+	case Character::Orientation::RIGHT:
+		node->setPosition(cocos2d::Point(position.x + 32, position.y));
+		rotateAngle = 90;
+		break;
+	}
+
+	node->setScaleX(3);
+	node->setVisible(true);
+	scene->addChild(node, 15);
+
+	cocos2d::Animate* animate = cocos2d::CCAnimate::create(animation);
+	animate->setDuration(0.2);
+
+	cocos2d::ActionInterval* rotateAction = cocos2d::CCRotateTo::create(0.0, rotateAngle);
+	//node->runAction(rotateAction);
+
+	node->runAction(cocos2d::Sequence::create(rotateAction, animate, cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, node)), NULL));
 }
 
 void Skill::AttackEffect::showBowEffect(Character* caster, std::vector<cocos2d::Point>& coord)

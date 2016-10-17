@@ -16,5 +16,6 @@ namespace Skill
 		void showOneHandEffect(Character* caster, std::vector<cocos2d::Point>& coord);
 		void showTwoHandEffect(Character* caster, std::vector<cocos2d::Point>& coord);
 		void showBowEffect(Character* caster, std::vector<cocos2d::Point>& coord);
+
 	};
 }

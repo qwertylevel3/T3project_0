@@ -62,6 +62,26 @@
 		<intRequire>0</intRequire>
 	</inventory>
 	<inventory>
+		<type>twoHandWeapon</type>
+		<name>bigSword000</name>
+		<cname>大剑</cname>
+		<level>1</level>
+		<price>20</price>
+		<weight>6</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<evadeProAdd>0</evadeProAdd>
+		<accuracyProAdd>0</accuracyProAdd>
+		<criticalProAdd>0</criticalProAdd>
+		<criticalAdd>0</criticalAdd>
+		<blockProAdd>0</blockProAdd>
+		<blockAdd>0</blockAdd>
+		<comboProAdd>0</comboProAdd>
+		<weaponDamage>8</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+	</inventory>
+	<inventory>
 		<type>bow</type>
 		<name>bow000</name>
 		<cname>弓</cname>
