@@ -359,9 +359,16 @@ std::vector<cocos2d::Point> Character::getBowAtkArea()
 
 std::vector<cocos2d::Point> Character::getBowAtkSelect()
 {
-	SingleDirectionSearchSelector selector;
-	selector.setImpactNumber(1);
-	return selector.select(this);
+	LinerSelector linerSelector;
+	linerSelector.setMaxLength(5);
+	std::vector<cocos2d::Point> result = linerSelector.select(this);
+	if (!result.empty())
+	{
+		return result;
+	}
+	SingleDirectionSearchSelector singleDirectionSelector;
+	singleDirectionSelector.setImpactNumber(1);
+	return singleDirectionSelector.select(this);
 }
 
 void Character::setMoveUpAnimation(cocos2d::Animation* animation)

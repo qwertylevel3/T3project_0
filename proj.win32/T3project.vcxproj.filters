@@ -312,6 +312,7 @@
     <ClCompile Include="..\Classes\SingleDirectionSearchSelector.cpp">
       <Filter>src\selector</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\CharacterAttr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -566,6 +567,7 @@
     <ClInclude Include="..\Classes\SingleDirectionSearchSelector.h">
       <Filter>src\selector</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\CharacterAttr.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
