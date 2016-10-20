@@ -129,13 +129,6 @@ void InventoryManager::initBaseData(tinyxml2::XMLElement* inventoryElement,Inven
 	model->setWeight(getChildElementIntAttr(inventoryElement, "weight"));
 	model->setSpriteName(getChildElementStrAttr(inventoryElement, "spriteName"));
 
-	model->setEvadeProAdd(getChildElementIntAttr(inventoryElement, "evadeProAdd"));
-	model->setAccuracyProAdd(getChildElementIntAttr(inventoryElement, "accuracyProAdd"));
-	model->setCriticalProAdd(getChildElementIntAttr(inventoryElement, "criticalProAdd"));
-	model->setCriticalAdd(getChildElementIntAttr(inventoryElement, "criticalAdd"));
-	model->setBlockProAdd(getChildElementIntAttr(inventoryElement, "blockProAdd"));
-	model->setBlockAdd(getChildElementIntAttr(inventoryElement, "blockAdd"));
-	model->setComboProAdd(getChildElementIntAttr(inventoryElement, "comboProAdd"));
 }
 
 void InventoryManager::initWeaponData(tinyxml2::XMLElement* inventoryElement, Weapon* weaponModel)

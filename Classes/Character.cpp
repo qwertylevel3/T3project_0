@@ -360,6 +360,41 @@ void Character::setCharacterType(CharacterAttr::CharacterType type)
 	attrHandler->setCharacterType(type);
 }
 
+int Character::getEvadePro()
+{
+	return attrHandler->getEvadePro();
+}
+
+int Character::getAccuracuPro()
+{
+	return attrHandler->getAccuracuPro();
+}
+
+int Character::getCriticalPro()
+{
+	return attrHandler->getCriticalPro();
+}
+
+int Character::getCriticalPoint()
+{
+	return attrHandler->getCriticalPoint();
+}
+
+int Character::getBlockPro()
+{
+	return attrHandler->getBlockPro();
+}
+
+int Character::getBlockPoint()
+{
+	return attrHandler->getBlockPoint();
+}
+
+int Character::getComboPro()
+{
+	return attrHandler->getComboPro();
+}
+
 Character::Character()
 {
 	Skill::Attack* attack = new Skill::Attack(this);

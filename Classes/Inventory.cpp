@@ -74,13 +74,6 @@ void Inventory::copyData(Inventory* inventory)
 	inventory->setSpriteName(spriteName);
 	inventory->setInventoryType(inventoryType);
 
-	inventory->setEvadeProAdd(evadeProAdd);
-	inventory->setAccuracyProAdd(accuracyProAdd);
-	inventory->setCriticalProAdd(criticalProAdd);
-	inventory->setCriticalAdd(criticalAdd);
-	inventory->setBlockProAdd(blockProAdd);
-	inventory->setBlockAdd(blockAdd);
-	inventory->setComboProAdd(comboProAdd);
 }
 
 cocos2d::Sprite* Inventory::getIcon()

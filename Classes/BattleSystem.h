@@ -18,6 +18,7 @@ public:
 
 	int getAttackCount(Character* a,AttackHand hand);
 	int getCriticalAttackCount(Character* c,AttackHand hand);
+	int getCriticalPoint(Character* c);
 	int getBlockCount(Character* c);
 	int getEvadeCount(Character* c);
 	int getAccuracyCount(Character* c, AttackHand hand);
@@ -39,15 +40,6 @@ protected:
 
 	//0-100,m为下界，当roll值小于m返回true
 	bool roll(double m);
-
-	//装备加成
-	int getEvadeProAdd(Character* c);
-	int getAccuracyProAdd(Character* c,AttackHand hand);
-	int getCriticalProAdd(Character* c,AttackHand hand);
-	int getCriticalAdd(Character* c,AttackHand hand);
-	int getBlockProAdd(Character* c);
-	int getBlockAdd(Character* c);
-	int getComboProAdd(Character* c);
 
 	int combo;
 };

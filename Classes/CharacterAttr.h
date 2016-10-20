@@ -1,11 +1,11 @@
 #pragma once
 
-
 #include <string>
-
 
 struct CharacterAttr
 {
+	CharacterAttr();
+
 	enum CharacterType
 	{
 		Good, Neutral, Bad
@@ -34,4 +34,3 @@ struct CharacterAttr
 	bool phyImmu;
 	bool magicImmu;
 };
-

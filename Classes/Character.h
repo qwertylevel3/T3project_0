@@ -110,6 +110,14 @@ public:
 	void setAgility(int agility);
 	void setViewSize(int viewSize);
 	void setCharacterType(CharacterAttr::CharacterType type);
+
+	int getEvadePro();
+	int getAccuracuPro();
+	int getCriticalPro();
+	int getCriticalPoint();
+	int getBlockPro();
+	int getBlockPoint();
+	int getComboPro();
 protected:
 	std::vector<cocos2d::Point> getOneHandAtkArea();
 	std::vector<cocos2d::Point> getTwoHandAtkArea();
@@ -138,7 +146,6 @@ protected:
 	CC_SYNTHESIZE(cocos2d::Point, mapCoord, MapCoord);
 	CC_SYNTHESIZE(int, HP, HP);
 	CC_SYNTHESIZE(int, MP, MP);
-
 
 	CC_SYNTHESIZE(CharacterAttrHandler*, attrHandler, AttrHandler);
 

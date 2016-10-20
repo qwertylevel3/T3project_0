@@ -9,13 +9,6 @@
 		<price>8</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
-		<evadeProAdd>0</evadeProAdd>
-		<accuracyProAdd>0</accuracyProAdd>
-		<criticalProAdd>0</criticalProAdd>
-		<criticalAdd>0</criticalAdd>
-		<blockProAdd>0</blockProAdd>
-		<blockAdd>0</blockAdd>
-		<comboProAdd>3</comboProAdd>
 		<weaponDamage>4</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
@@ -29,13 +22,6 @@
 		<price>10</price>
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
-		<evadeProAdd>0</evadeProAdd>
-		<accuracyProAdd>0</accuracyProAdd>
-		<criticalProAdd>0</criticalProAdd>
-		<criticalAdd>0</criticalAdd>
-		<blockProAdd>0</blockProAdd>
-		<blockAdd>0</blockAdd>
-		<comboProAdd>0</comboProAdd>
 		<weaponDamage>6</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
@@ -49,13 +35,6 @@
 		<price>14</price>
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
-		<evadeProAdd>0</evadeProAdd>
-		<accuracyProAdd>0</accuracyProAdd>
-		<criticalProAdd>0</criticalProAdd>
-		<criticalAdd>0</criticalAdd>
-		<blockProAdd>0</blockProAdd>
-		<blockAdd>0</blockAdd>
-		<comboProAdd>0</comboProAdd>
 		<weaponDamage>8</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
@@ -69,13 +48,6 @@
 		<price>20</price>
 		<weight>6</weight>
 		<spriteName>sword_icon.png</spriteName>
-		<evadeProAdd>0</evadeProAdd>
-		<accuracyProAdd>0</accuracyProAdd>
-		<criticalProAdd>0</criticalProAdd>
-		<criticalAdd>0</criticalAdd>
-		<blockProAdd>0</blockProAdd>
-		<blockAdd>0</blockAdd>
-		<comboProAdd>0</comboProAdd>
 		<weaponDamage>8</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
@@ -89,13 +61,6 @@
 		<price>14</price>
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
-		<evadeProAdd>0</evadeProAdd>
-		<accuracyProAdd>0</accuracyProAdd>
-		<criticalProAdd>0</criticalProAdd>
-		<criticalAdd>0</criticalAdd>
-		<blockProAdd>0</blockProAdd>
-		<blockAdd>0</blockAdd>
-		<comboProAdd>0</comboProAdd>
 		<weaponDamage>6</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
@@ -109,13 +74,6 @@
 		<price>1</price>
 		<weight>0</weight>
 		<spriteName>sword_icon.png</spriteName>
-		<evadeProAdd>0</evadeProAdd>
-		<accuracyProAdd>0</accuracyProAdd>
-		<criticalProAdd>0</criticalProAdd>
-		<criticalAdd>0</criticalAdd>
-		<blockProAdd>0</blockProAdd>
-		<blockAdd>0</blockAdd>
-		<comboProAdd>0</comboProAdd>
 		<damage>6</damage>
 	</inventory>
 </inventoryList>

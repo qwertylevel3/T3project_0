@@ -17,6 +17,16 @@ public:
 	int getViewSize();
 	CharacterAttr::CharacterType getCharacterType();
 
+	int getEvadePro();
+	int getAccuracuPro();
+	int getCriticalPro();
+	int getCriticalPoint();
+	int getBlockPro();
+	int getBlockPoint();
+	int getComboPro();
+
+	//////////////////////////////////////////////////////////////////////////
+
 	void setMaxHP(int h);
 	void setMaxMP(int m);
 	void setStrength(int strength);

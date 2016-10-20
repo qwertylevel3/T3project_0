@@ -231,16 +231,18 @@ int BattleSystem::getCriticalAttackCount(Character* c, AttackHand hand)
 {
 	double k1 = 0.01;
 	int attackCount = getAttackCount(c, hand);
-	double criticalAttack = double(attackCount)*(1 + k1*double(c->getStrength())) + getCriticalAdd(c, hand);
+	double criticalAttack = double(attackCount)*(1 + k1*double(c->getStrength())) + getCriticalPoint(c);
 	return int(criticalAttack < 1 ? 1 : attackCount);
+}
+
+int BattleSystem::getCriticalPoint(Character* c)
+{
+	return c->getCriticalPoint();
 }
 
 int BattleSystem::getBlockCount(Character* c)
 {
-	double k1 = 0.5;
-	double str = c->getStrength();
-	double count = k1*str + getBlockAdd(c) + 5;
-	return int(count);
+	return c->getBlockPoint();
 }
 
 bool BattleSystem::isInAtkArea(Character* a, Character* b, AttackHand hand)
@@ -317,168 +319,25 @@ bool BattleSystem::roll(double m)
 
 int BattleSystem::getEvadeCount(Character* c)
 {
-	double k1 = 1;
-	double agility = c->getAgility();
-	double evadeCount = agility* k1 + getEvadeProAdd(c);
-	return int(evadeCount);
+	return c->getEvadePro();
 }
 
 int BattleSystem::getAccuracyCount(Character* c, AttackHand hand)
 {
-	double k1=1;
-	double agility = c->getAgility();
-	double accuracyAdd = getAccuracyProAdd(c, hand);
-	double accuracyCount = agility*k1 + accuracyAdd;
-	return int(accuracyCount);
+	return c->getAccuracuPro();
 }
 
 int BattleSystem::getCriticalProCount(Character* c, AttackHand hand)
 {
-	double k1 = 1;
-	double agility = c->getAgility();
-
-	double criProAdd = getCriticalProAdd(c, hand);
-
-	double criPro = agility*k1 + criProAdd + 5;
-	return int(criPro);
+	return c->getCriticalPro();
 }
 
 int BattleSystem::getBlockProCount(Character* c)
 {
-	double k1 = 1;
-	double agility = c->getAgility();
-	double blockProAdd = getBlockProAdd(c);
-
-	double blockPro = agility*k1 + blockProAdd + 5;
-	return int(blockPro);
+	return c->getBlockPro();
 }
 
 int BattleSystem::getComboProCount(Character* c)
 {
-	double k1 = 0.1;
-	double k2 = 5;
-	double agility = c->getAgility();
-	double comboProAdd = getComboProAdd(c);
-
-	double comboPro = agility*k1 + comboProAdd + 5;
-	comboPro = comboPro - k2*combo;
-	comboPro = comboPro < 0 ? 0 : comboPro;
-	return int(comboPro);
-}
-
-int BattleSystem::getEvadeProAdd(Character* c)
-{
-	Inventory* leftHand = c->getLeftHand();
-	Inventory* rightHand = c->getRightHand();
-	Inventory* armor = c->getArmor();
-	Inventory* accessory = c->getAccessory();
-
-	int leftHandEvadeProAdd = leftHand ? leftHand->getEvadeProAdd() : 0;
-	int rightHandEvadeProAdd = rightHand ? rightHand->getEvadeProAdd() : 0;
-	int armorEvadeProAdd = armor ? armor->getEvadeProAdd() : 0;
-	int accessoryEvadeProAdd = accessory ? accessory->getEvadeProAdd() : 0;
-
-	return leftHandEvadeProAdd
-		+ rightHandEvadeProAdd
-		+ armorEvadeProAdd
-		+ accessoryEvadeProAdd;
-}
-
-int BattleSystem::getAccuracyProAdd(Character* c, AttackHand hand)
-{
-	Weapon* weapon = getWeapon(c, hand);
-	Inventory* armor = c->getArmor();
-	Inventory* accessory = c->getAccessory();
-
-	int weaponAccProAdd = weapon ? weapon->getAccuracyProAdd() : 0;
-	int armorAccProAdd = armor ? armor->getAccuracyProAdd() : 0;
-	int accessoryAccProAdd = accessory ? accessory->getAccuracyProAdd() : 0;
-
-	return weaponAccProAdd
-		+ armorAccProAdd
-		+ accessoryAccProAdd;
-}
-
-int BattleSystem::getCriticalProAdd(Character* c, AttackHand hand)
-{
-	Weapon* weapon = getWeapon(c, hand);
-	Inventory* armor = c->getArmor();
-	Inventory* accessory = c->getAccessory();
-
-	int weaponCriProAdd = weapon ? weapon->getCriticalProAdd() : 0;
-	int armorCriProAdd = armor ? armor->getCriticalProAdd() : 0;
-	int accessoryCriProAdd = accessory ? accessory->getCriticalProAdd() : 0;
-
-	return weaponCriProAdd
-		+ armorCriProAdd
-		+ accessoryCriProAdd;
-}
-
-int BattleSystem::getCriticalAdd(Character* c, AttackHand hand)
-{
-	Weapon* weapon = getWeapon(c, hand);
-	Inventory* armor = c->getArmor();
-	Inventory* accessory = c->getAccessory();
-
-	int weaponCriAdd = weapon ? weapon->getCriticalAdd() : 0;
-	int armorCriAdd = armor ? armor->getCriticalAdd() : 0;
-	int accessoryCriAdd = accessory ? accessory->getCriticalAdd() : 0;
-
-	return weaponCriAdd
-		+ armorCriAdd
-		+ accessoryCriAdd;
-}
-
-int BattleSystem::getBlockProAdd(Character* c)
-{
-	Inventory* leftHand = c->getLeftHand();
-	Inventory* rightHand = c->getRightHand();
-	Inventory* armor = c->getArmor();
-	Inventory* accessory = c->getAccessory();
-
-	int leftHandBloProAdd = leftHand ? leftHand->getBlockProAdd() : 0;
-	int rightHandBloProAdd = rightHand ? rightHand->getBlockProAdd() : 0;
-	int armorBloProAdd = armor ? armor->getBlockProAdd() : 0;
-	int accessoryBloProAdd = accessory ? accessory->getBlockProAdd() : 0;
-
-	return leftHandBloProAdd
-		+ rightHandBloProAdd
-		+ armorBloProAdd
-		+ accessoryBloProAdd;
-}
-
-int BattleSystem::getBlockAdd(Character* c)
-{
-	Inventory* leftHand = c->getLeftHand();
-	Inventory* rightHand = c->getRightHand();
-	Inventory* armor = c->getArmor();
-	Inventory* accessory = c->getAccessory();
-
-	int leftHandBloAdd = leftHand ? leftHand->getBlockAdd() : 0;
-	int rightHandBloAdd = rightHand ? rightHand->getBlockAdd() : 0;
-	int armorBloAdd = armor ? armor->getBlockAdd() : 0;
-	int accessoryBloAdd = accessory ? accessory->getBlockAdd() : 0;
-
-	return leftHandBloAdd
-		+ rightHandBloAdd
-		+ armorBloAdd
-		+ accessoryBloAdd;
-}
-
-int BattleSystem::getComboProAdd(Character* c)
-{
-	Inventory* leftHand = c->getLeftHand();
-	Inventory* rightHand = c->getRightHand();
-	Inventory* armor = c->getArmor();
-	Inventory* accessory = c->getAccessory();
-
-	int leftHandComProAdd = leftHand ? leftHand->getComboProAdd() : 0;
-	int rightHandComProAdd = rightHand ? rightHand->getComboProAdd() : 0;
-	int armorComProAdd = armor ? armor->getComboProAdd() : 0;
-	int accessoryComProAdd = accessory ? accessory->getComboProAdd() : 0;
-
-	return leftHandComProAdd
-		+ rightHandComProAdd
-		+ armorComProAdd
-		+ accessoryComProAdd;
+	return c->getComboPro();
 }

@@ -47,6 +47,41 @@ CharacterAttr::CharacterType CharacterAttrHandler::getCharacterType()
 	return attr.characterType;
 }
 
+int CharacterAttrHandler::getEvadePro()
+{
+	return attr.evadePro;
+}
+
+int CharacterAttrHandler::getAccuracuPro()
+{
+	return attr.accuracyPro;
+}
+
+int CharacterAttrHandler::getCriticalPro()
+{
+	return attr.criticalPro;
+}
+
+int CharacterAttrHandler::getCriticalPoint()
+{
+	return attr.criticalPoint;
+}
+
+int CharacterAttrHandler::getBlockPro()
+{
+	return attr.blockPro;
+}
+
+int CharacterAttrHandler::getBlockPoint()
+{
+	return attr.blockPoint;
+}
+
+int CharacterAttrHandler::getComboPro()
+{
+	return attr.comboPro;
+}
+
 void CharacterAttrHandler::setMaxHP(int h)
 {
 	oriAttr.maxHP = h;
