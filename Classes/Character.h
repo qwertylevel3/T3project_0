@@ -3,7 +3,9 @@
 #include<cocos2d.h>
 #include<map>
 #include <vector>
+#include "CharacterAttr.h"
 
+class CharacterAttrHandler;
 class MainLayer;
 class Inventory;
 class InventoryInHand;
@@ -90,6 +92,24 @@ public:
 	void setSprite(std::string spriteName);
 
 	void setAI(AIBase* a);
+
+	//////////////////////////////////////////////////////////////////////////
+
+	int getMaxHP();
+	int getMaxMP();
+	int getStrength();
+	int getIntellect();
+	int getAgility();
+	int getViewSize();
+	CharacterAttr::CharacterType getCharacterType();
+
+	void setMaxHP(int h);
+	void setMaxMP(int m);
+	void setStrength(int strength);
+	void setIntellect(int intellect);
+	void setAgility(int agility);
+	void setViewSize(int viewSize);
+	void setCharacterType(CharacterAttr::CharacterType type);
 protected:
 	std::vector<cocos2d::Point> getOneHandAtkArea();
 	std::vector<cocos2d::Point> getTwoHandAtkArea();
@@ -116,15 +136,20 @@ protected:
 	//attribute......
 	CC_SYNTHESIZE(std::string, name, Name);
 	CC_SYNTHESIZE(cocos2d::Point, mapCoord, MapCoord);
-	CC_SYNTHESIZE(int, strength, Strength);
-	CC_SYNTHESIZE(int, intellect, Intellect);
-	CC_SYNTHESIZE(int, agility, Agility);
-	CC_SYNTHESIZE(int, maxHP, MaxHP);
-	CC_SYNTHESIZE(int, maxMP, MaxMP);
 	CC_SYNTHESIZE(int, HP, HP);
 	CC_SYNTHESIZE(int, MP, MP);
-	CC_SYNTHESIZE(Type, characterType, CharacterType);
-	CC_SYNTHESIZE(int, viewSize, ViewSize);
+
+
+	CC_SYNTHESIZE(CharacterAttrHandler*, attrHandler, AttrHandler);
+
+//	CC_SYNTHESIZE(int, strength, Strength);
+//	CC_SYNTHESIZE(int, intellect, Intellect);
+//	CC_SYNTHESIZE(int, agility, Agility);
+//	CC_SYNTHESIZE(int, maxHP, MaxHP);
+//	CC_SYNTHESIZE(int, maxMP, MaxMP);
+
+//	CC_SYNTHESIZE(Type, characterType, CharacterType);
+//	CC_SYNTHESIZE(int, viewSize, ViewSize);
 	bool dead;
 
 	cocos2d::CCSprite* sprite;

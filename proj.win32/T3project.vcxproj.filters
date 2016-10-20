@@ -313,6 +313,7 @@
       <Filter>src\selector</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\CharacterAttr.cpp" />
+    <ClCompile Include="..\Classes\CharacterAttrHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -568,6 +569,7 @@
       <Filter>src\selector</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\CharacterAttr.h" />
+    <ClInclude Include="..\Classes\CharacterAttrHandler.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

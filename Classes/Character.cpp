@@ -15,6 +15,7 @@
 #include "FixedSelector.h"
 #include "LinerSelector.h"
 #include "SingleDirectionSearchSelector.h"
+#include "CharacterAttrHandler.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -289,6 +290,76 @@ void Character::setAI(AIBase* a)
 	ai->setCharacter(this);
 }
 
+int Character::getMaxHP()
+{
+	return attrHandler->getMaxHP();
+}
+
+int Character::getMaxMP()
+{
+	return attrHandler->getMaxMP();
+}
+
+int Character::getStrength()
+{
+	return attrHandler->getStrength();
+}
+
+int Character::getIntellect()
+{
+	return attrHandler->getIntellect();
+}
+
+int Character::getAgility()
+{
+	return attrHandler->getAgility();
+}
+
+int Character::getViewSize()
+{
+	return attrHandler->getViewSize();
+}
+
+CharacterAttr::CharacterType Character::getCharacterType()
+{
+	return attrHandler->getCharacterType();
+}
+
+void Character::setMaxHP(int h)
+{
+	attrHandler->setMaxHP(h);
+}
+
+void Character::setMaxMP(int m)
+{
+	attrHandler->setMaxMP(m);
+}
+
+void Character::setStrength(int strength)
+{
+	attrHandler->setStrength(strength);
+}
+
+void Character::setIntellect(int intellect)
+{
+	attrHandler->setIntellect(intellect);
+}
+
+void Character::setAgility(int agility)
+{
+	attrHandler->setAgility(agility);
+}
+
+void Character::setViewSize(int viewSize)
+{
+	attrHandler->setViewSize(viewSize);
+}
+
+void Character::setCharacterType(CharacterAttr::CharacterType type)
+{
+	attrHandler->setCharacterType(type);
+}
+
 Character::Character()
 {
 	Skill::Attack* attack = new Skill::Attack(this);
@@ -305,6 +376,7 @@ Character::Character()
 	ai = nullptr;
 
 	inventoryHandler = new InventoryHandler();
+	attrHandler = new CharacterAttrHandler(this);
 }
 
 Character::~Character()
@@ -318,6 +390,8 @@ Character::~Character()
 	{
 		delete ai;
 	}
+	delete inventoryHandler;
+	delete attrHandler;
 }
 
 void Character::update()

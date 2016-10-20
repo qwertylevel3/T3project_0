@@ -2,6 +2,7 @@
 #include"CharacterManager.h"
 #include "AICommonEnemy.h"
 #include "InventoryManager.h"
+#include "CharacterAttr.h"
 
 
 
@@ -26,7 +27,7 @@ Character * MonsterModel::makeMonster()
 	monster->setMaxHP(HP);
 	monster->setMaxMP(MP);
 	monster->setViewSize(viewSize);
-	monster->setCharacterType(Character::Bad);
+	monster->setCharacterType(CharacterAttr::Bad);
 	AICommonEnemy* ai = new AICommonEnemy();
 	monster->setAI(ai);
 
