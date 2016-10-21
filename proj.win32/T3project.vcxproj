@@ -167,6 +167,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\CharacterAttrHandler.cpp" />
     <ClCompile Include="..\Classes\EffectBase.cpp" />
     <ClCompile Include="..\Classes\FixedSelector.cpp" />
+    <ClCompile Include="..\Classes\HudBuffMenu.cpp" />
     <ClCompile Include="..\Classes\HudGroundInventoryMenu.cpp" />
     <ClCompile Include="..\Classes\HudGroundMenu.cpp" />
     <ClCompile Include="..\Classes\HudMainMenu.cpp" />
@@ -258,6 +259,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\CharacterAttrHandler.h" />
     <ClInclude Include="..\Classes\EffectBase.h" />
     <ClInclude Include="..\Classes\FixedSelector.h" />
+    <ClInclude Include="..\Classes\HudBuffMenu.h" />
     <ClInclude Include="..\Classes\HudGroundInventoryMenu.h" />
     <ClInclude Include="..\Classes\HudGroundMenu.h" />
     <ClInclude Include="..\Classes\HudMainMenu.h" />

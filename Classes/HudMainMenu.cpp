@@ -7,6 +7,7 @@
 #include "HudEquipMenu.h"
 #include "HudTrigActChildMenu.h"
 #include "HudGroundMenu.h"
+#include "HudBuffMenu.h"
 
 
 
@@ -29,6 +30,15 @@ void HudMainMenu::init()
 {
 	HudInventoryMenu::getInstance()->init();
 	HudEquipMenu::getInstance()->init();
+	//////////////////////////////////////////////////////////////////////////
+
+	HudMenuItem* buffMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"BUFF"));
+	this->addItem(buffMenuItem);
+
+	HudBuffMenu::getInstance()->setParent(this);
+
+	HudTrigActChildMenu* buffTrigger = new HudTrigActChildMenu(HudBuffMenu::getInstance());
+	buffMenuItem->setTrigger(buffTrigger);
 
 	//////////////////////////////////////////////////////////////////////////
 

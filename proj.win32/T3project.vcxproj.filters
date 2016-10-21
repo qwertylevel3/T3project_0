@@ -330,6 +330,7 @@
     <ClCompile Include="..\Classes\BuffHandler.cpp">
       <Filter>src\buff</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\HudBuffMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -599,6 +600,7 @@
     <ClInclude Include="..\Classes\AttrValBuff.h">
       <Filter>src\buff</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\HudBuffMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
