@@ -27,11 +27,11 @@ void HudBuffMenu::update()
 	clear();
 	//////////////////////////////////////////////////////////////////////////
 	Character* characterPrt = Player::getInstance()->getcharacterPtr();
-	BuffHandler* buffHandler = characterPrt->getBuffHandler();
+	Buff::BuffHandler* buffHandler = characterPrt->getBuffHandler();
 
-	std::vector<BuffBase* > buffBox = buffHandler->getBuffBoxRef();
+	std::vector<Buff::BuffBase* > buffBox = buffHandler->getBuffBoxRef();
 
-	for each (BuffBase* buff in buffBox)
+	for each (Buff::BuffBase* buff in buffBox)
 	{
 		HudMenuItem* menuItem = new HudMenuItem(buff->getCname());
 		this->addItem(menuItem);

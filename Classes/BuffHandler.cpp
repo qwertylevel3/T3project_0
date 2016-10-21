@@ -1,14 +1,16 @@
 #include "BuffHandler.h"
+#include "BuffBase.h"
+#include "CharacterAttrHandler.h"
+#include "Character.h"
 
+using namespace Buff;
 
-
-BuffHandler::BuffHandler(Character* c)
+Buff::BuffHandler::BuffHandler(Character* c)
 {
 	characterPrt = c;
 }
 
-
-BuffHandler::~BuffHandler()
+Buff::BuffHandler::~BuffHandler()
 {
 	for each (BuffBase* buff in buffBox)
 	{
@@ -17,12 +19,45 @@ BuffHandler::~BuffHandler()
 	buffBox.clear();
 }
 
-void BuffHandler::addBuff(BuffBase* buff)
+void Buff::BuffHandler::addBuff(BuffBase* buff)
 {
 	buffBox.push_back(buff);
+	onBuffLoad();
 }
 
-std::vector<BuffBase*>& BuffHandler::getBuffBoxRef()
+std::vector<Buff::BuffBase*>& Buff::BuffHandler::getBuffBoxRef()
 {
 	return buffBox;
+}
+
+void Buff::BuffHandler::onBuffLoad()
+{
+	characterPrt->getAttrHandler()->reset();
+	for each (BuffBase* buff in buffBox)
+	{
+		if (buff->getType() == BuffBase::OnLoad)
+		{
+			buff->apply(characterPrt);
+		}
+	}
+}
+
+void Buff::BuffHandler::onBuffUnload()
+{
+}
+
+void  Buff::BuffHandler::onAttack()
+{
+}
+
+void  Buff::BuffHandler::onInjured()
+{
+}
+
+void  Buff::BuffHandler::onRoundStart()
+{
+}
+
+void  Buff::BuffHandler::onRoundOver()
+{
 }

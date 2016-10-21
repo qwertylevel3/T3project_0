@@ -263,7 +263,7 @@ InventoryHandler* Character::getInventoryHandler()
 	return inventoryHandler;
 }
 
-BuffHandler* Character::getBuffHandler()
+Buff::BuffHandler* Character::getBuffHandler()
 {
 	return buffHandler;
 }
@@ -296,7 +296,7 @@ void Character::setAI(AIBase* a)
 	ai->setCharacter(this);
 }
 
-void Character::addBuff(BuffBase* buff)
+void Character::addBuff(Buff::BuffBase* buff)
 {
 	buffHandler->addBuff(buff);
 }
@@ -413,7 +413,7 @@ Character::Character()
 
 	inventoryHandler = new InventoryHandler();
 	attrHandler = new CharacterAttrHandler(this);
-	buffHandler = new BuffHandler(this);
+	buffHandler = new Buff::BuffHandler(this);
 }
 
 Character::~Character()

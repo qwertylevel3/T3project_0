@@ -13,12 +13,15 @@ class Armor;
 class Accessory;
 class AIBase;
 class InventoryHandler;
-class BuffBase;
-class BuffHandler;
+namespace Buff
+{
+	class BuffBase;
+	class BuffHandler;
+}
 
 namespace Skill
 {
-class SkillBase;
+	class SkillBase;
 }
 
 class Character
@@ -41,7 +44,7 @@ public:
 	//************************************
 	// Method:    die
 	// FullName:  Character::die
-	// Access:    public 
+	// Access:    public
 	// Returns:   void
 	// Qualifier: 这里不将该character从storey中移除。移除的工作由storey统一负责
 	//************************************
@@ -70,7 +73,6 @@ public:
 	void unequipArmor();
 	void unequipAccessory();
 
-
 	//返回在当前layer中的坐标
 	cocos2d::Point getPosition();
 	//返回世界坐标
@@ -86,7 +88,7 @@ public:
 
 	InventoryHandler* getInventoryHandler();
 
-	BuffHandler* getBuffHandler();
+	Buff::BuffHandler* getBuffHandler();
 	//discard
 	void addInventory(Inventory* inventory);
 	void addInventory(const std::string& inventoryName);
@@ -96,8 +98,7 @@ public:
 
 	void setAI(AIBase* a);
 
-
-	void addBuff(BuffBase* buff);
+	void addBuff(Buff::BuffBase* buff);
 	//////////////////////////////////////////////////////////////////////////
 
 	int getMaxHP();
@@ -142,7 +143,7 @@ protected:
 	CC_SYNTHESIZE(InventoryInHand*, leftHand, LeftHand);
 	CC_SYNTHESIZE(InventoryInHand*, rightHand, RightHand);
 	CC_SYNTHESIZE(Armor*, armor, Armor);
-	CC_SYNTHESIZE(Accessory* ,accessory, Accessory);
+	CC_SYNTHESIZE(Accessory*, accessory, Accessory);
 
 	//attribute......
 	CC_SYNTHESIZE(Type, characterType, CharacterType);
@@ -158,9 +159,8 @@ protected:
 	cocos2d::CCSprite* sprite;
 	CC_SYNTHESIZE(Orientation, orientation, Orientation);
 
-
 	//buff handler
-	BuffHandler* buffHandler;
+	Buff::BuffHandler* buffHandler;
 
 	//Animation......
 	void setMoveUpAnimation(cocos2d::CCAnimation* animation);

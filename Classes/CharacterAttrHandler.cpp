@@ -119,3 +119,8 @@ void CharacterAttrHandler::recalculateAttr()
 	attr = oriAttr;
 }
 
+void CharacterAttrHandler::reset()
+{
+	attr = oriAttr;
+}
+

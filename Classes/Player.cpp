@@ -10,7 +10,7 @@
 #include "RoundSystem.h"
 #include "MainLayer.h"
 //temp
-#include "AttrValBuff.h"
+#include "BuffMaxHPVal.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -71,12 +71,11 @@ void Player::init()
 	}
 
 	//////////////////////////////////////////////////////////////////////////
-
-	AttrValBuff* buff1 = new AttrValBuff();
-	buff1->setName("buff1");
-	buff1->setCname(ToolFunction::WStr2UTF8(L"测试buff"));
-
-	characterPtr->addBuff(buff1);
+	Buff::BuffMaxHPVal* buff = new Buff::BuffMaxHPVal();
+	buff->setName("buff");
+	buff->setCname(ToolFunction::WStr2UTF8(L"生命值上限提高10"));
+	buff->setHPOffset(10);
+	characterPtr->addBuff(buff);
 
 }
 

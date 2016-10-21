@@ -35,6 +35,7 @@ public:
 	void setViewSize(int viewSize);
 	
 	void recalculateAttr();
+	void reset();
 protected:
 	CharacterAttr attr;
 	CharacterAttr oriAttr;

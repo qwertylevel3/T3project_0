@@ -70,6 +70,9 @@
     <Filter Include="src\buff">
       <UniqueIdentifier>{16dd19bd-fa35-41fc-9bc5-e8b3829640aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\HUD\menuSystem\menu\buffMenu">
+      <UniqueIdentifier>{3da686db-fdb5-4b0b-a229-298309d459a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -324,13 +327,13 @@
     <ClCompile Include="..\Classes\BuffBase.cpp">
       <Filter>src\buff</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AttrValBuff.cpp">
-      <Filter>src\buff</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\BuffHandler.cpp">
       <Filter>src\buff</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudBuffMenu.cpp" />
+    <ClCompile Include="..\Classes\HudBuffMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu\buffMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BuffMaxHPVal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -597,10 +600,10 @@
     <ClInclude Include="..\Classes\BuffHandler.h">
       <Filter>src\buff</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AttrValBuff.h">
-      <Filter>src\buff</Filter>
+    <ClInclude Include="..\Classes\HudBuffMenu.h">
+      <Filter>src\HUD\menuSystem\menu\buffMenu</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudBuffMenu.h" />
+    <ClInclude Include="..\Classes\BuffMaxHPVal.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
