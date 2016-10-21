@@ -16,6 +16,7 @@
 #include "LinerSelector.h"
 #include "SingleDirectionSearchSelector.h"
 #include "CharacterAttrHandler.h"
+#include "BuffHandler.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -290,6 +291,11 @@ void Character::setAI(AIBase* a)
 	ai->setCharacter(this);
 }
 
+void Character::addBuff(BuffBase* buff)
+{
+
+}
+
 int Character::getMaxHP()
 {
 	return attrHandler->getMaxHP();
@@ -320,11 +326,6 @@ int Character::getViewSize()
 	return attrHandler->getViewSize();
 }
 
-CharacterAttr::CharacterType Character::getCharacterType()
-{
-	return attrHandler->getCharacterType();
-}
-
 void Character::setMaxHP(int h)
 {
 	attrHandler->setMaxHP(h);
@@ -353,11 +354,6 @@ void Character::setAgility(int agility)
 void Character::setViewSize(int viewSize)
 {
 	attrHandler->setViewSize(viewSize);
-}
-
-void Character::setCharacterType(CharacterAttr::CharacterType type)
-{
-	attrHandler->setCharacterType(type);
 }
 
 int Character::getEvadePro()
@@ -412,6 +408,7 @@ Character::Character()
 
 	inventoryHandler = new InventoryHandler();
 	attrHandler = new CharacterAttrHandler(this);
+	buffHandler = new BuffHandler(this);
 }
 
 Character::~Character()
@@ -427,6 +424,7 @@ Character::~Character()
 	}
 	delete inventoryHandler;
 	delete attrHandler;
+	delete buffHandler;
 }
 
 void Character::update()

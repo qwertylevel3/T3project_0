@@ -13,6 +13,8 @@ class Armor;
 class Accessory;
 class AIBase;
 class InventoryHandler;
+class BuffBase;
+class BuffHandler;
 
 namespace Skill
 {
@@ -82,7 +84,6 @@ public:
 	std::vector<cocos2d::Point> getAtkArea();
 	std::vector<cocos2d::Point> getAtkSelect();
 
-
 	InventoryHandler* getInventoryHandler();
 	//discard
 	void addInventory(Inventory* inventory);
@@ -93,6 +94,8 @@ public:
 
 	void setAI(AIBase* a);
 
+
+	void addBuff(BuffBase* buff);
 	//////////////////////////////////////////////////////////////////////////
 
 	int getMaxHP();
@@ -101,7 +104,6 @@ public:
 	int getIntellect();
 	int getAgility();
 	int getViewSize();
-	CharacterAttr::CharacterType getCharacterType();
 
 	void setMaxHP(int h);
 	void setMaxMP(int m);
@@ -109,7 +111,6 @@ public:
 	void setIntellect(int intellect);
 	void setAgility(int agility);
 	void setViewSize(int viewSize);
-	void setCharacterType(CharacterAttr::CharacterType type);
 
 	int getEvadePro();
 	int getAccuracuPro();
@@ -142,6 +143,7 @@ protected:
 	CC_SYNTHESIZE(Accessory* ,accessory, Accessory);
 
 	//attribute......
+	CC_SYNTHESIZE(Type, characterType, CharacterType);
 	CC_SYNTHESIZE(std::string, name, Name);
 	CC_SYNTHESIZE(cocos2d::Point, mapCoord, MapCoord);
 	CC_SYNTHESIZE(int, HP, HP);
@@ -149,18 +151,15 @@ protected:
 
 	CC_SYNTHESIZE(CharacterAttrHandler*, attrHandler, AttrHandler);
 
-//	CC_SYNTHESIZE(int, strength, Strength);
-//	CC_SYNTHESIZE(int, intellect, Intellect);
-//	CC_SYNTHESIZE(int, agility, Agility);
-//	CC_SYNTHESIZE(int, maxHP, MaxHP);
-//	CC_SYNTHESIZE(int, maxMP, MaxMP);
-
-//	CC_SYNTHESIZE(Type, characterType, CharacterType);
-//	CC_SYNTHESIZE(int, viewSize, ViewSize);
 	bool dead;
 
 	cocos2d::CCSprite* sprite;
 	CC_SYNTHESIZE(Orientation, orientation, Orientation);
+
+
+	//buff handler
+	BuffHandler* buffHandler;
+
 
 	//Animation......
 	void setMoveUpAnimation(cocos2d::CCAnimation* animation);

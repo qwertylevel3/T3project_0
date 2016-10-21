@@ -9,13 +9,13 @@ class CharacterAttrHandler
 public:
 	CharacterAttrHandler(Character* c);
 	~CharacterAttrHandler();
+
 	int getMaxHP();
 	int getMaxMP();
 	int getStrength();
 	int getIntellect();
 	int getAgility();
 	int getViewSize();
-	CharacterAttr::CharacterType getCharacterType();
 
 	int getEvadePro();
 	int getAccuracuPro();
@@ -33,7 +33,6 @@ public:
 	void setIntellect(int intellect);
 	void setAgility(int agility);
 	void setViewSize(int viewSize);
-	void setCharacterType(CharacterAttr::CharacterType type);
 	
 	void recalculateAttr();
 protected:

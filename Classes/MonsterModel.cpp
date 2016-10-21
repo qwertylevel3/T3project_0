@@ -27,7 +27,7 @@ Character * MonsterModel::makeMonster()
 	monster->setMaxHP(HP);
 	monster->setMaxMP(MP);
 	monster->setViewSize(viewSize);
-	monster->setCharacterType(CharacterAttr::Bad);
+	monster->setCharacterType(Character::Bad);
 	AICommonEnemy* ai = new AICommonEnemy();
 	monster->setAI(ai);
 

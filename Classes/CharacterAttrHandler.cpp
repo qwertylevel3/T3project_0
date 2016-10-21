@@ -12,6 +12,7 @@ CharacterAttrHandler::~CharacterAttrHandler()
 {
 }
 
+
 int CharacterAttrHandler::getMaxHP()
 {
 	return attr.maxHP;
@@ -40,11 +41,6 @@ int CharacterAttrHandler::getAgility()
 int CharacterAttrHandler::getViewSize()
 {
 	return attr.viewSize;
-}
-
-CharacterAttr::CharacterType CharacterAttrHandler::getCharacterType()
-{
-	return attr.characterType;
 }
 
 int CharacterAttrHandler::getEvadePro()
@@ -115,12 +111,6 @@ void CharacterAttrHandler::setAgility(int agility)
 void CharacterAttrHandler::setViewSize(int viewSize)
 {
 	oriAttr.viewSize = viewSize;
-	recalculateAttr();
-}
-
-void CharacterAttrHandler::setCharacterType(CharacterAttr::CharacterType type)
-{
-	oriAttr.characterType = type;
 	recalculateAttr();
 }
 

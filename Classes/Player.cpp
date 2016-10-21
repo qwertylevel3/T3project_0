@@ -38,7 +38,7 @@ void Player::init()
 	characterPtr->setStrength(10);
 	characterPtr->setAgility(10);
 	characterPtr->setIntellect(10);
-	characterPtr->setCharacterType(CharacterAttr::Good);
+	characterPtr->setCharacterType(Character::Good);
 
 	//testInventory......
 

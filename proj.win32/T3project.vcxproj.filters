@@ -67,6 +67,9 @@
     <Filter Include="src\selector">
       <UniqueIdentifier>{11a82f50-1af5-4588-8a23-2146e4c4efa9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\buff">
+      <UniqueIdentifier>{16dd19bd-fa35-41fc-9bc5-e8b3829640aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -312,8 +315,21 @@
     <ClCompile Include="..\Classes\SingleDirectionSearchSelector.cpp">
       <Filter>src\selector</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\CharacterAttr.cpp" />
-    <ClCompile Include="..\Classes\CharacterAttrHandler.cpp" />
+    <ClCompile Include="..\Classes\CharacterAttr.cpp">
+      <Filter>src\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CharacterAttrHandler.cpp">
+      <Filter>src\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BuffBase.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AttrValBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BuffHandler.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -568,8 +584,21 @@
     <ClInclude Include="..\Classes\SingleDirectionSearchSelector.h">
       <Filter>src\selector</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\CharacterAttr.h" />
-    <ClInclude Include="..\Classes\CharacterAttrHandler.h" />
+    <ClInclude Include="..\Classes\CharacterAttr.h">
+      <Filter>src\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CharacterAttrHandler.h">
+      <Filter>src\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BuffBase.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BuffHandler.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AttrValBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

@@ -159,7 +159,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Attack.cpp" />
     <ClCompile Include="..\Classes\AttackEffect.cpp" />
     <ClCompile Include="..\Classes\AttackSelector.cpp" />
+    <ClCompile Include="..\Classes\AttrValBuff.cpp" />
     <ClCompile Include="..\Classes\Bow.cpp" />
+    <ClCompile Include="..\Classes\BuffBase.cpp" />
+    <ClCompile Include="..\Classes\BuffHandler.cpp" />
     <ClCompile Include="..\Classes\CharacterAttr.cpp" />
     <ClCompile Include="..\Classes\CharacterAttrHandler.cpp" />
     <ClCompile Include="..\Classes\EffectBase.cpp" />
@@ -247,7 +250,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Attack.h" />
     <ClInclude Include="..\Classes\AttackEffect.h" />
     <ClInclude Include="..\Classes\AttackSelector.h" />
+    <ClInclude Include="..\Classes\AttrValBuff.h" />
     <ClInclude Include="..\Classes\Bow.h" />
+    <ClInclude Include="..\Classes\BuffBase.h" />
+    <ClInclude Include="..\Classes\BuffHandler.h" />
     <ClInclude Include="..\Classes\CharacterAttr.h" />
     <ClInclude Include="..\Classes\CharacterAttrHandler.h" />
     <ClInclude Include="..\Classes\EffectBase.h" />
