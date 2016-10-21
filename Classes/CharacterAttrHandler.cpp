@@ -114,6 +114,36 @@ void CharacterAttrHandler::setViewSize(int viewSize)
 	recalculateAttr();
 }
 
+void CharacterAttrHandler::setMaxHPByBuff(int h)
+{
+	attr.maxHP = h;
+}
+
+void CharacterAttrHandler::setMaxMPByBuff(int m)
+{
+	attr.maxMP = m;
+}
+
+void CharacterAttrHandler::setStrengthByBuff(int strength)
+{
+	attr.strength = strength;
+}
+
+void CharacterAttrHandler::setIntellectByBuff(int intellect)
+{
+	attr.intellect = intellect;
+}
+
+void CharacterAttrHandler::setAgilityByBuff(int agility)
+{
+	attr.agility = agility;
+}
+
+void CharacterAttrHandler::setViewSizeByBuff(int viewSize)
+{
+	attr.viewSize = viewSize;
+}
+
 void CharacterAttrHandler::recalculateAttr()
 {
 	attr = oriAttr;

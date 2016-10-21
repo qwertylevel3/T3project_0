@@ -19,6 +19,7 @@ namespace Buff
 		~BuffHandler();
 		void addBuff(BuffBase* buff);
 		std::vector<BuffBase*>& getBuffBoxRef();
+		void update();
 
 		void onBuffLoad();
 		void onBuffUnload();

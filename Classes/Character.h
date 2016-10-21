@@ -37,6 +37,14 @@ public:
 	};
 	Character();
 	~Character();
+
+	//************************************
+	// Method:    update
+	// FullName:  Character::update
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: update character every round
+	//************************************
 	void update();
 
 	void sufferDamage(int damage);

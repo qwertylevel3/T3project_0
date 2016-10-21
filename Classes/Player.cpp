@@ -75,6 +75,8 @@ void Player::init()
 	buff->setName("buff");
 	buff->setCname(ToolFunction::WStr2UTF8(L"生命值上限提高10"));
 	buff->setHPOffset(10);
+	buff->setBuffType(Buff::BuffBase::Good);
+	buff->setDuration(3);
 	characterPtr->addBuff(buff);
 
 }

@@ -8,8 +8,8 @@
 Buff::BuffMaxHPVal::BuffMaxHPVal()
 {
 	hpOffset = 0;
-	this->setType(BuffBase::OnLoad);
-	this->setPriority(0);
+	this->setTrigType(BuffBase::OnLoad);
+	this->setPriority(1);
 }
 
 
@@ -21,7 +21,7 @@ void Buff::BuffMaxHPVal::apply(Character* target)
 {
 	CharacterAttrHandler* attrHandler = target->getAttrHandler();
 	int maxHP = attrHandler->getMaxHP();
-	attrHandler->setMaxHP(maxHP + hpOffset);
+	attrHandler->setMaxHPByBuff(maxHP + hpOffset);
 }
 
 void Buff::BuffMaxHPVal::setHPOffset(int offset)

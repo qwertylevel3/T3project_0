@@ -30,12 +30,39 @@ std::vector<Buff::BuffBase*>& Buff::BuffHandler::getBuffBoxRef()
 	return buffBox;
 }
 
+void Buff::BuffHandler::update()
+{
+	for each (BuffBase* buff in buffBox)
+	{
+		buff->updateDuration();
+	}
+	bool flag = false;
+	std::vector<BuffBase* >::iterator iter = buffBox.begin();
+	while (iter != buffBox.end())
+	{
+		if ((*iter)->isActive() == false)
+		{
+			delete (*iter);
+			iter=buffBox.erase(iter);
+			flag = true;
+		}
+		else
+		{
+			iter++;
+		}
+	}
+	if (flag)
+	{
+		onBuffUnload();
+	}
+}
+
 void Buff::BuffHandler::onBuffLoad()
 {
 	characterPrt->getAttrHandler()->reset();
 	for each (BuffBase* buff in buffBox)
 	{
-		if (buff->getType() == BuffBase::OnLoad)
+		if (buff->getTrigType() == BuffBase::OnLoad)
 		{
 			buff->apply(characterPrt);
 		}
@@ -44,6 +71,14 @@ void Buff::BuffHandler::onBuffLoad()
 
 void Buff::BuffHandler::onBuffUnload()
 {
+	characterPrt->getAttrHandler()->reset();
+	for each (BuffBase* buff in buffBox)
+	{
+		if (buff->getTrigType() == BuffBase::OnUnload)
+		{
+			buff->apply(characterPrt);
+		}
+	}
 }
 
 void  Buff::BuffHandler::onAttack()

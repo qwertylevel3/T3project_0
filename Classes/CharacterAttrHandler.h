@@ -33,7 +33,15 @@ public:
 	void setIntellect(int intellect);
 	void setAgility(int agility);
 	void setViewSize(int viewSize);
-	
+
+	void setMaxHPByBuff(int h);
+	void setMaxMPByBuff(int m);
+	void setStrengthByBuff(int strength);
+	void setIntellectByBuff(int intellect);
+	void setAgilityByBuff(int agility);
+	void setViewSizeByBuff(int viewSize);
+
+
 	void recalculateAttr();
 	void reset();
 protected:

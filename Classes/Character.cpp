@@ -438,6 +438,7 @@ void Character::update()
 	{
 		ai->update();
 	}
+	buffHandler->update();
 }
 
 

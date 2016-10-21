@@ -333,7 +333,10 @@
     <ClCompile Include="..\Classes\HudBuffMenu.cpp">
       <Filter>src\HUD\menuSystem\menu\buffMenu</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BuffMaxHPVal.cpp" />
+    <ClCompile Include="..\Classes\BuffMaxHPVal.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BuffMaxHPPer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -603,7 +606,10 @@
     <ClInclude Include="..\Classes\HudBuffMenu.h">
       <Filter>src\HUD\menuSystem\menu\buffMenu</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BuffMaxHPVal.h" />
+    <ClInclude Include="..\Classes\BuffMaxHPVal.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BuffMaxHPPer.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
