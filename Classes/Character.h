@@ -85,6 +85,8 @@ public:
 	std::vector<cocos2d::Point> getAtkSelect();
 
 	InventoryHandler* getInventoryHandler();
+
+	BuffHandler* getBuffHandler();
 	//discard
 	void addInventory(Inventory* inventory);
 	void addInventory(const std::string& inventoryName);
@@ -159,7 +161,6 @@ protected:
 
 	//buff handler
 	BuffHandler* buffHandler;
-
 
 	//Animation......
 	void setMoveUpAnimation(cocos2d::CCAnimation* animation);

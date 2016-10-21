@@ -9,6 +9,8 @@
 #include "Armor.h"
 #include "RoundSystem.h"
 #include "MainLayer.h"
+//temp
+#include "AttrValBuff.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -68,9 +70,14 @@ void Player::init()
 		characterPtr->addInventory("arrow000");
 	}
 
-//	Armor* armor = new Armor();
-//	armor->setArmorCount(5);
-//	characterPtr->setArmor(armor);
+	//////////////////////////////////////////////////////////////////////////
+
+	AttrValBuff* buff1 = new AttrValBuff();
+	buff1->setName("buff1");
+	buff1->setCname(ToolFunction::WStr2UTF8(L"²âÊÔbuff"));
+
+	characterPtr->addBuff(buff1);
+
 }
 
 void Player::autoNextStep()

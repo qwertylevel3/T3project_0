@@ -1,6 +1,9 @@
 #include "HudBuffMenu.h"
 #include "HudLayout.h"
 #include "HudMenuItem.h"
+#include "Player.h"
+#include "BuffHandler.h"
+#include "BuffBase.h"
 
 
 
@@ -23,9 +26,16 @@ void HudBuffMenu::update()
 {
 	clear();
 	//////////////////////////////////////////////////////////////////////////
+	Character* characterPrt = Player::getInstance()->getcharacterPtr();
+	BuffHandler* buffHandler = characterPrt->getBuffHandler();
 
+	std::vector<BuffBase* > buffBox = buffHandler->getBuffBoxRef();
 
-	//todo
+	for each (BuffBase* buff in buffBox)
+	{
+		HudMenuItem* menuItem = new HudMenuItem(buff->getCname());
+		this->addItem(menuItem);
+	}
 
 	//////////////////////////////////////////////////////////////////////////
 	if (itemList.empty())

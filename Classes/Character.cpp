@@ -263,6 +263,11 @@ InventoryHandler* Character::getInventoryHandler()
 	return inventoryHandler;
 }
 
+BuffHandler* Character::getBuffHandler()
+{
+	return buffHandler;
+}
+
 void Character::addInventory(Inventory * inventory)
 {
 	inventoryHandler->addInventory(inventory);
@@ -293,7 +298,7 @@ void Character::setAI(AIBase* a)
 
 void Character::addBuff(BuffBase* buff)
 {
-
+	buffHandler->addBuff(buff);
 }
 
 int Character::getMaxHP()

@@ -21,3 +21,8 @@ void BuffHandler::addBuff(BuffBase* buff)
 {
 	buffBox.push_back(buff);
 }
+
+std::vector<BuffBase*>& BuffHandler::getBuffBoxRef()
+{
+	return buffBox;
+}
