@@ -11,6 +11,7 @@
 #include "MainLayer.h"
 //temp
 #include "BuffMaxHPVal.h"
+#include "BuffMaxHPPer.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -71,13 +72,23 @@ void Player::init()
 	}
 
 	//////////////////////////////////////////////////////////////////////////
-	Buff::BuffMaxHPVal* buff = new Buff::BuffMaxHPVal();
-	buff->setName("buff");
-	buff->setCname(ToolFunction::WStr2UTF8(L"生命值上限提高10"));
-	buff->setHPOffset(10);
-	buff->setBuffType(Buff::BuffBase::Good);
-	buff->setDuration(3);
-	characterPtr->addBuff(buff);
+
+	Buff::BuffMaxHPPer* buff2 = new Buff::BuffMaxHPPer();
+	buff2->setName("buff2");
+	buff2->setCname(ToolFunction::WStr2UTF8(L"生命值上限提高10%"));
+	buff2->setPercent(10);
+	buff2->setBuffType(Buff::BuffBase::Good);
+	buff2->setDuration(4);
+	characterPtr->addBuff(buff2);
+
+	Buff::BuffMaxHPVal* buff1 = new Buff::BuffMaxHPVal();
+	buff1->setName("buff1");
+	buff1->setCname(ToolFunction::WStr2UTF8(L"生命值上限提高10"));
+	buff1->setHPOffset(10);
+	buff1->setBuffType(Buff::BuffBase::Good);
+	buff1->setDuration(3);
+	characterPtr->addBuff(buff1);
+
 
 }
 

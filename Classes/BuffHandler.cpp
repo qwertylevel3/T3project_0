@@ -2,8 +2,14 @@
 #include "BuffBase.h"
 #include "CharacterAttrHandler.h"
 #include "Character.h"
+#include<algorithm>
 
 using namespace Buff;
+
+bool compareBuffPriority(const BuffBase* s1, const BuffBase* s2)
+{
+	return s1->getPriority() < s2->getPriority(); //从小到大排序
+}
 
 Buff::BuffHandler::BuffHandler(Character* c)
 {
@@ -60,6 +66,7 @@ void Buff::BuffHandler::update()
 void Buff::BuffHandler::onBuffLoad()
 {
 	characterPrt->getAttrHandler()->reset();
+	std::sort(buffBox.begin(), buffBox.end(),compareBuffPriority);
 	for each (BuffBase* buff in buffBox)
 	{
 		if (buff->getTrigType() == BuffBase::OnLoad)

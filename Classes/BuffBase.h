@@ -24,6 +24,7 @@ namespace Buff
 		void updateDuration();
 		void setActive(bool a);
 		bool isActive();
+
 	protected:
 		CC_SYNTHESIZE(std::string, name, Name);
 		CC_SYNTHESIZE(std::string, cname, Cname);
