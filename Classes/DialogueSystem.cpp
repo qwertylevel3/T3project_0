@@ -1,6 +1,6 @@
 #include "DialogueSystem.h"
 #include "DialogueDriver.h"
-#include "DialogueManager.h"
+#include "DialogueFactory.h"
 #include "KeyController.h"
 
 
@@ -16,7 +16,7 @@ DialogueSystem::~DialogueSystem()
 
 void DialogueSystem::init()
 {
-	DialogueManager::getInstance()->init();
+	DialogueFactory::getInstance()->init();
 	DialogueDriver::getInstance()->init();
 }
 
@@ -24,7 +24,7 @@ void DialogueSystem::runDialogue(const std::string& dialogueName)
 {
 	KeyController::getInstance()->switchCtrlToDialog();
 
-	Dialogue* dialogue = DialogueManager::getInstance()->getDialogue(dialogueName);
+	Dialogue* dialogue = DialogueFactory::getInstance()->getDialogue(dialogueName);
 	DialogueDriver::getInstance()->startDialogue(dialogue);
 }
 

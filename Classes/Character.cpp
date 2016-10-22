@@ -22,13 +22,80 @@
 USING_NS_CC;
 using namespace Field;
 
+Character::Character()
+{
+	skillHandler = new Skill::SkillHandler();
+	Skill::Attack* attack = new Skill::Attack(this);
+
+	skillHandler->addSkill(attack);
+
+	orientation = DOWN;
+	dead = false;
+
+	leftHand = nullptr;
+	rightHand = nullptr;
+	armor = nullptr;
+	accessory = nullptr;
+
+	ai = nullptr;
+
+	inventoryHandler = new InventoryHandler();
+	attrHandler = new CharacterAttrHandler(this);
+	buffHandler = new Buff::BuffHandler(this);
+}
+
+Character::~Character()
+{
+	sprite->release();
+	moveUpAnimation->release();
+	moveDownAnimation->release();
+	moveLeftAnimation->release();
+	moveRightAnimation->release();
+	if (ai)
+	{
+		delete ai;
+	}
+	delete inventoryHandler;
+	delete attrHandler;
+	delete buffHandler;
+	delete skillHandler;
+}
+
 void Character::sufferDamage(int damage)
 {
-	HP -= damage;
+	sufferHPEffect(-damage);
+}
+
+bool Character::sufferHPEffect(int hpOffset)
+{
+	HP += hpOffset;
 	if (HP <= 0)
 	{
 		die();
+		return false;
 	}
+	else if (HP >= getMaxHP())
+	{
+		HP = getMaxHP();
+		return false;
+	}
+	return true;
+}
+
+bool Character::sufferMPEffect(int mpOffset)
+{
+	MP += mpOffset;
+	if (MP<0)
+	{
+		MP = 0;
+		return false;
+	} 
+	else if(MP>getMaxMP())
+	{
+		MP = getMaxMP();
+		return false;
+	}
+	return true;
 }
 
 void Character::die()
@@ -94,7 +161,6 @@ void Character::setOrientationRight()
 	setOrientation(Orientation::RIGHT);
 }
 
-
 void Character::showMoveUpAnimation()
 {
 	Animate* action = Animate::create(moveUpAnimation);
@@ -145,7 +211,7 @@ void Character::equipAccessory(Inventory* inventory)
 
 void Character::unequipLeftHand()
 {
-	if (leftHand && leftHand->getInventoryType()==Inventory::OneHandWeapon)
+	if (leftHand && leftHand->getInventoryType() == Inventory::OneHandWeapon)
 	{
 		inventoryHandler->addInventory(leftHand);
 		leftHand = nullptr;
@@ -162,7 +228,7 @@ void Character::unequipLeftHand()
 
 void Character::unequipRightHand()
 {
-	if (rightHand && rightHand->getInventoryType()==Inventory::OneHandWeapon)
+	if (rightHand && rightHand->getInventoryType() == Inventory::OneHandWeapon)
 	{
 		inventoryHandler->addInventory(rightHand);
 		rightHand = nullptr;
@@ -179,14 +245,11 @@ void Character::unequipRightHand()
 
 void Character::unequipArmor()
 {
-
 }
 
 void Character::unequipAccessory()
 {
-
 }
-
 
 cocos2d::Point Character::getPosition()
 {
@@ -200,7 +263,7 @@ cocos2d::Point Character::getWorldPosition()
 	cocos2d::Point spritePosition = sprite->getPosition();
 	cocos2d::Point layerPositioin = layer->getPosition();
 
-	return spritePosition+layerPositioin;
+	return spritePosition + layerPositioin;
 }
 
 void Character::setPosition(float x, float y)
@@ -211,7 +274,6 @@ void Character::setPosition(float x, float y)
 cocos2d::Node * Character::getParent()
 {
 	return sprite->getParent();
-	
 }
 
 void Character::runSkill(std::string skillName)
@@ -223,7 +285,7 @@ std::vector<cocos2d::Point> Character::getAtkArea()
 {
 	std::vector<cocos2d::Point> vec;
 	if ((leftHand && leftHand->getInventoryType() == Inventory::OneHandWeapon) ||
-		(rightHand && rightHand->getInventoryType()==Inventory::OneHandWeapon)
+		(rightHand && rightHand->getInventoryType() == Inventory::OneHandWeapon)
 		)
 	{
 		return getOneHandAtkArea();
@@ -243,7 +305,7 @@ std::vector<cocos2d::Point> Character::getAtkSelect()
 {
 	std::vector<cocos2d::Point> vec;
 	if ((leftHand && leftHand->getInventoryType() == Inventory::OneHandWeapon) ||
-		(rightHand && rightHand->getInventoryType()==Inventory::OneHandWeapon)
+		(rightHand && rightHand->getInventoryType() == Inventory::OneHandWeapon)
 		)
 	{
 		return getOneHandAtkArea();
@@ -294,7 +356,6 @@ void Character::setSprite(std::string spriteName)
 	sprite = Sprite::createWithSpriteFrameName(spriteName);
 	sprite->retain();
 }
-
 
 void Character::setAI(AIBase* a)
 {
@@ -421,45 +482,6 @@ int Character::getArmorPoint()
 	return 0;
 }
 
-Character::Character()
-{
-	skillHandler = new Skill::SkillHandler();
-	Skill::Attack* attack = new Skill::Attack(this);
-
-	skillHandler->addSkill(attack);
-
-	orientation = DOWN;
-	dead = false;
-
-	leftHand = nullptr;
-	rightHand = nullptr;
-	armor = nullptr;
-	accessory = nullptr;
-
-	ai = nullptr;
-
-	inventoryHandler = new InventoryHandler();
-	attrHandler = new CharacterAttrHandler(this);
-	buffHandler = new Buff::BuffHandler(this);
-}
-
-Character::~Character()
-{
-	sprite->release();
-	moveUpAnimation->release();
-	moveDownAnimation->release();
-	moveLeftAnimation->release();
-	moveRightAnimation->release();
-	if (ai)
-	{
-		delete ai;
-	}
-	delete inventoryHandler;
-	delete attrHandler;
-	delete buffHandler;
-	delete skillHandler;
-}
-
 void Character::update()
 {
 	if (ai)
@@ -469,7 +491,6 @@ void Character::update()
 	buffHandler->update();
 }
 
-
 std::vector<cocos2d::Point> Character::getOneHandAtkArea()
 {
 	FixedSelector selector;
@@ -477,7 +498,7 @@ std::vector<cocos2d::Point> Character::getOneHandAtkArea()
 	return selector.select(this);
 }
 
-// x | x | x		
+// x | x | x
 //-----------
 //   | c |
 //-----------

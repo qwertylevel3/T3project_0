@@ -1,5 +1,5 @@
 #include "InventoryHandler.h"
-#include "InventoryManager.h"
+#include "InventoryFactory.h"
 
 
 InventoryHandler::InventoryHandler()
@@ -80,7 +80,7 @@ Inventory* InventoryHandler::getInventory(std::string inventoryName)
 	if (inventoryBox.count(inventoryName) && inventoryBox[inventoryName]>0)
 	{
 		removeInventory(inventoryName, 1);
-		return InventoryManager::getInstance()->getInventory(inventoryName);
+		return InventoryFactory::getInstance()->getInventory(inventoryName);
 	}
 	return nullptr;
 }

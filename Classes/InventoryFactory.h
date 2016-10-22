@@ -9,11 +9,11 @@
 class Weapon;
 class Arrow;
 
-class InventoryManager:public XMLConfigure,public Singleton<InventoryManager>
+class InventoryFactory:public XMLConfigure,public Singleton<InventoryFactory>
 {
 public:
-	InventoryManager();
-	~InventoryManager();
+	InventoryFactory();
+	~InventoryFactory();
 	void init();
 	Inventory* getInventory(std::string inventoryName);
 	std::string getCname(const std::string& inventoryName);

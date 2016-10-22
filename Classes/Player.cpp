@@ -1,8 +1,8 @@
 #include "Player.h"
-#include"CharacterManager.h"
+#include"CharacterFactory.h"
 #include"Dungeon.h"
 #include"FieldEnum.h"
-#include"InventoryManager.h"
+#include"InventoryFactory.h"
 #include"ToolFunction.h"
 #include "InventoryInHand.h"
 #include "Accessory.h"
@@ -28,7 +28,7 @@ Player::~Player()
 
 void Player::init()
 {
-	characterPtr = CharacterManager::getInstance()->getCharacter("Actor0");
+	characterPtr = CharacterFactory::getInstance()->getCharacter("Actor0");
 
 	setName("qwerty");
 
@@ -46,17 +46,17 @@ void Player::init()
 
 	//testInventory......
 
-	Inventory* woodSword = InventoryManager::getInstance()->getInventory("sword000");
+	Inventory* woodSword = InventoryFactory::getInstance()->getInventory("sword000");
 	woodSword->equipLeftHand(characterPtr);
 
-	Inventory* ironSword = InventoryManager::getInstance()->getInventory("sword001");
+	Inventory* ironSword = InventoryFactory::getInstance()->getInventory("sword001");
 	ironSword->equipRightHand(characterPtr);
 
-	Inventory* testItem0 = InventoryManager::getInstance()->getInventory("sword001");
-	Inventory* testItem1 = InventoryManager::getInstance()->getInventory("sword001");
-	Inventory* testItem2 = InventoryManager::getInstance()->getInventory("sword001");
-	Inventory* testItem3 = InventoryManager::getInstance()->getInventory("sword001");
-	Inventory* testItem4 = InventoryManager::getInstance()->getInventory("bow000");
+	Inventory* testItem0 = InventoryFactory::getInstance()->getInventory("sword001");
+	Inventory* testItem1 = InventoryFactory::getInstance()->getInventory("sword001");
+	Inventory* testItem2 = InventoryFactory::getInstance()->getInventory("sword001");
+	Inventory* testItem3 = InventoryFactory::getInstance()->getInventory("sword001");
+	Inventory* testItem4 = InventoryFactory::getInstance()->getInventory("bow000");
 
 	characterPtr->addInventory(testItem0);
 	characterPtr->addInventory(testItem1);

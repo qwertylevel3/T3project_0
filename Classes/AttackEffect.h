@@ -10,7 +10,7 @@ namespace Skill
 	public:
 		AttackEffect();
 		~AttackEffect();
-		void run(Character* caster,std::vector<cocos2d::Point>& coord);
+		bool run(Character* caster,std::vector<cocos2d::Point>& coord);
 	protected:
 		cocos2d::Animation* animation;
 		void showOneHandEffect(Character* caster, std::vector<cocos2d::Point>& coord);

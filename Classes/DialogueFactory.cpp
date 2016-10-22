@@ -1,4 +1,4 @@
-#include "DialogueManager.h"
+#include "DialogueFactory.h"
 #include "Statement.h"
 #include "Question.h"
 #include "ToolFunction.h"
@@ -10,16 +10,16 @@
 USING_NS_CC;
 
 
-DialogueManager::DialogueManager()
+DialogueFactory::DialogueFactory()
 {
 }
 
 
-DialogueManager::~DialogueManager()
+DialogueFactory::~DialogueFactory()
 {
 }
 
-void DialogueManager::init()
+void DialogueFactory::init()
 {
 	tinyxml2::XMLDocument doc;
 	doc.LoadFile("dialogue.xml");
@@ -57,12 +57,12 @@ void DialogueManager::init()
 }
 
 
-Dialogue* DialogueManager::getDialogue(const std::string& dialogueName)
+Dialogue* DialogueFactory::getDialogue(const std::string& dialogueName)
 {
 	return dialogueBox[dialogueName];
 }
 
-Statement* DialogueManager::initStatement(tinyxml2::XMLElement *sentenceElement)
+Statement* DialogueFactory::initStatement(tinyxml2::XMLElement *sentenceElement)
 {
 	Statement* sentence = new Statement();
 
@@ -73,7 +73,7 @@ Statement* DialogueManager::initStatement(tinyxml2::XMLElement *sentenceElement)
 	return sentence;
 }
 
-Question* DialogueManager::initQuestion(tinyxml2::XMLElement *sentenceElement)
+Question* DialogueFactory::initQuestion(tinyxml2::XMLElement *sentenceElement)
 {
 	Question* sentence = new Question();
 

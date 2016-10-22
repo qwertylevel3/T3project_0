@@ -1,4 +1,4 @@
-#include "InventoryManager.h"
+#include "InventoryFactory.h"
 #include"cocos2d.h"
 #include<sstream>
 #include "OneHandWeapon.h"
@@ -15,16 +15,16 @@ USING_NS_CC;
 
 
 
-InventoryManager::InventoryManager()
+InventoryFactory::InventoryFactory()
 {
 }
 
 
-InventoryManager::~InventoryManager()
+InventoryFactory::~InventoryFactory()
 {
 }
 
-void InventoryManager::init()
+void InventoryFactory::init()
 {
 	CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("weapon.plist");
 
@@ -42,23 +42,23 @@ void InventoryManager::init()
 	}
 }
 
-Inventory * InventoryManager::getInventory(std::string inventoryName)
+Inventory * InventoryFactory::getInventory(std::string inventoryName)
 {
 	return inventoryMap[inventoryName]->clone();
 }
 
 
-std::string InventoryManager::getCname(const std::string& inventoryName)
+std::string InventoryFactory::getCname(const std::string& inventoryName)
 {
 	return inventoryMap[inventoryName]->getCname();
 }
 
-Inventory::Type InventoryManager::getInventoryType(const std::string& inventoryName)
+Inventory::Type InventoryFactory::getInventoryType(const std::string& inventoryName)
 {
 	return inventoryMap[inventoryName]->getInventoryType();
 }
 
-void InventoryManager::initModel(tinyxml2::XMLElement* inventoryElement, const std::string& type)
+void InventoryFactory::initModel(tinyxml2::XMLElement* inventoryElement, const std::string& type)
 {
 	if (type == "oneHandWeapon")
 	{
@@ -120,7 +120,7 @@ void InventoryManager::initModel(tinyxml2::XMLElement* inventoryElement, const s
 	}
 }
 
-void InventoryManager::initBaseData(tinyxml2::XMLElement* inventoryElement,Inventory* model)
+void InventoryFactory::initBaseData(tinyxml2::XMLElement* inventoryElement,Inventory* model)
 {
 	model->setName(getChildElementStrAttr(inventoryElement, "name"));
 	model->setCname(getChildElementStrAttr(inventoryElement, "cname"));
@@ -131,7 +131,7 @@ void InventoryManager::initBaseData(tinyxml2::XMLElement* inventoryElement,Inven
 
 }
 
-void InventoryManager::initWeaponData(tinyxml2::XMLElement* inventoryElement, Weapon* weaponModel)
+void InventoryFactory::initWeaponData(tinyxml2::XMLElement* inventoryElement, Weapon* weaponModel)
 {
 	weaponModel->setWeaponDamage(getChildElementIntAttr(inventoryElement, "weaponDamage"));
 	weaponModel->setStrRequire(getChildElementIntAttr(inventoryElement, "strRequire"));
@@ -139,7 +139,7 @@ void InventoryManager::initWeaponData(tinyxml2::XMLElement* inventoryElement, We
 	weaponModel->setIntRequire(getChildElementIntAttr(inventoryElement, "intRequire"));
 }
 
-void InventoryManager::initArrowData(tinyxml2::XMLElement* inventoryElement, Arrow* model)
+void InventoryFactory::initArrowData(tinyxml2::XMLElement* inventoryElement, Arrow* model)
 {
 	model->setDamage(getChildElementIntAttr(inventoryElement, "damage"));
 }

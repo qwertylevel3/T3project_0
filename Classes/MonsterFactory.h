@@ -9,11 +9,11 @@
 class Character;
 class MonsterModel;
 
-class MonsterManager:public XMLConfigure,public Singleton<MonsterManager>
+class MonsterFactory:public XMLConfigure,public Singleton<MonsterFactory>
 {
 public:
-	MonsterManager();
-	~MonsterManager();
+	MonsterFactory();
+	~MonsterFactory();
 	void init();
 	Character* getMonster(const std::string& name);
 protected:

@@ -3,7 +3,7 @@
 #include"RandomNumber.h"
 #include"cocos2d.h"
 #include"Debug.h"
-#include"MonsterManager.h"
+#include"MonsterFactory.h"
 
 using namespace Field;
 USING_NS_CC;
@@ -347,7 +347,7 @@ void Field::StoreyBuilder::placeMonster(const Rect & rect)
 	int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
 	int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
 
-	Character* monster = MonsterManager::getInstance()->getMonster("testMonster");
+	Character* monster = MonsterFactory::getInstance()->getMonster("testMonster");
 
 	CCAssert(monster, "get a null monster");
 

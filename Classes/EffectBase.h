@@ -11,6 +11,6 @@ namespace Skill
 	public:
 		EffectBase();
 		virtual ~EffectBase();
-		virtual void run(Character* caster,std::vector<cocos2d::Point>& coord)=0;
+		virtual bool run(Character* caster,std::vector<cocos2d::Point>& coord)=0;
 	};
 }

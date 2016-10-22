@@ -25,7 +25,7 @@ AttackEffect::~AttackEffect()
 	animation->release();
 }
 
-void Skill::AttackEffect::run(Character* caster, std::vector<cocos2d::Point>& coord)
+bool Skill::AttackEffect::run(Character* caster, std::vector<cocos2d::Point>& coord)
 {
 	std::set<Character* > targetCharacters;
 	for each (cocos2d::Point targetPosition in coord)
@@ -50,7 +50,7 @@ void Skill::AttackEffect::run(Character* caster, std::vector<cocos2d::Point>& co
 			}
 			else
 			{
-				return;
+				return false;
 			}
 		}
 
@@ -71,6 +71,7 @@ void Skill::AttackEffect::run(Character* caster, std::vector<cocos2d::Point>& co
 	{
 		showOneHandEffect(caster, coord);
 	}
+	return true;
 }
 
 void Skill::AttackEffect::showOneHandEffect(Character* caster, std::vector<cocos2d::Point>& coord)

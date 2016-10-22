@@ -12,7 +12,7 @@ Attack::Attack(Character* caster)
 	AttackSelector* selector = new AttackSelector();
 	this->setSelector(selector);
 	AttackEffect* attackEffect = new AttackEffect();
-	this->setEffector(attackEffect);
+	this->addEffect(attackEffect);
 
 	this->setName("attack");
 	this->setCname(ToolFunction::WStr2UTF8(L"¹¥»÷"));

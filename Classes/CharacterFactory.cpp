@@ -1,32 +1,32 @@
-#include "CharacterManager.h"
+#include "CharacterFactory.h"
 
 #include<vector>
 
 USING_NS_CC;
 
 
-CharacterManager::CharacterManager()
+CharacterFactory::CharacterFactory()
 {
 }
 
 
-CharacterManager::~CharacterManager()
+CharacterFactory::~CharacterFactory()
 {
 }
 
-void CharacterManager::init()
+void CharacterFactory::init()
 {
 	CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("test_character.plist");
 
 	initCharacterModel("character.xml");
 }
 
-Character * CharacterManager::getCharacter(std::string characterName)
+Character * CharacterFactory::getCharacter(std::string characterName)
 {
 	return modelMap[characterName]->makeCharacter();
 }
 
-void CharacterManager::initCharacterModel(const std::string fileName)
+void CharacterFactory::initCharacterModel(const std::string fileName)
 {
 	tinyxml2::XMLDocument doc;
 	doc.LoadFile(fileName.c_str());
@@ -78,7 +78,7 @@ void CharacterManager::initCharacterModel(const std::string fileName)
 	}
 }
 
-void CharacterManager::createNextAnimationVector(tinyxml2::XMLElement * root,std::string animationName,std::vector<std::string>& frameVec)
+void CharacterFactory::createNextAnimationVector(tinyxml2::XMLElement * root,std::string animationName,std::vector<std::string>& frameVec)
 {
 	tinyxml2::XMLElement* element = root->FirstChildElement(animationName.c_str());
 	tinyxml2::XMLElement* frameElement = element->FirstChildElement();

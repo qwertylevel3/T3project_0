@@ -99,9 +99,6 @@
     <ClCompile Include="..\Classes\Debug.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\CharacterManager.cpp">
-      <Filter>src\character</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\CharacterModel.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
@@ -120,9 +117,6 @@
     <ClCompile Include="..\Classes\Player.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\InventoryManager.cpp">
-      <Filter>src\inventory</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Accessory.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
@@ -131,9 +125,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Supply.cpp">
       <Filter>src\inventory</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\MonsterManager.cpp">
-      <Filter>src\character</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\MonsterModel.cpp">
       <Filter>src\character</Filter>
@@ -200,9 +191,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\KeyController.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\DialogueManager.cpp">
-      <Filter>src\dialogue</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\OptionCheckMenu.cpp">
       <Filter>src\dialogue</Filter>
@@ -351,7 +339,23 @@
     <ClCompile Include="..\Classes\HudSkillMenu.cpp">
       <Filter>src\HUD\menuSystem\menu\skillMenu</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudTrigActiveSkill.cpp" />
+    <ClCompile Include="..\Classes\HudTrigActiveSkill.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HPEffect.cpp" />
+    <ClCompile Include="..\Classes\MPEffect.cpp" />
+    <ClCompile Include="..\Classes\CharacterFactory.cpp">
+      <Filter>src\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MonsterFactory.cpp">
+      <Filter>src\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DialogueFactory.cpp">
+      <Filter>src\dialogue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\InventoryFactory.cpp">
+      <Filter>src\inventory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -381,9 +385,6 @@
     <ClInclude Include="..\Classes\Debug.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\CharacterManager.h">
-      <Filter>src\character</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\CharacterModel.h">
       <Filter>src\character</Filter>
     </ClInclude>
@@ -402,9 +403,6 @@
     <ClInclude Include="..\Classes\Player.h">
       <Filter>src\character</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\InventoryManager.h">
-      <Filter>src\inventory</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Accessory.h">
       <Filter>src\inventory</Filter>
     </ClInclude>
@@ -413,9 +411,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Supply.h">
       <Filter>src\inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\MonsterManager.h">
-      <Filter>src\character</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MonsterModel.h">
       <Filter>src\character</Filter>
@@ -485,9 +480,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Marco.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\DialogueManager.h">
-      <Filter>src\dialogue</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\OptionCheckMenu.h">
       <Filter>src\dialogue</Filter>
@@ -636,7 +628,23 @@
     <ClInclude Include="..\Classes\HudSkillMenu.h">
       <Filter>src\HUD\menuSystem\menu\skillMenu</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudTrigActiveSkill.h" />
+    <ClInclude Include="..\Classes\HudTrigActiveSkill.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HPEffect.h" />
+    <ClInclude Include="..\Classes\MPEffect.h" />
+    <ClInclude Include="..\Classes\CharacterFactory.h">
+      <Filter>src\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MonsterFactory.h">
+      <Filter>src\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DialogueFactory.h">
+      <Filter>src\dialogue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\InventoryFactory.h">
+      <Filter>src\inventory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

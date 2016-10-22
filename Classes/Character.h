@@ -43,13 +43,15 @@ public:
 	//************************************
 	// Method:    update
 	// FullName:  Character::update
-	// Access:    public 
+	// Access:    public
 	// Returns:   void
 	// Qualifier: update character every round
 	//************************************
 	void update();
 
 	void sufferDamage(int damage);
+	bool sufferHPEffect(int hpOffset);
+	bool sufferMPEffect(int mpOffset);
 
 	//************************************
 	// Method:    die

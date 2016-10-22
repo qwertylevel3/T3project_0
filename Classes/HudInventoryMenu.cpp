@@ -4,7 +4,7 @@
 #include "HudMenuItem.h"
 #include "ToolFunction.h"
 #include "InventoryHandler.h"
-#include "InventoryManager.h"
+#include "InventoryFactory.h"
 #include "ToolFunction.h"
 #include "HudTrigActChildMenu.h"
 #include "HudEquipableInventoryMenu.h"
@@ -38,7 +38,7 @@ void HudInventoryMenu::update()
 	std::map<std::string, int>::const_iterator iter = inventoryMap.cbegin();
 	while (iter != inventoryMap.cend())
 	{
-		std::string cname = InventoryManager::getInstance()->getCname(iter->first);
+		std::string cname = InventoryFactory::getInstance()->getCname(iter->first);
 		std::string count = ToolFunction::int2string(iter->second);
 
 		HudMenuItem* inventoryItem = new HudMenuItem(cname+" x"+count);
@@ -69,7 +69,7 @@ void HudInventoryMenu::addItem(HudMenuItem* item)
 
 void HudInventoryMenu::setItemTrigger(const std::string& inventoryName, HudMenuItem* item)
 {
-	Inventory::Type inventoryType = InventoryManager::getInstance()->getInventoryType(inventoryName);
+	Inventory::Type inventoryType = InventoryFactory::getInstance()->getInventoryType(inventoryName);
 	switch (inventoryType)
 	{
 	case Inventory::Empty:

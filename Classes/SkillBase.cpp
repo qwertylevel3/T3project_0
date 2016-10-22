@@ -4,39 +4,46 @@
 #include "base/ccTypes.h"
 #include <vector>
 
-
 using namespace Skill;
 
 SkillBase::SkillBase(Character* character)
 {
 	caster = character;
 	selector = nullptr;
-	effector = nullptr;
 	nextSkill = nullptr;
+	mpCost = 0;
 }
-
 
 SkillBase::~SkillBase()
 {
 	delete selector;
-	delete effector;
 	delete nextSkill;
+}
+
+void Skill::SkillBase::addEffect(EffectBase* effect)
+{
+	effectBox.push_back(effect);
 }
 
 void Skill::SkillBase::active()
 {
+	if (caster->getMP() < mpCost)
+	{
+		return;
+	}
+	else
+	{
+		caster->sufferMPEffect(-mpCost);
+	}
+
 	std::vector<cocos2d::Point> targetPositionVec;
 	if (selector)
 	{
 		targetPositionVec = selector->select(caster);
 	}
 
-	if (effector)
+	for each (EffectBase* effect in effectBox)
 	{
-		effector->run(caster,targetPositionVec);
-	}
-	if (nextSkill)
-	{
-		nextSkill->active();
+		effect->run(caster, targetPositionVec);
 	}
 }

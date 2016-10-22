@@ -1,7 +1,7 @@
 #include "MonsterModel.h"
-#include"CharacterManager.h"
+#include"CharacterFactory.h"
 #include "AICommonEnemy.h"
-#include "InventoryManager.h"
+#include "InventoryFactory.h"
 #include "CharacterAttr.h"
 
 
@@ -17,7 +17,7 @@ MonsterModel::~MonsterModel()
 
 Character * MonsterModel::makeMonster()
 {
-	Character* monster = CharacterManager::getInstance()->getCharacter(characterName);
+	Character* monster = CharacterFactory::getInstance()->getCharacter(characterName);
 
 	monster->setStrength(strength);
 	monster->setIntellect(intellect);
@@ -31,7 +31,7 @@ Character * MonsterModel::makeMonster()
 	AICommonEnemy* ai = new AICommonEnemy();
 	monster->setAI(ai);
 
-	Inventory* woodSword = InventoryManager::getInstance()->getInventory("sword000");
+	Inventory* woodSword = InventoryFactory::getInstance()->getInventory("sword000");
 	woodSword->equipLeftHand(monster);
 
 	return monster;

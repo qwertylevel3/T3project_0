@@ -1,19 +1,19 @@
-#include "MonsterManager.h"
+#include "MonsterFactory.h"
 #include"Character.h"
 #include"MonsterModel.h"
 #include<sstream>
 #include"ToolFunction.h"
 
-MonsterManager::MonsterManager()
+MonsterFactory::MonsterFactory()
 {
 }
 
 
-MonsterManager::~MonsterManager()
+MonsterFactory::~MonsterFactory()
 {
 }
 
-void MonsterManager::init()
+void MonsterFactory::init()
 {
 	tinyxml2::XMLDocument doc;
 	doc.LoadFile("monster.xml");
@@ -27,12 +27,12 @@ void MonsterManager::init()
 	}
 }
 
-Character * MonsterManager::getMonster(const std::string& name)
+Character * MonsterFactory::getMonster(const std::string& name)
 {
 	return monsterMap[name]->makeMonster();
 }
 
-void MonsterManager::initModel(tinyxml2::XMLElement* monsterElement)
+void MonsterFactory::initModel(tinyxml2::XMLElement* monsterElement)
 {
 	MonsterModel* model = new MonsterModel();
 

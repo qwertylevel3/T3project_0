@@ -1,7 +1,7 @@
 #include "HudEquipMenu.h"
 #include "Player.h"
 #include "HudMenuItem.h"
-#include "InventoryManager.h"
+#include "InventoryFactory.h"
 #include "InventoryInHand.h"
 #include "Armor.h"
 #include "Accessory.h"

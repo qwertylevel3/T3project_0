@@ -11,11 +11,11 @@
 class Question;
 class Statement;
 
-class DialogueManager:public XMLConfigure,public Singleton<DialogueManager>
+class DialogueFactory:public XMLConfigure,public Singleton<DialogueFactory>
 {
 public:
-	DialogueManager();
-	~DialogueManager();
+	DialogueFactory();
+	~DialogueFactory();
 	void init();
 	Dialogue* getDialogue(const std::string& dialogueName);
 protected:

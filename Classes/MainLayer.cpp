@@ -2,12 +2,12 @@
 #include "SimpleAudioEngine.h"
 #include"RandomNumber.h"
 #include"StoreyBuilder.h"
-#include"CharacterManager.h"
+#include"CharacterFactory.h"
 #include"SkillManager.h"
 #include"Player.h"
 #include"Dungeon.h"
-#include"InventoryManager.h"
-#include"MonsterManager.h"
+#include"InventoryFactory.h"
+#include"MonsterFactory.h"
 #include "BattleSystem.h"
 #include "RoundSystem.h"
 #include "KeyController.h"
@@ -35,11 +35,11 @@ bool MainLayer::init()
 
 	RandomNumber::getInstance()->setSeed(100);
 
-	InventoryManager::getInstance()->init();
-	CharacterManager::getInstance()->init();
+	InventoryFactory::getInstance()->init();
+	CharacterFactory::getInstance()->init();
 	SkillManager::getInstance()->init();
 	Player::getInstance()->init();
-	MonsterManager::getInstance()->init();
+	MonsterFactory::getInstance()->init();
 
 	BattleSystem::getInstance()->init();
 

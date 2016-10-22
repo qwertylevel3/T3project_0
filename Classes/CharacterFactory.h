@@ -8,11 +8,11 @@
 #include"CharacterModel.h"
 #include<map>
 
-class CharacterManager:public XMLConfigure,public Singleton<CharacterManager>
+class CharacterFactory:public XMLConfigure,public Singleton<CharacterFactory>
 {
 public:
-	CharacterManager();
-	~CharacterManager();
+	CharacterFactory();
+	~CharacterFactory();
 	void init();
 	Character* getCharacter(std::string characterName);
 protected:
