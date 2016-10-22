@@ -73,6 +73,9 @@
     <Filter Include="src\HUD\menuSystem\menu\buffMenu">
       <UniqueIdentifier>{3da686db-fdb5-4b0b-a229-298309d459a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\HUD\menuSystem\menu\skillMenu">
+      <UniqueIdentifier>{dada5ad0-fa67-4355-bf20-b55c9c97efc9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -339,7 +342,11 @@
     <ClCompile Include="..\Classes\BuffMaxHPPer.cpp">
       <Filter>src\buff</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BuffAgiVal.cpp" />
+    <ClCompile Include="..\Classes\BuffAgiVal.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SkillHandler.cpp" />
+    <ClCompile Include="..\Classes\HudSkillMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -615,7 +622,11 @@
     <ClInclude Include="..\Classes\BuffMaxHPPer.h">
       <Filter>src\buff</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BuffAgiVal.h" />
+    <ClInclude Include="..\Classes\BuffAgiVal.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SkillHandler.h" />
+    <ClInclude Include="..\Classes\HudSkillMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

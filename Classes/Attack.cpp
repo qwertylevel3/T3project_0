@@ -1,6 +1,7 @@
 #include "Attack.h"
 #include "AttackSelector.h"
 #include "AttackEffect.h"
+#include "ToolFunction.h"
 
 
 using namespace Skill;
@@ -14,6 +15,7 @@ Attack::Attack(Character* caster)
 	this->setEffector(attackEffect);
 
 	this->setName("attack");
+	this->setCname(ToolFunction::WStr2UTF8(L"¹¥»÷"));
 }
 
 

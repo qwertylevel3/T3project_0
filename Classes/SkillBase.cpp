@@ -18,6 +18,9 @@ SkillBase::SkillBase(Character* character)
 
 SkillBase::~SkillBase()
 {
+	delete selector;
+	delete effector;
+	delete nextSkill;
 }
 
 void Skill::SkillBase::active()

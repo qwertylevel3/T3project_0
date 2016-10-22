@@ -8,6 +8,7 @@
 #include "HudTrigActChildMenu.h"
 #include "HudGroundMenu.h"
 #include "HudBuffMenu.h"
+#include "HudSkillMenu.h"
 
 
 
@@ -39,6 +40,15 @@ void HudMainMenu::init()
 
 	HudTrigActChildMenu* buffTrigger = new HudTrigActChildMenu(HudBuffMenu::getInstance());
 	buffMenuItem->setTrigger(buffTrigger);
+	//////////////////////////////////////////////////////////////////////////
+
+	HudMenuItem* skillMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"¼¼ÄÜ"));
+	this->addItem(skillMenuItem);
+
+	HudSkillMenu::getInstance()->setParent(this);
+
+	HudTrigActChildMenu* skillTrigger = new HudTrigActChildMenu(HudSkillMenu::getInstance());
+	skillMenuItem->setTrigger(skillTrigger);
 
 	//////////////////////////////////////////////////////////////////////////
 

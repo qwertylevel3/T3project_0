@@ -18,6 +18,7 @@ namespace Skill
 		virtual ~SkillBase();
 	protected:
 		CC_SYNTHESIZE(std::string, name, Name);
+		CC_SYNTHESIZE(std::string, cname, Cname);
 		CC_SYNTHESIZE(Character*, caster, Caster);
 
 		CC_SYNTHESIZE(SelectorBase*, selector, Selector);

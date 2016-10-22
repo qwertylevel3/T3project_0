@@ -173,6 +173,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudGroundInventoryMenu.cpp" />
     <ClCompile Include="..\Classes\HudGroundMenu.cpp" />
     <ClCompile Include="..\Classes\HudMainMenu.cpp" />
+    <ClCompile Include="..\Classes\HudSkillMenu.cpp" />
     <ClCompile Include="..\Classes\HudTrigDrop.cpp" />
     <ClCompile Include="..\Classes\HudTrigEquipLeft.cpp" />
     <ClCompile Include="..\Classes\HudTrigEquipRight.cpp" />
@@ -186,6 +187,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\SelectorBase.cpp" />
     <ClCompile Include="..\Classes\SingleDirectionSearchSelector.cpp" />
     <ClCompile Include="..\Classes\SkillBase.cpp" />
+    <ClCompile Include="..\Classes\SkillHandler.cpp" />
     <ClCompile Include="..\Classes\StoreyInventoryHandler.cpp" />
     <ClCompile Include="..\Classes\XMLConfigure.cpp" />
     <ClCompile Include="..\Classes\BattleSystem.cpp" />
@@ -267,6 +269,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudGroundInventoryMenu.h" />
     <ClInclude Include="..\Classes\HudGroundMenu.h" />
     <ClInclude Include="..\Classes\HudMainMenu.h" />
+    <ClInclude Include="..\Classes\HudSkillMenu.h" />
     <ClInclude Include="..\Classes\HudTrigDrop.h" />
     <ClInclude Include="..\Classes\HudTrigEquipLeft.h" />
     <ClInclude Include="..\Classes\HudTrigEquipRight.h" />
@@ -280,6 +283,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\SelectorBase.h" />
     <ClInclude Include="..\Classes\SingleDirectionSearchSelector.h" />
     <ClInclude Include="..\Classes\SkillBase.h" />
+    <ClInclude Include="..\Classes\SkillHandler.h" />
     <ClInclude Include="..\Classes\StoreyInventoryHandler.h" />
     <ClInclude Include="..\Classes\XMLConfigure.h" />
     <ClInclude Include="..\Classes\BattleSystem.h" />

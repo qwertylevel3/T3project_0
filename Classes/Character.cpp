@@ -9,6 +9,7 @@
 #include "Accessory.h"
 #include "AIBase.h"
 #include "InventoryHandler.h"
+#include "SkillHandler.h"
 #include "SkillBase.h"
 #include "Attack.h"
 #include "Dungeon.h"
@@ -215,7 +216,7 @@ cocos2d::Node * Character::getParent()
 
 void Character::runSkill(std::string skillName)
 {
-	skillBox[skillName]->active();
+	skillHandler->runSkill(skillName);
 }
 
 std::vector<cocos2d::Point> Character::getAtkArea()
@@ -263,6 +264,11 @@ InventoryHandler* Character::getInventoryHandler()
 	return inventoryHandler;
 }
 
+Skill::SkillHandler* Character::getSkillHandler()
+{
+	return skillHandler;
+}
+
 Buff::BuffHandler* Character::getBuffHandler()
 {
 	return buffHandler;
@@ -299,6 +305,11 @@ void Character::setAI(AIBase* a)
 void Character::addBuff(Buff::BuffBase* buff)
 {
 	buffHandler->addBuff(buff);
+}
+
+void Character::addSkill(Skill::SkillBase* skill)
+{
+	skillHandler->addSkill(skill);
 }
 
 int Character::getMaxHP()
@@ -412,8 +423,10 @@ int Character::getArmorPoint()
 
 Character::Character()
 {
+	skillHandler = new Skill::SkillHandler();
 	Skill::Attack* attack = new Skill::Attack(this);
-	skillBox["attack"] = attack;
+
+	skillHandler->addSkill(attack);
 
 	orientation = DOWN;
 	dead = false;
@@ -444,6 +457,7 @@ Character::~Character()
 	delete inventoryHandler;
 	delete attrHandler;
 	delete buffHandler;
+	delete skillHandler;
 }
 
 void Character::update()

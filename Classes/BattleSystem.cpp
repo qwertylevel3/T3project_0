@@ -289,6 +289,11 @@ bool BattleSystem::isBlock(Character* c)
 
 bool BattleSystem::isCombo(Character* c)
 {
+	Weapon* weapon = getWeapon(c, LeftHand);
+	if (weapon && weapon->getInventoryType()==Inventory::Bow)
+	{
+		return false;
+	}
 	int comboPro = getComboProCount(c);
 #ifdef SHOWMESSAGE
 	cout << "combo chance:" << comboPro << endl;

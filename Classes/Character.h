@@ -13,6 +13,7 @@ class Armor;
 class Accessory;
 class AIBase;
 class InventoryHandler;
+
 namespace Buff
 {
 	class BuffBase;
@@ -22,6 +23,7 @@ namespace Buff
 namespace Skill
 {
 	class SkillBase;
+	class SkillHandler;
 }
 
 class Character
@@ -95,7 +97,7 @@ public:
 	std::vector<cocos2d::Point> getAtkSelect();
 
 	InventoryHandler* getInventoryHandler();
-
+	Skill::SkillHandler* getSkillHandler();
 	Buff::BuffHandler* getBuffHandler();
 	//discard
 	void addInventory(Inventory* inventory);
@@ -107,6 +109,7 @@ public:
 	void setAI(AIBase* a);
 
 	void addBuff(Buff::BuffBase* buff);
+	void addSkill(Skill::SkillBase* skill);
 	//////////////////////////////////////////////////////////////////////////
 
 	int getMaxHP();
@@ -145,7 +148,7 @@ protected:
 	AIBase* ai;
 
 	//Skill......
-	std::map<std::string, Skill::SkillBase*> skillBox;
+	Skill::SkillHandler* skillHandler;
 
 	//Inventory......
 	InventoryHandler* inventoryHandler;
