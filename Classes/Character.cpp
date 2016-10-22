@@ -363,17 +363,22 @@ void Character::setViewSize(int viewSize)
 
 int Character::getEvadePro()
 {
-	return attrHandler->getEvadePro();
+	return attrHandler->getEvadePoint();
 }
 
 int Character::getAccuracuPro()
 {
-	return attrHandler->getAccuracuPro();
+	return attrHandler->getAccuracyPoint();
 }
 
 int Character::getCriticalPro()
 {
 	return attrHandler->getCriticalPro();
+}
+
+int Character::getCriticalPer()
+{
+	return attrHandler->getCriticalPer();
 }
 
 int Character::getCriticalPoint()
@@ -394,6 +399,15 @@ int Character::getBlockPoint()
 int Character::getComboPro()
 {
 	return attrHandler->getComboPro();
+}
+
+int Character::getArmorPoint()
+{
+	if (armor)
+	{
+		return armor->getArmorCount();
+	}
+	return 0;
 }
 
 Character::Character()

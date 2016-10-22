@@ -8,7 +8,7 @@
 Buff::BuffMaxHPVal::BuffMaxHPVal()
 {
 	hpOffset = 0;
-	this->setTrigType(BuffBase::OnLoad);
+	this->setTrigType(BuffBase::ATTR);
 	this->setPriority(1);
 }
 

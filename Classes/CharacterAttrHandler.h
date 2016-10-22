@@ -10,16 +10,19 @@ public:
 	CharacterAttrHandler(Character* c);
 	~CharacterAttrHandler();
 
+	
 	int getMaxHP();
 	int getMaxMP();
+	int getViewSize();
+
 	int getStrength();
 	int getIntellect();
 	int getAgility();
-	int getViewSize();
 
-	int getEvadePro();
-	int getAccuracuPro();
+	int getEvadePoint();
+	int getAccuracyPoint();
 	int getCriticalPro();
+	int getCriticalPer();
 	int getCriticalPoint();
 	int getBlockPro();
 	int getBlockPoint();
@@ -29,21 +32,36 @@ public:
 
 	void setMaxHP(int h);
 	void setMaxMP(int m);
+	void setViewSize(int viewSize);
+
 	void setStrength(int strength);
 	void setIntellect(int intellect);
 	void setAgility(int agility);
-	void setViewSize(int viewSize);
+
+	//////////////////////////////////////////////////////////////////////////
 
 	void setMaxHPByBuff(int h);
 	void setMaxMPByBuff(int m);
+	void setViewSizeByBuff(int viewSize);
+
 	void setStrengthByBuff(int strength);
 	void setIntellectByBuff(int intellect);
 	void setAgilityByBuff(int agility);
-	void setViewSizeByBuff(int viewSize);
+
+	void setEvadePointByBuff(int e);
+	void setAccuracyPointByBuff(int a);
+	void setCriticalProByBuff(int p);
+	void setCriticalPerByBuff(int p);
+	void setCriticalPointByBuff(int c);
+	void setBlockProByBuff(int p);
+	void setBlockPointByBuff(int b);
+	void setComboProByBuff(int p);
 
 
-	void recalculateAttr();
+	//////////////////////////////////////////////////////////////////////////
+
 	void reset();
+	void recalculateBattleAttr();
 protected:
 	CharacterAttr attr;
 	CharacterAttr oriAttr;

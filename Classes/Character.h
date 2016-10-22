@@ -126,10 +126,13 @@ public:
 	int getEvadePro();
 	int getAccuracuPro();
 	int getCriticalPro();
+	int getCriticalPer();
 	int getCriticalPoint();
 	int getBlockPro();
 	int getBlockPoint();
 	int getComboPro();
+
+	int getArmorPoint();
 protected:
 	std::vector<cocos2d::Point> getOneHandAtkArea();
 	std::vector<cocos2d::Point> getTwoHandAtkArea();

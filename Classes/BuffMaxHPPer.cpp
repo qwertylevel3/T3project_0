@@ -8,7 +8,7 @@
 Buff::BuffMaxHPPer::BuffMaxHPPer()
 {
 	percent = 0;
-	this->setTrigType(BuffBase::OnLoad);
+	this->setTrigType(BuffBase::ATTR);
 	this->setPriority(2);
 }
 

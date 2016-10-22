@@ -116,22 +116,22 @@ void HudPlayerStateMenu::update()
 	rightCriAtkLabel->setString(rightCriAtk);
 
 	std::string leftCriPro = ToolFunction::int2string(
-		BattleSystem::getInstance()->getCriticalProCount(playerPtr, BattleSystem::AttackHand::LeftHand)
+		BattleSystem::getInstance()->getCriticalProCount(playerPtr)
 	);
 	leftCriProLabel->setString(leftCriPro);
 
 	std::string rightCriPro = ToolFunction::int2string(
-		BattleSystem::getInstance()->getCriticalProCount(playerPtr, BattleSystem::AttackHand::RightHand)
+		BattleSystem::getInstance()->getCriticalProCount(playerPtr)
 	);
 	rightCriProLabel->setString(rightCriPro);
 
 	std::string leftAccuracuCount = ToolFunction::int2string(
-		BattleSystem::getInstance()->getAccuracyCount(playerPtr, BattleSystem::AttackHand::LeftHand)
+		BattleSystem::getInstance()->getAccuracyCount(playerPtr)
 	);
 	leftAccuracyCountLabel->setString(leftAccuracuCount);
 
 	std::string rightAccuracyCount = ToolFunction::int2string(
-		BattleSystem::getInstance()->getAccuracyCount(playerPtr, BattleSystem::AttackHand::RightHand)
+		BattleSystem::getInstance()->getAccuracyCount(playerPtr)
 	);
 	rightAccuracyCountLabel->setString(rightAccuracyCount);
 

@@ -21,8 +21,8 @@ public:
 	int getCriticalPoint(Character* c);
 	int getBlockCount(Character* c);
 	int getEvadeCount(Character* c);
-	int getAccuracyCount(Character* c, AttackHand hand);
-	int getCriticalProCount(Character* c,AttackHand hand);
+	int getAccuracyCount(Character* c);
+	int getCriticalProCount(Character* c);
 	int getBlockProCount(Character* c);
 	int getComboProCount(Character* c);
 protected:
@@ -32,7 +32,7 @@ protected:
 
 	bool isInAtkArea(Character* a,Character* b,AttackHand hand);
 	bool isEvade(Character* a, Character* b,AttackHand hand);
-	bool isCritical(Character* c,AttackHand hand);
+	bool isCritical(Character* c);
 	bool isBlock(Character* c);
 	bool isCombo(Character* c);
 

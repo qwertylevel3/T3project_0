@@ -43,19 +43,24 @@ int CharacterAttrHandler::getViewSize()
 	return attr.viewSize;
 }
 
-int CharacterAttrHandler::getEvadePro()
+int CharacterAttrHandler::getEvadePoint()
 {
-	return attr.evadePro;
+	return attr.evadePoint;
 }
 
-int CharacterAttrHandler::getAccuracuPro()
+int CharacterAttrHandler::getAccuracyPoint()
 {
-	return attr.accuracyPro;
+	return attr.accuracyPoint;
 }
 
 int CharacterAttrHandler::getCriticalPro()
 {
 	return attr.criticalPro;
+}
+
+int CharacterAttrHandler::getCriticalPer()
+{
+	return attr.criticalPer;
 }
 
 int CharacterAttrHandler::getCriticalPoint()
@@ -81,37 +86,40 @@ int CharacterAttrHandler::getComboPro()
 void CharacterAttrHandler::setMaxHP(int h)
 {
 	oriAttr.maxHP = h;
-	recalculateAttr();
+	attr.maxHP = h;
 }
 
 void CharacterAttrHandler::setMaxMP(int m)
 {
 	oriAttr.maxMP = m;
-	recalculateAttr();
+	attr.maxMP = m;
 }
 
 void CharacterAttrHandler::setStrength(int strength)
 {
 	oriAttr.strength = strength;
-	recalculateAttr();
+	attr.strength = strength;
+	recalculateBattleAttr();
 }
 
 void CharacterAttrHandler::setIntellect(int intellect)
 {
 	oriAttr.intellect = intellect;
-	recalculateAttr();
+	attr.intellect = intellect;
+	recalculateBattleAttr();
 }
 
 void CharacterAttrHandler::setAgility(int agility)
 {
 	oriAttr.agility = agility;
-	recalculateAttr();
+	attr.agility = agility;
+	recalculateBattleAttr();
 }
 
 void CharacterAttrHandler::setViewSize(int viewSize)
 {
 	oriAttr.viewSize = viewSize;
-	recalculateAttr();
+	attr.viewSize = viewSize;
 }
 
 void CharacterAttrHandler::setMaxHPByBuff(int h)
@@ -127,16 +135,59 @@ void CharacterAttrHandler::setMaxMPByBuff(int m)
 void CharacterAttrHandler::setStrengthByBuff(int strength)
 {
 	attr.strength = strength;
+	recalculateBattleAttr();
 }
 
 void CharacterAttrHandler::setIntellectByBuff(int intellect)
 {
 	attr.intellect = intellect;
+	recalculateBattleAttr();
 }
 
 void CharacterAttrHandler::setAgilityByBuff(int agility)
 {
 	attr.agility = agility;
+	recalculateBattleAttr();
+}
+
+void CharacterAttrHandler::setEvadePointByBuff(int e)
+{
+	attr.evadePoint = e;
+}
+
+void CharacterAttrHandler::setAccuracyPointByBuff(int a)
+{
+	attr.accuracyPoint = a;
+}
+
+void CharacterAttrHandler::setCriticalProByBuff(int p)
+{
+	attr.criticalPro = p;
+}
+
+void CharacterAttrHandler::setCriticalPerByBuff(int p)
+{
+	attr.criticalPer = p;
+}
+
+void CharacterAttrHandler::setCriticalPointByBuff(int c)
+{
+	attr.criticalPoint = c;
+}
+
+void CharacterAttrHandler::setBlockProByBuff(int p)
+{
+	attr.blockPro = p;
+}
+
+void CharacterAttrHandler::setBlockPointByBuff(int b)
+{
+	attr.blockPoint = b;
+}
+
+void CharacterAttrHandler::setComboProByBuff(int p)
+{
+	attr.comboPro = p;
 }
 
 void CharacterAttrHandler::setViewSizeByBuff(int viewSize)
@@ -144,13 +195,14 @@ void CharacterAttrHandler::setViewSizeByBuff(int viewSize)
 	attr.viewSize = viewSize;
 }
 
-void CharacterAttrHandler::recalculateAttr()
-{
-	attr = oriAttr;
-}
 
 void CharacterAttrHandler::reset()
 {
 	attr = oriAttr;
 }
 
+void CharacterAttrHandler::recalculateBattleAttr()
+{
+	oriAttr.calculateBattleAttr();
+	attr.calculateBattleAttr();
+}

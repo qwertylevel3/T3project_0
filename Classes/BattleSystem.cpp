@@ -124,7 +124,7 @@ void BattleSystem::attack(Character * a, Character * b)
 #endif
 			combo++;
 		}
-	} while (true);
+	} while (!b->isDead());
 #ifdef SHOWMESSAGE
 	cout << "-----attack end------" << endl;
 	cout << a->getName() << "(HP:" << a->getHP() << ")" << " -> "
@@ -151,7 +151,7 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 	}
 
 	int attackCount = 0;
-	if (isCritical(a, hand))
+	if (isCritical(a))
 	{
 		attackCount = getCriticalAttackCount(a, hand);
 #ifdef SHOWMESSAGE
@@ -171,13 +171,8 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 
 void BattleSystem::sufferAttack(Character * c, int attackCount)
 {
-	Armor* armor = c->getArmor();
-	int armorCount = 0;
+	int armorPoint = c->getArmorPoint();
 	int blockCount = 0;
-	if (armor)
-	{
-		armorCount = armor->getArmorCount();
-	}
 	if (isBlock(c))
 	{
 		blockCount = getBlockCount(c);
@@ -187,7 +182,7 @@ void BattleSystem::sufferAttack(Character * c, int attackCount)
 #endif
 	}
 
-	attackCount = attackCount - armorCount - blockCount;
+	attackCount = attackCount - armorPoint - blockCount;
 	attackCount = attackCount >= 1 ? attackCount : 1;
 #ifdef SHOWMESSAGE
 	cout << "suffer damage:" << attackCount << endl;
@@ -231,8 +226,10 @@ int BattleSystem::getCriticalAttackCount(Character* c, AttackHand hand)
 {
 	double k1 = 0.01;
 	int attackCount = getAttackCount(c, hand);
-	double criticalAttack = double(attackCount)*(1 + k1*double(c->getStrength())) + getCriticalPoint(c);
-	return int(criticalAttack < 1 ? 1 : attackCount);
+	double criPer = c->getCriticalPer();
+	double criPoint = c->getCriticalPoint();
+	double criticalAttack = double(attackCount)*criPer/100 + criPoint;
+	return int(criticalAttack < 1 ? 1 : criticalAttack);
 }
 
 int BattleSystem::getCriticalPoint(Character* c)
@@ -261,19 +258,19 @@ bool BattleSystem::isInAtkArea(Character* a, Character* b, AttackHand hand)
 
 bool BattleSystem::isEvade(Character* a, Character* b, AttackHand hand)
 {
-	double temp = getEvadeCount(b) - getAccuracyCount(a,hand);
-	temp = temp > 0 ? temp : 0;
-	temp = temp < 5 ? 5 : temp;
-	temp = temp > 95 ? 95 : temp;
+	int temp = getAccuracyCount(a)-getEvadeCount(b);
+	temp = 100 - temp;
+	temp = temp < 0 ? 0 : temp;
+	temp = temp > 90 ? 90 : temp;
 #ifdef SHOWMESSAGE
 	cout << "evade chance:" << temp << endl;
 #endif
 	return roll(temp);
 }
 
-bool BattleSystem::isCritical(Character* c, AttackHand hand)
+bool BattleSystem::isCritical(Character* c)
 {
-	int criPro = getCriticalProCount(c, hand);
+	int criPro = getCriticalProCount(c);
 #ifdef SHOWMESSAGE
 	cout << "cirtical chance:" << criPro << endl;
 #endif
@@ -322,12 +319,12 @@ int BattleSystem::getEvadeCount(Character* c)
 	return c->getEvadePro();
 }
 
-int BattleSystem::getAccuracyCount(Character* c, AttackHand hand)
+int BattleSystem::getAccuracyCount(Character* c)
 {
 	return c->getAccuracuPro();
 }
 
-int BattleSystem::getCriticalProCount(Character* c, AttackHand hand)
+int BattleSystem::getCriticalProCount(Character* c)
 {
 	return c->getCriticalPro();
 }

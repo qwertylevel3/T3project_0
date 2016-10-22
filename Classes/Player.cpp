@@ -12,6 +12,7 @@
 //temp
 #include "BuffMaxHPVal.h"
 #include "BuffMaxHPPer.h"
+#include "BuffAgiVal.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -89,6 +90,13 @@ void Player::init()
 	buff1->setDuration(3);
 	characterPtr->addBuff(buff1);
 
+	Buff::BuffAgiVal* buff3 = new Buff::BuffAgiVal();
+	buff3->setName("buff3");
+	buff3->setCname(ToolFunction::WStr2UTF8(L"Ãô½ÝÌá¸ß"));
+	buff3->setOffset(90);
+	buff3->setBuffType(Buff::BuffBase::Good);
+	buff3->setDuration(20);
+	characterPtr->addBuff(buff3);
 
 }
 

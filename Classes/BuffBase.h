@@ -12,7 +12,7 @@ namespace Buff
 	public:
 		enum TrigType
 		{
-			OnLoad, OnUnload, OnAttack, OnInjured, OnRoundStart, OnRoundOver
+			ATTR,OnLoad, OnUnload, OnAttack, OnInjured, OnRoundStart, OnRoundOver
 		};
 		enum BuffType
 		{

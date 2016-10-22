@@ -69,7 +69,7 @@ void Buff::BuffHandler::onBuffLoad()
 	std::sort(buffBox.begin(), buffBox.end(),compareBuffPriority);
 	for each (BuffBase* buff in buffBox)
 	{
-		if (buff->getTrigType() == BuffBase::OnLoad)
+		if (buff->getTrigType() == BuffBase::ATTR)
 		{
 			buff->apply(characterPrt);
 		}
@@ -79,6 +79,16 @@ void Buff::BuffHandler::onBuffLoad()
 void Buff::BuffHandler::onBuffUnload()
 {
 	characterPrt->getAttrHandler()->reset();
+	for each (BuffBase* buff in buffBox)
+	{
+		if (buff->getTrigType()==BuffBase::ATTR)
+		{
+			buff->apply(characterPrt);
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////
+
 	for each (BuffBase* buff in buffBox)
 	{
 		if (buff->getTrigType() == BuffBase::OnUnload)
