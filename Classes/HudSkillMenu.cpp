@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "SkillHandler.h"
 #include "SkillBase.h"
+#include "HudTrigActiveSkill.h"
 
 
 
@@ -35,6 +36,8 @@ void HudSkillMenu::update()
 	{
 		HudMenuItem* item = new HudMenuItem(skill->getCname());
 		this->addItem(item);
+		HudTrigActiveSkill* trigger = new HudTrigActiveSkill();
+		item->setTrigger(trigger);
 	}
 
 	//////////////////////////////////////////////////////////////////////////

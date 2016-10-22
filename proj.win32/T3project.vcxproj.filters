@@ -74,7 +74,7 @@
       <UniqueIdentifier>{3da686db-fdb5-4b0b-a229-298309d459a3}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\HUD\menuSystem\menu\skillMenu">
-      <UniqueIdentifier>{dada5ad0-fa67-4355-bf20-b55c9c97efc9}</UniqueIdentifier>
+      <UniqueIdentifier>{2073f23c-9cba-4399-a70e-8adbac944609}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -345,8 +345,13 @@
     <ClCompile Include="..\Classes\BuffAgiVal.cpp">
       <Filter>src\buff</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\SkillHandler.cpp" />
-    <ClCompile Include="..\Classes\HudSkillMenu.cpp" />
+    <ClCompile Include="..\Classes\SkillHandler.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudSkillMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu\skillMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudTrigActiveSkill.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -625,8 +630,13 @@
     <ClInclude Include="..\Classes\BuffAgiVal.h">
       <Filter>src\buff</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\SkillHandler.h" />
-    <ClInclude Include="..\Classes\HudSkillMenu.h" />
+    <ClInclude Include="..\Classes\SkillHandler.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudSkillMenu.h">
+      <Filter>src\HUD\menuSystem\menu\skillMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudTrigActiveSkill.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
