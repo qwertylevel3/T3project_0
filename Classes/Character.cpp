@@ -98,6 +98,33 @@ bool Character::sufferMPEffect(int mpOffset)
 	return true;
 }
 
+
+bool Character::consumeMP(int value)
+{
+	if (MP<value)
+	{
+		return false;
+	}
+	MP -= value;
+	return true;
+}
+
+bool Character::accumulateChant(int value)
+{
+	chant += value;
+	return true;
+}
+
+bool Character::consumeChant(int value)
+{
+	if (chant<value)
+	{
+		return false;
+	}
+	chant = 0;
+	return true;
+}
+
 void Character::die()
 {
 	sprite->setVisible(false);
@@ -471,6 +498,11 @@ int Character::getBlockPoint()
 int Character::getComboPro()
 {
 	return attrHandler->getComboPro();
+}
+
+int Character::getWeight()
+{
+	return attrHandler->getWeight();
 }
 
 int Character::getArmorPoint()

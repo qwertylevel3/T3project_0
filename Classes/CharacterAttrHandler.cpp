@@ -1,17 +1,13 @@
 #include "CharacterAttrHandler.h"
 
-
-
 CharacterAttrHandler::CharacterAttrHandler(Character* c)
 {
 	characterPtr = c;
 }
 
-
 CharacterAttrHandler::~CharacterAttrHandler()
 {
 }
-
 
 int CharacterAttrHandler::getMaxHP()
 {
@@ -81,6 +77,11 @@ int CharacterAttrHandler::getBlockPoint()
 int CharacterAttrHandler::getComboPro()
 {
 	return attr.comboPro;
+}
+
+int CharacterAttrHandler::getWeight()
+{
+	return attr.weight;
 }
 
 void CharacterAttrHandler::setMaxHP(int h)
@@ -190,11 +191,15 @@ void CharacterAttrHandler::setComboProByBuff(int p)
 	attr.comboPro = p;
 }
 
+void CharacterAttrHandler::setWeightByBuff(int w)
+{
+	attr.weight = w;
+}
+
 void CharacterAttrHandler::setViewSizeByBuff(int viewSize)
 {
 	attr.viewSize = viewSize;
 }
-
 
 void CharacterAttrHandler::reset()
 {

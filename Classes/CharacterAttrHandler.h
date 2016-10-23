@@ -27,6 +27,7 @@ public:
 	int getBlockPro();
 	int getBlockPoint();
 	int getComboPro();
+	int getWeight();
 
 	//////////////////////////////////////////////////////////////////////////
 
@@ -43,6 +44,7 @@ public:
 	void setMaxHPByBuff(int h);
 	void setMaxMPByBuff(int m);
 	void setViewSizeByBuff(int viewSize);
+	void setWeightByBuff(int w);
 
 	void setStrengthByBuff(int strength);
 	void setIntellectByBuff(int intellect);
@@ -56,6 +58,7 @@ public:
 	void setBlockProByBuff(int p);
 	void setBlockPointByBuff(int b);
 	void setComboProByBuff(int p);
+
 
 
 	//////////////////////////////////////////////////////////////////////////

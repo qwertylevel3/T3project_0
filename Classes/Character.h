@@ -52,6 +52,9 @@ public:
 	void sufferDamage(int damage);
 	bool sufferHPEffect(int hpOffset);
 	bool sufferMPEffect(int mpOffset);
+	bool consumeMP(int value);
+	bool accumulateChant(int value);
+	bool consumeChant(int value);
 
 	//************************************
 	// Method:    die
@@ -136,6 +139,7 @@ public:
 	int getBlockPro();
 	int getBlockPoint();
 	int getComboPro();
+	int getWeight();
 
 	int getArmorPoint();
 protected:
@@ -167,6 +171,8 @@ protected:
 	CC_SYNTHESIZE(cocos2d::Point, mapCoord, MapCoord);
 	CC_SYNTHESIZE(int, HP, HP);
 	CC_SYNTHESIZE(int, MP, MP);
+	CC_SYNTHESIZE(int, chant, Chant);
+	CC_SYNTHESIZE(int, gold, Gold);
 
 	CC_SYNTHESIZE(CharacterAttrHandler*, attrHandler, AttrHandler);
 

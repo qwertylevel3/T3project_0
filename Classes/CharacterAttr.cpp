@@ -18,6 +18,7 @@ CharacterAttr::CharacterAttr()
 	blockPro = 0;//格挡值几率
 	blockPoint = 0;//格挡点数
 	comboPro = 0;//连击概率
+	weight = 0;//负重
 
 }
 
@@ -41,4 +42,6 @@ void CharacterAttr::calculateBattleAttr()
 
 	comboPro = agility;
 	comboPro = comboPro > 90 ? 90 : comboPro;
+
+	weight = strength * 2;
 }

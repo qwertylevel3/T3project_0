@@ -9,7 +9,6 @@ class SelectorBase;
 
 namespace Skill
 {
-
 	class EffectBase;
 
 	class SkillBase
@@ -26,9 +25,8 @@ namespace Skill
 		CC_SYNTHESIZE(SelectorBase*, selector, Selector);
 		std::vector<EffectBase* > effectBox;
 
-		//∫Û–¯÷∏’Î
-		CC_SYNTHESIZE(SkillBase*, nextSkill, NextSkill);
 		CC_SYNTHESIZE(int, mpCost, MpCost);
-		virtual void active();
+		CC_SYNTHESIZE(int, chantCost, ChantCost);
+		virtual bool active();
 	};
 }

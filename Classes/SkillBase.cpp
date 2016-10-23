@@ -10,14 +10,13 @@ SkillBase::SkillBase(Character* character)
 {
 	caster = character;
 	selector = nullptr;
-	nextSkill = nullptr;
 	mpCost = 0;
+	chantCost = 0;
 }
 
 SkillBase::~SkillBase()
 {
 	delete selector;
-	delete nextSkill;
 }
 
 void Skill::SkillBase::addEffect(EffectBase* effect)
@@ -25,25 +24,23 @@ void Skill::SkillBase::addEffect(EffectBase* effect)
 	effectBox.push_back(effect);
 }
 
-void Skill::SkillBase::active()
+bool Skill::SkillBase::active()
 {
-	if (caster->getMP() < mpCost)
+	if (chantCost>caster->getChant() || mpCost>caster->getMP())
 	{
-		return;
+		return false;
 	}
-	else
-	{
-		caster->sufferMPEffect(-mpCost);
-	}
+	caster->consumeChant(chantCost);
+	caster->consumeMP(mpCost);
 
 	std::vector<cocos2d::Point> targetPositionVec;
 	if (selector)
 	{
 		targetPositionVec = selector->select(caster);
 	}
-
 	for each (EffectBase* effect in effectBox)
 	{
 		effect->run(caster, targetPositionVec);
 	}
+	return true;
 }
