@@ -123,6 +123,7 @@ public:
 	int getIntellect();
 	int getAgility();
 	int getViewSize();
+	int getLuck();
 
 	void setMaxHP(int h);
 	void setMaxMP(int m);
@@ -130,6 +131,7 @@ public:
 	void setIntellect(int intellect);
 	void setAgility(int agility);
 	void setViewSize(int viewSize);
+	void setLuck(int luck);
 
 	int getEvadePro();
 	int getAccuracuPro();

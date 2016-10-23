@@ -31,6 +31,7 @@ Character::Character()
 
 	orientation = DOWN;
 	dead = false;
+	gold = 0;
 
 	leftHand = nullptr;
 	rightHand = nullptr;
@@ -42,6 +43,8 @@ Character::Character()
 	inventoryHandler = new InventoryHandler();
 	attrHandler = new CharacterAttrHandler(this);
 	buffHandler = new Buff::BuffHandler(this);
+
+	chant = 0;
 }
 
 Character::~Character()
@@ -430,6 +433,11 @@ int Character::getViewSize()
 	return attrHandler->getViewSize();
 }
 
+int Character::getLuck()
+{
+	return attrHandler->getLuck();
+}
+
 void Character::setMaxHP(int h)
 {
 	attrHandler->setMaxHP(h);
@@ -458,6 +466,11 @@ void Character::setAgility(int agility)
 void Character::setViewSize(int viewSize)
 {
 	attrHandler->setViewSize(viewSize);
+}
+
+void Character::setLuck(int luck)
+{
+	attrHandler->setLuck(luck);
 }
 
 int Character::getEvadePro()

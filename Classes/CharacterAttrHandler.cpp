@@ -34,6 +34,11 @@ int CharacterAttrHandler::getAgility()
 	return attr.agility;
 }
 
+int CharacterAttrHandler::getLuck()
+{
+	return attr.luck;
+}
+
 int CharacterAttrHandler::getViewSize()
 {
 	return attr.viewSize;
@@ -117,6 +122,12 @@ void CharacterAttrHandler::setAgility(int agility)
 	recalculateBattleAttr();
 }
 
+void CharacterAttrHandler::setLuck(int luck)
+{
+	oriAttr.luck = luck;
+	attr.luck = luck;
+}
+
 void CharacterAttrHandler::setViewSize(int viewSize)
 {
 	oriAttr.viewSize = viewSize;
@@ -149,6 +160,11 @@ void CharacterAttrHandler::setAgilityByBuff(int agility)
 {
 	attr.agility = agility;
 	recalculateBattleAttr();
+}
+
+void CharacterAttrHandler::setLuckByBuff(int luck)
+{
+	attr.luck = luck;
 }
 
 void CharacterAttrHandler::setEvadePointByBuff(int e)

@@ -18,6 +18,7 @@ public:
 	int getStrength();
 	int getIntellect();
 	int getAgility();
+	int getLuck();
 
 	int getEvadePoint();
 	int getAccuracyPoint();
@@ -38,6 +39,7 @@ public:
 	void setStrength(int strength);
 	void setIntellect(int intellect);
 	void setAgility(int agility);
+	void setLuck(int luck);
 
 	//////////////////////////////////////////////////////////////////////////
 
@@ -49,6 +51,7 @@ public:
 	void setStrengthByBuff(int strength);
 	void setIntellectByBuff(int intellect);
 	void setAgilityByBuff(int agility);
+	void setLuckByBuff(int luck);
 
 	void setEvadePointByBuff(int e);
 	void setAccuracyPointByBuff(int a);

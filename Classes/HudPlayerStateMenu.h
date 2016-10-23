@@ -20,22 +20,14 @@ protected:
 	cocos2d::Label* playerNameLabel;
 	cocos2d::Label* hpLabel;
 	cocos2d::Label* mpLabel;
+	cocos2d::Label* chantLabel;
+
 	cocos2d::Label* strLabel;
 	cocos2d::Label* agiLabel;
 	cocos2d::Label* intLabel;
+	cocos2d::Label* luckLabel;
 
-	cocos2d::Label* leftAtkLabel;
-	cocos2d::Label* rightAtkLabel;
-	cocos2d::Label* leftCriAtkLabel;
-	cocos2d::Label* rightCriAtkLabel;
-	cocos2d::Label* leftCriProLabel;
-	cocos2d::Label* rightCriProLabel;
-	cocos2d::Label* leftAccuracyCountLabel;
-	cocos2d::Label* rightAccuracyCountLabel;
-
-	cocos2d::Label* evadeCountLabel;
-	cocos2d::Label* blockCountLable;
-	cocos2d::Label* blockProCountLabel;
-	cocos2d::Label* comboProCountLable;
+	cocos2d::Label* weightLabel;
+	cocos2d::Label* goldLabel;
 };
 
