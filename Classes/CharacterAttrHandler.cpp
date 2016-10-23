@@ -1,4 +1,5 @@
 #include "CharacterAttrHandler.h"
+#include "Character.h"
 
 CharacterAttrHandler::CharacterAttrHandler(Character* c)
 {
@@ -93,12 +94,20 @@ void CharacterAttrHandler::setMaxHP(int h)
 {
 	oriAttr.maxHP = h;
 	attr.maxHP = h;
+	if (characterPtr->getHP()>h)
+	{
+		characterPtr->setHP(h);
+	}
 }
 
 void CharacterAttrHandler::setMaxMP(int m)
 {
 	oriAttr.maxMP = m;
 	attr.maxMP = m;
+	if (characterPtr->getMP() > m)
+	{
+		characterPtr->setMP(m);
+	}
 }
 
 void CharacterAttrHandler::setStrength(int strength)
@@ -137,11 +146,19 @@ void CharacterAttrHandler::setViewSize(int viewSize)
 void CharacterAttrHandler::setMaxHPByBuff(int h)
 {
 	attr.maxHP = h;
+	if (characterPtr->getHP() > h)
+	{
+		characterPtr->setHP(h);
+	}
 }
 
 void CharacterAttrHandler::setMaxMPByBuff(int m)
 {
 	attr.maxMP = m;
+	if (characterPtr->getMP() > m)
+	{
+		characterPtr->setMP(m);
+	}
 }
 
 void CharacterAttrHandler::setStrengthByBuff(int strength)

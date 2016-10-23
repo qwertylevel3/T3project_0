@@ -14,6 +14,6 @@ Skill::ChantEffect::~ChantEffect()
 
 bool Skill::ChantEffect::run(Character* caster, std::vector<cocos2d::Point>& coord)
 {
-	caster->accumulateChant(10);
+	caster->accumulateChant(caster->getIntellect());
 	return true;
 }

@@ -30,7 +30,7 @@ bool Skill::SkillBase::active()
 	{
 		return false;
 	}
-	caster->consumeChant(chantCost);
+	caster->clearChant();
 	caster->consumeMP(mpCost);
 
 	std::vector<cocos2d::Point> targetPositionVec;

@@ -342,8 +342,6 @@
     <ClCompile Include="..\Classes\HudTrigActiveSkill.cpp">
       <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HPEffect.cpp" />
-    <ClCompile Include="..\Classes\MPEffect.cpp" />
     <ClCompile Include="..\Classes\CharacterFactory.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
@@ -356,8 +354,19 @@
     <ClCompile Include="..\Classes\InventoryFactory.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Chant.cpp" />
-    <ClCompile Include="..\Classes\ChantEffect.cpp" />
+    <ClCompile Include="..\Classes\Chant.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HPEffect.cpp">
+      <Filter>src\skill\effector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MPEffect.cpp">
+      <Filter>src\skill\effector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ChantEffect.cpp">
+      <Filter>src\skill\effector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BuffAutoHeal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -633,8 +642,6 @@
     <ClInclude Include="..\Classes\HudTrigActiveSkill.h">
       <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HPEffect.h" />
-    <ClInclude Include="..\Classes\MPEffect.h" />
     <ClInclude Include="..\Classes\CharacterFactory.h">
       <Filter>src\character</Filter>
     </ClInclude>
@@ -647,8 +654,19 @@
     <ClInclude Include="..\Classes\InventoryFactory.h">
       <Filter>src\inventory</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Chant.h" />
-    <ClInclude Include="..\Classes\ChantEffect.h" />
+    <ClInclude Include="..\Classes\Chant.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HPEffect.h">
+      <Filter>src\skill\effector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MPEffect.h">
+      <Filter>src\skill\effector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ChantEffect.h">
+      <Filter>src\skill\effector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BuffAutoHeal.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

@@ -122,14 +122,9 @@ bool Character::accumulateChant(int value)
 	return true;
 }
 
-bool Character::consumeChant(int value)
+void Character::clearChant()
 {
-	if (chant<value)
-	{
-		return false;
-	}
 	chant = 0;
-	return true;
 }
 
 void Character::die()
@@ -146,21 +141,25 @@ bool Character::isDead()
 void Character::moveUp()
 {
 	Dungeon::getInstance()->getStorey()->characterMoveUp(this);
+	clearChant();
 }
 
 void Character::moveDown()
 {
 	Dungeon::getInstance()->getStorey()->characterMoveDown(this);
+	clearChant();
 }
 
 void Character::moveLeft()
 {
 	Dungeon::getInstance()->getStorey()->characterMoveLeft(this);
+	clearChant();
 }
 
 void Character::moveRight()
 {
 	Dungeon::getInstance()->getStorey()->characterMoveRight(this);
+	clearChant();
 }
 
 void Character::setOrientationUp()
@@ -533,11 +532,45 @@ int Character::getArmorPoint()
 
 void Character::update()
 {
+	startRound();
+
 	if (ai)
 	{
 		ai->update();
 	}
 	buffHandler->update();
+
+	endRound();
+}
+
+void Character::startRound()
+{
+	buffHandler->onRoundStart();
+	recalculateHP();
+	recalculateMP();
+}
+
+void Character::endRound()
+{
+	buffHandler->onRoundEnd();
+	recalculateHP();
+	recalculateMP();
+}
+
+void Character::recalculateHP()
+{
+	if (HP>getMaxHP())
+	{
+		HP = getMaxHP();
+	}
+}
+
+void Character::recalculateMP()
+{
+	if (MP>getMaxMP())
+	{
+		MP = getMaxMP();
+	}
 }
 
 std::vector<cocos2d::Point> Character::getOneHandAtkArea()

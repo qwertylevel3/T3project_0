@@ -20,7 +20,7 @@ void Buff::BuffBase::updateDuration()
 	{
 		duration--;
 	} 
-	else
+	else if(duration==0)
 	{
 		this->setActive(false);
 	}

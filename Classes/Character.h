@@ -49,12 +49,17 @@ public:
 	//************************************
 	void update();
 
+	void startRound();
+	void endRound();
+
 	void sufferDamage(int damage);
 	bool sufferHPEffect(int hpOffset);
+
 	bool sufferMPEffect(int mpOffset);
 	bool consumeMP(int value);
+
 	bool accumulateChant(int value);
-	bool consumeChant(int value);
+	void clearChant();
 
 	//************************************
 	// Method:    die
@@ -145,6 +150,9 @@ public:
 
 	int getArmorPoint();
 protected:
+	void recalculateHP();
+	void recalculateMP();
+
 	std::vector<cocos2d::Point> getOneHandAtkArea();
 	std::vector<cocos2d::Point> getTwoHandAtkArea();
 	//·µ»Ø¹­ÀàÎäÆ÷¹¥»÷·¶Î§

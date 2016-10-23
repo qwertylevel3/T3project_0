@@ -21,12 +21,13 @@ namespace Buff
 		std::vector<BuffBase*>& getBuffBoxRef();
 		void update();
 
-		void onBuffLoad();
-		void onBuffUnload();
 		void onAttack();
 		void onInjured();
 		void onRoundStart();
-		void onRoundOver();
+		void onRoundEnd();
+
+		void clearInactiveBuff();
+		void calculateAttr();
 	protected:
 		std::vector<BuffBase*> buffBox;
 		Character* characterPrt;

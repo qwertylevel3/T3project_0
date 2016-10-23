@@ -28,7 +28,11 @@ Buff::BuffHandler::~BuffHandler()
 void Buff::BuffHandler::addBuff(BuffBase* buff)
 {
 	buffBox.push_back(buff);
-	onBuffLoad();
+	if (buff->getTrigType()==BuffBase::OnLoad)
+	{
+		buff->apply(characterPrt);
+	}
+	calculateAttr();
 }
 
 std::vector<Buff::BuffBase*>& Buff::BuffHandler::getBuffBoxRef()
@@ -42,61 +46,9 @@ void Buff::BuffHandler::update()
 	{
 		buff->updateDuration();
 	}
-	bool flag = false;
-	std::vector<BuffBase* >::iterator iter = buffBox.begin();
-	while (iter != buffBox.end())
-	{
-		if ((*iter)->isActive() == false)
-		{
-			delete (*iter);
-			iter=buffBox.erase(iter);
-			flag = true;
-		}
-		else
-		{
-			iter++;
-		}
-	}
-	if (flag)
-	{
-		onBuffUnload();
-	}
+	
 }
 
-void Buff::BuffHandler::onBuffLoad()
-{
-	characterPrt->getAttrHandler()->reset();
-	std::sort(buffBox.begin(), buffBox.end(),compareBuffPriority);
-	for each (BuffBase* buff in buffBox)
-	{
-		if (buff->getTrigType() == BuffBase::ATTR)
-		{
-			buff->apply(characterPrt);
-		}
-	}
-}
-
-void Buff::BuffHandler::onBuffUnload()
-{
-	characterPrt->getAttrHandler()->reset();
-	for each (BuffBase* buff in buffBox)
-	{
-		if (buff->getTrigType()==BuffBase::ATTR)
-		{
-			buff->apply(characterPrt);
-		}
-	}
-
-	//////////////////////////////////////////////////////////////////////////
-
-	for each (BuffBase* buff in buffBox)
-	{
-		if (buff->getTrigType() == BuffBase::OnUnload)
-		{
-			buff->apply(characterPrt);
-		}
-	}
-}
 
 void  Buff::BuffHandler::onAttack()
 {
@@ -108,8 +60,59 @@ void  Buff::BuffHandler::onInjured()
 
 void  Buff::BuffHandler::onRoundStart()
 {
+	calculateAttr();
+	for each (BuffBase* buff in buffBox)
+	{
+		if (buff->getTrigType()==BuffBase::OnRoundStart)
+		{
+			buff->apply(characterPrt);
+		}
+	}
 }
 
-void  Buff::BuffHandler::onRoundOver()
+void  Buff::BuffHandler::onRoundEnd()
 {
+	for each (BuffBase* buff in buffBox)
+	{
+		if (buff->getTrigType()==BuffBase::OnRoundEnd)
+		{
+			buff->apply(characterPrt);
+		}
+	}
+	clearInactiveBuff();
+	calculateAttr();
+}
+
+void Buff::BuffHandler::clearInactiveBuff()
+{
+	std::vector<BuffBase* >::iterator iter = buffBox.begin();
+	while (iter != buffBox.end())
+	{
+		if ((*iter)->isActive() == false)
+		{
+			if ((*iter)->getTrigType()==BuffBase::OnUnload)
+			{
+				(*iter)->apply(characterPrt);
+			}
+			delete (*iter);
+			iter=buffBox.erase(iter);
+		}
+		else
+		{
+			iter++;
+		}
+	}
+}
+
+void Buff::BuffHandler::calculateAttr()
+{
+	characterPrt->getAttrHandler()->reset();
+	std::sort(buffBox.begin(), buffBox.end(),compareBuffPriority);
+	for each (BuffBase* buff in buffBox)
+	{
+		if (buff->getTrigType()==BuffBase::ATTR)
+		{
+			buff->apply(characterPrt);
+		}
+	}
 }

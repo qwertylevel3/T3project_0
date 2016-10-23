@@ -10,6 +10,7 @@
 #include "RoundSystem.h"
 #include "MainLayer.h"
 //temp
+#include "BuffAutoHeal.h"
 #include "BuffMaxHPVal.h"
 #include "BuffMaxHPPer.h"
 #include "BuffAgiVal.h"
@@ -99,6 +100,8 @@ void Player::init()
 	buff3->setDuration(20);
 	characterPtr->addBuff(buff3);
 
+	Buff::BuffAutoHeal* buff4 = new Buff::BuffAutoHeal();
+	characterPtr->addBuff(buff4);
 }
 
 void Player::autoNextStep()
