@@ -165,6 +165,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\BuffHandler.cpp" />
     <ClCompile Include="..\Classes\BuffMaxHPPer.cpp" />
     <ClCompile Include="..\Classes\BuffMaxHPVal.cpp" />
+    <ClCompile Include="..\Classes\Chant.cpp" />
+    <ClCompile Include="..\Classes\ChantEffect.cpp" />
     <ClCompile Include="..\Classes\CharacterAttr.cpp" />
     <ClCompile Include="..\Classes\CharacterAttrHandler.cpp" />
     <ClCompile Include="..\Classes\EffectBase.cpp" />
@@ -264,6 +266,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\BuffHandler.h" />
     <ClInclude Include="..\Classes\BuffMaxHPPer.h" />
     <ClInclude Include="..\Classes\BuffMaxHPVal.h" />
+    <ClInclude Include="..\Classes\Chant.h" />
+    <ClInclude Include="..\Classes\ChantEffect.h" />
     <ClInclude Include="..\Classes\CharacterAttr.h" />
     <ClInclude Include="..\Classes\CharacterAttrHandler.h" />
     <ClInclude Include="..\Classes\EffectBase.h" />

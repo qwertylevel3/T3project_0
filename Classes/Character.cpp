@@ -18,6 +18,7 @@
 #include "SingleDirectionSearchSelector.h"
 #include "CharacterAttrHandler.h"
 #include "BuffHandler.h"
+#include "Chant.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -25,9 +26,12 @@ using namespace Field;
 Character::Character()
 {
 	skillHandler = new Skill::SkillHandler();
-	Skill::Attack* attack = new Skill::Attack(this);
 
-	skillHandler->addSkill(attack);
+	Skill::Attack* attackSkill = new Skill::Attack(this);
+	Skill::Chant* chantSkill = new Skill::Chant(this);
+
+	skillHandler->addSkill(attackSkill);
+	skillHandler->addSkill(chantSkill);
 
 	orientation = DOWN;
 	dead = false;

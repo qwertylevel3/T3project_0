@@ -356,6 +356,8 @@
     <ClCompile Include="..\Classes\InventoryFactory.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Chant.cpp" />
+    <ClCompile Include="..\Classes\ChantEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -645,6 +647,8 @@
     <ClInclude Include="..\Classes\InventoryFactory.h">
       <Filter>src\inventory</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Chant.h" />
+    <ClInclude Include="..\Classes\ChantEffect.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
