@@ -324,15 +324,6 @@
     <ClCompile Include="..\Classes\HudBuffMenu.cpp">
       <Filter>src\HUD\menuSystem\menu\buffMenu</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BuffMaxHPVal.cpp">
-      <Filter>src\buff</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\BuffMaxHPPer.cpp">
-      <Filter>src\buff</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\BuffAgiVal.cpp">
-      <Filter>src\buff</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\SkillHandler.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
@@ -366,7 +357,7 @@
     <ClCompile Include="..\Classes\ChantEffect.cpp">
       <Filter>src\skill\effector</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BuffAutoHeal.cpp" />
+    <ClCompile Include="..\Classes\BuffFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -624,15 +615,6 @@
     <ClInclude Include="..\Classes\HudBuffMenu.h">
       <Filter>src\HUD\menuSystem\menu\buffMenu</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BuffMaxHPVal.h">
-      <Filter>src\buff</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\BuffMaxHPPer.h">
-      <Filter>src\buff</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\BuffAgiVal.h">
-      <Filter>src\buff</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\SkillHandler.h">
       <Filter>src\skill</Filter>
     </ClInclude>
@@ -666,7 +648,7 @@
     <ClInclude Include="..\Classes\ChantEffect.h">
       <Filter>src\skill\effector</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BuffAutoHeal.h" />
+    <ClInclude Include="..\Classes\BuffFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

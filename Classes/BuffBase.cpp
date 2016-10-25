@@ -14,6 +14,8 @@ BuffBase::~BuffBase()
 {
 }
 
+
+
 void Buff::BuffBase::updateDuration()
 {
 	if (duration>0)

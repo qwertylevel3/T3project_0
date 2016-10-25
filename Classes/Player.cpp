@@ -9,11 +9,6 @@
 #include "Armor.h"
 #include "RoundSystem.h"
 #include "MainLayer.h"
-//temp
-#include "BuffAutoHeal.h"
-#include "BuffMaxHPVal.h"
-#include "BuffMaxHPPer.h"
-#include "BuffAgiVal.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -76,32 +71,6 @@ void Player::init()
 
 	//////////////////////////////////////////////////////////////////////////
 
-	Buff::BuffMaxHPPer* buff2 = new Buff::BuffMaxHPPer();
-	buff2->setName("buff2");
-	buff2->setCname(ToolFunction::WStr2UTF8(L"生命值上限提高10%"));
-	buff2->setPercent(10);
-	buff2->setBuffType(Buff::BuffBase::Good);
-	buff2->setDuration(4);
-	characterPtr->addBuff(buff2);
-
-	Buff::BuffMaxHPVal* buff1 = new Buff::BuffMaxHPVal();
-	buff1->setName("buff1");
-	buff1->setCname(ToolFunction::WStr2UTF8(L"生命值上限提高10"));
-	buff1->setHPOffset(10);
-	buff1->setBuffType(Buff::BuffBase::Good);
-	buff1->setDuration(3);
-	characterPtr->addBuff(buff1);
-
-	Buff::BuffAgiVal* buff3 = new Buff::BuffAgiVal();
-	buff3->setName("buff3");
-	buff3->setCname(ToolFunction::WStr2UTF8(L"敏捷提高"));
-	buff3->setOffset(90);
-	buff3->setBuffType(Buff::BuffBase::Good);
-	buff3->setDuration(20);
-	characterPtr->addBuff(buff3);
-
-	Buff::BuffAutoHeal* buff4 = new Buff::BuffAutoHeal();
-	characterPtr->addBuff(buff4);
 }
 
 void Player::autoNextStep()

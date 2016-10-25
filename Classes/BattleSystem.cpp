@@ -187,6 +187,7 @@ void BattleSystem::sufferAttack(Character * c, int attackCount)
 #ifdef SHOWMESSAGE
 	cout << "suffer damage:" << attackCount << endl;
 #endif
+	//sphereEffect µ÷ÓÃµã
 	c->sufferDamage(attackCount);
 }
 
