@@ -14,6 +14,7 @@ namespace Buff
 	public:
 		BuffFactory();
 		~BuffFactory();
+		void init();
 		BuffBase* getBuff(std::string b);
 	protected:
 		BuffBase* getBuffPrototype(const std::string& buffName);

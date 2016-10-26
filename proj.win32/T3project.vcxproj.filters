@@ -358,6 +358,7 @@
       <Filter>src\skill\effector</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\BuffFactory.cpp" />
+    <ClCompile Include="..\Classes\HPBuff.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -649,6 +650,7 @@
       <Filter>src\skill\effector</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\BuffFactory.h" />
+    <ClInclude Include="..\Classes\HPBuff.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

@@ -52,11 +52,8 @@ public:
 	void startRound();
 	void endRound();
 
-	void sufferDamage(int damage);
 	bool sufferHPEffect(int hpOffset);
-
 	bool sufferMPEffect(int mpOffset);
-	bool consumeMP(int value);
 
 	bool accumulateChant(int value);
 	void clearChant();

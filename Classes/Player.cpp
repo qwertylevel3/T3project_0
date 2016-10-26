@@ -9,6 +9,7 @@
 #include "Armor.h"
 #include "RoundSystem.h"
 #include "MainLayer.h"
+#include "BuffFactory.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -70,7 +71,9 @@ void Player::init()
 	}
 
 	//////////////////////////////////////////////////////////////////////////
-
+	std::wstring buffname = L"HPBuff_ÉúÃü»Ö¸´_OnRoundStart_Good_10_10_2";
+	Buff::BuffBase* buff = Buff::BuffFactory::getInstance()->getBuff(ToolFunction::WStr2UTF8(buffname));
+	characterPtr->addBuff(buff);
 }
 
 void Player::autoNextStep()

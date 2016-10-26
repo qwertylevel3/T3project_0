@@ -109,7 +109,7 @@ void HudTrigThrow::throwResult(Inventory* inventory,cocos2d::Point targetCoord)
 	if (targetCharacter)
 	{
 		int damage = 10 * inventory->getLevel();
-		targetCharacter->sufferDamage(damage);
+		targetCharacter->sufferHPEffect(-damage);
 		delete inventory;
 	}
 	else

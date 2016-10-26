@@ -12,7 +12,7 @@ namespace Buff
 	public:
 		enum TrigType
 		{
-			ATTR,OnLoad, OnUnload, OnAttack, OnInjured, OnRoundStart, OnRoundEnd,OnKilled
+			NeverTrig,ATTR,OnLoad, OnUnload, OnAttack, OnInjured, OnRoundStart, OnRoundEnd,OnKilled
 		};
 		enum BuffType
 		{
@@ -21,13 +21,22 @@ namespace Buff
 		BuffBase();
 		virtual ~BuffBase();
 		virtual void apply(Character* target) = 0;
-		virtual BuffBase* clone() = 0;
-		virtual void init(std::vector<std::string>& buffMessage) = 0;
+		virtual BuffBase* createPrototype() = 0;
+		void init(std::vector<std::string> buffMessage);
 		void updateDuration();
 		void setActive(bool a);
 		bool isActive();
 
 	protected:
+		void initBaseMessage(std::vector<std::string> baseMessage);
+		virtual void initExtraMessage(std::vector<std::string> baseMessage)=0;
+
+		void initCname(std::string cnameStr);
+		void initTrigType(const std::string& trigTypeStr);
+		void initBuffType(const std::string& buffTypeStr);
+		void initPriority(const std::string& priorityStr);
+		void initDuration(const std::string& durationStr);
+
 		CC_SYNTHESIZE(std::string, cname, Cname);
 		CC_SYNTHESIZE(TrigType, trigType, TrigType);
 		CC_SYNTHESIZE(BuffType, buffType, BuffType);

@@ -68,11 +68,6 @@ Character::~Character()
 	delete skillHandler;
 }
 
-void Character::sufferDamage(int damage)
-{
-	sufferHPEffect(-damage);
-}
-
 bool Character::sufferHPEffect(int hpOffset)
 {
 	HP += hpOffset;
@@ -102,17 +97,6 @@ bool Character::sufferMPEffect(int mpOffset)
 		MP = getMaxMP();
 		return false;
 	}
-	return true;
-}
-
-
-bool Character::consumeMP(int value)
-{
-	if (MP<value)
-	{
-		return false;
-	}
-	MP -= value;
 	return true;
 }
 

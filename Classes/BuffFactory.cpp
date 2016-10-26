@@ -1,5 +1,6 @@
 #include "BuffFactory.h"
 #include "BuffBase.h"
+#include "HPBuff.h"
 
 
 
@@ -9,6 +10,18 @@ Buff::BuffFactory::BuffFactory()
 
 Buff::BuffFactory::~BuffFactory()
 {
+	std::map<std::string, BuffBase*>::iterator iter = buffPrototypeBox.begin();
+	while (iter != buffPrototypeBox.end())
+	{
+		delete iter->second;
+		iter++;
+	}
+}
+
+void Buff::BuffFactory::init()
+{
+	HPBuff* hpBuffPrototype = new HPBuff();
+	buffPrototypeBox["HPBuff"] = hpBuffPrototype;
 }
 
 Buff::BuffBase* Buff::BuffFactory::getBuff(std::string b)
@@ -22,6 +35,7 @@ Buff::BuffBase* Buff::BuffFactory::getBuff(std::string b)
 	}
 
 	BuffBase* buff = getBuffPrototype(buffMessage[0]);
+	buffMessage.erase(buffMessage.begin());//remove buff name
 	buff->init(buffMessage);
 	buff->setID(b);
 	return buff;

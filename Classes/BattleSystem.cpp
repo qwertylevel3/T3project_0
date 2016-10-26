@@ -188,7 +188,7 @@ void BattleSystem::sufferAttack(Character * c, int attackCount)
 	cout << "suffer damage:" << attackCount << endl;
 #endif
 	//sphereEffect µ÷ÓÃµã
-	c->sufferDamage(attackCount);
+	c->sufferHPEffect(-attackCount);
 }
 
 int BattleSystem::getAttackCount(Character* a, AttackHand hand)

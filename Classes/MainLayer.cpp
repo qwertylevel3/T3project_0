@@ -13,6 +13,7 @@
 #include "KeyController.h"
 #include "MaskLayer.h"
 #include "HudLayer.h"
+#include "BuffFactory.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -35,6 +36,7 @@ bool MainLayer::init()
 
 	RandomNumber::getInstance()->setSeed(100);
 
+	Buff::BuffFactory::getInstance()->init();
 	InventoryFactory::getInstance()->init();
 	CharacterFactory::getInstance()->init();
 	SkillManager::getInstance()->init();

@@ -13,6 +13,7 @@ public:
 	static int string2int(const std::string& str);
 	static std::string int2string(int i);
 	static std::wstring string2wstring(std::string str);
+	static std::string wstring2string(std::wstring wstr);
 	static std::string WStr2UTF8(const std::wstring& src);
 	//A*寻路，返回下一步要走的位置
 	static cocos2d::Point nextStep(

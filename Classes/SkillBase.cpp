@@ -31,7 +31,7 @@ bool Skill::SkillBase::active()
 		return false;
 	}
 	caster->clearChant();
-	caster->consumeMP(mpCost);
+	caster->sufferMPEffect(-mpCost);
 
 	std::vector<cocos2d::Point> targetPositionVec;
 	if (selector)
