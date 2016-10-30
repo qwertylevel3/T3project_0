@@ -28,7 +28,16 @@ public:
 protected:
 	Weapon* getWeapon(Character* c,AttackHand hand);
 	void attack(Character* a, Character* b, AttackHand hand);
-	void sufferAttack(Character* c, int attackCount);
+	//************************************
+	// Method:    sufferAttack
+	// FullName:  BattleSystem::sufferAttack
+	// Access:    protected 
+	// Returns:   int
+	// Qualifier: 返回真实收到的伤害值
+	// Parameter: Character * c
+	// Parameter: int attackCount
+	//************************************
+	int sufferAttack(Character* c, int attackCount);
 
 	bool isInAtkArea(Character* a,Character* b,AttackHand hand);
 	bool isEvade(Character* a, Character* b,AttackHand hand);

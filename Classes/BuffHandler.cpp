@@ -3,6 +3,7 @@
 #include "CharacterAttrHandler.h"
 #include "Character.h"
 #include<algorithm>
+#include "BuffFactory.h"
 
 using namespace Buff;
 
@@ -25,6 +26,7 @@ Buff::BuffHandler::~BuffHandler()
 	buffBox.clear();
 }
 
+
 void Buff::BuffHandler::addBuff(BuffBase* buff)
 {
 	buffBox.push_back(buff);
@@ -33,6 +35,27 @@ void Buff::BuffHandler::addBuff(BuffBase* buff)
 		buff->apply(characterPrt);
 	}
 	calculateAttr();
+}
+
+void Buff::BuffHandler::addBuff(std::string buffID)
+{
+	Buff::BuffBase* buff=Buff::BuffFactory::getInstance()->getBuff(buffID);
+	addBuff(buff);
+}
+
+void Buff::BuffHandler::removeBuff(std::string buffID)
+{
+	std::vector<BuffBase*>::iterator iter = buffBox.begin();
+	while (iter != buffBox.end())
+	{
+		if ((*iter)->getID() == buffID)
+		{
+			delete *iter;
+			buffBox.erase(iter);
+			return;
+		}
+		iter++;
+	}
 }
 
 std::vector<Buff::BuffBase*>& Buff::BuffHandler::getBuffBoxRef()
@@ -115,4 +138,16 @@ void Buff::BuffHandler::calculateAttr()
 			buff->apply(characterPrt);
 		}
 	}
+}
+
+bool Buff::BuffHandler::exist(std::string buffID)
+{
+	for each (Buff::BuffBase* buff in buffBox)
+	{
+		if (buff->getID()==buffID)
+		{
+			return true;
+		}
+	}
+	return false;
 }

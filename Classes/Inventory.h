@@ -3,6 +3,7 @@
 #include"cocos2d.h"
 
 class Character;
+class InventoryBuffHandler;
 
 class Inventory
 {
@@ -30,6 +31,8 @@ public:
 	virtual void copyData(Inventory* inventory);
 	cocos2d::Sprite* getIcon();
 
+	void addBuff(std::string buffID);
+	std::vector<std::string> getAllInventoryBuff();
 protected:
 	CC_SYNTHESIZE(int, id, Id);
 	CC_SYNTHESIZE(std::string, name, Name);
@@ -39,15 +42,8 @@ protected:
 	CC_SYNTHESIZE(int, level, Level);
 	CC_SYNTHESIZE(std::string, spriteName, SpriteName);
 	CC_SYNTHESIZE(Inventory::Type, inventoryType, InventoryType);
+	InventoryBuffHandler* inventoryBuffHandler;
 
 	cocos2d::Sprite* icon;
-
-	CC_SYNTHESIZE(int, evadeProAdd, EvadeProAdd);
-	CC_SYNTHESIZE(int, accuracyProAdd, AccuracyProAdd);
-	CC_SYNTHESIZE(int, criticalProAdd, CriticalProAdd);
-	CC_SYNTHESIZE(int, criticalAdd, CriticalAdd);
-	CC_SYNTHESIZE(int, blockProAdd, BlockProAdd);
-	CC_SYNTHESIZE(int, blockAdd, BlockAdd);
-	CC_SYNTHESIZE(int, comboProAdd, ComboProAdd);
 };
 

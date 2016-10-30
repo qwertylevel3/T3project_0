@@ -1,4 +1,5 @@
 #include "Weapon.h"
+#include "WeaponSphereHandler.h"
 
 
 
@@ -15,5 +16,4 @@ void Weapon::copyData(Weapon* inventory)
 	InventoryInHand::copyData(inventory);
 	inventory->setWeaponDamage(weaponDamage);
 }
-
 

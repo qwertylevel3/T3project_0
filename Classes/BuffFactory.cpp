@@ -1,6 +1,7 @@
 #include "BuffFactory.h"
 #include "BuffBase.h"
 #include "HPBuff.h"
+#include "ToolFunction.h"
 
 
 
@@ -26,6 +27,7 @@ void Buff::BuffFactory::init()
 
 Buff::BuffBase* Buff::BuffFactory::getBuff(std::string b)
 {
+//	std::string b=ToolFunction::WStr2UTF8(buffName);
 	std::vector<std::string> buffMessage;
 	split(b, '_', buffMessage);
 
@@ -43,7 +45,7 @@ Buff::BuffBase* Buff::BuffFactory::getBuff(std::string b)
 
 Buff::BuffBase* Buff::BuffFactory::getBuffPrototype(const std::string& buffName)
 {
-	return buffPrototypeBox[buffName];
+	return buffPrototypeBox[buffName]->createPrototype();
 }
 
 void Buff::BuffFactory::split(std::string s, char splitchar, std::vector<std::string>& vec)

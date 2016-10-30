@@ -4,11 +4,14 @@
 	<inventory>
 		<type>oneHandWeapon</type>
 		<name>sword000</name>
-		<cname>木剑</cname>
+		<cname>受祝福的木剑</cname>
 		<level>1</level>
 		<price>8</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>HPBuff_生命恢复(祝福)_OnRoundStart_Good_10_-1_2</buffID>
+		</buffBox>
 		<weaponDamage>4</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
@@ -22,6 +25,8 @@
 		<price>10</price>
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
 		<weaponDamage>6</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
@@ -35,6 +40,8 @@
 		<price>14</price>
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
 		<weaponDamage>8</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
@@ -48,6 +55,8 @@
 		<price>20</price>
 		<weight>6</weight>
 		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
 		<weaponDamage>8</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
@@ -61,6 +70,8 @@
 		<price>14</price>
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
 		<weaponDamage>6</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
@@ -74,6 +85,8 @@
 		<price>1</price>
 		<weight>0</weight>
 		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
 		<damage>6</damage>
 	</inventory>
 </inventoryList>

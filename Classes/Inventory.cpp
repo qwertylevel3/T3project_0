@@ -1,55 +1,42 @@
 #include "Inventory.h"
 #include"cocos2d.h"
+#include "InventoryBuffHandler.h"
 
 USING_NS_CC;
 
-
 Inventory::Inventory()
 {
-	evadeProAdd = 0;
-	accuracyProAdd = 0;
-	criticalProAdd = 0;
-	criticalAdd = 0;
-	blockProAdd = 0;
-	blockAdd = 0;
-	comboProAdd = 0;
-
 	icon = nullptr;
+	inventoryBuffHandler = new InventoryBuffHandler();
 }
-
 
 Inventory::~Inventory()
 {
+	delete inventoryBuffHandler;
 }
 
 void Inventory::equipLeftHand(Character* character)
 {
-
 }
 
 void Inventory::unequipLeftHand(Character* character)
 {
-
 }
 
 void Inventory::equipRightHand(Character* character)
 {
-
 }
 
 void Inventory::unequipRightHand(Character* character)
 {
-
 }
 
 void Inventory::equipArmor(Character* character)
 {
-
 }
 
 void Inventory::equipAccessory(Character* character)
 {
-
 }
 
 void Inventory::load(Character* character)
@@ -74,6 +61,10 @@ void Inventory::copyData(Inventory* inventory)
 	inventory->setSpriteName(spriteName);
 	inventory->setInventoryType(inventoryType);
 
+	for each (std::string buffID in inventoryBuffHandler->getBuffIDBox())
+	{
+		inventory->addBuff(buffID);
+	}
 }
 
 cocos2d::Sprite* Inventory::getIcon()
@@ -84,4 +75,14 @@ cocos2d::Sprite* Inventory::getIcon()
 		icon = CCSprite::createWithSpriteFrameName(spriteName);
 	}
 	return icon;
+}
+
+void Inventory::addBuff(std::string buffID)
+{
+	inventoryBuffHandler->addBuff(buffID);
+}
+
+std::vector<std::string> Inventory::getAllInventoryBuff()
+{
+	return inventoryBuffHandler->getBuffIDBox();
 }

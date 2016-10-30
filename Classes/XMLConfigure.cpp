@@ -35,6 +35,5 @@ int XMLConfigure::getChildElementIntAttr(tinyxml2::XMLElement* element, std::str
 tinyxml2::XMLElement* XMLConfigure::getChildElement(tinyxml2::XMLElement* parent, std::string name)
 {
 	tinyxml2::XMLElement* element = parent->FirstChildElement(name.c_str());
-	CCAssert(element, (std::string("unknow element type ") + name).c_str());
 	return element;
 }

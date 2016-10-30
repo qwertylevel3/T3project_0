@@ -169,6 +169,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\CharacterAttrHandler.cpp" />
     <ClCompile Include="..\Classes\EffectBase.cpp" />
     <ClCompile Include="..\Classes\FixedSelector.cpp" />
+    <ClCompile Include="..\Classes\HemophagiaSphere.cpp" />
     <ClCompile Include="..\Classes\HPBuff.cpp" />
     <ClCompile Include="..\Classes\HPEffect.cpp" />
     <ClCompile Include="..\Classes\HudBuffMenu.cpp" />
@@ -192,6 +193,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\SingleDirectionSearchSelector.cpp" />
     <ClCompile Include="..\Classes\SkillBase.cpp" />
     <ClCompile Include="..\Classes\SkillHandler.cpp" />
+    <ClCompile Include="..\Classes\SphereBase.cpp" />
+    <ClCompile Include="..\Classes\InventoryBuffHandler.cpp" />
+    <ClCompile Include="..\Classes\WeaponSphereHandler.cpp" />
     <ClCompile Include="..\Classes\StoreyInventoryHandler.cpp" />
     <ClCompile Include="..\Classes\XMLConfigure.cpp" />
     <ClCompile Include="..\Classes\BattleSystem.cpp" />
@@ -269,6 +273,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\CharacterAttrHandler.h" />
     <ClInclude Include="..\Classes\EffectBase.h" />
     <ClInclude Include="..\Classes\FixedSelector.h" />
+    <ClInclude Include="..\Classes\HemophagiaSphere.h" />
     <ClInclude Include="..\Classes\HPBuff.h" />
     <ClInclude Include="..\Classes\HPEffect.h" />
     <ClInclude Include="..\Classes\HudBuffMenu.h" />
@@ -292,6 +297,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\SingleDirectionSearchSelector.h" />
     <ClInclude Include="..\Classes\SkillBase.h" />
     <ClInclude Include="..\Classes\SkillHandler.h" />
+    <ClInclude Include="..\Classes\SphereBase.h" />
+    <ClInclude Include="..\Classes\InventoryBuffHandler.h" />
+    <ClInclude Include="..\Classes\WeaponSphereHandler.h" />
     <ClInclude Include="..\Classes\StoreyInventoryHandler.h" />
     <ClInclude Include="..\Classes\XMLConfigure.h" />
     <ClInclude Include="..\Classes\BattleSystem.h" />

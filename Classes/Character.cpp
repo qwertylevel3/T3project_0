@@ -19,6 +19,7 @@
 #include "CharacterAttrHandler.h"
 #include "BuffHandler.h"
 #include "Chant.h"
+#include "BuffFactory.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -87,12 +88,12 @@ bool Character::sufferHPEffect(int hpOffset)
 bool Character::sufferMPEffect(int mpOffset)
 {
 	MP += mpOffset;
-	if (MP<0)
+	if (MP < 0)
 	{
 		MP = 0;
 		return false;
-	} 
-	else if(MP>getMaxMP())
+	}
+	else if (MP > getMaxMP())
 	{
 		MP = getMaxMP();
 		return false;
@@ -209,27 +210,32 @@ void Character::showMoveRightAnimation()
 void Character::equipLeftHand(Inventory* inventory)
 {
 	inventory->equipLeftHand(this);
+	loadInventoryBuff(inventory);
 }
 
 void Character::equipRightHand(Inventory* inventory)
 {
 	inventory->equipRightHand(this);
+	loadInventoryBuff(inventory);
 }
 
 void Character::equipArmor(Inventory* inventory)
 {
 	inventory->equipArmor(this);
+	loadInventoryBuff(inventory);
 }
 
 void Character::equipAccessory(Inventory* inventory)
 {
 	inventory->equipAccessory(this);
+	loadInventoryBuff(inventory);
 }
 
 void Character::unequipLeftHand()
 {
 	if (leftHand && leftHand->getInventoryType() == Inventory::OneHandWeapon)
 	{
+		this->unloadInventoryBuff(leftHand);
 		inventoryHandler->addInventory(leftHand);
 		leftHand = nullptr;
 	}
@@ -237,16 +243,19 @@ void Character::unequipLeftHand()
 		(leftHand->getInventoryType() == Inventory::TwoHandWeapon ||
 			leftHand->getInventoryType() == Inventory::Bow))
 	{
+		this->unloadInventoryBuff(leftHand);
 		inventoryHandler->addInventory(leftHand);
 		leftHand = nullptr;
 		rightHand = nullptr;
 	}
+
 }
 
 void Character::unequipRightHand()
 {
 	if (rightHand && rightHand->getInventoryType() == Inventory::OneHandWeapon)
 	{
+		this->unloadInventoryBuff(rightHand);
 		inventoryHandler->addInventory(rightHand);
 		rightHand = nullptr;
 	}
@@ -254,6 +263,7 @@ void Character::unequipRightHand()
 		(rightHand->getInventoryType() == Inventory::TwoHandWeapon ||
 			rightHand->getInventoryType() == Inventory::Bow))
 	{
+		this->unloadInventoryBuff(rightHand);
 		inventoryHandler->addInventory(rightHand);
 		leftHand = nullptr;
 		rightHand = nullptr;
@@ -262,10 +272,12 @@ void Character::unequipRightHand()
 
 void Character::unequipArmor()
 {
+	this->unloadInventoryBuff(armor);
 }
 
 void Character::unequipAccessory()
 {
+	this->unloadInventoryBuff(accessory);
 }
 
 cocos2d::Point Character::getPosition()
@@ -380,9 +392,14 @@ void Character::setAI(AIBase* a)
 	ai->setCharacter(this);
 }
 
-void Character::addBuff(Buff::BuffBase* buff)
+void Character::addBuff(std::string buffID)
 {
-	buffHandler->addBuff(buff);
+	buffHandler->addBuff(buffID);
+}
+
+void Character::removeBuff(std::string buffID)
+{
+	buffHandler->removeBuff(buffID);
 }
 
 void Character::addSkill(Skill::SkillBase* skill)
@@ -543,7 +560,7 @@ void Character::endRound()
 
 void Character::recalculateHP()
 {
-	if (HP>getMaxHP())
+	if (HP > getMaxHP())
 	{
 		HP = getMaxHP();
 	}
@@ -551,9 +568,27 @@ void Character::recalculateHP()
 
 void Character::recalculateMP()
 {
-	if (MP>getMaxMP())
+	if (MP > getMaxMP())
 	{
 		MP = getMaxMP();
+	}
+}
+
+void Character::loadInventoryBuff(Inventory* inventory)
+{
+	std::vector<std::string> buffBox = inventory->getAllInventoryBuff();
+	for each (std::string buffID in buffBox)
+	{
+		this->addBuff(buffID);
+	}
+}
+
+void Character::unloadInventoryBuff(Inventory* inventory)
+{
+	std::vector<std::string> buffBox = inventory->getAllInventoryBuff();
+	for each (std::string buffID in buffBox)
+	{
+		this->removeBuff(buffID);
 	}
 }
 

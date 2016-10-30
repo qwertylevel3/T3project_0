@@ -166,10 +166,11 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 		cout << "atk count:" << attackCount << endl;
 #endif
 	}
-	sufferAttack(b, attackCount);
+	int realDamage=sufferAttack(b, attackCount);
+	//sphereEffect 调用点
 }
 
-void BattleSystem::sufferAttack(Character * c, int attackCount)
+int BattleSystem::sufferAttack(Character * c, int attackCount)
 {
 	int armorPoint = c->getArmorPoint();
 	int blockCount = 0;
@@ -187,8 +188,9 @@ void BattleSystem::sufferAttack(Character * c, int attackCount)
 #ifdef SHOWMESSAGE
 	cout << "suffer damage:" << attackCount << endl;
 #endif
-	//sphereEffect 调用点
+
 	c->sufferHPEffect(-attackCount);
+	return attackCount;
 }
 
 int BattleSystem::getAttackCount(Character* a, AttackHand hand)

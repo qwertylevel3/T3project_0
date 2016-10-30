@@ -17,7 +17,9 @@ namespace Buff
 	public:
 		BuffHandler(Character* c);
 		~BuffHandler();
-		void addBuff(BuffBase* buff);
+
+		void addBuff(std::string buffID);
+		void removeBuff(std::string buffID);
 		std::vector<BuffBase*>& getBuffBoxRef();
 		void update();
 
@@ -28,7 +30,11 @@ namespace Buff
 
 		void clearInactiveBuff();
 		void calculateAttr();
+
+		bool exist(std::string buffID);
 	protected:
+		void addBuff(BuffBase* buff);
+
 		std::vector<BuffBase*> buffBox;
 		Character* characterPrt;
 	};

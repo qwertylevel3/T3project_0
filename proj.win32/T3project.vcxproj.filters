@@ -76,6 +76,9 @@
     <Filter Include="src\HUD\menuSystem\menu\skillMenu">
       <UniqueIdentifier>{2073f23c-9cba-4399-a70e-8adbac944609}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\sphere">
+      <UniqueIdentifier>{470d54de-c480-480f-96e7-2289cd5a659a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -357,8 +360,16 @@
     <ClCompile Include="..\Classes\ChantEffect.cpp">
       <Filter>src\skill\effector</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BuffFactory.cpp" />
-    <ClCompile Include="..\Classes\HPBuff.cpp" />
+    <ClCompile Include="..\Classes\BuffFactory.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HPBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SphereBase.cpp" />
+    <ClCompile Include="..\Classes\HemophagiaSphere.cpp" />
+    <ClCompile Include="..\Classes\WeaponSphereHandler.cpp" />
+    <ClCompile Include="..\Classes\InventoryBuffHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -649,8 +660,16 @@
     <ClInclude Include="..\Classes\ChantEffect.h">
       <Filter>src\skill\effector</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BuffFactory.h" />
-    <ClInclude Include="..\Classes\HPBuff.h" />
+    <ClInclude Include="..\Classes\BuffFactory.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HPBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SphereBase.h" />
+    <ClInclude Include="..\Classes\HemophagiaSphere.h" />
+    <ClInclude Include="..\Classes\WeaponSphereHandler.h" />
+    <ClInclude Include="..\Classes\InventoryBuffHandler.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

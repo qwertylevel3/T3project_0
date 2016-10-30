@@ -115,7 +115,8 @@ public:
 
 	void setAI(AIBase* a);
 
-	void addBuff(Buff::BuffBase* buff);
+	void addBuff(std::string buffID);
+	void removeBuff(std::string buffID);
 	void addSkill(Skill::SkillBase* skill);
 	//////////////////////////////////////////////////////////////////////////
 
@@ -149,6 +150,9 @@ public:
 protected:
 	void recalculateHP();
 	void recalculateMP();
+
+	void loadInventoryBuff(Inventory* inventory);
+	void unloadInventoryBuff(Inventory* inventory);
 
 	std::vector<cocos2d::Point> getOneHandAtkArea();
 	std::vector<cocos2d::Point> getTwoHandAtkArea();

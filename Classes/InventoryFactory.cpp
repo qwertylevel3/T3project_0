@@ -129,6 +129,13 @@ void InventoryFactory::initBaseData(tinyxml2::XMLElement* inventoryElement,Inven
 	model->setWeight(getChildElementIntAttr(inventoryElement, "weight"));
 	model->setSpriteName(getChildElementStrAttr(inventoryElement, "spriteName"));
 
+	tinyxml2::XMLElement* buffBoxElement = getChildElement(inventoryElement, "buffBox");
+	tinyxml2::XMLElement* buffElement = getChildElement(buffBoxElement, "buffID");
+	while (buffElement)
+	{
+		model->addBuff(buffElement->GetText());
+		buffElement = buffElement->NextSiblingElement();
+	}
 }
 
 void InventoryFactory::initWeaponData(tinyxml2::XMLElement* inventoryElement, Weapon* weaponModel)

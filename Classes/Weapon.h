@@ -2,6 +2,7 @@
 
 #include "InventoryInHand.h"
 
+class WeaponSphereHandler;
 
 class Weapon :
 	public InventoryInHand
@@ -13,4 +14,3 @@ public:
 protected:
 	CC_SYNTHESIZE(int, weaponDamage, WeaponDamage);
 };
-
