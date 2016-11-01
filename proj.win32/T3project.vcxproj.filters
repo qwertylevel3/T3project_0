@@ -366,10 +366,21 @@
     <ClCompile Include="..\Classes\HPBuff.cpp">
       <Filter>src\buff</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\SphereBase.cpp" />
-    <ClCompile Include="..\Classes\HemophagiaSphere.cpp" />
-    <ClCompile Include="..\Classes\WeaponSphereHandler.cpp" />
-    <ClCompile Include="..\Classes\InventoryBuffHandler.cpp" />
+    <ClCompile Include="..\Classes\HemophagiaSphere.cpp">
+      <Filter>src\sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SphereBase.cpp">
+      <Filter>src\sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\InventoryBuffHandler.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\WeaponSphereHandler.cpp">
+      <Filter>src\sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SphereFactory.cpp">
+      <Filter>src\sphere</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -666,10 +677,21 @@
     <ClInclude Include="..\Classes\HPBuff.h">
       <Filter>src\buff</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\SphereBase.h" />
-    <ClInclude Include="..\Classes\HemophagiaSphere.h" />
-    <ClInclude Include="..\Classes\WeaponSphereHandler.h" />
-    <ClInclude Include="..\Classes\InventoryBuffHandler.h" />
+    <ClInclude Include="..\Classes\HemophagiaSphere.h">
+      <Filter>src\sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SphereBase.h">
+      <Filter>src\sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\InventoryBuffHandler.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WeaponSphereHandler.h">
+      <Filter>src\sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SphereFactory.h">
+      <Filter>src\sphere</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

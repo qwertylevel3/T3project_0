@@ -6,6 +6,9 @@
 #include"accessory.h"
 #include"Character.h"
 #include "Weapon.h"
+#include "WeaponSphereHandler.h"
+#include "SphereBase.h"
+
 #include "Marco.h"
 
 using namespace std;
@@ -168,6 +171,17 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 	}
 	int realDamage=sufferAttack(b, attackCount);
 	//sphereEffect µ÷ÓÃµã
+	Weapon* weapon = getWeapon(a, hand);
+	if (!weapon)
+	{
+		return;
+	}
+	WeaponSphereHandler* sphereHandler = weapon->getSphereHandler();
+	std::vector<Sphere::SphereBase*> sphereBox = sphereHandler->getSphereBoxRef();
+	for each (Sphere::SphereBase* sphere in sphereBox)
+	{
+		sphere->run(a, b, realDamage);
+	}
 }
 
 int BattleSystem::sufferAttack(Character * c, int attackCount)

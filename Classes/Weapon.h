@@ -11,6 +11,9 @@ public:
 	Weapon();
 	virtual ~Weapon();
 	void copyData(Weapon* inventory);
+	void addSphere(const std::string& sphereID);
+	WeaponSphereHandler* getSphereHandler();
 protected:
 	CC_SYNTHESIZE(int, weaponDamage, WeaponDamage);
+	WeaponSphereHandler* sphereHandler;
 };

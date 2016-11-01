@@ -144,6 +144,14 @@ void InventoryFactory::initWeaponData(tinyxml2::XMLElement* inventoryElement, We
 	weaponModel->setStrRequire(getChildElementIntAttr(inventoryElement, "strRequire"));
 	weaponModel->setAgiRequire(getChildElementIntAttr(inventoryElement, "agiRequire"));
 	weaponModel->setIntRequire(getChildElementIntAttr(inventoryElement, "intRequire"));
+
+	tinyxml2::XMLElement* sphereBoxElement = getChildElement(inventoryElement, "sphereBox");
+	tinyxml2::XMLElement* sphereElement = getChildElement(sphereBoxElement, "sphereID");
+	while (sphereElement)
+	{
+		weaponModel->addSphere(sphereElement->GetText());
+		sphereElement = sphereElement->NextSiblingElement();
+	}
 }
 
 void InventoryFactory::initArrowData(tinyxml2::XMLElement* inventoryElement, Arrow* model)

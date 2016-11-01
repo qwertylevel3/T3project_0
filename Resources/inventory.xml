@@ -16,6 +16,9 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
+		<sphereBox>
+			<sphereID>HemoSphere_吸血_100</sphereID>
+		</sphereBox>
 	</inventory>
 	<inventory>
 		<type>oneHandWeapon</type>
@@ -31,6 +34,8 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
 	</inventory>
 	<inventory>
 		<type>oneHandWeapon</type>
@@ -46,6 +51,8 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
 	</inventory>
 	<inventory>
 		<type>twoHandWeapon</type>
@@ -61,6 +68,8 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
 	</inventory>
 	<inventory>
 		<type>bow</type>
@@ -76,6 +85,8 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
 	</inventory>
 	<inventory>
 		<type>arrow</type>

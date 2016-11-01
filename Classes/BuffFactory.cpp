@@ -31,7 +31,7 @@ Buff::BuffBase* Buff::BuffFactory::getBuff(std::string b)
 	std::vector<std::string> buffMessage;
 	split(b, '_', buffMessage);
 
-	if (b.empty())
+	if (buffMessage.empty())
 	{
 		return nullptr;
 	}
