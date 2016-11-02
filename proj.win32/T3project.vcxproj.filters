@@ -381,6 +381,8 @@
     <ClCompile Include="..\Classes\SphereFactory.cpp">
       <Filter>src\sphere</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\DogTag.cpp" />
+    <ClCompile Include="..\Classes\DogTagGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -692,6 +694,8 @@
     <ClInclude Include="..\Classes\SphereFactory.h">
       <Filter>src\sphere</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\DogTag.h" />
+    <ClInclude Include="..\Classes\DogTagGenerator.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

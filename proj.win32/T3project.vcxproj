@@ -167,6 +167,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\ChantEffect.cpp" />
     <ClCompile Include="..\Classes\CharacterAttr.cpp" />
     <ClCompile Include="..\Classes\CharacterAttrHandler.cpp" />
+    <ClCompile Include="..\Classes\DogTag.cpp" />
+    <ClCompile Include="..\Classes\DogTagGenerator.cpp" />
     <ClCompile Include="..\Classes\EffectBase.cpp" />
     <ClCompile Include="..\Classes\FixedSelector.cpp" />
     <ClCompile Include="..\Classes\HemophagiaSphere.cpp" />
@@ -272,6 +274,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\ChantEffect.h" />
     <ClInclude Include="..\Classes\CharacterAttr.h" />
     <ClInclude Include="..\Classes\CharacterAttrHandler.h" />
+    <ClInclude Include="..\Classes\DogTag.h" />
+    <ClInclude Include="..\Classes\DogTagGenerator.h" />
     <ClInclude Include="..\Classes\EffectBase.h" />
     <ClInclude Include="..\Classes\FixedSelector.h" />
     <ClInclude Include="..\Classes\HemophagiaSphere.h" />

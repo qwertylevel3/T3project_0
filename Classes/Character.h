@@ -4,6 +4,7 @@
 #include<map>
 #include <vector>
 #include "CharacterAttr.h"
+#include "DogTag.h"
 
 class CharacterAttrHandler;
 class MainLayer;
@@ -160,6 +161,10 @@ protected:
 	std::vector<cocos2d::Point> getBowAtkArea();
 	//返回弓类武器真实选择坐标
 	std::vector<cocos2d::Point> getBowAtkSelect();
+
+	//////////////////////////////////////////////////////////////////////////
+
+	DogTag dogTag;
 
 	//AI......
 	AIBase* ai;
