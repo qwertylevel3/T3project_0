@@ -71,9 +71,8 @@ void Player::init()
 	}
 
 	//////////////////////////////////////////////////////////////////////////
-//	std::wstring buffname = L"HPBuff_生命恢复_OnRoundStart_Good_10_10_2";
-//	Buff::BuffBase* buff = Buff::BuffFactory::getInstance()->getBuff(buffname);
-//	characterPtr->addBuff(buff);
+	std::wstring buffname = L"BaseAttrBuff_三围增加_ATTR_Good_2_40_2_2_2";
+	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname));
 }
 
 void Player::autoNextStep()

@@ -3,7 +3,6 @@
 #include"RandomNumber.h"
 #include"StoreyBuilder.h"
 #include"CharacterFactory.h"
-#include"SkillManager.h"
 #include"Player.h"
 #include"Dungeon.h"
 #include"InventoryFactory.h"
@@ -41,7 +40,6 @@ bool MainLayer::init()
 	Sphere::SphereFactory::getInstance()->init();
 	InventoryFactory::getInstance()->init();
 	CharacterFactory::getInstance()->init();
-	SkillManager::getInstance()->init();
 	Player::getInstance()->init();
 	MonsterFactory::getInstance()->init();
 

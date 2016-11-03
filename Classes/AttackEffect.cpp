@@ -11,7 +11,7 @@ using namespace Skill;
 
 AttackEffect::AttackEffect()
 {
-	cocos2d::SpriteFrame* frame0 = cocos2d::CCSpriteFrameCache::getInstance()->getSpriteFrameByName("effect_0.png");
+	cocos2d::SpriteFrame* frame0 = cocos2d::SpriteFrame::create("effect_0.png",cocos2d::Rect(0,0,32,32));
 	cocos2d::Vector<cocos2d::SpriteFrame*> frameVec;
 	frameVec.pushBack(frame0);
 	animation = cocos2d::Animation::createWithSpriteFrames(frameVec, 0.1f);

@@ -159,6 +159,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Attack.cpp" />
     <ClCompile Include="..\Classes\AttackEffect.cpp" />
     <ClCompile Include="..\Classes\AttackSelector.cpp" />
+    <ClCompile Include="..\Classes\BaseAttrBuff.cpp" />
     <ClCompile Include="..\Classes\Bow.cpp" />
     <ClCompile Include="..\Classes\BuffBase.cpp" />
     <ClCompile Include="..\Classes\BuffFactory.cpp" />
@@ -190,6 +191,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudUnequipLeftMenu.cpp" />
     <ClCompile Include="..\Classes\HudUnequipRightMenu.cpp" />
     <ClCompile Include="..\Classes\LinerSelector.cpp" />
+    <ClCompile Include="..\Classes\MPBuff.cpp" />
     <ClCompile Include="..\Classes\MPEffect.cpp" />
     <ClCompile Include="..\Classes\SelectorBase.cpp" />
     <ClCompile Include="..\Classes\SingleDirectionSearchSelector.cpp" />
@@ -239,7 +241,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\RoundSystem.cpp" />
     <ClCompile Include="..\Classes\Sentence.cpp" />
     <ClCompile Include="..\Classes\Shield.cpp" />
-    <ClCompile Include="..\Classes\SkillManager.cpp" />
     <ClCompile Include="..\Classes\Statement.cpp" />
     <ClCompile Include="..\Classes\Storey.cpp" />
     <ClCompile Include="..\Classes\StoreyBuilder.cpp">
@@ -266,6 +267,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Attack.h" />
     <ClInclude Include="..\Classes\AttackEffect.h" />
     <ClInclude Include="..\Classes\AttackSelector.h" />
+    <ClInclude Include="..\Classes\BaseAttrBuff.h" />
     <ClInclude Include="..\Classes\Bow.h" />
     <ClInclude Include="..\Classes\BuffBase.h" />
     <ClInclude Include="..\Classes\BuffFactory.h" />
@@ -297,6 +299,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudUnequipLeftMenu.h" />
     <ClInclude Include="..\Classes\HudUnequipRightMenu.h" />
     <ClInclude Include="..\Classes\LinerSelector.h" />
+    <ClInclude Include="..\Classes\MPBuff.h" />
     <ClInclude Include="..\Classes\MPEffect.h" />
     <ClInclude Include="..\Classes\SelectorBase.h" />
     <ClInclude Include="..\Classes\SingleDirectionSearchSelector.h" />
@@ -349,7 +352,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Sentence.h" />
     <ClInclude Include="..\Classes\Shield.h" />
     <ClInclude Include="..\Classes\Singleton.h" />
-    <ClInclude Include="..\Classes\SkillManager.h" />
     <ClInclude Include="..\Classes\Statement.h" />
     <ClInclude Include="..\Classes\Storey.h" />
     <ClInclude Include="..\Classes\StoreyBuilder.h" />

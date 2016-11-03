@@ -1,6 +1,8 @@
 #include "BuffFactory.h"
 #include "BuffBase.h"
 #include "HPBuff.h"
+#include "MPBuff.h"
+#include "BaseAttrBuff.h"
 #include "ToolFunction.h"
 
 
@@ -22,7 +24,11 @@ Buff::BuffFactory::~BuffFactory()
 void Buff::BuffFactory::init()
 {
 	HPBuff* hpBuffPrototype = new HPBuff();
+	MPBuff* mpBuffPrototype = new MPBuff();
+	BaseAttrBuff* attrBuffPrototype = new BaseAttrBuff();
 	buffPrototypeBox["HPBuff"] = hpBuffPrototype;
+	buffPrototypeBox["MPBuff"] = mpBuffPrototype;
+	buffPrototypeBox["BaseAttrBuff"] = attrBuffPrototype;
 }
 
 Buff::BuffBase* Buff::BuffFactory::getBuff(std::string b)

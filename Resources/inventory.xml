@@ -4,26 +4,24 @@
 	<inventory>
 		<type>oneHandWeapon</type>
 		<name>sword000</name>
-		<cname>受祝福的木剑</cname>
+		<cname>木剑</cname>
 		<level>1</level>
 		<price>8</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>HPBuff_生命恢复(祝福)_OnRoundStart_Good_10_-1_2</buffID>
 		</buffBox>
 		<weaponDamage>4</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<sphereBox>
-			<sphereID>HemoSphere_吸血_100</sphereID>
 		</sphereBox>
 	</inventory>
 	<inventory>
 		<type>oneHandWeapon</type>
 		<name>sword001</name>
-		<cname>铁剑</cname>
+		<cname>吸血铁剑</cname>
 		<level>1</level>
 		<price>10</price>
 		<weight>2</weight>
@@ -35,6 +33,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<sphereBox>
+			<sphereID>HemoSphere_吸血_100</sphereID>
 		</sphereBox>
 	</inventory>
 	<inventory>

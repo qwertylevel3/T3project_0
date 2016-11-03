@@ -111,9 +111,6 @@
     <ClCompile Include="..\Classes\Inventory.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\SkillManager.cpp">
-      <Filter>src\skill</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\HudLayer.cpp">
       <Filter>src\HUD</Filter>
     </ClCompile>
@@ -383,6 +380,8 @@
     </ClCompile>
     <ClCompile Include="..\Classes\DogTag.cpp" />
     <ClCompile Include="..\Classes\DogTagGenerator.cpp" />
+    <ClCompile Include="..\Classes\MPBuff.cpp" />
+    <ClCompile Include="..\Classes\BaseAttrBuff.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -420,9 +419,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Inventory.h">
       <Filter>src\inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\SkillManager.h">
-      <Filter>src\skill</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HudLayer.h">
       <Filter>src\HUD</Filter>
@@ -696,6 +692,8 @@
     </ClInclude>
     <ClInclude Include="..\Classes\DogTag.h" />
     <ClInclude Include="..\Classes\DogTagGenerator.h" />
+    <ClInclude Include="..\Classes\MPBuff.h" />
+    <ClInclude Include="..\Classes\BaseAttrBuff.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

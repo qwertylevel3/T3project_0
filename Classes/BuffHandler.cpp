@@ -30,7 +30,8 @@ Buff::BuffHandler::~BuffHandler()
 void Buff::BuffHandler::addBuff(BuffBase* buff)
 {
 	buffBox.push_back(buff);
-	if (buff->getTrigType()==BuffBase::OnLoad)
+	if (buff->getTrigType()==BuffBase::OnLoad ||
+		buff->getTrigType()==BuffBase::ATTR)
 	{
 		buff->apply(characterPrt);
 	}
