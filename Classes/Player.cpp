@@ -71,8 +71,14 @@ void Player::init()
 	}
 
 	//////////////////////////////////////////////////////////////////////////
-	std::wstring buffname = L"BaseAttrBuff_三围增加_ATTR_Good_2_40_2_2_2";
-	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname));
+	std::wstring buffname0 = L"MaxHPBuff_HP上限_ATTR_Good_1_5_10";
+	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname0));
+
+	std::wstring buffname1 = L"HPBuff_HP回复_OnRoundStart_Good_10_20_4";
+	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname1));
+
+	std::wstring buffname2 = L"MaxMPBuff_MP上限_ATTR_Good_1_5_10";
+	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
 }
 
 void Player::autoNextStep()

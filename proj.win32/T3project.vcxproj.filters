@@ -382,6 +382,8 @@
     <ClCompile Include="..\Classes\DogTagGenerator.cpp" />
     <ClCompile Include="..\Classes\MPBuff.cpp" />
     <ClCompile Include="..\Classes\BaseAttrBuff.cpp" />
+    <ClCompile Include="..\Classes\MaxHPBuff.cpp" />
+    <ClCompile Include="..\Classes\MaxMPBuff.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -694,6 +696,8 @@
     <ClInclude Include="..\Classes\DogTagGenerator.h" />
     <ClInclude Include="..\Classes\MPBuff.h" />
     <ClInclude Include="..\Classes\BaseAttrBuff.h" />
+    <ClInclude Include="..\Classes\MaxHPBuff.h" />
+    <ClInclude Include="..\Classes\MaxMPBuff.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
