@@ -288,6 +288,7 @@ bool BattleSystem::isEvade(Character* a, Character* b, AttackHand hand)
 bool BattleSystem::isCritical(Character* c)
 {
 	int criPro = getCriticalProCount(c);
+	criPro = criPro > 90 ? 90 : criPro;
 #ifdef SHOWMESSAGE
 	cout << "cirtical chance:" << criPro << endl;
 #endif
@@ -297,6 +298,7 @@ bool BattleSystem::isCritical(Character* c)
 bool BattleSystem::isBlock(Character* c)
 {
 	int blockPro = getBlockProCount(c);
+	blockPro = blockPro > 90 ? 90 : blockPro;
 #ifdef SHOWMESSAGE
 	cout << "block chance:" << blockPro << endl;
 #endif
@@ -312,6 +314,7 @@ bool BattleSystem::isCombo(Character* c)
 		return false;
 	}
 	int comboPro = getComboProCount(c);
+	comboPro = comboPro > 90 ? 90 : comboPro;
 #ifdef SHOWMESSAGE
 	cout << "combo chance:" << comboPro << endl;
 #endif

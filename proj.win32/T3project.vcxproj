@@ -149,6 +149,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\Accessory.cpp" />
+    <ClCompile Include="..\Classes\AccuracyBuff.cpp" />
     <ClCompile Include="..\Classes\AIBase.cpp" />
     <ClCompile Include="..\Classes\AICommonEnemy.cpp" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
@@ -160,6 +161,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AttackEffect.cpp" />
     <ClCompile Include="..\Classes\AttackSelector.cpp" />
     <ClCompile Include="..\Classes\BaseAttrBuff.cpp" />
+    <ClCompile Include="..\Classes\BlockPointBuff.cpp" />
+    <ClCompile Include="..\Classes\BlockProBuff.cpp" />
     <ClCompile Include="..\Classes\Bow.cpp" />
     <ClCompile Include="..\Classes\BuffBase.cpp" />
     <ClCompile Include="..\Classes\BuffFactory.cpp" />
@@ -168,9 +171,14 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\ChantEffect.cpp" />
     <ClCompile Include="..\Classes\CharacterAttr.cpp" />
     <ClCompile Include="..\Classes\CharacterAttrHandler.cpp" />
+    <ClCompile Include="..\Classes\ComboBuff.cpp" />
+    <ClCompile Include="..\Classes\CriticalPerBuff.cpp" />
+    <ClCompile Include="..\Classes\CriticalPointBuff.cpp" />
+    <ClCompile Include="..\Classes\CriticalProBuff.cpp" />
     <ClCompile Include="..\Classes\DogTag.cpp" />
     <ClCompile Include="..\Classes\DogTagGenerator.cpp" />
     <ClCompile Include="..\Classes\EffectBase.cpp" />
+    <ClCompile Include="..\Classes\EvadeBuff.cpp" />
     <ClCompile Include="..\Classes\FixedSelector.cpp" />
     <ClCompile Include="..\Classes\HemophagiaSphere.cpp" />
     <ClCompile Include="..\Classes\HPBuff.cpp" />
@@ -191,6 +199,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudUnequipLeftMenu.cpp" />
     <ClCompile Include="..\Classes\HudUnequipRightMenu.cpp" />
     <ClCompile Include="..\Classes\LinerSelector.cpp" />
+    <ClCompile Include="..\Classes\LuckBuff.cpp" />
     <ClCompile Include="..\Classes\MaxHPBuff.cpp" />
     <ClCompile Include="..\Classes\MaxMPBuff.cpp" />
     <ClCompile Include="..\Classes\MPBuff.cpp" />
@@ -202,6 +211,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\SphereBase.cpp" />
     <ClCompile Include="..\Classes\InventoryBuffHandler.cpp" />
     <ClCompile Include="..\Classes\SphereFactory.cpp" />
+    <ClCompile Include="..\Classes\ViewSizeBuff.cpp" />
     <ClCompile Include="..\Classes\WeaponSphereHandler.cpp" />
     <ClCompile Include="..\Classes\StoreyInventoryHandler.cpp" />
     <ClCompile Include="..\Classes\XMLConfigure.cpp" />
@@ -259,6 +269,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\Accessory.h" />
+    <ClInclude Include="..\Classes\AccuracyBuff.h" />
     <ClInclude Include="..\Classes\AIBase.h" />
     <ClInclude Include="..\Classes\AICommonEnemy.h" />
     <ClInclude Include="..\Classes\AppDelegate.h" />
@@ -270,6 +281,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AttackEffect.h" />
     <ClInclude Include="..\Classes\AttackSelector.h" />
     <ClInclude Include="..\Classes\BaseAttrBuff.h" />
+    <ClInclude Include="..\Classes\BlockPointBuff.h" />
+    <ClInclude Include="..\Classes\BlockProBuff.h" />
     <ClInclude Include="..\Classes\Bow.h" />
     <ClInclude Include="..\Classes\BuffBase.h" />
     <ClInclude Include="..\Classes\BuffFactory.h" />
@@ -278,9 +291,14 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\ChantEffect.h" />
     <ClInclude Include="..\Classes\CharacterAttr.h" />
     <ClInclude Include="..\Classes\CharacterAttrHandler.h" />
+    <ClInclude Include="..\Classes\ComboBuff.h" />
+    <ClInclude Include="..\Classes\CriticalPerBuff.h" />
+    <ClInclude Include="..\Classes\CriticalPointBuff.h" />
+    <ClInclude Include="..\Classes\CriticalProBuff.h" />
     <ClInclude Include="..\Classes\DogTag.h" />
     <ClInclude Include="..\Classes\DogTagGenerator.h" />
     <ClInclude Include="..\Classes\EffectBase.h" />
+    <ClInclude Include="..\Classes\EvadeBuff.h" />
     <ClInclude Include="..\Classes\FixedSelector.h" />
     <ClInclude Include="..\Classes\HemophagiaSphere.h" />
     <ClInclude Include="..\Classes\HPBuff.h" />
@@ -301,6 +319,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudUnequipLeftMenu.h" />
     <ClInclude Include="..\Classes\HudUnequipRightMenu.h" />
     <ClInclude Include="..\Classes\LinerSelector.h" />
+    <ClInclude Include="..\Classes\LuckBuff.h" />
     <ClInclude Include="..\Classes\MaxHPBuff.h" />
     <ClInclude Include="..\Classes\MaxMPBuff.h" />
     <ClInclude Include="..\Classes\MPBuff.h" />
@@ -312,6 +331,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\SphereBase.h" />
     <ClInclude Include="..\Classes\InventoryBuffHandler.h" />
     <ClInclude Include="..\Classes\SphereFactory.h" />
+    <ClInclude Include="..\Classes\ViewSizeBuff.h" />
     <ClInclude Include="..\Classes\WeaponSphereHandler.h" />
     <ClInclude Include="..\Classes\StoreyInventoryHandler.h" />
     <ClInclude Include="..\Classes\XMLConfigure.h" />

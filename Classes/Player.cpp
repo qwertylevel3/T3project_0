@@ -71,14 +71,29 @@ void Player::init()
 	}
 
 	//////////////////////////////////////////////////////////////////////////
-	std::wstring buffname0 = L"MaxHPBuff_HP上限_ATTR_Good_1_5_10";
-	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname0));
+//	std::wstring buffname0 = L"EvadeBuff_闪避增加_ATTR_Good_4_20_100";
+//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname0));
 
-	std::wstring buffname1 = L"HPBuff_HP回复_OnRoundStart_Good_10_20_4";
+	std::wstring buffname1 = L"AccuracyBuff_命中增加_ATTR_Good_4_20_100";
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname1));
 
-	std::wstring buffname2 = L"MaxMPBuff_MP上限_ATTR_Good_1_5_10";
+	std::wstring buffname2 = L"CriticalProBuff_暴击概率增加_ATTR_Good_4_20_100";
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
+
+//	std::wstring buffname3 = L"CriticalPointBuff_暴击点数增加_ATTR_Good_4_20_100";
+//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname3));
+
+	std::wstring buffname4 = L"CriticalPerBuff_暴击倍率增加_ATTR_Good_4_20_100";
+	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname4));
+
+	std::wstring buffname5 = L"BlockProBuff_格挡几率增加_ATTR_Good_4_20_100";
+	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname5));
+
+	std::wstring buffname6 = L"BlockPointBuff_格挡点数增加_ATTR_Good_4_20_100";
+	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname6));
+
+	std::wstring buffname7 = L"ComboBuff_连击概率提高_ATTR_Good_4_20_100";
+	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname7));
 }
 
 void Player::autoNextStep()

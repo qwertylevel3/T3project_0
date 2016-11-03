@@ -5,6 +5,16 @@
 #include "BaseAttrBuff.h"
 #include "MaxHPBuff.h"
 #include "MaxMPBuff.h"
+#include "LuckBuff.h"
+#include "ViewSizeBuff.h"
+#include "EvadeBuff.h"
+#include "AccuracyBuff.h"
+#include "CriticalProBuff.h"
+#include "CriticalPointBuff.h"
+#include "CriticalPerBuff.h"
+#include "BlockProBuff.h"
+#include "BlockPointBuff.h"
+#include "ComboBuff.h"
 #include "ToolFunction.h"
 
 
@@ -30,11 +40,32 @@ void Buff::BuffFactory::init()
 	BaseAttrBuff* attrBuffPrototype = new BaseAttrBuff();
 	MaxHPBuff* maxHPBuffPrototype = new MaxHPBuff();
 	MaxMPBuff* maxMPBuffPrototype = new MaxMPBuff();
+	LuckBuff* luckBuffPrototype = new LuckBuff();
+	ViewSizeBuff* viewBuffPrototype = new ViewSizeBuff();
+	EvadeBuff* evadeBuffPrototype = new EvadeBuff();
+	AccuracyBuff* accuracyBuffPrototype = new AccuracyBuff();
+	CriticalProBuff* criticalProBuffPrototype = new CriticalProBuff();
+	CriticalPointBuff* criticalPointBuffPrototype = new CriticalPointBuff();
+	CriticalPerBuff* criticalPerBuffPrototype = new CriticalPerBuff();
+	BlockProBuff* blockProBuffPrototype = new BlockProBuff();
+	BlockPointBuff* blockPointBuffPrototype = new BlockPointBuff();
+	ComboBuff* comboBuffPrototype = new ComboBuff();
+
 	buffPrototypeBox["HPBuff"] = hpBuffPrototype;
 	buffPrototypeBox["MPBuff"] = mpBuffPrototype;
 	buffPrototypeBox["BaseAttrBuff"] = attrBuffPrototype;
 	buffPrototypeBox["MaxHPBuff"] = maxHPBuffPrototype;
 	buffPrototypeBox["MaxMPBuff"] = maxMPBuffPrototype;
+	buffPrototypeBox["LuckBuff"] = luckBuffPrototype;
+	buffPrototypeBox["ViewSizeBuff"] = viewBuffPrototype;
+	buffPrototypeBox["EvadeBuff"] = evadeBuffPrototype;
+	buffPrototypeBox["AccuracyBuff"] = accuracyBuffPrototype;
+	buffPrototypeBox["CriticalProBuff"] = criticalProBuffPrototype;
+	buffPrototypeBox["CriticalPointBuff"] = criticalPointBuffPrototype;
+	buffPrototypeBox["CriticalPerBuff"] = criticalPerBuffPrototype;
+	buffPrototypeBox["BlockProBuff"] = blockProBuffPrototype;
+	buffPrototypeBox["BlockPointBuff"] = blockPointBuffPrototype;
+	buffPrototypeBox["ComboBuff"] = comboBuffPrototype;
 }
 
 Buff::BuffBase* Buff::BuffFactory::getBuff(std::string b)

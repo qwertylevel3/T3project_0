@@ -378,12 +378,38 @@
     <ClCompile Include="..\Classes\SphereFactory.cpp">
       <Filter>src\sphere</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\DogTag.cpp" />
-    <ClCompile Include="..\Classes\DogTagGenerator.cpp" />
-    <ClCompile Include="..\Classes\MPBuff.cpp" />
-    <ClCompile Include="..\Classes\BaseAttrBuff.cpp" />
-    <ClCompile Include="..\Classes\MaxHPBuff.cpp" />
-    <ClCompile Include="..\Classes\MaxMPBuff.cpp" />
+    <ClCompile Include="..\Classes\ViewSizeBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DogTag.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DogTagGenerator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BaseAttrBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LuckBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MaxHPBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MaxMPBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MPBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EvadeBuff.cpp" />
+    <ClCompile Include="..\Classes\AccuracyBuff.cpp" />
+    <ClCompile Include="..\Classes\CriticalProBuff.cpp" />
+    <ClCompile Include="..\Classes\CriticalPointBuff.cpp" />
+    <ClCompile Include="..\Classes\CriticalPerBuff.cpp" />
+    <ClCompile Include="..\Classes\BlockProBuff.cpp" />
+    <ClCompile Include="..\Classes\BlockPointBuff.cpp" />
+    <ClCompile Include="..\Classes\ComboBuff.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -692,12 +718,38 @@
     <ClInclude Include="..\Classes\SphereFactory.h">
       <Filter>src\sphere</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\DogTag.h" />
-    <ClInclude Include="..\Classes\DogTagGenerator.h" />
-    <ClInclude Include="..\Classes\MPBuff.h" />
-    <ClInclude Include="..\Classes\BaseAttrBuff.h" />
-    <ClInclude Include="..\Classes\MaxHPBuff.h" />
-    <ClInclude Include="..\Classes\MaxMPBuff.h" />
+    <ClInclude Include="..\Classes\ViewSizeBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DogTag.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DogTagGenerator.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BaseAttrBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LuckBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MaxHPBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MaxMPBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MPBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EvadeBuff.h" />
+    <ClInclude Include="..\Classes\AccuracyBuff.h" />
+    <ClInclude Include="..\Classes\CriticalProBuff.h" />
+    <ClInclude Include="..\Classes\CriticalPointBuff.h" />
+    <ClInclude Include="..\Classes\CriticalPerBuff.h" />
+    <ClInclude Include="..\Classes\BlockProBuff.h" />
+    <ClInclude Include="..\Classes\BlockPointBuff.h" />
+    <ClInclude Include="..\Classes\ComboBuff.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
