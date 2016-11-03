@@ -170,6 +170,7 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 #endif
 	}
 	int realDamage=sufferAttack(b, attackCount);
+
 	//sphereEffect µ÷ÓÃµã
 	Weapon* weapon = getWeapon(a, hand);
 	if (!weapon)

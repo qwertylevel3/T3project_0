@@ -16,6 +16,7 @@
 #include "BlockPointBuff.h"
 #include "ComboBuff.h"
 #include "WeightBuff.h"
+#include "ChantBuff.h"
 #include "ToolFunction.h"
 
 
@@ -52,6 +53,7 @@ void Buff::BuffFactory::init()
 	BlockPointBuff* blockPointBuffPrototype = new BlockPointBuff();
 	ComboBuff* comboBuffPrototype = new ComboBuff();
 	WeightBuff* weightBuffPrototype = new WeightBuff();
+	ChantBuff* chantBuffPrototype = new ChantBuff();
 
 	buffPrototypeBox["HPBuff"] = hpBuffPrototype;
 	buffPrototypeBox["MPBuff"] = mpBuffPrototype;
@@ -69,6 +71,7 @@ void Buff::BuffFactory::init()
 	buffPrototypeBox["BlockPointBuff"] = blockPointBuffPrototype;
 	buffPrototypeBox["ComboBuff"] = comboBuffPrototype;
 	buffPrototypeBox["WeightBuff"] = weightBuffPrototype;
+	buffPrototypeBox["ChantBuff"] = chantBuffPrototype;
 }
 
 Buff::BuffBase* Buff::BuffFactory::getBuff(std::string b)

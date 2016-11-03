@@ -73,6 +73,9 @@ void Player::init()
 	//////////////////////////////////////////////////////////////////////////
 	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_20_100";
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname0));
+
+	std::wstring buffname1 = L"ChantBuff_自动吟唱_OnRoundStart_Good_10_20_1";
+	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname1));
 }
 
 void Player::autoNextStep()

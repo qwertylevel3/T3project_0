@@ -426,7 +426,10 @@
     <ClCompile Include="..\Classes\EvadeBuff.cpp">
       <Filter>src\buff</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\WeightBuff.cpp" />
+    <ClCompile Include="..\Classes\WeightBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ChantBuff.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -783,7 +786,10 @@
     <ClInclude Include="..\Classes\EvadeBuff.h">
       <Filter>src\buff</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\WeightBuff.h" />
+    <ClInclude Include="..\Classes\WeightBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ChantBuff.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
