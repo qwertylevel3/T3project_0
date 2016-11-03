@@ -402,14 +402,31 @@
     <ClCompile Include="..\Classes\MPBuff.cpp">
       <Filter>src\buff</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\EvadeBuff.cpp" />
-    <ClCompile Include="..\Classes\AccuracyBuff.cpp" />
-    <ClCompile Include="..\Classes\CriticalProBuff.cpp" />
-    <ClCompile Include="..\Classes\CriticalPointBuff.cpp" />
-    <ClCompile Include="..\Classes\CriticalPerBuff.cpp" />
-    <ClCompile Include="..\Classes\BlockProBuff.cpp" />
-    <ClCompile Include="..\Classes\BlockPointBuff.cpp" />
-    <ClCompile Include="..\Classes\ComboBuff.cpp" />
+    <ClCompile Include="..\Classes\AccuracyBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BlockPointBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BlockProBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ComboBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CriticalPerBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CriticalPointBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CriticalProBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EvadeBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\WeightBuff.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -742,14 +759,31 @@
     <ClInclude Include="..\Classes\MPBuff.h">
       <Filter>src\buff</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\EvadeBuff.h" />
-    <ClInclude Include="..\Classes\AccuracyBuff.h" />
-    <ClInclude Include="..\Classes\CriticalProBuff.h" />
-    <ClInclude Include="..\Classes\CriticalPointBuff.h" />
-    <ClInclude Include="..\Classes\CriticalPerBuff.h" />
-    <ClInclude Include="..\Classes\BlockProBuff.h" />
-    <ClInclude Include="..\Classes\BlockPointBuff.h" />
-    <ClInclude Include="..\Classes\ComboBuff.h" />
+    <ClInclude Include="..\Classes\AccuracyBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BlockPointBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BlockProBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ComboBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CriticalPerBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CriticalPointBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CriticalProBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EvadeBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WeightBuff.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

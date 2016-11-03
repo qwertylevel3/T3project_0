@@ -214,6 +214,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\ViewSizeBuff.cpp" />
     <ClCompile Include="..\Classes\WeaponSphereHandler.cpp" />
     <ClCompile Include="..\Classes\StoreyInventoryHandler.cpp" />
+    <ClCompile Include="..\Classes\WeightBuff.cpp" />
     <ClCompile Include="..\Classes\XMLConfigure.cpp" />
     <ClCompile Include="..\Classes\BattleSystem.cpp" />
     <ClCompile Include="..\Classes\Character.cpp" />
@@ -334,6 +335,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\ViewSizeBuff.h" />
     <ClInclude Include="..\Classes\WeaponSphereHandler.h" />
     <ClInclude Include="..\Classes\StoreyInventoryHandler.h" />
+    <ClInclude Include="..\Classes\WeightBuff.h" />
     <ClInclude Include="..\Classes\XMLConfigure.h" />
     <ClInclude Include="..\Classes\BattleSystem.h" />
     <ClInclude Include="..\Classes\Character.h" />
