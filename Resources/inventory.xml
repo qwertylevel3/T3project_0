@@ -16,6 +16,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<sphereBox>
+			<sphereID>ManaBurnSphere_法力燃烧_100</sphereID>
 		</sphereBox>
 	</inventory>
 	<inventory>
@@ -33,7 +34,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<sphereBox>
-			<sphereID>HemoSphere_吸血_100</sphereID>
+			<sphereID>HemophagiaSphere_吸血_100</sphereID>
 		</sphereBox>
 	</inventory>
 	<inventory>
@@ -51,6 +52,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<sphereBox>
+
 		</sphereBox>
 	</inventory>
 	<inventory>

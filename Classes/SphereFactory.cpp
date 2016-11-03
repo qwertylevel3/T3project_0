@@ -1,6 +1,11 @@
 #include "SphereFactory.h"
 #include "SphereBase.h"
 #include "HemophagiaSphere.h"
+#include "DisabilitySphere.h"
+#include "MagicphagiaSphere.h"
+#include "VenomSphere.h"
+#include "ManaBurnSphere.h"
+#include "base/ccMacros.h"
 
 
 
@@ -22,7 +27,17 @@ Sphere::SphereFactory::~SphereFactory()
 void Sphere::SphereFactory::init()
 {
 	HemophagiaSphere* hemoSphere = new HemophagiaSphere();
-	sphereBox["HemoSphere"] = hemoSphere;
+	MagicphagiaSphere* magicphagiaSphere = new MagicphagiaSphere();
+	DisabilitySphere* disabilitySphere = new DisabilitySphere();
+	VenomSphere* venomSphere = new VenomSphere();
+	ManaBurnSphere* manaBurnSphere = new ManaBurnSphere();
+
+
+	sphereBox["HemophagiaSphere"] = hemoSphere;
+	sphereBox["DisabilitySphere"] = disabilitySphere;
+	sphereBox["MagicphagiaSphere"] = magicphagiaSphere;
+	sphereBox["VenomSphere"] = venomSphere;
+	sphereBox["ManaBurnSphere"] = manaBurnSphere;
 }
 
 Sphere::SphereBase* Sphere::SphereFactory::getSphere(const std::string& sphereID)
@@ -36,8 +51,8 @@ Sphere::SphereBase* Sphere::SphereFactory::getSphere(const std::string& sphereID
 		return nullptr;
 	}
 
-	SphereBase* sphere = sphereBox[sphereMessage[0]]->makeProtoType();
-	sphereMessage.erase(sphereMessage.begin());//remove buff name
+	SphereBase* sphere = sphereBox[sphereMessage[0]]->createProtoType();
+	sphereMessage.erase(sphereMessage.begin());//remove sphere name
 	sphere->init(sphereMessage);
 	sphere->setID(sphereID);
 	return sphere;

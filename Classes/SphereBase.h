@@ -12,7 +12,7 @@ namespace Sphere
 		SphereBase();
 		virtual ~SphereBase();
 		virtual void run(Character* a,Character* b,int damage)=0;
-		virtual SphereBase* makeProtoType() = 0;
+		virtual SphereBase* createProtoType() = 0;
 		void init(std::vector<std::string> sphereMessage);
 	protected:
 		void initBaseMessage(std::vector<std::string> baseMessage);

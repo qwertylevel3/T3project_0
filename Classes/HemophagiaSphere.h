@@ -10,7 +10,7 @@ namespace Sphere
 		HemophagiaSphere();
 		~HemophagiaSphere();
 		void run(Character* a,Character* b,int damage);
-		virtual SphereBase* makeProtoType() ;
+		HemophagiaSphere* createProtoType() ;
 	protected:
 		virtual void initExtraMessage(std::vector<std::string> extraMessage);
 		CC_SYNTHESIZE(int, healPer, HealPer);

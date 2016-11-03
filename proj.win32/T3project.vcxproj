@@ -176,6 +176,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\CriticalPerBuff.cpp" />
     <ClCompile Include="..\Classes\CriticalPointBuff.cpp" />
     <ClCompile Include="..\Classes\CriticalProBuff.cpp" />
+    <ClCompile Include="..\Classes\DisabilitySphere.cpp" />
     <ClCompile Include="..\Classes\DogTag.cpp" />
     <ClCompile Include="..\Classes\DogTagGenerator.cpp" />
     <ClCompile Include="..\Classes\EffectBase.cpp" />
@@ -202,6 +203,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\LinerSelector.cpp" />
     <ClCompile Include="..\Classes\LuckBuff.cpp" />
     <ClCompile Include="..\Classes\MagicImmuneBuff.cpp" />
+    <ClCompile Include="..\Classes\MagicphagiaSphere.cpp" />
+    <ClCompile Include="..\Classes\ManaBurnSphere.cpp" />
     <ClCompile Include="..\Classes\MaxHPBuff.cpp" />
     <ClCompile Include="..\Classes\MaxMPBuff.cpp" />
     <ClCompile Include="..\Classes\MPBuff.cpp" />
@@ -214,6 +217,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\SphereBase.cpp" />
     <ClCompile Include="..\Classes\InventoryBuffHandler.cpp" />
     <ClCompile Include="..\Classes\SphereFactory.cpp" />
+    <ClCompile Include="..\Classes\VenomSphere.cpp" />
     <ClCompile Include="..\Classes\ViewSizeBuff.cpp" />
     <ClCompile Include="..\Classes\WeaponSphereHandler.cpp" />
     <ClCompile Include="..\Classes\StoreyInventoryHandler.cpp" />
@@ -300,6 +304,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\CriticalPerBuff.h" />
     <ClInclude Include="..\Classes\CriticalPointBuff.h" />
     <ClInclude Include="..\Classes\CriticalProBuff.h" />
+    <ClInclude Include="..\Classes\DisabilitySphere.h" />
     <ClInclude Include="..\Classes\DogTag.h" />
     <ClInclude Include="..\Classes\DogTagGenerator.h" />
     <ClInclude Include="..\Classes\EffectBase.h" />
@@ -326,6 +331,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\LinerSelector.h" />
     <ClInclude Include="..\Classes\LuckBuff.h" />
     <ClInclude Include="..\Classes\MagicImmuneBuff.h" />
+    <ClInclude Include="..\Classes\MagicphagiaSphere.h" />
+    <ClInclude Include="..\Classes\ManaBurnSphere.h" />
     <ClInclude Include="..\Classes\MaxHPBuff.h" />
     <ClInclude Include="..\Classes\MaxMPBuff.h" />
     <ClInclude Include="..\Classes\MPBuff.h" />
@@ -338,6 +345,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\SphereBase.h" />
     <ClInclude Include="..\Classes\InventoryBuffHandler.h" />
     <ClInclude Include="..\Classes\SphereFactory.h" />
+    <ClInclude Include="..\Classes\VenomSphere.h" />
     <ClInclude Include="..\Classes\ViewSizeBuff.h" />
     <ClInclude Include="..\Classes\WeaponSphereHandler.h" />
     <ClInclude Include="..\Classes\StoreyInventoryHandler.h" />

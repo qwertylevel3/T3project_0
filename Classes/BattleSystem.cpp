@@ -71,9 +71,10 @@ Weapon* BattleSystem::getWeapon(Character* c, AttackHand hand)
 void BattleSystem::attack(Character * a, Character * b)
 {
 #ifdef SHOWMESSAGE
-	cout << "-----attack start------" << endl;
+	cout << "########################################" << endl;
 	cout << a->getName() << "(HP:" << a->getHP() << ")" << " -> "
 		<< b->getName() << "(HP:" << b->getHP() << ")" << endl;
+	cout << "-----attack start------" << endl;
 #endif
 	combo = 0;
 	do
@@ -132,7 +133,7 @@ void BattleSystem::attack(Character * a, Character * b)
 	cout << "-----attack end------" << endl;
 	cout << a->getName() << "(HP:" << a->getHP() << ")" << " -> "
 		<< b->getName() << "(HP:" << b->getHP() << ")" << endl;
-	cout << "---------------------" << endl;
+	cout << "#######################################" << endl;
 #endif
 }
 

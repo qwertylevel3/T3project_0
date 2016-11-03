@@ -183,18 +183,21 @@ void CharacterAttrHandler::setMaxMPByBuff(int m)
 
 void CharacterAttrHandler::setStrengthByBuff(int strength)
 {
+	strength = strength < 0 ? 0 : strength;
 	attr.strength = strength;
 	recalculateBattleAttr();
 }
 
 void CharacterAttrHandler::setIntellectByBuff(int intellect)
 {
+	intellect = intellect < 0 ? 0 : intellect;
 	attr.intellect = intellect;
 	recalculateBattleAttr();
 }
 
 void CharacterAttrHandler::setAgilityByBuff(int agility)
 {
+	agility = agility < 0 ? 0 : agility;
 	attr.agility = agility;
 	recalculateBattleAttr();
 }
