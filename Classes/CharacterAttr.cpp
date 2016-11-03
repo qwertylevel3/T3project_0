@@ -2,6 +2,9 @@
 
 CharacterAttr::CharacterAttr()
 {
+	physicalImmune = false;
+	magicImmune = false;
+
 	strength = 0;
 	intellect = 0;
 	agility = 0;

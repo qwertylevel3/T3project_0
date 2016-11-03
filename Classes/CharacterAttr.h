@@ -7,6 +7,9 @@ struct CharacterAttr
 {
 	CharacterAttr();
 
+	bool physicalImmune;
+	bool magicImmune;
+
 	//base attr
 	int strength;
 	int intellect;
@@ -26,6 +29,7 @@ struct CharacterAttr
 	int blockPro;//格挡值几率
 	int blockPoint;//格挡点数
 	int comboPro;//连击概率
+	
 	int weight;//负重
 
 	void calculateBattleAttr();

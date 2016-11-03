@@ -17,6 +17,8 @@
 #include "ComboBuff.h"
 #include "WeightBuff.h"
 #include "ChantBuff.h"
+#include "PhysicalImmuneBuff.h"
+#include "MagicImmuneBuff.h"
 #include "ToolFunction.h"
 
 
@@ -54,6 +56,8 @@ void Buff::BuffFactory::init()
 	ComboBuff* comboBuffPrototype = new ComboBuff();
 	WeightBuff* weightBuffPrototype = new WeightBuff();
 	ChantBuff* chantBuffPrototype = new ChantBuff();
+	PhysicalImmuneBuff* physicalImmuneBuffPrototype = new PhysicalImmuneBuff();
+	MagicImmuneBuff* magicImmuneBuffPrototype = new MagicImmuneBuff();
 
 	buffPrototypeBox["HPBuff"] = hpBuffPrototype;
 	buffPrototypeBox["MPBuff"] = mpBuffPrototype;
@@ -72,6 +76,8 @@ void Buff::BuffFactory::init()
 	buffPrototypeBox["ComboBuff"] = comboBuffPrototype;
 	buffPrototypeBox["WeightBuff"] = weightBuffPrototype;
 	buffPrototypeBox["ChantBuff"] = chantBuffPrototype;
+	buffPrototypeBox["PhysicalImmuneBuff"] = physicalImmuneBuffPrototype;
+	buffPrototypeBox["MagicImmuneBuff"] = magicImmuneBuffPrototype;
 }
 
 Buff::BuffBase* Buff::BuffFactory::getBuff(std::string b)

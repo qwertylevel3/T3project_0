@@ -187,6 +187,13 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 
 int BattleSystem::sufferAttack(Character * c, int attackCount)
 {
+	if (c->isPhysicalImmune())
+	{
+#ifdef SHOWMESSAGE
+		cout << c->getName() << " is physical Immune!" << endl;
+#endif
+		return 0;
+	}
 	int armorPoint = c->getArmorPoint();
 	int blockCount = 0;
 	if (isBlock(c))
@@ -198,14 +205,14 @@ int BattleSystem::sufferAttack(Character * c, int attackCount)
 #endif
 	}
 
-	attackCount = attackCount - armorPoint - blockCount;
-	attackCount = attackCount >= 1 ? attackCount : 1;
+	int damage= attackCount - armorPoint - blockCount;
+	damage = damage >= 1 ? damage : 1;
 #ifdef SHOWMESSAGE
-	cout << "suffer damage:" << attackCount << endl;
+	cout << "suffer damage:" << damage << endl;
 #endif
 
-	c->sufferHPEffect(-attackCount);
-	return attackCount;
+	c->sufferHPEffect(-damage);
+	return damage;
 }
 
 int BattleSystem::getAttackCount(Character* a, AttackHand hand)

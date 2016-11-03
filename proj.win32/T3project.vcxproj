@@ -201,10 +201,12 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudUnequipRightMenu.cpp" />
     <ClCompile Include="..\Classes\LinerSelector.cpp" />
     <ClCompile Include="..\Classes\LuckBuff.cpp" />
+    <ClCompile Include="..\Classes\MagicImmuneBuff.cpp" />
     <ClCompile Include="..\Classes\MaxHPBuff.cpp" />
     <ClCompile Include="..\Classes\MaxMPBuff.cpp" />
     <ClCompile Include="..\Classes\MPBuff.cpp" />
     <ClCompile Include="..\Classes\MPEffect.cpp" />
+    <ClCompile Include="..\Classes\PhysicalImmuneBuff.cpp" />
     <ClCompile Include="..\Classes\SelectorBase.cpp" />
     <ClCompile Include="..\Classes\SingleDirectionSearchSelector.cpp" />
     <ClCompile Include="..\Classes\SkillBase.cpp" />
@@ -323,10 +325,12 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudUnequipRightMenu.h" />
     <ClInclude Include="..\Classes\LinerSelector.h" />
     <ClInclude Include="..\Classes\LuckBuff.h" />
+    <ClInclude Include="..\Classes\MagicImmuneBuff.h" />
     <ClInclude Include="..\Classes\MaxHPBuff.h" />
     <ClInclude Include="..\Classes\MaxMPBuff.h" />
     <ClInclude Include="..\Classes\MPBuff.h" />
     <ClInclude Include="..\Classes\MPEffect.h" />
+    <ClInclude Include="..\Classes\PhysicalImmuneBuff.h" />
     <ClInclude Include="..\Classes\SelectorBase.h" />
     <ClInclude Include="..\Classes\SingleDirectionSearchSelector.h" />
     <ClInclude Include="..\Classes\SkillBase.h" />

@@ -10,6 +10,8 @@ public:
 	CharacterAttrHandler(Character* c);
 	~CharacterAttrHandler();
 
+	bool isPhysicalImmune();
+	bool isMagicImmune();
 	
 	int getMaxHP();
 	int getMaxMP();
@@ -42,6 +44,8 @@ public:
 	void setLuck(int luck);
 
 	//////////////////////////////////////////////////////////////////////////
+	void setPhysicalImmnueByBuff(bool b);
+	void setMagicImmuneByBuff(bool b);
 
 	void setMaxHPByBuff(int h);
 	void setMaxMPByBuff(int m);

@@ -407,6 +407,16 @@ void Character::addSkill(Skill::SkillBase* skill)
 	skillHandler->addSkill(skill);
 }
 
+bool Character::isPhysicalImmune()
+{
+	return attrHandler->isPhysicalImmune();
+}
+
+bool Character::isMagicImmune()
+{
+	return attrHandler->isMagicImmune();
+}
+
 int Character::getMaxHP()
 {
 	return attrHandler->getMaxHP();

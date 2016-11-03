@@ -10,6 +10,16 @@ CharacterAttrHandler::~CharacterAttrHandler()
 {
 }
 
+bool CharacterAttrHandler::isPhysicalImmune()
+{
+	return attr.physicalImmune;
+}
+
+bool CharacterAttrHandler::isMagicImmune()
+{
+	return attr.magicImmune;
+}
+
 int CharacterAttrHandler::getMaxHP()
 {
 	return attr.maxHP;
@@ -135,6 +145,16 @@ void CharacterAttrHandler::setLuck(int luck)
 {
 	oriAttr.luck = luck;
 	attr.luck = luck;
+}
+
+void CharacterAttrHandler::setPhysicalImmnueByBuff(bool b)
+{
+	attr.physicalImmune = b;
+}
+
+void CharacterAttrHandler::setMagicImmuneByBuff(bool b)
+{
+	attr.magicImmune = b;
 }
 
 void CharacterAttrHandler::setViewSize(int viewSize)

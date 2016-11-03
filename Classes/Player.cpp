@@ -76,6 +76,9 @@ void Player::init()
 
 	std::wstring buffname1 = L"ChantBuff_自动吟唱_OnRoundStart_Good_10_20_1";
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname1));
+
+	std::wstring buffname2 = L"PhysicalImmuneBuff_物理免疫_ATTR_Good_0_5";
+	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
 }
 
 void Player::autoNextStep()

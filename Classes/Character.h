@@ -120,6 +120,8 @@ public:
 	void removeBuff(std::string buffID);
 	void addSkill(Skill::SkillBase* skill);
 	//////////////////////////////////////////////////////////////////////////
+	bool isPhysicalImmune();
+	bool isMagicImmune();
 
 	int getMaxHP();
 	int getMaxMP();

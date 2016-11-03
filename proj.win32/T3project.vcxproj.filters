@@ -430,6 +430,8 @@
       <Filter>src\buff</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\ChantBuff.cpp" />
+    <ClCompile Include="..\Classes\PhysicalImmuneBuff.cpp" />
+    <ClCompile Include="..\Classes\MagicImmuneBuff.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -790,6 +792,8 @@
       <Filter>src\buff</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\ChantBuff.h" />
+    <ClInclude Include="..\Classes\PhysicalImmuneBuff.h" />
+    <ClInclude Include="..\Classes\MagicImmuneBuff.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
