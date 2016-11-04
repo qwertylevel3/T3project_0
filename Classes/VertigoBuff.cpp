@@ -1,4 +1,7 @@
 #include "VertigoBuff.h"
+#include "Character.h"
+#include "CharacterAttrHandler.h"
+
 
 
 
@@ -14,7 +17,8 @@ Buff::VertigoBuff::~VertigoBuff()
 
 void Buff::VertigoBuff::apply(Character* target)
 {
-
+	CharacterAttrHandler* attrHandler = target->getAttrHandler();
+	attrHandler->setActionAbleByBuff(false);
 }
 
 Buff::VertigoBuff* Buff::VertigoBuff::createPrototype()

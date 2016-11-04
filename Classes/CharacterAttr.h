@@ -10,6 +10,12 @@ struct CharacterAttr
 	bool physicalImmune;
 	bool magicImmune;
 
+	bool moveAble;
+	bool attackAble;
+	bool chantAble;
+	bool skillAble;
+	bool actionAble;
+
 	//base attr
 	int strength;
 	int intellect;

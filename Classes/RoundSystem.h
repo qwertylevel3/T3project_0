@@ -18,11 +18,10 @@ protected:
 	void nextIndex();
 	bool isPlayer(Character* character);
 	void round(int index);
-	void readyForPlayerRound();
+	void NPCAction(Character* character);
+	void playerAction();
 	int roundCount;
 	int curIndex;
 	std::vector<Character*> allCharacter;
-
-	int temp;
 };
 

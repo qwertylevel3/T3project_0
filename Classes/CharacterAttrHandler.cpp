@@ -20,6 +20,31 @@ bool CharacterAttrHandler::isMagicImmune()
 	return attr.magicImmune;
 }
 
+bool CharacterAttrHandler::isMoveAble()
+{
+	return attr.moveAble;
+}
+
+bool CharacterAttrHandler::isAttackAble()
+{
+	return attr.attackAble;
+}
+
+bool CharacterAttrHandler::isSkillAble()
+{
+	return attr.skillAble;
+}
+
+bool CharacterAttrHandler::isChantAble()
+{
+	return attr.chantAble;
+}
+
+bool CharacterAttrHandler::isActionAble()
+{
+	return attr.actionAble;
+}
+
 int CharacterAttrHandler::getMaxHP()
 {
 	return attr.maxHP;
@@ -155,6 +180,31 @@ void CharacterAttrHandler::setPhysicalImmnueByBuff(bool b)
 void CharacterAttrHandler::setMagicImmuneByBuff(bool b)
 {
 	attr.magicImmune = b;
+}
+
+void CharacterAttrHandler::setMoveAbleByBuff(bool b)
+{
+	attr.moveAble = b;
+}
+
+void CharacterAttrHandler::setAttackAbleByBuff(bool b)
+{
+	attr.attackAble = b;
+}
+
+void CharacterAttrHandler::setSkillAbleByBuff(bool b)
+{
+	attr.skillAble = b;
+}
+
+void CharacterAttrHandler::setChantAbleByBuff(bool b)
+{
+	attr.chantAble = b;
+}
+
+void CharacterAttrHandler::setActionAbleByBuff(bool b)
+{
+	attr.actionAble = b;
 }
 
 void CharacterAttrHandler::setViewSize(int viewSize)

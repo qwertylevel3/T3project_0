@@ -12,6 +12,12 @@ public:
 
 	bool isPhysicalImmune();
 	bool isMagicImmune();
+
+	bool isMoveAble();
+	bool isAttackAble();
+	bool isSkillAble();
+	bool isChantAble();
+	bool isActionAble();
 	
 	int getMaxHP();
 	int getMaxMP();
@@ -46,6 +52,12 @@ public:
 	//////////////////////////////////////////////////////////////////////////
 	void setPhysicalImmnueByBuff(bool b);
 	void setMagicImmuneByBuff(bool b);
+
+	void setMoveAbleByBuff(bool b);
+	void setAttackAbleByBuff(bool b);
+	void setSkillAbleByBuff(bool b);
+	void setChantAbleByBuff(bool b);
+	void setActionAbleByBuff(bool b);
 
 	void setMaxHPByBuff(int h);
 	void setMaxMPByBuff(int m);

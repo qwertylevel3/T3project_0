@@ -438,10 +438,21 @@
     <ClCompile Include="..\Classes\ChantBuff.cpp">
       <Filter>src\buff</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\DisabilitySphere.cpp" />
-    <ClCompile Include="..\Classes\MagicphagiaSphere.cpp" />
-    <ClCompile Include="..\Classes\VenomSphere.cpp" />
-    <ClCompile Include="..\Classes\ManaBurnSphere.cpp" />
+    <ClCompile Include="..\Classes\DisabilitySphere.cpp">
+      <Filter>src\sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MagicphagiaSphere.cpp">
+      <Filter>src\sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ManaBurnSphere.cpp">
+      <Filter>src\sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\VenomSphere.cpp">
+      <Filter>src\sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\VertigoBuff.cpp">
+      <Filter>src\buff</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -810,10 +821,21 @@
     <ClInclude Include="..\Classes\ChantBuff.h">
       <Filter>src\buff</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\DisabilitySphere.h" />
-    <ClInclude Include="..\Classes\MagicphagiaSphere.h" />
-    <ClInclude Include="..\Classes\VenomSphere.h" />
-    <ClInclude Include="..\Classes\ManaBurnSphere.h" />
+    <ClInclude Include="..\Classes\DisabilitySphere.h">
+      <Filter>src\sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MagicphagiaSphere.h">
+      <Filter>src\sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ManaBurnSphere.h">
+      <Filter>src\sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\VenomSphere.h">
+      <Filter>src\sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\VertigoBuff.h">
+      <Filter>src\buff</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

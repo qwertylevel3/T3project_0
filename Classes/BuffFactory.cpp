@@ -19,6 +19,7 @@
 #include "ChantBuff.h"
 #include "PhysicalImmuneBuff.h"
 #include "MagicImmuneBuff.h"
+#include "VertigoBuff.h"
 #include "ToolFunction.h"
 
 
@@ -58,6 +59,7 @@ void Buff::BuffFactory::init()
 	ChantBuff* chantBuffPrototype = new ChantBuff();
 	PhysicalImmuneBuff* physicalImmuneBuffPrototype = new PhysicalImmuneBuff();
 	MagicImmuneBuff* magicImmuneBuffPrototype = new MagicImmuneBuff();
+	VertigoBuff* vertigoBuffPrototype = new VertigoBuff();
 
 	buffPrototypeBox["HPBuff"] = hpBuffPrototype;
 	buffPrototypeBox["MPBuff"] = mpBuffPrototype;
@@ -78,6 +80,7 @@ void Buff::BuffFactory::init()
 	buffPrototypeBox["ChantBuff"] = chantBuffPrototype;
 	buffPrototypeBox["PhysicalImmuneBuff"] = physicalImmuneBuffPrototype;
 	buffPrototypeBox["MagicImmuneBuff"] = magicImmuneBuffPrototype;
+	buffPrototypeBox["VertigoBuff"] = vertigoBuffPrototype;
 }
 
 Buff::BuffBase* Buff::BuffFactory::getBuff(std::string b)

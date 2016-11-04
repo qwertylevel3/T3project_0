@@ -11,21 +11,19 @@ RoundSystem::RoundSystem()
 {
 }
 
-
 RoundSystem::~RoundSystem()
 {
 }
 
 void RoundSystem::init()
 {
-	temp = 0;
 	roundCount = 0;
 }
 
 void RoundSystem::loadStorey()
 {
 	int index = 0;
-	Storey* storey=Dungeon::getInstance()->getStorey();
+	Storey* storey = Dungeon::getInstance()->getStorey();
 	std::list<Character* >& allStoreyCharacter = storey->getAllCharacter();
 	for (std::list<Character*>::iterator iter = allStoreyCharacter.begin();
 		iter != allStoreyCharacter.end();
@@ -50,11 +48,12 @@ void RoundSystem::nextRound()
 {
 	allCharacter[curIndex]->endRound();
 
-	do 
+	do
 	{
 		nextIndex();
 	} while (allCharacter[curIndex]->isDead());
 
+	roundCount++;
 	allCharacter[curIndex]->startRound();
 	round(curIndex);
 }
@@ -62,7 +61,7 @@ void RoundSystem::nextRound()
 void RoundSystem::nextIndex()
 {
 	curIndex++;
-	if (curIndex>=allCharacter.size())
+	if (curIndex >= allCharacter.size())
 	{
 		curIndex = 0;
 	}
@@ -75,31 +74,45 @@ bool RoundSystem::isPlayer(Character* character)
 
 void RoundSystem::round(int index)
 {
-	temp++;
-	if (temp==1000)
-	{
-		int a = 9;
-	}
-
+	std::cout << roundCount << std::endl;
 
 	Character* curCharacter = allCharacter[index];
+	//更新character信息，包括buff
 	curCharacter->update();
 
 	if (isPlayer(allCharacter[index]))
 	{
+		//当为player character，重新解除键盘锁定，清除递归栈
 		KeyController::getInstance()->setBlock(false);
-
+		playerAction();
 	}
 	else
 	{
 		KeyController::getInstance()->setBlock(true);
-		curCharacter->action();
+		//这里下一个character会递归调用nextRound，直到为player character
+		NPCAction(curCharacter);
 	}
 
 	//curCharacter->update();
 }
 
-void RoundSystem::readyForPlayerRound()
+void RoundSystem::NPCAction(Character* character)
 {
-	Player::getInstance()->getcharacterPtr()->update();
+	if (character->isActionAble())
+	{
+		character->action();
+	}
+	else
+	{
+		nextRound();
+	}
+}
+
+void RoundSystem::playerAction()
+{
+	if (!Player::getInstance()->getcharacterPtr()->isActionAble())
+	{
+		KeyController::getInstance()->setBlock(true);
+		nextRound();
+	}
 }

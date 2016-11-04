@@ -124,6 +124,12 @@ public:
 	bool isPhysicalImmune();
 	bool isMagicImmune();
 
+	bool isMoveAble();
+	bool isAttackAble();
+	bool isChantAble();
+	bool isSkillAble();
+	bool isActionAble();
+
 	int getMaxHP();
 	int getMaxMP();
 	int getStrength();

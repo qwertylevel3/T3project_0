@@ -418,6 +418,31 @@ bool Character::isMagicImmune()
 	return attrHandler->isMagicImmune();
 }
 
+bool Character::isMoveAble()
+{
+	return attrHandler->isMoveAble();
+}
+
+bool Character::isAttackAble()
+{
+	return attrHandler->isAttackAble();
+}
+
+bool Character::isChantAble()
+{
+	return attrHandler->isChantAble();
+}
+
+bool Character::isSkillAble()
+{
+	return attrHandler->isSkillAble();
+}
+
+bool Character::isActionAble()
+{
+	return attrHandler->isActionAble();
+}
+
 int Character::getMaxHP()
 {
 	return attrHandler->getMaxHP();

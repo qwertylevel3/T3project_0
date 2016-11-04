@@ -5,6 +5,12 @@ CharacterAttr::CharacterAttr()
 	physicalImmune = false;
 	magicImmune = false;
 
+	moveAble = true;
+	attackAble=true;
+	chantAble=true;
+	skillAble=true;
+	actionAble=true;
+
 	strength = 0;
 	intellect = 0;
 	agility = 0;
