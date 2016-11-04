@@ -20,10 +20,15 @@ KeyController::~KeyController()
 void KeyController::init()
 {
 	control = PLAYER;
+	block = false;
 }
 
 void KeyController::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
+	if (block)
+	{
+		return;
+	}
 	if(keyCode==cocos2d::EventKeyboard::KeyCode::KEY_SPACE)
 	{
 		Player::getInstance()->autoNextStep();
@@ -68,6 +73,11 @@ void KeyController::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 
 void KeyController::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 {
+	if (block)
+	{
+		return;
+	}
+
 	if (control==PLAYER)
 	{
 		Player::getInstance()->handleKeyReleased(keyCode);
@@ -77,6 +87,12 @@ void KeyController::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 
 	}
 }
+
+void KeyController::setBlock(bool b)
+{
+	block = b;
+}
+
 void KeyController::switchCtrlToPlayer()
 {
 	//InventoryMenu::getInstance()->hide();

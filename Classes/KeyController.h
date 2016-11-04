@@ -20,8 +20,10 @@ public:
 
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 	void handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode);
-protected:
 
+	void setBlock(bool b);
+protected:
+	bool block;
 
 	CurControl control;
 };

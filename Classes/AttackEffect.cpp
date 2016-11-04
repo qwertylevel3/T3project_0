@@ -112,7 +112,11 @@ void Skill::AttackEffect::showOneHandEffect(Character* caster, std::vector<cocos
 	cocos2d::ActionInterval* rotateAction = cocos2d::CCRotateTo::create(0.0, rotateAngle);
 	//node->runAction(rotateAction);
 
-	node->runAction(cocos2d::Sequence::create(rotateAction, animate, cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, node)), NULL));
+	node->runAction(cocos2d::Sequence::create(
+		rotateAction, 
+		animate,
+		cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, node)),
+		NULL));
 }
 
 void Skill::AttackEffect::showTwoHandEffect(Character* caster, std::vector<cocos2d::Point>& coord)

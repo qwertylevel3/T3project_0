@@ -49,6 +49,7 @@ public:
 	// Qualifier: update character every round
 	//************************************
 	void update();
+	void action();
 
 	void startRound();
 	void endRound();

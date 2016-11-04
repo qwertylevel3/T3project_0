@@ -1,4 +1,5 @@
 #include "Character.h"
+#include "RoundSystem.h"
 #include"MainLayer.h"
 #include"Dungeon.h"
 #include"FieldEnum.h"
@@ -543,15 +544,16 @@ int Character::getArmorPoint()
 
 void Character::update()
 {
-	startRound();
+	buffHandler->update();
+}
 
+void Character::action()
+{
 	if (ai)
 	{
 		ai->update();
 	}
-	buffHandler->update();
-
-	endRound();
+	RoundSystem::getInstance()->nextRound();
 }
 
 void Character::startRound()

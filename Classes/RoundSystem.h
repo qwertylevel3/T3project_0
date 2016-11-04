@@ -15,7 +15,14 @@ public:
 	int getRoundCount();
 	void nextRound();
 protected:
+	void nextIndex();
+	bool isPlayer(Character* character);
+	void round(int index);
+	void readyForPlayerRound();
 	int roundCount;
+	int curIndex;
 	std::vector<Character*> allCharacter;
+
+	int temp;
 };
 
