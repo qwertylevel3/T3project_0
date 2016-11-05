@@ -125,6 +125,50 @@ int CharacterAttrHandler::getWeight()
 	return attr.weight;
 }
 
+void CharacterAttrHandler::setPhysicalImmune(bool b)
+{
+	attr.physicalImmune = b;
+	oriAttr.physicalImmune = b;
+
+}
+
+void CharacterAttrHandler::setMagicImmnue(bool b)
+{
+	attr.magicImmune = b;
+	oriAttr.magicImmune = b;
+}
+
+void CharacterAttrHandler::setMoveAble(bool b)
+{
+	attr.moveAble = b;
+	oriAttr.moveAble = b;
+}
+
+void CharacterAttrHandler::setAttackAble(bool b)
+{
+	attr.attackAble = b;
+	oriAttr.attackAble = b;
+
+}
+
+void CharacterAttrHandler::setSkillAble(bool b)
+{
+	attr.skillAble = b;
+	oriAttr.skillAble = b;
+}
+
+void CharacterAttrHandler::setChantAble(bool b)
+{
+	attr.chantAble = b;
+	oriAttr.chantAble = b;
+}
+
+void CharacterAttrHandler::setActionAble(bool b)
+{
+	attr.actionAble = b;
+	oriAttr.actionAble = b;
+}
+
 void CharacterAttrHandler::setMaxHP(int h)
 {
 	oriAttr.maxHP = h;

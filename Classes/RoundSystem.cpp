@@ -57,6 +57,7 @@ void RoundSystem::nextRound()
 	roundCount++;
 	allCharacter[curIndex]->startRound();
 
+	//如果这个character在player视野内，则延迟一会，造成一种回合的假象
 	cocos2d::Point coord = allCharacter[curIndex]->getMapCoord();
 	if (Player::getInstance()->isInViewSize(coord))
 	{

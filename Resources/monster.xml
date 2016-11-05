@@ -2,13 +2,39 @@
 <!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
 <monsterBox>
 	<monster>
+		<name>Slime</name>
+		<characterName>Actor0</characterName>
+		<physicalImmune>0</physicalImmune>
+		<magicImmune>0</magicImmune>
+		<moveAble>1</moveAble>
+		<attackAble>1</attackAble>
+		<chantAble>1</chantAble>
+		<skillAble>1</skillAble>
+		<actionAble>1</actionAble>
+		<strength>5</strength>
+		<intellect>0</intellect>
+		<agility>3</agility>
+		<luck>0</luck>
+		<viewSize>10</viewSize>
+		<maxHP>10</maxHP>
+		<maxMP>0</maxMP>
+	</monster>
+	<monster>
 		<name>testMonster</name>
 		<characterName>Actor0</characterName>
+		<physicalImmune>0</physicalImmune>
+		<magicImmune>0</magicImmune>
+		<moveAble>1</moveAble>
+		<attackAble>1</attackAble>
+		<chantAble>1</chantAble>
+		<skillAble>1</skillAble>
+		<actionAble>1</actionAble>
 		<strength>10</strength>
 		<intellect>10</intellect>
 		<agility>10</agility>
-		<HP>100</HP>
-		<MP>50</MP>
+		<luck>0</luck>
 		<viewSize>20</viewSize>
+		<maxHP>100</maxHP>
+		<maxMP>50</maxMP>
 	</monster>
 </monsterBox>

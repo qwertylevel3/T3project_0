@@ -28,6 +28,7 @@ public:
 	int getAgility();
 	int getLuck();
 
+
 	int getEvadePoint();
 	int getAccuracyPoint();
 	int getCriticalPro();
@@ -39,6 +40,15 @@ public:
 	int getWeight();
 
 	//////////////////////////////////////////////////////////////////////////
+
+	void setPhysicalImmune(bool b);
+	void setMagicImmnue(bool b);
+
+	void setMoveAble(bool b);
+	void setAttackAble(bool b);
+	void setSkillAble(bool b);
+	void setChantAble(bool b);
+	void setActionAble(bool b);
 
 	void setMaxHP(int h);
 	void setMaxMP(int m);

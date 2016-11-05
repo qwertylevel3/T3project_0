@@ -2,6 +2,7 @@
 
 #include"cocos2d.h"
 #include"Character.h"
+#include "CharacterAttr.h"
 
 class MonsterModel
 {
@@ -9,14 +10,9 @@ public:
 	MonsterModel();
 	~MonsterModel();
 	Character* makeMonster();
+	CharacterAttr attr;
 protected:
 	CC_SYNTHESIZE(std::string, name, Name);
 	CC_SYNTHESIZE(std::string, characterName, CharacterName);
-	CC_SYNTHESIZE(int, strength, Strength);
-	CC_SYNTHESIZE(int, intellect, Intellect);
-	CC_SYNTHESIZE(int, agility, Agility);
-	CC_SYNTHESIZE(int, HP, HP);
-	CC_SYNTHESIZE(int, MP, MP);
-	CC_SYNTHESIZE(int, viewSize, ViewSize);
 };
 

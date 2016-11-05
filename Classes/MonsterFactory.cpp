@@ -38,12 +38,23 @@ void MonsterFactory::initModel(tinyxml2::XMLElement* monsterElement)
 
 	model->setName(getChildElementStrAttr(monsterElement,"name"));
 	model->setCharacterName(getChildElementStrAttr(monsterElement,"characterName"));
-	model->setStrength(getChildElementIntAttr(monsterElement,"strength"));
-	model->setIntellect(getChildElementIntAttr(monsterElement,"intellect"));
-	model->setAgility(getChildElementIntAttr(monsterElement,"agility"));
-	model->setHP(getChildElementIntAttr(monsterElement,"HP"));
-	model->setMP(getChildElementIntAttr(monsterElement,"MP"));
-	model->setViewSize(getChildElementIntAttr(monsterElement,"viewSize"));
+
+	model->attr.physicalImmune = getChildElementIntAttr(monsterElement, "physicalImmune");
+	model->attr.magicImmune = getChildElementIntAttr(monsterElement, "magicImmune");
+
+	model->attr.moveAble = getChildElementIntAttr(monsterElement, "moveAble");
+	model->attr.attackAble = getChildElementIntAttr(monsterElement, "attackAble");
+	model->attr.chantAble = getChildElementIntAttr(monsterElement, "chantAble");
+	model->attr.skillAble = getChildElementIntAttr(monsterElement, "skillAble");
+	model->attr.actionAble = getChildElementIntAttr(monsterElement, "chantAble");
+
+	model->attr.strength = getChildElementIntAttr(monsterElement, "strength");
+	model->attr.intellect=getChildElementIntAttr(monsterElement,"intellect");
+	model->attr.agility=getChildElementIntAttr(monsterElement,"agility");
+	model->attr.luck = getChildElementIntAttr(monsterElement, "luck");
+	model->attr.viewSize = getChildElementIntAttr(monsterElement, "viewSize");
+	model->attr.maxHP = getChildElementIntAttr(monsterElement, "maxHP");
+	model->attr.maxMP = getChildElementIntAttr(monsterElement, "maxMP");
 
 	monsterMap[model->getName()] = model;
 }

@@ -478,6 +478,41 @@ int Character::getLuck()
 	return attrHandler->getLuck();
 }
 
+void Character::setPhysicalImmune(bool b)
+{
+	attrHandler->setPhysicalImmune(b);
+}
+
+void Character::setMagicImmnue(bool b)
+{
+	attrHandler->setMagicImmnue(b);
+}
+
+void Character::setMoveAble(bool b)
+{
+	attrHandler->setMoveAble(b);
+}
+
+void Character::setAttackAble(bool b)
+{
+	attrHandler->setAttackAble(b);
+}
+
+void Character::setSkillAble(bool b)
+{
+	attrHandler->setSkillAble(b);
+}
+
+void Character::setChantAble(bool b)
+{
+	attrHandler->setChantAble(b);
+}
+
+void Character::setActionAble(bool b)
+{
+	attrHandler->setActionAble(b);
+}
+
 void Character::setMaxHP(int h)
 {
 	attrHandler->setMaxHP(h);

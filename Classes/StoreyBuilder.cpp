@@ -347,7 +347,7 @@ void Field::StoreyBuilder::placeMonster(const Rect & rect)
 	int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
 	int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
 
-	Character* monster = MonsterFactory::getInstance()->getMonster("testMonster");
+	Character* monster = MonsterFactory::getInstance()->getMonster("Slime");
 
 	CCAssert(monster, "get a null monster");
 

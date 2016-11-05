@@ -19,15 +19,28 @@ Character * MonsterModel::makeMonster()
 {
 	Character* monster = CharacterFactory::getInstance()->getCharacter(characterName);
 
-	monster->setStrength(strength);
-	monster->setIntellect(intellect);
-	monster->setAgility(agility);
-	monster->setHP(HP);
-	monster->setMP(MP);
-	monster->setMaxHP(HP);
-	monster->setMaxMP(MP);
-	monster->setViewSize(viewSize);
+	monster->setName(name);
+
+	monster->setPhysicalImmune(attr.physicalImmune);
+	monster->setMagicImmnue(attr.magicImmune);
+
+	monster->setMoveAble(attr.moveAble);
+	monster->setAttackAble(attr.attackAble);
+	monster->setChantAble(attr.chantAble);
+	monster->setSkillAble(attr.skillAble);
+	monster->setActionAble(attr.actionAble);
+
+	monster->setStrength(attr.strength);
+	monster->setIntellect(attr.intellect);
+	monster->setAgility(attr.agility);
+	monster->setHP(attr.maxHP);
+	monster->setMP(attr.maxMP);
+	monster->setMaxHP(attr.maxHP);
+	monster->setMaxMP(attr.maxMP);
+	monster->setLuck(attr.luck);
+	monster->setViewSize(attr.viewSize);
 	monster->setCharacterType(Character::Bad);
+
 	AICommonEnemy* ai = new AICommonEnemy();
 	monster->setAI(ai);
 

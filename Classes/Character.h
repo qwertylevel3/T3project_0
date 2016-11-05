@@ -138,6 +138,17 @@ public:
 	int getViewSize();
 	int getLuck();
 
+	//////////////////////////////////////////////////////////////////////////
+
+	void setPhysicalImmune(bool b);
+	void setMagicImmnue(bool b);
+
+	void setMoveAble(bool b);
+	void setAttackAble(bool b);
+	void setSkillAble(bool b);
+	void setChantAble(bool b);
+	void setActionAble(bool b);
+
 	void setMaxHP(int h);
 	void setMaxMP(int m);
 	void setStrength(int strength);
@@ -145,6 +156,9 @@ public:
 	void setAgility(int agility);
 	void setViewSize(int viewSize);
 	void setLuck(int luck);
+
+
+	//////////////////////////////////////////////////////////////////////////
 
 	int getEvadePro();
 	int getAccuracuPro();
