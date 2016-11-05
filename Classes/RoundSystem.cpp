@@ -4,6 +4,7 @@
 #include "Marco.h"
 #include "KeyController.h"
 #include "Player.h"
+#include "2d/CCAnimation.h"
 
 using namespace Field;
 
@@ -47,7 +48,7 @@ int RoundSystem::getRoundCount()
 void RoundSystem::nextRound()
 {
 	allCharacter[curIndex]->endRound();
-
+	KeyController::getInstance()->setBlock(true);
 	do
 	{
 		nextIndex();
@@ -55,7 +56,20 @@ void RoundSystem::nextRound()
 
 	roundCount++;
 	allCharacter[curIndex]->startRound();
-	round(curIndex);
+
+	cocos2d::Point coord = allCharacter[curIndex]->getMapCoord();
+	if (Player::getInstance()->isInViewSize(coord))
+	{
+		cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.2);
+		cocos2d::CallFunc *callFunc = cocos2d::CallFunc::create(this, callfunc_selector(RoundSystem::round));
+		cocos2d::Sequence *action = cocos2d::Sequence::create(delayTime, callFunc, NULL);
+
+		allCharacter[curIndex]->getSprite()->runAction(action);
+	}
+	else
+	{
+		round();
+	}
 }
 
 void RoundSystem::nextIndex()
@@ -72,8 +86,9 @@ bool RoundSystem::isPlayer(Character* character)
 	return character == Player::getInstance()->getcharacterPtr();
 }
 
-void RoundSystem::round(int index)
+void RoundSystem::round()
 {
+	int index = curIndex;
 	std::cout << roundCount << std::endl;
 
 	Character* curCharacter = allCharacter[index];
@@ -101,6 +116,8 @@ void RoundSystem::NPCAction(Character* character)
 	if (character->isActionAble())
 	{
 		character->action();
+
+		nextRound();
 	}
 	else
 	{

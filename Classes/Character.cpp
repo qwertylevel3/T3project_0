@@ -578,7 +578,6 @@ void Character::action()
 	{
 		ai->update();
 	}
-	RoundSystem::getInstance()->nextRound();
 }
 
 void Character::startRound()

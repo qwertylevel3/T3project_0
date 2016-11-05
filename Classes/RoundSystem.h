@@ -2,10 +2,11 @@
 
 #include "Singleton.h"
 #include <vector>
+#include "base/ccTypes.h"
 
 class Character;
 
-class RoundSystem:public Singleton<RoundSystem>
+class RoundSystem:public cocos2d::Ref,public Singleton<RoundSystem>
 {
 public:
 	RoundSystem();
@@ -17,7 +18,7 @@ public:
 protected:
 	void nextIndex();
 	bool isPlayer(Character* character);
-	void round(int index);
+	void round();
 	void NPCAction(Character* character);
 	void playerAction();
 	int roundCount;

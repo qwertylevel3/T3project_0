@@ -40,6 +40,7 @@ void Player::init()
 	characterPtr->setAgility(10);
 	characterPtr->setIntellect(10);
 	characterPtr->setLuck(10);
+	characterPtr->setViewSize(10);
 	characterPtr->setCharacterType(Character::Good);
 
 	//testInventory......
@@ -79,8 +80,8 @@ void Player::init()
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname1));
 
 
-	std::wstring buffname2 = L"VertigoBuff_яётн_ATTR_Bad_2_10";
-	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
+//	std::wstring buffname2 = L"VertigoBuff_яётн_ATTR_Bad_2_10";
+//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
 }
 
 void Player::autoNextStep()
@@ -109,6 +110,15 @@ void Player::autoNextStep()
 	{
 		handleKeyPressed(cocos2d::EventKeyboard::KeyCode::KEY_DOWN_ARROW);
 	}
+}
+
+bool Player::isInViewSize(cocos2d::Point coord)
+{
+	cocos2d::Point playerCoord = characterPtr->getMapCoord();
+	int dx = abs(coord.x - playerCoord.x);
+	int dy = abs(coord.y - playerCoord.y);
+	int d = dx + dy;
+	return d < characterPtr->getViewSize();
 }
 
 bool Player::isMoveAble(cocos2d::EventKeyboard::KeyCode keyCode)
