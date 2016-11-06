@@ -35,6 +35,7 @@ public:
 	void handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode);
 
 	void loadStorey();
+	void clear();
 private:
 };
 

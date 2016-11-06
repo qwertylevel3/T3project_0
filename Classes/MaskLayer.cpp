@@ -34,37 +34,37 @@ bool MaskLayer::init()
     // draw a line
 	//cocos2d::Point startPoint = getTilePosition(Point(1,1));
     //draw->drawLine(startPoint, Vec2(s.width, s.height), Color4F(1.0, 0.0, 0.0, 0.5));
-	dark = Sprite::create("dark.png");
+//	dark = Sprite::create("dark.png");
 
-	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
-	int width = storey->getWidth() * 32;
-	int height = storey->getHeight() * 32;
+//	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+//	int width = storey->getWidth() * 32;
+//	int height = storey->getHeight() * 32;
 
-	dark->setScale(width / dark->getTexture()->getPixelsWide());
-	dark->setPosition(width / 2,height/2);
-
-
-
-	lightClipe = Sprite::create("light.png");
-	light = Sprite::create("light.png");
-	lightClipe->setScale(1.5);
-	light->setScale(1.5);
-	this->addChild(light);
-
-	ClippingNode* clipeNode = ClippingNode::create();
-	clipeNode->setInverted(true);
-	this->addChild(clipeNode);
-
-	//先涂黑，再把有light的地方挖出来
-	clipeNode->addChild(dark);
-	clipeNode->setStencil(lightClipe);
+//	dark->setScale(width / dark->getTexture()->getPixelsWide());
+//	dark->setPosition(width / 2,height/2);
 
 
-//	CCClippingNode* light = CCClippingNode::create();
-//	light->setInverted(true);
+
+//	lightClipe = Sprite::create("light.png");
+//	light = Sprite::create("light.png");
+//	lightClipe->setScale(1.5);
+//	light->setScale(1.5);
 //	this->addChild(light);
 
-	darkOn();
+//	ClippingNode* clipeNode = ClippingNode::create();
+//	clipeNode->setInverted(true);
+//	this->addChild(clipeNode);
+
+//	//先涂黑，再把有light的地方挖出来
+//	clipeNode->addChild(dark);
+//	clipeNode->setStencil(lightClipe);
+
+
+////	CCClippingNode* light = CCClippingNode::create();
+////	light->setInverted(true);
+////	this->addChild(light);
+
+//	darkOn();
 	return true;
 }
 
@@ -81,8 +81,8 @@ void MaskLayer::update()
 	}
 
 //	dark->setPosition(Player::getInstance()->getcharacterPtr()->getPosition());
-	lightClipe->setPosition(Player::getInstance()->getcharacterPtr()->getPosition());
-	light->setPosition(Player::getInstance()->getcharacterPtr()->getPosition());
+//	lightClipe->setPosition(Player::getInstance()->getcharacterPtr()->getPosition());
+//	light->setPosition(Player::getInstance()->getcharacterPtr()->getPosition());
 }
 
 cocos2d::Point MaskLayer::getTilePosition(cocos2d::Point coord)
@@ -120,5 +120,10 @@ void MaskLayer::darkOff()
 void MaskLayer::addIlluminant(Illuminant* light)
 {
 
+}
+
+void MaskLayer::clear()
+{
+	removeAllChildren();
 }
 

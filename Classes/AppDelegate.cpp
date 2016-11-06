@@ -1,4 +1,5 @@
 #include "AppDelegate.h"
+#include "GameController.h"
 #include "MainLayer.h"
 #include "HudLayer.h"
 #include "MaskLayer.h"
@@ -89,6 +90,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // create a scene. it's an autorelease object
     auto scene = Scene::create();
+
+	GameController::getInstance()->init();
     
     // 'layer' is an autorelease object
 	auto gameSceneLayer = MainLayer::getInstance();
@@ -107,6 +110,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // run
     director->runWithScene(scene);
 
+	GameController::getInstance()->startMission(0);
 
     return true;
 }

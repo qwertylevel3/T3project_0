@@ -30,26 +30,7 @@ bool MainLayer::init()
     }
 
 	/////////////////////////////
-    
-	RandomNumber::getInstance()->setSeed(333);
 
-	Buff::BuffFactory::getInstance()->init();
-	Sphere::SphereFactory::getInstance()->init();
-	InventoryFactory::getInstance()->init();
-	CharacterFactory::getInstance()->init();
-	Player::getInstance()->init();
-	MonsterFactory::getInstance()->init();
-
-	BattleSystem::getInstance()->init();
-
-	KeyController::getInstance()->init();
-
-
-//	Debug::getInstance()->init(HudLayer::getInstance());
-
-	loadStorey();
-	RoundSystem::getInstance()->init();
-	RoundSystem::getInstance()->loadStorey();
 
 
 
@@ -118,19 +99,9 @@ void MainLayer::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 	KeyController::getInstance()->handleKeyReleased(keyCode);
 }
 
-
-
 void MainLayer::loadStorey()
 {
-	Dungeon::getInstance()->generate(1);
-	Dungeon::getInstance()->writeToFile();
 	Storey* floor0 = Dungeon::getInstance()->getStorey();
-
-//	dungeon->writeToFile();
-//	std::string fileName = "1.tmx";
-//	std::string filePath = FileUtils::getInstance()->getWritablePath();
-//	filePath=filePath+fileName;
-//	auto str = String::createWithContentsOfFile(filePath);
 
 	Layer::addChild(floor0->getTileMap(), -1);
 
@@ -163,4 +134,9 @@ void MainLayer::addCharacter(Character * character)
 cocos2d::Point MainLayer::getWorldPosition(cocos2d::Point position)
 {
 	return position + this->getPosition();
+}
+
+void MainLayer::clear()
+{
+	Layer::removeAllChildren();
 }

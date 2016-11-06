@@ -17,6 +17,7 @@ public:
 	void update();
 	void darkOn();
 	void darkOff();
+	void clear();
 
 	void addIlluminant(Illuminant* light);
 protected:

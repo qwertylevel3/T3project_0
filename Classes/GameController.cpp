@@ -9,6 +9,8 @@
 #include "BattleSystem.h"
 #include "KeyController.h"
 #include "RoundSystem.h"
+#include "MainLayer.h"
+#include "MaskLayer.h"
 
 
 
@@ -23,6 +25,7 @@ GameController::~GameController()
 
 void GameController::init()
 {
+	initPlist();
 	RandomNumber::getInstance()->setSeed(333);
 	Buff::BuffFactory::getInstance()->init();
 	Sphere::SphereFactory::getInstance()->init();
@@ -36,6 +39,18 @@ void GameController::init()
 }
 
 void GameController::startMission(int level)
+{
+	MaskLayer::getInstance()->clear();
+	MainLayer::getInstance()->clear();
+
+	Field::Dungeon::getInstance()->generate(1);
+//	Dungeon::getInstance()->writeToFile();
+
+	MainLayer::getInstance()->loadStorey();
+	RoundSystem::getInstance()->loadStorey();
+}
+
+void GameController::initPlist()
 {
 
 }
