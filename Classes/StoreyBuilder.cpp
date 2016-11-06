@@ -26,9 +26,9 @@ Storey* StoreyBuilder::generate()
 {
 	rooms.clear();
 	exits.clear();
-	storey = new Storey(100,100);
+	storey = new Storey(33,33);
 
-	int maxFeatures=50;
+	int maxFeatures=33;
 	// place the first room in the center
 	if (!makeRoom(storey->getWidth() / 2, storey->getHeight() / 2, static_cast<Direction>(RandomNumber::getInstance()->randomInt(4), true)))
 	{
@@ -105,7 +105,7 @@ bool StoreyBuilder::createFeature()
 
 bool StoreyBuilder::createFeature(int x, int y, Direction dir)
 {
-	static const int roomChance = 50; // corridorChance = 100 - roomChance
+	static const int roomChance = 33; // corridorChance = 100 - roomChance
 
 	int dx = 0;
 	int dy = 0;
@@ -149,8 +149,8 @@ bool StoreyBuilder::createFeature(int x, int y, Direction dir)
 
 bool StoreyBuilder::makeRoom(int x, int y, Direction dir, bool firstRoom /*= false*/)
 {
-	static const int minRoomSize = 6;
-	static const int maxRoomSize = 15;
+	static const int minRoomSize = 3;
+	static const int maxRoomSize = 13;
 
 	Rect room;
 	room.width = RandomNumber::getInstance()->randomInt(minRoomSize, maxRoomSize);

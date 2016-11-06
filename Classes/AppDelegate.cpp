@@ -108,8 +108,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->runWithScene(scene);
 
 
-	std::cout << "console" << std::endl;
-
     return true;
 }
 

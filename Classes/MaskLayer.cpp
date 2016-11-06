@@ -2,6 +2,8 @@
 #include "Dungeon.h"
 #include "Player.h"
 #include "cocos2d.h"
+#include "Dungeon.h"
+#include "Dungeon.h"
 
 USING_NS_CC;
 
@@ -33,8 +35,15 @@ bool MaskLayer::init()
 	//cocos2d::Point startPoint = getTilePosition(Point(1,1));
     //draw->drawLine(startPoint, Vec2(s.width, s.height), Color4F(1.0, 0.0, 0.0, 0.5));
 	dark = Sprite::create("dark.png");
-	dark->setScale(s.width / dark->getTexture()->getPixelsWide());
-//	this->addChild(dark);
+
+	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+	int width = storey->getWidth() * 32;
+	int height = storey->getHeight() * 32;
+
+	dark->setScale(width / dark->getTexture()->getPixelsWide());
+	dark->setPosition(width / 2,height/2);
+
+
 
 	lightClipe = Sprite::create("light.png");
 	light = Sprite::create("light.png");
@@ -42,12 +51,11 @@ bool MaskLayer::init()
 	light->setScale(1.5);
 	this->addChild(light);
 
-	
-
 	ClippingNode* clipeNode = ClippingNode::create();
 	clipeNode->setInverted(true);
-
 	this->addChild(clipeNode);
+
+	//先涂黑，再把有light的地方挖出来
 	clipeNode->addChild(dark);
 	clipeNode->setStencil(lightClipe);
 
@@ -56,13 +64,23 @@ bool MaskLayer::init()
 //	light->setInverted(true);
 //	this->addChild(light);
 
-	darkOff();
+	darkOn();
 	return true;
 }
 
 void MaskLayer::update()
 {
-	dark->setPosition(Player::getInstance()->getcharacterPtr()->getPosition());
+	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+	std::list<Character*> allCharacter = storey->getAllCharacter();
+
+	for each (Character* character in allCharacter)
+	{
+		if (character->getCharacterType()!=Character::Bad)
+		{
+		}
+	}
+
+//	dark->setPosition(Player::getInstance()->getcharacterPtr()->getPosition());
 	lightClipe->setPosition(Player::getInstance()->getcharacterPtr()->getPosition());
 	light->setPosition(Player::getInstance()->getcharacterPtr()->getPosition());
 }
@@ -97,5 +115,10 @@ void MaskLayer::darkOff()
 	dark->setVisible(false);
 	lightClipe->setVisible(false);
 	light->setVisible(false);
+}
+
+void MaskLayer::addIlluminant(Illuminant* light)
+{
+
 }
 

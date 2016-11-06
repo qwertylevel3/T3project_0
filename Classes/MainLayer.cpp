@@ -31,10 +31,7 @@ bool MainLayer::init()
 
 	/////////////////////////////
     
-    auto visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
-	RandomNumber::getInstance()->setSeed(100);
+	RandomNumber::getInstance()->setSeed(333);
 
 	Buff::BuffFactory::getInstance()->init();
 	Sphere::SphereFactory::getInstance()->init();
@@ -126,7 +123,7 @@ void MainLayer::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 void MainLayer::loadStorey()
 {
 	Dungeon::getInstance()->generate(1);
-	//Dungeon::getInstance()->writeToFile();
+	Dungeon::getInstance()->writeToFile();
 	Storey* floor0 = Dungeon::getInstance()->getStorey();
 
 //	dungeon->writeToFile();

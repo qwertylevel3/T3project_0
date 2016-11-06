@@ -50,7 +50,7 @@ int Storey::getTile(int x, int y)
 
 cocos2d::Point Field::Storey::getTilePosition(cocos2d::Point coord)
 {
-	return cocos2d::Point(coord.x * 32 + 16, (100 - coord.y) * 32 - 16);
+	return cocos2d::Point(coord.x * 32 + 16, (height - coord.y) * 32 - 16);
 }
 
 int Field::Storey::getTile(cocos2d::Point coord)
@@ -181,7 +181,7 @@ Character * Field::Storey::getCharacter(cocos2d::Point mapCoord)
 void Field::Storey::setCharacter(int x, int y, Character * character)
 {
 	character->setMapCoord(cocos2d::Point(x,y));
-	character->setPosition((x) * 32 + 16, (100 - y) * 32 - 16);
+	character->setPosition((x) * 32 + 16, (height - y) * 32 - 16);
 
 	characterMap[x + y*width] = character;
 	characterList.push_back(character);

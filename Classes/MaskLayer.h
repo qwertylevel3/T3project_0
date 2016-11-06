@@ -6,6 +6,7 @@
 #include <vector>
 #include "base/ccTypes.h"
 class cocos2d::Sprite;
+class Illuminant;
 
 class MaskLayer:public cocos2d::Layer,public Singleton<MaskLayer>
 {
@@ -16,6 +17,8 @@ public:
 	void update();
 	void darkOn();
 	void darkOff();
+
+	void addIlluminant(Illuminant* light);
 protected:
 	bool darkSwitch;
 	cocos2d::Sprite* dark;
