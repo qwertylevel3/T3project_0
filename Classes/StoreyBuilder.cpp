@@ -352,4 +352,13 @@ void Field::StoreyBuilder::placeMonster(const Rect & rect)
 	CCAssert(monster, "get a null monster");
 
 	storey->setCharacter(x, y, monster);
+
+//	for (int i=rect.x+1;i<rect.x+rect.width-2;i++)
+//	{
+//		for (int j=rect.y+1;j<rect.y+rect.height-2;j++)
+//		{
+//			Character* monster = MonsterFactory::getInstance()->getMonster("Slime");
+//			storey->setCharacter(i, j, monster);
+//		}
+//	}
 }

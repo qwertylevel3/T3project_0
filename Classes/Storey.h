@@ -35,6 +35,8 @@ namespace Field {
 		StoreyInventoryHandler* getInventoryHandler();
 
 		bool isMoveAble(cocos2d::Point mapCoord);
+		bool isWall(cocos2d::Point mapCoord);
+		bool isFloor(cocos2d::Point mapCoord);
 		bool isValid(cocos2d::Point mapCoord);
 
 		int getHeight();

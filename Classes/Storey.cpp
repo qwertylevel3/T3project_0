@@ -4,11 +4,10 @@
 #include "Player.h"
 #include "StoreyInventoryHandler.h"
 
-
 using namespace Field;
 USING_NS_CC;
 
-Storey::Storey(int w,int h)
+Storey::Storey(int w, int h)
 {
 	for (int i = 0; i < w*h; i++)
 	{
@@ -24,7 +23,6 @@ Storey::Storey(int w,int h)
 	height = h;
 	tileMap = nullptr;
 }
-
 
 Storey::~Storey()
 {
@@ -58,7 +56,7 @@ int Field::Storey::getTile(cocos2d::Point coord)
 	return getTile(coord.x, coord.y);
 }
 
-void Storey::setTile(int x, int y,int tile)
+void Storey::setTile(int x, int y, int tile)
 {
 	tiles[x + y * width] = tile;
 }
@@ -175,12 +173,12 @@ void Field::Storey::characterMoveRight(Character* character)
 
 Character * Field::Storey::getCharacter(cocos2d::Point mapCoord)
 {
-	return getCharacter(mapCoord.x,mapCoord.y);
+	return getCharacter(mapCoord.x, mapCoord.y);
 }
 
 void Field::Storey::setCharacter(int x, int y, Character * character)
 {
-	character->setMapCoord(cocos2d::Point(x,y));
+	character->setMapCoord(cocos2d::Point(x, y));
 	character->setPosition((x) * 32 + 16, (height - y) * 32 - 16);
 
 	characterMap[x + y*width] = character;
@@ -205,7 +203,7 @@ void Field::Storey::removeCharacter(int x, int y)
 void Field::Storey::removeCharacter(Character* character)
 {
 	cocos2d::Point coord = character->getMapCoord();
-	CCAssert(characterMap[coord.x+coord.y*width]==character, "null character remove");
+	CCAssert(characterMap[coord.x + coord.y*width] == character, "null character remove");
 
 	for (std::list<Character*>::iterator iter = characterList.begin();
 		iter != characterList.end(); iter++)
@@ -225,8 +223,8 @@ void Field::Storey::characterMove(cocos2d::Point oriPosition, cocos2d::Point tar
 	CCAssert(character, "null character move");
 	if (character)
 	{
-		removeCharacter(oriPosition.x,oriPosition.y);
-		setCharacter(tarPosition.x, tarPosition.y,character);
+		removeCharacter(oriPosition.x, oriPosition.y);
+		setCharacter(tarPosition.x, tarPosition.y, character);
 	}
 }
 
@@ -248,6 +246,26 @@ bool Field::Storey::isMoveAble(cocos2d::Point mapCoord)
 	return false;
 }
 
+bool Field::Storey::isWall(cocos2d::Point mapCoord)
+{
+	if (getTile(mapCoord) == Field::Wall)
+	{
+		return true;
+	}
+	return false;
+}
+
+bool Field::Storey::isFloor(cocos2d::Point mapCoord)
+{
+	if (getTile(mapCoord) == Field::Floor
+		|| getTile(mapCoord) == Field::UpStair
+		|| getTile(mapCoord) == Field::DownStair)
+	{
+		return true;
+	}
+	return false;
+}
+
 bool Field::Storey::isValid(cocos2d::Point mapCoord)
 {
 	return mapCoord.x >= 0 && mapCoord.y >= 0 && mapCoord.x < width && mapCoord.y < height;
@@ -258,7 +276,6 @@ int Storey::getHeight()
 	return height;
 }
 
-
 int Storey::getWidth()
 {
 	return width;
@@ -267,9 +284,9 @@ int Storey::getWidth()
 void Storey::writeToFile(std::string floor)
 {
 	std::string filePath = FileUtils::getInstance()->getWritablePath();
-	filePath=filePath+floor+".tmx";
+	filePath = filePath + floor + ".tmx";
 
-	tinyxml2::XMLDocument* pDoc=getPDoc();
+	tinyxml2::XMLDocument* pDoc = getPDoc();
 
 	pDoc->SaveFile(filePath.c_str());
 	//pDoc->Print();
@@ -278,7 +295,7 @@ void Storey::writeToFile(std::string floor)
 
 std::string Field::Storey::getFileContent()
 {
-	tinyxml2::XMLDocument* pDoc=getPDoc();
+	tinyxml2::XMLDocument* pDoc = getPDoc();
 	tinyxml2::XMLPrinter printer;
 	pDoc->Print(&printer);
 
@@ -287,11 +304,10 @@ std::string Field::Storey::getFileContent()
 
 tinyxml2::XMLDocument * Field::Storey::getPDoc()
 {
-	tinyxml2::XMLDocument *pDoc=new tinyxml2::XMLDocument();
+	tinyxml2::XMLDocument *pDoc = new tinyxml2::XMLDocument();
 	//xml 声明（参数可选）
 	tinyxml2::XMLDeclaration *pDel = pDoc->NewDeclaration("xml version=\"1.0\" encoding=\"UTF-8\"");
 	pDoc->LinkEndChild(pDel);
-
 
 	//添加map节点
 	tinyxml2::XMLElement *mapElement = pDoc->NewElement("map");
@@ -325,7 +341,7 @@ tinyxml2::XMLDocument * Field::Storey::getPDoc()
 	//添加layer节点
 	tinyxml2::XMLElement *layerElement = pDoc->NewElement("layer");
 	layerElement->SetAttribute("name", "bk");
-	layerElement->SetAttribute("width" , this->getWidth());
+	layerElement->SetAttribute("width", this->getWidth());
 	layerElement->SetAttribute("height", this->getHeight());
 	mapElement->LinkEndChild(layerElement);
 
@@ -344,7 +360,6 @@ tinyxml2::XMLDocument * Field::Storey::getPDoc()
 		}
 	}
 
-
 	//添加terrain layer节点
 	tinyxml2::XMLElement *terrainlayerElement = pDoc->NewElement("layer");
 	terrainlayerElement->SetAttribute("name", "terrain");
@@ -362,7 +377,7 @@ tinyxml2::XMLDocument * Field::Storey::getPDoc()
 		for (int i = 0; i < this->getWidth(); i++)
 		{
 			tinyxml2::XMLElement *tempElement = pDoc->NewElement("tile");
-			tempElement->SetAttribute("gid", this->getTile(i,j));
+			tempElement->SetAttribute("gid", this->getTile(i, j));
 			terraindataElement->LinkEndChild(tempElement);
 		}
 	}
@@ -384,5 +399,3 @@ std::vector<Character*>& Field::Storey::getCharacterMap()
 {
 	return characterMap;
 }
-
-

@@ -455,6 +455,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Illuminant.cpp" />
     <ClCompile Include="..\Classes\GameController.cpp" />
+    <ClCompile Include="..\Classes\Triangulate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -840,6 +843,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Illuminant.h" />
     <ClInclude Include="..\Classes\GameController.h" />
+    <ClInclude Include="..\Classes\Triangulate.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

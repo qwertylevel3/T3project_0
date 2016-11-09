@@ -47,6 +47,7 @@ void GameController::startMission(int level)
 //	Dungeon::getInstance()->writeToFile();
 
 	MainLayer::getInstance()->loadStorey();
+	MaskLayer::getInstance()->loadStorey();
 	RoundSystem::getInstance()->loadStorey();
 }
 

@@ -19,6 +19,12 @@ USING_NS_CC;
 using namespace Field;
 
 
+//////////////////////////////////////////////////////////////////////////
+
+
+
+
+//////////////////////////////////////////////////////////////////////////
 // on "init" you need to initialize your instance
 bool MainLayer::init()
 {
@@ -32,8 +38,12 @@ bool MainLayer::init()
 	/////////////////////////////
 
 
+//	cocos2d::Sprite *sprite2 = cocos2d::Sprite::create("HelloWorld.png");
+//	this->addChild(sprite2);
 
 
+
+	//////////////////////////////////////////////////////////////////////////
 	auto listener = EventListenerKeyboard::create();
 	listener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event* event)
 	{
@@ -67,14 +77,15 @@ void MainLayer::setViewPointCenter(Point position) {
 	TMXTiledMap* tileMap = storey->getTileMap();
 	auto winSize = Director::getInstance()->getWinSize();
 
-	int x = MAX(position.x, winSize.width / 2);
-	int y = MAX(position.y, winSize.height / 2);
-	x = MIN(x, (tileMap->getMapSize().width * tileMap->getTileSize().width) - winSize.width / 2);
-	y = MIN(y, (tileMap->getMapSize().height * tileMap->getTileSize().height) - winSize.height / 2);
-	auto actualPosition = Point(x, y);
+//	int x = MAX(position.x, winSize.width / 2);
+//	int y = MAX(position.y, winSize.height / 2);
+//	x = MIN(x, (tileMap->getMapSize().width * tileMap->getTileSize().width) - winSize.width / 2);
+//	y = MIN(y, (tileMap->getMapSize().height * tileMap->getTileSize().height) - winSize.height / 2);
+//	auto actualPosition = Point(x, y);
 
 	auto centerOfView = Point(winSize.width / 2, winSize.height / 2);
-	auto viewPoint = centerOfView - actualPosition;
+//	auto viewPoint = centerOfView - actualPosition;
+	auto viewPoint = centerOfView - position;
 	//移动整个层，将position移到屏幕中心
 	this->setPosition(viewPoint);
 	//顺带移动mask层
@@ -101,6 +112,8 @@ void MainLayer::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 
 void MainLayer::loadStorey()
 {
+	clear();
+
 	Storey* floor0 = Dungeon::getInstance()->getStorey();
 
 	Layer::addChild(floor0->getTileMap(), -1);
@@ -140,3 +153,6 @@ void MainLayer::clear()
 {
 	Layer::removeAllChildren();
 }
+
+
+

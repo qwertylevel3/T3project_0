@@ -28,7 +28,7 @@ bool HudLayer::init()
 	HudPlayerStateMenu::getInstance()->init();
 	DialogueSystem::getInstance()->init();
 
-	DialogueSystem::getInstance()->runDialogue("testDialogue");
+//	DialogueSystem::getInstance()->runDialogue("testDialogue");
 
 	return true;
 }

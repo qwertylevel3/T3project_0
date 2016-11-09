@@ -1,0 +1,31 @@
+#include "Illuminant.h"
+#include "cocos2d.h"
+#include "MaskLayer.h"
+#include "Character.h"
+#include "2d/CCSprite.h"
+
+
+
+Illuminant::Illuminant(Character* c)
+{
+	character = c;
+
+	size = c->getViewSize();
+
+	lightClipe = cocos2d::Sprite::create("light.png");
+	light = cocos2d::Sprite::create("light.png");
+
+	light->setScale(size);
+	lightClipe->setScale(size);
+
+}
+
+
+Illuminant::~Illuminant()
+{
+}
+
+void Illuminant::update()
+{
+
+}
