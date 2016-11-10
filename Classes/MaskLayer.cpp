@@ -46,6 +46,9 @@ bool MaskLayer::init()
 		position.y - visibleSize.height / 2);
 
 	//	initSegments();
+	light = Sprite::create("light.png");
+	light->setScale(10*32/light->getContentSize().width+0.1);
+	this->addChild(light);
 
 	dark = Sprite::create("dark.png");
 
@@ -76,6 +79,7 @@ void MaskLayer::update()
 	Vec2 origin = Vec2(position.x - visibleSize.width / 2,
 		position.y - visibleSize.height / 2);
 
+	light->setPosition(position);
 	if (playerPosition == position)
 	{
 		return;
@@ -85,23 +89,41 @@ void MaskLayer::update()
 	stencil->clear();
 	ctx->clear();
 
+
 	Color4F white(1, 1, 1, 1);
 	Color4F dotBlack(0, 0, 0, 1);
 	Color4F lineRed(1, 0, 0, 1);
+
+
+//	float fuzzyRadius = 3;
+//	std::vector<MyPolygon> polygons;
+//	polygons.push_back(getSightPolygon(position.x, position.y));
+//	for (float angle = 0; angle < M_PI * 2; angle += (M_PI * 2) / fuzzyRadius)
+//	{
+//		float dx = cos(angle)*fuzzyRadius;
+//		float dy = sin(angle)*fuzzyRadius;
+//		polygons.push_back(getSightPolygon(position.x + dx, position.y + dy));
+//	};
+//	for (int i = 1; i < polygons.size(); i++)
+//	{
+//		drawPolygon(polygons[i], white);
+//	}
+//	drawPolygon(polygons[0], white);
+
 
 	drawPolygon(getSightPolygon(position.x, position.y), white);
 
 	//////////////////////////////////////////////////////////////////////////
 	// Draw dots
-	ctx->drawDot(position, 2, white);
+//	ctx->drawDot(position, 2, white);
 
 
 	for (int i = 0; i < tempSegment.size(); i++)
 	{
 		Segment& seg = tempSegment[i];
 		ctx->drawSegment(seg.a, seg.b, 1, lineRed);
-//		ctx->drawDot(seg.a, 3, dotBlack);
-//		ctx->drawDot(seg.b, 3, dotBlack);
+		ctx->drawDot(seg.a, 3, white);
+		ctx->drawDot(seg.b, 3, white);
 	}
 
 //draw unique points
@@ -379,6 +401,7 @@ MaskLayer::MyPolygon MaskLayer::getSightPolygon(float sightX, float sightY)
 		}
 	}
 
+
 	// Get all angles
 	std::vector<float> uniqueAngles;
 	std::set<Vec2>::iterator iter = points.begin();
@@ -387,9 +410,11 @@ MaskLayer::MyPolygon MaskLayer::getSightPolygon(float sightX, float sightY)
 		Vec2 uniquePoint = *iter;
 		float angle = atan2(uniquePoint.y - sightY, uniquePoint.x - sightX);
 
+		uniqueAngles.push_back(angle - 0.0002);
 		uniqueAngles.push_back(angle - 0.0001);
 		uniqueAngles.push_back(angle);
 		uniqueAngles.push_back(angle + 0.0001);
+		uniqueAngles.push_back(angle + 0.0002);
 		iter++;
 	}
 

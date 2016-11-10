@@ -60,6 +60,7 @@ protected:
 	cocos2d::ClippingNode* clipper;
 	cocos2d::DrawNode* stencil;
 	cocos2d::Sprite* dark;
+	cocos2d::Sprite* light;
 
 	cocos2d::DrawNode* ctx;
 
