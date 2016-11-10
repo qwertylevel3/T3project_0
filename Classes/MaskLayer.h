@@ -51,6 +51,7 @@ protected:
 	void initSegments();
 	void getStoreyEdge();
 	void getStoreyEdge(int x, int y);
+	void mergeEdge();
 	bool getIntersection(const Segment& ray, const Segment& segment, Intersect& out);
 	MyPolygon getSightPolygon(float sightX, float sightY);
 	void drawPolygon(MyPolygon& polygon, cocos2d::Color4F fillStyle);

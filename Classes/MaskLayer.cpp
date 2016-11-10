@@ -13,6 +13,16 @@ bool compare_angle(const MaskLayer::Intersect& t1, const MaskLayer::Intersect& t
 	return t1.angle < t2.angle;
 }
 
+bool compare_ax(const MaskLayer::Segment& s1, const MaskLayer::Segment& s2)
+{
+	return s1.a.x < s2.a.x;
+}
+
+bool compare_ay(const MaskLayer::Segment& s1, const MaskLayer::Segment& s2)
+{
+	return s1.a.y < s2.a.y;
+}
+
 //////////////////////////////////////////////////////////////////////////
 MaskLayer::MaskLayer()
 {
@@ -76,6 +86,8 @@ void MaskLayer::update()
 	ctx->clear();
 
 	Color4F white(1, 1, 1, 1);
+	Color4F dotBlack(0, 0, 0, 1);
+	Color4F lineRed(1, 0, 0, 1);
 
 	drawPolygon(getSightPolygon(position.x, position.y), white);
 
@@ -86,10 +98,10 @@ void MaskLayer::update()
 	for (int i = 0; i < segments.size(); i++)
 	{
 		Segment& seg = segments[i];
-		ctx->drawSegment(seg.a, seg.b, 1, white);
+		ctx->drawSegment(seg.a, seg.b, 1, lineRed);
+		ctx->drawDot(seg.a, 3, dotBlack);
+		ctx->drawDot(seg.b, 3, dotBlack);
 	}
-
-	int a;
 }
 
 void MaskLayer::darkOn()
@@ -115,6 +127,7 @@ void MaskLayer::loadStorey()
 	clear();
 
 	initSegments();
+	mergeEdge();
 
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 
@@ -391,4 +404,127 @@ void MaskLayer::getStoreyEdge(int x, int y)
 			segments.push_back(edge);
 		}
 	}
+}
+
+void MaskLayer::mergeEdge()
+{
+	std::vector<Segment> hSegments;
+	std::vector<Segment> vSegments;
+
+	for each (Segment segment in segments)
+	{
+		if (segment.type == Segment::H)
+		{
+			hSegments.push_back(segment);
+		}
+		else if (segment.type == Segment::V)
+		{
+			vSegments.push_back(segment);
+		}
+	}
+	segments.clear();
+
+	//////////////////////////////////////////////////////////////////////////
+
+	sort(hSegments.begin(), hSegments.end(), compare_ay);
+
+	//format
+	for (int i = 0; i < hSegments.size(); i++)
+	{
+		if (hSegments[i].b.x < hSegments[i].a.x)
+		{
+			Vec2 temp = hSegments[i].a;
+			hSegments[i].a = hSegments[i].b;
+			hSegments[i].b = temp;
+		}
+	}
+
+	std::vector<Segment>::iterator iter1 = hSegments.begin();
+	std::vector<Segment>::iterator iter2 = hSegments.begin();
+
+	while (iter1 != hSegments.end())
+	{
+		Vec2 startPoint = iter1->a;
+		//根据y分层
+		while (iter2 != hSegments.end())
+		{
+			if (iter1->a.y != iter2->a.y)
+			{
+				break;
+			}
+			iter2++;
+		}
+		sort(iter1, iter2, compare_ax);
+
+		//生成线段
+		while (iter1 != iter2)
+		{
+			std::vector<Segment>::iterator iter0 = iter1;
+			while (iter1 + 1 != iter2
+				&& iter1->b.x == (iter1 + 1)->a.x)
+			{
+				iter1++;
+			}
+			Segment result;
+			result.type = Segment::H;
+			result.a = iter0->a;
+			result.b = iter1->b;
+
+			segments.push_back(result);
+			iter1++;
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////
+
+	sort(vSegments.begin(), vSegments.end(), compare_ax);
+
+	//format
+	for (int i = 0; i < vSegments.size(); i++)
+	{
+		if (vSegments[i].b.y < vSegments[i].a.y)
+		{
+			Vec2 temp = vSegments[i].a;
+			vSegments[i].a = vSegments[i].b;
+			vSegments[i].b = temp;
+		}
+	}
+
+	iter1 = vSegments.begin();
+	iter2 = vSegments.begin();
+
+	while (iter1 != vSegments.end())
+	{
+		Vec2 startPoint = iter1->a;
+		//根据y分层
+		while (iter2 != vSegments.end())
+		{
+			if (iter1->a.x != iter2->a.x)
+			{
+				break;
+			}
+			iter2++;
+		}
+		sort(iter1, iter2, compare_ay);
+
+		//生成线段
+		while (iter1 != iter2)
+		{
+			std::vector<Segment>::iterator iter0 = iter1;
+			while (iter1 + 1 != iter2
+				&& iter1->b.y == (iter1 + 1)->a.y)
+			{
+				iter1++;
+			}
+			Segment result;
+			result.type = Segment::V;
+			result.a = iter0->a;
+			result.b = iter1->b;
+
+			segments.push_back(result);
+			iter1++;
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////
 }
