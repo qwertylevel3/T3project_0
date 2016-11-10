@@ -47,7 +47,7 @@ public:
 	void loadStorey();
 
 protected:
-	void addSegments(cocos2d::Vec2* segs, int count);
+	void addSegments(cocos2d::Vec2* segs, int count,bool circle=true);
 	void initSegments();
 	void getStoreyEdge();
 	void getStoreyEdge(int x, int y);
@@ -66,5 +66,8 @@ protected:
 	cocos2d::Point playerPosition;
 
 	std::vector<Segment> segments;
+	std::vector<Segment> tempSegment;
+	std::set<cocos2d::Vec2> points;
+	MyPolygon intersects;
 	int temp[100][100];
 };

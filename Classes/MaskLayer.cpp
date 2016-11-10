@@ -95,13 +95,29 @@ void MaskLayer::update()
 	// Draw dots
 	ctx->drawDot(position, 2, white);
 
-	for (int i = 0; i < segments.size(); i++)
+
+	for (int i = 0; i < tempSegment.size(); i++)
 	{
-		Segment& seg = segments[i];
+		Segment& seg = tempSegment[i];
 		ctx->drawSegment(seg.a, seg.b, 1, lineRed);
-		ctx->drawDot(seg.a, 3, dotBlack);
-		ctx->drawDot(seg.b, 3, dotBlack);
+//		ctx->drawDot(seg.a, 3, dotBlack);
+//		ctx->drawDot(seg.b, 3, dotBlack);
 	}
+
+//draw unique points
+//	std::set<Vec2>::iterator iter = points.begin();
+//	while (iter != points.end())
+//	{
+//		ctx->drawDot(*iter, 3, Color4F(0, 1, 0, 1));
+//		iter++;
+//	}
+
+	for (int i = 0; i < intersects.size(); i++)
+	{
+		ctx->drawDot(Vec2(intersects[i].x,intersects[i].y),3, Color4F(0, 1, 0, 1));
+	}
+
+
 }
 
 void MaskLayer::darkOn()
@@ -133,12 +149,13 @@ void MaskLayer::loadStorey()
 
 	Size size = dark->getContentSize();
 	float radio = storey->getWidth() * 32 / size.width;
-	//	dark->setScale(radio);
+	dark->setScale(radio);
+	dark->setPosition(storey->getWidth() * 16, storey->getHeight() * 16);
 
 	darkOn();
 }
 
-void MaskLayer::addSegments(Vec2* segs, int count)
+void MaskLayer::addSegments(Vec2* segs, int count, bool circle)
 {
 	for (int i = 0; i < count; i++)
 	{
@@ -146,7 +163,16 @@ void MaskLayer::addSegments(Vec2* segs, int count)
 		s.a = segs[i];
 
 		if (i == count - 1)
-			s.b = segs[0];
+		{
+			if (circle)
+			{
+				s.b = segs[0];
+			}
+			else
+			{
+				s.b = s.b;
+			}
+		}
 		else
 			s.b = segs[i + 1];
 
@@ -234,40 +260,150 @@ bool MaskLayer::getIntersection(const Segment& ray, const Segment& segment, Inte
 }
 MaskLayer::MyPolygon MaskLayer::getSightPolygon(float sightX, float sightY)
 {
+	tempSegment.clear();
+	cocos2d::Point playerPosition = Player::getInstance()->getcharacterPtr()->getPosition();
+	int clipWindowSize = 5;
+	int top = playerPosition.y + clipWindowSize * 32;
+	int bottom = playerPosition.y - clipWindowSize * 32;
+	int left = playerPosition.x - clipWindowSize * 32;
+	int right = playerPosition.x + clipWindowSize * 32;
+
+	//border
+
+	Segment topLine;
+	Segment bottomLine;
+	Segment leftLine;
+	Segment rightLine;
+
+	topLine.type = Segment::H;
+	topLine.a = Vec2(left, top);
+	topLine.b = Vec2(right, top);
+	bottomLine.type = Segment::H;
+	bottomLine.a = Vec2(left, bottom);
+	bottomLine.b = Vec2(right, bottom);
+	leftLine.type = Segment::V;
+	leftLine.a = Vec2(left, top);
+	leftLine.b = Vec2(left, bottom);
+	rightLine.type = Segment::V;
+	rightLine.a = Vec2(right, top);
+	rightLine.b = Vec2(right, bottom);
+
+	tempSegment.push_back(topLine);
+	tempSegment.push_back(bottomLine);
+	tempSegment.push_back(leftLine);
+	tempSegment.push_back(rightLine);
+
+	for each (Segment seg in segments)
+	{
+		if (seg.type == Segment::H
+			&& seg.a.y <= top && seg.a.y >= bottom)
+		{
+			Segment s = seg;
+			if (s.a.x < left)
+			{
+				s.a.x = left;
+			}
+			else if (s.a.x > right)
+			{
+				s.a.x = right;
+			}
+			if (s.b.x < left)
+			{
+				s.b.x = left;
+			}
+			else if (s.b.x > right)
+			{
+				s.b.x = right;
+			}
+			tempSegment.push_back(s);
+		}
+		else if (seg.type == Segment::V
+			&& seg.a.x <= right && seg.a.x >= left)
+		{
+			Segment s = seg;
+			if (s.a.y < bottom)
+			{
+				s.a.y = bottom;
+			}
+			else if (s.a.y > top)
+			{
+				s.a.y = top;
+			}
+			if (s.b.y < bottom)
+			{
+				s.b.y = bottom;
+			}
+			else if (s.b.y > top)
+			{
+				s.b.y = top;
+			}
+			tempSegment.push_back(s);
+		}
+	}
+
 	// Get all unique points
-	std::vector<Vec2> points;
-	for (Segment& s : segments)
+//	std::vector<Vec2> points;
+
+	points.clear();
+	for (Segment& s : tempSegment)
 	{
 		bool findA = false;
 		bool findB = false;
 
-		for (Vec2& p : points)
+		if (points.find(s.a)!=points.end())
 		{
-			if (p.x == s.a.x && p.y == s.a.y)
-				findA = true;
-			if (p.x == s.b.x && p.y == s.b.y)
-				findB = true;
+			findA = true;
+		}
+		else if (points.find(s.b)!=points.end())
+		{
+			findB = true;
 		}
 
+//		for (Vec2& p : points)
+//		{
+//			if (p.x == s.a.x && p.y == s.a.y)
+//				findA = true;
+//			if (p.x == s.b.x && p.y == s.b.y)
+//				findB = true;
+//		}
+
 		if (!findA)
-			points.push_back(s.a);
+		{
+//			points.push_back(s.a);
+			points.insert(s.a);
+		}
 		if (!findB)
-			points.push_back(s.b);
+		{
+//			points.push_back(s.b);
+			points.insert(s.b);
+		}
 	}
 
 	// Get all angles
 	std::vector<float> uniqueAngles;
-	for (int j = 0; j < points.size(); j++) {
-		Vec2 uniquePoint = points[j];
+	std::set<Vec2>::iterator iter = points.begin();
+	while (iter != points.end())
+	{
+		Vec2 uniquePoint = *iter;
 		float angle = atan2(uniquePoint.y - sightY, uniquePoint.x - sightX);
 
 		uniqueAngles.push_back(angle - 0.0001);
 		uniqueAngles.push_back(angle);
 		uniqueAngles.push_back(angle + 0.0001);
+		iter++;
 	}
 
+//	for (int j = 0; j < points.size(); j++) {
+//		Vec2 uniquePoint = points[j];
+//		float angle = atan2(uniquePoint.y - sightY, uniquePoint.x - sightX);
+
+//		uniqueAngles.push_back(angle - 0.0001);
+//		uniqueAngles.push_back(angle);
+//		uniqueAngles.push_back(angle + 0.0001);
+//	}
+
 	// RAYS IN ALL DIRECTIONS
-	MyPolygon intersects;
+	intersects.clear();
 	for (int j = 0; j < uniqueAngles.size(); j++) {
 		float angle = uniqueAngles[j];
 
@@ -281,12 +417,14 @@ MaskLayer::MyPolygon MaskLayer::getSightPolygon(float sightX, float sightY)
 			Vec2(sightX + dx, sightY + dy)
 		};
 
+
+
 		// Find CLOSEST intersection
 		bool first = true;
 		Intersect closestIntersect;
-		for (int i = 0; i < segments.size(); i++) {
+		for (int i = 0; i < tempSegment.size(); i++) {
 			Intersect intersect;
-			if (!getIntersection(ray, segments[i], intersect))
+			if (!getIntersection(ray, tempSegment[i], intersect))
 				continue;
 			if (first || intersect.param < closestIntersect.param) {
 				closestIntersect = intersect;
@@ -313,27 +451,36 @@ void MaskLayer::drawPolygon(MyPolygon& polygon, Color4F fillStyle)
 	if (polygon.size() == 0)
 		return;
 
-	Vector2dVector vecs;
+	Vector2dVector result;
 	for (Intersect& i : polygon)
 	{
-		vecs.push_back(Vector2d(i.x, i.y));
+		result.push_back(Vector2d(i.x, i.y));
 		//		        ctx->drawDot(Vec2(i.x, i.y), 2, Color4F(0,0,0,1));
 	}
 
-	Vector2dVector result;
-	Triangulate::Process(vecs, result);
+//	Triangulate::Process(vecs, result);
+	cocos2d::Point playerPosition = Player::getInstance()->getcharacterPtr()->getPosition();
 
-	int tcount = result.size() / 3;
+//	int tcount = result.size() / 3;
+	int tcount = result.size() - 1;
 	for (int i = 0; i < tcount; i++)
 	{
 		Vec2 v[3];
-		v[0] = Vec2(result[i * 3 + 0].GetX(), result[i * 3 + 0].GetY());
-		v[1] = Vec2(result[i * 3 + 1].GetX(), result[i * 3 + 1].GetY());
-		v[2] = Vec2(result[i * 3 + 2].GetX(), result[i * 3 + 2].GetY());
+//		v[0] = Vec2(result[i * 3 + 0].GetX(), result[i * 3 + 0].GetY());
+//		v[1] = Vec2(result[i * 3 + 1].GetX(), result[i * 3 + 1].GetY());
+//		v[2] = Vec2(result[i * 3 + 2].GetX(), result[i * 3 + 2].GetY());
+		v[0] = Vec2(result[i + 0].GetX(), result[i + 0].GetY());
+		v[1] = Vec2(result[i + 1].GetX(), result[i + 1].GetY());
+		v[2] = playerPosition;
 		stencil->drawTriangle(v[0], v[1], v[2], fillStyle);
 
 		//        stencil->drawPolygon(v, 3, fillStyle);
 	}
+	Vec2 endV[3];
+	endV[0] = Vec2(result[0].GetX(), result[1].GetY());
+	endV[1] = Vec2(result[result.size() - 1].GetX(), result[result.size() - 1].GetY());
+	endV[2] = playerPosition;
+	stencil->drawTriangle(endV[0], endV[1], endV[2],fillStyle);
 }
 
 void MaskLayer::getStoreyEdge()
