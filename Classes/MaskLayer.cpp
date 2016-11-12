@@ -8,6 +8,8 @@
 
 USING_NS_CC;
 
+//#define DEBUG_MASKLAYER
+
 bool compare_angle(const MaskLayer::Intersect& t1, const MaskLayer::Intersect& t2)
 {
 	return t1.angle < t2.angle;
@@ -47,7 +49,7 @@ bool MaskLayer::init()
 
 	//	initSegments();
 	light = Sprite::create("light.png");
-	light->setScale(10*32/light->getContentSize().width+0.1);
+	light->setScale(10 * 32 / light->getContentSize().width + 0.1);
 	this->addChild(light);
 
 	dark = Sprite::create("dark.png");
@@ -89,34 +91,17 @@ void MaskLayer::update()
 	stencil->clear();
 	ctx->clear();
 
-
 	Color4F white(1, 1, 1, 1);
 	Color4F dotBlack(0, 0, 0, 1);
 	Color4F lineRed(1, 0, 0, 1);
 
-
-//	float fuzzyRadius = 3;
-//	std::vector<MyPolygon> polygons;
-//	polygons.push_back(getSightPolygon(position.x, position.y));
-//	for (float angle = 0; angle < M_PI * 2; angle += (M_PI * 2) / fuzzyRadius)
-//	{
-//		float dx = cos(angle)*fuzzyRadius;
-//		float dy = sin(angle)*fuzzyRadius;
-//		polygons.push_back(getSightPolygon(position.x + dx, position.y + dy));
-//	};
-//	for (int i = 1; i < polygons.size(); i++)
-//	{
-//		drawPolygon(polygons[i], white);
-//	}
-//	drawPolygon(polygons[0], white);
-
-
 	drawPolygon(getSightPolygon(position.x, position.y), white);
 
 	//////////////////////////////////////////////////////////////////////////
-	// Draw dots
-//	ctx->drawDot(position, 2, white);
 
+#ifdef DEBUG_MASKLAYER
+	// Draw dots
+	ctx->drawDot(position, 2, white);
 
 	for (int i = 0; i < tempSegment.size(); i++)
 	{
@@ -126,20 +111,20 @@ void MaskLayer::update()
 		ctx->drawDot(seg.b, 3, white);
 	}
 
-//draw unique points
-//	std::set<Vec2>::iterator iter = points.begin();
-//	while (iter != points.end())
-//	{
-//		ctx->drawDot(*iter, 3, Color4F(0, 1, 0, 1));
-//		iter++;
-//	}
+	//draw unique points
+	std::set<Vec2>::iterator iter = points.begin();
+	while (iter != points.end())
+	{
+		ctx->drawDot(*iter, 3, Color4F(0, 1, 0, 1));
+		iter++;
+	}
 
 	for (int i = 0; i < intersects.size(); i++)
 	{
-		ctx->drawDot(Vec2(intersects[i].x,intersects[i].y),3, Color4F(0, 1, 0, 1));
+		ctx->drawDot(Vec2(intersects[i].x, intersects[i].y), 3, Color4F(0, 1, 0, 1));
 	}
 
-
+#endif
 }
 
 void MaskLayer::darkOn()
@@ -152,8 +137,9 @@ void MaskLayer::darkOff()
 {
 	darkSwitch = false;
 	this->setVisible(false);
-	dark->setVisible(false);
-	clipper->setVisible(false);
+//	dark->setVisible(false);
+//	clipper->setVisible(false);
+//	light->setVisible(false);
 }
 
 void MaskLayer::clear()
@@ -372,35 +358,34 @@ MaskLayer::MyPolygon MaskLayer::getSightPolygon(float sightX, float sightY)
 		bool findA = false;
 		bool findB = false;
 
-		if (points.find(s.a)!=points.end())
+		if (points.find(s.a) != points.end())
 		{
 			findA = true;
 		}
-		else if (points.find(s.b)!=points.end())
+		else if (points.find(s.b) != points.end())
 		{
 			findB = true;
 		}
 
-//		for (Vec2& p : points)
-//		{
-//			if (p.x == s.a.x && p.y == s.a.y)
-//				findA = true;
-//			if (p.x == s.b.x && p.y == s.b.y)
-//				findB = true;
-//		}
+		//		for (Vec2& p : points)
+		//		{
+		//			if (p.x == s.a.x && p.y == s.a.y)
+		//				findA = true;
+		//			if (p.x == s.b.x && p.y == s.b.y)
+		//				findB = true;
+		//		}
 
 		if (!findA)
 		{
-//			points.push_back(s.a);
+			//			points.push_back(s.a);
 			points.insert(s.a);
 		}
 		if (!findB)
 		{
-//			points.push_back(s.b);
+			//			points.push_back(s.b);
 			points.insert(s.b);
 		}
 	}
-
 
 	// Get all angles
 	std::vector<float> uniqueAngles;
@@ -418,16 +403,16 @@ MaskLayer::MyPolygon MaskLayer::getSightPolygon(float sightX, float sightY)
 		iter++;
 	}
 
-//	for (int j = 0; j < points.size(); j++) {
-//		Vec2 uniquePoint = points[j];
-//		float angle = atan2(uniquePoint.y - sightY, uniquePoint.x - sightX);
+	//	for (int j = 0; j < points.size(); j++) {
+	//		Vec2 uniquePoint = points[j];
+	//		float angle = atan2(uniquePoint.y - sightY, uniquePoint.x - sightX);
 
-//		uniqueAngles.push_back(angle - 0.0001);
-//		uniqueAngles.push_back(angle);
-//		uniqueAngles.push_back(angle + 0.0001);
-//	}
+	//		uniqueAngles.push_back(angle - 0.0001);
+	//		uniqueAngles.push_back(angle);
+	//		uniqueAngles.push_back(angle + 0.0001);
+	//	}
 
-	// RAYS IN ALL DIRECTIONS
+		// RAYS IN ALL DIRECTIONS
 	intersects.clear();
 	for (int j = 0; j < uniqueAngles.size(); j++) {
 		float angle = uniqueAngles[j];
@@ -441,8 +426,6 @@ MaskLayer::MyPolygon MaskLayer::getSightPolygon(float sightX, float sightY)
 			Vec2(sightX, sightY),
 			Vec2(sightX + dx, sightY + dy)
 		};
-
-
 
 		// Find CLOSEST intersection
 		bool first = true;
@@ -483,17 +466,17 @@ void MaskLayer::drawPolygon(MyPolygon& polygon, Color4F fillStyle)
 		//		        ctx->drawDot(Vec2(i.x, i.y), 2, Color4F(0,0,0,1));
 	}
 
-//	Triangulate::Process(vecs, result);
+	//	Triangulate::Process(vecs, result);
 	cocos2d::Point playerPosition = Player::getInstance()->getcharacterPtr()->getPosition();
 
-//	int tcount = result.size() / 3;
+	//	int tcount = result.size() / 3;
 	int tcount = result.size() - 1;
 	for (int i = 0; i < tcount; i++)
 	{
 		Vec2 v[3];
-//		v[0] = Vec2(result[i * 3 + 0].GetX(), result[i * 3 + 0].GetY());
-//		v[1] = Vec2(result[i * 3 + 1].GetX(), result[i * 3 + 1].GetY());
-//		v[2] = Vec2(result[i * 3 + 2].GetX(), result[i * 3 + 2].GetY());
+		//		v[0] = Vec2(result[i * 3 + 0].GetX(), result[i * 3 + 0].GetY());
+		//		v[1] = Vec2(result[i * 3 + 1].GetX(), result[i * 3 + 1].GetY());
+		//		v[2] = Vec2(result[i * 3 + 2].GetX(), result[i * 3 + 2].GetY());
 		v[0] = Vec2(result[i + 0].GetX(), result[i + 0].GetY());
 		v[1] = Vec2(result[i + 1].GetX(), result[i + 1].GetY());
 		v[2] = playerPosition;
@@ -505,7 +488,7 @@ void MaskLayer::drawPolygon(MyPolygon& polygon, Color4F fillStyle)
 	endV[0] = Vec2(result[0].GetX(), result[1].GetY());
 	endV[1] = Vec2(result[result.size() - 1].GetX(), result[result.size() - 1].GetY());
 	endV[2] = playerPosition;
-	stencil->drawTriangle(endV[0], endV[1], endV[2],fillStyle);
+	stencil->drawTriangle(endV[0], endV[1], endV[2], fillStyle);
 }
 
 void MaskLayer::getStoreyEdge()
