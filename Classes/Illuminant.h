@@ -16,11 +16,9 @@ public:
 	Illuminant(Character* c);
 	~Illuminant();
 	void update();
-	cocos2d::Sprite* getLightClipe();
 	cocos2d::Sprite* getLight();
 	Character* getCharacter();
 protected:
-	cocos2d::Sprite* lightClipe;
 	cocos2d::Sprite* light;
 	CC_SYNTHESIZE(int, size, Size);
 	Character* character;

@@ -35,6 +35,7 @@ bool MainLayer::init()
         return false;
     }
 
+//	this->setVisible(false);
 	/////////////////////////////
 
 
@@ -97,7 +98,6 @@ void MainLayer::update(float dt)
 	Character* player = Player::getInstance()->getcharacterPtr();
 	this->setViewPointCenter(player->getPosition());
 	HudLayer::getInstance()->update();
-	MaskLayer::getInstance()->update();
 }
 
 void MainLayer::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
