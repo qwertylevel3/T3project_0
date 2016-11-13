@@ -90,6 +90,24 @@
 		</sphereBox>
 	</inventory>
 	<inventory>
+		<type>oneHandWeapon</type>
+		<name>torch000</name>
+		<cname>火炬</cname>
+		<level>1</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>ViewSizeBuff_火炬之光_ATTR_Good_1_-1_5</buffID>
+		</buffBox>
+		<weaponDamage>1</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
 		<type>arrow</type>
 		<name>arrow000</name>
 		<cname>箭</cname>

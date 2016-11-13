@@ -249,7 +249,6 @@ void Character::unequipLeftHand()
 		leftHand = nullptr;
 		rightHand = nullptr;
 	}
-
 }
 
 void Character::unequipRightHand()

@@ -43,14 +43,13 @@ void MaskLayer::update(float dt)
 
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 
-
 	mask->clear(0, 0, 0, 0);
 	//////////////////////////////////////////////////////////////////////////
 	mask->begin();
 
 	Sprite* bk = Sprite::create("dark.png");
 	bk->setScale(storey->getWidth() * 32 / bk->getContentSize().width);
-	bk->setPosition(storey->getWidth() * 16 , storey->getHeight() * 16);
+	bk->setPosition(storey->getWidth() * 16, storey->getHeight() * 16);
 
 	ccBlendFunc func0 = { GL_ZERO, GL_ONE_MINUS_SRC_ALPHA };
 	ccBlendFunc func1 = { GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA };
@@ -64,7 +63,6 @@ void MaskLayer::update(float dt)
 		lightSprite->setBlendFunc(func0);
 		lightSprite->visit();
 	}
-
 
 	mask->end();
 	//mask->saveToFile("temp.png");
@@ -101,27 +99,27 @@ void MaskLayer::loadStorey()
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 	//////////////////////////////////////////////////////////////////////////
 
-
 //	Sprite* bk = Sprite::create("dark.png");
 //	bk->setScale(storey->getWidth() * 32 / bk->getContentSize().width);
 //	bk->setPosition(storey->getWidth() * 16 , storey->getHeight() * 16);
 //	this->addChild(bk);
-
-
 
 //////////////////////////////////////////////////////////////////////////
 
 	mask = RenderTexture::create(storey->getWidth() * 32, storey->getHeight() * 32);
 	mask->setPosition(storey->getWidth() * 16, storey->getHeight() * 16);
 
-	this->addChild(mask,10);
+	this->addChild(mask, 10);
 
 	std::list<Character* > allCharacter = storey->getAllCharacter();
 
 	for each (Character* character in allCharacter)
 	{
-		Illuminant* light = new Illuminant(character);
-		addLight(light);
+		if (character->getCharacterType() != Character::Bad)
+		{
+			Illuminant* light = new Illuminant(character);
+			addLight(light);
+		}
 	}
 
 	darkOn();

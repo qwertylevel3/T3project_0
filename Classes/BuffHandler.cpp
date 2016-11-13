@@ -26,12 +26,11 @@ Buff::BuffHandler::~BuffHandler()
 	buffBox.clear();
 }
 
-
 void Buff::BuffHandler::addBuff(BuffBase* buff)
 {
 	buffBox.push_back(buff);
-	if (buff->getTrigType()==BuffBase::OnLoad ||
-		buff->getTrigType()==BuffBase::ATTR)
+	if (buff->getTrigType() == BuffBase::OnLoad ||
+		buff->getTrigType() == BuffBase::ATTR)
 	{
 		buff->apply(characterPrt);
 	}
@@ -40,7 +39,7 @@ void Buff::BuffHandler::addBuff(BuffBase* buff)
 
 void Buff::BuffHandler::addBuff(std::string buffID)
 {
-	Buff::BuffBase* buff=Buff::BuffFactory::getInstance()->getBuff(buffID);
+	Buff::BuffBase* buff = Buff::BuffFactory::getInstance()->getBuff(buffID);
 	addBuff(buff);
 }
 
@@ -53,6 +52,7 @@ void Buff::BuffHandler::removeBuff(std::string buffID)
 		{
 			delete *iter;
 			buffBox.erase(iter);
+			calculateAttr();
 			return;
 		}
 		iter++;
@@ -70,9 +70,7 @@ void Buff::BuffHandler::update()
 	{
 		buff->updateDuration();
 	}
-	
 }
-
 
 void  Buff::BuffHandler::onAttack()
 {
@@ -87,7 +85,7 @@ void  Buff::BuffHandler::onRoundStart()
 	calculateAttr();
 	for each (BuffBase* buff in buffBox)
 	{
-		if (buff->getTrigType()==BuffBase::OnRoundStart)
+		if (buff->getTrigType() == BuffBase::OnRoundStart)
 		{
 			buff->apply(characterPrt);
 		}
@@ -98,7 +96,7 @@ void  Buff::BuffHandler::onRoundEnd()
 {
 	for each (BuffBase* buff in buffBox)
 	{
-		if (buff->getTrigType()==BuffBase::OnRoundEnd)
+		if (buff->getTrigType() == BuffBase::OnRoundEnd)
 		{
 			buff->apply(characterPrt);
 		}
@@ -114,12 +112,12 @@ void Buff::BuffHandler::clearInactiveBuff()
 	{
 		if ((*iter)->isActive() == false)
 		{
-			if ((*iter)->getTrigType()==BuffBase::OnUnload)
+			if ((*iter)->getTrigType() == BuffBase::OnUnload)
 			{
 				(*iter)->apply(characterPrt);
 			}
 			delete (*iter);
-			iter=buffBox.erase(iter);
+			iter = buffBox.erase(iter);
 		}
 		else
 		{
@@ -131,10 +129,10 @@ void Buff::BuffHandler::clearInactiveBuff()
 void Buff::BuffHandler::calculateAttr()
 {
 	characterPrt->getAttrHandler()->reset();
-	std::sort(buffBox.begin(), buffBox.end(),compareBuffPriority);
+	std::sort(buffBox.begin(), buffBox.end(), compareBuffPriority);
 	for each (BuffBase* buff in buffBox)
 	{
-		if (buff->getTrigType()==BuffBase::ATTR)
+		if (buff->getTrigType() == BuffBase::ATTR)
 		{
 			buff->apply(characterPrt);
 		}
@@ -145,7 +143,7 @@ bool Buff::BuffHandler::exist(std::string buffID)
 {
 	for each (Buff::BuffBase* buff in buffBox)
 	{
-		if (buff->getID()==buffID)
+		if (buff->getID() == buffID)
 		{
 			return true;
 		}

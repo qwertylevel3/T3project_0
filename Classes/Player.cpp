@@ -40,7 +40,7 @@ void Player::init()
 	characterPtr->setAgility(10);
 	characterPtr->setIntellect(10);
 	characterPtr->setLuck(10);
-	characterPtr->setViewSize(10);
+	characterPtr->setViewSize(1);
 	characterPtr->setCharacterType(Character::Good);
 
 	//testInventory......
@@ -56,6 +56,7 @@ void Player::init()
 	Inventory* testItem2 = InventoryFactory::getInstance()->getInventory("sword001");
 	Inventory* testItem3 = InventoryFactory::getInstance()->getInventory("sword001");
 	Inventory* testItem4 = InventoryFactory::getInstance()->getInventory("bow000");
+	
 
 	characterPtr->addInventory(testItem0);
 	characterPtr->addInventory(testItem1);
@@ -65,6 +66,8 @@ void Player::init()
 
 	characterPtr->addInventory("bigSword000");
 	characterPtr->addInventory("sword002");
+	characterPtr->addInventory("torch000");
+	characterPtr->addInventory("torch000");
 
 
 	for (int i = 0; i < 20; i++)
@@ -78,7 +81,6 @@ void Player::init()
 
 	std::wstring buffname1 = L"ChantBuff_×Ô¶¯Ò÷³ª_OnRoundStart_Good_10_20_1";
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname1));
-
 
 //	std::wstring buffname2 = L"VertigoBuff_Ñ£ÔÎ_ATTR_Bad_2_10";
 //	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
