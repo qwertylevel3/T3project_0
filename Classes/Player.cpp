@@ -55,25 +55,18 @@ void Player::init()
 	Inventory* testItem1 = InventoryFactory::getInstance()->getInventory("sword001");
 	Inventory* testItem2 = InventoryFactory::getInstance()->getInventory("sword001");
 	Inventory* testItem3 = InventoryFactory::getInstance()->getInventory("sword001");
-	Inventory* testItem4 = InventoryFactory::getInstance()->getInventory("bow000");
 	
 
 	characterPtr->addInventory(testItem0);
 	characterPtr->addInventory(testItem1);
 	characterPtr->addInventory(testItem2);
 	characterPtr->addInventory(testItem3);
-	characterPtr->addInventory(testItem4);
 
 	characterPtr->addInventory("bigSword000");
 	characterPtr->addInventory("sword002");
 	characterPtr->addInventory("torch000");
 	characterPtr->addInventory("torch000");
 
-
-	for (int i = 0; i < 20; i++)
-	{
-		characterPtr->addInventory("arrow000");
-	}
 
 	//////////////////////////////////////////////////////////////////////////
 	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_20_100";

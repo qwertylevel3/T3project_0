@@ -1,6 +1,7 @@
 #include "StoreyInventoryHandler.h"
 #include "2d/CCSprite.h"
 #include "MainLayer.h"
+#include "Dungeon.h"
 
 
 TileInventoryHandler::TileInventoryHandler()
@@ -24,7 +25,9 @@ void TileInventoryHandler::addInventory(Inventory* inventory)
 	if (isEmpty())
 	{
 		sprite = cocos2d::Sprite::create("inventory.png");
-		sprite->setPosition(cocos2d::Point(coord.x * 32 + 16, (100 - coord.y) * 32 - 16));
+		Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+		int storeyHeight = storey->getHeight();
+		sprite->setPosition(cocos2d::Point(coord.x * 32 + 16, (storeyHeight - coord.y) * 32 - 16));
 		MainLayer::getInstance()->addChild(sprite, 5);
 	}
 	inventoryBox.push_back(inventory);

@@ -2,6 +2,7 @@
 
 #include <map>
 #include <string>
+#include "base/ccTypes.h"
 
 class Inventory;
 
@@ -26,6 +27,19 @@ public:
 	int getCount(const std::string& inventoryName);
 	Inventory* getInventory(std::string inventoryName);
 	Inventory* getInventory(int index);
+
+	void clear();
+
+
+
+	//************************************
+	// Method:    drop
+	// FullName:  InventoryHandler::drop
+	// Access:    public 
+	// Returns:   void
+	// Qualifier: character死亡时调用，将当前所有物品丢弃到地面
+	//************************************
+	void drop(cocos2d::Point coord);
 protected:
 	//记录每种inventory的个数
 	std::map<std::string, int> inventoryBox;

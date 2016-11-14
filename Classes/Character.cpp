@@ -116,6 +116,13 @@ void Character::clearChant()
 void Character::die()
 {
 	sprite->setVisible(false);
+	unequipLeftHand();
+	unequipRightHand();
+	unequipArmor();
+	unequipAccessory();
+
+	inventoryHandler->drop(this->getMapCoord());
+
 	dead = true;
 }
 
@@ -272,12 +279,22 @@ void Character::unequipRightHand()
 
 void Character::unequipArmor()
 {
-	this->unloadInventoryBuff(armor);
+	if (armor)
+	{
+		this->unloadInventoryBuff(armor);
+		inventoryHandler->addInventory(armor);
+		armor = nullptr;
+	}
 }
 
 void Character::unequipAccessory()
 {
-	this->unloadInventoryBuff(accessory);
+	if (accessory)
+	{
+		this->unloadInventoryBuff(accessory);
+		inventoryHandler->addInventory(accessory);
+		accessory = nullptr;
+	}
 }
 
 cocos2d::Point Character::getPosition()

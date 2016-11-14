@@ -1,11 +1,11 @@
 #include "InventoryHandler.h"
 #include "InventoryFactory.h"
-
+#include "StoreyInventoryHandler.h"
+#include "Dungeon.h"
 
 InventoryHandler::InventoryHandler()
 {
 }
-
 
 InventoryHandler::~InventoryHandler()
 {
@@ -23,7 +23,7 @@ void InventoryHandler::addInventory(const std::string& inventoryName, int count)
 	}
 }
 
-void InventoryHandler::addInventory(Inventory* inventory,int count)
+void InventoryHandler::addInventory(Inventory* inventory, int count)
 {
 	addInventory(inventory->getName(), count);
 	delete inventory;
@@ -33,7 +33,7 @@ void InventoryHandler::removeInventory(std::string inventoryName, int count)
 {
 	if (inventoryBox.count(inventoryName))
 	{
-		if (inventoryBox[inventoryName]<=count)
+		if (inventoryBox[inventoryName] <= count)
 		{
 			inventoryBox[inventoryName] = 0;
 			inventoryBox.erase(inventoryName);
@@ -77,7 +77,7 @@ int InventoryHandler::getCount(const std::string& inventoryName)
 
 Inventory* InventoryHandler::getInventory(std::string inventoryName)
 {
-	if (inventoryBox.count(inventoryName) && inventoryBox[inventoryName]>0)
+	if (inventoryBox.count(inventoryName) && inventoryBox[inventoryName] > 0)
 	{
 		removeInventory(inventoryName, 1);
 		return InventoryFactory::getInstance()->getInventory(inventoryName);
@@ -95,4 +95,25 @@ Inventory* InventoryHandler::getInventory(int index)
 		count++;
 	}
 	return getInventory(iter->first);
+}
+
+void InventoryHandler::clear()
+{
+	inventoryBox.clear();
+}
+
+void InventoryHandler::drop(cocos2d::Point coord)
+{
+	std::map<std::string, int>::iterator iter = inventoryBox.begin();
+	while (iter != inventoryBox.end())
+	{
+		Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+		Inventory* inventory = InventoryFactory::getInstance()->getInventory(iter->first);
+		for (int i = 0; i < iter->second; i++)
+		{
+			storey->getInventoryHandler()->addInventory(inventory, coord.x, coord.y);
+		}
+		iter++;
+	}
+	clear();
 }
