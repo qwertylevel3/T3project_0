@@ -61,6 +61,8 @@ bool MainLayer::init()
 
 	this->scheduleUpdate();
 
+	viewFocus = true;
+
 	return true;
 }
 
@@ -73,7 +75,12 @@ void MainLayer::menuCloseCallback(Ref* pSender)
 #endif
 }
 
-void MainLayer::setViewPointCenter(Point position) {
+void MainLayer::setViewPointCenter(Point position) 
+{
+	if (!viewFocus)
+	{
+		return;
+	}
 	Storey* storey = Dungeon::getInstance()->getStorey();
 	TMXTiledMap* tileMap = storey->getTileMap();
 	auto winSize = Director::getInstance()->getWinSize();
@@ -155,4 +162,13 @@ void MainLayer::clear()
 }
 
 
+void MainLayer::focusPlayer()
+{
+	viewFocus = true;
+}
+
+void MainLayer::unfocusPlayer()
+{
+	viewFocus = false;
+}
 

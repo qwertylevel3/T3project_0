@@ -3,8 +3,8 @@
 #include"singleton.h"
 #include <vector>
 #include "base/ccTypes.h"
+#include "Character.h"
 
-class Character;
 class Weapon;
 
 namespace cocos2d
@@ -40,6 +40,7 @@ protected:
 	void showOneHandEffect(Character* caster);
 	void showTwoHandEffect(Character* caster);
 	void showBowEffect(Character* caster);
+	void showSufferDamageEffect(Character* character,Character::Orientation direction,int damage);
 
 	Weapon* getWeapon(Character* c, AttackHand hand);
 	void attack(Character* a, Character* b, AttackHand hand);

@@ -10,16 +10,16 @@
 #include "SphereBase.h"
 #include "InventoryHandler.h"
 #include "Dungeon.h"
+#include "MainLayer.h"
+#include "2d/CCAnimation.h"
 
 #include "Marco.h"
 
 using namespace std;
 
-
 BattleSystem::BattleSystem()
 {
 }
-
 
 BattleSystem::~BattleSystem()
 {
@@ -30,7 +30,7 @@ void BattleSystem::init()
 	combo = 0;
 	srand(unsigned(time(0)));
 
-	cocos2d::SpriteFrame* frame0 = cocos2d::SpriteFrame::create("effect_0.png",cocos2d::Rect(0,0,32,32));
+	cocos2d::SpriteFrame* frame0 = cocos2d::SpriteFrame::create("effect_0.png", cocos2d::Rect(0, 0, 32, 32));
 	cocos2d::Vector<cocos2d::SpriteFrame*> frameVec;
 	frameVec.pushBack(frame0);
 	animation = cocos2d::Animation::createWithSpriteFrames(frameVec, 0.1f);
@@ -38,8 +38,35 @@ void BattleSystem::init()
 	animation->retain();
 }
 
-void BattleSystem::showAttackEffect(Character* caster,AttackHand hand)
+void BattleSystem::showAttackEffect(Character* caster, AttackHand hand)
 {
+	MainLayer::getInstance()->unfocusPlayer();
+
+	cocos2d::Vec2 direction;
+	switch (caster->getOrientation())
+	{
+	case Character::UP:
+		direction = cocos2d::ccp(0, 3);
+		break;
+	case Character::DOWN:
+		direction = cocos2d::ccp(0, -3);
+		break;
+	case Character::LEFT:
+		direction = cocos2d::ccp(-3, 0);
+	case Character::RIGHT:
+		direction = cocos2d::ccp(3, 0);
+		break;
+	default:
+		break;
+	}
+
+	cocos2d::ActionInterval *shake0 = cocos2d::MoveBy::create(0.05, direction);
+	cocos2d::ActionInterval *shake1 = shake0->reverse();
+	caster->getSprite()->runAction(
+			cocos2d::Sequence::create(shake0, shake1,  NULL)
+	);
+
+
 	switch (hand)
 	{
 	case LeftHand:
@@ -98,7 +125,7 @@ void BattleSystem::showOneHandEffect(Character* caster)
 	//node->runAction(rotateAction);
 
 	node->runAction(cocos2d::Sequence::create(
-		rotateAction, 
+		rotateAction,
 		animate,
 		cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, node)),
 		NULL));
@@ -148,28 +175,68 @@ void BattleSystem::showTwoHandEffect(Character* caster)
 
 void BattleSystem::showBowEffect(Character* caster)
 {
-//	cocos2d::Point targetCoord=coord[0];
-//	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
-//	cocos2d::Point oriPosition = caster->getPosition();
-//	cocos2d::Point targetPosition = storey->getTilePosition(targetCoord);
-//	cocos2d::Node* scene = caster->getParent();
+	//	cocos2d::Point targetCoord=coord[0];
+	//	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+	//	cocos2d::Point oriPosition = caster->getPosition();
+	//	cocos2d::Point targetPosition = storey->getTilePosition(targetCoord);
+	//	cocos2d::Node* scene = caster->getParent();
 
-//	cocos2d::Sprite* arrowSprite = cocos2d::Sprite::create("arrow_effect.png");
-//	arrowSprite->setPosition(oriPosition);
-//	scene->addChild(arrowSprite, 15);
-//	cocos2d::ActionInterval* moveAction = cocos2d::CCMoveTo::create(0.3, cocos2d::Vec2(targetPosition));
+	//	cocos2d::Sprite* arrowSprite = cocos2d::Sprite::create("arrow_effect.png");
+	//	arrowSprite->setPosition(oriPosition);
+	//	scene->addChild(arrowSprite, 15);
+	//	cocos2d::ActionInterval* moveAction = cocos2d::CCMoveTo::create(0.3, cocos2d::Vec2(targetPosition));
+
+	//	cocos2d::Vec2 targetVec = targetPosition - oriPosition;
+
+	//	float angle=-cocos2d::ccpAngle(cocos2d::Vec2(0, 1), targetVec);
+	//	angle = angle * 180.0 / 3.14;
+
+	//	cocos2d::ActionInterval* rotateAction = cocos2d::CCRotateTo::create(0.0, angle);
+
+	//	arrowSprite->runAction(cocos2d::Sequence::create(
+	//		rotateAction,moveAction,
+	//		cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, arrowSprite)), NULL));
+}
+
+void BattleSystem::showSufferDamageEffect(Character* character,Character::Orientation direction,int damage)
+{
+	MainLayer::getInstance()->unfocusPlayer();
+	cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.1);
+	cocos2d::CallFunc *callFunc = cocos2d::CallFunc::create(MainLayer::getInstance(), callfunc_selector(MainLayer::focusPlayer));
+	cocos2d::Sequence *action = cocos2d::Sequence::create(delayTime, callFunc, NULL);
+
+	cocos2d::Vec2 shakeA;
+	cocos2d::Vec2 shakeB;
+
+	switch (direction)
+	{
+	case Character::UP:
+	case Character::DOWN:
+		shakeA = cocos2d::ccp(5, 0);
+		shakeB = cocos2d::ccp(-5, 0);
+		break;
+	case Character::LEFT:
+	case Character::RIGHT:
+		shakeA = cocos2d::ccp(0, 5);
+		shakeB = cocos2d::ccp(0, -5);
+		break;
+	default:
+		break;
+	}
 
 
-//	cocos2d::Vec2 targetVec = targetPosition - oriPosition;
+	cocos2d::ActionInterval *shake0 = cocos2d::MoveBy::create(0.02, shakeA);
+	cocos2d::ActionInterval *shake1 = shake0->reverse();
+	cocos2d::ActionInterval *shake2 = cocos2d::MoveBy::create(0.02, shakeB);
+	cocos2d::ActionInterval *shake3 = shake2->reverse();
+	character->getSprite()->runAction(
+		cocos2d::Spawn::create(
+			action,
+			cocos2d::Sequence::create(shake0, shake1, shake2, shake3, NULL),
+			NULL
+		)
+	);
 
-//	float angle=-cocos2d::ccpAngle(cocos2d::Vec2(0, 1), targetVec);
-//	angle = angle * 180.0 / 3.14;
-
-//	cocos2d::ActionInterval* rotateAction = cocos2d::CCRotateTo::create(0.0, angle);
-
-//	arrowSprite->runAction(cocos2d::Sequence::create(
-//		rotateAction,moveAction, 
-//		cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, arrowSprite)), NULL));
 }
 
 Weapon* BattleSystem::getWeapon(Character* c, AttackHand hand)
@@ -182,9 +249,9 @@ Weapon* BattleSystem::getWeapon(Character* c, AttackHand hand)
 	case DoubleHand:
 	case Bow:
 		type = c->getLeftHand() ? c->getLeftHand()->getInventoryType() : Inventory::Type::Empty;
-		if (type == Inventory::OneHandWeapon || 
+		if (type == Inventory::OneHandWeapon ||
 			type == Inventory::TwoHandWeapon ||
-			type==Inventory::Bow)
+			type == Inventory::Bow)
 		{
 			weapon = static_cast<Weapon*>(c->getLeftHand());
 		}
@@ -196,9 +263,9 @@ Weapon* BattleSystem::getWeapon(Character* c, AttackHand hand)
 		break;
 	case RightHand:
 		type = c->getRightHand() ? c->getRightHand()->getInventoryType() : Inventory::Empty;
-		if (type == Inventory::OneHandWeapon 
+		if (type == Inventory::OneHandWeapon
 			|| type == Inventory::TwoHandWeapon
-			|| type==Inventory::Bow)
+			|| type == Inventory::Bow)
 		{
 			weapon = static_cast<Weapon*>(c->getRightHand());
 		}
@@ -231,7 +298,7 @@ void BattleSystem::attack(Character * a, Character * b)
 			if (a->getRightHand() && a->getRightHand()->getInventoryType() == Inventory::OneHandWeapon)
 			{
 #ifdef SHOWMESSAGE
-			cout << "~rightHand:" << endl;
+				cout << "~rightHand:" << endl;
 #endif
 				attack(a, b, RightHand);
 			}
@@ -257,8 +324,6 @@ void BattleSystem::attack(Character * a, Character * b)
 #endif
 			attack(a, b, Bow);
 		}
-
-
 
 		if (!isCombo(a))
 		{
@@ -313,8 +378,9 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 		cout << "atk count:" << attackCount << endl;
 #endif
 	}
-	int realDamage=sufferAttack(b, attackCount);
+	int realDamage = sufferAttack(b, attackCount);
 	showAttackEffect(a, hand);
+	showSufferDamageEffect(b,a->getOrientation(), realDamage);
 
 	//sphereEffect µ÷ÓÃµã
 	Weapon* weapon = getWeapon(a, hand);
@@ -344,7 +410,6 @@ void BattleSystem::attack(Character* caster, std::vector<cocos2d::Point>& coords
 
 	for each (Character* target in targetCharacters)
 	{
-
 		if (caster->getLeftHand() &&
 			caster->getLeftHand()->getInventoryType() == Inventory::Bow)
 		{
@@ -364,21 +429,21 @@ void BattleSystem::attack(Character* caster, std::vector<cocos2d::Point>& coords
 
 	if (targetCharacters.empty())
 	{
-		Weapon* leftWeapon = getWeapon(caster,LeftHand);
-		Weapon* rightWeapon = getWeapon(caster,RightHand);
-		if (leftWeapon && leftWeapon->getInventoryType()==Inventory::OneHandWeapon)
+		Weapon* leftWeapon = getWeapon(caster, LeftHand);
+		Weapon* rightWeapon = getWeapon(caster, RightHand);
+		if (leftWeapon && leftWeapon->getInventoryType() == Inventory::OneHandWeapon)
 		{
 			showAttackEffect(caster, LeftHand);
 		}
-		if (rightWeapon && rightWeapon->getInventoryType()==Inventory::OneHandWeapon)
+		if (rightWeapon && rightWeapon->getInventoryType() == Inventory::OneHandWeapon)
 		{
 			showAttackEffect(caster, RightHand);
 		}
-		if (leftWeapon && leftWeapon->getInventoryType()==Inventory::TwoHandWeapon)
+		if (leftWeapon && leftWeapon->getInventoryType() == Inventory::TwoHandWeapon)
 		{
 			showAttackEffect(caster, DoubleHand);
 		}
-		if (leftWeapon && leftWeapon->getInventoryType()==Inventory::Bow)
+		if (leftWeapon && leftWeapon->getInventoryType() == Inventory::Bow)
 		{
 			showAttackEffect(caster, Bow);
 		}
@@ -405,13 +470,14 @@ int BattleSystem::sufferAttack(Character * c, int attackCount)
 #endif
 	}
 
-	int damage= attackCount - armorPoint - blockCount;
+	int damage = attackCount - armorPoint - blockCount;
 	damage = damage >= 1 ? damage : 1;
 #ifdef SHOWMESSAGE
 	cout << "suffer damage:" << damage << endl;
 #endif
 
 	c->sufferHPEffect(-damage);
+
 	return damage;
 }
 
@@ -453,7 +519,7 @@ int BattleSystem::getCriticalAttackCount(Character* c, AttackHand hand)
 	int attackCount = getAttackCount(c, hand);
 	double criPer = c->getCriticalPer();
 	double criPoint = c->getCriticalPoint();
-	double criticalAttack = double(attackCount)*criPer/100 + criPoint;
+	double criticalAttack = double(attackCount)*criPer / 100 + criPoint;
 	return int(criticalAttack < 1 ? 1 : criticalAttack);
 }
 
@@ -483,7 +549,7 @@ bool BattleSystem::isInAtkArea(Character* a, Character* b, AttackHand hand)
 
 bool BattleSystem::isEvade(Character* a, Character* b, AttackHand hand)
 {
-	int temp = getAccuracyCount(a)-getEvadeCount(b);
+	int temp = getAccuracyCount(a) - getEvadeCount(b);
 	temp = 100 - temp;
 	temp = temp < 0 ? 0 : temp;
 	temp = temp > 90 ? 90 : temp;
@@ -517,7 +583,7 @@ bool BattleSystem::isBlock(Character* c)
 bool BattleSystem::isCombo(Character* c)
 {
 	Weapon* weapon = getWeapon(c, LeftHand);
-	if (weapon && weapon->getInventoryType()==Inventory::Bow)
+	if (weapon && weapon->getInventoryType() == Inventory::Bow)
 	{
 		return false;
 	}
@@ -538,7 +604,7 @@ bool BattleSystem::roll(double m)
 {
 	double rand = getRandom(0, 100);
 #ifdef SHOWMESSAGE
-	cout << "	(roll:" << rand <<")"<< endl;
+	cout << "	(roll:" << rand << ")" << endl;
 #endif
 	if (rand < m)
 	{

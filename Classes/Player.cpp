@@ -40,7 +40,7 @@ void Player::init()
 	characterPtr->setAgility(10);
 	characterPtr->setIntellect(10);
 	characterPtr->setLuck(10);
-	characterPtr->setViewSize(1);
+	characterPtr->setViewSize(5);
 	characterPtr->setCharacterType(Character::Good);
 
 	//testInventory......

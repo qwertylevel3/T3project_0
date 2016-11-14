@@ -133,24 +133,28 @@ bool Character::isDead()
 
 void Character::moveUp()
 {
+	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveUp(this);
 	clearChant();
 }
 
 void Character::moveDown()
 {
+	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveDown(this);
 	clearChant();
 }
 
 void Character::moveLeft()
 {
+	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveLeft(this);
 	clearChant();
 }
 
 void Character::moveRight()
 {
+	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveRight(this);
 	clearChant();
 }
@@ -217,6 +221,7 @@ void Character::showMoveRightAnimation()
 
 void Character::equipLeftHand(Inventory* inventory)
 {
+	MainLayer::getInstance()->focusPlayer();
 	inventory->equipLeftHand(this);
 	loadInventoryBuff(inventory);
 }

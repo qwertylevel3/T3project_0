@@ -61,7 +61,7 @@ void RoundSystem::nextRound()
 	cocos2d::Point coord = allCharacter[curIndex]->getMapCoord();
 	if (Player::getInstance()->isInViewSize(coord))
 	{
-		cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.02);
+		cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.1);
 		cocos2d::CallFunc *callFunc = cocos2d::CallFunc::create(this, callfunc_selector(RoundSystem::round));
 		cocos2d::Sequence *action = cocos2d::Sequence::create(delayTime, callFunc, NULL);
 

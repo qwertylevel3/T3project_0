@@ -35,8 +35,11 @@ public:
 	void handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode);
 
 	void loadStorey();
+	void focusPlayer();
+	void unfocusPlayer();
 	void clear();
 private:
+	bool viewFocus;
 };
 
 
