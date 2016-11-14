@@ -27,50 +27,7 @@ AttackEffect::~AttackEffect()
 
 bool Skill::AttackEffect::run(Character* caster, std::vector<cocos2d::Point>& coord)
 {
-	std::set<Character* > targetCharacters;
-	for each (cocos2d::Point targetPosition in coord)
-	{
-		Character* target = Field::Dungeon::getInstance()->getCharacter(targetPosition.x, targetPosition.y);
-		if (target && !target->isDead())
-		{
-			targetCharacters.insert(target);
-		}
-	}
-
-	for each (Character* target in targetCharacters)
-	{
-
-		if (caster->getLeftHand() &&
-			caster->getLeftHand()->getInventoryType() == Inventory::Bow)
-		{
-			Inventory* arrow = caster->getInventoryHandler()->getInventory("arrow000");
-			if (arrow)
-			{
-				delete arrow;
-			}
-			else
-			{
-				return false;
-			}
-		}
-
-		BattleSystem::getInstance()->attack(caster, target);
-	}
-	InventoryInHand* leftHand = caster->getLeftHand();
-	InventoryInHand* rightHand = caster->getRightHand();
-	if (leftHand && leftHand->getInventoryType() == Inventory::TwoHandWeapon)
-	{
-		showTwoHandEffect(caster, coord);
-	}
-	else if (leftHand && leftHand->getInventoryType() == Inventory::Bow)
-	{
-		showBowEffect(caster, coord);
-	}
-	else if ((leftHand && leftHand->getInventoryType() == Inventory::OneHandWeapon) ||
-		(rightHand && rightHand->getInventoryType() == Inventory::OneHandWeapon))
-	{
-		showOneHandEffect(caster, coord);
-	}
+	BattleSystem::getInstance()->attack(caster, coord);
 	return true;
 }
 

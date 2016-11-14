@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Singleton.h"
-#include "LightEdge.h"
 #include <vector>
 #include "base/ccTypes.h"
 #include "2d/CCLayer.h"

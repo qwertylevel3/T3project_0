@@ -162,9 +162,6 @@
     <ClCompile Include="..\Classes\Shield.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\LightEdge.cpp">
-      <Filter>src\mask</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\OneHandWeapon.cpp">
       <Filter>src\inventory\weapon</Filter>
     </ClCompile>
@@ -453,10 +450,14 @@
     <ClCompile Include="..\Classes\VertigoBuff.cpp">
       <Filter>src\buff</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Illuminant.cpp" />
-    <ClCompile Include="..\Classes\GameController.cpp" />
     <ClCompile Include="..\Classes\Triangulate.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameController.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Illuminant.cpp">
+      <Filter>src\mask</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -546,9 +547,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Shield.h">
       <Filter>src\inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\LightEdge.h">
-      <Filter>src\mask</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\OneHandWeapon.h">
       <Filter>src\inventory\weapon</Filter>
@@ -841,10 +839,14 @@
     <ClInclude Include="..\Classes\VertigoBuff.h">
       <Filter>src\buff</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Illuminant.h" />
-    <ClInclude Include="..\Classes\GameController.h" />
     <ClInclude Include="..\Classes\Triangulate.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameController.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Illuminant.h">
+      <Filter>src\mask</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
