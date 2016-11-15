@@ -77,6 +77,8 @@ void Player::init()
 
 //	std::wstring buffname2 = L"VertigoBuff_яётн_ATTR_Bad_2_10";
 //	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
+
+
 }
 
 void Player::autoNextStep()

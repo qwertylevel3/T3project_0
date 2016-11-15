@@ -236,6 +236,9 @@ void BattleSystem::showSufferDamageEffect(Character* character,Character::Orient
 			NULL
 		)
 	);
+	character->getSprite()->runAction(
+			cocos2d::TintBy::create(0.3,0,255,255)
+	);
 
 }
 
