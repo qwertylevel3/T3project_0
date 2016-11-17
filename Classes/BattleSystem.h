@@ -41,6 +41,12 @@ protected:
 	void showTwoHandEffect(Character* caster);
 	void showBowEffect(Character* caster);
 	void showSufferDamageEffect(Character* character,Character::Orientation direction,int damage);
+//	void showDamage(Character* character,int damage);
+	void showMiss(Character* character);
+
+	//todo
+	void showBlock(Character* character);
+
 
 	Weapon* getWeapon(Character* c, AttackHand hand);
 	void attack(Character* a, Character* b, AttackHand hand);

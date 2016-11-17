@@ -1,5 +1,7 @@
 #include "Character.h"
 #include "RoundSystem.h"
+#include "ToolFunction.h"
+#include "RandomNumber.h"
 #include"MainLayer.h"
 #include"Dungeon.h"
 #include"FieldEnum.h"
@@ -72,6 +74,7 @@ Character::~Character()
 
 bool Character::sufferHPEffect(int hpOffset)
 {
+	showHPEffect(hpOffset);
 	HP += hpOffset;
 	if (HP <= 0)
 	{
@@ -84,6 +87,48 @@ bool Character::sufferHPEffect(int hpOffset)
 		return false;
 	}
 	return true;
+}
+
+void Character::showHPEffect(int hpOffset)
+{
+	int textSize = 16 + 16 * abs(hpOffset) / 10;
+	cocos2d::Label* messageLabel = cocos2d::Label::createWithTTF("", "fonts/arialuni.ttf", textSize);
+	messageLabel->setString(ToolFunction::int2string(hpOffset));
+	if (hpOffset >= 0)
+	{
+		messageLabel->setTextColor(cocos2d::Color4B(0, 255, 0, 255));
+	}
+	else
+	{
+		messageLabel->setTextColor(cocos2d::Color4B(255, 0, 0, 255));
+	}
+
+	int positionXoffset = RandomNumber::getInstance()->randomInt(-10, 10);
+	int positionYoffset = RandomNumber::getInstance()->randomInt(-10, 10);
+
+	cocos2d::Sprite* characterSprite = this->getSprite();
+	messageLabel->setPosition(
+		characterSprite->getPosition().x + positionXoffset,
+		characterSprite->getPosition().y + positionYoffset
+	);
+
+	//	characterSprite->addChild(messageLabel);
+	//	cocos2d::Node* parent = characterSprite->getScene();
+	//	parent->addChild(messageLabel);
+	MainLayer::getInstance()->addChild(messageLabel);
+
+	messageLabel->runAction(
+		cocos2d::Spawn::create(
+			cocos2d::Sequence::create(
+				cocos2d::DelayTime::create(0.3),
+				cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, messageLabel)),
+				NULL
+			),
+			cocos2d::MoveBy::create(0.3, cocos2d::Vec2(0, 32)),
+			//			cocos2d::FadeOut::create(0.2),
+			NULL
+		)
+	);
 }
 
 bool Character::sufferMPEffect(int mpOffset)

@@ -75,6 +75,14 @@ void Player::init()
 	std::wstring buffname1 = L"ChantBuff_自动吟唱_OnRoundStart_Good_10_20_1";
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname1));
 
+	std::wstring buffname2 = L"BlockProBuff_格挡增加_ATTR_Good_4_100_100";
+	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
+
+	std::wstring buffname3 = L"EvadeBuff_闪避buff_ATTR_Good_4_100_100";
+	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname3));
+
+
+
 //	std::wstring buffname2 = L"VertigoBuff_眩晕_ATTR_Bad_2_10";
 //	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
 

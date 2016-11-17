@@ -12,6 +12,10 @@
 #include "Dungeon.h"
 #include "MainLayer.h"
 #include "2d/CCAnimation.h"
+#include "ToolFunction.h"
+#include "base/ccTypes.h"
+#include "MainLayer.h"
+#include "RandomNumber.h"
 
 #include "Marco.h"
 
@@ -63,9 +67,8 @@ void BattleSystem::showAttackEffect(Character* caster, AttackHand hand)
 	cocos2d::ActionInterval *shake0 = cocos2d::MoveBy::create(0.05, direction);
 	cocos2d::ActionInterval *shake1 = shake0->reverse();
 	caster->getSprite()->runAction(
-			cocos2d::Sequence::create(shake0, shake1,  NULL)
+		cocos2d::Sequence::create(shake0, shake1, NULL)
 	);
-
 
 	switch (hand)
 	{
@@ -198,7 +201,7 @@ void BattleSystem::showBowEffect(Character* caster)
 	//		cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, arrowSprite)), NULL));
 }
 
-void BattleSystem::showSufferDamageEffect(Character* character,Character::Orientation direction,int damage)
+void BattleSystem::showSufferDamageEffect(Character* character, Character::Orientation direction, int damage)
 {
 	MainLayer::getInstance()->unfocusPlayer();
 	cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.1);
@@ -224,7 +227,6 @@ void BattleSystem::showSufferDamageEffect(Character* character,Character::Orient
 		break;
 	}
 
-
 	cocos2d::ActionInterval *shake0 = cocos2d::MoveBy::create(0.02, shakeA);
 	cocos2d::ActionInterval *shake1 = shake0->reverse();
 	cocos2d::ActionInterval *shake2 = cocos2d::MoveBy::create(0.02, shakeB);
@@ -236,9 +238,47 @@ void BattleSystem::showSufferDamageEffect(Character* character,Character::Orient
 			NULL
 		)
 	);
+	//ÉÁºì
 	character->getSprite()->runAction(
-			cocos2d::TintBy::create(0.3,0,255,255)
+		cocos2d::TintBy::create(0.1, 0, 255, 255)
 	);
+}
+
+void BattleSystem::showMiss(Character* character)
+{
+	cocos2d::Label* messageLabel = cocos2d::Label::createWithTTF("MISS", "fonts/arialuni.ttf", 22);
+	messageLabel->setTextColor(cocos2d::Color4B(0, 0, 255, 255));
+
+//	int positionXoffset = RandomNumber::getInstance()->randomInt(-10, 10);
+//	int positionYoffset = RandomNumber::getInstance()->randomInt(-10, 10);
+
+	cocos2d::Sprite* characterSprite = character->getSprite();
+	messageLabel->setPosition(
+		characterSprite->getPosition().x,// + positionXoffset,
+		characterSprite->getPosition().y// + positionYoffset
+	);
+
+	//	characterSprite->addChild(messageLabel);
+	//	cocos2d::Node* parent = characterSprite->getScene();
+	//	parent->addChild(messageLabel);
+	MainLayer::getInstance()->addChild(messageLabel);
+
+	messageLabel->runAction(
+		cocos2d::Spawn::create(
+			cocos2d::Sequence::create(
+				cocos2d::DelayTime::create(0.3),
+				cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, messageLabel)),
+				NULL
+			),
+			cocos2d::MoveBy::create(0.3, cocos2d::Vec2(0, 32)),
+			//			cocos2d::FadeOut::create(0.2),
+			NULL
+		)
+	);
+}
+
+void BattleSystem::showBlock(Character* character)
+{
 
 }
 
@@ -362,6 +402,7 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 #ifdef SHOWMESSAGE
 		cout << "evade!" << endl;
 #endif
+		showMiss(b);
 		return;
 	}
 
@@ -383,7 +424,7 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 	}
 	int realDamage = sufferAttack(b, attackCount);
 	showAttackEffect(a, hand);
-	showSufferDamageEffect(b,a->getOrientation(), realDamage);
+	showSufferDamageEffect(b, a->getOrientation(), realDamage);
 
 	//sphereEffect µ÷ÓÃµã
 	Weapon* weapon = getWeapon(a, hand);
@@ -480,6 +521,7 @@ int BattleSystem::sufferAttack(Character * c, int attackCount)
 #endif
 
 	c->sufferHPEffect(-damage);
+	//showDamage(c, damage);
 
 	return damage;
 }

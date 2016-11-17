@@ -55,6 +55,7 @@ public:
 	void endRound();
 
 	bool sufferHPEffect(int hpOffset);
+	void showHPEffect(int hpOffset);
 	bool sufferMPEffect(int mpOffset);
 
 	bool accumulateChant(int value);
