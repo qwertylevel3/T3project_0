@@ -459,6 +459,7 @@
     <ClCompile Include="..\Classes\Illuminant.cpp">
       <Filter>src\mask</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ZOrderManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -848,6 +849,7 @@
     <ClInclude Include="..\Classes\Illuminant.h">
       <Filter>src\mask</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\ZOrderManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

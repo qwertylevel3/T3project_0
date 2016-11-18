@@ -6,6 +6,11 @@
 
 class Character;
 
+namespace cocos2d
+{
+	class Sprite;
+}
+
 class RoundSystem:public cocos2d::Ref,public Singleton<RoundSystem>
 {
 public:
@@ -24,5 +29,6 @@ protected:
 	int roundCount;
 	int curIndex;
 	std::vector<Character*> allCharacter;
+	cocos2d::Sprite* chooseArrow;
 };
 

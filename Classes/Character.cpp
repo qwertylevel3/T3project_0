@@ -120,11 +120,11 @@ void Character::showHPEffect(int hpOffset)
 	messageLabel->runAction(
 		cocos2d::Spawn::create(
 			cocos2d::Sequence::create(
-				cocos2d::DelayTime::create(0.3),
+				cocos2d::DelayTime::create(0.2),
 				cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, messageLabel)),
 				NULL
 			),
-			cocos2d::MoveBy::create(0.3, cocos2d::Vec2(0, 32)),
+			cocos2d::MoveBy::create(0.2, cocos2d::Vec2(0, 32)),
 			//			cocos2d::FadeOut::create(0.2),
 			NULL
 		)

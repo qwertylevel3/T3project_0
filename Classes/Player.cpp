@@ -78,10 +78,8 @@ void Player::init()
 	std::wstring buffname2 = L"BlockProBuff_¸ñµ²Ôö¼Ó_ATTR_Good_4_100_100";
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
 
-	std::wstring buffname3 = L"EvadeBuff_ÉÁ±Übuff_ATTR_Good_4_100_100";
-	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname3));
-
-
+//	std::wstring buffname3 = L"EvadeBuff_ÉÁ±Übuff_ATTR_Good_4_100_100";
+//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname3));
 
 //	std::wstring buffname2 = L"VertigoBuff_Ñ£ÔÎ_ATTR_Bad_2_10";
 //	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));

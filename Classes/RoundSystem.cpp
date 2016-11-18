@@ -5,6 +5,8 @@
 #include "KeyController.h"
 #include "Player.h"
 #include "2d/CCAnimation.h"
+#include "MainLayer.h"
+#include "ZOrderManager.h"
 
 using namespace Field;
 
@@ -14,11 +16,15 @@ RoundSystem::RoundSystem()
 
 RoundSystem::~RoundSystem()
 {
+	chooseArrow->release();
 }
 
 void RoundSystem::init()
 {
 	roundCount = 0;
+	chooseArrow = cocos2d::Sprite::create("chooseArrow.png");
+	chooseArrow->setZOrder(ZOrderManager::chooseArrowZ);
+	chooseArrow->retain();
 }
 
 void RoundSystem::loadStorey()
@@ -34,6 +40,8 @@ void RoundSystem::loadStorey()
 		//初始化加载所有character的时候，将第一个行动设为player
 		if (isPlayer(*iter))
 		{
+			MainLayer::getInstance()->addChild(chooseArrow);
+			chooseArrow->setPosition((*iter)->getPosition()+cocos2d::Vec2(0,20));
 			curIndex = index;
 		}
 		index++;
@@ -57,20 +65,27 @@ void RoundSystem::nextRound()
 	roundCount++;
 	allCharacter[curIndex]->startRound();
 
-	//如果这个character在player视野内，则延迟一会，造成一种回合的假象
-	cocos2d::Point coord = allCharacter[curIndex]->getMapCoord();
-	if (Player::getInstance()->isInViewSize(coord))
-	{
-		cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.1);
+	chooseArrow->setPosition(allCharacter[curIndex]->getPosition() + cocos2d::Vec2(0, 20));
+
+//	//如果这个character在player视野内，则延迟一会，造成一种回合的假象
+//	cocos2d::Point coord = allCharacter[curIndex]->getMapCoord();
+//	if (Player::getInstance()->isInViewSize(coord))
+//	{
+//		cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.2);
+//		cocos2d::CallFunc *callFunc = cocos2d::CallFunc::create(this, callfunc_selector(RoundSystem::round));
+//		cocos2d::Sequence *action = cocos2d::Sequence::create(delayTime, callFunc, NULL);
+
+//		allCharacter[curIndex]->getSprite()->runAction(action);
+//	}
+//	else
+//	{
+//		round();
+//	}
+		cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.2);
 		cocos2d::CallFunc *callFunc = cocos2d::CallFunc::create(this, callfunc_selector(RoundSystem::round));
 		cocos2d::Sequence *action = cocos2d::Sequence::create(delayTime, callFunc, NULL);
 
 		allCharacter[curIndex]->getSprite()->runAction(action);
-	}
-	else
-	{
-		round();
-	}
 }
 
 void RoundSystem::nextIndex()

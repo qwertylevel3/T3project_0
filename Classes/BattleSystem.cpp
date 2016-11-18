@@ -201,7 +201,7 @@ void BattleSystem::showBowEffect(Character* caster)
 	//		cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, arrowSprite)), NULL));
 }
 
-void BattleSystem::showSufferDamageEffect(Character* character, Character::Orientation direction, int damage)
+void BattleSystem::showSufferDamageEffect(Character* character, Character::Orientation direction, int damage, bool isBlock)
 {
 	MainLayer::getInstance()->unfocusPlayer();
 	cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.1);
@@ -227,9 +227,16 @@ void BattleSystem::showSufferDamageEffect(Character* character, Character::Orien
 		break;
 	}
 
-	cocos2d::ActionInterval *shake0 = cocos2d::MoveBy::create(0.02, shakeA);
+	//block 情况下不颤动
+	if (isBlock)
+	{
+		shakeA = cocos2d::Vec2(0, 0);
+		shakeB = cocos2d::Vec2(0, 0);
+	}
+
+	cocos2d::ActionInterval *shake0 = cocos2d::MoveBy::create(0.025, shakeA);
 	cocos2d::ActionInterval *shake1 = shake0->reverse();
-	cocos2d::ActionInterval *shake2 = cocos2d::MoveBy::create(0.02, shakeB);
+	cocos2d::ActionInterval *shake2 = cocos2d::MoveBy::create(0.025, shakeB);
 	cocos2d::ActionInterval *shake3 = shake2->reverse();
 	character->getSprite()->runAction(
 		cocos2d::Spawn::create(
@@ -238,10 +245,21 @@ void BattleSystem::showSufferDamageEffect(Character* character, Character::Orien
 			NULL
 		)
 	);
-	//闪红
-	character->getSprite()->runAction(
-		cocos2d::TintBy::create(0.1, 0, 255, 255)
-	);
+	if (isBlock)
+	{
+		showBlock(character);
+		//闪白
+		character->getSprite()->runAction(
+			cocos2d::TintBy::create(0.2, 255, 255, 255)
+		);
+	}
+	else
+	{
+		//闪红
+		character->getSprite()->runAction(
+			cocos2d::TintBy::create(0.2, 0, 255, 255)
+		);
+	}
 }
 
 void BattleSystem::showMiss(Character* character)
@@ -249,8 +267,8 @@ void BattleSystem::showMiss(Character* character)
 	cocos2d::Label* messageLabel = cocos2d::Label::createWithTTF("MISS", "fonts/arialuni.ttf", 22);
 	messageLabel->setTextColor(cocos2d::Color4B(0, 0, 255, 255));
 
-//	int positionXoffset = RandomNumber::getInstance()->randomInt(-10, 10);
-//	int positionYoffset = RandomNumber::getInstance()->randomInt(-10, 10);
+	//	int positionXoffset = RandomNumber::getInstance()->randomInt(-10, 10);
+	//	int positionYoffset = RandomNumber::getInstance()->randomInt(-10, 10);
 
 	cocos2d::Sprite* characterSprite = character->getSprite();
 	messageLabel->setPosition(
@@ -279,6 +297,36 @@ void BattleSystem::showMiss(Character* character)
 
 void BattleSystem::showBlock(Character* character)
 {
+	cocos2d::Label* messageLabel = cocos2d::Label::createWithTTF("BLOCK", "fonts/arialuni.ttf", 22);
+	messageLabel->setZOrder(20);
+//	messageLabel->setTextColor(cocos2d::Color4B(0, 0, 255, 255));
+
+	//	int positionXoffset = RandomNumber::getInstance()->randomInt(-10, 10);
+	//	int positionYoffset = RandomNumber::getInstance()->randomInt(-10, 10);
+
+	cocos2d::Sprite* characterSprite = character->getSprite();
+	messageLabel->setPosition(
+		characterSprite->getPosition().x,// + positionXoffset,
+		characterSprite->getPosition().y// + positionYoffset
+	);
+
+	//	characterSprite->addChild(messageLabel);
+	//	cocos2d::Node* parent = characterSprite->getScene();
+	//	parent->addChild(messageLabel);
+	MainLayer::getInstance()->addChild(messageLabel);
+
+	messageLabel->runAction(
+		cocos2d::Spawn::create(
+			cocos2d::Sequence::create(
+				cocos2d::DelayTime::create(0.3),
+				cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, messageLabel)),
+				NULL
+			),
+//			cocos2d::MoveBy::create(0.3, cocos2d::Vec2(0, 32)),
+			//			cocos2d::FadeOut::create(0.2),
+			NULL
+		)
+	);
 
 }
 
@@ -422,10 +470,7 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 		cout << "atk count:" << attackCount << endl;
 #endif
 	}
-	int realDamage = sufferAttack(b, attackCount);
-	showAttackEffect(a, hand);
-	showSufferDamageEffect(b, a->getOrientation(), realDamage);
-
+	int realDamage = sufferAttack(a, b, hand, attackCount);
 	//sphereEffect 调用点
 	Weapon* weapon = getWeapon(a, hand);
 	if (!weapon)
@@ -494,20 +539,21 @@ void BattleSystem::attack(Character* caster, std::vector<cocos2d::Point>& coords
 	}
 }
 
-int BattleSystem::sufferAttack(Character * c, int attackCount)
+int BattleSystem::sufferAttack(Character* a, Character * b, AttackHand hand, int attackCount)
 {
-	if (c->isPhysicalImmune())
+	if (b->isPhysicalImmune())
 	{
 #ifdef SHOWMESSAGE
-		cout << c->getName() << " is physical Immune!" << endl;
+		cout << b->getName() << " is physical Immune!" << endl;
 #endif
 		return 0;
 	}
-	int armorPoint = c->getArmorPoint();
+	int armorPoint = b->getArmorPoint();
 	int blockCount = 0;
-	if (isBlock(c))
+	bool block = isBlock(b);
+	if (block)
 	{
-		blockCount = getBlockCount(c);
+		blockCount = getBlockCount(b);
 #ifdef SHOWMESSAGE
 		cout << "block!" << endl;
 		cout << "blockCount:" << blockCount << endl;
@@ -520,8 +566,11 @@ int BattleSystem::sufferAttack(Character * c, int attackCount)
 	cout << "suffer damage:" << damage << endl;
 #endif
 
-	c->sufferHPEffect(-damage);
+	b->sufferHPEffect(-damage);
 	//showDamage(c, damage);
+
+	showAttackEffect(a, hand);
+	showSufferDamageEffect(b, a->getOrientation(), damage, block);
 
 	return damage;
 }

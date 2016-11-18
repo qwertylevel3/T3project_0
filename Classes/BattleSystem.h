@@ -40,11 +40,9 @@ protected:
 	void showOneHandEffect(Character* caster);
 	void showTwoHandEffect(Character* caster);
 	void showBowEffect(Character* caster);
-	void showSufferDamageEffect(Character* character,Character::Orientation direction,int damage);
+	void showSufferDamageEffect(Character* character,Character::Orientation direction,int damage,bool isBlock);
 //	void showDamage(Character* character,int damage);
 	void showMiss(Character* character);
-
-	//todo
 	void showBlock(Character* character);
 
 
@@ -59,7 +57,7 @@ protected:
 	// Parameter: Character * c
 	// Parameter: int attackCount
 	//************************************
-	int sufferAttack(Character* c, int attackCount);
+	int sufferAttack(Character* a,Character* b,AttackHand hand,int attackCount);
 
 	bool isInAtkArea(Character* a, Character* b, AttackHand hand);
 	bool isEvade(Character* a, Character* b, AttackHand hand);
