@@ -51,6 +51,8 @@ public:
 	void update();
 	void action();
 
+	void useActionPoint();
+
 	void startRound();
 	void endRound();
 
@@ -70,6 +72,7 @@ public:
 	//************************************
 	void die();
 	bool isDead();
+	void idle();
 	void moveUp();
 	void moveDown();
 	void moveLeft();
@@ -213,6 +216,7 @@ protected:
 	CC_SYNTHESIZE(int, MP, MP);
 	CC_SYNTHESIZE(int, chant, Chant);
 	CC_SYNTHESIZE(int, gold, Gold);
+	CC_SYNTHESIZE(int, actionPoint, ActionPoint);
 
 	CC_SYNTHESIZE(CharacterAttrHandler*, attrHandler, AttrHandler);
 

@@ -49,6 +49,8 @@ void GameController::startMission(int level)
 	MainLayer::getInstance()->loadStorey();
 	MaskLayer::getInstance()->loadStorey();
 	RoundSystem::getInstance()->loadStorey();
+
+	RoundSystem::getInstance()->start();
 }
 
 void GameController::initPlist()

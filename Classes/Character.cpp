@@ -176,32 +176,37 @@ bool Character::isDead()
 	return dead;
 }
 
+void Character::idle()
+{
+	useActionPoint();
+}
+
 void Character::moveUp()
 {
 	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveUp(this);
-	clearChant();
+	useActionPoint();
 }
 
 void Character::moveDown()
 {
 	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveDown(this);
-	clearChant();
+	useActionPoint();
 }
 
 void Character::moveLeft()
 {
 	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveLeft(this);
-	clearChant();
+	useActionPoint();
 }
 
 void Character::moveRight()
 {
 	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveRight(this);
-	clearChant();
+	useActionPoint();
 }
 
 void Character::setOrientationUp()
@@ -233,7 +238,10 @@ void Character::setOrientationRight()
 	Animate* action = Animate::create(standRightAnimation);
 	action->setDuration(0.1);
 	sprite->runAction(action);
+	int a=0;
 	setOrientation(Orientation::RIGHT);
+	int b = 5;
+	int c = a - b;
 }
 
 void Character::showMoveUpAnimation()
@@ -375,6 +383,7 @@ cocos2d::Node * Character::getParent()
 void Character::runSkill(std::string skillName)
 {
 	skillHandler->runSkill(skillName);
+	useActionPoint();
 }
 
 std::vector<cocos2d::Point> Character::getAtkArea()
@@ -681,8 +690,18 @@ void Character::action()
 	}
 }
 
+void Character::useActionPoint()
+{
+	actionPoint--;
+	if (actionPoint == 0)
+	{
+		this->endRound();
+	}
+}
+
 void Character::startRound()
 {
+	actionPoint = 1;
 	buffHandler->onRoundStart();
 	recalculateHP();
 	recalculateMP();
@@ -693,6 +712,8 @@ void Character::endRound()
 	buffHandler->onRoundEnd();
 	recalculateHP();
 	recalculateMP();
+	clearChant();
+	RoundSystem::getInstance()->sendNextRoundMessage();
 }
 
 void Character::recalculateHP()

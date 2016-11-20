@@ -1,4 +1,5 @@
 #include "RoundSystem.h"
+#include "2d/CCNode.h"
 #include "Character.h"
 #include "Dungeon.h"
 #include "Marco.h"
@@ -7,6 +8,8 @@
 #include "2d/CCAnimation.h"
 #include "MainLayer.h"
 #include "ZOrderManager.h"
+#include "base/CCEventListenerCustom.h"
+#include "ToolFunction.h"
 
 using namespace Field;
 
@@ -19,32 +22,36 @@ RoundSystem::~RoundSystem()
 	chooseArrow->release();
 }
 
-void RoundSystem::init()
+bool RoundSystem::init()
 {
+	if (!Node::init())
+	{
+		return false;
+	}
+
 	roundCount = 0;
 	chooseArrow = cocos2d::Sprite::create("chooseArrow.png");
 	chooseArrow->setZOrder(ZOrderManager::chooseArrowZ);
 	chooseArrow->retain();
+
+	listener = cocos2d::EventListenerCustom::create("roundOver", [=](cocos2d::EventCustom* event) {
+		nextRound();
+	});
+	_eventDispatcher->addEventListenerWithFixedPriority(listener, 1);
+	return true;
 }
 
 void RoundSystem::loadStorey()
 {
-	int index = 0;
-	Storey* storey = Dungeon::getInstance()->getStorey();
-	std::list<Character* >& allStoreyCharacter = storey->getAllCharacter();
-	for (std::list<Character*>::iterator iter = allStoreyCharacter.begin();
-		iter != allStoreyCharacter.end();
-		iter++)
+	allCharacter.clear();
+	curIndex = 0;
+
+	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+	std::list<Character*> storeyCharacters = storey->getAllCharacter();
+
+	for each (Character*  character in storeyCharacters)
 	{
-		allCharacter.push_back(*iter);
-		//初始化加载所有character的时候，将第一个行动设为player
-		if (isPlayer(*iter))
-		{
-			MainLayer::getInstance()->addChild(chooseArrow);
-			chooseArrow->setPosition((*iter)->getPosition()+cocos2d::Vec2(0,20));
-			curIndex = index;
-		}
-		index++;
+		allCharacter.push_back(character);
 	}
 }
 
@@ -53,39 +60,10 @@ int RoundSystem::getRoundCount()
 	return roundCount;
 }
 
-void RoundSystem::nextRound()
+void RoundSystem::sendNextRoundMessage()
 {
-	allCharacter[curIndex]->endRound();
-	KeyController::getInstance()->setBlock(true);
-	do
-	{
-		nextIndex();
-	} while (allCharacter[curIndex]->isDead());
-
-	roundCount++;
-	allCharacter[curIndex]->startRound();
-
-	chooseArrow->setPosition(allCharacter[curIndex]->getPosition() + cocos2d::Vec2(0, 20));
-
-//	//如果这个character在player视野内，则延迟一会，造成一种回合的假象
-//	cocos2d::Point coord = allCharacter[curIndex]->getMapCoord();
-//	if (Player::getInstance()->isInViewSize(coord))
-//	{
-//		cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.2);
-//		cocos2d::CallFunc *callFunc = cocos2d::CallFunc::create(this, callfunc_selector(RoundSystem::round));
-//		cocos2d::Sequence *action = cocos2d::Sequence::create(delayTime, callFunc, NULL);
-
-//		allCharacter[curIndex]->getSprite()->runAction(action);
-//	}
-//	else
-//	{
-//		round();
-//	}
-		cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.2);
-		cocos2d::CallFunc *callFunc = cocos2d::CallFunc::create(this, callfunc_selector(RoundSystem::round));
-		cocos2d::Sequence *action = cocos2d::Sequence::create(delayTime, callFunc, NULL);
-
-		allCharacter[curIndex]->getSprite()->runAction(action);
+	cocos2d::EventCustom event("roundOver");
+	_eventDispatcher->dispatchEvent(&event);
 }
 
 void RoundSystem::nextIndex()
@@ -104,48 +82,51 @@ bool RoundSystem::isPlayer(Character* character)
 
 void RoundSystem::round()
 {
-	int index = curIndex;
-	std::cout << roundCount << std::endl;
+	CCASSERT(!allCharacter.empty(), "empty character list in roundSys");
 
-	Character* curCharacter = allCharacter[index];
-	//更新character信息，包括buff
+	Character* curCharacter = allCharacter[curIndex];
+	curCharacter->startRound();
 	curCharacter->update();
 
-	if (isPlayer(allCharacter[index]))
+	if (isPlayer(curCharacter))
 	{
-		//当为player character，重新解除键盘锁定，清除递归栈
-		KeyController::getInstance()->setBlock(false);
 		playerAction();
 	}
 	else
 	{
-		KeyController::getInstance()->setBlock(true);
-		//这里下一个character会递归调用nextRound，直到为player character
 		NPCAction(curCharacter);
 	}
-
-	//curCharacter->update();
 }
 
 void RoundSystem::NPCAction(Character* character)
 {
-	if (character->isActionAble())
+	while (character->getActionPoint() != 0)
 	{
 		character->action();
-
-		nextRound();
-	}
-	else
-	{
-		nextRound();
 	}
 }
 
 void RoundSystem::playerAction()
 {
-	if (!Player::getInstance()->getcharacterPtr()->isActionAble())
+	KeyController::getInstance()->setBlock(false);
+}
+
+void RoundSystem::start()
+{
+	round();
+}
+
+void RoundSystem::nextRound()
+{
+	if (isPlayer(allCharacter[curIndex]))
 	{
 		KeyController::getInstance()->setBlock(true);
-		nextRound();
 	}
+
+	do
+	{
+		nextIndex();
+	} while (allCharacter[curIndex]->isDead());
+
+	round();
 }

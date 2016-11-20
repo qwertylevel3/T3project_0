@@ -3,22 +3,26 @@
 #include "Singleton.h"
 #include <vector>
 #include "base/ccTypes.h"
+#include "2d/CCNode.h"
 
 class Character;
 
 namespace cocos2d
 {
 	class Sprite;
+	class EventListenerCustom;
 }
 
-class RoundSystem:public cocos2d::Ref,public Singleton<RoundSystem>
+class RoundSystem:public cocos2d::Node,public Singleton<RoundSystem>
 {
 public:
 	RoundSystem();
 	~RoundSystem();
-	void init();
+	void start();
+	bool init();
 	void loadStorey();
 	int getRoundCount();
+	void sendNextRoundMessage();
 	void nextRound();
 protected:
 	void nextIndex();
@@ -30,5 +34,6 @@ protected:
 	int curIndex;
 	std::vector<Character*> allCharacter;
 	cocos2d::Sprite* chooseArrow;
+	cocos2d::EventListenerCustom* listener;
 };
 

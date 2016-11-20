@@ -190,9 +190,7 @@ void Player::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 
 void Player::playerAttack(cocos2d::EventKeyboard::KeyCode keyCode)
 {
-
 	characterPtr->runSkill("attack");
-	RoundSystem::getInstance()->nextRound();
 }
 
 void Player::playerMove(cocos2d::EventKeyboard::KeyCode keyCode)
@@ -206,19 +204,15 @@ void Player::playerMove(cocos2d::EventKeyboard::KeyCode keyCode)
 	{
 	case EventKeyboard::KeyCode::KEY_UP_ARROW:
 		characterPtr->moveUp();
-		RoundSystem::getInstance()->nextRound();
 		break;
 	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
 		characterPtr->moveDown();
-		RoundSystem::getInstance()->nextRound();
 		break;
 	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
 		characterPtr->moveLeft();
-		RoundSystem::getInstance()->nextRound();
 		break;
 	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
 		characterPtr->moveRight();
-		RoundSystem::getInstance()->nextRound();
 		break;
 	}
 

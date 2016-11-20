@@ -40,6 +40,10 @@ void AICommonEnemy::update()
 			}
 		}
 	}
+	else
+	{
+		characterPtr->idle();
+	}
 }
 
 void AICommonEnemy::seek(Character* target)
@@ -52,6 +56,22 @@ void AICommonEnemy::seek(Character* target)
 
 	if (nextStep == endPoint)
 	{
+		if (startPoint.x>endPoint.x)
+		{
+			characterPtr->setOrientationLeft();
+		}
+		else if (startPoint.x<endPoint.x)
+		{
+			characterPtr->setOrientationRight();
+		}
+		if (startPoint.y>endPoint.y)
+		{
+			characterPtr->setOrientationUp();
+		}
+		else if(startPoint.y<endPoint.y)
+		{
+			characterPtr->setOrientationDown();
+		}
 		return;
 	}
 
