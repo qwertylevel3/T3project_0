@@ -14,6 +14,8 @@ class Armor;
 class Accessory;
 class AIBase;
 class InventoryHandler;
+class RoundHandler;
+
 
 namespace Buff
 {
@@ -51,7 +53,8 @@ public:
 	void update();
 	void action();
 
-	void useActionPoint();
+	void processAction(float delayTime);
+	int getActionPoint();
 
 	void startRound();
 	void endRound();
@@ -190,7 +193,11 @@ protected:
 	std::vector<cocos2d::Point> getBowAtkSelect();
 
 	//////////////////////////////////////////////////////////////////////////
+	
+	//round handler
+	RoundHandler* roundHandler;
 
+	//DOGTAG : could identify unique character
 	DogTag dogTag;
 
 	//AI......
@@ -216,8 +223,6 @@ protected:
 	CC_SYNTHESIZE(int, MP, MP);
 	CC_SYNTHESIZE(int, chant, Chant);
 	CC_SYNTHESIZE(int, gold, Gold);
-	CC_SYNTHESIZE(int, actionPoint, ActionPoint);
-
 	CC_SYNTHESIZE(CharacterAttrHandler*, attrHandler, AttrHandler);
 
 	bool dead;

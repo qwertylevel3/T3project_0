@@ -29,6 +29,8 @@ using namespace Field;
 
 Character::Character()
 {
+	roundHandler = new RoundHandler(this);
+
 	skillHandler = new Skill::SkillHandler();
 
 	Skill::Attack* attackSkill = new Skill::Attack(this);
@@ -40,7 +42,6 @@ Character::Character()
 	orientation = DOWN;
 	dead = false;
 	gold = 0;
-	actionPoint = 1;
 
 	leftHand = nullptr;
 	rightHand = nullptr;
@@ -186,35 +187,35 @@ bool Character::isDead()
 
 void Character::idle()
 {
-	useActionPoint();
+	processAction(0);
 }
 
 void Character::moveUp()
 {
 	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveUp(this);
-	useActionPoint();
+	processAction(0);
 }
 
 void Character::moveDown()
 {
 	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveDown(this);
-	useActionPoint();
+	processAction(0);
 }
 
 void Character::moveLeft()
 {
 	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveLeft(this);
-	useActionPoint();
+	processAction(0);
 }
 
 void Character::moveRight()
 {
 	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveRight(this);
-	useActionPoint();
+	processAction(0);
 }
 
 void Character::setOrientationUp()
@@ -391,7 +392,7 @@ cocos2d::Node * Character::getParent()
 void Character::runSkill(std::string skillName)
 {
 	skillHandler->runSkill(skillName);
-	useActionPoint();
+	processAction(0.2);
 }
 
 std::vector<cocos2d::Point> Character::getAtkArea()
@@ -698,18 +699,19 @@ void Character::action()
 	}
 }
 
-void Character::useActionPoint()
+void Character::processAction(float delayTime)
 {
-	actionPoint--;
-	if (actionPoint <= 0)
-	{
-		this->endRound();
-	}
+	roundHandler->processAction(delayTime);
+}
+
+int Character::getActionPoint()
+{
+	return roundHandler->getActionPoint();
 }
 
 void Character::startRound()
 {
-	actionPoint = 1;
+	roundHandler->startRound();
 	buffHandler->onRoundStart();
 	recalculateHP();
 	recalculateMP();
@@ -721,7 +723,6 @@ void Character::endRound()
 	recalculateHP();
 	recalculateMP();
 	clearChant();
-	RoundSystem::getInstance()->sendNextRoundMessage();
 }
 
 void Character::recalculateHP()

@@ -26,6 +26,12 @@ RoundHandler::~RoundHandler()
 {
 }
 
+void RoundHandler::startRound()
+{
+	actionPoint = 1;
+	delayTime = 0;
+}
+
 void RoundHandler::processAction(float delayTime)
 {
 	delayTime += delayTime;
@@ -33,6 +39,8 @@ void RoundHandler::processAction(float delayTime)
 
 	if (actionPoint <= 0)
 	{
+		characterPtr->endRound();
+
 		cocos2d::Sprite* characterSprite = characterPtr->getSprite();
 
 		cocos2d::DelayTime* delayAction = cocos2d::DelayTime::create(delayTime);
@@ -40,6 +48,11 @@ void RoundHandler::processAction(float delayTime)
 		cocos2d::Sequence *action = cocos2d::Sequence::create(delayAction, callFun, NULL);
 		characterSprite->runAction(action);
 	}
+}
+
+int RoundHandler::getActionPoint()
+{
+	return actionPoint;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -160,16 +173,17 @@ void RoundSystem::nextRound()
 		nextIndex();
 	} while (allCharacter[curIndex]->isDead());
 
-	if (isPlayer(allCharacter[curIndex]))
-	{
-		cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.2);
-		cocos2d::CallFunc *callFun = cocos2d::CallFunc::create(this, callfunc_selector(RoundSystem::round));
-		cocos2d::Sequence *action = cocos2d::Sequence::create(delayTime, callFun, NULL);
-		//this->runAction(action);
-		allCharacter[curIndex]->getSprite()->runAction(action);
-	}
-	else
-	{
-		round();
-	}
+//	if (isPlayer(allCharacter[curIndex]))
+//	{
+//		cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.2);
+//		cocos2d::CallFunc *callFun = cocos2d::CallFunc::create(this, callfunc_selector(RoundSystem::round));
+//		cocos2d::Sequence *action = cocos2d::Sequence::create(delayTime, callFun, NULL);
+//		//this->runAction(action);
+//		allCharacter[curIndex]->getSprite()->runAction(action);
+//	}
+//	else
+//	{
+//		round();
+//	}
+	round();
 }

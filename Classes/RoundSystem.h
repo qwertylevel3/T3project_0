@@ -19,8 +19,9 @@ class RoundHandler
 public:
 	RoundHandler(Character* character);
 	~RoundHandler();
-//	void useActionPoint();
+	void startRound();
 	void processAction(float delayTime);
+	int getActionPoint();
 protected:
 	Character* characterPtr;
 	int actionPoint;
