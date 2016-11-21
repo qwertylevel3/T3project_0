@@ -25,9 +25,9 @@ Player::~Player()
 
 void Player::init()
 {
-	characterPtr = CharacterFactory::getInstance()->getCharacter("Actor0");
+	characterPtr = CharacterFactory::getInstance()->getCharacter("Vergil");
 
-	setName("qwerty");
+	setName("vergil");
 
 	controlMode = NormalMode;
 

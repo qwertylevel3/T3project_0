@@ -17,6 +17,7 @@ CharacterFactory::~CharacterFactory()
 void CharacterFactory::init()
 {
 	CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("test_character.plist");
+	CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("vergil.plist");
 
 	initCharacterModel("character.xml");
 }

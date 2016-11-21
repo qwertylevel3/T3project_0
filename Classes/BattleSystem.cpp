@@ -238,26 +238,30 @@ void BattleSystem::showSufferDamageEffect(Character* character, Character::Orien
 	cocos2d::ActionInterval *shake1 = shake0->reverse();
 	cocos2d::ActionInterval *shake2 = cocos2d::MoveBy::create(0.025, shakeB);
 	cocos2d::ActionInterval *shake3 = shake2->reverse();
-	character->getSprite()->runAction(
-		cocos2d::Spawn::create(
-			action,
-			cocos2d::Sequence::create(shake0, shake1, shake2, shake3, NULL),
-			NULL
-		)
-	);
+
 	if (isBlock)
 	{
 		//showBlock(character);
 		//иа╟в
 		character->getSprite()->runAction(
-			cocos2d::TintBy::create(0.2, 0, 0, 0)
+			cocos2d::Spawn::create(
+				action,
+				cocos2d::Sequence::create(shake0, shake1, shake2, shake3, NULL),
+				cocos2d::TintBy::create(0.1, 0, 0, 0),
+				NULL
+			)
 		);
 	}
 	else
 	{
 		//иа╨Л
 		character->getSprite()->runAction(
-			cocos2d::TintBy::create(0.2, 0, 255, 255)
+			cocos2d::Spawn::create(
+				action,
+				cocos2d::Sequence::create(shake0, shake1, shake2, shake3, NULL),
+				cocos2d::TintBy::create(0.1, 0, 255, 255),
+				NULL
+			)
 		);
 	}
 }
@@ -299,10 +303,10 @@ void BattleSystem::showBlock(Character* character)
 {
 	cocos2d::Label* messageLabel = cocos2d::Label::createWithTTF("BLOCK", "fonts/arialuni.ttf", 22);
 	messageLabel->setZOrder(20);
-//	messageLabel->setTextColor(cocos2d::Color4B(0, 0, 255, 255));
+	//	messageLabel->setTextColor(cocos2d::Color4B(0, 0, 255, 255));
 
-	//	int positionXoffset = RandomNumber::getInstance()->randomInt(-10, 10);
-	//	int positionYoffset = RandomNumber::getInstance()->randomInt(-10, 10);
+		//	int positionXoffset = RandomNumber::getInstance()->randomInt(-10, 10);
+		//	int positionYoffset = RandomNumber::getInstance()->randomInt(-10, 10);
 
 	cocos2d::Sprite* characterSprite = character->getSprite();
 	messageLabel->setPosition(
@@ -322,12 +326,11 @@ void BattleSystem::showBlock(Character* character)
 				cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, messageLabel)),
 				NULL
 			),
-//			cocos2d::MoveBy::create(0.3, cocos2d::Vec2(0, 32)),
-			//			cocos2d::FadeOut::create(0.2),
+			//			cocos2d::MoveBy::create(0.3, cocos2d::Vec2(0, 32)),
+						//			cocos2d::FadeOut::create(0.2),
 			NULL
 		)
 	);
-
 }
 
 Weapon* BattleSystem::getWeapon(Character* c, AttackHand hand)
@@ -450,6 +453,7 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 #ifdef SHOWMESSAGE
 		cout << "evade!" << endl;
 #endif
+		showAttackEffect(a, hand);
 		showMiss(b);
 		return;
 	}
