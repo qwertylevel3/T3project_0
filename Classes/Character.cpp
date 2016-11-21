@@ -95,7 +95,12 @@ void Character::showHPEffect(int hpOffset)
 {
 	int textSize = 16 + 16 * abs(hpOffset) / 10;
 	cocos2d::Label* messageLabel = cocos2d::Label::createWithTTF("", "fonts/arialuni.ttf", textSize);
-	messageLabel->setString(ToolFunction::int2string(hpOffset));
+	std::string labelText = ToolFunction::int2string(hpOffset);
+	if (hpOffset>0)
+	{
+		labelText = "+" + labelText;
+	}
+	messageLabel->setString(labelText);
 	if (hpOffset >= 0)
 	{
 		messageLabel->setTextColor(cocos2d::Color4B(0, 255, 0, 255));
@@ -116,28 +121,46 @@ void Character::showHPEffect(int hpOffset)
 	//	parent->addChild(messageLabel);
 	MainLayer::getInstance()->addChild(messageLabel);
 
-	cocos2d::Vec2 jumpPosition;
-	int jumpHeight;
-
-	jumpPosition.x = RandomNumber::getInstance()->randomInt(-64, 64);
-	jumpHeight = 64 + hpOffset / 10;
-	jumpHeight = jumpHeight > 128 ? 128 : jumpHeight;
-	jumpPosition.y = jumpHeight / 2;
-
-	messageLabel->runAction(
-		cocos2d::Spawn::create(
-			cocos2d::Sequence::create(
-				cocos2d::DelayTime::create(0.5),
-				cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, messageLabel)),
+	if (hpOffset > 0)
+	{
+		messageLabel->runAction(
+			cocos2d::Spawn::create(
+				cocos2d::Sequence::create(
+					cocos2d::DelayTime::create(0.5),
+					cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, messageLabel)),
+					NULL
+				),
+				cocos2d::MoveBy::create(0.2, cocos2d::Vec2(0, 32)),
 				NULL
-			),
-			//cocos2d::MoveBy::create(0.2, cocos2d::Vec2(0, 32)),
-			//			cocos2d::FadeOut::create(0.2),
-			//cocos2d::JumpBy::create(0.2, cocos2d::Vec2(64, 0),64, 0.2),
-			cocos2d::JumpBy::create(0.5, jumpPosition, jumpHeight, 1),
-			NULL
-		)
-	);
+			)
+		);
+
+	}
+	else
+	{
+		cocos2d::Vec2 jumpPosition;
+		int jumpHeight;
+
+		jumpPosition.x = RandomNumber::getInstance()->randomInt(-64, 64);
+		jumpHeight = 64 + hpOffset / 10;
+		jumpHeight = jumpHeight > 128 ? 128 : jumpHeight;
+		jumpPosition.y = jumpHeight / 2;
+
+		messageLabel->runAction(
+			cocos2d::Spawn::create(
+				cocos2d::Sequence::create(
+					cocos2d::DelayTime::create(0.5),
+					cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, messageLabel)),
+					NULL
+				),
+				//cocos2d::MoveBy::create(0.2, cocos2d::Vec2(0, 32)),
+				//			cocos2d::FadeOut::create(0.2),
+				//cocos2d::JumpBy::create(0.2, cocos2d::Vec2(64, 0),64, 0.2),
+				cocos2d::JumpBy::create(0.5, jumpPosition, jumpHeight, 1),
+				NULL
+			)
+		);
+	}
 }
 
 bool Character::sufferMPEffect(int mpOffset)
@@ -247,7 +270,7 @@ void Character::setOrientationRight()
 	Animate* action = Animate::create(standRightAnimation);
 	action->setDuration(0.1);
 	sprite->runAction(action);
-	int a=0;
+	int a = 0;
 	setOrientation(Orientation::RIGHT);
 	int b = 5;
 	int c = a - b;
