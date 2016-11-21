@@ -40,6 +40,7 @@ Character::Character()
 	orientation = DOWN;
 	dead = false;
 	gold = 0;
+	actionPoint = 1;
 
 	leftHand = nullptr;
 	rightHand = nullptr;
@@ -103,13 +104,10 @@ void Character::showHPEffect(int hpOffset)
 		messageLabel->setTextColor(cocos2d::Color4B(255, 0, 0, 255));
 	}
 
-	int positionXoffset = RandomNumber::getInstance()->randomInt(-10, 10);
-	int positionYoffset = RandomNumber::getInstance()->randomInt(-10, 10);
-
 	cocos2d::Sprite* characterSprite = this->getSprite();
 	messageLabel->setPosition(
-		characterSprite->getPosition().x + positionXoffset,
-		characterSprite->getPosition().y + positionYoffset
+		characterSprite->getPosition().x,
+		characterSprite->getPosition().y
 	);
 
 	//	characterSprite->addChild(messageLabel);
@@ -117,15 +115,25 @@ void Character::showHPEffect(int hpOffset)
 	//	parent->addChild(messageLabel);
 	MainLayer::getInstance()->addChild(messageLabel);
 
+	cocos2d::Vec2 jumpPosition;
+	int jumpHeight;
+
+	jumpPosition.x = RandomNumber::getInstance()->randomInt(-64, 64);
+	jumpHeight = 64 + hpOffset / 10;
+	jumpHeight = jumpHeight > 128 ? 128 : jumpHeight;
+	jumpPosition.y = jumpHeight / 2;
+
 	messageLabel->runAction(
 		cocos2d::Spawn::create(
 			cocos2d::Sequence::create(
-				cocos2d::DelayTime::create(0.2),
+				cocos2d::DelayTime::create(0.5),
 				cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, messageLabel)),
 				NULL
 			),
-			cocos2d::MoveBy::create(0.2, cocos2d::Vec2(0, 32)),
+			//cocos2d::MoveBy::create(0.2, cocos2d::Vec2(0, 32)),
 			//			cocos2d::FadeOut::create(0.2),
+			//cocos2d::JumpBy::create(0.2, cocos2d::Vec2(64, 0),64, 0.2),
+			cocos2d::JumpBy::create(0.5, jumpPosition, jumpHeight, 1),
 			NULL
 		)
 	);
@@ -693,7 +701,7 @@ void Character::action()
 void Character::useActionPoint()
 {
 	actionPoint--;
-	if (actionPoint == 0)
+	if (actionPoint <= 0)
 	{
 		this->endRound();
 	}

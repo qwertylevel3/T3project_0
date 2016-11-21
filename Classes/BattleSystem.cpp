@@ -247,10 +247,10 @@ void BattleSystem::showSufferDamageEffect(Character* character, Character::Orien
 	);
 	if (isBlock)
 	{
-		showBlock(character);
+		//showBlock(character);
 		//иа╟в
 		character->getSprite()->runAction(
-			cocos2d::TintBy::create(0.2, 255, 255, 255)
+			cocos2d::TintBy::create(0.2, 0, 0, 0)
 		);
 	}
 	else

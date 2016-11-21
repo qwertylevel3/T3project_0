@@ -13,6 +13,22 @@ namespace cocos2d
 	class EventListenerCustom;
 }
 
+
+class RoundHandler
+{
+public:
+	RoundHandler(Character* character);
+	~RoundHandler();
+//	void useActionPoint();
+	void processAction(float delayTime);
+protected:
+	Character* characterPtr;
+	int actionPoint;
+	float delayTime;
+
+};
+	
+
 class RoundSystem:public cocos2d::Node,public Singleton<RoundSystem>
 {
 public:
