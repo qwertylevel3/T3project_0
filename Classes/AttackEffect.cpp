@@ -11,7 +11,7 @@ using namespace Skill;
 
 AttackEffect::AttackEffect()
 {
-	cocos2d::SpriteFrame* frame0 = cocos2d::SpriteFrame::create("effect_0.png",cocos2d::Rect(0,0,32,32));
+	cocos2d::SpriteFrame* frame0 = cocos2d::SpriteFrame::create("battle/effect_0.png",cocos2d::Rect(0,0,32,32));
 	cocos2d::Vector<cocos2d::SpriteFrame*> frameVec;
 	frameVec.pushBack(frame0);
 	animation = cocos2d::Animation::createWithSpriteFrames(frameVec, 0.1f);
@@ -130,7 +130,7 @@ void Skill::AttackEffect::showBowEffect(Character* caster, std::vector<cocos2d::
 	cocos2d::Point targetPosition = storey->getTilePosition(targetCoord);
 	cocos2d::Node* scene = caster->getParent();
 
-	cocos2d::Sprite* arrowSprite = cocos2d::Sprite::create("arrow_effect.png");
+	cocos2d::Sprite* arrowSprite = cocos2d::Sprite::create("battle/arrow_effect.png");
 	arrowSprite->setPosition(oriPosition);
 	scene->addChild(arrowSprite, 15);
 	cocos2d::ActionInterval* moveAction = cocos2d::CCMoveTo::create(0.3, cocos2d::Vec2(targetPosition));

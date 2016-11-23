@@ -26,7 +26,7 @@ InventoryFactory::~InventoryFactory()
 
 void InventoryFactory::init()
 {
-	CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("weapon.plist");
+//	CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("weapon.plist");
 
 	tinyxml2::XMLDocument doc;
 	doc.LoadFile("inventory.xml");

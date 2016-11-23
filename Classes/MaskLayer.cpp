@@ -47,7 +47,7 @@ void MaskLayer::update(float dt)
 	//////////////////////////////////////////////////////////////////////////
 	mask->begin();
 
-	Sprite* bk = Sprite::create("dark.png");
+	Sprite* bk = Sprite::create("mask/dark.png");
 	bk->setScale(storey->getWidth() * 32 / bk->getContentSize().width);
 	bk->setPosition(storey->getWidth() * 16, storey->getHeight() * 16);
 
@@ -122,7 +122,7 @@ void MaskLayer::loadStorey()
 		}
 	}
 
-	darkOff();
+	darkOn();
 }
 
 void MaskLayer::addLight(Illuminant* light)

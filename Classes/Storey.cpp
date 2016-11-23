@@ -18,7 +18,7 @@ Storey::Storey(int w, int h)
 		characterMap.push_back(nullptr);
 	}
 	inventoryHandler = new StoreyInventoryHandler(w, h);
-	picturePath = FileUtils::getInstance()->fullPathForFilename("tile.png");
+	picturePath = FileUtils::getInstance()->fullPathForFilename("tile/tile.png");
 	width = w;
 	height = h;
 	tileMap = nullptr;

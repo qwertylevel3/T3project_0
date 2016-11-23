@@ -212,6 +212,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\MPBuff.cpp" />
     <ClCompile Include="..\Classes\MPEffect.cpp" />
     <ClCompile Include="..\Classes\PhysicalImmuneBuff.cpp" />
+    <ClCompile Include="..\Classes\ResourceManager.cpp" />
     <ClCompile Include="..\Classes\SelectorBase.cpp" />
     <ClCompile Include="..\Classes\SingleDirectionSearchSelector.cpp" />
     <ClCompile Include="..\Classes\SkillBase.cpp" />
@@ -344,6 +345,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MPBuff.h" />
     <ClInclude Include="..\Classes\MPEffect.h" />
     <ClInclude Include="..\Classes\PhysicalImmuneBuff.h" />
+    <ClInclude Include="..\Classes\ResourceManager.h" />
     <ClInclude Include="..\Classes\SelectorBase.h" />
     <ClInclude Include="..\Classes\SingleDirectionSearchSelector.h" />
     <ClInclude Include="..\Classes\SkillBase.h" />

@@ -24,7 +24,7 @@ void TileInventoryHandler::addInventory(Inventory* inventory)
 {
 	if (isEmpty())
 	{
-		sprite = cocos2d::Sprite::create("inventory.png");
+		sprite = cocos2d::Sprite::create("sys/inventory.png");
 		Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 		int storeyHeight = storey->getHeight();
 		sprite->setPosition(cocos2d::Point(coord.x * 32 + 16, (storeyHeight - coord.y) * 32 - 16));

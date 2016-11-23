@@ -26,14 +26,14 @@ void DialogueDriver::init()
 	curIndex = 0;
 	curDialogue = nullptr;
 
-	dialogBk = cocos2d::Sprite::create("menu.png",cocos2d::Rect(0,0,740,150));
+	dialogBk = cocos2d::Sprite::create("HUD/menu.png",cocos2d::Rect(0,0,740,150));
 	HudLayer::getInstance()->addChild(dialogBk);
 	dialogBk->setLocalZOrder(1);
 	dialogBk->setVisible(false);
 
 	dialogBk->setPosition(400, 100);
 
-	cocos2d::CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("actor.plist");
+	cocos2d::CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("dialogue/actor.plist");
 	
 	Sprite* testActor0Sprite = Sprite::createWithSpriteFrameName("testActor0.png");
 	Sprite* testActor1Sprite = Sprite::createWithSpriteFrameName("testActor1.png");

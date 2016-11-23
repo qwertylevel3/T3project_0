@@ -459,7 +459,10 @@
     <ClCompile Include="..\Classes\Illuminant.cpp">
       <Filter>src\mask</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ZOrderManager.cpp" />
+    <ClCompile Include="..\Classes\ZOrderManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ResourceManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -849,7 +852,10 @@
     <ClInclude Include="..\Classes\Illuminant.h">
       <Filter>src\mask</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\ZOrderManager.h" />
+    <ClInclude Include="..\Classes\ZOrderManager.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ResourceManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

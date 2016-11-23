@@ -12,7 +12,7 @@ Illuminant::Illuminant(Character* c)
 
 	size = c->getViewSize();
 
-	light = cocos2d::Sprite::create("testLight2.png");
+	light = cocos2d::Sprite::create("mask/testLight2.png");
 	cocos2d::BlendFunc func0 = { GL_ZERO, GL_ONE_MINUS_SRC_ALPHA };
 	light->setBlendFunc(func0);
 

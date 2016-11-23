@@ -10,7 +10,7 @@
 HudMenu::HudMenu(cocos2d::Rect rect)
 {
 	itemIndex = 0;
-	sprite = cocos2d::Sprite::create("menu.png", rect);
+	sprite = cocos2d::Sprite::create("HUD/menu.png", rect);
 	HudLayer::getInstance()->addChild(sprite, 2);
 	marginal.x = 10;
 	marginal.y = 10;

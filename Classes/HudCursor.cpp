@@ -7,7 +7,7 @@ USING_NS_CC;
 
 HudCursor::HudCursor()
 {
-	sprite = CCSprite::create("cursor.png");
+	sprite = CCSprite::create("HUD/cursor.png");
 	sprite->retain();
 }
 

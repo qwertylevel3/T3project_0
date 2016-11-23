@@ -19,7 +19,7 @@ HudPlayerStateMenu::~HudPlayerStateMenu()
 
 void HudPlayerStateMenu::init()
 {
-	bk = Sprite::create("StateMenu.png");
+	bk = Sprite::create("HUD/StateMenu.png");
 	HudLayer::getInstance()->addChild(bk);
 
 	playerNameLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);

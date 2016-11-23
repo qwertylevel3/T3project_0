@@ -257,7 +257,7 @@ void Player::showAtkArea()
 	for each (cocos2d::Point atkCoord in atkCoords)
 	{
 		cocos2d::Point atkPosition = storey->getTilePosition(atkCoord);
-		cocos2d::Sprite* atkSprite = cocos2d::Sprite::create("targetArea.png");
+		cocos2d::Sprite* atkSprite = cocos2d::Sprite::create("sys/targetArea.png");
 		targetSprites.push_back(atkSprite);
 		atkSprite->setPosition(atkPosition);
 		MainLayer::getInstance()->addChild(atkSprite, 20);

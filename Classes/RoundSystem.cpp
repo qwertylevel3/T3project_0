@@ -74,7 +74,7 @@ bool RoundSystem::init()
 	}
 
 	roundCount = 0;
-	chooseArrow = cocos2d::Sprite::create("chooseArrow.png");
+	chooseArrow = cocos2d::Sprite::create("sys/chooseArrow.png");
 	chooseArrow->setZOrder(ZOrderManager::chooseArrowZ);
 	chooseArrow->retain();
 
