@@ -122,7 +122,7 @@ void MaskLayer::loadStorey()
 		}
 	}
 
-	darkOn();
+	darkOff();
 }
 
 void MaskLayer::addLight(Illuminant* light)

@@ -3,7 +3,7 @@
 <monsterBox>
 	<monster>
 		<name>Slime</name>
-		<characterName>Actor0</characterName>
+		<characterName>Slime</characterName>
 		<physicalImmune>0</physicalImmune>
 		<magicImmune>0</magicImmune>
 		<moveAble>1</moveAble>
@@ -15,7 +15,7 @@
 		<intellect>0</intellect>
 		<agility>3</agility>
 		<luck>0</luck>
-		<viewSize>3</viewSize>
+		<viewSize>10</viewSize>
 		<maxHP>100</maxHP>
 		<maxMP>0</maxMP>
 	</monster>

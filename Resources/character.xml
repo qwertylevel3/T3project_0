@@ -73,4 +73,40 @@
 			<frameName>10.png</frameName>
 		</standRightAnimation>
 	</character>
+	<character>
+		<name>Slime</name>
+		<firstFrame>slime1.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>slime4.png</frameName>
+			<frameName>slime5.png</frameName>
+			<frameName>slime6.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>slime1.png</frameName>
+			<frameName>slime2.png</frameName>
+			<frameName>slime3.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>slime7.png</frameName>
+			<frameName>slime8.png</frameName>
+			<frameName>slime9.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>slime10.png</frameName>
+			<frameName>slime11.png</frameName>
+			<frameName>slime12.png</frameName>
+		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>slime4.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>slime1.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>slime7.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>slime10.png</frameName>
+		</standRightAnimation>
+	</character>
 </characterBox>

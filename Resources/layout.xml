@@ -30,11 +30,11 @@
 		<y>30</y>
 	</barSize>
 	<hpBarPosition>
-		<x>400</x>
+		<x>350</x>
 		<y>45</y>
 	</hpBarPosition>
 	<mpBarPosition>
-		<x>400</x>
+		<x>350</x>
 		<y>15</y>
 	</mpBarPosition>
 </layout>

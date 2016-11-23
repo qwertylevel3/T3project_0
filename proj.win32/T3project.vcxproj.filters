@@ -463,6 +463,7 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\HudBar.cpp" />
+    <ClCompile Include="..\Classes\HudMessageBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -856,6 +857,7 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HudBar.h" />
+    <ClInclude Include="..\Classes\HudMessageBox.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
