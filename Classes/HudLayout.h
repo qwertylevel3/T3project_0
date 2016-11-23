@@ -20,5 +20,9 @@ protected:
 
 	CC_SYNTHESIZE(cocos2d::Size, leafMenuSize, LeafMenuSize);
 	CC_SYNTHESIZE(cocos2d::Point, leafMenuPosition, LeafMenuPosition);
+
+	CC_SYNTHESIZE(cocos2d::Size, barSize, BarSize);
+	CC_SYNTHESIZE(cocos2d::Point, hpBarPosition, HpBarPosition);
+	CC_SYNTHESIZE(cocos2d::Point, mpBarPosition, MpBarPosition);
 };
 

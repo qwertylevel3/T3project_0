@@ -462,7 +462,7 @@
     <ClCompile Include="..\Classes\ZOrderManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ResourceManager.cpp" />
+    <ClCompile Include="..\Classes\HudBar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -855,7 +855,7 @@
     <ClInclude Include="..\Classes\ZOrderManager.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\ResourceManager.h" />
+    <ClInclude Include="..\Classes\HudBar.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

@@ -25,4 +25,16 @@
 		<x>600</x>
 		<y>350</y>
 	</leafMenuPosition>
+	<barSize>
+		<x>150</x>
+		<y>30</y>
+	</barSize>
+	<hpBarPosition>
+		<x>400</x>
+		<y>45</y>
+	</hpBarPosition>
+	<mpBarPosition>
+		<x>400</x>
+		<y>15</y>
+	</mpBarPosition>
 </layout>

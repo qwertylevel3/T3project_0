@@ -15,7 +15,6 @@ public:
 	void update();
 	void show();
 	void hide();
-	void addSender(HudSender* sender);
 protected:
 	std::vector<HudSender* > senderList;
 };

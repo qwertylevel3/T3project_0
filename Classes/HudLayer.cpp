@@ -5,6 +5,7 @@
 #include "HudPlayerStateMenu.h"
 #include "DialogueSystem.h"
 #include "HudLayout.h"
+#include "HudBar.h"
 
 USING_NS_CC;
 
@@ -27,6 +28,9 @@ bool HudLayer::init()
 	HudMenuSystem::getInstance()->init();
 	HudPlayerStateMenu::getInstance()->init();
 	DialogueSystem::getInstance()->init();
+	HudBar::getInstance()->init();
+	
+
 
 //	DialogueSystem::getInstance()->runDialogue("testDialogue");
 
@@ -37,6 +41,7 @@ void HudLayer::update()
 {
 	HudMenuSystem::getInstance()->update();
 	HudPlayerStateMenu::getInstance()->update();
+	HudBar::getInstance()->update();
 }
 
 void HudLayer::show()

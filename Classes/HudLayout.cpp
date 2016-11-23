@@ -41,4 +41,15 @@ void HudLayout::init()
 	leafMenuPosition.x = getChildElementIntAttr(leafMenuPositionElement, "x");
 	leafMenuPosition.y = getChildElementIntAttr(leafMenuPositionElement, "y");
 
+	tinyxml2::XMLElement* barSizeElement = getChildElement(layoutElement, "barSize");
+	barSize.setSize(getChildElementIntAttr(barSizeElement, "x"),
+		getChildElementIntAttr(barSizeElement,"y"));
+
+	tinyxml2::XMLElement* hpBarPositionElement = getChildElement(layoutElement, "hpBarPosition");
+	hpBarPosition.x = getChildElementIntAttr(hpBarPositionElement, "x");
+	hpBarPosition.y = getChildElementIntAttr(hpBarPositionElement, "y");
+
+	tinyxml2::XMLElement* mpBarPositionElement = getChildElement(layoutElement, "mpBarPosition");
+	mpBarPosition.x = getChildElementIntAttr(mpBarPositionElement, "x");
+	mpBarPosition.y = getChildElementIntAttr(mpBarPositionElement, "y");
 }

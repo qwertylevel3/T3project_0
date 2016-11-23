@@ -186,6 +186,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HemophagiaSphere.cpp" />
     <ClCompile Include="..\Classes\HPBuff.cpp" />
     <ClCompile Include="..\Classes\HPEffect.cpp" />
+    <ClCompile Include="..\Classes\HudBar.cpp" />
     <ClCompile Include="..\Classes\HudBuffMenu.cpp" />
     <ClCompile Include="..\Classes\HudGroundInventoryMenu.cpp" />
     <ClCompile Include="..\Classes\HudGroundMenu.cpp" />
@@ -212,7 +213,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\MPBuff.cpp" />
     <ClCompile Include="..\Classes\MPEffect.cpp" />
     <ClCompile Include="..\Classes\PhysicalImmuneBuff.cpp" />
-    <ClCompile Include="..\Classes\ResourceManager.cpp" />
     <ClCompile Include="..\Classes\SelectorBase.cpp" />
     <ClCompile Include="..\Classes\SingleDirectionSearchSelector.cpp" />
     <ClCompile Include="..\Classes\SkillBase.cpp" />
@@ -319,6 +319,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HemophagiaSphere.h" />
     <ClInclude Include="..\Classes\HPBuff.h" />
     <ClInclude Include="..\Classes\HPEffect.h" />
+    <ClInclude Include="..\Classes\HudBar.h" />
     <ClInclude Include="..\Classes\HudBuffMenu.h" />
     <ClInclude Include="..\Classes\HudGroundInventoryMenu.h" />
     <ClInclude Include="..\Classes\HudGroundMenu.h" />
@@ -345,7 +346,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MPBuff.h" />
     <ClInclude Include="..\Classes\MPEffect.h" />
     <ClInclude Include="..\Classes\PhysicalImmuneBuff.h" />
-    <ClInclude Include="..\Classes\ResourceManager.h" />
     <ClInclude Include="..\Classes\SelectorBase.h" />
     <ClInclude Include="..\Classes\SingleDirectionSearchSelector.h" />
     <ClInclude Include="..\Classes\SkillBase.h" />
