@@ -224,6 +224,7 @@ protected:
 	CC_SYNTHESIZE(int, chant, Chant);
 	CC_SYNTHESIZE(int, gold, Gold);
 	CC_SYNTHESIZE(CharacterAttrHandler*, attrHandler, AttrHandler);
+	CC_SYNTHESIZE(int, level, Level);
 
 	bool dead;
 

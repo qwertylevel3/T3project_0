@@ -18,6 +18,10 @@
 		<viewSize>10</viewSize>
 		<maxHP>100</maxHP>
 		<maxMP>0</maxMP>
+		<leftHand>sword000</leftHand>
+		<rightHand>NULL</rightHand>
+		<armor>NULL</armor>
+		<accessory>NULL</accessory>
 	</monster>
 	<monster>
 		<name>testMonster</name>
@@ -36,5 +40,9 @@
 		<viewSize>20</viewSize>
 		<maxHP>100</maxHP>
 		<maxMP>50</maxMP>
+		<leftHand>sword000</leftHand>
+		<rightHand>NULL</rightHand>
+		<armor>NULL</armor>
+		<accessory>NULL</accessory>
 	</monster>
 </monsterBox>

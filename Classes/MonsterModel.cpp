@@ -4,12 +4,9 @@
 #include "InventoryFactory.h"
 #include "CharacterAttr.h"
 
-
-
 MonsterModel::MonsterModel()
 {
 }
-
 
 MonsterModel::~MonsterModel()
 {
@@ -44,8 +41,30 @@ Character * MonsterModel::makeMonster()
 	AICommonEnemy* ai = new AICommonEnemy();
 	monster->setAI(ai);
 
-	Inventory* woodSword = InventoryFactory::getInstance()->getInventory("sword000");
-	woodSword->equipLeftHand(monster);
+	if (leftHandName!="NULL")
+	{
+		Inventory* left = InventoryFactory::getInstance()->getInventory(leftHandName);
+		monster->equipLeftHand(left);
+	}
+	if (rightHandName!="NULL")
+	{
+		Inventory* right = InventoryFactory::getInstance()->getInventory(rightHandName);
+		monster->equipRightHand(right);
+	}
+	if (armorName!="NULL")
+	{
+		Inventory* armor = InventoryFactory::getInstance()->getInventory(armorName);
+		monster->equipArmor(armor);
+	}
+
+	if (accessoryName!="NULL")
+	{
+		Inventory* accessory = InventoryFactory::getInstance()->getInventory(accessoryName);
+		monster->equipAccessory(accessory);
+	}
+
+	//	Inventory* woodSword = InventoryFactory::getInstance()->getInventory("sword000");
+	//	woodSword->equipLeftHand(monster);
 
 	return monster;
 }

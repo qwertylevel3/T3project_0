@@ -56,5 +56,10 @@ void MonsterFactory::initModel(tinyxml2::XMLElement* monsterElement)
 	model->attr.maxHP = getChildElementIntAttr(monsterElement, "maxHP");
 	model->attr.maxMP = getChildElementIntAttr(monsterElement, "maxMP");
 
+	model->setLeftHandName(getChildElementStrAttr(monsterElement, "leftHand"));
+	model->setRightHandName(getChildElementStrAttr(monsterElement, "rightHand"));
+	model->setArmorName(getChildElementStrAttr(monsterElement, "armor"));
+	model->setAccessoryName(getChildElementStrAttr(monsterElement, "accessory"));
+
 	monsterMap[model->getName()] = model;
 }

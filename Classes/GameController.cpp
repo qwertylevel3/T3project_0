@@ -26,7 +26,7 @@ GameController::~GameController()
 void GameController::init()
 {
 	initPlist();
-	RandomNumber::getInstance()->setSeed(333);
+	RandomNumber::getInstance()->setSeed(100);
 	Buff::BuffFactory::getInstance()->init();
 	Sphere::SphereFactory::getInstance()->init();
 	InventoryFactory::getInstance()->init();

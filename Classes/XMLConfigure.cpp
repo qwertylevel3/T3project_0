@@ -2,12 +2,9 @@
 #include "ToolFunction.h"
 #include "base/ccMacros.h"
 
-
-
 XMLConfigure::XMLConfigure()
 {
 }
-
 
 XMLConfigure::~XMLConfigure()
 {
@@ -22,7 +19,7 @@ std::string XMLConfigure::getChildElementStrAttr(tinyxml2::XMLElement* element, 
 std::wstring XMLConfigure::getChildElementWStrAttr(tinyxml2::XMLElement* element, std::string attrName)
 {
 	tinyxml2::XMLElement* childElement = getChildElement(element, attrName);
-	std::string temp=childElement->GetText();
+	std::string temp = childElement->GetText();
 	return ToolFunction::string2wstring(childElement->GetText());
 }
 
