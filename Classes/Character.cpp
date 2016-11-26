@@ -23,6 +23,7 @@
 #include "BuffHandler.h"
 #include "Chant.h"
 #include "BuffFactory.h"
+#include "ui/UIScale9Sprite.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -60,10 +61,6 @@ Character::Character()
 Character::~Character()
 {
 	sprite->release();
-	moveUpAnimation->release();
-	moveDownAnimation->release();
-	moveLeftAnimation->release();
-	moveRightAnimation->release();
 	if (ai)
 	{
 		delete ai;
@@ -96,7 +93,7 @@ void Character::showHPEffect(int hpOffset)
 	int textSize = 16 + 16 * abs(hpOffset) / 10;
 	cocos2d::Label* messageLabel = cocos2d::Label::createWithTTF("", "fonts/arialuni.ttf", textSize);
 	std::string labelText = ToolFunction::int2string(hpOffset);
-	if (hpOffset>0)
+	if (hpOffset > 0)
 	{
 		labelText = "+" + labelText;
 	}
@@ -134,7 +131,6 @@ void Character::showHPEffect(int hpOffset)
 				NULL
 			)
 		);
-
 	}
 	else
 	{
@@ -211,6 +207,48 @@ bool Character::isDead()
 void Character::idle()
 {
 	processAction(0);
+}
+
+void Character::speak(std::wstring sentence)
+{
+	ui::Scale9Sprite* bk = ui::Scale9Sprite::create("HUD/sentenceLabel.png");
+	cocos2d::Label* messageLabel = cocos2d::Label::createWithTTF(ToolFunction::WStr2UTF8(sentence), "fonts/arialuni.ttf", 16);
+	messageLabel->setMaxLineWidth(200);
+
+
+	bk->setCapInsets(cocos2d::Rect(10,10,100,20));
+	bk->setScale9Enabled(true);
+
+	sprite->addChild(bk);
+	sprite->addChild(messageLabel);
+
+	cocos2d::Rect bound=messageLabel->getBoundingBox();
+
+	messageLabel->setPosition(sprite->getPosition() + cocos2d::Vec2(20, 50));
+//	bk->setScaleX(bound.size.width / bk->getContentSize().width+0.1);
+//	bk->setScaleY(bound.size.height / bk->getContentSize().height+0.1);
+
+	//bk->setScale(5, 2);
+
+
+	bk->setContentSize(cocos2d::Size(bound.size.width+10,bound.size.height+10));
+	bk->setPosition(messageLabel->getPosition()-Vec2(0,3));
+	bk->setOpacity(180);
+
+	bk->runAction(
+		cocos2d::Sequence::create(
+			cocos2d::DelayTime::create(4),
+			cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, bk)),
+			NULL
+		)
+	);
+	messageLabel->runAction(
+		cocos2d::Sequence::create(
+			cocos2d::DelayTime::create(4),
+			cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, messageLabel)),
+			NULL
+		)
+	);
 }
 
 void Character::moveUp()

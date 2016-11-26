@@ -85,6 +85,7 @@ void Player::init()
 //	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
 
 
+	characterPtr->speak(L"อยฒÛฒโสิอยฒÛฒโสิอยฒÛฒโสิอยฒÛฒโสิอยฒÛฒโสิอยฒÛฒโสิอยฒÛฒโสิอยฒÛฒโสิอยฒÛฒโสิ");
 }
 
 void Player::autoNextStep()

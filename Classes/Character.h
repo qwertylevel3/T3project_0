@@ -76,6 +76,7 @@ public:
 	void die();
 	bool isDead();
 	void idle();
+	void speak(std::wstring sentence);
 	void moveUp();
 	void moveDown();
 	void moveLeft();

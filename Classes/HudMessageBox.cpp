@@ -18,6 +18,7 @@ void HudMessageBox::init()
 	bk = cocos2d::Sprite::create("HUD/messageBox.png");
 	HudLayer::getInstance()->addChild(bk);
 	bk->setPosition(650, 82);
+	bk->setOpacity(180);
 }
 
 void HudMessageBox::update()

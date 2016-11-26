@@ -10,6 +10,15 @@ CharacterModel::CharacterModel()
 
 CharacterModel::~CharacterModel()
 {
+	moveUpAnimation->release();
+	moveDownAnimation->release();
+	moveLeftAnimation->release();
+	moveRightAnimation->release();
+
+	standUpAnimation->release();
+	standDownAnimation->release();
+	standLeftAnimation->release();
+	standRightAnimation->release();
 }
 
 Character * CharacterModel::makeCharacter()

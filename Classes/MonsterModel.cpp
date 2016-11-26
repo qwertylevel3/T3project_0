@@ -63,8 +63,5 @@ Character * MonsterModel::makeMonster()
 		monster->equipAccessory(accessory);
 	}
 
-	//	Inventory* woodSword = InventoryFactory::getInstance()->getInventory("sword000");
-	//	woodSword->equipLeftHand(monster);
-
 	return monster;
 }
