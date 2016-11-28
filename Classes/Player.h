@@ -14,6 +14,8 @@ public:
 	Player();
 	~Player();
 	void init();
+	void initMission();
+
 	//test...
 	void autoNextStep();
 

@@ -252,6 +252,11 @@ void Character::speak(std::wstring sentence)
 	);
 }
 
+void Character::attack()
+{
+	runSkill("attack");
+}
+
 void Character::moveUp()
 {
 	MainLayer::getInstance()->focusPlayer();

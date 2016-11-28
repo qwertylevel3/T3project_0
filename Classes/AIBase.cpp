@@ -1,6 +1,7 @@
 #include "AIBase.h"
 #include "Dungeon.h"
 #include "Character.h"
+#include "ToolFunction.h"
 #include <queue>
 #include <set>
 
@@ -28,7 +29,7 @@ void AIBase::setCharacter(Character* character)
 	characterPtr = character;
 }
 
-Character* AIBase::searchTargetBFS()
+Character* AIBase::searchTargetBFS(Character::Type type)
 {
 	Storey* storey=Dungeon::getInstance()->getStorey();
 	cocos2d::Point startPoint = characterPtr->getMapCoord();
@@ -63,7 +64,7 @@ Character* AIBase::searchTargetBFS()
 					}
 
 					if (storey->getCharacter(position)
-						&& storey->getCharacter(position)->getCharacterType()==Character::Good)
+						&& storey->getCharacter(position)->getCharacterType()==type)
 					{
 						return storey->getCharacter(position);
 					}
@@ -80,3 +81,124 @@ Character* AIBase::searchTargetBFS()
 
 	return nullptr;
 }
+
+
+void AIBase::seek(Character* target)
+{
+	cocos2d::Point startPoint = characterPtr->getMapCoord();
+	cocos2d::Point endPoint = target->getMapCoord();
+	cocos2d::Point nextStep = ToolFunction::nextStep(startPoint, endPoint);
+
+	if (nextStep == endPoint)
+	{
+		if (startPoint.x>endPoint.x)
+		{
+			characterPtr->setOrientationLeft();
+		}
+		else if (startPoint.x<endPoint.x)
+		{
+			characterPtr->setOrientationRight();
+		}
+		if (startPoint.y>endPoint.y)
+		{
+			characterPtr->setOrientationUp();
+		}
+		else if(startPoint.y<endPoint.y)
+		{
+			characterPtr->setOrientationDown();
+		}
+		return;
+	}
+
+	if (nextStep.x == startPoint.x + 1
+		&& nextStep.y == startPoint.y)
+	{
+		characterPtr->moveRight();
+	}
+	else if (nextStep.x == startPoint.x - 1
+		&& nextStep.y == startPoint.y)
+	{
+		characterPtr->moveLeft();
+	}
+	else if (nextStep.x == startPoint.x
+		&& nextStep.y == startPoint.y - 1)
+	{
+		characterPtr->moveUp();
+	}
+	else if (nextStep.x == startPoint.x
+		&& nextStep.y == startPoint.y + 1)
+	{
+		characterPtr->moveDown();
+	}
+	else
+	{
+		CCAssert(false, "error nextStep");
+	}
+}
+
+void AIBase::flee(Character* target)
+{
+	cocos2d::Point startPoint = characterPtr->getMapCoord();
+	cocos2d::Point endPoint = target->getMapCoord();
+	cocos2d::Point nextStep = ToolFunction::nextStep(startPoint, endPoint);
+
+	if (nextStep.x == startPoint.x + 1
+		&& nextStep.y == startPoint.y)
+	{
+		characterPtr->moveLeft();
+	}
+	else if (nextStep.x == startPoint.x - 1
+		&& nextStep.y == startPoint.y)
+	{
+		characterPtr->moveRight();
+	}
+	else if (nextStep.x == startPoint.x
+		&& nextStep.y == startPoint.y - 1)
+	{
+		characterPtr->moveDown();
+	}
+	else if (nextStep.x == startPoint.x
+		&& nextStep.y == startPoint.y + 1)
+	{
+		characterPtr->moveUp();
+	}
+	else
+	{
+		CCAssert(false, "error nextStep");
+	}
+
+}
+
+
+
+bool AIBase::isInAttackArea(Character* target)
+{
+	std::vector<cocos2d::Point> atkArea = characterPtr->getAtkArea();
+	for each (cocos2d::Point point in atkArea)
+	{
+		if (target->getMapCoord()==point)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+bool AIBase::isNear(cocos2d::Point coord)
+{
+	cocos2d::Point characterCoord = characterPtr->getMapCoord();
+	if (coord.x==characterCoord.x
+		&& (coord.y==characterCoord.y+1 
+			|| coord.y==characterCoord.y-1))
+	{
+		return true;
+	}
+	else 	if (coord.y==characterCoord.y
+		&& (coord.x==characterCoord.x+1 
+			|| coord.x==characterCoord.x-1))
+	{
+		return true;
+	}
+	return false;
+}
+

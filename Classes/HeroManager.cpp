@@ -5,6 +5,8 @@
 #include "AIFactory.h"
 #include "InventoryFactory.h"
 #include "platform/CCFileUtils.h"
+#include "MainLayer.h"
+#include "Player.h"
 
 HeroManager::HeroManager()
 {
@@ -41,6 +43,19 @@ void HeroManager::init()
 		} while (_findnext(lfDir, &fileDir) == 0);
 	}
 	_findclose(lfDir);
+}
+
+
+void HeroManager::initMission()
+{
+	Character* playerCharacterPtr = Player::getInstance()->getcharacterPtr();
+	cocos2d::Point playerCoord = playerCharacterPtr->getMapCoord();
+
+	for each (Character*  hero in heroBox)
+	{
+		hero->setMapCoord(cocos2d::Point(playerCoord.x, playerCoord.y + 1));
+		MainLayer::getInstance()->addCharacter(hero);
+	}
 }
 
 void HeroManager::initHero(const std::string& fileName)

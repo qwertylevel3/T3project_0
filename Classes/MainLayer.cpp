@@ -136,12 +136,7 @@ void MainLayer::loadStorey()
 		Layer::addChild(character->getSprite());
 	}
 
-	Character* player = Player::getInstance()->getcharacterPtr();
 
-	player->setMapCoord(floor0->getUpCoord());
-	this->addCharacter(player);
-
-	setViewPointCenter(player->getPosition());
 }
 
 void MainLayer::addCharacter(Character * character)

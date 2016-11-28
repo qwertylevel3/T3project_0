@@ -10,9 +10,6 @@ public:
 protected:
 	//危险生命值百分比
 	int deadLine;
-	void seek(Character* target);
-	void flee(Character* target);
 	bool isDangerous();
-	bool isInAttackArea(Character* target);
 };
 

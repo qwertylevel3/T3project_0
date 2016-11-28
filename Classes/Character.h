@@ -81,6 +81,7 @@ public:
 	bool isDead();
 	void idle();
 	void speak(std::wstring sentence);
+	void attack();
 	void moveUp();
 	void moveDown();
 	void moveLeft();

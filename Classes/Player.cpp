@@ -89,6 +89,16 @@ void Player::init()
 	characterPtr->speak(L"ÍÂ²Û²âÊÔÍÂ²Û²âÊÔÍÂ²Û²âÊÔÍÂ²Û²âÊÔÍÂ²Û²âÊÔÍÂ²Û²âÊÔÍÂ²Û²âÊÔÍÂ²Û²âÊÔÍÂ²Û²âÊÔ");
 }
 
+
+void Player::initMission()
+{
+	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+
+	characterPtr->setMapCoord(storey->getUpCoord());
+	MainLayer::getInstance()->addCharacter(characterPtr);
+	MainLayer::getInstance()->setViewPointCenter(characterPtr->getPosition());
+}
+
 void Player::autoNextStep()
 {
 	cocos2d::Point startPoint = characterPtr->getMapCoord();

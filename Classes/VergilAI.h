@@ -9,5 +9,6 @@ public:
 	~VergilAI();
 	void update();
 protected:
+
 };
 

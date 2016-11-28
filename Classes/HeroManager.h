@@ -14,6 +14,7 @@ public:
 	HeroManager();
 	~HeroManager();
 	void init();
+	void initMission();
 protected:
 	void initHero(const std::string& fileName);
 	std::vector<Character*> heroBox;
