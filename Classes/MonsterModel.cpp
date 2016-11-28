@@ -17,6 +17,7 @@ Character * MonsterModel::makeMonster()
 	Character* monster = CharacterFactory::getInstance()->getCharacter(characterName);
 
 	monster->setName(name);
+	monster->setPlayType(Character::Enemy);
 
 	monster->setPhysicalImmune(attr.physicalImmune);
 	monster->setMagicImmnue(attr.magicImmune);
@@ -38,8 +39,7 @@ Character * MonsterModel::makeMonster()
 	monster->setViewSize(attr.viewSize);
 	monster->setCharacterType(Character::Bad);
 
-	AICommonEnemy* ai = new AICommonEnemy();
-	monster->setAI(ai);
+	monster->setAI("AICommonEnemy");
 
 	if (leftHandName!="NULL")
 	{

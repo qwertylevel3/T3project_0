@@ -25,9 +25,9 @@ Player::~Player()
 
 void Player::init()
 {
-	characterPtr = CharacterFactory::getInstance()->getCharacter("Vergil");
+	characterPtr = CharacterFactory::getInstance()->getCharacter("Actor0");
 
-	setName("vergil");
+	setName("qwerty");
 
 	controlMode = NormalMode;
 
@@ -42,6 +42,7 @@ void Player::init()
 	characterPtr->setLuck(10);
 	characterPtr->setViewSize(5);
 	characterPtr->setCharacterType(Character::Good);
+	characterPtr->setPlayType(Character::Player);
 
 	//testInventory......
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Hero>
+	<name>Vergil</name>
+	<characterName>Vergil</characterName>
+	<AI>vergilAI</AI>
+	<HP>100</HP>
+	<MP>100</MP>
+	<STR>10</STR>
+	<AGI>10</AGI>
+	<INT>20</INT>
+	<luck>10</luck>
+	<leftHand>torch000</leftHand>
+	<rightHand>sword000</rightHand>
+	<armor>NULL</armor>
+	<accessory>NULL</accessory>
+	<inventoryList>
+		<inventory>sword000</inventory>
+	</inventoryList>
+	<skillList>
+		
+	</skillList>
+</Hero>

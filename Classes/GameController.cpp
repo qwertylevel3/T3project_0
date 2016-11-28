@@ -11,6 +11,7 @@
 #include "RoundSystem.h"
 #include "MainLayer.h"
 #include "MaskLayer.h"
+#include "HeroManager.h"
 
 
 
@@ -36,6 +37,7 @@ void GameController::init()
 	BattleSystem::getInstance()->init();
 	KeyController::getInstance()->init();
 	RoundSystem::getInstance()->init();
+	HeroManager::getInstance()->init();
 }
 
 void GameController::startMission(int level)

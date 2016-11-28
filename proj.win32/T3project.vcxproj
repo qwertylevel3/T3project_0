@@ -152,6 +152,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AccuracyBuff.cpp" />
     <ClCompile Include="..\Classes\AIBase.cpp" />
     <ClCompile Include="..\Classes\AICommonEnemy.cpp" />
+    <ClCompile Include="..\Classes\AIFactory.cpp" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\AreaSearchSelector.cpp" />
     <ClCompile Include="..\Classes\Armor.cpp" />
@@ -184,6 +185,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\FixedSelector.cpp" />
     <ClCompile Include="..\Classes\GameController.cpp" />
     <ClCompile Include="..\Classes\HemophagiaSphere.cpp" />
+    <ClCompile Include="..\Classes\HeroManager.cpp" />
     <ClCompile Include="..\Classes\HPBuff.cpp" />
     <ClCompile Include="..\Classes\HPEffect.cpp" />
     <ClCompile Include="..\Classes\HudBar.cpp" />
@@ -223,6 +225,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\SphereFactory.cpp" />
     <ClCompile Include="..\Classes\Triangulate.cpp" />
     <ClCompile Include="..\Classes\VenomSphere.cpp" />
+    <ClCompile Include="..\Classes\VergilAI.cpp" />
     <ClCompile Include="..\Classes\VertigoBuff.cpp" />
     <ClCompile Include="..\Classes\ViewSizeBuff.cpp" />
     <ClCompile Include="..\Classes\WeaponSphereHandler.cpp" />
@@ -286,6 +289,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AccuracyBuff.h" />
     <ClInclude Include="..\Classes\AIBase.h" />
     <ClInclude Include="..\Classes\AICommonEnemy.h" />
+    <ClInclude Include="..\Classes\AIFactory.h" />
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AreaSearchSelector.h" />
     <ClInclude Include="..\Classes\Armor.h" />
@@ -318,6 +322,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\FixedSelector.h" />
     <ClInclude Include="..\Classes\GameController.h" />
     <ClInclude Include="..\Classes\HemophagiaSphere.h" />
+    <ClInclude Include="..\Classes\HeroManager.h" />
     <ClInclude Include="..\Classes\HPBuff.h" />
     <ClInclude Include="..\Classes\HPEffect.h" />
     <ClInclude Include="..\Classes\HudBar.h" />
@@ -357,6 +362,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\SphereFactory.h" />
     <ClInclude Include="..\Classes\Triangulate.h" />
     <ClInclude Include="..\Classes\VenomSphere.h" />
+    <ClInclude Include="..\Classes\VergilAI.h" />
     <ClInclude Include="..\Classes\VertigoBuff.h" />
     <ClInclude Include="..\Classes\ViewSizeBuff.h" />
     <ClInclude Include="..\Classes\WeaponSphereHandler.h" />

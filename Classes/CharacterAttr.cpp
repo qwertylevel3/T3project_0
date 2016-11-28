@@ -15,7 +15,7 @@ CharacterAttr::CharacterAttr()
 	intellect = 0;
 	agility = 0;
 	luck = 0;
-	viewSize = 0;
+	viewSize = 2;
 	maxHP = 0;
 	maxMP = 0;
 

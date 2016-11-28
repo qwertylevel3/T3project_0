@@ -24,6 +24,7 @@
 #include "Chant.h"
 #include "BuffFactory.h"
 #include "ui/UIScale9Sprite.h"
+#include "AIFactory.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -532,9 +533,9 @@ void Character::setSprite(std::string spriteName)
 	sprite->retain();
 }
 
-void Character::setAI(AIBase* a)
+void Character::setAI(const std::string& AIName)
 {
-	ai = a;
+	ai = AIFactory::getInstance()->getAI(AIName);
 	ai->setCharacter(this);
 }
 

@@ -29,7 +29,7 @@ Storey::~Storey()
 	tileMap->release();
 	for each (Character* character in characterList)
 	{
-		if (character != Player::getInstance()->getcharacterPtr())
+		if (character->getPlayType()==Character::Enemy)
 		{
 			delete character;
 		}
@@ -239,11 +239,24 @@ bool Field::Storey::isMoveAble(cocos2d::Point mapCoord)
 	{
 		return false;
 	}
-	if (getTile(mapCoord) == Field::Floor)
+	return isMoveAble(getTile(mapCoord));
+}
+
+bool Field::Storey::isMoveAble(int tile)
+{
+	bool flag = false;
+	switch (tile)
 	{
-		return true;
+	case Field::Tile::Floor:
+	case Field::Tile::UpStair:
+	case Field::Tile::DownStair:
+		flag = true;
+		break;
+	default:
+		flag = false;
+		break;
 	}
-	return false;
+	return flag;
 }
 
 bool Field::Storey::isWall(cocos2d::Point mapCoord)

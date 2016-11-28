@@ -32,6 +32,10 @@ namespace Skill
 class Character
 {
 public:
+	enum PlayType
+	{
+		Player, Hero, Enemy
+	};
 	enum Type
 	{
 		Good, Neutral, Bad
@@ -123,7 +127,7 @@ public:
 	cocos2d::CCSprite* getSprite();
 	void setSprite(std::string spriteName);
 
-	void setAI(AIBase* a);
+	void setAI(const std::string& AIName);
 
 	void addBuff(std::string buffID);
 	void removeBuff(std::string buffID);
@@ -218,6 +222,7 @@ protected:
 
 	//attribute......
 	CC_SYNTHESIZE(Type, characterType, CharacterType);
+	CC_SYNTHESIZE(PlayType, playType, PlayType);
 	CC_SYNTHESIZE(std::string, name, Name);
 	CC_SYNTHESIZE(cocos2d::Point, mapCoord, MapCoord);
 	CC_SYNTHESIZE(int, HP, HP);
