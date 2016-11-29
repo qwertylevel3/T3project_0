@@ -64,7 +64,8 @@ Character* AIBase::searchTargetBFS(Character::Type type)
 					}
 
 					if (storey->getCharacter(position)
-						&& storey->getCharacter(position)->getCharacterType()==type)
+						&& storey->getCharacter(position)->getCharacterType()==type
+						&& !storey->getCharacter(position)->isDead())
 					{
 						return storey->getCharacter(position);
 					}
@@ -189,13 +190,15 @@ bool AIBase::isNear(cocos2d::Point coord)
 	cocos2d::Point characterCoord = characterPtr->getMapCoord();
 	if (coord.x==characterCoord.x
 		&& (coord.y==characterCoord.y+1 
-			|| coord.y==characterCoord.y-1))
+			|| coord.y==characterCoord.y-1
+			|| coord.y==characterCoord.y))
 	{
 		return true;
 	}
 	else 	if (coord.y==characterCoord.y
 		&& (coord.x==characterCoord.x+1 
-			|| coord.x==characterCoord.x-1))
+			|| coord.x==characterCoord.x-1
+			|| coord.x==characterCoord.x))
 	{
 		return true;
 	}

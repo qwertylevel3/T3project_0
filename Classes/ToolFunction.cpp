@@ -85,6 +85,42 @@ std::string ToolFunction::WStr2UTF8(const std::wstring & src)
 	return dest;
 }
 
+cocos2d::Point ToolFunction::validPlace(cocos2d::Point ori)
+{
+	Storey* storey = Dungeon::getInstance()->getStorey();
+
+	int searchDeep = 1;
+
+	//待优化，bfs
+	while (searchDeep < 10)
+	{
+		for (int i = -searchDeep; i < searchDeep; i++)
+		{
+			for (int j = -searchDeep; j < searchDeep; j++)
+			{
+				if (i == 0 && j==0)
+				{
+					continue;
+				}
+				cocos2d::Point coord = ori;
+				coord.x += i;
+				coord.y += j;
+
+				//条件
+				if (storey->isValid(coord)
+					&& storey->getCharacter(coord)==nullptr)
+				{
+					return coord;
+				}
+
+			}
+		}
+
+		searchDeep++;
+	}
+	CCAssert(searchDeep < 10, "out of search");
+}
+
 cocos2d::Point ToolFunction::nextStep(cocos2d::Point src, cocos2d::Point dest)
 {
 	Storey* storey = Dungeon::getInstance()->getStorey();

@@ -3,6 +3,7 @@
 	<name>Vergil</name>
 	<characterName>Vergil</characterName>
 	<AI>vergilAI</AI>
+	<level>1</level>
 	<HP>100</HP>
 	<MP>100</MP>
 	<STR>10</STR>

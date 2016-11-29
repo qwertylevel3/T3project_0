@@ -15,6 +15,11 @@ public:
 	static std::wstring string2wstring(std::string str);
 	static std::string wstring2string(std::wstring wstr);
 	static std::string WStr2UTF8(const std::wstring& src);
+
+
+	//找到原点附近有效的点(无character)
+	static cocos2d::Point validPlace(cocos2d::Point ori);
+
 	//A*寻路，返回下一步要走的位置
 	static cocos2d::Point nextStep(
 		cocos2d::Point src,

@@ -471,9 +471,15 @@
     <ClCompile Include="..\Classes\HudMessageBox.cpp">
       <Filter>src\HUD</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HeroManager.cpp" />
-    <ClCompile Include="..\Classes\AIFactory.cpp" />
-    <ClCompile Include="..\Classes\VergilAI.cpp" />
+    <ClCompile Include="..\Classes\AIFactory.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\VergilAI.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HeroManager.cpp">
+      <Filter>src\character\hero</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -872,9 +878,15 @@
     <ClInclude Include="..\Classes\HudMessageBox.h">
       <Filter>src\HUD</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HeroManager.h" />
-    <ClInclude Include="..\Classes\AIFactory.h" />
-    <ClInclude Include="..\Classes\VergilAI.h" />
+    <ClInclude Include="..\Classes\AIFactory.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\VergilAI.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HeroManager.h">
+      <Filter>src\character\hero</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

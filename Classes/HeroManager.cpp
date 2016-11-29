@@ -7,6 +7,7 @@
 #include "platform/CCFileUtils.h"
 #include "MainLayer.h"
 #include "Player.h"
+#include "ToolFunction.h"
 
 HeroManager::HeroManager()
 {
@@ -53,7 +54,9 @@ void HeroManager::initMission()
 
 	for each (Character*  hero in heroBox)
 	{
-		hero->setMapCoord(cocos2d::Point(playerCoord.x, playerCoord.y + 1));
+		cocos2d::Point coord = ToolFunction::validPlace(playerCoord);
+//		hero->setMapCoord(cocos2d::Point(playerCoord.x, playerCoord.y + 1));
+		hero->setMapCoord(coord);
 		MainLayer::getInstance()->addCharacter(hero);
 	}
 }
@@ -75,6 +78,7 @@ void HeroManager::initHero(const std::string& fileName)
 	characterPtr->setPlayType(Character::Hero);
 
 	characterPtr->setAI(getChildElementStrAttr(heroElement, "AI"));
+	characterPtr->setLevel(getChildElementIntAttr(heroElement, "level"));
 	characterPtr->setHP(getChildElementIntAttr(heroElement, "HP"));
 	characterPtr->setMaxHP(getChildElementIntAttr(heroElement, "HP"));
 	characterPtr->setMP(getChildElementIntAttr(heroElement, "MP"));

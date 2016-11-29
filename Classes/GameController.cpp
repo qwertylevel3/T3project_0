@@ -49,16 +49,16 @@ void GameController::startMission(int level)
 //	Dungeon::getInstance()->writeToFile();
 
 	MainLayer::getInstance()->loadStorey();
-	MaskLayer::getInstance()->loadStorey();
 	Player::getInstance()->initMission();
 	HeroManager::getInstance()->initMission();
 
 
+	MaskLayer::getInstance()->loadStorey();
 	RoundSystem::getInstance()->loadStorey();
 	RoundSystem::getInstance()->start();
 }
 
 void GameController::initPlist()
 {
-
+	
 }
