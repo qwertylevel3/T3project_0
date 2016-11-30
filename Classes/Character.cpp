@@ -454,6 +454,11 @@ void Character::setPosition(float x, float y)
 	sprite->setPosition(x, y);
 }
 
+void Character::setPosition(cocos2d::Point position)
+{
+	sprite->setPosition(position);
+}
+
 cocos2d::Node * Character::getParent()
 {
 	return sprite->getParent();
@@ -520,6 +525,11 @@ Skill::SkillHandler* Character::getSkillHandler()
 Buff::BuffHandler* Character::getBuffHandler()
 {
 	return buffHandler;
+}
+
+RoundHandler* Character::getRoundHandler()
+{
+	return roundHandler;
 }
 
 void Character::addInventory(Inventory * inventory)
@@ -783,6 +793,7 @@ int Character::getActionPoint()
 
 void Character::startRound()
 {
+	fixPosition();
 	roundHandler->startRound();
 	buffHandler->onRoundStart();
 	recalculateHP();
@@ -795,6 +806,11 @@ void Character::endRound()
 	recalculateHP();
 	recalculateMP();
 //	clearChant();
+}
+
+void Character::fixPosition()
+{
+	Field::Dungeon::getInstance()->getStorey()->setPositionByCoord(this, this->getMapCoord());
 }
 
 void Character::recalculateHP()

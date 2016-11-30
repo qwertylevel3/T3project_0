@@ -16,6 +16,7 @@ namespace Field {
 		Storey(int w, int h);
 		~Storey();
 		cocos2d::Point getTilePosition(cocos2d::Point coord);
+		void setPositionByCoord(Character* character,cocos2d::Point coord);
 		int getTile(int x, int y);
 		int getTile(cocos2d::Point coord);
 		void setTile(int x, int y, int tile);
@@ -36,6 +37,7 @@ namespace Field {
 
 		bool isMoveAble(cocos2d::Point mapCoord);
 		bool isMoveAble(int tile);
+		bool isPartner(cocos2d::Point mapCoord);
 		bool isWall(cocos2d::Point mapCoord);
 		bool isFloor(cocos2d::Point mapCoord);
 		bool isValid(cocos2d::Point mapCoord);

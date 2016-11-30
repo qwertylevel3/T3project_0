@@ -19,6 +19,7 @@ RoundHandler::RoundHandler(Character* character)
 	:characterPtr(character)
 	, actionPoint(1)
 	, delayTime(0)
+	,skipNextRound(false)
 {
 }
 
@@ -53,6 +54,16 @@ void RoundHandler::processAction(float delayTime)
 int RoundHandler::getActionPoint()
 {
 	return actionPoint;
+}
+
+bool RoundHandler::isSkipNextRound()
+{
+	return skipNextRound;
+}
+
+void RoundHandler::setSkipNextRound(bool b)
+{
+	skipNextRound = b;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -171,6 +182,14 @@ void RoundSystem::nextRound()
 	do
 	{
 		nextIndex();
+
+		RoundHandler* roundHandler = allCharacter[curIndex]->getRoundHandler();
+		if (roundHandler->isSkipNextRound())
+		{
+			roundHandler->setSkipNextRound(false);
+			nextIndex();
+		}
+
 	} while (allCharacter[curIndex]->isDead());
 
 //	if (isPlayer(allCharacter[curIndex]))

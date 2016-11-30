@@ -22,11 +22,13 @@ public:
 	void startRound();
 	void processAction(float delayTime);
 	int getActionPoint();
+	bool isSkipNextRound();
+	void setSkipNextRound(bool b);
 protected:
 	Character* characterPtr;
 	int actionPoint;
 	float delayTime;
-
+	bool skipNextRound;
 };
 	
 

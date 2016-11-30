@@ -110,6 +110,7 @@ public:
 	//返回世界坐标
 	cocos2d::Point getWorldPosition();
 	void setPosition(float x, float y);
+	void setPosition(cocos2d::Point position);
 
 	cocos2d::Node* getParent();
 
@@ -121,6 +122,7 @@ public:
 	InventoryHandler* getInventoryHandler();
 	Skill::SkillHandler* getSkillHandler();
 	Buff::BuffHandler* getBuffHandler();
+	RoundHandler* getRoundHandler();
 	//discard
 	void addInventory(Inventory* inventory);
 	void addInventory(const std::string& inventoryName);
@@ -185,6 +187,8 @@ public:
 
 	int getArmorPoint();
 protected:
+	//每回合开始调用，防止position与坐标发生偏移
+	void fixPosition();
 	void recalculateHP();
 	void recalculateMP();
 

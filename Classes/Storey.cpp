@@ -2,6 +2,7 @@
 #include"FieldEnum.h"
 #include"Character.h"
 #include "Player.h"
+#include "RoundSystem.h"
 #include "StoreyInventoryHandler.h"
 
 using namespace Field;
@@ -29,7 +30,7 @@ Storey::~Storey()
 	tileMap->release();
 	for each (Character* character in characterList)
 	{
-		if (character->getPlayType()==Character::Enemy)
+		if (character->getPlayType() == Character::Enemy)
 		{
 			delete character;
 		}
@@ -49,6 +50,11 @@ int Storey::getTile(int x, int y)
 cocos2d::Point Field::Storey::getTilePosition(cocos2d::Point coord)
 {
 	return cocos2d::Point(coord.x * 32 + 16, (height - coord.y) * 32 - 16);
+}
+
+void Field::Storey::setPositionByCoord(Character* character,cocos2d::Point coord)
+{
+	character->setPosition(getTilePosition(coord));
 }
 
 int Field::Storey::getTile(cocos2d::Point coord)
@@ -81,19 +87,53 @@ void Field::Storey::characterMoveUp(Character* character)
 	{
 		return;
 	}
+	//和队友交换位置
+	if (isPartner(targetCoord))
+	{
+		Character* partner = getCharacter(targetCoord);
 
-	cocos2d::Point position = character->getPosition();
-	ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x, position.y + 32));
-	character->showMoveUpAnimation();
-	character->getSprite()->runAction(moveAction);
+		partner->setOrientationDown();
+		partner->getSprite()->runAction(
+			cocos2d::MoveTo::create(0.2, character->getPosition())
+		);
+		partner->showMoveDownAnimation();
 
-	removeCharacter(character);
-	character->setMapCoord(targetCoord);
+		RoundHandler* roundHandler = partner->getRoundHandler();
+		roundHandler->setSkipNextRound(true);
 
-	characterMap[targetCoord.x + targetCoord.y*width] = character;
+		character->getSprite()->runAction(
+			cocos2d::MoveTo::create(0.2, partner->getPosition())
+		);
+		character->showMoveUpAnimation();
 
-	//to refactor： 重放入时保持原有在list中的位置
-	characterList.push_back(character);
+		removeCharacter(partner);
+		removeCharacter(character);
+
+		cocos2d::Point tempCoord = character->getMapCoord();
+		character->setMapCoord(targetCoord);
+		partner->setMapCoord(tempCoord);
+
+		characterMap[targetCoord.x + targetCoord.y*width] = character;
+		characterMap[tempCoord.x + tempCoord.y*width] = partner;
+
+		characterList.push_back(character);
+		characterList.push_back(partner);
+	}
+	else
+	{
+		cocos2d::Point position = character->getPosition();
+		ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x, position.y + 32));
+		character->showMoveUpAnimation();
+		character->getSprite()->runAction(moveAction);
+
+		removeCharacter(character);
+		character->setMapCoord(targetCoord);
+
+		characterMap[targetCoord.x + targetCoord.y*width] = character;
+
+		//to refactor： 重放入时保持原有在list中的位置
+		characterList.push_back(character);
+	}
 }
 
 void Field::Storey::characterMoveDown(Character* character)
@@ -107,18 +147,51 @@ void Field::Storey::characterMoveDown(Character* character)
 		return;
 	}
 
-	cocos2d::Point position = character->getPosition();
-	ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x, position.y - 32));
-	character->showMoveDownAnimation();
-	character->getSprite()->runAction(moveAction);
+	if (isPartner(targetCoord))
+	{
+		Character* partner = getCharacter(targetCoord);
 
-	removeCharacter(character);
-	character->setMapCoord(targetCoord);
+		partner->setOrientationUp();
+		partner->getSprite()->runAction(
+			cocos2d::MoveTo::create(0.2, character->getPosition())
+		);
+		partner->showMoveUpAnimation();
+		RoundHandler* roundHandler = partner->getRoundHandler();
+		roundHandler->setSkipNextRound(true);
 
-	characterMap[targetCoord.x + targetCoord.y*width] = character;
+		character->getSprite()->runAction(
+			cocos2d::MoveTo::create(0.2, partner->getPosition())
+		);
+		character->showMoveDownAnimation();
 
-	//to refactor： 重放入时保持原有在list中的位置
-	characterList.push_back(character);
+		removeCharacter(partner);
+		removeCharacter(character);
+
+		cocos2d::Point tempCoord = character->getMapCoord();
+		character->setMapCoord(targetCoord);
+		partner->setMapCoord(tempCoord);
+
+		characterMap[targetCoord.x + targetCoord.y*width] = character;
+		characterMap[tempCoord.x + tempCoord.y*width] = partner;
+
+		characterList.push_back(character);
+		characterList.push_back(partner);
+	}
+	else
+	{
+		cocos2d::Point position = character->getPosition();
+		ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x, position.y - 32));
+		character->showMoveDownAnimation();
+		character->getSprite()->runAction(moveAction);
+
+		removeCharacter(character);
+		character->setMapCoord(targetCoord);
+
+		characterMap[targetCoord.x + targetCoord.y*width] = character;
+
+		//to refactor： 重放入时保持原有在list中的位置
+		characterList.push_back(character);
+	}
 }
 
 void Field::Storey::characterMoveLeft(Character* character)
@@ -132,18 +205,51 @@ void Field::Storey::characterMoveLeft(Character* character)
 		return;
 	}
 
-	cocos2d::Point position = character->getPosition();
-	ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x - 32, position.y));
-	character->showMoveLeftAnimation();
-	character->getSprite()->runAction(moveAction);
+	if (isPartner(targetCoord))
+	{
+		Character* partner = getCharacter(targetCoord);
 
-	removeCharacter(character);
-	character->setMapCoord(targetCoord);
+		partner->setOrientationRight();
+		partner->getSprite()->runAction(
+			cocos2d::MoveTo::create(0.2, character->getPosition())
+		);
+		partner->showMoveRightAnimation();
+		RoundHandler* roundHandler = partner->getRoundHandler();
+		roundHandler->setSkipNextRound(true);
 
-	characterMap[targetCoord.x + targetCoord.y*width] = character;
+		character->getSprite()->runAction(
+			cocos2d::MoveTo::create(0.2, partner->getPosition())
+		);
+		character->showMoveLeftAnimation();
 
-	//to refactor： 重放入时保持原有在list中的位置
-	characterList.push_back(character);
+		removeCharacter(partner);
+		removeCharacter(character);
+
+		cocos2d::Point tempCoord = character->getMapCoord();
+		character->setMapCoord(targetCoord);
+		partner->setMapCoord(tempCoord);
+
+		characterMap[targetCoord.x + targetCoord.y*width] = character;
+		characterMap[tempCoord.x + tempCoord.y*width] = partner;
+
+		characterList.push_back(character);
+		characterList.push_back(partner);
+	}
+	else
+	{
+		cocos2d::Point position = character->getPosition();
+		ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x - 32, position.y));
+		character->showMoveLeftAnimation();
+		character->getSprite()->runAction(moveAction);
+
+		removeCharacter(character);
+		character->setMapCoord(targetCoord);
+
+		characterMap[targetCoord.x + targetCoord.y*width] = character;
+
+		//to refactor： 重放入时保持原有在list中的位置
+		characterList.push_back(character);
+	}
 }
 
 void Field::Storey::characterMoveRight(Character* character)
@@ -157,18 +263,51 @@ void Field::Storey::characterMoveRight(Character* character)
 		return;
 	}
 
-	cocos2d::Point position = character->getPosition();
-	ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x + 32, position.y));
-	character->showMoveRightAnimation();
-	character->getSprite()->runAction(moveAction);
+	if (isPartner(targetCoord))
+	{
+		Character* partner = getCharacter(targetCoord);
 
-	removeCharacter(character);
-	character->setMapCoord(targetCoord);
+		partner->setOrientationLeft();
+		partner->getSprite()->runAction(
+			cocos2d::MoveTo::create(0.2, character->getPosition())
+		);
+		partner->showMoveLeftAnimation();
+		RoundHandler* roundHandler = partner->getRoundHandler();
+		roundHandler->setSkipNextRound(true);
 
-	characterMap[targetCoord.x + targetCoord.y*width] = character;
+		character->getSprite()->runAction(
+			cocos2d::MoveTo::create(0.2, partner->getPosition())
+		);
+		character->showMoveRightAnimation();
 
-	//to refactor： 重放入时保持原有在list中的位置
-	characterList.push_back(character);
+		removeCharacter(partner);
+		removeCharacter(character);
+
+		cocos2d::Point tempCoord = character->getMapCoord();
+		character->setMapCoord(targetCoord);
+		partner->setMapCoord(tempCoord);
+
+		characterMap[targetCoord.x + targetCoord.y*width] = character;
+		characterMap[tempCoord.x + tempCoord.y*width] = partner;
+
+		characterList.push_back(character);
+		characterList.push_back(partner);
+	}
+	else
+	{
+		cocos2d::Point position = character->getPosition();
+		ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x + 32, position.y));
+		character->showMoveRightAnimation();
+		character->getSprite()->runAction(moveAction);
+
+		removeCharacter(character);
+		character->setMapCoord(targetCoord);
+
+		characterMap[targetCoord.x + targetCoord.y*width] = character;
+
+		//to refactor： 重放入时保持原有在list中的位置
+		characterList.push_back(character);
+	}
 }
 
 Character * Field::Storey::getCharacter(cocos2d::Point mapCoord)
@@ -235,11 +374,27 @@ StoreyInventoryHandler* Field::Storey::getInventoryHandler()
 
 bool Field::Storey::isMoveAble(cocos2d::Point mapCoord)
 {
-	if (getCharacter(mapCoord) && !getCharacter(mapCoord)->isDead())
+	if (getCharacter(mapCoord) && !getCharacter(mapCoord)->isDead()
+		&& getCharacter(mapCoord)->getPlayType() != Character::Hero)
 	{
 		return false;
 	}
+	if (isPartner(mapCoord))
+	{
+		return true;
+	}
 	return isMoveAble(getTile(mapCoord));
+}
+
+bool Field::Storey::isPartner(cocos2d::Point mapCoord)
+{
+	if (getCharacter(mapCoord)
+		&& !getCharacter(mapCoord)->isDead()
+		&& getCharacter(mapCoord)->getPlayType() == Character::Hero)
+	{
+		return true;
+	}
+	return false;
 }
 
 bool Field::Storey::isMoveAble(int tile)
