@@ -10,6 +10,7 @@
 #include "RoundSystem.h"
 #include "MainLayer.h"
 #include "BuffFactory.h"
+#include "FireBall.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -26,6 +27,8 @@ Player::~Player()
 void Player::init()
 {
 	characterPtr = CharacterFactory::getInstance()->getCharacter("Actor0");
+
+	characterPtr->addSkill(new Skill::FireBall(characterPtr));
 
 	setName("qwerty");
 

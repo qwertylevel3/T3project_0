@@ -16,21 +16,21 @@ Skill::SkillHandler::~SkillHandler()
 	skillBox.clear();
 }
 
-void Skill::SkillHandler::runSkill(int index)
+bool Skill::SkillHandler::runSkill(int index)
 {
-	skillBox[index]->active();
+	return skillBox[index]->active();
 }
 
-void Skill::SkillHandler::runSkill(const std::string& skillName)
+bool Skill::SkillHandler::runSkill(const std::string& skillName)
 {
 	for each (SkillBase* skill in skillBox)
 	{
 		if (skill->getName() == skillName)
 		{
-			skill->active();
-			return;
+			return skill->active();
 		}
 	}
+	return false;
 }
 
 std::vector<Skill::SkillBase* >& Skill::SkillHandler::getSkillBoxRef()
@@ -41,4 +41,9 @@ std::vector<Skill::SkillBase* >& Skill::SkillHandler::getSkillBoxRef()
 void Skill::SkillHandler::addSkill(SkillBase* skill)
 {
 	skillBox.push_back(skill);
+}
+
+std::string Skill::SkillHandler::getSkillName(int index)
+{
+	return skillBox[index]->getName();
 }

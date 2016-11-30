@@ -3,6 +3,7 @@
 #include "EffectBase.h"
 #include "base/ccTypes.h"
 #include <vector>
+#include "HudMessageBox.h"
 
 using namespace Skill;
 
@@ -26,11 +27,21 @@ void Skill::SkillBase::addEffect(EffectBase* effect)
 
 bool Skill::SkillBase::active()
 {
-	if (chantCost>caster->getChant() || mpCost>caster->getMP())
+	if (chantCost > caster->getChant())
 	{
+		HudMessageBox::getInstance()->addMessage(L"吟唱点数不够");
 		return false;
 	}
-	caster->clearChant();
+	if (mpCost > caster->getMP())
+	{
+		HudMessageBox::getInstance()->addMessage(L"法力值不够");
+		return false;
+	}
+	if (chantCost > 0)
+	{
+		caster->clearChant();
+	}
+
 	caster->sufferMPEffect(-mpCost);
 
 	std::vector<cocos2d::Point> targetPositionVec;

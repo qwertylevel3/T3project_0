@@ -480,6 +480,8 @@
     <ClCompile Include="..\Classes\HeroManager.cpp">
       <Filter>src\character\hero</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\FireBallEffect.cpp" />
+    <ClCompile Include="..\Classes\FireBall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -887,6 +889,8 @@
     <ClInclude Include="..\Classes\HeroManager.h">
       <Filter>src\character\hero</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\FireBallEffect.h" />
+    <ClInclude Include="..\Classes\FireBall.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

@@ -10,10 +10,11 @@ namespace Skill
 	public:
 		SkillHandler();
 		~SkillHandler();
-		void runSkill(int index);
-		void runSkill(const std::string& skillName);
+		bool runSkill(int index);
+		bool runSkill(const std::string& skillName);
 		std::vector<SkillBase* >& getSkillBoxRef();
 		void addSkill(SkillBase* skill);
+		std::string getSkillName(int index);
 	protected:
 		std::vector<SkillBase* > skillBox;
 	};

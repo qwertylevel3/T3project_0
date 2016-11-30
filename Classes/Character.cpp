@@ -216,24 +216,22 @@ void Character::speak(std::wstring sentence)
 	cocos2d::Label* messageLabel = cocos2d::Label::createWithTTF(ToolFunction::WStr2UTF8(sentence), "fonts/arialuni.ttf", 16);
 	messageLabel->setMaxLineWidth(200);
 
-
-	bk->setCapInsets(cocos2d::Rect(10,10,100,20));
+	bk->setCapInsets(cocos2d::Rect(10, 10, 100, 20));
 	bk->setScale9Enabled(true);
 
 	sprite->addChild(bk);
 	sprite->addChild(messageLabel);
 
-	cocos2d::Rect bound=messageLabel->getBoundingBox();
+	cocos2d::Rect bound = messageLabel->getBoundingBox();
 
 	messageLabel->setPosition(sprite->getPosition() + cocos2d::Vec2(20, 50));
-//	bk->setScaleX(bound.size.width / bk->getContentSize().width+0.1);
-//	bk->setScaleY(bound.size.height / bk->getContentSize().height+0.1);
+	//	bk->setScaleX(bound.size.width / bk->getContentSize().width+0.1);
+	//	bk->setScaleY(bound.size.height / bk->getContentSize().height+0.1);
 
-	//bk->setScale(5, 2);
+		//bk->setScale(5, 2);
 
-
-	bk->setContentSize(cocos2d::Size(bound.size.width+10,bound.size.height+10));
-	bk->setPosition(messageLabel->getPosition()-Vec2(0,3));
+	bk->setContentSize(cocos2d::Size(bound.size.width + 10, bound.size.height + 10));
+	bk->setPosition(messageLabel->getPosition() - Vec2(0, 3));
 	bk->setOpacity(180);
 
 	bk->runAction(
@@ -255,6 +253,7 @@ void Character::speak(std::wstring sentence)
 void Character::attack()
 {
 	runSkill("attack");
+	clearChant();
 }
 
 void Character::moveUp()
@@ -262,6 +261,7 @@ void Character::moveUp()
 	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveUp(this);
 	processAction(0);
+	clearChant();
 }
 
 void Character::moveDown()
@@ -269,6 +269,7 @@ void Character::moveDown()
 	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveDown(this);
 	processAction(0);
+	clearChant();
 }
 
 void Character::moveLeft()
@@ -276,6 +277,7 @@ void Character::moveLeft()
 	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveLeft(this);
 	processAction(0);
+	clearChant();
 }
 
 void Character::moveRight()
@@ -283,6 +285,7 @@ void Character::moveRight()
 	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveRight(this);
 	processAction(0);
+	clearChant();
 }
 
 void Character::setOrientationUp()
@@ -458,8 +461,10 @@ cocos2d::Node * Character::getParent()
 
 void Character::runSkill(std::string skillName)
 {
-	skillHandler->runSkill(skillName);
-	processAction(0.2);
+	if (skillHandler->runSkill(skillName))
+	{
+		processAction(0.2);
+	}
 }
 
 std::vector<cocos2d::Point> Character::getAtkArea()
@@ -789,7 +794,7 @@ void Character::endRound()
 	buffHandler->onRoundEnd();
 	recalculateHP();
 	recalculateMP();
-	clearChant();
+//	clearChant();
 }
 
 void Character::recalculateHP()
