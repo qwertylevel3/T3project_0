@@ -23,7 +23,6 @@ public:
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
-	void setViewPointCenter(cocos2d::Point position);
 
  	void addCharacter(Character* character);
 

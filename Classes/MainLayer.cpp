@@ -77,19 +77,11 @@ void MainLayer::menuCloseCallback(Ref* pSender)
 #endif
 }
 
-void MainLayer::setViewPointCenter(Point position) 
-{
-	if (!viewFocus)
-	{
-		return;
-	}
-	MyCamera::getInstance()->setCamera(position);
-}
 
 void MainLayer::update(float dt)
 {
 	Character* player = Player::getInstance()->getcharacterPtr();
-	this->setViewPointCenter(player->getPosition());
+//	this->setViewPointCenter(player->getPosition());
 	HudLayer::getInstance()->update();
 }
 

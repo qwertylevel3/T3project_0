@@ -11,6 +11,7 @@
 #include "MainLayer.h"
 #include "BuffFactory.h"
 #include "FireBall.h"
+#include "MyCamera.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -99,7 +100,6 @@ void Player::initMission()
 
 	characterPtr->setMapCoord(storey->getUpCoord());
 	MainLayer::getInstance()->addCharacter(characterPtr);
-	MainLayer::getInstance()->setViewPointCenter(characterPtr->getPosition());
 }
 
 void Player::autoNextStep()
@@ -219,15 +219,19 @@ void Player::playerMove(cocos2d::EventKeyboard::KeyCode keyCode)
 	{
 	case EventKeyboard::KeyCode::KEY_UP_ARROW:
 		characterPtr->moveUp();
+		MyCamera::getInstance()->moveCameraBy(cocos2d::Vec2(0, 32), 0.2);
 		break;
 	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
 		characterPtr->moveDown();
+		MyCamera::getInstance()->moveCameraBy(cocos2d::Vec2(0, -32), 0.2);
 		break;
 	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
 		characterPtr->moveLeft();
+		MyCamera::getInstance()->moveCameraBy(cocos2d::Vec2(-32, 0), 0.2);
 		break;
 	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
 		characterPtr->moveRight();
+		MyCamera::getInstance()->moveCameraBy(cocos2d::Vec2(32, 0), 0.2);
 		break;
 	}
 

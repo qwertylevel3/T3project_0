@@ -12,6 +12,7 @@
 #include "MainLayer.h"
 #include "MaskLayer.h"
 #include "HeroManager.h"
+#include "MyCamera.h"
 
 
 
@@ -56,6 +57,8 @@ void GameController::startMission(int level)
 	MaskLayer::getInstance()->loadStorey();
 	RoundSystem::getInstance()->loadStorey();
 	RoundSystem::getInstance()->start();
+
+	MyCamera::getInstance()->setCamera(Player::getInstance()->getcharacterPtr()->getPosition());
 }
 
 void GameController::initPlist()
