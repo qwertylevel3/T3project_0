@@ -1,4 +1,5 @@
 #include "MainLayer.h"
+#include "platform/CCGLView.h"
 #include "SimpleAudioEngine.h"
 #include"RandomNumber.h"
 #include"StoreyBuilder.h"
@@ -14,6 +15,7 @@
 #include "HudLayer.h"
 #include "BuffFactory.h"
 #include "SphereFactory.h"
+#include "MyCamera.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -81,23 +83,7 @@ void MainLayer::setViewPointCenter(Point position)
 	{
 		return;
 	}
-	Storey* storey = Dungeon::getInstance()->getStorey();
-	TMXTiledMap* tileMap = storey->getTileMap();
-	auto winSize = Director::getInstance()->getWinSize();
-
-//	int x = MAX(position.x, winSize.width / 2);
-//	int y = MAX(position.y, winSize.height / 2);
-//	x = MIN(x, (tileMap->getMapSize().width * tileMap->getTileSize().width) - winSize.width / 2);
-//	y = MIN(y, (tileMap->getMapSize().height * tileMap->getTileSize().height) - winSize.height / 2);
-//	auto actualPosition = Point(x, y);
-
-	auto centerOfView = Point(winSize.width / 2, winSize.height / 2);
-//	auto viewPoint = centerOfView - actualPosition;
-	auto viewPoint = centerOfView - position;
-	//移动整个层，将position移到屏幕中心
-	this->setPosition(viewPoint);
-	//顺带移动mask层
-	MaskLayer::getInstance()->setPosition(viewPoint);
+	MyCamera::getInstance()->setCamera(position);
 }
 
 void MainLayer::update(float dt)

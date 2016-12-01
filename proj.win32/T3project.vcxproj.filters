@@ -482,6 +482,7 @@
     </ClCompile>
     <ClCompile Include="..\Classes\FireBallEffect.cpp" />
     <ClCompile Include="..\Classes\FireBall.cpp" />
+    <ClCompile Include="..\Classes\MyCamera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -891,6 +892,7 @@
     </ClInclude>
     <ClInclude Include="..\Classes\FireBallEffect.h" />
     <ClInclude Include="..\Classes\FireBall.h" />
+    <ClInclude Include="..\Classes\MyCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
