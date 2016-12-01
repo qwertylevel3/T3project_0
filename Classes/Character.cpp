@@ -775,9 +775,18 @@ void Character::update()
 
 void Character::action()
 {
-	if (ai)
+	if (roundHandler->isSkipNextRound())
 	{
-		ai->update();
+		//fixPosition();
+		roundHandler->setSkipNextRound(false);
+		idle();
+	}
+	else
+	{
+		if (ai)
+		{
+			ai->update();
+		}
 	}
 }
 
@@ -793,7 +802,7 @@ int Character::getActionPoint()
 
 void Character::startRound()
 {
-	fixPosition();
+//	fixPosition();
 	roundHandler->startRound();
 	buffHandler->onRoundStart();
 	recalculateHP();
@@ -802,10 +811,11 @@ void Character::startRound()
 
 void Character::endRound()
 {
+//	fixPosition();
 	buffHandler->onRoundEnd();
 	recalculateHP();
 	recalculateMP();
-//	clearChant();
+	//	clearChant();
 }
 
 void Character::fixPosition()

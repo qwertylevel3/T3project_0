@@ -92,20 +92,6 @@ void Field::Storey::characterMoveUp(Character* character)
 	{
 		Character* partner = getCharacter(targetCoord);
 
-		partner->setOrientationDown();
-		partner->getSprite()->runAction(
-			cocos2d::MoveTo::create(0.2, character->getPosition())
-		);
-		partner->showMoveDownAnimation();
-
-		RoundHandler* roundHandler = partner->getRoundHandler();
-		roundHandler->setSkipNextRound(true);
-
-		character->getSprite()->runAction(
-			cocos2d::MoveTo::create(0.2, partner->getPosition())
-		);
-		character->showMoveUpAnimation();
-
 		removeCharacter(partner);
 		removeCharacter(character);
 
@@ -118,6 +104,25 @@ void Field::Storey::characterMoveUp(Character* character)
 
 		characterList.push_back(character);
 		characterList.push_back(partner);
+
+		cocos2d::Point characterPosition = getTilePosition(character->getMapCoord());
+		cocos2d::Point partnerPosition = getTilePosition(partner->getMapCoord());
+
+
+		partner->setOrientationDown();
+		partner->getSprite()->runAction(
+			cocos2d::MoveTo::create(0.2, partnerPosition)
+		);
+		partner->showMoveDownAnimation();
+
+		RoundHandler* roundHandler = partner->getRoundHandler();
+		roundHandler->setSkipNextRound(true);
+
+		character->getSprite()->runAction(
+			cocos2d::MoveTo::create(0.2, characterPosition)
+		);
+		character->showMoveUpAnimation();
+
 	}
 	else
 	{
@@ -151,19 +156,6 @@ void Field::Storey::characterMoveDown(Character* character)
 	{
 		Character* partner = getCharacter(targetCoord);
 
-		partner->setOrientationUp();
-		partner->getSprite()->runAction(
-			cocos2d::MoveTo::create(0.2, character->getPosition())
-		);
-		partner->showMoveUpAnimation();
-		RoundHandler* roundHandler = partner->getRoundHandler();
-		roundHandler->setSkipNextRound(true);
-
-		character->getSprite()->runAction(
-			cocos2d::MoveTo::create(0.2, partner->getPosition())
-		);
-		character->showMoveDownAnimation();
-
 		removeCharacter(partner);
 		removeCharacter(character);
 
@@ -176,6 +168,23 @@ void Field::Storey::characterMoveDown(Character* character)
 
 		characterList.push_back(character);
 		characterList.push_back(partner);
+
+		cocos2d::Point characterPosition = getTilePosition(character->getMapCoord());
+		cocos2d::Point partnerPosition = getTilePosition(partner->getMapCoord());
+
+		partner->setOrientationUp();
+		partner->getSprite()->runAction(
+			cocos2d::MoveTo::create(0.2, partnerPosition)
+		);
+		partner->showMoveUpAnimation();
+		RoundHandler* roundHandler = partner->getRoundHandler();
+		roundHandler->setSkipNextRound(true);
+
+		character->getSprite()->runAction(
+			cocos2d::MoveTo::create(0.2, characterPosition)
+		);
+		character->showMoveDownAnimation();
+
 	}
 	else
 	{
@@ -209,19 +218,6 @@ void Field::Storey::characterMoveLeft(Character* character)
 	{
 		Character* partner = getCharacter(targetCoord);
 
-		partner->setOrientationRight();
-		partner->getSprite()->runAction(
-			cocos2d::MoveTo::create(0.2, character->getPosition())
-		);
-		partner->showMoveRightAnimation();
-		RoundHandler* roundHandler = partner->getRoundHandler();
-		roundHandler->setSkipNextRound(true);
-
-		character->getSprite()->runAction(
-			cocos2d::MoveTo::create(0.2, partner->getPosition())
-		);
-		character->showMoveLeftAnimation();
-
 		removeCharacter(partner);
 		removeCharacter(character);
 
@@ -234,6 +230,25 @@ void Field::Storey::characterMoveLeft(Character* character)
 
 		characterList.push_back(character);
 		characterList.push_back(partner);
+
+		cocos2d::Point characterPosition = getTilePosition(character->getMapCoord());
+		cocos2d::Point partnerPosition = getTilePosition(partner->getMapCoord());
+
+
+		partner->setOrientationRight();
+		partner->getSprite()->runAction(
+			cocos2d::MoveTo::create(0.2, partnerPosition)
+		);
+		partner->showMoveRightAnimation();
+		RoundHandler* roundHandler = partner->getRoundHandler();
+		roundHandler->setSkipNextRound(true);
+
+		character->getSprite()->runAction(
+			cocos2d::MoveTo::create(0.2, characterPosition)
+		);
+		character->showMoveLeftAnimation();
+
+
 	}
 	else
 	{
@@ -267,19 +282,6 @@ void Field::Storey::characterMoveRight(Character* character)
 	{
 		Character* partner = getCharacter(targetCoord);
 
-		partner->setOrientationLeft();
-		partner->getSprite()->runAction(
-			cocos2d::MoveTo::create(0.2, character->getPosition())
-		);
-		partner->showMoveLeftAnimation();
-		RoundHandler* roundHandler = partner->getRoundHandler();
-		roundHandler->setSkipNextRound(true);
-
-		character->getSprite()->runAction(
-			cocos2d::MoveTo::create(0.2, partner->getPosition())
-		);
-		character->showMoveRightAnimation();
-
 		removeCharacter(partner);
 		removeCharacter(character);
 
@@ -292,6 +294,25 @@ void Field::Storey::characterMoveRight(Character* character)
 
 		characterList.push_back(character);
 		characterList.push_back(partner);
+
+		cocos2d::Point characterPosition = getTilePosition(character->getMapCoord());
+		cocos2d::Point partnerPosition = getTilePosition(partner->getMapCoord());
+
+
+		partner->setOrientationLeft();
+		partner->getSprite()->runAction(
+			cocos2d::MoveTo::create(0.2, partnerPosition)
+		);
+		partner->showMoveLeftAnimation();
+		RoundHandler* roundHandler = partner->getRoundHandler();
+		roundHandler->setSkipNextRound(true);
+
+		character->getSprite()->runAction(
+			cocos2d::MoveTo::create(0.2, characterPosition)
+		);
+		character->showMoveRightAnimation();
+
+
 	}
 	else
 	{
