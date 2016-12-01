@@ -9,6 +9,7 @@ namespace Skill
 	public:
 		Chant(Character* character);
 		~Chant();
-		bool active();
+	protected:
+		void run();
 	};
 }

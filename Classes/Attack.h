@@ -9,5 +9,7 @@ namespace Skill
 	public:
 		Attack(Character* caster);
 		~Attack();
+	protected:
+		void run();
 	};
 }

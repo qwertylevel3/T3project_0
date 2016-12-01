@@ -159,7 +159,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Arrow.cpp" />
     <ClCompile Include="..\Classes\AStar.cpp" />
     <ClCompile Include="..\Classes\Attack.cpp" />
-    <ClCompile Include="..\Classes\AttackEffect.cpp" />
     <ClCompile Include="..\Classes\AttackSelector.cpp" />
     <ClCompile Include="..\Classes\BaseAttrBuff.cpp" />
     <ClCompile Include="..\Classes\BlockPointBuff.cpp" />
@@ -170,7 +169,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\BuffHandler.cpp" />
     <ClCompile Include="..\Classes\Chant.cpp" />
     <ClCompile Include="..\Classes\ChantBuff.cpp" />
-    <ClCompile Include="..\Classes\ChantEffect.cpp" />
     <ClCompile Include="..\Classes\CharacterAttr.cpp" />
     <ClCompile Include="..\Classes\CharacterAttrHandler.cpp" />
     <ClCompile Include="..\Classes\ComboBuff.cpp" />
@@ -180,16 +178,13 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\DisabilitySphere.cpp" />
     <ClCompile Include="..\Classes\DogTag.cpp" />
     <ClCompile Include="..\Classes\DogTagGenerator.cpp" />
-    <ClCompile Include="..\Classes\EffectBase.cpp" />
     <ClCompile Include="..\Classes\EvadeBuff.cpp" />
     <ClCompile Include="..\Classes\FireBall.cpp" />
-    <ClCompile Include="..\Classes\FireBallEffect.cpp" />
     <ClCompile Include="..\Classes\FixedSelector.cpp" />
     <ClCompile Include="..\Classes\GameController.cpp" />
     <ClCompile Include="..\Classes\HemophagiaSphere.cpp" />
     <ClCompile Include="..\Classes\HeroManager.cpp" />
     <ClCompile Include="..\Classes\HPBuff.cpp" />
-    <ClCompile Include="..\Classes\HPEffect.cpp" />
     <ClCompile Include="..\Classes\HudBar.cpp" />
     <ClCompile Include="..\Classes\HudBuffMenu.cpp" />
     <ClCompile Include="..\Classes\HudGroundInventoryMenu.cpp" />
@@ -216,7 +211,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\MaxHPBuff.cpp" />
     <ClCompile Include="..\Classes\MaxMPBuff.cpp" />
     <ClCompile Include="..\Classes\MPBuff.cpp" />
-    <ClCompile Include="..\Classes\MPEffect.cpp" />
     <ClCompile Include="..\Classes\MyCamera.cpp" />
     <ClCompile Include="..\Classes\PhysicalImmuneBuff.cpp" />
     <ClCompile Include="..\Classes\SelectorBase.cpp" />
@@ -299,7 +293,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Arrow.h" />
     <ClInclude Include="..\Classes\AStar.h" />
     <ClInclude Include="..\Classes\Attack.h" />
-    <ClInclude Include="..\Classes\AttackEffect.h" />
     <ClInclude Include="..\Classes\AttackSelector.h" />
     <ClInclude Include="..\Classes\BaseAttrBuff.h" />
     <ClInclude Include="..\Classes\BlockPointBuff.h" />
@@ -310,7 +303,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\BuffHandler.h" />
     <ClInclude Include="..\Classes\Chant.h" />
     <ClInclude Include="..\Classes\ChantBuff.h" />
-    <ClInclude Include="..\Classes\ChantEffect.h" />
     <ClInclude Include="..\Classes\CharacterAttr.h" />
     <ClInclude Include="..\Classes\CharacterAttrHandler.h" />
     <ClInclude Include="..\Classes\ComboBuff.h" />
@@ -320,16 +312,13 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\DisabilitySphere.h" />
     <ClInclude Include="..\Classes\DogTag.h" />
     <ClInclude Include="..\Classes\DogTagGenerator.h" />
-    <ClInclude Include="..\Classes\EffectBase.h" />
     <ClInclude Include="..\Classes\EvadeBuff.h" />
     <ClInclude Include="..\Classes\FireBall.h" />
-    <ClInclude Include="..\Classes\FireBallEffect.h" />
     <ClInclude Include="..\Classes\FixedSelector.h" />
     <ClInclude Include="..\Classes\GameController.h" />
     <ClInclude Include="..\Classes\HemophagiaSphere.h" />
     <ClInclude Include="..\Classes\HeroManager.h" />
     <ClInclude Include="..\Classes\HPBuff.h" />
-    <ClInclude Include="..\Classes\HPEffect.h" />
     <ClInclude Include="..\Classes\HudBar.h" />
     <ClInclude Include="..\Classes\HudBuffMenu.h" />
     <ClInclude Include="..\Classes\HudGroundInventoryMenu.h" />
@@ -356,7 +345,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MaxHPBuff.h" />
     <ClInclude Include="..\Classes\MaxMPBuff.h" />
     <ClInclude Include="..\Classes\MPBuff.h" />
-    <ClInclude Include="..\Classes\MPEffect.h" />
     <ClInclude Include="..\Classes\MyCamera.h" />
     <ClInclude Include="..\Classes\PhysicalImmuneBuff.h" />
     <ClInclude Include="..\Classes\SelectorBase.h" />

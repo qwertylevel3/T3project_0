@@ -61,9 +61,6 @@
     <Filter Include="src\HUD\menuSystem\menu\groundMenu">
       <UniqueIdentifier>{1edf1825-4298-4cca-9900-d2f7cddd62c6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\skill\effector">
-      <UniqueIdentifier>{d2e18a5a-a3cd-47ba-b018-c9e59d8c6820}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\selector">
       <UniqueIdentifier>{11a82f50-1af5-4588-8a23-2146e4c4efa9}</UniqueIdentifier>
     </Filter>
@@ -276,12 +273,6 @@
     <ClCompile Include="..\Classes\Attack.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AttackEffect.cpp">
-      <Filter>src\skill\effector</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\EffectBase.cpp">
-      <Filter>src\skill\effector</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\SelectorBase.cpp">
       <Filter>src\selector</Filter>
     </ClCompile>
@@ -347,15 +338,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Chant.cpp">
       <Filter>src\skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\HPEffect.cpp">
-      <Filter>src\skill\effector</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\MPEffect.cpp">
-      <Filter>src\skill\effector</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ChantEffect.cpp">
-      <Filter>src\skill\effector</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\BuffFactory.cpp">
       <Filter>src\buff</Filter>
@@ -480,7 +462,6 @@
     <ClCompile Include="..\Classes\HeroManager.cpp">
       <Filter>src\character\hero</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\FireBallEffect.cpp" />
     <ClCompile Include="..\Classes\FireBall.cpp" />
     <ClCompile Include="..\Classes\MyCamera.cpp" />
   </ItemGroup>
@@ -686,12 +667,6 @@
     <ClInclude Include="..\Classes\Attack.h">
       <Filter>src\skill</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AttackEffect.h">
-      <Filter>src\skill\effector</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\EffectBase.h">
-      <Filter>src\skill\effector</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\SelectorBase.h">
       <Filter>src\selector</Filter>
     </ClInclude>
@@ -757,15 +732,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Chant.h">
       <Filter>src\skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\HPEffect.h">
-      <Filter>src\skill\effector</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\MPEffect.h">
-      <Filter>src\skill\effector</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ChantEffect.h">
-      <Filter>src\skill\effector</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\BuffFactory.h">
       <Filter>src\buff</Filter>
@@ -890,7 +856,6 @@
     <ClInclude Include="..\Classes\HeroManager.h">
       <Filter>src\character\hero</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\FireBallEffect.h" />
     <ClInclude Include="..\Classes\FireBall.h" />
     <ClInclude Include="..\Classes\MyCamera.h" />
   </ItemGroup>
