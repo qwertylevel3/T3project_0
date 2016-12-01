@@ -167,7 +167,7 @@ void Player::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 	switch (controlMode)
 	{
 	case NormalMode:
-		if (keyCode == EventKeyboard::KeyCode::KEY_A)
+		if (keyCode == EventKeyboard::KeyCode::KEY_SPACE)
 		{
 			playerAttack(keyCode);
 			break;

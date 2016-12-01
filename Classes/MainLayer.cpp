@@ -135,8 +135,6 @@ void MainLayer::loadStorey()
 	{
 		Layer::addChild(character->getSprite());
 	}
-
-
 }
 
 void MainLayer::addCharacter(Character * character)

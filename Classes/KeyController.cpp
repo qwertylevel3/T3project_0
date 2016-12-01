@@ -30,10 +30,10 @@ void KeyController::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 	{
 		return;
 	}
-	if(keyCode==cocos2d::EventKeyboard::KeyCode::KEY_SPACE)
-	{
-		Player::getInstance()->autoNextStep();
-	}
+//	if(keyCode==cocos2d::EventKeyboard::KeyCode::KEY_SPACE)
+//	{
+//		Player::getInstance()->autoNextStep();
+//	}
 
 
 	//open or close menu
