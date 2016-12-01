@@ -216,6 +216,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\SelectorBase.cpp" />
     <ClCompile Include="..\Classes\SingleDirectionSearchSelector.cpp" />
     <ClCompile Include="..\Classes\SkillBase.cpp" />
+    <ClCompile Include="..\Classes\SkillFactory.cpp" />
     <ClCompile Include="..\Classes\SkillHandler.cpp" />
     <ClCompile Include="..\Classes\SphereBase.cpp" />
     <ClCompile Include="..\Classes\InventoryBuffHandler.cpp" />
@@ -350,6 +351,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\SelectorBase.h" />
     <ClInclude Include="..\Classes\SingleDirectionSearchSelector.h" />
     <ClInclude Include="..\Classes\SkillBase.h" />
+    <ClInclude Include="..\Classes\SkillFactory.h" />
     <ClInclude Include="..\Classes\SkillHandler.h" />
     <ClInclude Include="..\Classes\SphereBase.h" />
     <ClInclude Include="..\Classes\InventoryBuffHandler.h" />

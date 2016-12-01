@@ -25,6 +25,7 @@
 #include "BuffFactory.h"
 #include "ui/UIScale9Sprite.h"
 #include "AIFactory.h"
+#include "SkillFactory.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -35,11 +36,15 @@ Character::Character()
 
 	skillHandler = new Skill::SkillHandler();
 
-	Skill::Attack* attackSkill = new Skill::Attack(this);
-	Skill::Chant* chantSkill = new Skill::Chant(this);
 
-	skillHandler->addSkill(attackSkill);
-	skillHandler->addSkill(chantSkill);
+	skillHandler->addSkill(
+		Skill::SkillFactory::getInstance()->getSkill(this, 
+			ToolFunction::WStr2UTF8(L"attack_¹¥»÷_0_0"))
+	);
+	skillHandler->addSkill(
+		Skill::SkillFactory::getInstance()->getSkill(this, 
+			ToolFunction::WStr2UTF8(L"chant_Ò÷³ª_0_0"))
+	);
 
 	orientation = DOWN;
 	dead = false;
@@ -252,7 +257,7 @@ void Character::speak(std::wstring sentence)
 
 void Character::attack()
 {
-	runSkill("attack");
+	runSkill(ToolFunction::WStr2UTF8(L"attack_¹¥»÷_0_0"));
 	clearChant();
 }
 

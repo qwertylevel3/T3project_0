@@ -10,7 +10,7 @@
 #include "RoundSystem.h"
 #include "MainLayer.h"
 #include "BuffFactory.h"
-#include "FireBall.h"
+#include "SkillFactory.h"
 #include "MyCamera.h"
 
 USING_NS_CC;
@@ -29,7 +29,10 @@ void Player::init()
 {
 	characterPtr = CharacterFactory::getInstance()->getCharacter("Actor0");
 
-	characterPtr->addSkill(new Skill::FireBall(characterPtr));
+	characterPtr->addSkill(
+		Skill::SkillFactory::getInstance()->getSkill(characterPtr, 
+			ToolFunction::WStr2UTF8(L"fireBall_¿ìËÙ»ðÇò_20_20_20_5"))
+	);
 
 	setName("qwerty");
 
@@ -205,7 +208,7 @@ void Player::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 
 void Player::playerAttack(cocos2d::EventKeyboard::KeyCode keyCode)
 {
-	characterPtr->runSkill("attack");
+	characterPtr->attack();
 }
 
 void Player::playerMove(cocos2d::EventKeyboard::KeyCode keyCode)

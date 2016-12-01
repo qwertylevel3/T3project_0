@@ -25,7 +25,7 @@ bool Skill::SkillHandler::runSkill(const std::string& skillName)
 {
 	for each (SkillBase* skill in skillBox)
 	{
-		if (skill->getName() == skillName)
+		if (skill->getID() == skillName)
 		{
 			return skill->active();
 		}
@@ -43,7 +43,7 @@ void Skill::SkillHandler::addSkill(SkillBase* skill)
 	skillBox.push_back(skill);
 }
 
-std::string Skill::SkillHandler::getSkillName(int index)
+std::string Skill::SkillHandler::getSkillID(int index)
 {
-	return skillBox[index]->getName();
+	return skillBox[index]->getID();
 }

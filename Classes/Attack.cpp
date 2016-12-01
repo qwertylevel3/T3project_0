@@ -9,7 +9,6 @@ using namespace Skill;
 Attack::Attack(Character* caster)
 	:SkillBase(caster)
 {
-	this->setName("attack");
 	this->setCname(ToolFunction::WStr2UTF8(L"¹¥»÷"));
 	this->setChantCost(0);
 	this->setMpCost(0);
@@ -18,6 +17,16 @@ Attack::Attack(Character* caster)
 
 Attack::~Attack()
 {
+}
+
+Skill::Attack* Skill::Attack::createPrototype(Character* caster)
+{
+	return new Attack(caster);
+}
+
+void Skill::Attack::initExtraMessage(std::vector<std::string> extraMessage)
+{
+	return;
 }
 
 void Skill::Attack::run()

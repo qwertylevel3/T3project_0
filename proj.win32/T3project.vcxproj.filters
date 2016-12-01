@@ -462,8 +462,15 @@
     <ClCompile Include="..\Classes\HeroManager.cpp">
       <Filter>src\character\hero</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\FireBall.cpp" />
-    <ClCompile Include="..\Classes\MyCamera.cpp" />
+    <ClCompile Include="..\Classes\FireBall.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MyCamera.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SkillFactory.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -856,8 +863,15 @@
     <ClInclude Include="..\Classes\HeroManager.h">
       <Filter>src\character\hero</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\FireBall.h" />
-    <ClInclude Include="..\Classes\MyCamera.h" />
+    <ClInclude Include="..\Classes\SkillFactory.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FireBall.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MyCamera.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

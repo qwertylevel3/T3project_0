@@ -9,7 +9,9 @@ namespace Skill
 	public:
 		Attack(Character* caster);
 		~Attack();
+		Attack* createPrototype(Character* caster);
 	protected:
+		void initExtraMessage(std::vector<std::string> extraMessage);
 		void run();
 	};
 }

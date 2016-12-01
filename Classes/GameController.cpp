@@ -3,6 +3,7 @@
 #include "BuffFactory.h"
 #include "SphereFactory.h"
 #include "InventoryFactory.h"
+#include "SkillFactory.h"
 #include "CharacterFactory.h"
 #include "Player.h"
 #include "MonsterFactory.h"
@@ -31,6 +32,7 @@ void GameController::init()
 	RandomNumber::getInstance()->setSeed(100);
 	Buff::BuffFactory::getInstance()->init();
 	Sphere::SphereFactory::getInstance()->init();
+	Skill::SkillFactory::getInstance()->init();
 	InventoryFactory::getInstance()->init();
 	CharacterFactory::getInstance()->init();
 	Player::getInstance()->init();

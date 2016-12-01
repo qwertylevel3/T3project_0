@@ -21,8 +21,8 @@ void HudTrigActiveSkill::run()
 	Character* characterPtr = Player::getInstance()->getcharacterPtr();
 
 	Skill::SkillHandler* skillHandler = characterPtr->getSkillHandler();
-	std::string skillName = skillHandler->getSkillName(curIndex);
-	characterPtr->runSkill(skillName);
+	std::string skillID = skillHandler->getSkillID(curIndex);
+	characterPtr->runSkill(skillID);
 
 	menuItem->getParentMenu()->closeMenu();
 }

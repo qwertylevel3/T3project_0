@@ -6,7 +6,6 @@
 Skill::FireBall::FireBall(Character* character)
 	:SkillBase(character)
 {
-	this->setName("FireBall");
 	this->setCname(ToolFunction::WStr2UTF8(L"¿ìËÙ»ðÇò"));
 	this->setChantCost(20);
 	this->setMpCost(20);
@@ -16,9 +15,15 @@ Skill::FireBall::~FireBall()
 {
 }
 
+Skill::FireBall* Skill::FireBall::createPrototype(Character* caster)
+{
+	return new FireBall(caster);
+}
+
 void Skill::FireBall::run()
 {
 	LinerSelector selector;
+	selector.setMaxLength(distance);
 	std::vector<cocos2d::Point > coord = selector.select(caster);
 
 	if (coord.empty())
@@ -59,7 +64,13 @@ void Skill::FireBall::run()
 	{
 		return;
 	}
-	targetCharacter->sufferHPEffect(-15);
+	targetCharacter->sufferHPEffect(-damage);
+}
+
+void Skill::FireBall::initExtraMessage(std::vector<std::string> extraMessage)
+{
+	damage = ToolFunction::string2int(extraMessage[0]);
+	distance = ToolFunction::string2int(extraMessage[1]);
 }
 
 void Skill::FireBall::showFireBall(cocos2d::Point oriPosition, cocos2d::Point dstPosition)

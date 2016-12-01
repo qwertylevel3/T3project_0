@@ -10,8 +10,13 @@ namespace Skill
 	public:
 		FireBall(Character* character);
 		~FireBall();
+		FireBall* createPrototype(Character* caster);
 	protected:
 		void run();
+		void initExtraMessage(std::vector<std::string> extraMessage);
 		void showFireBall(cocos2d::Point oriPosition,cocos2d::Point dstPosition);
+
+		int damage;
+		int distance;
 	};
 }

@@ -14,7 +14,7 @@ namespace Skill
 		bool runSkill(const std::string& skillName);
 		std::vector<SkillBase* >& getSkillBoxRef();
 		void addSkill(SkillBase* skill);
-		std::string getSkillName(int index);
+		std::string getSkillID(int index);
 	protected:
 		std::vector<SkillBase* > skillBox;
 	};
