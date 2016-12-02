@@ -96,18 +96,9 @@ bool RoundSystem::init()
 	return true;
 }
 
-void RoundSystem::loadStorey()
+void RoundSystem::initMission()
 {
-	allCharacter.clear();
 	curIndex = 0;
-
-	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
-	std::list<Character*> storeyCharacters = storey->getAllCharacter();
-
-	for each (Character*  character in storeyCharacters)
-	{
-		allCharacter.push_back(character);
-	}
 }
 
 int RoundSystem::getRoundCount()
@@ -199,4 +190,9 @@ void RoundSystem::nextRound()
 	//		round();
 	//	}
 	round();
+}
+
+void RoundSystem::addCharacter(Character* character)
+{
+	allCharacter.push_back(character);
 }

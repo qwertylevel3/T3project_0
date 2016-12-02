@@ -39,10 +39,11 @@ public:
 	~RoundSystem();
 	void start();
 	bool init();
-	void loadStorey();
+	void initMission();
 	int getRoundCount();
 	void sendNextRoundMessage();
 	void nextRound();
+	void addCharacter(Character* character);
 protected:
 	void nextIndex();
 	bool isPlayer(Character* character);

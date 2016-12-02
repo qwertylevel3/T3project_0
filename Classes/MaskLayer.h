@@ -7,6 +7,7 @@
 #include "2d/CCRenderTexture.h"
 
 
+class Character;
 class Illuminant;
 
 class MaskLayer :public cocos2d::Layer, public Singleton<MaskLayer>
@@ -20,6 +21,7 @@ public:
 	void darkOff();
 	void clear();
 	void loadStorey();
+	void addLightForCharacter(Character* character);
 protected:
 	void addLight(Illuminant* light);
 	std::vector<Illuminant* > lightBox;

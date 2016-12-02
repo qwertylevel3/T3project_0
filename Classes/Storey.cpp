@@ -5,7 +5,9 @@
 #include "RoundSystem.h"
 #include "StoreyInventoryHandler.h"
 #include "MainLayer.h"
+#include "MaskLayer.h"
 #include "ZOrderManager.h"
+#include "RoundSystem.h"
 
 using namespace Field;
 USING_NS_CC;
@@ -338,7 +340,7 @@ Character * Field::Storey::getCharacter(cocos2d::Point mapCoord)
 	return getCharacter(mapCoord.x, mapCoord.y);
 }
 
-void Field::Storey::setCharacter(int x, int y, Character * character)
+void Field::Storey::addCharacter(int x, int y, Character * character)
 {
 	MainLayer::getInstance()->addChild(character->getSprite(),
 		ZOrderManager::characterZ);
@@ -348,11 +350,15 @@ void Field::Storey::setCharacter(int x, int y, Character * character)
 
 	characterMap[x + y*width] = character;
 	characterList.push_back(character);
+
+	RoundSystem::getInstance()->addCharacter(character);
+
+	MaskLayer::getInstance()->addLightForCharacter(character);
 }
 
-void Field::Storey::setCharacter(cocos2d::Point coord, Character* character)
+void Field::Storey::addCharacter(cocos2d::Point coord, Character* character)
 {
-	setCharacter(coord.x, coord.y, character);
+	addCharacter(coord.x, coord.y, character);
 }
 
 void Field::Storey::removeCharacter(int x, int y)
@@ -387,16 +393,6 @@ void Field::Storey::removeCharacter(Character* character)
 	characterMap[coord.x + coord.y*width] = nullptr;
 }
 
-void Field::Storey::characterMove(cocos2d::Point oriPosition, cocos2d::Point tarPosition)
-{
-	Character* character = getCharacter(oriPosition);
-	CCAssert(character, "null character move");
-	if (character)
-	{
-		removeCharacter(oriPosition.x, oriPosition.y);
-		setCharacter(tarPosition.x, tarPosition.y, character);
-	}
-}
 
 StoreyInventoryHandler* Field::Storey::getInventoryHandler()
 {

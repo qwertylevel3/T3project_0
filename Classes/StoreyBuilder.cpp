@@ -351,7 +351,7 @@ void Field::StoreyBuilder::placeMonster(const Rect & rect)
 
 	CCAssert(monster, "get a null monster");
 
-	storey->setCharacter(x, y, monster);
+	storey->addCharacter(x, y, monster);
 
 //	for (int i=rect.x+1;i<rect.x+rect.width-2;i++)
 //	{

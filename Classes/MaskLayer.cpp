@@ -94,7 +94,7 @@ void MaskLayer::clear()
 
 void MaskLayer::loadStorey()
 {
-	clear();
+//	clear();
 
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 	//////////////////////////////////////////////////////////////////////////
@@ -111,21 +111,19 @@ void MaskLayer::loadStorey()
 
 	this->addChild(mask, 10);
 
-	std::list<Character* > allCharacter = storey->getAllCharacter();
-
-	for each (Character* character in allCharacter)
-	{
-		if (character->getCharacterType() != Character::Bad)
-		{
-			Illuminant* light = new Illuminant(character);
-			addLight(light);
-		}
-	}
-
-	darkOff();
+	darkOn();
 }
 
 void MaskLayer::addLight(Illuminant* light)
 {
 	lightBox.push_back(light);
+}
+
+void MaskLayer::addLightForCharacter(Character* character)
+{
+	if (character->getCharacterType() != Character::Bad)
+	{
+		Illuminant* light = new Illuminant(character);
+		addLight(light);
+	}
 }

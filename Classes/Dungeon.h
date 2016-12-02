@@ -21,7 +21,6 @@ namespace Field {
 		void changeFloor(int floor);
 		void nextFloor();
 		void addCharacter(Character* character);
-		void characterMove(cocos2d::Point oriPosition, cocos2d::Point tarPosition);
 		void clear();
 
 		//返回当前坐标的character，如果没有，返回nullPtr
