@@ -20,7 +20,6 @@ Player::Player()
 {
 }
 
-
 Player::~Player()
 {
 }
@@ -29,10 +28,12 @@ void Player::init()
 {
 	characterPtr = CharacterFactory::getInstance()->getCharacter("Actor0");
 
-	characterPtr->addSkill(
-		Skill::SkillFactory::getInstance()->getSkill(characterPtr, 
-			ToolFunction::WStr2UTF8(L"fireBall_¿ìËÙ»ðÇò_20_20_20_5"))
-	);
+	characterPtr->addSkill(L"fireBall_¿ìËÙ»ðÇò_20_20_20_5");
+	characterPtr->addSkill(L"HPRecoverySelf_ÉúÃü»Ö¸´_20_20_20");
+	characterPtr->addSkill(L"MPRecoverySelf_Ä§·¨»Ö¸´_20_20_100");
+
+
+
 
 	setName("qwerty");
 
@@ -63,7 +64,6 @@ void Player::init()
 	Inventory* testItem1 = InventoryFactory::getInstance()->getInventory("sword001");
 	Inventory* testItem2 = InventoryFactory::getInstance()->getInventory("sword001");
 	Inventory* testItem3 = InventoryFactory::getInstance()->getInventory("sword001");
-	
 
 	characterPtr->addInventory(testItem0);
 	characterPtr->addInventory(testItem1);
@@ -75,7 +75,6 @@ void Player::init()
 	characterPtr->addInventory("torch000");
 	characterPtr->addInventory("torch000");
 
-
 	//////////////////////////////////////////////////////////////////////////
 	std::wstring buffname0 = L"WeightBuff_¸ºÖØÌá¸ß_ATTR_Good_4_20_100";
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname0));
@@ -86,16 +85,14 @@ void Player::init()
 	std::wstring buffname2 = L"BlockProBuff_¸ñµ²Ôö¼Ó_ATTR_Good_4_100_100";
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
 
-//	std::wstring buffname3 = L"EvadeBuff_ÉÁ±Übuff_ATTR_Good_4_100_100";
-//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname3));
+	//	std::wstring buffname3 = L"EvadeBuff_ÉÁ±Übuff_ATTR_Good_4_100_100";
+	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname3));
 
-//	std::wstring buffname2 = L"VertigoBuff_Ñ£ÔÎ_ATTR_Bad_2_10";
-//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
-
+	//	std::wstring buffname2 = L"VertigoBuff_Ñ£ÔÎ_ATTR_Bad_2_10";
+	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
 
 	characterPtr->speak(L"ÍÂ²Û²âÊÔÍÂ²Û²âÊÔÍÂ²Û²âÊÔÍÂ²Û²âÊÔÍÂ²Û²âÊÔÍÂ²Û²âÊÔÍÂ²Û²âÊÔÍÂ²Û²âÊÔÍÂ²Û²âÊÔ");
 }
-
 
 void Player::initMission()
 {
@@ -117,7 +114,7 @@ void Player::autoNextStep()
 		handleKeyPressed(cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW);
 	}
 	else if (nextStep.x == startPoint.x - 1
-		&& nextStep.y==startPoint.y)
+		&& nextStep.y == startPoint.y)
 	{
 		handleKeyPressed(cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW);
 	}
@@ -189,7 +186,6 @@ void Player::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 		showAtkArea();
 		break;
 	}
-
 }
 
 void Player::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
@@ -237,7 +233,6 @@ void Player::playerMove(cocos2d::EventKeyboard::KeyCode keyCode)
 		MyCamera::getInstance()->moveCameraBy(cocos2d::Vec2(32, 0), 0.2);
 		break;
 	}
-
 }
 
 void Player::playerSetOrientation(cocos2d::EventKeyboard::KeyCode keyCode)
@@ -258,7 +253,6 @@ void Player::playerSetOrientation(cocos2d::EventKeyboard::KeyCode keyCode)
 		break;
 	}
 }
-
 
 std::string Player::getName()
 {

@@ -14,6 +14,7 @@
 #include "MaskLayer.h"
 #include "HeroManager.h"
 #include "MyCamera.h"
+#include "EffectManager.h"
 
 
 
@@ -41,6 +42,7 @@ void GameController::init()
 	KeyController::getInstance()->init();
 	RoundSystem::getInstance()->init();
 	HeroManager::getInstance()->init();
+	EffectManager::getInstance()->init();
 }
 
 void GameController::startMission(int level)

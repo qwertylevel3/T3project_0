@@ -36,15 +36,8 @@ Character::Character()
 
 	skillHandler = new Skill::SkillHandler();
 
-
-	skillHandler->addSkill(
-		Skill::SkillFactory::getInstance()->getSkill(this, 
-			ToolFunction::WStr2UTF8(L"attack_¹¥»÷_0_0"))
-	);
-	skillHandler->addSkill(
-		Skill::SkillFactory::getInstance()->getSkill(this, 
-			ToolFunction::WStr2UTF8(L"chant_Ò÷³ª_0_0"))
-	);
+	addSkill(L"attack_¹¥»÷_0_0");
+	addSkill(L"chant_Ò÷³ª_0_0");
 
 	orientation = DOWN;
 	dead = false;
@@ -574,9 +567,14 @@ void Character::removeBuff(std::string buffID)
 	buffHandler->removeBuff(buffID);
 }
 
-void Character::addSkill(Skill::SkillBase* skill)
+void Character::addSkill(std::wstring skillID)
 {
-	skillHandler->addSkill(skill);
+	skillHandler->addSkill(
+		Skill::SkillFactory::getInstance()->getSkill(
+			this,
+			ToolFunction::WStr2UTF8(skillID)
+		)
+	);
 }
 
 bool Character::isPhysicalImmune()
@@ -807,7 +805,7 @@ int Character::getActionPoint()
 
 void Character::startRound()
 {
-//	fixPosition();
+	//	fixPosition();
 	roundHandler->startRound();
 	buffHandler->onRoundStart();
 	recalculateHP();
@@ -816,7 +814,7 @@ void Character::startRound()
 
 void Character::endRound()
 {
-//	fixPosition();
+	//	fixPosition();
 	buffHandler->onRoundEnd();
 	recalculateHP();
 	recalculateMP();

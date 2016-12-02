@@ -471,6 +471,10 @@
     <ClCompile Include="..\Classes\SkillFactory.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\HPRecoverySelf.cpp" />
+    <ClCompile Include="..\Classes\MPRecoverySelf.cpp" />
+    <ClCompile Include="..\Classes\HPRecoveryCast.cpp" />
+    <ClCompile Include="..\Classes\EffectManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -872,6 +876,10 @@
     <ClInclude Include="..\Classes\MyCamera.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\HPRecoverySelf.h" />
+    <ClInclude Include="..\Classes\MPRecoverySelf.h" />
+    <ClInclude Include="..\Classes\HPRecoveryCast.h" />
+    <ClInclude Include="..\Classes\EffectManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

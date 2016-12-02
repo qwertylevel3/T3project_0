@@ -2,6 +2,8 @@
 #include "Attack.h"
 #include "Chant.h"
 #include "FireBall.h"
+#include "HPRecoverySelf.h"
+#include "MPRecoverySelf.h"
 
 Skill::SkillFactory::SkillFactory()
 {
@@ -16,10 +18,16 @@ void Skill::SkillFactory::init()
 	FireBall* fireBallPrototype = new FireBall(nullptr);
 	Attack* attackPrototype = new Attack(nullptr);
 	Chant* chantPrototype = new Chant(nullptr);
+	HPRecoverySelf* hpSelfPrototype = new HPRecoverySelf(nullptr);
+	MPRecoverySelf* mpSelfPrototype = new MPRecoverySelf(nullptr);
+
+
 
 	skillPrototypeBox["fireBall"] = fireBallPrototype;
 	skillPrototypeBox["attack"] = attackPrototype;
 	skillPrototypeBox["chant"] = chantPrototype;
+	skillPrototypeBox["HPRecoverySelf"] = hpSelfPrototype;
+	skillPrototypeBox["MPRecoverySelf"] = mpSelfPrototype;
 }
 
 Skill::SkillBase* Skill::SkillFactory::getSkill(Character* character,std::string s)

@@ -80,7 +80,7 @@
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
       <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -178,6 +178,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\DisabilitySphere.cpp" />
     <ClCompile Include="..\Classes\DogTag.cpp" />
     <ClCompile Include="..\Classes\DogTagGenerator.cpp" />
+    <ClCompile Include="..\Classes\EffectManager.cpp" />
     <ClCompile Include="..\Classes\EvadeBuff.cpp" />
     <ClCompile Include="..\Classes\FireBall.cpp" />
     <ClCompile Include="..\Classes\FixedSelector.cpp" />
@@ -185,6 +186,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HemophagiaSphere.cpp" />
     <ClCompile Include="..\Classes\HeroManager.cpp" />
     <ClCompile Include="..\Classes\HPBuff.cpp" />
+    <ClCompile Include="..\Classes\HPRecoveryCast.cpp" />
+    <ClCompile Include="..\Classes\HPRecoverySelf.cpp" />
     <ClCompile Include="..\Classes\HudBar.cpp" />
     <ClCompile Include="..\Classes\HudBuffMenu.cpp" />
     <ClCompile Include="..\Classes\HudGroundInventoryMenu.cpp" />
@@ -211,6 +214,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\MaxHPBuff.cpp" />
     <ClCompile Include="..\Classes\MaxMPBuff.cpp" />
     <ClCompile Include="..\Classes\MPBuff.cpp" />
+    <ClCompile Include="..\Classes\MPRecoverySelf.cpp" />
     <ClCompile Include="..\Classes\MyCamera.cpp" />
     <ClCompile Include="..\Classes\PhysicalImmuneBuff.cpp" />
     <ClCompile Include="..\Classes\SelectorBase.cpp" />
@@ -313,6 +317,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\DisabilitySphere.h" />
     <ClInclude Include="..\Classes\DogTag.h" />
     <ClInclude Include="..\Classes\DogTagGenerator.h" />
+    <ClInclude Include="..\Classes\EffectManager.h" />
     <ClInclude Include="..\Classes\EvadeBuff.h" />
     <ClInclude Include="..\Classes\FireBall.h" />
     <ClInclude Include="..\Classes\FixedSelector.h" />
@@ -320,6 +325,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HemophagiaSphere.h" />
     <ClInclude Include="..\Classes\HeroManager.h" />
     <ClInclude Include="..\Classes\HPBuff.h" />
+    <ClInclude Include="..\Classes\HPRecoveryCast.h" />
+    <ClInclude Include="..\Classes\HPRecoverySelf.h" />
     <ClInclude Include="..\Classes\HudBar.h" />
     <ClInclude Include="..\Classes\HudBuffMenu.h" />
     <ClInclude Include="..\Classes\HudGroundInventoryMenu.h" />
@@ -346,6 +353,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MaxHPBuff.h" />
     <ClInclude Include="..\Classes\MaxMPBuff.h" />
     <ClInclude Include="..\Classes\MPBuff.h" />
+    <ClInclude Include="..\Classes\MPRecoverySelf.h" />
     <ClInclude Include="..\Classes\MyCamera.h" />
     <ClInclude Include="..\Classes\PhysicalImmuneBuff.h" />
     <ClInclude Include="..\Classes\SelectorBase.h" />
