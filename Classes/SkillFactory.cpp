@@ -10,6 +10,7 @@
 #include "ChantCast.h"
 #include "BuffSelf.h"
 #include "BuffCast.h"
+#include "Summon.h"
 
 Skill::SkillFactory::SkillFactory()
 {
@@ -32,6 +33,7 @@ void Skill::SkillFactory::init()
 	ChantCast* chantCastPrototype = new ChantCast();
 	BuffSelf* buffSelfPrototype = new BuffSelf();
 	BuffCast* buffCastPrototype = new BuffCast();
+	Summon* summonPrototype = new Summon();
 
 	skillPrototypeBox["fireBall"] = fireBallPrototype;
 	skillPrototypeBox["attack"] = attackPrototype;
@@ -44,6 +46,7 @@ void Skill::SkillFactory::init()
 	skillPrototypeBox["ChantCast"] = chantCastPrototype;
 	skillPrototypeBox["BuffSelf"] = buffSelfPrototype;
 	skillPrototypeBox["BuffCast"] = buffCastPrototype;
+	skillPrototypeBox["Summon"] = summonPrototype;
 }
 
 Skill::SkillBase* Skill::SkillFactory::getSkill(Character* character,std::string s)

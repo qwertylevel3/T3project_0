@@ -57,7 +57,7 @@ void GameController::startMission(int level)
 	HeroManager::getInstance()->initMission();
 
 	MainLayer::getInstance()->initMission();
-	MaskLayer::getInstance()->loadStorey();
+	MaskLayer::getInstance()->initMission();
 	RoundSystem::getInstance()->initMission();
 	RoundSystem::getInstance()->start();
 

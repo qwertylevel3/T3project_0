@@ -20,7 +20,7 @@ public:
 	void darkOn();
 	void darkOff();
 	void clear();
-	void loadStorey();
+	void initMission();
 	void addLightForCharacter(Character* character);
 protected:
 	void addLight(Illuminant* light);

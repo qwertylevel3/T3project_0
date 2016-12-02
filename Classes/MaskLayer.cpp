@@ -92,7 +92,7 @@ void MaskLayer::clear()
 	lightBox.clear();
 }
 
-void MaskLayer::loadStorey()
+void MaskLayer::initMission()
 {
 //	clear();
 

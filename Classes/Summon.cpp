@@ -37,8 +37,7 @@ void Skill::Summon::run()
 		targetCoord = ToolFunction::validPlace(targetCoord);
 	}
 
-	//TODO
-	//	storey
+	storey->addCharacter(targetCoord, summonCharacter);
 }
 
 void Skill::Summon::initExtraMessage(std::vector<std::string> extraMessage)
