@@ -38,14 +38,13 @@ void HeroManager::init()
 			if (fileDir.name != "."
 				&& fileDir.name != "..")
 			{
-				 initHero(fileDir.name);
+				initHero(fileDir.name);
 				//std::cout << cocos2d::FileUtils::getInstance()->fullPathForFilename(fileDir.name) << std::endl;
 			}
 		} while (_findnext(lfDir, &fileDir) == 0);
 	}
 	_findclose(lfDir);
 }
-
 
 void HeroManager::initMission()
 {
@@ -55,9 +54,9 @@ void HeroManager::initMission()
 	for each (Character*  hero in heroBox)
 	{
 		cocos2d::Point coord = ToolFunction::validPlace(playerCoord);
-//		hero->setMapCoord(cocos2d::Point(playerCoord.x, playerCoord.y + 1));
+		//		hero->setMapCoord(cocos2d::Point(playerCoord.x, playerCoord.y + 1));
 		hero->setMapCoord(coord);
-		MainLayer::getInstance()->addCharacter(hero);
+		Field::Dungeon::getInstance()->addCharacter(hero);
 	}
 }
 
@@ -93,23 +92,23 @@ void HeroManager::initHero(const std::string& fileName)
 	std::string armorName = getChildElementStrAttr(heroElement, "armor");
 	std::string accessoryName = getChildElementStrAttr(heroElement, "accessory");
 
-	if (leftHandName!="NULL")
+	if (leftHandName != "NULL")
 	{
 		Inventory* left = InventoryFactory::getInstance()->getInventory(leftHandName);
 		characterPtr->equipLeftHand(left);
 	}
-	if (rightHandName!="NULL")
+	if (rightHandName != "NULL")
 	{
 		Inventory* right = InventoryFactory::getInstance()->getInventory(rightHandName);
 		characterPtr->equipRightHand(right);
 	}
-	if (armorName!="NULL")
+	if (armorName != "NULL")
 	{
 		Inventory* armor = InventoryFactory::getInstance()->getInventory(armorName);
 		characterPtr->equipArmor(armor);
 	}
 
-	if (accessoryName!="NULL")
+	if (accessoryName != "NULL")
 	{
 		Inventory* accessory = InventoryFactory::getInstance()->getInventory(accessoryName);
 		characterPtr->equipAccessory(accessory);

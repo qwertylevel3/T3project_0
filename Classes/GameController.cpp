@@ -53,11 +53,10 @@ void GameController::startMission(int level)
 	Field::Dungeon::getInstance()->generate(1);
 //	Dungeon::getInstance()->writeToFile();
 
-	MainLayer::getInstance()->loadStorey();
 	Player::getInstance()->initMission();
 	HeroManager::getInstance()->initMission();
 
-
+	MainLayer::getInstance()->initMission();
 	MaskLayer::getInstance()->loadStorey();
 	RoundSystem::getInstance()->loadStorey();
 	RoundSystem::getInstance()->start();

@@ -16,6 +16,7 @@
 #include "BuffFactory.h"
 #include "SphereFactory.h"
 #include "MyCamera.h"
+#include "ZOrderManager.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -95,32 +96,6 @@ void MainLayer::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 	KeyController::getInstance()->handleKeyReleased(keyCode);
 }
 
-void MainLayer::loadStorey()
-{
-	clear();
-
-	Storey* floor0 = Dungeon::getInstance()->getStorey();
-
-	Layer::addChild(floor0->getTileMap(), -1);
-
-	cocos2d::Point startPosition = floor0->getUpCoord();
-	//cocos2d::Point startPosition(0, 0);
-
-	//player = Character::create("test_character.plist");
-
-	std::list<Character* > chList = floor0->getAllCharacter();
-	for each (Character*  character in chList)
-	{
-		Layer::addChild(character->getSprite());
-	}
-}
-
-void MainLayer::addCharacter(Character * character)
-{
-	Layer::addChild(character->getSprite(),10);
-
-	Dungeon::getInstance()->addCharacter(character);
-}
 
 cocos2d::Point MainLayer::getWorldPosition(cocos2d::Point position)
 {
@@ -141,5 +116,15 @@ void MainLayer::focusPlayer()
 void MainLayer::unfocusPlayer()
 {
 	viewFocus = false;
+}
+
+void MainLayer::initMission()
+{
+
+
+	addChild(
+		Field::Dungeon::getInstance()->getStorey()->getTileMap(),
+		ZOrderManager::tileMapZ
+	);
 }
 

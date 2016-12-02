@@ -29,6 +29,7 @@ namespace Field {
 		void characterMoveLeft(Character* character);
 		void characterMoveRight(Character* character);
 		void setCharacter(int x, int y, Character* character);
+		void setCharacter(cocos2d::Point coord, Character* character);
 		void removeCharacter(int x, int y);
 		void removeCharacter(Character* character);
 		void characterMove(cocos2d::Point oriPosition, cocos2d::Point tarPosition);

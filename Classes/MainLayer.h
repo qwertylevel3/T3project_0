@@ -20,11 +20,11 @@ public:
 	cocos2d::Point getWorldPosition(cocos2d::Point position);
 
     virtual bool init();
+	void initMission();
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
 
- 	void addCharacter(Character* character);
 
     // implement the "static create()" method manually
     CREATE_FUNC(MainLayer);
@@ -33,7 +33,6 @@ public:
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 	void handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode);
 
-	void loadStorey();
 	void focusPlayer();
 	void unfocusPlayer();
 	void clear();

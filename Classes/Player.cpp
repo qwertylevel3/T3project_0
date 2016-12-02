@@ -101,7 +101,8 @@ void Player::initMission()
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 
 	characterPtr->setMapCoord(storey->getUpCoord());
-	MainLayer::getInstance()->addCharacter(characterPtr);
+	storey->setCharacter(storey->getUpCoord(), characterPtr);
+
 }
 
 void Player::autoNextStep()

@@ -480,6 +480,7 @@
     <ClCompile Include="..\Classes\ChantCast.cpp" />
     <ClCompile Include="..\Classes\BuffSelf.cpp" />
     <ClCompile Include="..\Classes\BuffCast.cpp" />
+    <ClCompile Include="..\Classes\Summon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -890,6 +891,7 @@
     <ClInclude Include="..\Classes\ChantCast.h" />
     <ClInclude Include="..\Classes\BuffSelf.h" />
     <ClInclude Include="..\Classes\BuffCast.h" />
+    <ClInclude Include="..\Classes\Summon.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

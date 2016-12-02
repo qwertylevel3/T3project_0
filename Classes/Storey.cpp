@@ -4,6 +4,8 @@
 #include "Player.h"
 #include "RoundSystem.h"
 #include "StoreyInventoryHandler.h"
+#include "MainLayer.h"
+#include "ZOrderManager.h"
 
 using namespace Field;
 USING_NS_CC;
@@ -338,11 +340,19 @@ Character * Field::Storey::getCharacter(cocos2d::Point mapCoord)
 
 void Field::Storey::setCharacter(int x, int y, Character * character)
 {
+	MainLayer::getInstance()->addChild(character->getSprite(),
+		ZOrderManager::characterZ);
+
 	character->setMapCoord(cocos2d::Point(x, y));
 	character->setPosition((x) * 32 + 16, (height - y) * 32 - 16);
 
 	characterMap[x + y*width] = character;
 	characterList.push_back(character);
+}
+
+void Field::Storey::setCharacter(cocos2d::Point coord, Character* character)
+{
+	setCharacter(coord.x, coord.y, character);
 }
 
 void Field::Storey::removeCharacter(int x, int y)
