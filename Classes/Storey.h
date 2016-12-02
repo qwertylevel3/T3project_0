@@ -32,6 +32,7 @@ namespace Field {
 		void addCharacter(cocos2d::Point coord, Character* character);
 		void removeCharacter(int x, int y);
 		void removeCharacter(Character* character);
+		void changeCharacterCoord(Character* character, cocos2d::Point targetCoord);
 
 		StoreyInventoryHandler* getInventoryHandler();
 

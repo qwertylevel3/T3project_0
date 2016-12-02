@@ -11,6 +11,7 @@
 #include "BuffSelf.h"
 #include "BuffCast.h"
 #include "Summon.h"
+#include "BlinkSelf.h"
 
 Skill::SkillFactory::SkillFactory()
 {
@@ -34,6 +35,7 @@ void Skill::SkillFactory::init()
 	BuffSelf* buffSelfPrototype = new BuffSelf();
 	BuffCast* buffCastPrototype = new BuffCast();
 	Summon* summonPrototype = new Summon();
+	BlinkSelf* blinkPrototype = new BlinkSelf();
 
 	skillPrototypeBox["fireBall"] = fireBallPrototype;
 	skillPrototypeBox["attack"] = attackPrototype;
@@ -47,6 +49,7 @@ void Skill::SkillFactory::init()
 	skillPrototypeBox["BuffSelf"] = buffSelfPrototype;
 	skillPrototypeBox["BuffCast"] = buffCastPrototype;
 	skillPrototypeBox["Summon"] = summonPrototype;
+	skillPrototypeBox["BlinkSelf"] = blinkPrototype;
 }
 
 Skill::SkillBase* Skill::SkillFactory::getSkill(Character* character,std::string s)

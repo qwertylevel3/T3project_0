@@ -376,6 +376,29 @@ void Field::Storey::removeCharacter(int x, int y)
 	characterMap[x + y*width] = nullptr;
 }
 
+void Field::Storey::changeCharacterCoord(Character* character, cocos2d::Point targetCoord)
+{
+	std::list<Character* >::iterator iter = characterList.begin();
+	while (iter != characterList.end())
+	{
+		if (*iter == character)
+		{
+			cocos2d::Point targetPosition = getTilePosition(targetCoord);
+			character->setPosition(targetPosition);
+
+			removeCharacter(character);
+			character->setMapCoord(targetCoord);
+
+			characterMap[targetCoord.x + targetCoord.y*width] = character;
+
+			characterList.push_back(character);
+			return;
+		}
+
+		iter++;
+	}
+}
+
 void Field::Storey::removeCharacter(Character* character)
 {
 	cocos2d::Point coord = character->getMapCoord();

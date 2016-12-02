@@ -481,6 +481,7 @@
     <ClCompile Include="..\Classes\BuffSelf.cpp" />
     <ClCompile Include="..\Classes\BuffCast.cpp" />
     <ClCompile Include="..\Classes\Summon.cpp" />
+    <ClCompile Include="..\Classes\BlinkSelf.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -892,6 +893,7 @@
     <ClInclude Include="..\Classes\BuffSelf.h" />
     <ClInclude Include="..\Classes\BuffCast.h" />
     <ClInclude Include="..\Classes\Summon.h" />
+    <ClInclude Include="..\Classes\BlinkSelf.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

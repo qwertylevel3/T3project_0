@@ -30,7 +30,8 @@ std::vector<cocos2d::Point> LinerSelector::select(Character* caster)
 		targetCoord += offset;
 		if (impactNumber<0)
 		{
-			if (storey->isValid(targetCoord))
+			if (storey->isMoveAble(targetCoord)
+				&& !storey->getCharacter(targetCoord))
 			{
 				vec.push_back(targetCoord);
 			}
