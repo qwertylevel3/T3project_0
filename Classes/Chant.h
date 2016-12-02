@@ -7,9 +7,9 @@ namespace Skill
 	class Chant :public SkillBase
 	{
 	public:
-		Chant(Character* character);
+		Chant();
 		~Chant();
-		Chant* createPrototype(Character* caster);
+		Chant* createPrototype();
 	protected:
 		void initExtraMessage(std::vector<std::string> extraMessage);
 		void run();

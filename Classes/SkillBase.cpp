@@ -8,9 +8,9 @@
 
 using namespace Skill;
 
-SkillBase::SkillBase(Character* character)
+SkillBase::SkillBase()
 {
-	caster = character;
+	caster = nullptr;
 	mpCost = 0;
 	chantCost = 0;
 }

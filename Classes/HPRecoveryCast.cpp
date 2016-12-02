@@ -3,12 +3,12 @@
 #include "FixedSelector.h"
 #include "Dungeon.h"
 #include "Character.h"
+#include "EffectManager.h"
 
 
 
 
-Skill::HPRecoveryCast::HPRecoveryCast(Character* character)
-	:SkillBase(character)
+Skill::HPRecoveryCast::HPRecoveryCast()
 {
 }
 
@@ -17,9 +17,9 @@ Skill::HPRecoveryCast::~HPRecoveryCast()
 {
 }
 
-Skill::HPRecoveryCast* Skill::HPRecoveryCast::createPrototype(Character* caster)
+Skill::HPRecoveryCast* Skill::HPRecoveryCast::createPrototype()
 {
-	return new HPRecoveryCast(caster);
+	return new HPRecoveryCast();
 }
 
 void Skill::HPRecoveryCast::run()
@@ -31,6 +31,9 @@ void Skill::HPRecoveryCast::run()
 
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 	Character* target = storey->getCharacter(targetCoord);
+	cocos2d::Point targetPosition = storey->getTilePosition(targetCoord);
+
+	EffectManager::getInstance()->showEffect("HPRecovery", targetPosition, 1.0);
 
 	if (target)
 	{

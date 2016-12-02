@@ -4,8 +4,7 @@
 
 
 
-Skill::MPRecoverySelf::MPRecoverySelf(Character* character)
-	:SkillBase(character)
+Skill::MPRecoverySelf::MPRecoverySelf()
 {
 }
 
@@ -14,9 +13,9 @@ Skill::MPRecoverySelf::~MPRecoverySelf()
 {
 }
 
-Skill::MPRecoverySelf* Skill::MPRecoverySelf::createPrototype(Character* caster)
+Skill::MPRecoverySelf* Skill::MPRecoverySelf::createPrototype()
 {
-	return new MPRecoverySelf(caster);
+	return new MPRecoverySelf();
 }
 
 void Skill::MPRecoverySelf::run()

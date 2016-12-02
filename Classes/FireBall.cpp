@@ -3,8 +3,7 @@
 #include "ToolFunction.h"
 #include "MainLayer.h"
 
-Skill::FireBall::FireBall(Character* character)
-	:SkillBase(character)
+Skill::FireBall::FireBall()
 {
 	this->setCname(ToolFunction::WStr2UTF8(L"¿ìËÙ»ðÇò"));
 	this->setChantCost(20);
@@ -15,9 +14,9 @@ Skill::FireBall::~FireBall()
 {
 }
 
-Skill::FireBall* Skill::FireBall::createPrototype(Character* caster)
+Skill::FireBall* Skill::FireBall::createPrototype()
 {
-	return new FireBall(caster);
+	return new FireBall();
 }
 
 void Skill::FireBall::run()

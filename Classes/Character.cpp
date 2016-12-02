@@ -90,6 +90,7 @@ bool Character::sufferHPEffect(int hpOffset)
 void Character::showHPEffect(int hpOffset)
 {
 	int textSize = 16 + 16 * abs(hpOffset) / 10;
+	textSize = textSize > 42 ? 42 : textSize;
 	cocos2d::Label* messageLabel = cocos2d::Label::createWithTTF("", "fonts/arialuni.ttf", textSize);
 	std::string labelText = ToolFunction::int2string(hpOffset);
 	if (hpOffset > 0)

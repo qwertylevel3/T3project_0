@@ -31,6 +31,8 @@ void Player::init()
 	characterPtr->addSkill(L"fireBall_快速火球_20_20_20_5");
 	characterPtr->addSkill(L"HPRecoverySelf_生命恢复_20_20_20");
 	characterPtr->addSkill(L"MPRecoverySelf_魔法恢复_20_20_100");
+	characterPtr->addSkill(L"HPRecoveryCast_治疗_20_20_100");
+	characterPtr->addSkill(L"MPRecoveryCast_魔法增量_20_20_100");
 
 
 

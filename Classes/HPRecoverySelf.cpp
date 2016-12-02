@@ -6,8 +6,7 @@
 
 
 
-Skill::HPRecoverySelf::HPRecoverySelf(Character* character)
-	:SkillBase(character)
+Skill::HPRecoverySelf::HPRecoverySelf()
 {
 }
 
@@ -16,9 +15,9 @@ Skill::HPRecoverySelf::~HPRecoverySelf()
 {
 }
 
-Skill::HPRecoverySelf* Skill::HPRecoverySelf::createPrototype(Character* caster)
+Skill::HPRecoverySelf* Skill::HPRecoverySelf::createPrototype()
 {
-	return new Skill::HPRecoverySelf(caster);
+	return new Skill::HPRecoverySelf();
 }
 
 void Skill::HPRecoverySelf::run()

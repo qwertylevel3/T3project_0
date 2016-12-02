@@ -4,6 +4,8 @@
 #include "FireBall.h"
 #include "HPRecoverySelf.h"
 #include "MPRecoverySelf.h"
+#include "HPRecoveryCast.h"
+#include "MPRecoveryCast.h"
 
 Skill::SkillFactory::SkillFactory()
 {
@@ -15,19 +17,21 @@ Skill::SkillFactory::~SkillFactory()
 
 void Skill::SkillFactory::init()
 {
-	FireBall* fireBallPrototype = new FireBall(nullptr);
-	Attack* attackPrototype = new Attack(nullptr);
-	Chant* chantPrototype = new Chant(nullptr);
-	HPRecoverySelf* hpSelfPrototype = new HPRecoverySelf(nullptr);
-	MPRecoverySelf* mpSelfPrototype = new MPRecoverySelf(nullptr);
-
-
+	FireBall* fireBallPrototype = new FireBall();
+	Attack* attackPrototype = new Attack();
+	Chant* chantPrototype = new Chant();
+	HPRecoverySelf* hpSelfPrototype = new HPRecoverySelf();
+	MPRecoverySelf* mpSelfPrototype = new MPRecoverySelf();
+	HPRecoveryCast* hpCastPrototype = new HPRecoveryCast();
+	MPRecoveryCast* mpCastPrototype = new MPRecoveryCast();
 
 	skillPrototypeBox["fireBall"] = fireBallPrototype;
 	skillPrototypeBox["attack"] = attackPrototype;
 	skillPrototypeBox["chant"] = chantPrototype;
 	skillPrototypeBox["HPRecoverySelf"] = hpSelfPrototype;
 	skillPrototypeBox["MPRecoverySelf"] = mpSelfPrototype;
+	skillPrototypeBox["HPRecoveryCast"] = hpCastPrototype;
+	skillPrototypeBox["MPRecoveryCast"] = mpCastPrototype;
 }
 
 Skill::SkillBase* Skill::SkillFactory::getSkill(Character* character,std::string s)
@@ -45,12 +49,15 @@ Skill::SkillBase* Skill::SkillFactory::getSkill(Character* character,std::string
 	skillMessage.erase(skillMessage.begin());//remove buff name
 	skill->init(skillMessage);
 	skill->setID(s);
+	skill->setCaster(character);
 	return skill;
 }
 
 Skill::SkillBase* Skill::SkillFactory::getSkillPrototype(Character* character,const std::string& skillName)
 {
-	return skillPrototypeBox[skillName]->createPrototype(character);
+	SkillBase* skill=skillPrototypeBox[skillName]->createPrototype();
+	skill->setCaster(character);
+	return skill;
 }
 
 void Skill::SkillFactory::split(std::string s, char splitchar, std::vector<std::string>& vec)

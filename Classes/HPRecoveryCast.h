@@ -7,9 +7,9 @@ namespace Skill
 	class HPRecoveryCast:public SkillBase
 	{
 	public:
-		HPRecoveryCast(Character* character);
+		HPRecoveryCast();
 		~HPRecoveryCast();
-		HPRecoveryCast* createPrototype(Character* caster);
+		HPRecoveryCast* createPrototype();
 	protected:
 		void run();
 		void initExtraMessage(std::vector<std::string> extraMessage);

@@ -8,9 +8,9 @@ namespace Skill
 	class FireBall:public SkillBase
 	{
 	public:
-		FireBall(Character* character);
+		FireBall();
 		~FireBall();
-		FireBall* createPrototype(Character* caster);
+		FireBall* createPrototype();
 	protected:
 		void run();
 		void initExtraMessage(std::vector<std::string> extraMessage);

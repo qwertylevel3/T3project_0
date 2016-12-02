@@ -6,8 +6,7 @@
 
 using namespace Skill;
 
-Attack::Attack(Character* caster)
-	:SkillBase(caster)
+Attack::Attack()
 {
 	this->setCname(ToolFunction::WStr2UTF8(L"¹¥»÷"));
 	this->setChantCost(0);
@@ -19,9 +18,9 @@ Attack::~Attack()
 {
 }
 
-Skill::Attack* Skill::Attack::createPrototype(Character* caster)
+Skill::Attack* Skill::Attack::createPrototype()
 {
-	return new Attack(caster);
+	return new Attack();
 }
 
 void Skill::Attack::initExtraMessage(std::vector<std::string> extraMessage)

@@ -7,9 +7,9 @@ namespace Skill
 	class Attack :public SkillBase
 	{
 	public:
-		Attack(Character* caster);
+		Attack();
 		~Attack();
-		Attack* createPrototype(Character* caster);
+		Attack* createPrototype();
 	protected:
 		void initExtraMessage(std::vector<std::string> extraMessage);
 		void run();

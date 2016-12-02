@@ -214,6 +214,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\MaxHPBuff.cpp" />
     <ClCompile Include="..\Classes\MaxMPBuff.cpp" />
     <ClCompile Include="..\Classes\MPBuff.cpp" />
+    <ClCompile Include="..\Classes\MPRecoveryCast.cpp" />
     <ClCompile Include="..\Classes\MPRecoverySelf.cpp" />
     <ClCompile Include="..\Classes\MyCamera.cpp" />
     <ClCompile Include="..\Classes\PhysicalImmuneBuff.cpp" />
@@ -353,6 +354,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MaxHPBuff.h" />
     <ClInclude Include="..\Classes\MaxMPBuff.h" />
     <ClInclude Include="..\Classes\MPBuff.h" />
+    <ClInclude Include="..\Classes\MPRecoveryCast.h" />
     <ClInclude Include="..\Classes\MPRecoverySelf.h" />
     <ClInclude Include="..\Classes\MyCamera.h" />
     <ClInclude Include="..\Classes\PhysicalImmuneBuff.h" />

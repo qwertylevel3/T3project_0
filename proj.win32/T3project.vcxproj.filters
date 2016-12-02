@@ -475,6 +475,7 @@
     <ClCompile Include="..\Classes\MPRecoverySelf.cpp" />
     <ClCompile Include="..\Classes\HPRecoveryCast.cpp" />
     <ClCompile Include="..\Classes\EffectManager.cpp" />
+    <ClCompile Include="..\Classes\MPRecoveryCast.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -880,6 +881,7 @@
     <ClInclude Include="..\Classes\MPRecoverySelf.h" />
     <ClInclude Include="..\Classes\HPRecoveryCast.h" />
     <ClInclude Include="..\Classes\EffectManager.h" />
+    <ClInclude Include="..\Classes\MPRecoveryCast.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

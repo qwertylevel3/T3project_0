@@ -14,10 +14,10 @@ namespace Skill
 	class SkillBase
 	{
 	public:
-		SkillBase(Character* character);
+		SkillBase();
 		virtual ~SkillBase();
 		virtual bool active();
-		virtual SkillBase* createPrototype(Character* caster) = 0;
+		virtual SkillBase* createPrototype() = 0;
 		void init(std::vector<std::string> skillMessage);
 	protected:
 		void initBaseMessage(std::vector<std::string> baseMessage);
