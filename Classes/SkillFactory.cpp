@@ -6,6 +6,10 @@
 #include "MPRecoverySelf.h"
 #include "HPRecoveryCast.h"
 #include "MPRecoveryCast.h"
+#include "ChantSelf.h"
+#include "ChantCast.h"
+#include "BuffSelf.h"
+#include "BuffCast.h"
 
 Skill::SkillFactory::SkillFactory()
 {
@@ -24,6 +28,10 @@ void Skill::SkillFactory::init()
 	MPRecoverySelf* mpSelfPrototype = new MPRecoverySelf();
 	HPRecoveryCast* hpCastPrototype = new HPRecoveryCast();
 	MPRecoveryCast* mpCastPrototype = new MPRecoveryCast();
+	ChantSelf* chantSelfPrototype = new ChantSelf();
+	ChantCast* chantCastPrototype = new ChantCast();
+	BuffSelf* buffSelfPrototype = new BuffSelf();
+	BuffCast* buffCastPrototype = new BuffCast();
 
 	skillPrototypeBox["fireBall"] = fireBallPrototype;
 	skillPrototypeBox["attack"] = attackPrototype;
@@ -32,6 +40,10 @@ void Skill::SkillFactory::init()
 	skillPrototypeBox["MPRecoverySelf"] = mpSelfPrototype;
 	skillPrototypeBox["HPRecoveryCast"] = hpCastPrototype;
 	skillPrototypeBox["MPRecoveryCast"] = mpCastPrototype;
+	skillPrototypeBox["ChantSelf"] = chantSelfPrototype;
+	skillPrototypeBox["ChantCast"] = chantCastPrototype;
+	skillPrototypeBox["BuffSelf"] = buffSelfPrototype;
+	skillPrototypeBox["BuffCast"] = buffCastPrototype;
 }
 
 Skill::SkillBase* Skill::SkillFactory::getSkill(Character* character,std::string s)

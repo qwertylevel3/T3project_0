@@ -476,6 +476,10 @@
     <ClCompile Include="..\Classes\HPRecoveryCast.cpp" />
     <ClCompile Include="..\Classes\EffectManager.cpp" />
     <ClCompile Include="..\Classes\MPRecoveryCast.cpp" />
+    <ClCompile Include="..\Classes\ChantSelf.cpp" />
+    <ClCompile Include="..\Classes\ChantCast.cpp" />
+    <ClCompile Include="..\Classes\BuffSelf.cpp" />
+    <ClCompile Include="..\Classes\BuffCast.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -882,6 +886,10 @@
     <ClInclude Include="..\Classes\HPRecoveryCast.h" />
     <ClInclude Include="..\Classes\EffectManager.h" />
     <ClInclude Include="..\Classes\MPRecoveryCast.h" />
+    <ClInclude Include="..\Classes\ChantSelf.h" />
+    <ClInclude Include="..\Classes\ChantCast.h" />
+    <ClInclude Include="..\Classes\BuffSelf.h" />
+    <ClInclude Include="..\Classes\BuffCast.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

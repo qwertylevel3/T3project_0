@@ -33,9 +33,9 @@ void Player::init()
 	characterPtr->addSkill(L"MPRecoverySelf_魔法恢复_20_20_100");
 	characterPtr->addSkill(L"HPRecoveryCast_治疗_20_20_100");
 	characterPtr->addSkill(L"MPRecoveryCast_魔法增量_20_20_100");
-
-
-
+	characterPtr->addSkill(L"ChantSelf_快速施法_20_0_100");
+	characterPtr->addSkill(L"BuffSelf_闪避buff_20_20_EvadeBuff_闪避buff_ATTR_Good_4_100_100");
+	characterPtr->addSkill(L"BuffCast_闪避buff祝福_20_20_EvadeBuff_闪避buff_ATTR_Good_4_100_100");
 
 	setName("qwerty");
 
