@@ -15,6 +15,7 @@
 #include "HeroManager.h"
 #include "MyCamera.h"
 #include "EffectManager.h"
+#include "MenuSystem.h"
 
 
 
@@ -43,6 +44,8 @@ void GameController::init()
 	RoundSystem::getInstance()->init();
 	HeroManager::getInstance()->init();
 	EffectManager::getInstance()->init();
+
+	MenuSystem::getInstance()->init();
 }
 
 void GameController::startMission(int level)
@@ -62,6 +65,9 @@ void GameController::startMission(int level)
 	RoundSystem::getInstance()->start();
 
 	MyCamera::getInstance()->setCamera(Player::getInstance()->getcharacterPtr()->getPosition());
+
+
+	
 }
 
 void GameController::initPlist()

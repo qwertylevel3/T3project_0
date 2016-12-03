@@ -111,7 +111,7 @@ void MaskLayer::initMission()
 
 	this->addChild(mask, 10);
 
-	darkOn();
+	darkOff();
 }
 
 void MaskLayer::addLight(Illuminant* light)

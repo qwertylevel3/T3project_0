@@ -79,6 +79,9 @@
     <Filter Include="src\character\hero">
       <UniqueIdentifier>{543a3d35-7fa4-477c-8b13-d4082548163f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\menu">
+      <UniqueIdentifier>{ceba6436-05ee-4b38-bf65-155b47718898}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -471,17 +474,42 @@
     <ClCompile Include="..\Classes\SkillFactory.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HPRecoverySelf.cpp" />
-    <ClCompile Include="..\Classes\MPRecoverySelf.cpp" />
-    <ClCompile Include="..\Classes\HPRecoveryCast.cpp" />
-    <ClCompile Include="..\Classes\EffectManager.cpp" />
-    <ClCompile Include="..\Classes\MPRecoveryCast.cpp" />
-    <ClCompile Include="..\Classes\ChantSelf.cpp" />
-    <ClCompile Include="..\Classes\ChantCast.cpp" />
-    <ClCompile Include="..\Classes\BuffSelf.cpp" />
-    <ClCompile Include="..\Classes\BuffCast.cpp" />
-    <ClCompile Include="..\Classes\Summon.cpp" />
-    <ClCompile Include="..\Classes\BlinkSelf.cpp" />
+    <ClCompile Include="..\Classes\MenuLayer.cpp" />
+    <ClCompile Include="..\Classes\MenuSystem.cpp" />
+    <ClCompile Include="..\Classes\MainMenu.cpp" />
+    <ClCompile Include="..\Classes\Summon.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MPRecoverySelf.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MPRecoveryCast.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HPRecoverySelf.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HPRecoveryCast.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ChantSelf.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ChantCast.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BuffSelf.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BuffCast.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BlinkSelf.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EffectManager.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -883,17 +911,42 @@
     <ClInclude Include="..\Classes\MyCamera.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HPRecoverySelf.h" />
-    <ClInclude Include="..\Classes\MPRecoverySelf.h" />
-    <ClInclude Include="..\Classes\HPRecoveryCast.h" />
-    <ClInclude Include="..\Classes\EffectManager.h" />
-    <ClInclude Include="..\Classes\MPRecoveryCast.h" />
-    <ClInclude Include="..\Classes\ChantSelf.h" />
-    <ClInclude Include="..\Classes\ChantCast.h" />
-    <ClInclude Include="..\Classes\BuffSelf.h" />
-    <ClInclude Include="..\Classes\BuffCast.h" />
-    <ClInclude Include="..\Classes\Summon.h" />
-    <ClInclude Include="..\Classes\BlinkSelf.h" />
+    <ClInclude Include="..\Classes\MenuLayer.h" />
+    <ClInclude Include="..\Classes\MenuSystem.h" />
+    <ClInclude Include="..\Classes\MainMenu.h" />
+    <ClInclude Include="..\Classes\Summon.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MPRecoverySelf.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MPRecoveryCast.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HPRecoverySelf.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HPRecoveryCast.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ChantSelf.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ChantCast.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BuffSelf.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BuffCast.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BlinkSelf.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EffectManager.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
