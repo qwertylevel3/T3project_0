@@ -16,6 +16,7 @@ MainMenu::~MainMenu()
 void MainMenu::init()
 {
 	cocos2d::ui::Layout* layout = cocos2d::ui::Layout::create();
+	layout->setVisible(false);
 
 	layout->setBackGroundImage("menu/mainMenuBK.png");
 	layout->setBackGroundImageScale9Enabled(true);
@@ -32,7 +33,6 @@ void MainMenu::init()
 	listView->setItemsMargin(10.0f);
 	listView->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 	listView->setPosition(cocos2d::Vec2(20, 430));
-	listView->setOpacity(180);
 
 	MenuLayer::getInstance()->addChild(layout);
 	layout->addChild(listView);

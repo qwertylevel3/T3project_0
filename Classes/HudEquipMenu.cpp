@@ -10,6 +10,7 @@
 #include "HudTrigActChildMenu.h"
 #include "HudUnequipLeftMenu.h"
 #include "HudUnequipRightMenu.h"
+#include "HudCursor.h"
 
 
 
@@ -80,5 +81,8 @@ void HudEquipMenu::update()
 	this->addItem(rightInventoryItem);
 	this->addItem(armorInventoryItem);
 	this->addItem(accessoryInventoryItem);
+
+
+	HudCursor::getInstance()->setCurMenu(this);
 }
 

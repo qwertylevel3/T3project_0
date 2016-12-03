@@ -10,6 +10,7 @@
 #include "HudEquipableInventoryMenu.h"
 #include "HudLayer.h"
 #include "HudLayout.h"
+#include "HudCursor.h"
 
 
 HudInventoryMenu::HudInventoryMenu()
@@ -53,6 +54,7 @@ void HudInventoryMenu::update()
 		HudMenuItem* emptyItem = new HudMenuItem("empty");
 		this->addItem(emptyItem);
 	}
+	HudCursor::getInstance()->setCurMenu(this);
 }
 
 void HudInventoryMenu::init()

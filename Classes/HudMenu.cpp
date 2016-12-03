@@ -10,8 +10,24 @@
 HudMenu::HudMenu(cocos2d::Rect rect)
 {
 	itemIndex = 0;
-	sprite = cocos2d::Sprite::create("HUD/menu.png", rect);
-	HudLayer::getInstance()->addChild(sprite, 2);
+
+	layout = cocos2d::ui::Layout::create();
+	layout->setAnchorPoint(cocos2d::Vec2::ANCHOR_MIDDLE);
+	layout->setBackGroundImage("HUD/menu.png");
+	layout->setBackGroundImageScale9Enabled(true);
+	layout->setSize(rect.size);
+	
+
+
+	listView = cocos2d::ui::ListView::create();
+	listView->setContentSize(rect.size);
+	listView->setAnchorPoint(cocos2d::Vec2::ANCHOR_BOTTOM_LEFT);
+	listView->setBackGroundImageScale9Enabled(true);
+	listView->setPosition(cocos2d::Vec2(20, -10));
+
+	layout->addChild(listView);
+
+	HudLayer::getInstance()->addChild(layout, 2);
 	marginal.x = 10;
 	marginal.y = 10;
 	parent = nullptr;
@@ -23,7 +39,8 @@ HudMenu::HudMenu(cocos2d::Rect rect)
 HudMenu::~HudMenu()
 {
 	clear();
-	sprite->removeFromParent();
+	listView->removeFromParent();
+//	sprite->removeFromParent();
 	removeFromParentMenu();
 }
 
@@ -61,7 +78,9 @@ int HudMenu::getCurIndex()
 
 void HudMenu::show()
 {
-	sprite->setVisible(true);
+	//sprite->setVisible(true);
+	layout->setVisible(true);
+	listView->setVisible(true);
 	for (size_t i = 0; i < itemList.size(); i++)
 	{
 		itemList[i]->show();
@@ -70,7 +89,9 @@ void HudMenu::show()
 
 void HudMenu::hide()
 {
-	sprite->setVisible(false);
+	//sprite->setVisible(false);
+	layout->setVisible(false);
+	listView->setVisible(false);
 	for (size_t i = 0; i < itemList.size(); i++)
 	{
 		itemList[i]->hide();
@@ -83,7 +104,8 @@ void HudMenu::hide()
 
 void HudMenu::setPosition(int x, int y)
 {
-	sprite->setPosition(x, y);
+	//sprite->setPosition(x, y);
+	layout->setPosition(cocos2d::Vec2(x, y));
 }
 
 void HudMenu::setCursorPosition(int index)
@@ -103,29 +125,33 @@ void HudMenu::addItem(HudMenuItem* item)
 	int index = itemList.size();
 	itemList.push_back(item);
 
-	cocos2d::Label* itemLabel = item->getLabel();
-	sprite->addChild(itemLabel);
+	cocos2d::ui::Text* itemLabel = item->getLabel();
+//	sprite->addChild(itemLabel);
+	listView->pushBackCustomItem(itemLabel);
 	item->setWidth(getWidth() - 2 * marginal.x);
 	//itemLabel->setMaxLineWidth(getWidth() - 2 * marginal.x);
 
-	//ÉèÖÃ×ø±êÎª×øÉÏ½Ç¶ÔÆë
-	cocos2d::Point position;
-	position.x = itemLabel->getMaxLineWidth()/2;
-	position.y = getHeight()-itemLabel->getLineHeight()/2;
+//	//ÉèÖÃ×ø±êÎª×øÉÏ½Ç¶ÔÆë
+//	cocos2d::Point position;
+//	position.x = itemLabel->getWidth()/2;
+//	position.y = getHeight()-itemLabel->getLineHeight()/2;
 
-	//Æ«ÒÆ±ß¿ò¿í¶È
-	position.x += marginal.x;
-	position.y -= marginal.y;
+//	//Æ«ÒÆ±ß¿ò¿í¶È
+//	position.x += marginal.x;
+//	position.y -= marginal.y;
 
-	//Æ«ÒÆÐòÁÐÊý
-	position.y -= index*itemLabel->getLineHeight();
+//	//Æ«ÒÆÐòÁÐÊý
+//	position.y -= index*itemLabel->getLineHeight();
 
-	itemLabel->setPosition(position.x, position.y);
+//	itemLabel->setPosition(position.x, position.y);
 }
 
 void HudMenu::setWidth(int w)
 {
-	sprite->setTextureRect(cocos2d::Rect(0,0,w,getHeight()));
+//	sprite->setTextureRect(cocos2d::Rect(0,0,w,getHeight()));
+
+	listView->setSize(cocos2d::Size(w, listView->getSize().height));
+
 	for each (HudMenuItem* item in itemList)
 	{
 		item->setWidth(w);
@@ -134,24 +160,29 @@ void HudMenu::setWidth(int w)
 
 void HudMenu::setHeight(int h)
 {
-	sprite->setTextureRect(cocos2d::Rect(0,0,getWidth(),h));
+//	sprite->setTextureRect(cocos2d::Rect(0,0,getWidth(),h));
+	listView->setSize(cocos2d::Size(listView->getSize().width,h));
+
+
 }
 
 int HudMenu::getWidth()
 {
-	return sprite->getTextureRect().size.width;
+//	return sprite->getTextureRect().size.width;
+	return listView->getSize().width;
 
 
 }
 
 int HudMenu::getHeight()
 {
-	return sprite->getTextureRect().size.height;
+//	return sprite->getTextureRect().size.height;
+	return listView->getSize().height;
 }
 
-cocos2d::Sprite* HudMenu::getSprite()
+cocos2d::ui::ListView* HudMenu::getListView()
 {
-	return sprite;
+	return listView;
 }
 
 void HudMenu::chooseItem(int index)
@@ -175,7 +206,19 @@ void HudMenu::chooseItem(int index)
 	position.x -= itemList[itemIndex]->getWidth() / 2;
 	position.x -= HudCursor::getInstance()->getSprite()->getTextureRect().size.width / 2;
 
-	HudCursor::getInstance()->setPosition(position);
+//	HudCursor::getInstance()->setPosition(position);
+
+	HudCursor::getInstance()->getSprite()->removeFromParent();
+
+	itemList[itemIndex]->getLabel()->addChild(
+		HudCursor::getInstance()->getSprite()
+	);
+
+	HudCursor::getInstance()->getSprite()->setGlobalZOrder(20);
+	HudCursor::getInstance()->showAnimation();
+
+	HudCursor::getInstance()->getSprite()->setPosition(-8, 16);
+
 }
 
 void HudMenu::activeChildMenu(int index)
@@ -205,6 +248,7 @@ void HudMenu::closeMenu()
 		return;
 	}
 	hide();
+
 	HudCursor::getInstance()->setCurMenu(parent);
 	parent->update();
 }
@@ -258,4 +302,9 @@ void HudMenu::removeChild(HudMenu* c)
 			return;
 		}
 	}
+}
+
+void HudMenu::setBKImage(std::string fileName)
+{
+	layout->setBackGroundImage(fileName);
 }

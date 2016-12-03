@@ -9,8 +9,8 @@
 
 HudMenuItem::HudMenuItem(const std::string& name)
 {
-	label = cocos2d::Label::createWithTTF(name, "fonts/arialuni.ttf", 24);
-	label->setAlignment(cocos2d::TextHAlignment::CENTER);
+	label = cocos2d::ui::Text::create(name, "fonts/arialuni.ttf", 24);
+	label->setTextHorizontalAlignment(cocos2d::TextHAlignment::CENTER);
 	label->enableShadow();
 	label->retain();
 	marginal.x = 10;
@@ -65,32 +65,43 @@ cocos2d::Point HudMenuItem::getPosition()
 
 int HudMenuItem::getWidth()
 {
-	return label->getMaxLineWidth();
+//	return label->getMaxLineWidth();
+	return label->getSize().width;
 }
 
 void HudMenuItem::setWidth(int w)
 {
-	label->setWidth(w);
-	label->setMaxLineWidth(w);
+	label->setSize(
+		cocos2d::Size(
+			w,
+			label->getSize().height
+		)
+	);
+//	label->setMaxLineWidth(w);
 }
 
 void HudMenuItem::setHeight(int h)
 {
-	label->setHeight(h);
+	label->setSize(
+		cocos2d::Size(
+			label->getSize().width,
+			h
+		)
+	);
 }
 
 void HudMenuItem::setAliginment(cocos2d::TextHAlignment alignment)
 {
-	label->setHorizontalAlignment(alignment);
+	label->setTextHorizontalAlignment(alignment);
 }
 
-cocos2d::Label* HudMenuItem::getLabel()
+cocos2d::ui::Text* HudMenuItem::getLabel()
 {
 	return label;
 }
 
 int HudMenuItem::getHeight()
 {
-	return label->getHeight();
+	return label->getSize().height;
 }
 

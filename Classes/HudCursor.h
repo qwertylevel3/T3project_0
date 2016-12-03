@@ -24,6 +24,8 @@ public:
 	void handleRight();
 	void handleUp();
 	void handleDown();
+	void showAnimation();
+
 protected:
 	HudMenu* curMenu;
 	cocos2d::Sprite* sprite;

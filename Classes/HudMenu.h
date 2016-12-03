@@ -4,6 +4,7 @@
 class HudMenuItem;
 #include <vector>
 #include"2d\CCSprite.h"
+#include "ui/UIListView.h"
 
 
 class HudMenu
@@ -50,10 +51,11 @@ public:
 	//************************************
 	void closeMenu();
 
-	cocos2d::Sprite* getSprite();
+	cocos2d::ui::ListView* getListView();
 	int getMarginalWidth();
 	int getMarginalHeight();
 	void removeChild(HudMenu* c);
+	void setBKImage(std::string fileName);
 protected:
 	void addChildMenu(HudMenu* c);
 	void setCursorPosition(int index);
@@ -65,7 +67,9 @@ protected:
 	std::vector<HudMenu*> childMenu;
 	//ÄÚ±ß¿ò¾à
 	cocos2d::Vec2 marginal;
-	cocos2d::Sprite* sprite;
+//	cocos2d::Sprite* sprite;
+	cocos2d::ui::ListView* listView;
+	cocos2d::ui::Layout* layout;
 	std::vector<HudMenuItem*> itemList;
 	int itemIndex;
 };
