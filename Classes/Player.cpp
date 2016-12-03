@@ -38,6 +38,9 @@ void Player::init()
 	characterPtr->addSkill(L"BuffCast_ÉÁ±Übuff×£¸£_20_20_EvadeBuff_ÉÁ±Übuff_ATTR_Good_4_100_100");
 	characterPtr->addSkill(L"Summon_ÕÙ»½Slime_20_20_Slime");
 	characterPtr->addSkill(L"BlinkSelf_ÉÁË¸_20_10_3");
+	characterPtr->addSkill(L"Repel_»÷ÍË_20_10_3_10");
+
+
 
 
 

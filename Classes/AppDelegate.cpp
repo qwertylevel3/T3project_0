@@ -3,7 +3,6 @@
 #include "MainLayer.h"
 #include "HudLayer.h"
 #include "MaskLayer.h"
-#include "MenuLayer.h"
 #include <iostream>
 #include "Marco.h"
 
@@ -97,18 +96,15 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // 'layer' is an autorelease object
 	auto gameSceneLayer = MainLayer::getInstance();
 	auto hudLayer = HudLayer::getInstance();
-	auto menuLayer = MenuLayer::getInstance();
 	auto maskLayer = MaskLayer::getInstance();
 
     // add layer as a child to scene
     scene->addChild(gameSceneLayer,0);
 	scene->addChild(maskLayer, 1);
 	scene->addChild(hudLayer,2);
-	scene->addChild(menuLayer, 3);
 
 	MainLayer::getInstance()->init();
 	HudLayer::getInstance()->init();
-	MenuLayer::getInstance()->init();
 	MaskLayer::getInstance()->init();
 
     // run

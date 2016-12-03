@@ -474,9 +474,6 @@
     <ClCompile Include="..\Classes\SkillFactory.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\MenuLayer.cpp" />
-    <ClCompile Include="..\Classes\MenuSystem.cpp" />
-    <ClCompile Include="..\Classes\MainMenu.cpp" />
     <ClCompile Include="..\Classes\Summon.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
@@ -510,6 +507,7 @@
     <ClCompile Include="..\Classes\EffectManager.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Repel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -911,9 +909,6 @@
     <ClInclude Include="..\Classes\MyCamera.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\MenuLayer.h" />
-    <ClInclude Include="..\Classes\MenuSystem.h" />
-    <ClInclude Include="..\Classes\MainMenu.h" />
     <ClInclude Include="..\Classes\Summon.h">
       <Filter>src\skill</Filter>
     </ClInclude>
@@ -947,6 +942,7 @@
     <ClInclude Include="..\Classes\EffectManager.h">
       <Filter>src\skill</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Repel.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

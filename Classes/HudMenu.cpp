@@ -20,10 +20,16 @@ HudMenu::HudMenu(cocos2d::Rect rect)
 
 
 	listView = cocos2d::ui::ListView::create();
-	listView->setContentSize(rect.size);
+	listView->setContentSize(
+		cocos2d::Size(
+			rect.size.width,
+			rect.size.height//-20
+		)
+	);
 	listView->setAnchorPoint(cocos2d::Vec2::ANCHOR_BOTTOM_LEFT);
 	listView->setBackGroundImageScale9Enabled(true);
-	listView->setPosition(cocos2d::Vec2(20, -10));
+	listView->setPosition(cocos2d::Vec2(20, 0));
+	listView->setBounceEnabled(false);
 
 	layout->addChild(listView);
 
@@ -219,6 +225,12 @@ void HudMenu::chooseItem(int index)
 
 	HudCursor::getInstance()->getSprite()->setPosition(-8, 16);
 
+	listView->scrollToItem(
+		itemIndex,
+		cocos2d::Vec2::ANCHOR_MIDDLE,
+		cocos2d::Vec2::ANCHOR_MIDDLE
+	);
+
 }
 
 void HudMenu::activeChildMenu(int index)
@@ -279,6 +291,13 @@ void HudMenu::clear()
 		delete itemList[i];
 	}
 	itemList.clear();
+//	listView->cleanup();
+//	listView->setContentSize(layout->getSize());
+	cocos2d::Vector<cocos2d::ui::Widget*> widgetList = listView->getItems();
+	listView->removeAllChildren();
+
+	int a = 3;
+
 }
 
 int HudMenu::getMarginalWidth()

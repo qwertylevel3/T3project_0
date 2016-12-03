@@ -12,6 +12,7 @@
 #include "BuffCast.h"
 #include "Summon.h"
 #include "BlinkSelf.h"
+#include "Repel.h"
 
 Skill::SkillFactory::SkillFactory()
 {
@@ -36,6 +37,7 @@ void Skill::SkillFactory::init()
 	BuffCast* buffCastPrototype = new BuffCast();
 	Summon* summonPrototype = new Summon();
 	BlinkSelf* blinkPrototype = new BlinkSelf();
+	Repel* repelPrototype = new Repel();
 
 	skillPrototypeBox["fireBall"] = fireBallPrototype;
 	skillPrototypeBox["attack"] = attackPrototype;
@@ -50,6 +52,7 @@ void Skill::SkillFactory::init()
 	skillPrototypeBox["BuffCast"] = buffCastPrototype;
 	skillPrototypeBox["Summon"] = summonPrototype;
 	skillPrototypeBox["BlinkSelf"] = blinkPrototype;
+	skillPrototypeBox["Repel"] = repelPrototype;
 }
 
 Skill::SkillBase* Skill::SkillFactory::getSkill(Character* character,std::string s)

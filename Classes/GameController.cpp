@@ -15,7 +15,6 @@
 #include "HeroManager.h"
 #include "MyCamera.h"
 #include "EffectManager.h"
-#include "MenuSystem.h"
 
 
 
@@ -45,7 +44,6 @@ void GameController::init()
 	HeroManager::getInstance()->init();
 	EffectManager::getInstance()->init();
 
-	MenuSystem::getInstance()->init();
 }
 
 void GameController::startMission(int level)
