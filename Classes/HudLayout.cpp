@@ -12,6 +12,7 @@ HudLayout::~HudLayout()
 }
 
 void HudLayout::init()
+
 {
 	tinyxml2::XMLDocument doc;
 	doc.LoadFile("layout.xml");
@@ -52,4 +53,25 @@ void HudLayout::init()
 	tinyxml2::XMLElement* mpBarPositionElement = getChildElement(layoutElement, "mpBarPosition");
 	mpBarPosition.x = getChildElementIntAttr(mpBarPositionElement, "x");
 	mpBarPosition.y = getChildElementIntAttr(mpBarPositionElement, "y");
+
+	tinyxml2::XMLElement* descriptionSizeElement = getChildElement(layoutElement, "descriptionSize");
+	descriptionSize.setSize(
+		getChildElementIntAttr(descriptionSizeElement, "x"),
+		getChildElementIntAttr(descriptionSizeElement, "y")
+	);
+
+	tinyxml2::XMLElement* descriptionPositionElement = getChildElement(layoutElement, "descriptionPosition");
+	descriptionPosition.x = getChildElementIntAttr(descriptionPositionElement, "x");
+	descriptionPosition.y = getChildElementIntAttr(descriptionPositionElement, "y");
+
+	tinyxml2::XMLElement* playerStateSizeElement = getChildElement(layoutElement, "playerStateSize");
+	playerStateSize.setSize(
+		getChildElementIntAttr(playerStateSizeElement, "x"),
+		getChildElementIntAttr(playerStateSizeElement, "y")
+	);
+
+	tinyxml2::XMLElement* playerStatePositionElement = getChildElement(layoutElement, "playerStatePosition");
+	playerStatePosition.x = getChildElementIntAttr(playerStatePositionElement, "x");
+	playerStatePosition.y = getChildElementIntAttr(playerStatePositionElement, "y");
+
 }

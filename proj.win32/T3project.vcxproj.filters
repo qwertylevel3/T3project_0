@@ -79,9 +79,6 @@
     <Filter Include="src\character\hero">
       <UniqueIdentifier>{543a3d35-7fa4-477c-8b13-d4082548163f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\menu">
-      <UniqueIdentifier>{ceba6436-05ee-4b38-bf65-155b47718898}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -510,9 +507,16 @@
     <ClCompile Include="..\Classes\Repel.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Thunder.cpp" />
-    <ClCompile Include="..\Classes\HudUseableInventoryMenu.cpp" />
-    <ClCompile Include="..\Classes\HudTrigUseInventory.cpp" />
+    <ClCompile Include="..\Classes\HudTrigUseInventory.cpp">
+      <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudUseableInventoryMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Thunder.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudDescriptionMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -950,9 +954,16 @@
     <ClInclude Include="..\Classes\Repel.h">
       <Filter>src\skill</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Thunder.h" />
-    <ClInclude Include="..\Classes\HudUseableInventoryMenu.h" />
-    <ClInclude Include="..\Classes\HudTrigUseInventory.h" />
+    <ClInclude Include="..\Classes\HudTrigUseInventory.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudUseableInventoryMenu.h">
+      <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Thunder.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudDescriptionMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

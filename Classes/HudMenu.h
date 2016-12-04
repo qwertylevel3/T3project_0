@@ -22,8 +22,8 @@ public:
 
 	int getCurIndex();
 
-	void show();
-	void hide();
+	virtual void show();
+	virtual void hide();
 
 	void clear();
 
@@ -37,7 +37,7 @@ public:
 	void initCursor();
 	virtual void addItem(HudMenuItem* item);
 
-	void chooseItem(int index);
+	virtual void chooseItem(int index);
 	void activeChildMenu(int index);
 	void setParent(HudMenu* p);
 

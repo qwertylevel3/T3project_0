@@ -14,11 +14,11 @@ HudMessageBox::~HudMessageBox()
 
 void HudMessageBox::init()
 {
-	maxMessageNumber = 8;
+	maxMessageNumber = 7;
 	bk = cocos2d::Sprite::create("HUD/messageBox.png");
 	HudLayer::getInstance()->addChild(bk);
-	bk->setPosition(650, 82);
-	bk->setOpacity(180);
+	bk->setPosition(650, 75);
+	bk->setOpacity(150);
 }
 
 void HudMessageBox::update()
@@ -69,7 +69,7 @@ void HudMessageBox::formatMessageBox()
 	for each (cocos2d::Label* label in messageBox)
 	{
 		label->setPosition(oriPosition.x+label->getMaxLineWidth()/2+6
-			, oriPosition.y + 155-count *20 );
+			, oriPosition.y + 135-count *20 );
 		count++;
 	}
 }

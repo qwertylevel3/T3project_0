@@ -3,6 +3,7 @@
 #include "Singleton.h"
 #include "2d/CCLabel.h"
 #include "2d/CCSprite.h"
+#include "ui/UILayout.h"
 
 class HudPlayerStateMenu:public Singleton<HudPlayerStateMenu>
 {
@@ -15,7 +16,8 @@ public:
 	void hide();
 protected:
 	void setPosition();
-	cocos2d::Sprite* bk;
+//	cocos2d::Sprite* bk;
+	cocos2d::ui::Layout* bk;
 
 	cocos2d::Label* playerNameLabel;
 	cocos2d::Label* hpLabel;

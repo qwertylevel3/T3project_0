@@ -24,5 +24,11 @@ protected:
 	CC_SYNTHESIZE(cocos2d::Size, barSize, BarSize);
 	CC_SYNTHESIZE(cocos2d::Point, hpBarPosition, HpBarPosition);
 	CC_SYNTHESIZE(cocos2d::Point, mpBarPosition, MpBarPosition);
+
+	CC_SYNTHESIZE(cocos2d::Size, descriptionSize, DescriptionSize);
+	CC_SYNTHESIZE(cocos2d::Point, descriptionPosition, DescriptionPosition);
+
+	CC_SYNTHESIZE(cocos2d::Size, playerStateSize, PlayerStateSize);
+	CC_SYNTHESIZE(cocos2d::Point, playerStatePosition, PlayerStatePosition);
 };
 

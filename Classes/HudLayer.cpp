@@ -7,6 +7,7 @@
 #include "HudLayout.h"
 #include "HudBar.h"
 #include "HudMessageBox.h"
+#include "HudDescriptionMenu.h"
 
 USING_NS_CC;
 
@@ -26,12 +27,13 @@ bool HudLayer::init()
 		return false;
 	}
 	HudLayout::getInstance()->init();
+	HudDescriptionMenu::getInstance()->init();
 	HudMenuSystem::getInstance()->init();
 	HudPlayerStateMenu::getInstance()->init();
 	DialogueSystem::getInstance()->init();
 	HudBar::getInstance()->init();
 	HudMessageBox::getInstance()->init();
-	
+
 	HudMessageBox::getInstance()->addMessage(L"消息0");
 	HudMessageBox::getInstance()->addMessage(L"消息1");
 	HudMessageBox::getInstance()->addMessage(L"消息2");

@@ -6,24 +6,24 @@
 		<y>400</y>
 	</mainMenuSize>
 	<mainMenuPosition>
-		<x>125</x>
-		<y>350</y>
+		<x>25</x>
+		<y>575</y>
 	</mainMenuPosition>
 	<mediumMenuSize>
 		<x>300</x>
 		<y>400</y>
 	</mediumMenuSize>
 	<mediumMenuPosition>
-		<x>360</x>
-		<y>350</y>
+		<x>200</x>
+		<y>575</y>
 	</mediumMenuPosition>
 	<leafMenuSize>
 		<x>150</x>
 		<y>400</y>
 	</leafMenuSize>
 	<leafMenuPosition>
-		<x>600</x>
-		<y>350</y>
+		<x>525</x>
+		<y>575</y>
 	</leafMenuPosition>
 	<barSize>
 		<x>150</x>
@@ -37,4 +37,20 @@
 		<x>350</x>
 		<y>15</y>
 	</mpBarPosition>
+	<descriptionSize>
+		<x>250</x>
+		<y>400</y>
+	</descriptionSize>
+	<descriptionPosition>
+		<x>525</x>
+		<y>575</y>
+	</descriptionPosition>
+	<playerStateSize>
+		<x>475</x>
+		<y>150</y>
+	</playerStateSize>
+	<playerStatePosition>
+		<x>25</x>
+		<y>150</y>
+	</playerStatePosition>
 </layout>

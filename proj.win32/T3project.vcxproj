@@ -195,6 +195,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HPRecoverySelf.cpp" />
     <ClCompile Include="..\Classes\HudBar.cpp" />
     <ClCompile Include="..\Classes\HudBuffMenu.cpp" />
+    <ClCompile Include="..\Classes\HudDescriptionMenu.cpp" />
     <ClCompile Include="..\Classes\HudGroundInventoryMenu.cpp" />
     <ClCompile Include="..\Classes\HudGroundMenu.cpp" />
     <ClCompile Include="..\Classes\HudMainMenu.cpp" />
@@ -345,6 +346,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HPRecoverySelf.h" />
     <ClInclude Include="..\Classes\HudBar.h" />
     <ClInclude Include="..\Classes\HudBuffMenu.h" />
+    <ClInclude Include="..\Classes\HudDescriptionMenu.h" />
     <ClInclude Include="..\Classes\HudGroundInventoryMenu.h" />
     <ClInclude Include="..\Classes\HudGroundMenu.h" />
     <ClInclude Include="..\Classes\HudMainMenu.h" />

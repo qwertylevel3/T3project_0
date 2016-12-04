@@ -12,10 +12,12 @@ HudMenu::HudMenu(cocos2d::Rect rect)
 	itemIndex = 0;
 
 	layout = cocos2d::ui::Layout::create();
-	layout->setAnchorPoint(cocos2d::Vec2::ANCHOR_MIDDLE);
+//	layout->setAnchorPoint(cocos2d::Vec2::ANCHOR_MIDDLE);
+	layout->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 	layout->setBackGroundImage("HUD/menu.png");
 	layout->setBackGroundImageScale9Enabled(true);
 	layout->setSize(rect.size);
+	layout->setOpacity(180);
 	
 
 
@@ -26,7 +28,9 @@ HudMenu::HudMenu(cocos2d::Rect rect)
 			rect.size.height//-20
 		)
 	);
+	listView->setOpacity(255);
 	listView->setAnchorPoint(cocos2d::Vec2::ANCHOR_BOTTOM_LEFT);
+//	listView->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 	listView->setBackGroundImageScale9Enabled(true);
 	listView->setPosition(cocos2d::Vec2(20, 0));
 	listView->setBounceEnabled(false);
@@ -259,7 +263,7 @@ void HudMenu::closeMenu()
 	{
 		return;
 	}
-	hide();
+	this->hide();
 
 	HudCursor::getInstance()->setCurMenu(parent);
 	parent->update();

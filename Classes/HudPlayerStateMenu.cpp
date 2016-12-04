@@ -4,6 +4,7 @@
 #include "BattleSystem.h"
 #include "ToolFunction.h"
 #include "HudLayer.h"
+#include "HudLayout.h"
 
 
 USING_NS_CC;
@@ -19,7 +20,21 @@ HudPlayerStateMenu::~HudPlayerStateMenu()
 
 void HudPlayerStateMenu::init()
 {
-	bk = Sprite::create("HUD/StateMenu.png");
+//	bk = Sprite::create("HUD/StateMenu.png");
+
+	bk = cocos2d::ui::Layout::create();
+	bk->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
+	bk->setBackGroundImageScale9Enabled(true);
+	bk->setBackGroundImage("HUD/menu.png");
+
+	bk->setSize(
+		HudLayout::getInstance()->getPlayerStateSize()
+	);
+	bk->setPosition(
+		HudLayout::getInstance()->getPlayerStatePosition()
+	);
+	bk->setOpacity(180);
+
 	HudLayer::getInstance()->addChild(bk);
 
 	playerNameLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
@@ -112,7 +127,7 @@ void HudPlayerStateMenu::hide()
 
 void HudPlayerStateMenu::setPosition()
 {
-	bk->setPosition(bk->getTexture()->getPixelsWide() / 2, bk->getTexture()->getPixelsHigh() / 2);
+//	bk->setPosition(bk->getTexture()->getPixelsWide() / 2, bk->getTexture()->getPixelsHigh() / 2);
 
 	playerNameLabel->setPosition(100, 100);
 	hpLabel->setPosition(100, 70);

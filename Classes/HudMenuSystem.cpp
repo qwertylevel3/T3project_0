@@ -5,6 +5,7 @@
 #include "HudMainMenu.h"
 #include "HudInventoryMenu.h"
 #include "HudEquipMenu.h"
+#include "HudDescriptionMenu.h"
 
 
 
@@ -43,7 +44,6 @@ void HudMenuSystem::hide()
 {
 	HudCursor::getInstance()->hide();
 	HudMainMenu::getInstance()->hide();
-
 }
 
 void HudMenuSystem::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
