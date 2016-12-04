@@ -511,6 +511,8 @@
       <Filter>src\skill</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Thunder.cpp" />
+    <ClCompile Include="..\Classes\HudUseableInventoryMenu.cpp" />
+    <ClCompile Include="..\Classes\HudTrigUseInventory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -949,6 +951,8 @@
       <Filter>src\skill</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Thunder.h" />
+    <ClInclude Include="..\Classes\HudUseableInventoryMenu.h" />
+    <ClInclude Include="..\Classes\HudTrigUseInventory.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

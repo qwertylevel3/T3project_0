@@ -8,6 +8,7 @@
 #include "ToolFunction.h"
 #include "HudTrigActChildMenu.h"
 #include "HudEquipableInventoryMenu.h"
+#include "HudUseableInventoryMenu.h"
 #include "HudLayer.h"
 #include "HudLayout.h"
 #include "HudCursor.h"
@@ -84,6 +85,7 @@ void HudInventoryMenu::setItemTrigger(const std::string& inventoryName, HudMenuI
 		initEquipableInventoryMenu(item);
 		break;
 	case Inventory::Supply:
+		initUseableInventoryMenu(item);
 		break;
 	case Inventory::Accessory:
 		break;
@@ -97,6 +99,16 @@ void HudInventoryMenu::setItemTrigger(const std::string& inventoryName, HudMenuI
 void HudInventoryMenu::initEquipableInventoryMenu(HudMenuItem* item)
 {
 	HudEquipableInventoryMenu* menu = new HudEquipableInventoryMenu();
+
+	menu->setParent(this);
+
+	HudTrigActChildMenu* trigger = new HudTrigActChildMenu(menu);
+	item->setTrigger(trigger);
+}
+
+void HudInventoryMenu::initUseableInventoryMenu(HudMenuItem* item)
+{
+	HudUseableInventoryMenu* menu = new HudUseableInventoryMenu();
 
 	menu->setParent(this);
 

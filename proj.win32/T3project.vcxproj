@@ -208,8 +208,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudTrigThrow.cpp" />
     <ClCompile Include="..\Classes\HudTrigUnequipLeft.cpp" />
     <ClCompile Include="..\Classes\HudTrigUnequipRight.cpp" />
+    <ClCompile Include="..\Classes\HudTrigUseInventory.cpp" />
     <ClCompile Include="..\Classes\HudUnequipLeftMenu.cpp" />
     <ClCompile Include="..\Classes\HudUnequipRightMenu.cpp" />
+    <ClCompile Include="..\Classes\HudUseableInventoryMenu.cpp" />
     <ClCompile Include="..\Classes\Illuminant.cpp" />
     <ClCompile Include="..\Classes\LinerSelector.cpp" />
     <ClCompile Include="..\Classes\LuckBuff.cpp" />
@@ -356,8 +358,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudTrigThrow.h" />
     <ClInclude Include="..\Classes\HudTrigUnequipLeft.h" />
     <ClInclude Include="..\Classes\HudTrigUnequipRight.h" />
+    <ClInclude Include="..\Classes\HudTrigUseInventory.h" />
     <ClInclude Include="..\Classes\HudUnequipLeftMenu.h" />
     <ClInclude Include="..\Classes\HudUnequipRightMenu.h" />
+    <ClInclude Include="..\Classes\HudUseableInventoryMenu.h" />
     <ClInclude Include="..\Classes\Illuminant.h" />
     <ClInclude Include="..\Classes\LinerSelector.h" />
     <ClInclude Include="..\Classes\LuckBuff.h" />

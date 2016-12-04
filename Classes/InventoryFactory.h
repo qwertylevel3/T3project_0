@@ -8,6 +8,7 @@
 
 class Weapon;
 class Arrow;
+class Supply;
 
 class InventoryFactory:public XMLConfigure,public Singleton<InventoryFactory>
 {
@@ -23,6 +24,7 @@ protected:
 	void initBaseData(tinyxml2::XMLElement* inventoryElement,Inventory* model);
 	void initWeaponData(tinyxml2::XMLElement* inventoryElement, Weapon* weaponModel);
 	void initArrowData(tinyxml2::XMLElement* inventoryElement, Arrow* model);
+	void initSupplyData(tinyxml2::XMLElement* inventoryElement, Supply* supplyModel);
 
 	std::map<std::string, Inventory*> inventoryMap;
 	tinyxml2::XMLElement* curInventoryElement;

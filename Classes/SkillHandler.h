@@ -8,7 +8,7 @@ namespace Skill
 	class SkillHandler
 	{
 	public:
-		SkillHandler();
+		SkillHandler(Character* character);
 		~SkillHandler();
 		bool runSkill(int index);
 		bool runSkill(const std::string& skillName);
@@ -16,6 +16,7 @@ namespace Skill
 		void addSkill(SkillBase* skill);
 		std::string getSkillID(int index);
 	protected:
+		Character* characterPtr;
 		std::vector<SkillBase* > skillBox;
 	};
 }

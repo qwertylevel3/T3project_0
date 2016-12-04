@@ -108,6 +108,17 @@
 		</sphereBox>
 	</inventory>
 	<inventory>
+		<type>supply</type>
+		<name>supply000</name>
+		<cname>生命药水</cname>
+		<level>1</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<skillName>HPRecoverySelf_生命恢复_0_0_20</skillName>
+	</inventory>
+	<inventory>
 		<type>arrow</type>
 		<name>arrow000</name>
 		<cname>箭</cname>

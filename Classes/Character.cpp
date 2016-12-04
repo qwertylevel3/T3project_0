@@ -34,7 +34,7 @@ Character::Character()
 {
 	roundHandler = new RoundHandler(this);
 
-	skillHandler = new Skill::SkillHandler();
+	skillHandler = new Skill::SkillHandler(this);
 
 	addSkill(L"attack_¹¥»÷_0_0");
 	addSkill(L"chant_Ò÷³ª_0_0");

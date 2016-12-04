@@ -1,8 +1,10 @@
 #include "SkillHandler.h"
+#include "SkillFactory.h"
 
 
 
-Skill::SkillHandler::SkillHandler()
+Skill::SkillHandler::SkillHandler(Character* character)
+	:characterPtr(character)
 {
 }
 
@@ -23,6 +25,8 @@ bool Skill::SkillHandler::runSkill(int index)
 
 bool Skill::SkillHandler::runSkill(const std::string& skillName)
 {
+	//TODO:refactor
+
 	for each (SkillBase* skill in skillBox)
 	{
 		if (skill->getID() == skillName)
@@ -30,7 +34,12 @@ bool Skill::SkillHandler::runSkill(const std::string& skillName)
 			return skill->active();
 		}
 	}
-	return false;
+	
+	Skill::SkillBase* skill = Skill::SkillFactory::getInstance()->getSkill(characterPtr, skillName);
+
+	bool isSuccess = skill->active();
+	delete skill;
+	return isSuccess;
 }
 
 std::vector<Skill::SkillBase* >& Skill::SkillHandler::getSkillBoxRef()
