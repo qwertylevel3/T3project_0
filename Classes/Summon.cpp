@@ -31,7 +31,7 @@ void Skill::Summon::run()
 	cocos2d::Point targetCoord = coords[0];
 
 	//如果在面前已经有了单位或者这个地方不合法
-	if (!storey->getCharacter(targetCoord)
+	if (storey->getCharacter(targetCoord)
 		|| !storey->isMoveAble(targetCoord))
 	{
 		targetCoord = ToolFunction::validPlace(targetCoord);

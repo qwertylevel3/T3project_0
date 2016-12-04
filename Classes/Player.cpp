@@ -39,10 +39,7 @@ void Player::init()
 	characterPtr->addSkill(L"Summon_’ŸªΩSlime_20_20_Slime");
 	characterPtr->addSkill(L"BlinkSelf_…¡À∏_20_10_3");
 	characterPtr->addSkill(L"Repel_ª˜ÕÀ_20_10_3_10");
-
-
-
-
+	characterPtr->addSkill(L"Thunder_…¡µÁ_20_10_30");
 
 	setName("qwerty");
 

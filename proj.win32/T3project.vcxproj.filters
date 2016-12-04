@@ -507,7 +507,10 @@
     <ClCompile Include="..\Classes\EffectManager.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Repel.cpp" />
+    <ClCompile Include="..\Classes\Repel.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Thunder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -942,7 +945,10 @@
     <ClInclude Include="..\Classes\EffectManager.h">
       <Filter>src\skill</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Repel.h" />
+    <ClInclude Include="..\Classes\Repel.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Thunder.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

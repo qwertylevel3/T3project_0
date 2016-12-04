@@ -13,6 +13,7 @@
 #include "Summon.h"
 #include "BlinkSelf.h"
 #include "Repel.h"
+#include "Thunder.h"
 
 Skill::SkillFactory::SkillFactory()
 {
@@ -38,6 +39,7 @@ void Skill::SkillFactory::init()
 	Summon* summonPrototype = new Summon();
 	BlinkSelf* blinkPrototype = new BlinkSelf();
 	Repel* repelPrototype = new Repel();
+	Thunder* thunderPrototype = new Thunder();
 
 	skillPrototypeBox["fireBall"] = fireBallPrototype;
 	skillPrototypeBox["attack"] = attackPrototype;
@@ -53,6 +55,7 @@ void Skill::SkillFactory::init()
 	skillPrototypeBox["Summon"] = summonPrototype;
 	skillPrototypeBox["BlinkSelf"] = blinkPrototype;
 	skillPrototypeBox["Repel"] = repelPrototype;
+	skillPrototypeBox["Thunder"] = thunderPrototype;
 }
 
 Skill::SkillBase* Skill::SkillFactory::getSkill(Character* character,std::string s)

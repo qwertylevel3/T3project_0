@@ -233,6 +233,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\InventoryBuffHandler.cpp" />
     <ClCompile Include="..\Classes\SphereFactory.cpp" />
     <ClCompile Include="..\Classes\Summon.cpp" />
+    <ClCompile Include="..\Classes\Thunder.cpp" />
     <ClCompile Include="..\Classes\Triangulate.cpp" />
     <ClCompile Include="..\Classes\VenomSphere.cpp" />
     <ClCompile Include="..\Classes\VergilAI.cpp" />
@@ -380,6 +381,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\InventoryBuffHandler.h" />
     <ClInclude Include="..\Classes\SphereFactory.h" />
     <ClInclude Include="..\Classes\Summon.h" />
+    <ClInclude Include="..\Classes\Thunder.h" />
     <ClInclude Include="..\Classes\Triangulate.h" />
     <ClInclude Include="..\Classes\VenomSphere.h" />
     <ClInclude Include="..\Classes\VergilAI.h" />

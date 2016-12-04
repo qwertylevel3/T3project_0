@@ -107,7 +107,7 @@ cocos2d::Point ToolFunction::validPlace(cocos2d::Point ori)
 				coord.y += j;
 
 				//Ìõ¼þ
-				if (storey->isValid(coord)
+				if (storey->isMoveAble(coord)
 					&& storey->getCharacter(coord)==nullptr)
 				{
 					return coord;
