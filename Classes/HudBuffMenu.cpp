@@ -63,8 +63,22 @@ void HudBuffMenu::update()
 void HudBuffMenu::chooseItem(int index)
 {
 	HudMenu::chooseItem(index);
+
+	Character* characterPrt = Player::getInstance()->getcharacterPtr();
+	Buff::BuffHandler* buffHandler = characterPrt->getBuffHandler();
+
+	std::vector<Buff::BuffBase* > buffBox = buffHandler->getBuffBoxRef();
+
+	if (buffBox.empty())
+	{
+		return;
+	}
+
+
+	Buff::BuffBase* curBuff = buffBox[index];
+
 	HudDescriptionMenu::getInstance()->setDescription(
-		ToolFunction::WStr2UTF8(L"放大镜理发师的看法很快就地方哈开始附加哈萨克防火防盗卡萨放大放大师傅打石榴夫妇")
+		curBuff->getDurationDescriptionStr()+curBuff->getDescription()
 	);
 }
 

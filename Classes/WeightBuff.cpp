@@ -25,6 +25,13 @@ Buff::WeightBuff* Buff::WeightBuff::createPrototype()
 	return new WeightBuff();
 }
 
+std::string Buff::WeightBuff::getDescription()
+{
+	return ToolFunction::WStr2UTF8(L"¸ºÖØ")
+		+ (weightOffset > 0 ? "+" : "")
+		+ ToolFunction::int2string(weightOffset);
+}
+
 void Buff::WeightBuff::initExtraMessage(std::vector<std::string> baseMessage)
 {
 	setWeightOffset(ToolFunction::string2int(baseMessage[0]));

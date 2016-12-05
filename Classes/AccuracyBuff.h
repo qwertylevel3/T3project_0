@@ -11,6 +11,7 @@ namespace Buff
 		~AccuracyBuff();
 		void apply(Character* target);
 		AccuracyBuff* createPrototype();
+		std::string getDescription();
 	protected:
 		void initExtraMessage(std::vector<std::string> baseMessage);
 		CC_SYNTHESIZE(int, accuracyOffset, AccuracyOffset);

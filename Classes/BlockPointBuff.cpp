@@ -26,6 +26,13 @@ Buff::BlockPointBuff* Buff::BlockPointBuff::createPrototype()
 	return newBuff;
 }
 
+std::string Buff::BlockPointBuff::getDescription()
+{
+	return ToolFunction::WStr2UTF8(L"¸ñµ²µãÊý")
+		+(blockPointOffset>0?"+":"")
+		+ ToolFunction::int2string(blockPointOffset);
+}
+
 void Buff::BlockPointBuff::initExtraMessage(std::vector<std::string> baseMessage)
 {
 	setBlockPointOffset(ToolFunction::string2int(baseMessage[0]));

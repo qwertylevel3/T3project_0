@@ -11,6 +11,7 @@ namespace Buff
 		~VertigoBuff();
 		void apply(Character* target);
 		VertigoBuff* createPrototype();
+		std::string getDescription();
 	protected:
 		void initExtraMessage(std::vector<std::string> baseMessage);
 	};

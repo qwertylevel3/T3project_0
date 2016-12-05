@@ -82,7 +82,6 @@ void Player::init()
 	characterPtr->addInventory("torch000");
 	characterPtr->addInventory("supply000");
 
-
 	//////////////////////////////////////////////////////////////////////////
 	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_20_100";
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname0));
@@ -93,8 +92,8 @@ void Player::init()
 	std::wstring buffname2 = L"BlockProBuff_格挡增加_ATTR_Good_4_100_100";
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
 
-	//	std::wstring buffname3 = L"EvadeBuff_闪避buff_ATTR_Good_4_100_100";
-	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname3));
+	std::wstring buffname3 = L"AccuracyBuff_命中buff_ATTR_Good_4_100_100";
+	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname3));
 
 	//	std::wstring buffname2 = L"VertigoBuff_眩晕_ATTR_Bad_2_10";
 	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
@@ -108,7 +107,6 @@ void Player::initMission()
 
 	characterPtr->setMapCoord(storey->getUpCoord());
 	storey->addCharacter(storey->getUpCoord(), characterPtr);
-
 }
 
 void Player::autoNextStep()

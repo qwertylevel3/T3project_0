@@ -1,6 +1,7 @@
 #include "VertigoBuff.h"
 #include "Character.h"
 #include "CharacterAttrHandler.h"
+#include "ToolFunction.h"
 
 
 
@@ -24,6 +25,11 @@ void Buff::VertigoBuff::apply(Character* target)
 Buff::VertigoBuff* Buff::VertigoBuff::createPrototype()
 {
 	return new VertigoBuff();
+}
+
+std::string Buff::VertigoBuff::getDescription()
+{
+	return ToolFunction::WStr2UTF8(L"яётн");
 }
 
 void Buff::VertigoBuff::initExtraMessage(std::vector<std::string> baseMessage)

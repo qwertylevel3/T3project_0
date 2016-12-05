@@ -11,6 +11,7 @@ namespace Buff
 		~MagicImmuneBuff();
 		void apply(Character* target);
 		MagicImmuneBuff* createPrototype();
+		std::string getDescription();
 	protected:
 		void initExtraMessage(std::vector<std::string> baseMessage);
 	};

@@ -26,6 +26,13 @@ Buff::CriticalPointBuff* Buff::CriticalPointBuff::createPrototype()
 	return newBuff;
 }
 
+std::string Buff::CriticalPointBuff::getDescription()
+{
+	return ToolFunction::WStr2UTF8(L"±©»÷ÉËº¦")
+		+(criticalPointOffset>0?"+":"")
+		+ ToolFunction::int2string(criticalPointOffset);
+}
+
 void Buff::CriticalPointBuff::initExtraMessage(std::vector<std::string> baseMessage)
 {
 	setCriticalPointOffset(ToolFunction::string2int(baseMessage[0]));

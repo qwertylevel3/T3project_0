@@ -11,6 +11,7 @@ namespace Buff
 		~CriticalPerBuff();
 		void apply(Character* target);
 		CriticalPerBuff* createPrototype();
+		std::string getDescription();
 	protected:
 		void initExtraMessage(std::vector<std::string> baseMessage);
 		CC_SYNTHESIZE(int, criticalPerOffset, CriticalPerOffset);

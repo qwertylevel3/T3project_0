@@ -11,6 +11,7 @@ namespace Buff
 		~CriticalProBuff();
 		void apply(Character* target);
 		CriticalProBuff * createPrototype();
+		std::string getDescription();
 	protected:
 		void initExtraMessage(std::vector<std::string> baseMessage);
 		CC_SYNTHESIZE(int, criticalProOffset, CriticalProOffset);

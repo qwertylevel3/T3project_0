@@ -26,6 +26,13 @@ Buff::BlockProBuff* Buff::BlockProBuff::createPrototype()
 	return newBuff;
 }
 
+std::string Buff::BlockProBuff::getDescription()
+{
+	return ToolFunction::WStr2UTF8(L"¸ñµ²¸ÅÂÊ")
+		+(blockProOffset>0?"+":"")
+		+ ToolFunction::int2string(blockProOffset) + "%";
+}
+
 void Buff::BlockProBuff::initExtraMessage(std::vector<std::string> baseMessage)
 {
 	setBlockProOffset(ToolFunction::string2int(baseMessage[0]));

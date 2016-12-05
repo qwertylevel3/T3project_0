@@ -11,6 +11,7 @@ namespace Buff
 		~CriticalPointBuff();
 		void apply(Character* target);
 		CriticalPointBuff* createPrototype();
+		std::string getDescription();
 	protected:
 		void initExtraMessage(std::vector<std::string> baseMessage);
 		CC_SYNTHESIZE(int, criticalPointOffset, CriticalPointOffset);

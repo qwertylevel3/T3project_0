@@ -11,6 +11,7 @@ namespace Buff
 		~MaxMPBuff();
 		void apply(Character* target);
 		MaxMPBuff* createPrototype();
+		std::string getDescription();
 	protected:
 		void initExtraMessage(std::vector<std::string> baseMessage);
 		CC_SYNTHESIZE(int, maxMPOffset, MaxMPOffset);

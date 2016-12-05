@@ -11,6 +11,7 @@ namespace Buff
 		~BaseAttrBuff();
 		void apply(Character* target);
 		BaseAttrBuff* createPrototype();
+		std::string getDescription();
 	protected:
 		void initExtraMessage(std::vector<std::string> baseMessage);
 		CC_SYNTHESIZE(int, strOffset, StrOffset);

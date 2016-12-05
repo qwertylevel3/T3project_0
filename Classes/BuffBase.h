@@ -22,11 +22,14 @@ namespace Buff
 		virtual ~BuffBase();
 		virtual void apply(Character* target) = 0;
 		virtual BuffBase* createPrototype() = 0;
+		virtual std::string getDescription();
+
 		void init(std::vector<std::string> buffMessage);
 		void updateDuration();
 		void setActive(bool a);
 		bool isActive();
 
+		std::string getDurationDescriptionStr();
 	protected:
 		void initBaseMessage(std::vector<std::string> baseMessage);
 		virtual void initExtraMessage(std::vector<std::string> baseMessage)=0;

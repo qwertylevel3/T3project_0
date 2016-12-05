@@ -25,6 +25,11 @@ Buff::PhysicalImmuneBuff* Buff::PhysicalImmuneBuff::createPrototype()
 	return new Buff::PhysicalImmuneBuff();
 }
 
+std::string Buff::PhysicalImmuneBuff::getDescription()
+{
+	return ToolFunction::WStr2UTF8(L"ŒÔ¿Ì√‚“ﬂ");
+}
+
 void Buff::PhysicalImmuneBuff::initExtraMessage(std::vector<std::string> baseMessage)
 {
 

@@ -26,6 +26,12 @@ Buff::LuckBuff* Buff::LuckBuff::createPrototype()
 	return newBuff;
 }
 
+std::string Buff::LuckBuff::getDescription()
+{
+	return ToolFunction::WStr2UTF8(L"幸运值提高")
+		+ ToolFunction::int2string(luckOffset);
+}
+
 void Buff::LuckBuff::initExtraMessage(std::vector<std::string> baseMessage)
 {
 	setLuckOffset(ToolFunction::string2int(baseMessage[0]));

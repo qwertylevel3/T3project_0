@@ -11,6 +11,7 @@ namespace Buff
 		~EvadeBuff();
 		void apply(Character* target);
 		EvadeBuff* createPrototype();
+		std::string getDescription();
 	protected:
 		void initExtraMessage(std::vector<std::string> baseMessage);
 		CC_SYNTHESIZE(int, evadeOffset, EvadeOffset);

@@ -25,6 +25,13 @@ Buff::ComboBuff* Buff::ComboBuff::createPrototype()
 	return new Buff::ComboBuff;
 }
 
+std::string Buff::ComboBuff::getDescription()
+{
+	return ToolFunction::WStr2UTF8(L"Á¬»÷¸ÅÂÊ")
+		+(comboOffset>0?"+":"")
+		+ ToolFunction::int2string(comboOffset) + "%";
+}
+
 void Buff::ComboBuff::initExtraMessage(std::vector<std::string> baseMessage)
 {
 	setComboOffset(ToolFunction::string2int(baseMessage[0]));

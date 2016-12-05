@@ -25,6 +25,22 @@ Buff::HPBuff* Buff::HPBuff::createPrototype()
 	return newBuff;
 }
 
+std::string Buff::HPBuff::getDescription()
+{
+	if (effectValue>0)
+	{
+		return ToolFunction::WStr2UTF8(L"每回合开始:HP")
+			+ "+" + ToolFunction::int2string(effectValue);
+	}
+	else
+	{
+		return ToolFunction::WStr2UTF8(L"每回合开始:HP")
+			+ ToolFunction::int2string(effectValue);
+	}
+
+		
+}
+
 void Buff::HPBuff::initExtraMessage(std::vector<std::string> baseMessage)
 {
 	effectValue = ToolFunction::string2int(baseMessage[0]);

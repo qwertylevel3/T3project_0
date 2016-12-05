@@ -68,11 +68,6 @@ void CharacterBar::setCharacter(Character* character)
 	mpBar->setPosition(16, 17+16);
 	mpBarBk->setPosition(16, 17+16);
 
-//	hpBar->setGlobalZOrder(10);
-//	mpBar->setGlobalZOrder(10);
-//	hpBarBk->setGlobalZOrder(10);
-//	mpBarBk->setGlobalZOrder(10);
-
 	hpBar->setOpacity(180);
 	mpBar->setOpacity(180);
 	hpBarBk->setOpacity(180);

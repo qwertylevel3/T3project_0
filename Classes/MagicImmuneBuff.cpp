@@ -1,6 +1,7 @@
 #include "MagicImmuneBuff.h"
 #include "Character.h"
 #include "CharacterAttrHandler.h"
+#include "ToolFunction.h"
 
 
 
@@ -22,6 +23,11 @@ void Buff::MagicImmuneBuff::apply(Character* target)
 Buff::MagicImmuneBuff* Buff::MagicImmuneBuff::createPrototype()
 {
 	return new MagicImmuneBuff();
+}
+
+std::string Buff::MagicImmuneBuff::getDescription()
+{
+	return ToolFunction::WStr2UTF8(L"Ä§·¨ÃâÒß");
 }
 
 void Buff::MagicImmuneBuff::initExtraMessage(std::vector<std::string> baseMessage)

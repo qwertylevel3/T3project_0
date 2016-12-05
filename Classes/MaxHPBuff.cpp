@@ -26,6 +26,14 @@ Buff::MaxHPBuff* Buff::MaxHPBuff::createPrototype()
 	return newBuff;
 }
 
+std::string Buff::MaxHPBuff::getDescription()
+{
+	
+	return ToolFunction::WStr2UTF8(L"生命值上限")
+		+ (maxHPOffset > 0 ? "+" : "")
+		+ ToolFunction::int2string(maxHPOffset);
+}
+
 void Buff::MaxHPBuff::initExtraMessage(std::vector<std::string> baseMessage)
 {
 	setMaxHPOffset(ToolFunction::string2int(baseMessage[0]));

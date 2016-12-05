@@ -26,6 +26,13 @@ Buff::CriticalProBuff * Buff::CriticalProBuff::createPrototype()
 	return newBuff;
 }
 
+std::string Buff::CriticalProBuff::getDescription()
+{
+	return ToolFunction::WStr2UTF8(L"±©»÷¸ÅÂÊ")
+		+(criticalProOffset>0?"+":"") 
+		+ ToolFunction::int2string(criticalProOffset) + "%";
+}
+
 void Buff::CriticalProBuff::initExtraMessage(std::vector<std::string> baseMessage)
 {
 	setCriticalProOffset(ToolFunction::string2int(baseMessage[0]));

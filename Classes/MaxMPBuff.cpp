@@ -26,6 +26,14 @@ Buff::MaxMPBuff* Buff::MaxMPBuff::createPrototype()
 	return newBuff;
 }
 
+std::string Buff::MaxMPBuff::getDescription()
+{
+
+	return ToolFunction::WStr2UTF8(L"魔法值上限")
+		+ (maxMPOffset > 0 ? "+" : "")
+		+ ToolFunction::int2string(maxMPOffset);
+}
+
 void Buff::MaxMPBuff::initExtraMessage(std::vector<std::string> baseMessage)
 {
 	setMaxMPOffset(ToolFunction::string2int(baseMessage[0]));

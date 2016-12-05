@@ -26,6 +26,14 @@ Buff::AccuracyBuff* Buff::AccuracyBuff::createPrototype()
 	return newBuff;
 }
 
+std::string Buff::AccuracyBuff::getDescription()
+{
+	return ToolFunction::WStr2UTF8(L"¹¥»÷ÃüÖÐÂÊ")
+		+(accuracyOffset>0?"+":"")
+		+ ToolFunction::int2string(accuracyOffset)
+		+ "%";
+}
+
 void Buff::AccuracyBuff::initExtraMessage(std::vector<std::string> baseMessage)
 {
 	setAccuracyOffset(ToolFunction::string2int(baseMessage[0]));

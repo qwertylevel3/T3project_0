@@ -18,6 +18,11 @@ BuffBase::~BuffBase()
 {
 }
 
+std::string Buff::BuffBase::getDescription()
+{
+	return ToolFunction::WStr2UTF8(L"没有描述");
+}
+
 void Buff::BuffBase::init(std::vector<std::string> buffMessage)
 {
 	std::vector<std::string> baseMessage;
@@ -56,6 +61,13 @@ void Buff::BuffBase::setActive(bool a)
 bool Buff::BuffBase::isActive()
 {
 	return active;
+}
+
+std::string Buff::BuffBase::getDurationDescriptionStr()
+{
+	return ToolFunction::WStr2UTF8(L"剩余")
+		+ ToolFunction::int2string(duration)
+		+ ToolFunction::WStr2UTF8(L"回合\n");
 }
 
 void Buff::BuffBase::initBaseMessage(std::vector<std::string> baseMessage)
