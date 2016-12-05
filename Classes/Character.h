@@ -15,6 +15,7 @@ class Accessory;
 class AIBase;
 class InventoryHandler;
 class RoundHandler;
+class CharacterBar;
 
 
 namespace Buff
@@ -203,6 +204,9 @@ protected:
 	std::vector<cocos2d::Point> getBowAtkSelect();
 
 	//////////////////////////////////////////////////////////////////////////
+
+	//HP,MP Bar
+	CharacterBar* characterBar;
 	
 	//round handler
 	RoundHandler* roundHandler;

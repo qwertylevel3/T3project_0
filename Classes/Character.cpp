@@ -25,6 +25,7 @@
 #include "BuffFactory.h"
 #include "ui/UIScale9Sprite.h"
 #include "AIFactory.h"
+#include "CharacterBar.h"
 #include "SkillFactory.h"
 
 USING_NS_CC;
@@ -55,6 +56,8 @@ Character::Character()
 	buffHandler = new Buff::BuffHandler(this);
 
 	chant = 0;
+
+	characterBar = new CharacterBar();
 }
 
 Character::~Character()
@@ -68,12 +71,14 @@ Character::~Character()
 	delete attrHandler;
 	delete buffHandler;
 	delete skillHandler;
+	delete characterBar;
 }
 
 bool Character::sufferHPEffect(int hpOffset)
 {
 	showHPEffect(hpOffset);
 	HP += hpOffset;
+	characterBar->update();
 	if (HP <= 0)
 	{
 		die();
@@ -162,6 +167,7 @@ void Character::showHPEffect(int hpOffset)
 bool Character::sufferMPEffect(int mpOffset)
 {
 	MP += mpOffset;
+	characterBar->update();
 	if (MP < 0)
 	{
 		MP = 0;
@@ -172,6 +178,7 @@ bool Character::sufferMPEffect(int mpOffset)
 		MP = getMaxMP();
 		return false;
 	}
+
 	return true;
 }
 
@@ -549,6 +556,7 @@ Sprite * Character::getSprite()
 void Character::setSprite(std::string spriteName)
 {
 	sprite = Sprite::createWithSpriteFrameName(spriteName);
+	characterBar->setCharacter(this);
 	sprite->retain();
 }
 

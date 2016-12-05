@@ -517,6 +517,7 @@
       <Filter>src\skill</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\HudDescriptionMenu.cpp" />
+    <ClCompile Include="..\Classes\CharacterBar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -964,6 +965,7 @@
       <Filter>src\skill</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HudDescriptionMenu.h" />
+    <ClInclude Include="..\Classes\CharacterBar.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

@@ -96,11 +96,16 @@ void Field::Storey::characterMoveUp(Character* character)
 	{
 		Character* partner = getCharacter(targetCoord);
 
+
+
 		removeCharacter(partner);
 		removeCharacter(character);
 
 		cocos2d::Point tempCoord = character->getMapCoord();
 		character->setMapCoord(targetCoord);
+		//上下移动的时候注意修改Zorder，使得前后遮挡生效
+		character->getSprite()->setZOrder(targetCoord.y);
+
 		partner->setMapCoord(tempCoord);
 
 		characterMap[targetCoord.x + targetCoord.y*width] = character;
@@ -137,6 +142,10 @@ void Field::Storey::characterMoveUp(Character* character)
 
 		removeCharacter(character);
 		character->setMapCoord(targetCoord);
+		//上下移动的时候注意修改Zorder，使得前后遮挡生效
+		character->getSprite()->setZOrder(targetCoord.y);
+
+
 
 		characterMap[targetCoord.x + targetCoord.y*width] = character;
 
@@ -165,6 +174,10 @@ void Field::Storey::characterMoveDown(Character* character)
 
 		cocos2d::Point tempCoord = character->getMapCoord();
 		character->setMapCoord(targetCoord);
+		//上下移动的时候注意修改Zorder，使得前后遮挡生效
+		character->getSprite()->setZOrder(targetCoord.y);
+
+
 		partner->setMapCoord(tempCoord);
 
 		characterMap[targetCoord.x + targetCoord.y*width] = character;
@@ -199,6 +212,10 @@ void Field::Storey::characterMoveDown(Character* character)
 
 		removeCharacter(character);
 		character->setMapCoord(targetCoord);
+		//上下移动的时候注意修改Zorder，使得前后遮挡生效
+		character->getSprite()->setZOrder(targetCoord.y);
+
+
 
 		characterMap[targetCoord.x + targetCoord.y*width] = character;
 
@@ -343,7 +360,7 @@ Character * Field::Storey::getCharacter(cocos2d::Point mapCoord)
 void Field::Storey::addCharacter(int x, int y, Character * character)
 {
 	MainLayer::getInstance()->addChild(character->getSprite(),
-		ZOrderManager::characterZ);
+		y);
 
 	character->setMapCoord(cocos2d::Point(x, y));
 	character->setPosition((x) * 32 + 16, (height - y) * 32 - 16);

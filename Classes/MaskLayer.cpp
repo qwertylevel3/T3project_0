@@ -11,6 +11,7 @@ USING_NS_CC;
 
 MaskLayer::MaskLayer()
 {
+//	this->setGlobalZOrder(50);
 }
 
 MaskLayer::~MaskLayer()
@@ -109,7 +110,9 @@ void MaskLayer::initMission()
 	mask = RenderTexture::create(storey->getWidth() * 32, storey->getHeight() * 32);
 	mask->setPosition(storey->getWidth() * 16, storey->getHeight() * 16);
 
-	this->addChild(mask, 10);
+	this->addChild(mask,10);
+
+//	mask->setGlobalZOrder(100);
 
 	darkOn();
 }

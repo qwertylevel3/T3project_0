@@ -176,6 +176,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\ChantSelf.cpp" />
     <ClCompile Include="..\Classes\CharacterAttr.cpp" />
     <ClCompile Include="..\Classes\CharacterAttrHandler.cpp" />
+    <ClCompile Include="..\Classes\CharacterBar.cpp" />
     <ClCompile Include="..\Classes\ComboBuff.cpp" />
     <ClCompile Include="..\Classes\CriticalPerBuff.cpp" />
     <ClCompile Include="..\Classes\CriticalPointBuff.cpp" />
@@ -327,6 +328,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\ChantSelf.h" />
     <ClInclude Include="..\Classes\CharacterAttr.h" />
     <ClInclude Include="..\Classes\CharacterAttrHandler.h" />
+    <ClInclude Include="..\Classes\CharacterBar.h" />
     <ClInclude Include="..\Classes\ComboBuff.h" />
     <ClInclude Include="..\Classes\CriticalPerBuff.h" />
     <ClInclude Include="..\Classes\CriticalPointBuff.h" />
