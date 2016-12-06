@@ -35,6 +35,14 @@ Sphere::DisabilitySphere* Sphere::DisabilitySphere::createProtoType()
 	return new DisabilitySphere();
 }
 
+std::string Sphere::DisabilitySphere::getDescription()
+{
+	return ToolFunction::WStr2UTF8(L"残废法球:\n")
+		+ ToolFunction::WStr2UTF8(L"力量:") + strOffset + "\n"
+		+ ToolFunction::WStr2UTF8(L"敏捷:") + agiOffset + "\n"
+		+ ToolFunction::WStr2UTF8(L"智力:") + intOffset + "\n";
+}
+
 void Sphere::DisabilitySphere::initExtraMessage(std::vector<std::string> extraMessage)
 {
 	setStrOffset(extraMessage[0]);

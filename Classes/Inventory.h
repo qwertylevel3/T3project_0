@@ -33,7 +33,10 @@ public:
 
 	void addBuff(std::string buffID);
 	std::vector<std::string> getAllInventoryBuff();
+	std::string getDescription();
 protected:
+	std::string getBaseDescription();
+	virtual std::string getExtraDescription();
 	CC_SYNTHESIZE(int, id, Id);
 	CC_SYNTHESIZE(std::string, name, Name);
 	CC_SYNTHESIZE(std::string, cname, Cname);
@@ -42,6 +45,7 @@ protected:
 	CC_SYNTHESIZE(int, level, Level);
 	CC_SYNTHESIZE(std::string, spriteName, SpriteName);
 	CC_SYNTHESIZE(Inventory::Type, inventoryType, InventoryType);
+	CC_SYNTHESIZE(std::string, tips,Tips);
 	InventoryBuffHandler* inventoryBuffHandler;
 
 	cocos2d::Sprite* icon;

@@ -1,6 +1,9 @@
 #include "Inventory.h"
 #include"cocos2d.h"
 #include "InventoryBuffHandler.h"
+#include "ToolFunction.h"
+#include "BuffFactory.h"
+#include "BuffBase.h"
 
 USING_NS_CC;
 
@@ -55,6 +58,7 @@ void Inventory::copyData(Inventory* inventory)
 {
 	inventory->setName(name);
 	inventory->setCname(cname);
+	inventory->setTips(tips);
 	inventory->setLevel(level);
 	inventory->setPrice(price);
 	inventory->setWeight(weight);
@@ -85,4 +89,39 @@ void Inventory::addBuff(std::string buffID)
 std::vector<std::string> Inventory::getAllInventoryBuff()
 {
 	return inventoryBuffHandler->getBuffIDBox();
+}
+
+std::string Inventory::getBaseDescription()
+{
+	std::string description;
+
+	description += tips+"\n";
+
+	if (!getAllInventoryBuff().empty())
+	{
+		description += ToolFunction::WStr2UTF8(L"¸½¼Óbuff:\n");
+
+		std::vector<std::string > allBuff = getAllInventoryBuff();
+
+		int count=1;
+		for each (std::string  buffID in allBuff)
+		{
+			Buff::BuffBase* buff = Buff::BuffFactory::getInstance()->getBuff(buffID);
+
+			description += ToolFunction::int2string(count)+"."+
+				buff->getDescription();
+			count++;
+		}
+	}
+	return description;
+}
+
+std::string Inventory::getExtraDescription()
+{
+	return "";
+}
+
+std::string Inventory::getDescription()
+{
+	return getBaseDescription() + "\n" + getExtraDescription();
 }

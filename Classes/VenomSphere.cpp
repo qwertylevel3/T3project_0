@@ -30,6 +30,13 @@ Sphere::VenomSphere* Sphere::VenomSphere::createProtoType()
 	return new VenomSphere();
 }
 
+std::string Sphere::VenomSphere::getDescription()
+{
+	return ToolFunction::WStr2UTF8(L"¶¾ÒºÖ®Çò\n")
+		+ ToolFunction::WStr2UTF8(L"¹¥»÷¸½¼Ó")
+		+ venomDamage + ToolFunction::WStr2UTF8(L"¶¾ÐÔÉËº¦");
+}
+
 void Sphere::VenomSphere::initExtraMessage(std::vector<std::string> extraMessage)
 {
 	setVenomDamage(extraMessage[0]);

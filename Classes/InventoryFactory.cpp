@@ -130,6 +130,7 @@ void InventoryFactory::initBaseData(tinyxml2::XMLElement* inventoryElement,Inven
 {
 	model->setName(getChildElementStrAttr(inventoryElement, "name"));
 	model->setCname(getChildElementStrAttr(inventoryElement, "cname"));
+	model->setTips(getChildElementStrAttr(inventoryElement, "tips"));
 	model->setLevel(getChildElementIntAttr(inventoryElement, "level"));
 	model->setPrice(getChildElementIntAttr(inventoryElement, "price"));
 	model->setWeight(getChildElementIntAttr(inventoryElement, "weight"));

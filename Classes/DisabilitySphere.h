@@ -11,6 +11,7 @@ namespace Sphere
 		~DisabilitySphere();
 		void run(Character* a, Character* b, int damage);
 		DisabilitySphere* createProtoType();
+		std::string getDescription();
 	protected:
 		void initExtraMessage(std::vector<std::string> extraMessage);
 		CC_SYNTHESIZE(std::string, strOffset, StrOffset);

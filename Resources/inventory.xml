@@ -5,6 +5,7 @@
 		<type>oneHandWeapon</type>
 		<name>sword000</name>
 		<cname>木剑</cname>
+		<tips>一把附魔的木剑</tips>
 		<level>1</level>
 		<price>8</price>
 		<weight>1</weight>
@@ -23,6 +24,7 @@
 		<type>oneHandWeapon</type>
 		<name>sword001</name>
 		<cname>吸血铁剑</cname>
+		<tips>吸血铁剑</tips>
 		<level>1</level>
 		<price>10</price>
 		<weight>2</weight>
@@ -41,6 +43,7 @@
 		<type>oneHandWeapon</type>
 		<name>sword002</name>
 		<cname>钢剑</cname>
+		<tips>普通的钢剑</tips>
 		<level>1</level>
 		<price>14</price>
 		<weight>2</weight>
@@ -59,6 +62,7 @@
 		<type>twoHandWeapon</type>
 		<name>bigSword000</name>
 		<cname>大剑</cname>
+		<tips>攻击范围较广</tips>
 		<level>1</level>
 		<price>20</price>
 		<weight>6</weight>
@@ -76,6 +80,7 @@
 		<type>bow</type>
 		<name>bow000</name>
 		<cname>弓</cname>
+		<tips>无</tips>
 		<level>1</level>
 		<price>14</price>
 		<weight>2</weight>
@@ -93,6 +98,7 @@
 		<type>oneHandWeapon</type>
 		<name>torch000</name>
 		<cname>火炬</cname>
+		<tips>可以增加视野</tips>
 		<level>1</level>
 		<price>2</price>
 		<weight>1</weight>
@@ -111,6 +117,7 @@
 		<type>supply</type>
 		<name>supply000</name>
 		<cname>生命药水</cname>
+		<tips>回复生命</tips>
 		<level>1</level>
 		<price>10</price>
 		<weight>1</weight>
@@ -122,6 +129,7 @@
 		<type>arrow</type>
 		<name>arrow000</name>
 		<cname>箭</cname>
+		<tips>无</tips>
 		<level>1</level>
 		<price>1</price>
 		<weight>0</weight>

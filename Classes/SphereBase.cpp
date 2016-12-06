@@ -1,4 +1,5 @@
 #include "SphereBase.h"
+#include "ToolFunction.h"
 
 
 
@@ -28,6 +29,11 @@ void Sphere::SphereBase::init(std::vector<std::string> sphereMessage)
 	}
 	initBaseMessage(baseMessage);
 	this->initExtraMessage(extraMessage);
+}
+
+std::string Sphere::SphereBase::getDescription()
+{
+	return ToolFunction::WStr2UTF8(L"√ª”–√Ë ˆ");
 }
 
 void Sphere::SphereBase::initBaseMessage(std::vector<std::string> baseMessage)

@@ -11,6 +11,7 @@
 #include "HudUseableInventoryMenu.h"
 #include "HudLayer.h"
 #include "HudLayout.h"
+#include "HudDescriptionMenu.h"
 #include "HudCursor.h"
 
 
@@ -27,6 +28,18 @@ HudInventoryMenu::HudInventoryMenu()
 
 HudInventoryMenu::~HudInventoryMenu()
 {
+}
+
+void HudInventoryMenu::show()
+{
+	HudMenu::show();
+	HudDescriptionMenu::getInstance()->show();
+}
+
+void HudInventoryMenu::hide()
+{
+	HudMenu::hide();
+	HudDescriptionMenu::getInstance()->hide();
 }
 
 void HudInventoryMenu::update()
@@ -69,6 +82,38 @@ void HudInventoryMenu::addItem(HudMenuItem* item)
 	item->setAliginment(cocos2d::TextHAlignment::LEFT);
 }
 
+
+void HudInventoryMenu::chooseItem(int index)
+{
+	HudMenu::chooseItem(index);
+
+	InventoryHandler* inventoryHandler = Player::getInstance()->getcharacterPtr()->getInventoryHandler();
+	std::map<std::string, int> inventoryMap = inventoryHandler->getAllInventory();
+
+	std::map<std::string, int>::iterator iter = inventoryMap.begin();
+
+	int count = 0;
+	while (iter!=inventoryMap.end()
+		&& count!=index)
+	{
+		count++;
+		iter++;
+	}
+	if (iter==inventoryMap.end())
+	{
+		return;
+	}
+
+	std::string inventoryID = iter->first;
+
+	Inventory* inventory = InventoryFactory::getInstance()->getInventory(inventoryID);
+
+
+	HudDescriptionMenu::getInstance()->setDescription(
+		inventory->getDescription()
+	);
+	delete inventory;
+}
 
 void HudInventoryMenu::setItemTrigger(const std::string& inventoryName, HudMenuItem* item)
 {

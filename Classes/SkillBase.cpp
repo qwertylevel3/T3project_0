@@ -49,6 +49,11 @@ void Skill::SkillBase::init(std::vector<std::string> skillMessage)
 	this->initExtraMessage(extraMessage);
 }
 
+std::string Skill::SkillBase::getDescription()
+{
+	return ToolFunction::WStr2UTF8(L"没有说明");
+}
+
 void Skill::SkillBase::initBaseMessage(std::vector<std::string> baseMessage)
 {
 	initCName(baseMessage[0]);

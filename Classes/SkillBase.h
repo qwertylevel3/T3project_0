@@ -19,6 +19,8 @@ namespace Skill
 		virtual bool active();
 		virtual SkillBase* createPrototype() = 0;
 		void init(std::vector<std::string> skillMessage);
+
+		virtual std::string getDescription();
 	protected:
 		void initBaseMessage(std::vector<std::string> baseMessage);
 		virtual void initExtraMessage(std::vector<std::string> extraMessage)=0;
