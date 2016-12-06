@@ -22,6 +22,13 @@ Skill::HPRecoveryCast* Skill::HPRecoveryCast::createPrototype()
 	return new HPRecoveryCast();
 }
 
+std::string Skill::HPRecoveryCast::getExtraDescription()
+{
+	return ToolFunction::WStr2UTF8(L"效果:\n")
+		+ ToolFunction::WStr2UTF8(L"面前单位回复")
+		+ ToolFunction::int2string(value) + ToolFunction::WStr2UTF8(L"生命值");
+}
+
 void Skill::HPRecoveryCast::run()
 {
 	FixedSelector selector;

@@ -20,6 +20,13 @@ Skill::Thunder* Skill::Thunder::createPrototype()
 	return new Thunder();
 }
 
+std::string Skill::Thunder::getExtraDescription()
+{
+	return ToolFunction::WStr2UTF8(L"效果")
+		+ ToolFunction::WStr2UTF8(L"面前3x3范围内所有单位受到")
+		+ ToolFunction::int2string(damage) + ToolFunction::WStr2UTF8(L"伤害");
+}
+
 void Skill::Thunder::run()
 {
 	FixedSelector selector;

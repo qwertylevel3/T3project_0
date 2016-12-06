@@ -17,6 +17,13 @@ Skill::MPRecoveryCast* Skill::MPRecoveryCast::createPrototype()
 	return new MPRecoveryCast();
 }
 
+std::string Skill::MPRecoveryCast::getExtraDescription()
+{
+	return ToolFunction::WStr2UTF8(L"效果:\n")
+		+ ToolFunction::WStr2UTF8(L"面前单位回复")
+		+ ToolFunction::int2string(value) + ToolFunction::WStr2UTF8(L"魔法值");
+}
+
 void Skill::MPRecoveryCast::run()
 {
 	FixedSelector selector;

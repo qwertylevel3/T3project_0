@@ -19,6 +19,13 @@ Skill::FireBall* Skill::FireBall::createPrototype()
 	return new FireBall();
 }
 
+std::string Skill::FireBall::getExtraDescription()
+{
+	return ToolFunction::WStr2UTF8(L"效果:\n")
+		+ ToolFunction::WStr2UTF8(L"施放一个火球，对击中单位造成")
+		+ ToolFunction::int2string(damage) + ToolFunction::WStr2UTF8(L"伤害");
+}
+
 void Skill::FireBall::run()
 {
 	LinerSelector selector;

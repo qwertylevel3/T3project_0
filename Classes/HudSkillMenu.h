@@ -10,6 +10,9 @@ public:
 	~HudSkillMenu();
 	void update();
 	void addItem(HudMenuItem* item);
+	void show();
+	void hide();
+	void chooseItem(int index);
 protected:
 };
 

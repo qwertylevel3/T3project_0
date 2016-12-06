@@ -18,6 +18,13 @@ Skill::ChantSelf* Skill::ChantSelf::createPrototype()
 	return new Skill::ChantSelf();
 }
 
+std::string Skill::ChantSelf::getExtraDescription()
+{
+	return ToolFunction::WStr2UTF8(L"效果:\n")
+		+ ToolFunction::WStr2UTF8(L"增加吟唱点")
+		+ ToolFunction::int2string(value);
+}
+
 void Skill::ChantSelf::run()
 {
 	caster->accumulateChant(value);

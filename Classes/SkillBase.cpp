@@ -51,7 +51,20 @@ void Skill::SkillBase::init(std::vector<std::string> skillMessage)
 
 std::string Skill::SkillBase::getDescription()
 {
-	return ToolFunction::WStr2UTF8(L"没有说明");
+	return getBaseDescription() + getExtraDescription();
+}
+
+std::string Skill::SkillBase::getBaseDescription()
+{
+	return ToolFunction::WStr2UTF8(L"魔法消耗:")
+		+ ToolFunction::int2string(mpCost) + "\n"
+		+ ToolFunction::WStr2UTF8(L"吟唱点消耗:")
+		+ ToolFunction::int2string(chantCost) + "\n\n";
+}
+
+std::string Skill::SkillBase::getExtraDescription()
+{
+	return "";
 }
 
 void Skill::SkillBase::initBaseMessage(std::vector<std::string> baseMessage)

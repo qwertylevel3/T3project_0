@@ -19,6 +19,13 @@ Skill::Chant* Skill::Chant::createPrototype()
 	return new Chant();
 }
 
+std::string  Skill::Chant::getExtraDescription()
+{
+	return ToolFunction::WStr2UTF8(L"效果:\n")
+		+ ToolFunction::WStr2UTF8(L"增加吟唱点")
+		+ ToolFunction::int2string(caster->getIntellect());
+}
+
 void Skill::Chant::initExtraMessage(std::vector<std::string> extraMessage)
 {
 	return;

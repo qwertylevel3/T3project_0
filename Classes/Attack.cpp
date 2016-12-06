@@ -3,7 +3,6 @@
 #include "ToolFunction.h"
 #include "BattleSystem.h"
 
-
 using namespace Skill;
 
 Attack::Attack()
@@ -12,7 +11,6 @@ Attack::Attack()
 	this->setChantCost(0);
 	this->setMpCost(0);
 }
-
 
 Attack::~Attack()
 {
@@ -23,6 +21,12 @@ Skill::Attack* Skill::Attack::createPrototype()
 	return new Attack();
 }
 
+std::string Skill::Attack::getExtraDescription()
+{
+	return ToolFunction::WStr2UTF8(L"Ð§¹û:\n") +
+		ToolFunction::WStr2UTF8(L"ÆÕÍ¨¹¥»÷");
+}
+
 void Skill::Attack::initExtraMessage(std::vector<std::string> extraMessage)
 {
 	return;
@@ -31,7 +35,7 @@ void Skill::Attack::initExtraMessage(std::vector<std::string> extraMessage)
 void Skill::Attack::run()
 {
 	AttackSelector selector;
-	std::vector<cocos2d::Point > coords=selector.select(caster);
+	std::vector<cocos2d::Point > coords = selector.select(caster);
 
 	BattleSystem::getInstance()->attack(caster, coords);
 }

@@ -18,6 +18,13 @@ Skill::Repel* Skill::Repel::createPrototype()
 	return new Skill::Repel();
 }
 
+std::string Skill::Repel::getExtraDescription()
+{
+	return ToolFunction::WStr2UTF8(L"效果:\n")
+		+ ToolFunction::WStr2UTF8(L"击退面前单位并造成")
+		+ ToolFunction::int2string(damage) + ToolFunction::WStr2UTF8(L"伤害");
+}
+
 void Skill::Repel::run()
 {
 	FixedSelector selector;

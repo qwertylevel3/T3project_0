@@ -32,7 +32,7 @@ void Skill::SkillFactory::init()
 	MPRecoverySelf* mpSelfPrototype = new MPRecoverySelf();
 	HPRecoveryCast* hpCastPrototype = new HPRecoveryCast();
 	MPRecoveryCast* mpCastPrototype = new MPRecoveryCast();
-	ChantSelf* chantSelfPrototype = new ChantSelf();
+	Chant* chantSelfPrototype = new Chant();
 	ChantCast* chantCastPrototype = new ChantCast();
 	BuffSelf* buffSelfPrototype = new BuffSelf();
 	BuffCast* buffCastPrototype = new BuffCast();

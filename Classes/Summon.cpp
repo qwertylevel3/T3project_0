@@ -20,6 +20,13 @@ Skill::Summon* Skill::Summon::createPrototype()
 	return new Summon();
 }
 
+std::string Skill::Summon::getExtraDescription()
+{
+	return ToolFunction::WStr2UTF8(L"Ð§¹û:\n")
+		+ ToolFunction::WStr2UTF8(L"ÕÙ»½")
+		+ characterName;
+}
+
 void Skill::Summon::run()
 {
 	Character* summonCharacter = MonsterFactory::getInstance()->getMonster(characterName);

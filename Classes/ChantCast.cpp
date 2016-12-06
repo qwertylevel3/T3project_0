@@ -20,6 +20,13 @@ Skill::ChantCast* Skill::ChantCast::createPrototype()
 	return new ChantCast();
 }
 
+std::string Skill::ChantCast::getExtraDescription()
+{
+	return ToolFunction::WStr2UTF8(L"效果:\n")
+		+ ToolFunction::WStr2UTF8(L"为面前单位增加吟唱点")
+		+ ToolFunction::int2string(value);
+}
+
 void Skill::ChantCast::run()
 {
 	FixedSelector selector;

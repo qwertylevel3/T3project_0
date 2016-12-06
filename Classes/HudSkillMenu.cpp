@@ -5,6 +5,7 @@
 #include "SkillHandler.h"
 #include "SkillBase.h"
 #include "HudTrigActiveSkill.h"
+#include "HudDescriptionMenu.h"
 
 
 
@@ -52,4 +53,34 @@ void HudSkillMenu::addItem(HudMenuItem* item)
 {
 	HudMenu::addItem(item);
 	item->setAliginment(cocos2d::TextHAlignment::LEFT);
+}
+
+void HudSkillMenu::show()
+{
+	HudMenu::show();
+	HudDescriptionMenu::getInstance()->show();
+}
+
+void HudSkillMenu::hide()
+{
+	HudMenu::hide();
+	HudDescriptionMenu::getInstance()->hide();
+}
+
+void HudSkillMenu::chooseItem(int index)
+{
+	HudMenu::chooseItem(index);
+	Character* characterPrt = Player::getInstance()->getcharacterPtr();
+	Skill::SkillHandler* skillHandler = characterPrt->getSkillHandler();
+
+	std::vector<Skill::SkillBase*> skillBox = skillHandler->getSkillBoxRef();
+
+	if (skillBox.empty())
+	{
+		return;
+	}
+
+	HudDescriptionMenu::getInstance()->setDescription(
+		skillBox[index]->getDescription()
+	);
 }

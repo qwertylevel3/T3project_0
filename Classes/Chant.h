@@ -11,6 +11,7 @@ namespace Skill
 		~Chant();
 		Chant* createPrototype();
 	protected:
+		std::string getExtraDescription();
 		void initExtraMessage(std::vector<std::string> extraMessage);
 		void run();
 	};

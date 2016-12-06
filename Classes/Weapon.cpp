@@ -38,7 +38,7 @@ std::string Weapon::getExtraDescription()
 {
 	std::string description;
 	description += ToolFunction::WStr2UTF8(L"»ù´¡ÉËº¦:")
-		+ "+" + ToolFunction::int2string(weaponDamage) + "\n";
+		+ "+" + ToolFunction::int2string(weaponDamage) + "\n\n";
 
 	std::vector<Sphere::SphereBase*>& allSphere = sphereHandler->getSphereBoxRef();
 

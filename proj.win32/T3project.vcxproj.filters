@@ -462,9 +462,6 @@
     <ClCompile Include="..\Classes\HeroManager.cpp">
       <Filter>src\character\hero</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\FireBall.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\MyCamera.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -484,9 +481,6 @@
       <Filter>src\skill</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\HPRecoveryCast.cpp">
-      <Filter>src\skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ChantSelf.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\ChantCast.cpp">
@@ -518,6 +512,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\HudDescriptionMenu.cpp" />
     <ClCompile Include="..\Classes\CharacterBar.cpp" />
+    <ClCompile Include="..\Classes\FireBall.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ChantSelf.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -934,9 +934,6 @@
     <ClInclude Include="..\Classes\HPRecoveryCast.h">
       <Filter>src\skill</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\ChantSelf.h">
-      <Filter>src\skill</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\ChantCast.h">
       <Filter>src\skill</Filter>
     </ClInclude>
@@ -966,6 +963,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HudDescriptionMenu.h" />
     <ClInclude Include="..\Classes\CharacterBar.h" />
+    <ClInclude Include="..\Classes\ChantSelf.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

@@ -2,6 +2,9 @@
 #include "Character.h"
 #include "FixedSelector.h"
 #include "Dungeon.h"
+#include "ToolFunction.h"
+#include "BuffFactory.h"
+#include "BuffBase.h"
 
 
 
@@ -18,6 +21,18 @@ Skill::BuffCast::~BuffCast()
 Skill::BuffCast* Skill::BuffCast::createPrototype()
 {
 	return new BuffCast();
+}
+
+std::string Skill::BuffCast::getExtraDescription()
+{
+	std::string description;
+	description+=ToolFunction::WStr2UTF8(L"效果:\n")
+		+ ToolFunction::WStr2UTF8(L"对面前单位施加buff:");
+
+	Buff::BuffBase* buff = Buff::BuffFactory::getInstance()->getBuff(buffID);
+	description += buff->getDescription();
+	delete buff;
+	return description;
 }
 
 void Skill::BuffCast::run()
