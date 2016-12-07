@@ -2,9 +2,11 @@
 #include "Player.h"
 #include "2d/CCSprite.h"
 #include "2d/CCSpriteFrameCache.h"
+#include "2d/CCLabel.h"
 #include "HudLayer.h"
 #include "HudLayout.h"
 #include "Character.h"
+#include "ToolFunction.h"
 
 
 
@@ -24,17 +26,25 @@ void HudBar::init()
 	mpBarBk = cocos2d::Sprite::create("HUD/barBk.png");
 	hpBar = cocos2d::Sprite::create("HUD/HP.png");
 	mpBar = cocos2d::Sprite::create("HUD/MP.png");
+	hpLabel = cocos2d::Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	mpLabel = cocos2d::Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 
 	hpBarBk->setPosition(HudLayout::getInstance()->getHpBarPosition());
 	mpBarBk->setPosition(HudLayout::getInstance()->getMpBarPosition());
 	hpBar->setPosition(HudLayout::getInstance()->getHpBarPosition());
 	mpBar->setPosition(HudLayout::getInstance()->getMpBarPosition());
+	hpLabel->setPosition(HudLayout::getInstance()->getHpBarPosition());
+	mpLabel->setPosition(HudLayout::getInstance()->getMpBarPosition());
 
 	HudLayer::getInstance()->addChild(hpBarBk);
 	HudLayer::getInstance()->addChild(hpBar);
 
 	HudLayer::getInstance()->addChild(mpBarBk);
 	HudLayer::getInstance()->addChild(mpBar);
+
+	HudLayer::getInstance()->addChild(hpLabel);
+	HudLayer::getInstance()->addChild(mpLabel);
+
 }
 
 void HudBar::update()
@@ -58,6 +68,13 @@ void HudBar::update()
 		HudLayout::getInstance()->getHpBarPosition().y);
 	mpBar->setPosition(HudLayout::getInstance()->getMpBarPosition().x - deltaMp,
 		HudLayout::getInstance()->getMpBarPosition().y);
+
+	hpLabel->setString(
+		ToolFunction::int2string(hp)+"/"+ToolFunction::int2string(maxHp)
+	);
+	mpLabel->setString(
+		ToolFunction::int2string(mp)+"/"+ToolFunction::int2string(maxMp)
+	);
 }
 
 void HudBar::show()
@@ -66,6 +83,8 @@ void HudBar::show()
 	mpBarBk->setVisible(true);
 	hpBar->setVisible(true);
 	mpBar->setVisible(true);
+	hpLabel->setVisible(true);
+	mpLabel->setVisible(true);
 }
 
 void HudBar::hide()
@@ -74,4 +93,6 @@ void HudBar::hide()
 	mpBarBk->setVisible(false);
 	hpBar->setVisible(false);
 	mpBar->setVisible(false);
+	hpLabel->setVisible(false);
+	mpLabel->setVisible(false);
 }

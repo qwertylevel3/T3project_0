@@ -68,6 +68,8 @@ public:
 	void showHPEffect(int hpOffset);
 	bool sufferMPEffect(int mpOffset);
 
+	void showVibrateEffect();
+
 	bool accumulateChant(int value);
 	void clearChant();
 
@@ -120,6 +122,7 @@ public:
 	std::vector<cocos2d::Point> getAtkArea();
 	std::vector<cocos2d::Point> getAtkSelect();
 
+	int getSumWeight();
 	InventoryHandler* getInventoryHandler();
 	Skill::SkillHandler* getSkillHandler();
 	Buff::BuffHandler* getBuffHandler();

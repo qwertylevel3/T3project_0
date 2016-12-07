@@ -161,6 +161,7 @@ void Character::showHPEffect(int hpOffset)
 				NULL
 			)
 		);
+		showVibrateEffect();
 	}
 }
 
@@ -180,6 +181,42 @@ bool Character::sufferMPEffect(int mpOffset)
 	}
 
 	return true;
+}
+
+void Character::showVibrateEffect()
+{
+	//	MainLayer::getInstance()->unfocusPlayer();
+	//	cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.1);
+	//	cocos2d::CallFunc *callFunc = cocos2d::CallFunc::create(MainLayer::getInstance(), callfunc_selector(MainLayer::focusPlayer));
+	//	cocos2d::Sequence *action = cocos2d::Sequence::create(delayTime, callFunc, NULL);
+
+	cocos2d::Vec2 shakeA;
+	cocos2d::Vec2 shakeB;
+
+	switch (getOrientation())
+	{
+	case Character::UP:
+	case Character::DOWN:
+		shakeA = cocos2d::ccp(5, 0);
+		shakeB = cocos2d::ccp(-5, 0);
+		break;
+	case Character::LEFT:
+	case Character::RIGHT:
+		shakeA = cocos2d::ccp(0, 5);
+		shakeB = cocos2d::ccp(0, -5);
+		break;
+	default:
+		break;
+	}
+
+	cocos2d::ActionInterval *shake0 = cocos2d::MoveBy::create(0.025, shakeA);
+	cocos2d::ActionInterval *shake1 = shake0->reverse();
+	cocos2d::ActionInterval *shake2 = cocos2d::MoveBy::create(0.025, shakeB);
+	cocos2d::ActionInterval *shake3 = shake2->reverse();
+
+	getSprite()->runAction(
+			cocos2d::Sequence::create(shake0, shake1, shake2, shake3, NULL)
+	);
 }
 
 bool Character::accumulateChant(int value)
@@ -264,7 +301,7 @@ void Character::attack()
 
 void Character::moveUp()
 {
-	MainLayer::getInstance()->focusPlayer();
+//	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveUp(this);
 	processAction(0);
 	clearChant();
@@ -272,7 +309,7 @@ void Character::moveUp()
 
 void Character::moveDown()
 {
-	MainLayer::getInstance()->focusPlayer();
+//	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveDown(this);
 	processAction(0);
 	clearChant();
@@ -280,7 +317,7 @@ void Character::moveDown()
 
 void Character::moveLeft()
 {
-	MainLayer::getInstance()->focusPlayer();
+//	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveLeft(this);
 	processAction(0);
 	clearChant();
@@ -288,7 +325,7 @@ void Character::moveLeft()
 
 void Character::moveRight()
 {
-	MainLayer::getInstance()->focusPlayer();
+//	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveRight(this);
 	processAction(0);
 	clearChant();
@@ -359,7 +396,7 @@ void Character::showMoveRightAnimation()
 
 void Character::equipLeftHand(Inventory* inventory)
 {
-	MainLayer::getInstance()->focusPlayer();
+//	MainLayer::getInstance()->focusPlayer();
 	inventory->equipLeftHand(this);
 	loadInventoryBuff(inventory);
 }
@@ -516,6 +553,17 @@ std::vector<cocos2d::Point> Character::getAtkSelect()
 		return getBowAtkSelect();
 	}
 	return vec;
+}
+
+int Character::getSumWeight()
+{
+	int leftWeight = leftHand ? leftHand->getWeight() : 0;
+	int rightWeight = rightHand ? rightHand->getWeight() : 0;
+	int armorWeight = armor ? armor->getWeight() : 0;
+	int accessoryWeight = accessory? accessory->getWeight() : 0;
+
+	return inventoryHandler->calculateSumWeight()
+		+ leftWeight + rightWeight + armorWeight + accessoryWeight;
 }
 
 InventoryHandler* Character::getInventoryHandler()

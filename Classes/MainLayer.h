@@ -37,7 +37,6 @@ public:
 	void unfocusPlayer();
 	void clear();
 private:
-	bool viewFocus;
 };
 
 

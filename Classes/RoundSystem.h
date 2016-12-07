@@ -20,7 +20,7 @@ public:
 	RoundHandler(Character* character);
 	~RoundHandler();
 	void startRound();
-	void processAction(float delayTime);
+	void processAction(float dt);
 	int getActionPoint();
 	bool isSkipNextRound();
 	void setSkipNextRound(bool b);

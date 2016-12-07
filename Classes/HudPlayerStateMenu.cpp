@@ -81,7 +81,7 @@ void HudPlayerStateMenu::init()
 
 void HudPlayerStateMenu::update()
 {
-	Character* playerPtr = Player::getInstance()->getcharacterPtr();
+	Character* characterPtr = Player::getInstance()->getcharacterPtr();
 
 	//////////////////////////////////////////////////////////////////////////
 
@@ -91,21 +91,21 @@ void HudPlayerStateMenu::update()
 		playerName
 	);
 
-	std::string maxHP = ToolFunction::int2string(playerPtr->getMaxHP());
-	std::string HP = ToolFunction::int2string(playerPtr->getHP());
+	std::string maxHP = ToolFunction::int2string(characterPtr->getMaxHP());
+	std::string HP = ToolFunction::int2string(characterPtr->getHP());
 	hpLabel->setString(
 		ToolFunction::WStr2UTF8(L"生命值:") +
 		HP + "/" + maxHP
 	);
 
-	std::string maxMP = ToolFunction::int2string(playerPtr->getMaxMP());
-	std::string MP = ToolFunction::int2string(playerPtr->getMP());
+	std::string maxMP = ToolFunction::int2string(characterPtr->getMaxMP());
+	std::string MP = ToolFunction::int2string(characterPtr->getMP());
 	mpLabel->setString(
 		ToolFunction::WStr2UTF8(L"魔法值:") +
 		MP + "/" + maxMP
 	);
 
-	std::string chant = ToolFunction::int2string(playerPtr->getChant());
+	std::string chant = ToolFunction::int2string(characterPtr->getChant());
 	chantLabel->setString(
 		ToolFunction::WStr2UTF8(L"吟唱点数:") +
 		chant
@@ -113,19 +113,19 @@ void HudPlayerStateMenu::update()
 
 	//////////////////////////////////////////////////////////////////////////
 
-	std::string strength = ToolFunction::int2string(playerPtr->getStrength());
+	std::string strength = ToolFunction::int2string(characterPtr->getStrength());
 	strLabel->setString(
 		ToolFunction::WStr2UTF8(L"力量:") +
 		strength
 	);
 
-	std::string agility = ToolFunction::int2string(playerPtr->getAgility());
+	std::string agility = ToolFunction::int2string(characterPtr->getAgility());
 	agiLabel->setString(
 		ToolFunction::WStr2UTF8(L"敏捷:") +
 		agility
 	);
 
-	std::string intellect = ToolFunction::int2string(playerPtr->getIntellect());
+	std::string intellect = ToolFunction::int2string(characterPtr->getIntellect());
 	intLabel->setString(
 		ToolFunction::WStr2UTF8(L"智力:") +
 		intellect
@@ -133,10 +133,10 @@ void HudPlayerStateMenu::update()
 
 	//////////////////////////////////////////////////////////////////////////
 
-	std::string weight = ToolFunction::int2string(playerPtr->getWeight());
+	std::string weight = ToolFunction::int2string(characterPtr->getWeight());
 	weightLabel->setString(
 		ToolFunction::WStr2UTF8(L"负重:") +
-		weight
+		ToolFunction::int2string(characterPtr->getSumWeight()) + "/"+weight
 	);
 
 	//	std::string gold = ToolFunction::int2string(playerPtr->getGold());

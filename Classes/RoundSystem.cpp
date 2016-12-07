@@ -33,18 +33,23 @@ void RoundHandler::startRound()
 	delayTime = 0;
 }
 
-void RoundHandler::processAction(float delayTime)
+void RoundHandler::processAction(float dt)
 {
-	delayTime += delayTime;
+	delayTime += dt;
 	actionPoint--;
 
 	if (actionPoint <= 0)
 	{
 		characterPtr->endRound();
+		//如果刚刚玩家结束了回合，锁定键盘
+		if (characterPtr == Player::getInstance()->getcharacterPtr())
+		{
+			KeyController::getInstance()->setBlock(true);
+		}
 
 		cocos2d::Sprite* characterSprite = characterPtr->getSprite();
 
-		cocos2d::DelayTime* delayAction = cocos2d::DelayTime::create(delayTime);
+		cocos2d::DelayTime* delayAction = cocos2d::DelayTime::create(dt);
 		cocos2d::CallFunc *callFun = cocos2d::CallFunc::create(RoundSystem::getInstance(), callfunc_selector(RoundSystem::sendNextRoundMessage));
 		cocos2d::Sequence *action = cocos2d::Sequence::create(delayAction, callFun, NULL);
 		characterSprite->runAction(action);
@@ -135,15 +140,15 @@ void RoundSystem::round()
 	curCharacter->update();
 
 	RoundHandler* roundHandler = allCharacter[curIndex]->getRoundHandler();
-	
-		if (isPlayer(curCharacter))
-		{
-			playerAction();
-		}
-		else
-		{
-			NPCAction(curCharacter);
-		}
+
+	if (isPlayer(curCharacter))
+	{
+		playerAction();
+	}
+	else
+	{
+		NPCAction(curCharacter);
+	}
 }
 
 void RoundSystem::NPCAction(Character* character)
@@ -166,12 +171,6 @@ void RoundSystem::start()
 
 void RoundSystem::nextRound()
 {
-	//如果刚刚玩家结束了回合，锁定键盘
-	if (isPlayer(allCharacter[curIndex]))
-	{
-		KeyController::getInstance()->setBlock(true);
-	}
-
 	do
 	{
 		nextIndex();

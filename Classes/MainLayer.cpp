@@ -64,7 +64,6 @@ bool MainLayer::init()
 
 	this->scheduleUpdate();
 
-	viewFocus = true;
 
 	return true;
 }
@@ -107,16 +106,6 @@ void MainLayer::clear()
 	Layer::removeAllChildren();
 }
 
-
-void MainLayer::focusPlayer()
-{
-	viewFocus = true;
-}
-
-void MainLayer::unfocusPlayer()
-{
-	viewFocus = false;
-}
 
 void MainLayer::initMission()
 {

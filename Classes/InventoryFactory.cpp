@@ -48,14 +48,19 @@ Inventory * InventoryFactory::getInventory(std::string inventoryName)
 }
 
 
-std::string InventoryFactory::getCname(const std::string& inventoryName)
+std::string InventoryFactory::queryCname(const std::string& inventoryName)
 {
 	return inventoryMap[inventoryName]->getCname();
 }
 
-Inventory::Type InventoryFactory::getInventoryType(const std::string& inventoryName)
+Inventory::Type InventoryFactory::queryInventoryType(const std::string& inventoryName)
 {
 	return inventoryMap[inventoryName]->getInventoryType();
+}
+
+int InventoryFactory::queryInventoryWeight(const std::string& inventoryName)
+{
+	return inventoryMap[inventoryName]->getWeight();
 }
 
 void InventoryFactory::initModel(tinyxml2::XMLElement* inventoryElement, const std::string& type)

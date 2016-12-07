@@ -117,3 +117,16 @@ void InventoryHandler::drop(cocos2d::Point coord)
 	}
 	clear();
 }
+
+int InventoryHandler::calculateSumWeight()
+{
+	int sumWeight = 0;
+	std::map<std::string, int>::iterator iter = inventoryBox.begin();
+	while (iter!=inventoryBox.end())
+	{
+		int weight = InventoryFactory::getInstance()->queryInventoryWeight(iter->first);
+		sumWeight += weight*iter->second;
+		iter++;
+	}
+	return sumWeight;
+}

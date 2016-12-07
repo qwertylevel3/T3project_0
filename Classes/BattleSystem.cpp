@@ -45,7 +45,7 @@ void BattleSystem::init()
 
 void BattleSystem::showAttackEffect(Character* caster, AttackHand hand)
 {
-	MainLayer::getInstance()->unfocusPlayer();
+//	MainLayer::getInstance()->unfocusPlayer();
 
 	cocos2d::Vec2 direction;
 	switch (caster->getOrientation())
@@ -204,50 +204,12 @@ void BattleSystem::showBowEffect(Character* caster)
 
 void BattleSystem::showSufferDamageEffect(Character* character, Character::Orientation direction, int damage, bool isBlock)
 {
-	MainLayer::getInstance()->unfocusPlayer();
-	cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.1);
-	cocos2d::CallFunc *callFunc = cocos2d::CallFunc::create(MainLayer::getInstance(), callfunc_selector(MainLayer::focusPlayer));
-	cocos2d::Sequence *action = cocos2d::Sequence::create(delayTime, callFunc, NULL);
-
-	cocos2d::Vec2 shakeA;
-	cocos2d::Vec2 shakeB;
-
-	switch (direction)
-	{
-	case Character::UP:
-	case Character::DOWN:
-		shakeA = cocos2d::ccp(5, 0);
-		shakeB = cocos2d::ccp(-5, 0);
-		break;
-	case Character::LEFT:
-	case Character::RIGHT:
-		shakeA = cocos2d::ccp(0, 5);
-		shakeB = cocos2d::ccp(0, -5);
-		break;
-	default:
-		break;
-	}
-
-	//block 情况下不颤动
-	if (isBlock)
-	{
-		shakeA = cocos2d::Vec2(0, 0);
-		shakeB = cocos2d::Vec2(0, 0);
-	}
-
-	cocos2d::ActionInterval *shake0 = cocos2d::MoveBy::create(0.025, shakeA);
-	cocos2d::ActionInterval *shake1 = shake0->reverse();
-	cocos2d::ActionInterval *shake2 = cocos2d::MoveBy::create(0.025, shakeB);
-	cocos2d::ActionInterval *shake3 = shake2->reverse();
-
 	if (isBlock)
 	{
 		//showBlock(character);
 		//闪白
 		character->getSprite()->runAction(
 			cocos2d::Spawn::create(
-				action,
-				cocos2d::Sequence::create(shake0, shake1, shake2, shake3, NULL),
 				cocos2d::TintBy::create(0.1, 0, 0, 0),
 				NULL
 			)
@@ -258,8 +220,6 @@ void BattleSystem::showSufferDamageEffect(Character* character, Character::Orien
 		//闪红
 		character->getSprite()->runAction(
 			cocos2d::Spawn::create(
-				action,
-				cocos2d::Sequence::create(shake0, shake1, shake2, shake3, NULL),
 				cocos2d::TintBy::create(0.1, 0, 255, 255),
 				NULL
 			)

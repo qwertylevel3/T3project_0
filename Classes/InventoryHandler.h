@@ -30,6 +30,9 @@ public:
 
 	void clear();
 
+	//计算总重量
+	int calculateSumWeight();
+
 
 
 	//************************************
@@ -43,5 +46,7 @@ public:
 protected:
 	//记录每种inventory的个数
 	std::map<std::string, int> inventoryBox;
+
+
 };
 
