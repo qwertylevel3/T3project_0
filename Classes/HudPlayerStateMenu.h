@@ -27,9 +27,9 @@ protected:
 	cocos2d::Label* strLabel;
 	cocos2d::Label* agiLabel;
 	cocos2d::Label* intLabel;
-	cocos2d::Label* luckLabel;
+//	cocos2d::Label* luckLabel;
 
 	cocos2d::Label* weightLabel;
-	cocos2d::Label* goldLabel;
+//	cocos2d::Label* goldLabel;
 };
 

@@ -5,7 +5,7 @@
 #include "ToolFunction.h"
 #include "HudLayer.h"
 #include "HudLayout.h"
-
+#include "ToolFunction.h"
 
 USING_NS_CC;
 
@@ -13,14 +13,13 @@ HudPlayerStateMenu::HudPlayerStateMenu()
 {
 }
 
-
 HudPlayerStateMenu::~HudPlayerStateMenu()
 {
 }
 
 void HudPlayerStateMenu::init()
 {
-//	bk = Sprite::create("HUD/StateMenu.png");
+	//	bk = Sprite::create("HUD/StateMenu.png");
 
 	bk = cocos2d::ui::Layout::create();
 	bk->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
@@ -38,31 +37,40 @@ void HudPlayerStateMenu::init()
 	HudLayer::getInstance()->addChild(bk);
 
 	playerNameLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	playerNameLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 	bk->addChild(playerNameLabel);
+
 	hpLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	hpLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 	bk->addChild(hpLabel);
+
 	mpLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	mpLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 	bk->addChild(mpLabel);
+
 	chantLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	chantLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 	bk->addChild(chantLabel);
 
-
-
 	strLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	strLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 	bk->addChild(strLabel);
+
 	agiLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	agiLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 	bk->addChild(agiLabel);
+
 	intLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	intLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 	bk->addChild(intLabel);
-	luckLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	bk->addChild(luckLabel);
+	//	luckLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	//	bk->addChild(luckLabel);
 
 	weightLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	weightLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 	bk->addChild(weightLabel);
-	goldLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	bk->addChild(goldLabel);
-
-
+	//	goldLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	//	bk->addChild(goldLabel);
 
 	setPosition();
 
@@ -78,41 +86,61 @@ void HudPlayerStateMenu::update()
 	//////////////////////////////////////////////////////////////////////////
 
 	std::string playerName = Player::getInstance()->getName();
-	playerNameLabel->setString(playerName);
+	playerNameLabel->setString(
+		ToolFunction::WStr2UTF8(L"玩家名:") +
+		playerName
+	);
 
 	std::string maxHP = ToolFunction::int2string(playerPtr->getMaxHP());
 	std::string HP = ToolFunction::int2string(playerPtr->getHP());
-	hpLabel->setString(HP + "/" + maxHP);
+	hpLabel->setString(
+		ToolFunction::WStr2UTF8(L"生命值:") +
+		HP + "/" + maxHP
+	);
 
 	std::string maxMP = ToolFunction::int2string(playerPtr->getMaxMP());
 	std::string MP = ToolFunction::int2string(playerPtr->getMP());
-	mpLabel->setString(MP + "/" + maxMP);
+	mpLabel->setString(
+		ToolFunction::WStr2UTF8(L"魔法值:") +
+		MP + "/" + maxMP
+	);
 
 	std::string chant = ToolFunction::int2string(playerPtr->getChant());
-	chantLabel->setString(chant);
+	chantLabel->setString(
+		ToolFunction::WStr2UTF8(L"吟唱点数:") +
+		chant
+	);
 
 	//////////////////////////////////////////////////////////////////////////
 
 	std::string strength = ToolFunction::int2string(playerPtr->getStrength());
-	strLabel->setString(strength);
+	strLabel->setString(
+		ToolFunction::WStr2UTF8(L"力量:") +
+		strength
+	);
 
 	std::string agility = ToolFunction::int2string(playerPtr->getAgility());
-	agiLabel->setString(agility);
+	agiLabel->setString(
+		ToolFunction::WStr2UTF8(L"敏捷:") +
+		agility
+	);
 
 	std::string intellect = ToolFunction::int2string(playerPtr->getIntellect());
-	intLabel->setString(intellect);
-
-	std::string luck = ToolFunction::int2string(playerPtr->getLuck());
-	luckLabel->setString(luck);
+	intLabel->setString(
+		ToolFunction::WStr2UTF8(L"智力:") +
+		intellect
+	);
 
 	//////////////////////////////////////////////////////////////////////////
 
 	std::string weight = ToolFunction::int2string(playerPtr->getWeight());
-	weightLabel->setString(weight);
+	weightLabel->setString(
+		ToolFunction::WStr2UTF8(L"负重:") +
+		weight
+	);
 
-	std::string gold = ToolFunction::int2string(playerPtr->getGold());
-	goldLabel->setString(gold);
-
+	//	std::string gold = ToolFunction::int2string(playerPtr->getGold());
+	//	goldLabel->setString(gold);
 }
 
 void HudPlayerStateMenu::show()
@@ -127,18 +155,15 @@ void HudPlayerStateMenu::hide()
 
 void HudPlayerStateMenu::setPosition()
 {
-//	bk->setPosition(bk->getTexture()->getPixelsWide() / 2, bk->getTexture()->getPixelsHigh() / 2);
+	//	bk->setPosition(bk->getTexture()->getPixelsWide() / 2, bk->getTexture()->getPixelsHigh() / 2);
 
-	playerNameLabel->setPosition(100, 100);
-	hpLabel->setPosition(100, 70);
-	mpLabel->setPosition(100, 45);
-	chantLabel->setPosition(100, 20);
+	playerNameLabel->setPosition(30, 130);
+	hpLabel->setPosition(30, 100);
+	mpLabel->setPosition(30, 70);
+	chantLabel->setPosition(30, 40);
 
-	strLabel->setPosition(230, 100);
-	agiLabel->setPosition(230, 70);
-	intLabel->setPosition(230, 45);
-	luckLabel->setPosition(230, 20);
-
-	goldLabel->setPosition(350, 100);
-	weightLabel->setPosition(350, 70);
+	strLabel->setPosition(170, 130);
+	agiLabel->setPosition(170, 100);
+	intLabel->setPosition(170, 70);
+	weightLabel->setPosition(170, 40);
 }

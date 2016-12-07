@@ -510,13 +510,17 @@
     <ClCompile Include="..\Classes\Thunder.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudDescriptionMenu.cpp" />
-    <ClCompile Include="..\Classes\CharacterBar.cpp" />
     <ClCompile Include="..\Classes\FireBall.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\ChantSelf.cpp">
       <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudDescriptionMenu.cpp">
+      <Filter>src\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CharacterBar.cpp">
+      <Filter>src\character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -961,18 +965,22 @@
     <ClInclude Include="..\Classes\Thunder.h">
       <Filter>src\skill</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudDescriptionMenu.h" />
-    <ClInclude Include="..\Classes\CharacterBar.h" />
     <ClInclude Include="..\Classes\ChantSelf.h">
       <Filter>src\skill</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\HudDescriptionMenu.h">
+      <Filter>src\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CharacterBar.h">
+      <Filter>src\character</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
       <Filter>resource</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
