@@ -189,11 +189,6 @@ void Player::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 			playerAttack(keyCode);
 			break;
 		}
-		if (keyCode==EventKeyboard::KeyCode::KEY_E)
-		{
-			playerTalk(keyCode);
-			break;
-		}
 		if (keyCode == EventKeyboard::KeyCode::KEY_CTRL)
 		{
 			controlMode = HaltMode;
@@ -283,34 +278,35 @@ void Player::playerTalk(cocos2d::EventKeyboard::KeyCode keyCode)
 
 	cocos2d::Point targetCoord;
 
-	switch (characterPtr->getOrientation())
+	switch (keyCode)
 	{
-	case Character::UP:
+	case EventKeyboard::KeyCode::KEY_UP_ARROW:
 		targetCoord.x = playerCoord.x;
 		targetCoord.y = playerCoord.y - 1;
 		break;
-	case Character::DOWN:
+	case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
 		targetCoord.x = playerCoord.x;
 		targetCoord.y = playerCoord.y + 1;
 		break;
-	case Character::LEFT:
+	case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
 		targetCoord.x = playerCoord.x - 1;
 		targetCoord.y = playerCoord.y;
 		break;
-	case Character::RIGHT:
+	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
 		targetCoord.x = playerCoord.x + 1;
 		targetCoord.y = playerCoord.y;
 		break;
 	}
 	Character* targetCharacter = storey->getCharacter(targetCoord);
 
-	if (!targetCharacter)
+	if (targetCharacter)
 	{
 		HudMessageBox::getInstance()->addMessage(L"面前没有任何单位");
 		return;
 	}
 
-	targetCharacter->talk();
+
+
 }
 
 std::string Player::getName()

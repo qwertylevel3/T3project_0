@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "ToolFunction.h"
 #include <queue>
+#include "HudMessageBox.h"
 #include <set>
 
 using namespace Field;
@@ -22,6 +23,11 @@ AIBase::~AIBase()
 void AIBase::update()
 {
 
+}
+
+void AIBase::talk()
+{
+	HudMessageBox::getInstance()->addMessage(L"对方不想和你说话");
 }
 
 void AIBase::setCharacter(Character* character)

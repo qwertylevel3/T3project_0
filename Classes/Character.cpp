@@ -215,7 +215,7 @@ void Character::showVibrateEffect()
 	cocos2d::ActionInterval *shake3 = shake2->reverse();
 
 	getSprite()->runAction(
-			cocos2d::Sequence::create(shake0, shake1, shake2, shake3, NULL)
+		cocos2d::Sequence::create(shake0, shake1, shake2, shake3, NULL)
 	);
 }
 
@@ -293,6 +293,14 @@ void Character::speak(std::wstring sentence)
 	);
 }
 
+void Character::talk()
+{
+	if (ai)
+	{
+		ai->talk();
+	}
+}
+
 void Character::attack()
 {
 	runSkill(ToolFunction::WStr2UTF8(L"attack_¹¥»÷_0_0"));
@@ -301,7 +309,7 @@ void Character::attack()
 
 void Character::moveUp()
 {
-//	MainLayer::getInstance()->focusPlayer();
+	//	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveUp(this);
 	processAction(0);
 	clearChant();
@@ -309,7 +317,7 @@ void Character::moveUp()
 
 void Character::moveDown()
 {
-//	MainLayer::getInstance()->focusPlayer();
+	//	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveDown(this);
 	processAction(0);
 	clearChant();
@@ -317,7 +325,7 @@ void Character::moveDown()
 
 void Character::moveLeft()
 {
-//	MainLayer::getInstance()->focusPlayer();
+	//	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveLeft(this);
 	processAction(0);
 	clearChant();
@@ -325,7 +333,7 @@ void Character::moveLeft()
 
 void Character::moveRight()
 {
-//	MainLayer::getInstance()->focusPlayer();
+	//	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->characterMoveRight(this);
 	processAction(0);
 	clearChant();
@@ -396,7 +404,7 @@ void Character::showMoveRightAnimation()
 
 void Character::equipLeftHand(Inventory* inventory)
 {
-//	MainLayer::getInstance()->focusPlayer();
+	//	MainLayer::getInstance()->focusPlayer();
 	inventory->equipLeftHand(this);
 	loadInventoryBuff(inventory);
 }
@@ -560,7 +568,7 @@ int Character::getSumWeight()
 	int leftWeight = leftHand ? leftHand->getWeight() : 0;
 	int rightWeight = rightHand ? rightHand->getWeight() : 0;
 	int armorWeight = armor ? armor->getWeight() : 0;
-	int accessoryWeight = accessory? accessory->getWeight() : 0;
+	int accessoryWeight = accessory ? accessory->getWeight() : 0;
 
 	return inventoryHandler->calculateSumWeight()
 		+ leftWeight + rightWeight + armorWeight + accessoryWeight;
@@ -599,7 +607,6 @@ void Character::addInventory(const std::string& inventoryName)
 void Character::removeInventory(const std::string& inventoryName)
 {
 	inventoryHandler->removeInventory(inventoryName);
-
 }
 
 std::string Character::queryInventoryNameByIndex(int index)

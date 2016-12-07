@@ -8,6 +8,7 @@ public:
 	AIBase();
 	virtual ~AIBase();
 	virtual void update();
+	virtual void talk();
 	void setCharacter(Character* character);
 	Character* searchTargetBFS(Character::Type type);
 protected:
