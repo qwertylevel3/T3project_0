@@ -18,6 +18,14 @@ void Buff::WeightBuff::apply(Character* target)
 {
 	CharacterAttrHandler* attrHandler = target->getAttrHandler();
 	attrHandler->setWeightByBuff(attrHandler->getWeight() + weightOffset);
+//	if (target->getWeight()<target->getSumWeight())
+//	{
+//		target->setMoveAble(false);
+//	}
+//	else
+//	{
+//		target->setMoveAble(true);
+//	}
 }
 
 Buff::WeightBuff* Buff::WeightBuff::createPrototype()

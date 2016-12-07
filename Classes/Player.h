@@ -29,6 +29,7 @@ public:
 	std::string getName();
 	void setName(const std::string& name);
 protected:
+	void showCannotMoveReason();
 	void showAtkArea();
 	void hideAtkArea();
 	CC_SYNTHESIZE(Character*, characterPtr, characterPtr);

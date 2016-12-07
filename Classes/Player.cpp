@@ -1,4 +1,6 @@
 #include "Player.h"
+#include "HudMessageBox.h"
+#include "ToolFunction.h"
 #include"CharacterFactory.h"
 #include"Dungeon.h"
 #include"FieldEnum.h"
@@ -148,6 +150,16 @@ bool Player::isInViewSize(cocos2d::Point coord)
 
 bool Player::isMoveAble(cocos2d::EventKeyboard::KeyCode keyCode)
 {
+	if (!characterPtr->isMoveAble())
+	{
+		return false;
+	}
+	if (characterPtr->getWeight()<characterPtr->getSumWeight())
+	{
+		showCannotMoveReason();
+		return false;
+	}
+
 	cocos2d::Point position = characterPtr->getMapCoord();
 	switch (keyCode)
 	{
@@ -270,6 +282,16 @@ void Player::setName(const std::string& name)
 {
 	CCAssert(characterPtr, "characterPtr is null");
 	characterPtr->setName(name);
+}
+
+void Player::showCannotMoveReason()
+{
+	if (characterPtr->getWeight()<characterPtr->getSumWeight())
+	{
+		HudMessageBox::getInstance()->addMessage(
+			L"∏∫÷ÿ≤ªπª£°"
+		);
+	}
 }
 
 void Player::showAtkArea()

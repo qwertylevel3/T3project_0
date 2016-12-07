@@ -594,21 +594,12 @@ void Character::addInventory(Inventory * inventory)
 void Character::addInventory(const std::string& inventoryName)
 {
 	inventoryHandler->addInventory(inventoryName, 1);
-	if (getSumWeight()>getWeight())
-	{
-		setMoveAble(false);
-	}
 }
 
 void Character::removeInventory(const std::string& inventoryName)
 {
 	inventoryHandler->removeInventory(inventoryName);
 
-//	inventoryHandler->removeInventory(inventoryName, 1);
-	if (getSumWeight()<=getWeight())
-	{
-		setMoveAble(true);
-	}
 }
 
 std::string Character::queryInventoryNameByIndex(int index)
