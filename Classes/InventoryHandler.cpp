@@ -66,7 +66,7 @@ std::map<std::string, int>& InventoryHandler::getAllInventory()
 	return inventoryBox;
 }
 
-int InventoryHandler::getCount(const std::string& inventoryName)
+int InventoryHandler::queryInventoryCountByName(const std::string& inventoryName)
 {
 	if (inventoryBox.count(inventoryName))
 	{
@@ -75,26 +75,16 @@ int InventoryHandler::getCount(const std::string& inventoryName)
 	return 0;
 }
 
-Inventory* InventoryHandler::getInventory(std::string inventoryName)
+std::string InventoryHandler::queryInventoryNameByIndex(int index)
 {
-	if (inventoryBox.count(inventoryName) && inventoryBox[inventoryName] > 0)
-	{
-		removeInventory(inventoryName, 1);
-		return InventoryFactory::getInstance()->getInventory(inventoryName);
-	}
-	return nullptr;
-}
-
-Inventory* InventoryHandler::getInventory(int index)
-{
+	std::map<std::string, int>::iterator iter = inventoryBox.begin();
 	int count = 0;
-	std::map<std::string, int>::const_iterator iter = inventoryBox.cbegin();
-	while (count != index)
+	while (count!=index)
 	{
-		iter++;
 		count++;
+		iter++;
 	}
-	return getInventory(iter->first);
+	return iter->first;
 }
 
 void InventoryHandler::clear()

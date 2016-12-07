@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "InventoryHandler.h"
 #include "HudMenuItem.h"
+#include "InventoryFactory.h"
 
 
 
@@ -20,8 +21,10 @@ void HudTrigEquipRight::run()
 	int curIndex = HudInventoryMenu::getInstance()->getCurIndex();
 	Character* characterPtr = Player::getInstance()->getcharacterPtr();
 
-	InventoryHandler* inventoryHandler = characterPtr->getInventoryHandler();
-	Inventory* inventory = inventoryHandler->getInventory(curIndex);
+	std::string inventoryName = characterPtr->queryInventoryNameByIndex(curIndex);
+	characterPtr->removeInventory(inventoryName);
+
+	Inventory* inventory = InventoryFactory::getInstance()->getInventory(inventoryName);
 
 	characterPtr->equipRightHand(inventory);
 

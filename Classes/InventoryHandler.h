@@ -21,12 +21,13 @@ public:
 	// Parameter: Inventory * inventory
 	//************************************
 	void addInventory(Inventory* inventory,int count=1);
-	void removeInventory(std::string inventoryName, int count);
-	void removeInventory(int index, int count);
+	void removeInventory(std::string inventoryName, int count=1);
+	void removeInventory(int index, int count=1);
 	std::map<std::string, int>& getAllInventory();
-	int getCount(const std::string& inventoryName);
-	Inventory* getInventory(std::string inventoryName);
-	Inventory* getInventory(int index);
+	int queryInventoryCountByName(const std::string& inventoryName);
+	std::string queryInventoryNameByIndex(int index);
+
+
 
 	void clear();
 

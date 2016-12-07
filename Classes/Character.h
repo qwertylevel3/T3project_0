@@ -130,6 +130,8 @@ public:
 	//discard
 	void addInventory(Inventory* inventory);
 	void addInventory(const std::string& inventoryName);
+	void removeInventory(const std::string& inventoryName);
+	std::string queryInventoryNameByIndex(int index);
 
 	cocos2d::CCSprite* getSprite();
 	void setSprite(std::string spriteName);

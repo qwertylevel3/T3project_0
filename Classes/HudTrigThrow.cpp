@@ -1,6 +1,7 @@
 #include "HudTrigThrow.h"
 #include "HudMenuItem.h"
 #include "Player.h"
+#include "InventoryFactory.h"
 #include "HudInventoryMenu.h"
 #include "InventoryHandler.h"
 #include "Dungeon.h"
@@ -26,13 +27,15 @@ void HudTrigThrow::run()
 	int curIndex = HudInventoryMenu::getInstance()->getCurIndex();
 	Character* characterPtr = Player::getInstance()->getcharacterPtr();
 
-	InventoryHandler* inventoryHandler = characterPtr->getInventoryHandler();
-	Inventory* inventory = inventoryHandler->getInventory(curIndex);
+	std::string inventoryName = characterPtr->queryInventoryNameByIndex(curIndex);
+	characterPtr->removeInventory(inventoryName);
 
 	cocos2d::Point targetCoord = getTarget();
 	Character* targetCharacter = Field::Dungeon::getInstance()->getCharacter(targetCoord);
 
+	//todo : refactor
 	//////////////////////////////////////////////////////////////////////////
+	Inventory* inventory = InventoryFactory::getInstance()->getInventory(inventoryName);
 
 	showEffect(inventory,targetCoord);
 	//////////////////////////////////////////////////////////////////////////

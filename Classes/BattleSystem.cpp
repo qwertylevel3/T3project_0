@@ -11,6 +11,7 @@
 #include "InventoryHandler.h"
 #include "Dungeon.h"
 #include "MainLayer.h"
+#include "InventoryFactory.h"
 #include "2d/CCAnimation.h"
 #include "ToolFunction.h"
 #include "base/ccTypes.h"
@@ -45,7 +46,7 @@ void BattleSystem::init()
 
 void BattleSystem::showAttackEffect(Character* caster, AttackHand hand)
 {
-//	MainLayer::getInstance()->unfocusPlayer();
+	//	MainLayer::getInstance()->unfocusPlayer();
 
 	cocos2d::Vec2 direction;
 	switch (caster->getOrientation())
@@ -437,7 +438,7 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 	}
 	int realDamage = sufferAttack(a, b, hand, attackCount);
 
-	HudMessageBox::getInstance()->addMessage(L"…À∫¶£∫" + 
+	HudMessageBox::getInstance()->addMessage(L"…À∫¶£∫" +
 		ToolFunction::string2wstring(
 			ToolFunction::int2string(realDamage)
 		)
@@ -474,7 +475,9 @@ void BattleSystem::attack(Character* caster, std::vector<cocos2d::Point>& coords
 		if (caster->getLeftHand() &&
 			caster->getLeftHand()->getInventoryType() == Inventory::Bow)
 		{
-			Inventory* arrow = caster->getInventoryHandler()->getInventory("arrow000");
+			caster->removeInventory("arrow000");
+			Inventory* arrow = InventoryFactory::getInstance()->getInventory("arrow000");
+
 			if (arrow)
 			{
 				delete arrow;
