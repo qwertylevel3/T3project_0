@@ -44,15 +44,21 @@ void GameController::init()
 	HeroManager::getInstance()->init();
 	EffectManager::getInstance()->init();
 
+
 }
 
 void GameController::startMission(int level)
 {
+
 	MaskLayer::getInstance()->clear();
+
 	MainLayer::getInstance()->clear();
+
+
 
 	Field::Dungeon::getInstance()->generate(1);
 //	Dungeon::getInstance()->writeToFile();
+
 
 	Player::getInstance()->initMission();
 	HeroManager::getInstance()->initMission();

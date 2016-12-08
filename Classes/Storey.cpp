@@ -56,7 +56,7 @@ cocos2d::Point Field::Storey::getTilePosition(cocos2d::Point coord)
 	return cocos2d::Point(coord.x * 32 + 16, (height - coord.y) * 32 - 16);
 }
 
-void Field::Storey::setPositionByCoord(Character* character,cocos2d::Point coord)
+void Field::Storey::setPositionByCoord(Character* character, cocos2d::Point coord)
 {
 	character->setPosition(getTilePosition(coord));
 }
@@ -96,8 +96,6 @@ void Field::Storey::characterMoveUp(Character* character)
 	{
 		Character* partner = getCharacter(targetCoord);
 
-
-
 		removeCharacter(partner);
 		removeCharacter(character);
 
@@ -117,7 +115,6 @@ void Field::Storey::characterMoveUp(Character* character)
 		cocos2d::Point characterPosition = getTilePosition(character->getMapCoord());
 		cocos2d::Point partnerPosition = getTilePosition(partner->getMapCoord());
 
-
 		partner->setOrientationDown();
 		partner->getSprite()->runAction(
 			cocos2d::MoveTo::create(0.2, partnerPosition)
@@ -131,7 +128,6 @@ void Field::Storey::characterMoveUp(Character* character)
 			cocos2d::MoveTo::create(0.2, characterPosition)
 		);
 		character->showMoveUpAnimation();
-
 	}
 	else
 	{
@@ -144,8 +140,6 @@ void Field::Storey::characterMoveUp(Character* character)
 		character->setMapCoord(targetCoord);
 		//上下移动的时候注意修改Zorder，使得前后遮挡生效
 		character->getSprite()->setZOrder(targetCoord.y);
-
-
 
 		characterMap[targetCoord.x + targetCoord.y*width] = character;
 
@@ -177,7 +171,6 @@ void Field::Storey::characterMoveDown(Character* character)
 		//上下移动的时候注意修改Zorder，使得前后遮挡生效
 		character->getSprite()->setZOrder(targetCoord.y);
 
-
 		partner->setMapCoord(tempCoord);
 
 		characterMap[targetCoord.x + targetCoord.y*width] = character;
@@ -201,7 +194,6 @@ void Field::Storey::characterMoveDown(Character* character)
 			cocos2d::MoveTo::create(0.2, characterPosition)
 		);
 		character->showMoveDownAnimation();
-
 	}
 	else
 	{
@@ -214,8 +206,6 @@ void Field::Storey::characterMoveDown(Character* character)
 		character->setMapCoord(targetCoord);
 		//上下移动的时候注意修改Zorder，使得前后遮挡生效
 		character->getSprite()->setZOrder(targetCoord.y);
-
-
 
 		characterMap[targetCoord.x + targetCoord.y*width] = character;
 
@@ -255,7 +245,6 @@ void Field::Storey::characterMoveLeft(Character* character)
 		cocos2d::Point characterPosition = getTilePosition(character->getMapCoord());
 		cocos2d::Point partnerPosition = getTilePosition(partner->getMapCoord());
 
-
 		partner->setOrientationRight();
 		partner->getSprite()->runAction(
 			cocos2d::MoveTo::create(0.2, partnerPosition)
@@ -268,8 +257,6 @@ void Field::Storey::characterMoveLeft(Character* character)
 			cocos2d::MoveTo::create(0.2, characterPosition)
 		);
 		character->showMoveLeftAnimation();
-
-
 	}
 	else
 	{
@@ -319,7 +306,6 @@ void Field::Storey::characterMoveRight(Character* character)
 		cocos2d::Point characterPosition = getTilePosition(character->getMapCoord());
 		cocos2d::Point partnerPosition = getTilePosition(partner->getMapCoord());
 
-
 		partner->setOrientationLeft();
 		partner->getSprite()->runAction(
 			cocos2d::MoveTo::create(0.2, partnerPosition)
@@ -332,8 +318,6 @@ void Field::Storey::characterMoveRight(Character* character)
 			cocos2d::MoveTo::create(0.2, characterPosition)
 		);
 		character->showMoveRightAnimation();
-
-
 	}
 	else
 	{
@@ -363,6 +347,7 @@ void Field::Storey::addCharacter(int x, int y, Character * character)
 		y);
 
 	character->setMapCoord(cocos2d::Point(x, y));
+
 	character->setPosition((x) * 32 + 16, (height - y) * 32 - 16);
 
 	characterMap[x + y*width] = character;
@@ -432,7 +417,6 @@ void Field::Storey::removeCharacter(Character* character)
 	}
 	characterMap[coord.x + coord.y*width] = nullptr;
 }
-
 
 StoreyInventoryHandler* Field::Storey::getInventoryHandler()
 {

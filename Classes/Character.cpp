@@ -267,7 +267,7 @@ void Character::speak(std::wstring sentence)
 
 	cocos2d::Rect bound = messageLabel->getBoundingBox();
 
-	messageLabel->setPosition(sprite->getPosition() + cocos2d::Vec2(20, 50));
+	messageLabel->setPosition(cocos2d::Vec2(20, 50));
 	//	bk->setScaleX(bound.size.width / bk->getContentSize().width+0.1);
 	//	bk->setScaleY(bound.size.height / bk->getContentSize().height+0.1);
 

@@ -99,6 +99,8 @@ void Player::init()
 
 	//	std::wstring buffname2 = L"VertigoBuff_Ñ£ÔÎ_ATTR_Bad_2_10";
 	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
+
+
 }
 
 void Player::initMission()
@@ -106,6 +108,10 @@ void Player::initMission()
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 
 	characterPtr->setMapCoord(storey->getUpCoord());
+
+
+
+
 	storey->addCharacter(storey->getUpCoord(), characterPtr);
 }
 
@@ -227,6 +233,7 @@ void Player::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 void Player::playerAttack(cocos2d::EventKeyboard::KeyCode keyCode)
 {
 	characterPtr->attack();
+	characterPtr->speak(L"ºÈ°¡");
 }
 
 void Player::playerMove(cocos2d::EventKeyboard::KeyCode keyCode)

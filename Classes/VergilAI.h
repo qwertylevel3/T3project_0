@@ -8,6 +8,7 @@ public:
 	VergilAI();
 	~VergilAI();
 	void update();
+	void talk();
 protected:
 
 };

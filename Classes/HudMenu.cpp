@@ -300,8 +300,6 @@ void HudMenu::clear()
 	cocos2d::Vector<cocos2d::ui::Widget*> widgetList = listView->getItems();
 	listView->removeAllChildren();
 
-	int a = 3;
-
 }
 
 int HudMenu::getMarginalWidth()
