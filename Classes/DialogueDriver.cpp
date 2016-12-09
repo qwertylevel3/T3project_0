@@ -99,7 +99,7 @@ void DialogueDriver::run(Question* question)
 
 void DialogueDriver::startDialogue(Dialogue* dialogue)
 {
-	curIndex = 0;
+	curIndex = 1;
 	curDialogue = dialogue;
 	curSentence = dialogue->getSentence(curIndex);
 	curSentence->run();

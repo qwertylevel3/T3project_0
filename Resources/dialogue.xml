@@ -8,20 +8,20 @@
 			<type>statement</type>
 			<actorName>testActor0.png</actorName>
 			<word>台词测试0</word>
-			<next>1</next>
+			<next>2</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
 			<actorName>testActor1.png</actorName>
 			<word>台词测试1</word>
-			<next>2</next>
+			<next>3</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
 			<actorName>testActor1.png</actorName>
 			<word>台词测试：
 超多文字超多文字超多文字超多文字超多文字超多文字超多文字超多文字超多文字</word>
-			<next>3</next>
+			<next>4</next>
 		</sentence>
 		<sentence>
 			<type>question</type>
@@ -30,11 +30,11 @@
 			<optionList>
 				<option>
 					<label>结束对话</label>
-					<next>4</next>
+					<next>5</next>
 				</option>
 				<option>
 					<label>回到第一句</label>
-					<next>0</next>
+					<next>1</next>
 				</option>
 			</optionList>
 		</sentence>
