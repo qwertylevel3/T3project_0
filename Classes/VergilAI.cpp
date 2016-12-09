@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Character.h"
 #include "HudMessageBox.h"
+#include "DialogueSystem.h"
 
 VergilAI::VergilAI()
 {
@@ -44,5 +45,6 @@ void VergilAI::update()
 
 void VergilAI::talk()
 {
-	characterPtr->speak(L"¸ÉÄãÄï£¿");
+	characterPtr->speak(L"AP£¿");
+	DialogueSystem::getInstance()->runDialogue("testDialogue");
 }

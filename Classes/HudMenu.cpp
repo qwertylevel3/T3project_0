@@ -160,7 +160,8 @@ void HudMenu::setWidth(int w)
 {
 //	sprite->setTextureRect(cocos2d::Rect(0,0,w,getHeight()));
 
-	listView->setSize(cocos2d::Size(w, listView->getSize().height));
+	layout->setSize(cocos2d::Size(w, layout->getSize().height));
+	listView->setContentSize(cocos2d::Size(w, listView->getSize().height));
 
 	for each (HudMenuItem* item in itemList)
 	{
@@ -171,7 +172,8 @@ void HudMenu::setWidth(int w)
 void HudMenu::setHeight(int h)
 {
 //	sprite->setTextureRect(cocos2d::Rect(0,0,getWidth(),h));
-	listView->setSize(cocos2d::Size(listView->getSize().width,h));
+	layout->setSize(cocos2d::Size(layout->getSize().width,h));
+	listView->setContentSize(cocos2d::Size(listView->getSize().width,h));
 
 
 }

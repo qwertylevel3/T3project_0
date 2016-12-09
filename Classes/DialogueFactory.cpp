@@ -31,7 +31,7 @@ void DialogueFactory::init()
 	{
 		Dialogue* dialogue = new Dialogue();
 		dialogue->setName(getChildElementStrAttr(dialogueElement, "name"));
-		
+
 		tinyxml2::XMLElement *sentenceElement = getChildElement(dialogueElement, "sentence");
 		while (sentenceElement)
 		{

@@ -5,6 +5,7 @@
 #include "Singleton.h"
 #include "2d/CCSprite.h"
 #include "2d/CCLabel.h"
+#include "ui/UIScale9Sprite.h"
 
 class Dialogue;
 class Sentence;
@@ -24,7 +25,7 @@ public:
 	void run(Question* question);
 protected:
 	std::map<std::string, cocos2d::Sprite* > actorSpriteBox;
-	cocos2d::Sprite* dialogBk;
+	cocos2d::ui::Scale9Sprite* dialogBk;
 	cocos2d::Label* textLabel;
 
 	int nextSentence();

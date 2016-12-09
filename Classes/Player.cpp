@@ -109,9 +109,6 @@ void Player::initMission()
 
 	characterPtr->setMapCoord(storey->getUpCoord());
 
-
-
-
 	storey->addCharacter(storey->getUpCoord(), characterPtr);
 }
 
@@ -233,7 +230,6 @@ void Player::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 void Player::playerAttack(cocos2d::EventKeyboard::KeyCode keyCode)
 {
 	characterPtr->attack();
-	characterPtr->speak(L"ºÈ°¡");
 }
 
 void Player::playerMove(cocos2d::EventKeyboard::KeyCode keyCode)

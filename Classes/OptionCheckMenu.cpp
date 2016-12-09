@@ -53,7 +53,7 @@ void OptionCheckMenu::hide()
 void OptionCheckMenu::init()
 {
 	curQuestion = nullptr;
-	this->setPosition(400, 400);
+	this->setPosition(300, 300);
 	this->setWidth(200);
 
 	hide();
@@ -86,6 +86,6 @@ void OptionCheckMenu::addOption(const std::string& optionLabel)
 void OptionCheckMenu::initHeight()
 {
 	int optionCount = curQuestion->getSize();
-	int height = optionCount*24+40;
+	int height = optionCount*24+20;
 	this->setHeight(height);
 }
