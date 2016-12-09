@@ -85,6 +85,7 @@ public:
 	void idle();
 	void speak(std::wstring sentence);
 	void talk();
+	void handleDialogueResult(std::string dialogueName, int resultNumber);
 	void attack();
 	void moveUp();
 	void moveDown();

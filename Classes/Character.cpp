@@ -301,6 +301,11 @@ void Character::talk()
 	}
 }
 
+void Character::handleDialogueResult(std::string dialogueName,int resultNumber)
+{
+	ai->handleDialogueResult(dialogueName,resultNumber);
+}
+
 void Character::attack()
 {
 	runSkill(ToolFunction::WStr2UTF8(L"attack_¹¥»÷_0_0"));

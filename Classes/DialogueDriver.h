@@ -11,6 +11,7 @@ class Dialogue;
 class Sentence;
 class Statement;
 class Question;
+class Character;
 
 class DialogueDriver:public Singleton<DialogueDriver>
 {
@@ -20,7 +21,8 @@ public:
 	void init();
 	void startDialogue(Dialogue* dialogue);
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
-	void endDialogue();
+	void setCurActor(Character* actor);
+	void endDialogue(int endResult);
 	void run(Statement* statement);
 	void run(Question* question);
 protected:
@@ -32,5 +34,6 @@ protected:
 	int curIndex;
 	Dialogue* curDialogue;
 	Sentence* curSentence;
+	Character* curActor;
 };
 

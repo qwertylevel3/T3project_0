@@ -9,6 +9,7 @@ public:
 	~VergilAI();
 	void update();
 	void talk();
+	void handleDialogueResult(std::string dialogueName, int resultNumber);
 protected:
 
 };

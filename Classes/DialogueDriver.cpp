@@ -8,14 +8,13 @@
 #include "Dialogue.h"
 #include "KeyController.h"
 #include "OptionCheckMenu.h"
+#include "Character.h"
 
 USING_NS_CC;
-
 
 DialogueDriver::DialogueDriver()
 {
 }
-
 
 DialogueDriver::~DialogueDriver()
 {
@@ -37,7 +36,7 @@ void DialogueDriver::init()
 	dialogBk->setPosition(400, 100);
 
 	cocos2d::CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("dialogue/actor.plist");
-	
+
 	Sprite* testActor0Sprite = Sprite::createWithSpriteFrameName("testActor0.png");
 	Sprite* testActor1Sprite = Sprite::createWithSpriteFrameName("testActor1.png");
 
@@ -70,7 +69,6 @@ void DialogueDriver::init()
 
 	OptionCheckMenu::getInstance()->init();
 }
-
 
 void DialogueDriver::run(Statement* statement)
 {
@@ -111,7 +109,7 @@ int DialogueDriver::nextSentence()
 	actorSpriteBox[actorSpriteName]->setVisible(false);
 
 	curIndex = curSentence->next();
-	if (curIndex<0)
+	if (curIndex < 0)
 	{
 		return curIndex;
 	}
@@ -122,16 +120,22 @@ int DialogueDriver::nextSentence()
 
 void DialogueDriver::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
-	if (keyCode==cocos2d::EventKeyboard::KeyCode::KEY_ENTER)
+	if (keyCode == cocos2d::EventKeyboard::KeyCode::KEY_ENTER)
 	{
-		if (nextSentence() < 0)
+		int nextIndex = nextSentence();
+		if (nextIndex < 0)
 		{
-			endDialogue();
+			endDialogue(nextIndex);
 		}
 	}
 }
 
-void DialogueDriver::endDialogue()
+void DialogueDriver::setCurActor(Character* actor)
+{
+	curActor = actor;
+}
+
+void DialogueDriver::endDialogue(int endResult)
 {
 	dialogBk->setVisible(false);
 	textLabel->setVisible(false);
@@ -140,4 +144,9 @@ void DialogueDriver::endDialogue()
 	actorSpriteBox[actorSpriteName]->setVisible(false);
 
 	KeyController::getInstance()->switchCtrlToPlayer();
+
+	if (curActor)
+	{
+		curActor->handleDialogueResult(curDialogue->getName(), endResult);
+	}
 }

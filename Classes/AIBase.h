@@ -9,6 +9,7 @@ public:
 	virtual ~AIBase();
 	virtual void update();
 	virtual void talk();
+	virtual void handleDialogueResult(std::string dialogueName,int resultNumber);
 	void setCharacter(Character* character);
 	Character* searchTargetBFS(Character::Type type);
 protected:

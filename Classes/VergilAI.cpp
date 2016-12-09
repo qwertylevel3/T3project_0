@@ -46,5 +46,14 @@ void VergilAI::update()
 void VergilAI::talk()
 {
 	characterPtr->speak(L"AP£¿");
-	DialogueSystem::getInstance()->runDialogue("testDialogue");
+
+	DialogueSystem::getInstance()->runDialogue("testDialogue",characterPtr);
+}
+
+void VergilAI::handleDialogueResult(std::string dialogueName, int resultNumber)
+{
+	if (dialogueName=="testDialogue")
+	{
+		characterPtr->speak(L"¶Ô»°Íê±Ï");
+	}
 }
