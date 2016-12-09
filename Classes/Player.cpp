@@ -313,7 +313,7 @@ void Player::playerTalk(cocos2d::EventKeyboard::KeyCode keyCode)
 		return;
 	}
 
-	targetCharacter->talk();
+	targetCharacter->interaction();
 }
 
 std::string Player::getName()

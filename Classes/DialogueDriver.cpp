@@ -35,24 +35,17 @@ void DialogueDriver::init()
 
 	dialogBk->setPosition(400, 100);
 
-	cocos2d::CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("dialogue/actor.plist");
+	cocos2d::CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("dialogue/dialogueActor.plist");
 
-	Sprite* testActor0Sprite = Sprite::createWithSpriteFrameName("testActor0.png");
-	Sprite* testActor1Sprite = Sprite::createWithSpriteFrameName("testActor1.png");
-
+	Sprite* testActor0Sprite = Sprite::createWithSpriteFrameName("vergil_normal.png");
 	testActor0Sprite->setVisible(false);
-	testActor1Sprite->setVisible(false);
-	testActor0Sprite->setPosition(400, 300);
-	testActor1Sprite->setPosition(400, 300);
-
-	actorSpriteBox["testActor0.png"] = testActor0Sprite;
-	actorSpriteBox["testActor1.png"] = testActor1Sprite;
+	testActor0Sprite->setPosition(400, 150);
+	actorSpriteBox["vergil_normal.png"] = testActor0Sprite;
 
 	HudLayer::getInstance()->addChild(testActor0Sprite);
-	HudLayer::getInstance()->addChild(testActor1Sprite);
-
 	testActor0Sprite->setLocalZOrder(0);
-	testActor1Sprite->setLocalZOrder(0);
+
+
 
 	textLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 24);
 	textLabel->setVisible(false);

@@ -8,7 +8,7 @@ public:
 	VergilAI();
 	~VergilAI();
 	void update();
-	void talk();
+	void interaction();
 	void handleDialogueResult(std::string dialogueName, int resultNumber);
 protected:
 

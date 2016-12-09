@@ -24,10 +24,12 @@ namespace Field {
 		Character* getCharacter(int x, int y);
 		Character* getCharacter(cocos2d::Point mapCoord);
 		std::list<Character* >& getAllCharacter();
-		void characterMoveUp(Character* character);
-		void characterMoveDown(Character* character);
-		void characterMoveLeft(Character* character);
-		void characterMoveRight(Character* character);
+
+		void moveUp(Character* character);
+		void moveDown(Character* character);
+		void moveLeft(Character* character);
+		void moveRight(Character* character);
+
 		void addCharacter(int x, int y, Character* character);
 		void addCharacter(cocos2d::Point coord, Character* character);
 		void removeCharacter(int x, int y);
@@ -42,6 +44,7 @@ namespace Field {
 		bool isWall(cocos2d::Point mapCoord);
 		bool isFloor(cocos2d::Point mapCoord);
 		bool isValid(cocos2d::Point mapCoord);
+		bool isIce(cocos2d::Point mapCoord);
 
 		int getHeight();
 		int getWidth();
@@ -51,6 +54,13 @@ namespace Field {
 		cocos2d::TMXTiledMap *getTileMap();
 		std::vector<Character*>& getCharacterMap();
 	protected:
+		void characterMoveUp(Character* character);
+		void characterMoveDown(Character* character);
+		void characterMoveLeft(Character* character);
+		void characterMoveRight(Character* character);
+
+
+
 		int height;
 		int width;
 		CC_SYNTHESIZE(cocos2d::Point, upCoord, UpCoord);

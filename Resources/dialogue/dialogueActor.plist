@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>vergil_normal.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{298,700}</string>
+                <key>spriteSourceSize</key>
+                <string>{298,700}</string>
+                <key>textureRect</key>
+                <string>{{0,0},{298,700}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>dialogueActor.png</string>
+            <key>size</key>
+            <string>{298,700}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:f77d9a8c55e3f3a2ef65052fc0471da4:dbcdc2b129d0c54751686aef82b8ca2a:86d9bba55a8fc447cc79f80a54dcb6c5$</string>
+            <key>textureFileName</key>
+            <string>dialogueActor.png</string>
+        </dict>
+    </dict>
+</plist>

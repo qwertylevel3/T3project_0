@@ -43,8 +43,6 @@ void GameController::init()
 	RoundSystem::getInstance()->init();
 	HeroManager::getInstance()->init();
 	EffectManager::getInstance()->init();
-
-
 }
 
 void GameController::startMission(int level)

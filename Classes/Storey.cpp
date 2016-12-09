@@ -34,7 +34,9 @@ Storey::~Storey()
 	tileMap->release();
 	for each (Character* character in characterList)
 	{
-		if (character->getPlayType() == Character::Enemy)
+		//仅仅析构enemy和object，Hero和player另外处理
+		if (character->getPlayType() == Character::Enemy
+			|| character->getPlayType()==Character::Object)
 		{
 			delete character;
 		}
@@ -79,6 +81,66 @@ Character * Field::Storey::getCharacter(int x, int y)
 std::list<Character* >& Field::Storey::getAllCharacter()
 {
 	return characterList;
+}
+
+void Field::Storey::moveUp(Character* character)
+{
+	characterMoveUp(character);
+
+	cocos2d::Point tempCoord = character->getMapCoord();
+	tempCoord.y--;
+
+	//如果脚下为冰块，且面前没有Hero
+	if (isIce(character->getMapCoord())
+		&& !isPartner(tempCoord))
+	{
+		characterMoveUp(character);
+	}
+}
+
+void Field::Storey::moveDown(Character* character)
+{
+	characterMoveDown(character);
+
+	cocos2d::Point tempCoord = character->getMapCoord();
+	tempCoord.y++;
+
+	//如果脚下为冰块，且面前没有Hero
+	if (isIce(character->getMapCoord())
+		&& !isPartner(tempCoord))
+	{
+		characterMoveDown(character);
+	}
+}
+
+void Field::Storey::moveLeft(Character* character)
+{
+	characterMoveLeft(character);
+
+	cocos2d::Point tempCoord = character->getMapCoord();
+	tempCoord.x--;
+
+	//如果脚下为冰块，且面前没有Hero
+	if (isIce(character->getMapCoord())
+		&& !isPartner(tempCoord))
+	{
+		characterMoveLeft(character);
+	}
+}
+
+void Field::Storey::moveRight(Character* character)
+{
+	characterMoveRight(character);
+
+	cocos2d::Point tempCoord = character->getMapCoord();
+	tempCoord.x++;
+
+	//如果脚下为冰块，且面前没有Hero
+	if (isIce(character->getMapCoord())
+		&& !isPartner(tempCoord))
+	{
+		characterMoveRight(character);
+	}
 }
 
 void Field::Storey::characterMoveUp(Character* character)
@@ -456,6 +518,7 @@ bool Field::Storey::isMoveAble(int tile)
 	case Field::Tile::Floor:
 	case Field::Tile::UpStair:
 	case Field::Tile::DownStair:
+	case Field::Tile::Ice:
 		flag = true;
 		break;
 	default:
@@ -488,6 +551,15 @@ bool Field::Storey::isFloor(cocos2d::Point mapCoord)
 bool Field::Storey::isValid(cocos2d::Point mapCoord)
 {
 	return mapCoord.x >= 0 && mapCoord.y >= 0 && mapCoord.x < width && mapCoord.y < height;
+}
+
+bool Field::Storey::isIce(cocos2d::Point mapCoord)
+{
+	if (getTile(mapCoord)==Field::Ice)
+	{
+		return true;
+	}
+	return false;
 }
 
 int Storey::getHeight()

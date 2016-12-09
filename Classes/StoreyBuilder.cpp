@@ -13,7 +13,6 @@ StoreyBuilder::StoreyBuilder()
 	storey = NULL;
 }
 
-
 StoreyBuilder::~StoreyBuilder()
 {
 }
@@ -26,9 +25,9 @@ Storey* StoreyBuilder::generate()
 {
 	rooms.clear();
 	exits.clear();
-	storey = new Storey(100,100);
+	storey = new Storey(100, 100);
 
-	int maxFeatures=33;
+	int maxFeatures = 33;
 	// place the first room in the center
 	if (!makeRoom(storey->getWidth() / 2, storey->getHeight() / 2, static_cast<Direction>(RandomNumber::getInstance()->randomInt(4), true)))
 	{
@@ -38,12 +37,11 @@ Storey* StoreyBuilder::generate()
 	{
 		CCAssert(false, "Unable to place up staris\n");
 	}
-	
+
 	if (Debug::getInstance()->getDebugFlag())
 	{
 		storey->writeToFile("firstRoom");
 	}
-
 
 	// we already placed 1 feature (the first room)
 	for (int i = 1; i < maxFeatures; ++i)
@@ -56,26 +54,22 @@ Storey* StoreyBuilder::generate()
 		{
 			storey->writeToFile("temp");
 		}
-
 	}
-
-	
 
 	if (!placeObject(DownStair))
 	{
 		CCAssert(false, "Unable to place down stairs\n");
 	}
-//  //起点到终点的路径
-//	std::vector<cocos2d::Point> path = ToolFunction::findPath(storey, storey->getUpCoord(), storey->getDownCoord());
-//	for (int i = 0; i < path.size(); i++)
-//	{
-//		Character* monster = MonsterManager::getInstance()->getMonster("testMonster");
-//		CCAssert(monster, "get a null monster");
-//		storey->setCharacter(path[i].x, path[i].y, monster);
-//	}
+	//  //起点到终点的路径
+	//	std::vector<cocos2d::Point> path = ToolFunction::findPath(storey, storey->getUpCoord(), storey->getDownCoord());
+	//	for (int i = 0; i < path.size(); i++)
+	//	{
+	//		Character* monster = MonsterManager::getInstance()->getMonster("testMonster");
+	//		CCAssert(monster, "get a null monster");
+	//		storey->setCharacter(path[i].x, path[i].y, monster);
+	//	}
 	return storey;
 }
-
 
 bool StoreyBuilder::createFeature()
 {
@@ -85,9 +79,9 @@ bool StoreyBuilder::createFeature()
 			break;
 
 		//从当前所有的可能出口矩形中随机选一个，再在这个矩形中选一个随机的xy坐标
-		int r =RandomNumber::getInstance()->randomInt(exits.size());
-		int x =RandomNumber::getInstance()->randomInt(exits[r].x, exits[r].x + exits[r].width - 1);
-		int y =RandomNumber::getInstance()->randomInt(exits[r].y, exits[r].y + exits[r].height - 1);
+		int r = RandomNumber::getInstance()->randomInt(exits.size());
+		int x = RandomNumber::getInstance()->randomInt(exits[r].x, exits[r].x + exits[r].width - 1);
+		int y = RandomNumber::getInstance()->randomInt(exits[r].y, exits[r].y + exits[r].height - 1);
 
 		//用这个xy坐标和4个可能方向生成
 		for (int j = 0; j < DirectionCount; ++j)
@@ -302,9 +296,22 @@ bool StoreyBuilder::placeRect(const Field::Rect& rect, int tile)
 		for (int x = rect.x - 1; x < rect.x + rect.width + 1; ++x)
 		{
 			if (x == rect.x - 1 || y == rect.y - 1 || x == rect.x + rect.width || y == rect.y + rect.height)
+			{
 				storey->setTile(x, y, Wall);
+			}
+
 			else
-				storey->setTile(x, y, tile);
+			{
+				//test: ice
+				if (RandomNumber::getInstance()->randomBool(0.5))
+				{
+					storey->setTile(x, y, 2);
+				}
+				else
+				{
+					storey->setTile(x, y, tile);
+				}
+			}
 		}
 
 	return true;
@@ -319,9 +326,9 @@ bool StoreyBuilder::placeObject(int tile)
 	int x = RandomNumber::getInstance()->randomInt(rooms[r].x + 1, rooms[r].x + rooms[r].width - 2);
 	int y = RandomNumber::getInstance()->randomInt(rooms[r].y + 1, rooms[r].y + rooms[r].height - 2);
 
-
-	int temp=storey->getTile(x, y);
-	if (storey->getTile(x, y) == Floor)
+	int temp = storey->getTile(x, y);
+	if (storey->getTile(x, y) == Floor
+		|| storey->getTile(x,y)==Ice)
 	{
 		if (tile == UpStair)
 		{
@@ -353,12 +360,12 @@ void Field::StoreyBuilder::placeMonster(const Rect & rect)
 
 	storey->addCharacter(x, y, monster);
 
-//	for (int i=rect.x+1;i<rect.x+rect.width-2;i++)
-//	{
-//		for (int j=rect.y+1;j<rect.y+rect.height-2;j++)
-//		{
-//			Character* monster = MonsterFactory::getInstance()->getMonster("Slime");
-//			storey->setCharacter(i, j, monster);
-//		}
-//	}
+	//	for (int i=rect.x+1;i<rect.x+rect.width-2;i++)
+	//	{
+	//		for (int j=rect.y+1;j<rect.y+rect.height-2;j++)
+	//		{
+	//			Character* monster = MonsterFactory::getInstance()->getMonster("Slime");
+	//			storey->setCharacter(i, j, monster);
+	//		}
+	//	}
 }

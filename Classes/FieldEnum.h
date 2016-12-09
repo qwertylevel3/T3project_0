@@ -5,6 +5,7 @@ namespace Field {
 	enum Tile
 	{
 		Unused = 1,
+		Ice = 2,
 		Floor = 21,
 		Corridor = 21,
 		Wall = 110,

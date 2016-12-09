@@ -35,7 +35,7 @@ class Character
 public:
 	enum PlayType
 	{
-		Player, Hero, Enemy
+		Player, Hero, Enemy,Object
 	};
 	enum Type
 	{
@@ -84,7 +84,7 @@ public:
 	bool isDead();
 	void idle();
 	void speak(std::wstring sentence);
-	void talk();
+	void interaction();
 	void handleDialogueResult(std::string dialogueName, int resultNumber);
 	void attack();
 	void moveUp();

@@ -293,11 +293,11 @@ void Character::speak(std::wstring sentence)
 	);
 }
 
-void Character::talk()
+void Character::interaction()
 {
 	if (ai)
 	{
-		ai->talk();
+		ai->interaction();
 	}
 }
 
@@ -315,7 +315,8 @@ void Character::attack()
 void Character::moveUp()
 {
 	//	MainLayer::getInstance()->focusPlayer();
-	Dungeon::getInstance()->getStorey()->characterMoveUp(this);
+	Dungeon::getInstance()->getStorey()->moveUp(this);
+
 	processAction(0);
 	clearChant();
 }
@@ -323,7 +324,7 @@ void Character::moveUp()
 void Character::moveDown()
 {
 	//	MainLayer::getInstance()->focusPlayer();
-	Dungeon::getInstance()->getStorey()->characterMoveDown(this);
+	Dungeon::getInstance()->getStorey()->moveDown(this);
 	processAction(0);
 	clearChant();
 }
@@ -331,7 +332,7 @@ void Character::moveDown()
 void Character::moveLeft()
 {
 	//	MainLayer::getInstance()->focusPlayer();
-	Dungeon::getInstance()->getStorey()->characterMoveLeft(this);
+	Dungeon::getInstance()->getStorey()->moveLeft(this);
 	processAction(0);
 	clearChant();
 }
@@ -339,7 +340,7 @@ void Character::moveLeft()
 void Character::moveRight()
 {
 	//	MainLayer::getInstance()->focusPlayer();
-	Dungeon::getInstance()->getStorey()->characterMoveRight(this);
+	Dungeon::getInstance()->getStorey()->moveRight(this);
 	processAction(0);
 	clearChant();
 }

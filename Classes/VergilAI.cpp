@@ -43,11 +43,11 @@ void VergilAI::update()
 	}
 }
 
-void VergilAI::talk()
+void VergilAI::interaction()
 {
-	characterPtr->speak(L"AP？");
+	characterPtr->speak(L"暂时不能说话哦");
 
-	DialogueSystem::getInstance()->runDialogue("testDialogue",characterPtr);
+//	DialogueSystem::getInstance()->runDialogue("testDialogue",characterPtr);
 }
 
 void VergilAI::handleDialogueResult(std::string dialogueName, int resultNumber)

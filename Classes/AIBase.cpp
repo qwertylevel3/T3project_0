@@ -25,7 +25,7 @@ void AIBase::update()
 
 }
 
-void AIBase::talk()
+void AIBase::interaction()
 {
 	HudMessageBox::getInstance()->addMessage(L"对方不想和你说话");
 }
