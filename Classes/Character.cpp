@@ -891,6 +891,14 @@ void Character::startRound()
 	buffHandler->onRoundStart();
 	recalculateHP();
 	recalculateMP();
+
+	Storey* storey = Dungeon::getInstance()->getStorey();
+
+	//如果站在Trap上，掉血
+	if (storey->isTrap(mapCoord))
+	{
+		sufferHPEffect(-5);
+	}
 }
 
 void Character::endRound()

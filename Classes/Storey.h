@@ -45,6 +45,7 @@ namespace Field {
 		bool isFloor(cocos2d::Point mapCoord);
 		bool isValid(cocos2d::Point mapCoord);
 		bool isIce(cocos2d::Point mapCoord);
+		bool isTrap(cocos2d::Point mapCoord);
 
 		int getHeight();
 		int getWidth();

@@ -9,6 +9,7 @@ namespace Field {
 		Floor = 21,
 		Corridor = 21,
 		Wall = 110,
+		Trap=51,
 		ClosedDoor = 21,
 		OpenDoor = 21,
 		UpStair = 7,

@@ -302,10 +302,17 @@ bool StoreyBuilder::placeRect(const Field::Rect& rect, int tile)
 
 			else
 			{
-				//test: ice
-				if (RandomNumber::getInstance()->randomBool(0.5))
+				//test: 
+
+				if (RandomNumber::getInstance()->randomBool(0.1))
 				{
+					//十分之一概率为ice
 					storey->setTile(x, y, 2);
+				}
+				else if (RandomNumber::getInstance()->randomBool(0.1))
+				{
+					//十分之一概率为Trap
+					storey->setTile(x, y, 51);
 				}
 				else
 				{

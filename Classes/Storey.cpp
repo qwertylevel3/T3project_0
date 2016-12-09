@@ -519,6 +519,7 @@ bool Field::Storey::isMoveAble(int tile)
 	case Field::Tile::UpStair:
 	case Field::Tile::DownStair:
 	case Field::Tile::Ice:
+	case Field::Tile::Trap:
 		flag = true;
 		break;
 	default:
@@ -556,6 +557,15 @@ bool Field::Storey::isValid(cocos2d::Point mapCoord)
 bool Field::Storey::isIce(cocos2d::Point mapCoord)
 {
 	if (getTile(mapCoord)==Field::Ice)
+	{
+		return true;
+	}
+	return false;
+}
+
+bool Field::Storey::isTrap(cocos2d::Point mapCoord)
+{
+	if (getTile(mapCoord)==Field::Trap)
 	{
 		return true;
 	}
