@@ -523,6 +523,7 @@
       <Filter>src\character\AI</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\AIShrine.cpp" />
+    <ClCompile Include="..\Classes\AIStatue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -976,6 +977,7 @@
       <Filter>src\character\AI</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AIShrine.h" />
+    <ClInclude Include="..\Classes\AIStatue.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

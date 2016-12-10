@@ -101,4 +101,29 @@
 		<armor>NULL</armor>
 		<accessory>NULL</accessory>
 	</actor>
+	<actor>
+		<name>statue</name>
+		<characterName>statue</characterName>
+		<ai>AIStatue</ai>
+		<playType>object</playType>
+		<characterType>neutral</characterType>
+		<physicalImmune>0</physicalImmune>
+		<magicImmune>0</magicImmune>
+		<moveAble>0</moveAble>
+		<attackAble>0</attackAble>
+		<chantAble>0</chantAble>
+		<skillAble>1</skillAble>
+		<actionAble>1</actionAble>
+		<strength>1</strength>
+		<intellect>100</intellect>
+		<agility>1</agility>
+		<luck>0</luck>
+		<viewSize>4</viewSize>
+		<maxHP>100</maxHP>
+		<maxMP>100</maxMP>
+		<leftHand>NULL</leftHand>
+		<rightHand>NULL</rightHand>
+		<armor>NULL</armor>
+		<accessory>NULL</accessory>
+	</actor>
 </gameActorBox>

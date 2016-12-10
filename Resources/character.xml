@@ -138,6 +138,34 @@
 		</standRightAnimation>
 	</character>
 	<character>
+		<name>statue</name>
+		<firstFrame>statue.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>statue.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>statue.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>statue.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>statue.png</frameName>
+		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>statue.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>statue.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>statue.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>statue.png</frameName>
+		</standRightAnimation>
+	</character>
+	<character>
 		<name>shrine</name>
 		<firstFrame>shrine.png</firstFrame>
 		<moveUpAnimation>

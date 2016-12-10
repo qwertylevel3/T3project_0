@@ -394,7 +394,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>vergil1.png</key>
+            <key>statue.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -409,52 +409,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>vergil10.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{32,32}</string>
-                <key>spriteSourceSize</key>
-                <string>{32,32}</string>
-                <key>textureRect</key>
-                <string>{{1111,0},{32,32}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>vergil11.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{32,32}</string>
-                <key>spriteSourceSize</key>
-                <string>{32,32}</string>
-                <key>textureRect</key>
-                <string>{{1143,0},{32,32}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>vergil12.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{32,32}</string>
-                <key>spriteSourceSize</key>
-                <string>{32,32}</string>
-                <key>textureRect</key>
-                <string>{{1175,0},{32,32}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>vergil2.png</key>
+            <key>vergil1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -469,7 +424,52 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>vergil3.png</key>
+            <key>vergil10.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{32,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{32,32}</string>
+                <key>textureRect</key>
+                <string>{{1143,0},{32,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>vergil11.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{32,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{32,32}</string>
+                <key>textureRect</key>
+                <string>{{1175,0},{32,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>vergil12.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{32,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{32,32}</string>
+                <key>textureRect</key>
+                <string>{{1207,0},{32,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>vergil2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -484,7 +484,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>vergil4.png</key>
+            <key>vergil3.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -499,7 +499,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>vergil5.png</key>
+            <key>vergil4.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -514,7 +514,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>vergil6.png</key>
+            <key>vergil5.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -529,7 +529,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>vergil7.png</key>
+            <key>vergil6.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -544,7 +544,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>vergil8.png</key>
+            <key>vergil7.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -559,7 +559,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>vergil9.png</key>
+            <key>vergil8.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -571,6 +571,21 @@
                 <string>{32,32}</string>
                 <key>textureRect</key>
                 <string>{{1079,0},{32,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>vergil9.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{32,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{32,32}</string>
+                <key>textureRect</key>
+                <string>{{1111,0},{32,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -586,9 +601,9 @@
             <key>realTextureFileName</key>
             <string>allCharacter.png</string>
             <key>size</key>
-            <string>{1207,32}</string>
+            <string>{1239,32}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:ae77fbc08ad7d32cbcadb06daf50a714:92c145901ae62b7ff724315fa5418169:30ea09d570a813938397c6246ca177a5$</string>
+            <string>$TexturePacker:SmartUpdate:4f11ed4da4d43f51490569533c8df324:da5e72782bb717128b8fac77746459b5:30ea09d570a813938397c6246ca177a5$</string>
             <key>textureFileName</key>
             <string>allCharacter.png</string>
         </dict>

@@ -365,6 +365,9 @@ void Field::StoreyBuilder::placeMonster(const Rect & rect)
 	CCAssert(monster, "get a null monster");
 	storey->addCharacter(x, y, monster);
 
+
+	//////////////////////////////////////////////////////////////////////////
+
 	int x1 = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
 	int y1 = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
 
@@ -377,6 +380,23 @@ void Field::StoreyBuilder::placeMonster(const Rect & rect)
 	Character* shine = GameActorFactory::getInstance()->getActor("shrine");
 	CCAssert(shine, "get a null shine");
 	storey->addCharacter(x1, y1, shine);
+	//////////////////////////////////////////////////////////////////////////
+
+	int x2 = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
+	int y2 = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+
+	while ((x2 == x && y2 == y)
+		|| (x2==x1 && y2==y1))
+	{
+		int x2 = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
+		int y2 = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+	}
+
+	Character* statue = GameActorFactory::getInstance()->getActor("statue");
+	CCAssert(statue, "get a null statue");
+	storey->addCharacter(x2, y2, statue);
+
+
 
 
 	//	for (int i=rect.x+1;i<rect.x+rect.width-2;i++)
