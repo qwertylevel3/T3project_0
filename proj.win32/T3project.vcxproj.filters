@@ -522,9 +522,15 @@
     <ClCompile Include="..\Classes\AIVergil.cpp">
       <Filter>src\character\AI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AIShrine.cpp" />
-    <ClCompile Include="..\Classes\AIStatue.cpp" />
-    <ClCompile Include="..\Classes\CharacterSpeakLabel.cpp" />
+    <ClCompile Include="..\Classes\AIShrine.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AIStatue.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CharacterSpeakLabel.cpp">
+      <Filter>src\character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -977,9 +983,15 @@
     <ClInclude Include="..\Classes\AIVergil.h">
       <Filter>src\character\AI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AIShrine.h" />
-    <ClInclude Include="..\Classes\AIStatue.h" />
-    <ClInclude Include="..\Classes\CharacterSpeakLabel.h" />
+    <ClInclude Include="..\Classes\AIShrine.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AIStatue.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CharacterSpeakLabel.h">
+      <Filter>src\character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

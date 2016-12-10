@@ -309,7 +309,7 @@ void Character::feedback(Character* character)
 
 void Character::handleDialogueResult(std::string dialogueName, int resultNumber)
 {
-	ai->handleDialogueResult(dialogueName,resultNumber);
+	ai->handleDialogueResult(dialogueName, resultNumber);
 }
 
 void Character::attack()
@@ -582,8 +582,16 @@ int Character::getSumWeight()
 	int armorWeight = armor ? armor->getWeight() : 0;
 	int accessoryWeight = accessory ? accessory->getWeight() : 0;
 
-	return inventoryHandler->calculateSumWeight()
-		+ leftWeight + rightWeight + armorWeight + accessoryWeight;
+	if (leftHand && rightHand && leftHand == rightHand)
+	{
+		return leftWeight + armorWeight + accessoryWeight +
+			inventoryHandler->calculateSumWeight();
+	}
+	else
+	{
+		return inventoryHandler->calculateSumWeight()
+			+ leftWeight + rightWeight + armorWeight + accessoryWeight;
+	}
 }
 
 InventoryHandler* Character::getInventoryHandler()
