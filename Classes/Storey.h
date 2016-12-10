@@ -47,6 +47,8 @@ namespace Field {
 		bool isIce(cocos2d::Point mapCoord);
 		bool isTrap(cocos2d::Point mapCoord);
 
+		bool isPlayer(Character* character);
+
 		int getHeight();
 		int getWidth();
 		void writeToFile(std::string floor);
@@ -60,7 +62,10 @@ namespace Field {
 		void characterMoveLeft(Character* character);
 		void characterMoveRight(Character* character);
 
-
+		void exchangeCoordUp(Character* character);
+		void exchangeCoordDown(Character* character);
+		void exchangeCoordLeft(Character* character);
+		void exchangeCoordRight(Character* character);
 
 		int height;
 		int width;

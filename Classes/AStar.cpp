@@ -7,7 +7,6 @@
 using namespace std;
 AStar::AStar()
 {
-
 }
 
 AStar::~AStar()
@@ -24,7 +23,6 @@ AStar::AStar(cocos2d::Point start, cocos2d::Point end, Field::Storey * s)
 	startPoint = start;
 	endPoint = end;
 }
-
 
 std::vector<cocos2d::Point> AStar::findPath()
 {
@@ -49,7 +47,6 @@ std::vector<cocos2d::Point> AStar::findPath()
 		list<AStarPoint>::iterator first = opened_list.begin();
 		AStarPoint first_point = *first;//获取列表中的第一个数据
 
-
 		closed_list.push_back(first_point);//把这个数据放入关闭列表中
 		opened_list.erase(first);//删除这个元素
 
@@ -72,8 +69,10 @@ std::vector<cocos2d::Point> AStar::findPath()
 				}
 				if (i != first_point.x || j != first_point.y)
 				{
-					if (storey->isMoveAble(storey->getTile(i, j))
-						)//非障碍物
+					//非障碍物
+					if (storey->isMoveAble(cocos2d::Point(i, j))
+						|| cocos2d::Point(i,j)==endPoint)
+//					if(storey->isMoveAble(storey->getTile(i,j)))
 					{
 						AStarPoint point;
 						point.x = i;
@@ -142,7 +141,7 @@ std::vector<cocos2d::Point> AStar::findPath()
 		temp.push_back(position);
 		p = *(p.parent);
 	}
-	for (int i = temp.size()-1; i >=0 ; i--)
+	for (int i = temp.size() - 1; i >= 0; i--)
 	{
 		result.push_back(temp[i]);
 	}
@@ -155,7 +154,6 @@ cocos2d::Point AStar::nextStep()
 	return path[0];
 }
 
-
 /*
 * 计算两个点之前的距离，采用的是曼哈顿距离
 * distance = |start.x-end.x| + |start.y-end.y|
@@ -165,14 +163,10 @@ int AStar::_get_distance(int start_x, int start_y, int end_x, int end_y)
 	return abs(end_x - start_x) + abs(end_y - start_y);
 }
 
-
-
 bool AStar::_is_shorter(const AStarPoint &point1, const AStarPoint &point2)
 {
 	return point1.f < point2.f;
 }
-
-
 
 void AStar::_print(const list<AStarPoint> &point)
 {

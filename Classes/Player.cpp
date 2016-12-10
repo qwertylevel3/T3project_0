@@ -179,7 +179,19 @@ bool Player::isMoveAble(cocos2d::EventKeyboard::KeyCode keyCode)
 	default:
 		return false;
 	}
-	return Dungeon::getInstance()->getStorey()->isMoveAble(position);
+
+	Storey* storey = Dungeon::getInstance()->getStorey();
+	//Dungeon::getInstance()->getStorey()->isMoveAble(position);
+
+	if (storey->isMoveAble(position))
+	{
+		return true;
+	}
+	else if (storey->isPartner(position))
+	{
+		return true;
+	}
+	return false;
 }
 
 void Player::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)

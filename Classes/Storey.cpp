@@ -36,7 +36,7 @@ Storey::~Storey()
 	{
 		//仅仅析构enemy和object，Hero和player另外处理
 		if (character->getPlayType() == Character::Enemy
-			|| character->getPlayType()==Character::Object)
+			|| character->getPlayType() == Character::Object)
 		{
 			delete character;
 		}
@@ -85,14 +85,29 @@ std::list<Character* >& Field::Storey::getAllCharacter()
 
 void Field::Storey::moveUp(Character* character)
 {
-	characterMoveUp(character);
+	character->setOrientationUp();
+
+	cocos2d::Point targetCoord = character->getMapCoord();
+	targetCoord.y--;
+
+	if (isMoveAble(targetCoord))
+	{
+		characterMoveUp(character);
+	}
+	else if(isPartner(targetCoord))
+	{
+		if (isPlayer(character))
+		{
+			exchangeCoordUp(character);
+		}
+	}
 
 	cocos2d::Point tempCoord = character->getMapCoord();
 	tempCoord.y--;
 
-	//如果脚下为冰块，且面前没有Hero
+	//如果脚下为冰块
 	if (isIce(character->getMapCoord())
-		&& !isPartner(tempCoord))
+		&& isMoveAble(tempCoord))
 	{
 		characterMoveUp(character);
 	}
@@ -100,14 +115,29 @@ void Field::Storey::moveUp(Character* character)
 
 void Field::Storey::moveDown(Character* character)
 {
-	characterMoveDown(character);
+	character->setOrientationDown();
+
+	cocos2d::Point targetCoord = character->getMapCoord();
+	targetCoord.y++;
+
+	if (isMoveAble(targetCoord))
+	{
+		characterMoveDown(character);
+	}
+	else if(isPartner(targetCoord))
+	{
+		if (isPlayer(character))
+		{
+			exchangeCoordDown(character);
+		}
+	}
 
 	cocos2d::Point tempCoord = character->getMapCoord();
 	tempCoord.y++;
 
-	//如果脚下为冰块，且面前没有Hero
+	//如果脚下为冰块
 	if (isIce(character->getMapCoord())
-		&& !isPartner(tempCoord))
+		&& isMoveAble(tempCoord))
 	{
 		characterMoveDown(character);
 	}
@@ -115,14 +145,29 @@ void Field::Storey::moveDown(Character* character)
 
 void Field::Storey::moveLeft(Character* character)
 {
-	characterMoveLeft(character);
+	character->setOrientationLeft();
+
+	cocos2d::Point targetCoord = character->getMapCoord();
+	targetCoord.x--;
+
+	if (isMoveAble(targetCoord))
+	{
+		characterMoveLeft(character);
+	}
+	else if(isPartner(targetCoord))
+	{
+		if (isPlayer(character))
+		{
+			exchangeCoordLeft(character);
+		}
+	}
 
 	cocos2d::Point tempCoord = character->getMapCoord();
 	tempCoord.x--;
 
-	//如果脚下为冰块，且面前没有Hero
+	//如果脚下为冰块
 	if (isIce(character->getMapCoord())
-		&& !isPartner(tempCoord))
+		&& isMoveAble(tempCoord))
 	{
 		characterMoveLeft(character);
 	}
@@ -130,14 +175,29 @@ void Field::Storey::moveLeft(Character* character)
 
 void Field::Storey::moveRight(Character* character)
 {
-	characterMoveRight(character);
+	character->setOrientationRight();
+
+	cocos2d::Point targetCoord = character->getMapCoord();
+	targetCoord.x++;
+
+	if (isMoveAble(targetCoord))
+	{
+		characterMoveRight(character);
+	}
+	else if(isPartner(targetCoord))
+	{
+		if (isPlayer(character))
+		{
+			exchangeCoordRight(character);
+		}
+	}
 
 	cocos2d::Point tempCoord = character->getMapCoord();
 	tempCoord.x++;
 
-	//如果脚下为冰块，且面前没有Hero
+	//如果脚下为冰块
 	if (isIce(character->getMapCoord())
-		&& !isPartner(tempCoord))
+		&& isMoveAble(tempCoord))
 	{
 		characterMoveRight(character);
 	}
@@ -145,257 +205,236 @@ void Field::Storey::moveRight(Character* character)
 
 void Field::Storey::characterMoveUp(Character* character)
 {
-	character->setOrientationUp();
-
 	cocos2d::Point targetCoord = character->getMapCoord();
 	targetCoord.y--;
-	if (!isMoveAble(targetCoord))
-	{
-		return;
-	}
-	//和队友交换位置
-	if (isPartner(targetCoord))
-	{
-		Character* partner = getCharacter(targetCoord);
+	cocos2d::Point position = character->getPosition();
+	ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x, position.y + 32));
+	character->showMoveUpAnimation();
+	character->getSprite()->runAction(moveAction);
 
-		removeCharacter(partner);
-		removeCharacter(character);
+	removeCharacter(character);
+	character->setMapCoord(targetCoord);
+	//上下移动的时候注意修改Zorder，使得前后遮挡生效
+	character->getSprite()->setZOrder(targetCoord.y);
 
-		cocos2d::Point tempCoord = character->getMapCoord();
-		character->setMapCoord(targetCoord);
-		//上下移动的时候注意修改Zorder，使得前后遮挡生效
-		character->getSprite()->setZOrder(targetCoord.y);
+	characterMap[targetCoord.x + targetCoord.y*width] = character;
 
-		partner->setMapCoord(tempCoord);
-
-		characterMap[targetCoord.x + targetCoord.y*width] = character;
-		characterMap[tempCoord.x + tempCoord.y*width] = partner;
-
-		characterList.push_back(character);
-		characterList.push_back(partner);
-
-		cocos2d::Point characterPosition = getTilePosition(character->getMapCoord());
-		cocos2d::Point partnerPosition = getTilePosition(partner->getMapCoord());
-
-		partner->setOrientationDown();
-		partner->getSprite()->runAction(
-			cocos2d::MoveTo::create(0.2, partnerPosition)
-		);
-		partner->showMoveDownAnimation();
-
-		RoundHandler* roundHandler = partner->getRoundHandler();
-		roundHandler->setSkipNextRound(true);
-
-		character->getSprite()->runAction(
-			cocos2d::MoveTo::create(0.2, characterPosition)
-		);
-		character->showMoveUpAnimation();
-	}
-	else
-	{
-		cocos2d::Point position = character->getPosition();
-		ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x, position.y + 32));
-		character->showMoveUpAnimation();
-		character->getSprite()->runAction(moveAction);
-
-		removeCharacter(character);
-		character->setMapCoord(targetCoord);
-		//上下移动的时候注意修改Zorder，使得前后遮挡生效
-		character->getSprite()->setZOrder(targetCoord.y);
-
-		characterMap[targetCoord.x + targetCoord.y*width] = character;
-
-		//to refactor： 重放入时保持原有在list中的位置
-		characterList.push_back(character);
-	}
+	//to refactor： 重放入时保持原有在list中的位置
+	characterList.push_back(character);
 }
 
 void Field::Storey::characterMoveDown(Character* character)
 {
-	character->setOrientationDown();
-
 	cocos2d::Point targetCoord = character->getMapCoord();
 	targetCoord.y++;
-	if (!isMoveAble(targetCoord))
-	{
-		return;
-	}
 
-	if (isPartner(targetCoord))
-	{
-		Character* partner = getCharacter(targetCoord);
+	cocos2d::Point position = character->getPosition();
+	ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x, position.y - 32));
+	character->showMoveDownAnimation();
+	character->getSprite()->runAction(moveAction);
 
-		removeCharacter(partner);
-		removeCharacter(character);
+	removeCharacter(character);
+	character->setMapCoord(targetCoord);
+	//上下移动的时候注意修改Zorder，使得前后遮挡生效
+	character->getSprite()->setZOrder(targetCoord.y);
 
-		cocos2d::Point tempCoord = character->getMapCoord();
-		character->setMapCoord(targetCoord);
-		//上下移动的时候注意修改Zorder，使得前后遮挡生效
-		character->getSprite()->setZOrder(targetCoord.y);
+	characterMap[targetCoord.x + targetCoord.y*width] = character;
 
-		partner->setMapCoord(tempCoord);
-
-		characterMap[targetCoord.x + targetCoord.y*width] = character;
-		characterMap[tempCoord.x + tempCoord.y*width] = partner;
-
-		characterList.push_back(character);
-		characterList.push_back(partner);
-
-		cocos2d::Point characterPosition = getTilePosition(character->getMapCoord());
-		cocos2d::Point partnerPosition = getTilePosition(partner->getMapCoord());
-
-		partner->setOrientationUp();
-		partner->getSprite()->runAction(
-			cocos2d::MoveTo::create(0.2, partnerPosition)
-		);
-		partner->showMoveUpAnimation();
-		RoundHandler* roundHandler = partner->getRoundHandler();
-		roundHandler->setSkipNextRound(true);
-
-		character->getSprite()->runAction(
-			cocos2d::MoveTo::create(0.2, characterPosition)
-		);
-		character->showMoveDownAnimation();
-	}
-	else
-	{
-		cocos2d::Point position = character->getPosition();
-		ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x, position.y - 32));
-		character->showMoveDownAnimation();
-		character->getSprite()->runAction(moveAction);
-
-		removeCharacter(character);
-		character->setMapCoord(targetCoord);
-		//上下移动的时候注意修改Zorder，使得前后遮挡生效
-		character->getSprite()->setZOrder(targetCoord.y);
-
-		characterMap[targetCoord.x + targetCoord.y*width] = character;
-
-		//to refactor： 重放入时保持原有在list中的位置
-		characterList.push_back(character);
-	}
+	//to refactor： 重放入时保持原有在list中的位置
+	characterList.push_back(character);
 }
 
 void Field::Storey::characterMoveLeft(Character* character)
 {
-	character->setOrientationLeft();
-
 	cocos2d::Point targetCoord = character->getMapCoord();
 	targetCoord.x--;
-	if (!isMoveAble(targetCoord))
-	{
-		return;
-	}
 
-	if (isPartner(targetCoord))
-	{
-		Character* partner = getCharacter(targetCoord);
+	cocos2d::Point position = character->getPosition();
+	ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x - 32, position.y));
+	character->showMoveLeftAnimation();
+	character->getSprite()->runAction(moveAction);
 
-		removeCharacter(partner);
-		removeCharacter(character);
+	removeCharacter(character);
+	character->setMapCoord(targetCoord);
 
-		cocos2d::Point tempCoord = character->getMapCoord();
-		character->setMapCoord(targetCoord);
-		partner->setMapCoord(tempCoord);
+	characterMap[targetCoord.x + targetCoord.y*width] = character;
 
-		characterMap[targetCoord.x + targetCoord.y*width] = character;
-		characterMap[tempCoord.x + tempCoord.y*width] = partner;
-
-		characterList.push_back(character);
-		characterList.push_back(partner);
-
-		cocos2d::Point characterPosition = getTilePosition(character->getMapCoord());
-		cocos2d::Point partnerPosition = getTilePosition(partner->getMapCoord());
-
-		partner->setOrientationRight();
-		partner->getSprite()->runAction(
-			cocos2d::MoveTo::create(0.2, partnerPosition)
-		);
-		partner->showMoveRightAnimation();
-		RoundHandler* roundHandler = partner->getRoundHandler();
-		roundHandler->setSkipNextRound(true);
-
-		character->getSprite()->runAction(
-			cocos2d::MoveTo::create(0.2, characterPosition)
-		);
-		character->showMoveLeftAnimation();
-	}
-	else
-	{
-		cocos2d::Point position = character->getPosition();
-		ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x - 32, position.y));
-		character->showMoveLeftAnimation();
-		character->getSprite()->runAction(moveAction);
-
-		removeCharacter(character);
-		character->setMapCoord(targetCoord);
-
-		characterMap[targetCoord.x + targetCoord.y*width] = character;
-
-		//to refactor： 重放入时保持原有在list中的位置
-		characterList.push_back(character);
-	}
+	//to refactor： 重放入时保持原有在list中的位置
+	characterList.push_back(character);
 }
 
 void Field::Storey::characterMoveRight(Character* character)
 {
-	character->setOrientationRight();
-
 	cocos2d::Point targetCoord = character->getMapCoord();
 	targetCoord.x++;
-	if (!isMoveAble(targetCoord))
-	{
-		return;
-	}
 
-	if (isPartner(targetCoord))
-	{
-		Character* partner = getCharacter(targetCoord);
+	cocos2d::Point position = character->getPosition();
+	ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x + 32, position.y));
+	character->showMoveRightAnimation();
+	character->getSprite()->runAction(moveAction);
 
-		removeCharacter(partner);
-		removeCharacter(character);
+	removeCharacter(character);
+	character->setMapCoord(targetCoord);
 
-		cocos2d::Point tempCoord = character->getMapCoord();
-		character->setMapCoord(targetCoord);
-		partner->setMapCoord(tempCoord);
+	characterMap[targetCoord.x + targetCoord.y*width] = character;
 
-		characterMap[targetCoord.x + targetCoord.y*width] = character;
-		characterMap[tempCoord.x + tempCoord.y*width] = partner;
+	//to refactor： 重放入时保持原有在list中的位置
+	characterList.push_back(character);
+}
 
-		characterList.push_back(character);
-		characterList.push_back(partner);
+void Field::Storey::exchangeCoordUp(Character* character)
+{
+	cocos2d::Point targetCoord = character->getMapCoord();
+	targetCoord.y--;
 
-		cocos2d::Point characterPosition = getTilePosition(character->getMapCoord());
-		cocos2d::Point partnerPosition = getTilePosition(partner->getMapCoord());
+	Character* partner = getCharacter(targetCoord);
 
-		partner->setOrientationLeft();
-		partner->getSprite()->runAction(
-			cocos2d::MoveTo::create(0.2, partnerPosition)
-		);
-		partner->showMoveLeftAnimation();
-		RoundHandler* roundHandler = partner->getRoundHandler();
-		roundHandler->setSkipNextRound(true);
+	removeCharacter(partner);
+	removeCharacter(character);
 
-		character->getSprite()->runAction(
-			cocos2d::MoveTo::create(0.2, characterPosition)
-		);
-		character->showMoveRightAnimation();
-	}
-	else
-	{
-		cocos2d::Point position = character->getPosition();
-		ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x + 32, position.y));
-		character->showMoveRightAnimation();
-		character->getSprite()->runAction(moveAction);
+	cocos2d::Point tempCoord = character->getMapCoord();
+	character->setMapCoord(targetCoord);
+	//上下移动的时候注意修改Zorder，使得前后遮挡生效
+	character->getSprite()->setZOrder(targetCoord.y);
 
-		removeCharacter(character);
-		character->setMapCoord(targetCoord);
+	partner->setMapCoord(tempCoord);
 
-		characterMap[targetCoord.x + targetCoord.y*width] = character;
+	characterMap[targetCoord.x + targetCoord.y*width] = character;
+	characterMap[tempCoord.x + tempCoord.y*width] = partner;
 
-		//to refactor： 重放入时保持原有在list中的位置
-		characterList.push_back(character);
-	}
+	characterList.push_back(character);
+	characterList.push_back(partner);
+
+	cocos2d::Point characterPosition = getTilePosition(character->getMapCoord());
+	cocos2d::Point partnerPosition = getTilePosition(partner->getMapCoord());
+
+	partner->setOrientationDown();
+	partner->getSprite()->runAction(
+		cocos2d::MoveTo::create(0.2, partnerPosition)
+	);
+	partner->showMoveDownAnimation();
+
+	RoundHandler* roundHandler = partner->getRoundHandler();
+	roundHandler->setSkipNextRound(true);
+
+	character->getSprite()->runAction(
+		cocos2d::MoveTo::create(0.2, characterPosition)
+	);
+	character->showMoveUpAnimation();
+}
+
+void Field::Storey::exchangeCoordDown(Character* character)
+{
+	cocos2d::Point targetCoord = character->getMapCoord();
+	targetCoord.y++;
+
+	Character* partner = getCharacter(targetCoord);
+
+	removeCharacter(partner);
+	removeCharacter(character);
+
+	cocos2d::Point tempCoord = character->getMapCoord();
+	character->setMapCoord(targetCoord);
+	//上下移动的时候注意修改Zorder，使得前后遮挡生效
+	character->getSprite()->setZOrder(targetCoord.y);
+
+	partner->setMapCoord(tempCoord);
+
+	characterMap[targetCoord.x + targetCoord.y*width] = character;
+	characterMap[tempCoord.x + tempCoord.y*width] = partner;
+
+	characterList.push_back(character);
+	characterList.push_back(partner);
+
+	cocos2d::Point characterPosition = getTilePosition(character->getMapCoord());
+	cocos2d::Point partnerPosition = getTilePosition(partner->getMapCoord());
+
+	partner->setOrientationUp();
+	partner->getSprite()->runAction(
+		cocos2d::MoveTo::create(0.2, partnerPosition)
+	);
+	partner->showMoveUpAnimation();
+	RoundHandler* roundHandler = partner->getRoundHandler();
+	roundHandler->setSkipNextRound(true);
+
+	character->getSprite()->runAction(
+		cocos2d::MoveTo::create(0.2, characterPosition)
+	);
+	character->showMoveDownAnimation();
+}
+
+void Field::Storey::exchangeCoordLeft(Character* character)
+{
+	cocos2d::Point targetCoord = character->getMapCoord();
+	targetCoord.x--;
+
+	Character* partner = getCharacter(targetCoord);
+
+	removeCharacter(partner);
+	removeCharacter(character);
+
+	cocos2d::Point tempCoord = character->getMapCoord();
+	character->setMapCoord(targetCoord);
+	partner->setMapCoord(tempCoord);
+
+	characterMap[targetCoord.x + targetCoord.y*width] = character;
+	characterMap[tempCoord.x + tempCoord.y*width] = partner;
+
+	characterList.push_back(character);
+	characterList.push_back(partner);
+
+	cocos2d::Point characterPosition = getTilePosition(character->getMapCoord());
+	cocos2d::Point partnerPosition = getTilePosition(partner->getMapCoord());
+
+	partner->setOrientationRight();
+	partner->getSprite()->runAction(
+		cocos2d::MoveTo::create(0.2, partnerPosition)
+	);
+	partner->showMoveRightAnimation();
+	RoundHandler* roundHandler = partner->getRoundHandler();
+	roundHandler->setSkipNextRound(true);
+
+	character->getSprite()->runAction(
+		cocos2d::MoveTo::create(0.2, characterPosition)
+	);
+	character->showMoveLeftAnimation();
+}
+
+void Field::Storey::exchangeCoordRight(Character* character)
+{
+	cocos2d::Point targetCoord = character->getMapCoord();
+	targetCoord.x++;
+
+	Character* partner = getCharacter(targetCoord);
+
+	removeCharacter(partner);
+	removeCharacter(character);
+
+	cocos2d::Point tempCoord = character->getMapCoord();
+	character->setMapCoord(targetCoord);
+	partner->setMapCoord(tempCoord);
+
+	characterMap[targetCoord.x + targetCoord.y*width] = character;
+	characterMap[tempCoord.x + tempCoord.y*width] = partner;
+
+	characterList.push_back(character);
+	characterList.push_back(partner);
+
+	cocos2d::Point characterPosition = getTilePosition(character->getMapCoord());
+	cocos2d::Point partnerPosition = getTilePosition(partner->getMapCoord());
+
+	partner->setOrientationLeft();
+	partner->getSprite()->runAction(
+		cocos2d::MoveTo::create(0.2, partnerPosition)
+	);
+	partner->showMoveLeftAnimation();
+	RoundHandler* roundHandler = partner->getRoundHandler();
+	roundHandler->setSkipNextRound(true);
+
+	character->getSprite()->runAction(
+		cocos2d::MoveTo::create(0.2, characterPosition)
+	);
+	character->showMoveRightAnimation();
 }
 
 Character * Field::Storey::getCharacter(cocos2d::Point mapCoord)
@@ -487,19 +526,19 @@ StoreyInventoryHandler* Field::Storey::getInventoryHandler()
 
 bool Field::Storey::isMoveAble(cocos2d::Point mapCoord)
 {
-	if (getCharacter(mapCoord) && getCharacter(mapCoord)->getPlayType()==Character::Object)
+	if (getCharacter(mapCoord) && !getCharacter(mapCoord)->isDead())
 	{
 		return false;
 	}
-	if (getCharacter(mapCoord) && !getCharacter(mapCoord)->isDead()
-		&& getCharacter(mapCoord)->getPlayType() != Character::Hero)
-	{
-		return false;
-	}
-	if (isPartner(mapCoord))
-	{
-		return true;
-	}
+	//	if (getCharacter(mapCoord) && !getCharacter(mapCoord)->isDead()
+	//		&& getCharacter(mapCoord)->getPlayType() != Character::Hero)
+	//	{
+	//		return false;
+	//	}
+	//	if (isPartner(mapCoord))
+	//	{
+	//		return true;
+	//	}
 	return isMoveAble(getTile(mapCoord));
 }
 
@@ -560,7 +599,7 @@ bool Field::Storey::isValid(cocos2d::Point mapCoord)
 
 bool Field::Storey::isIce(cocos2d::Point mapCoord)
 {
-	if (getTile(mapCoord)==Field::Ice)
+	if (getTile(mapCoord) == Field::Ice)
 	{
 		return true;
 	}
@@ -569,11 +608,16 @@ bool Field::Storey::isIce(cocos2d::Point mapCoord)
 
 bool Field::Storey::isTrap(cocos2d::Point mapCoord)
 {
-	if (getTile(mapCoord)==Field::Trap)
+	if (getTile(mapCoord) == Field::Trap)
 	{
 		return true;
 	}
 	return false;
+}
+
+bool Field::Storey::isPlayer(Character* character)
+{
+	return character == Player::getInstance()->getcharacterPtr();
 }
 
 int Storey::getHeight()
