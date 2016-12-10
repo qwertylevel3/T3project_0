@@ -2,75 +2,75 @@
 <!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
 <characterBox>
 	<character>
-		<name>Actor0</name>
-		<firstFrame>Actor1_01.png</firstFrame>
+		<name>player</name>
+		<firstFrame>player1.png</firstFrame>
 		<moveUpAnimation>
-			<frameName>Actor1_10.png</frameName>
-			<frameName>Actor1_11.png</frameName>
-			<frameName>Actor1_12.png</frameName>
+			<frameName>player4.png</frameName>
+			<frameName>player5.png</frameName>
+			<frameName>player6.png</frameName>
 		</moveUpAnimation>
 		<moveDownAnimation>
-			<frameName>Actor1_01.png</frameName>
-			<frameName>Actor1_02.png</frameName>
-			<frameName>Actor1_03.png</frameName>
+			<frameName>player1.png</frameName>
+			<frameName>player2.png</frameName>
+			<frameName>player3.png</frameName>
 		</moveDownAnimation>
 		<moveLeftAnimation>
-			<frameName>Actor1_04.png</frameName>
-			<frameName>Actor1_05.png</frameName>
-			<frameName>Actor1_06.png</frameName>
+			<frameName>player7.png</frameName>
+			<frameName>player8.png</frameName>
+			<frameName>player9.png</frameName>
 		</moveLeftAnimation>
 		<moveRightAnimation>
-			<frameName>Actor1_07.png</frameName>
-			<frameName>Actor1_08.png</frameName>
-			<frameName>Actor1_09.png</frameName>
+			<frameName>player10.png</frameName>
+			<frameName>player11.png</frameName>
+			<frameName>player12.png</frameName>
 		</moveRightAnimation>
 		<standUpAnimation>
-			<frameName>Actor1_10.png</frameName>
+			<frameName>player4.png</frameName>
 		</standUpAnimation>
 		<standDownAnimation>
-			<frameName>Actor1_01.png</frameName>
+			<frameName>player1.png</frameName>
 		</standDownAnimation>
 		<standLeftAnimation>
-			<frameName>Actor1_04.png</frameName>
+			<frameName>player7.png</frameName>
 		</standLeftAnimation>
 		<standRightAnimation>
-			<frameName>Actor1_07.png</frameName>
+			<frameName>player10.png</frameName>
 		</standRightAnimation>
 	</character>
 	<character>
 		<name>vergil</name>
-		<firstFrame>1.png</firstFrame>
+		<firstFrame>vergil1.png</firstFrame>
 		<moveUpAnimation>
-			<frameName>4.png</frameName>
-			<frameName>5.png</frameName>
-			<frameName>6.png</frameName>
+			<frameName>vergil4.png</frameName>
+			<frameName>vergil5.png</frameName>
+			<frameName>vergil6.png</frameName>
 		</moveUpAnimation>
 		<moveDownAnimation>
-			<frameName>1.png</frameName>
-			<frameName>2.png</frameName>
-			<frameName>3.png</frameName>
+			<frameName>vergil1.png</frameName>
+			<frameName>vergil2.png</frameName>
+			<frameName>vergil3.png</frameName>
 		</moveDownAnimation>
 		<moveLeftAnimation>
-			<frameName>7.png</frameName>
-			<frameName>8.png</frameName>
-			<frameName>9.png</frameName>
+			<frameName>vergil7.png</frameName>
+			<frameName>vergil8.png</frameName>
+			<frameName>vergil9.png</frameName>
 		</moveLeftAnimation>
 		<moveRightAnimation>
-			<frameName>10.png</frameName>
-			<frameName>11.png</frameName>
-			<frameName>12.png</frameName>
+			<frameName>vergil10.png</frameName>
+			<frameName>vergil11.png</frameName>
+			<frameName>vergil12.png</frameName>
 		</moveRightAnimation>
 		<standUpAnimation>
-			<frameName>4.png</frameName>
+			<frameName>vergil4.png</frameName>
 		</standUpAnimation>
 		<standDownAnimation>
-			<frameName>1.png</frameName>
+			<frameName>vergil1.png</frameName>
 		</standDownAnimation>
 		<standLeftAnimation>
-			<frameName>7.png</frameName>
+			<frameName>vergil7.png</frameName>
 		</standLeftAnimation>
 		<standRightAnimation>
-			<frameName>10.png</frameName>
+			<frameName>vergil10.png</frameName>
 		</standRightAnimation>
 	</character>
 	<character>
@@ -107,6 +107,34 @@
 		</standLeftAnimation>
 		<standRightAnimation>
 			<frameName>slime10.png</frameName>
+		</standRightAnimation>
+	</character>
+	<character>
+		<name>chest</name>
+		<firstFrame>chest.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>chest.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>chest.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>chest.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>chest.png</frameName>
+		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>chest.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>chest.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>chest.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>chest.png</frameName>
 		</standRightAnimation>
 	</character>
 	<character>

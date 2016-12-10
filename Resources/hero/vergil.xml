@@ -2,7 +2,7 @@
 <Hero>
 	<name>vergil</name>
 	<characterName>vergil</characterName>
-	<AI>vergilAI</AI>
+	<AI>AIVergil</AI>
 	<level>1</level>
 	<HP>100</HP>
 	<MP>100</MP>

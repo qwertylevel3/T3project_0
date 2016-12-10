@@ -28,7 +28,7 @@ Player::~Player()
 
 void Player::init()
 {
-	characterPtr = CharacterFactory::getInstance()->getCharacter("Actor0");
+	characterPtr = CharacterFactory::getInstance()->getCharacter("player");
 
 	characterPtr->addSkill(L"fireBall_¿ìËÙ»ğÇò_20_20_20_5");
 	characterPtr->addSkill(L"HPRecoverySelf_ÉúÃü»Ö¸´_20_20_20");

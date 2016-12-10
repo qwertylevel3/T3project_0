@@ -1,6 +1,7 @@
 #include "AIFactory.h"
 #include "AICommonEnemy.h"
 #include "AIVergil.h"
+#include "AIShrine.h"
 
 
 
@@ -19,9 +20,13 @@ AIBase* AIFactory::getAI(const std::string& AIName)
 	{
 		return new AICommonEnemy();
 	}
-	else if (AIName=="vergilAI")
+	else if (AIName=="AIVergil")
 	{
 		return new AIVergil;
+	}
+	else if (AIName == "AIShrine")
+	{
+		return new AIShrine;
 	}
 	else
 	{

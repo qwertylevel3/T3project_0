@@ -22,7 +22,7 @@ AIBase::~AIBase()
 
 void AIBase::update()
 {
-
+	characterPtr->idle();
 }
 
 void AIBase::feedback(Character* character)
