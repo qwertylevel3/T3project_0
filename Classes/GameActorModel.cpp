@@ -18,6 +18,7 @@ Character * GameActorModel::makeActor()
 
 	monster->setName(name);
 	monster->setPlayType(str2playType(playType));
+	monster->setCharacterType(str2CharacterType(characterType));
 
 
 	monster->setPhysicalImmune(attr.physicalImmune);
@@ -38,7 +39,6 @@ Character * GameActorModel::makeActor()
 	monster->setMaxMP(attr.maxMP);
 	monster->setLuck(attr.luck);
 	monster->setViewSize(attr.viewSize);
-	monster->setCharacterType(Character::Bad);
 
 	monster->setAI(aiName);
 

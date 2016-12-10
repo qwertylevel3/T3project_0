@@ -673,7 +673,10 @@ void Character::setSprite(std::string spriteName)
 void Character::setAI(const std::string& AIName)
 {
 	ai = AIFactory::getInstance()->getAI(AIName);
-	ai->setCharacter(this);
+	if (ai)
+	{
+		ai->setCharacter(this);
+	}
 }
 
 void Character::addBuff(std::string buffID)
@@ -908,6 +911,10 @@ void Character::action()
 		if (ai)
 		{
 			ai->update();
+		}
+		else
+		{
+			idle();
 		}
 	}
 }

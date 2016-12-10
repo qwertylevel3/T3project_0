@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Hero>
-	<name>Vergil</name>
-	<characterName>Vergil</characterName>
+	<name>vergil</name>
+	<characterName>vergil</characterName>
 	<AI>vergilAI</AI>
 	<level>1</level>
 	<HP>100</HP>

@@ -2,8 +2,8 @@
 <!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
 <gameActorBox>
 	<actor>
-		<name>Slime</name>
-		<characterName>Slime</characterName>
+		<name>slime</name>
+		<characterName>slime</characterName>
 		<ai>AICommonEnemy</ai>
 		<playType>enemy</playType>
 		<characterType>bad</characterType>

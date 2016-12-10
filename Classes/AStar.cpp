@@ -72,7 +72,8 @@ std::vector<cocos2d::Point> AStar::findPath()
 				}
 				if (i != first_point.x || j != first_point.y)
 				{
-					if (storey->getTile(i, j) != Field::Wall)//非障碍物
+					if (storey->isMoveAble(storey->getTile(i, j))
+						)//非障碍物
 					{
 						AStarPoint point;
 						point.x = i;

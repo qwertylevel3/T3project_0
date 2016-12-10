@@ -38,7 +38,7 @@
 		</standRightAnimation>
 	</character>
 	<character>
-		<name>Vergil</name>
+		<name>vergil</name>
 		<firstFrame>1.png</firstFrame>
 		<moveUpAnimation>
 			<frameName>4.png</frameName>
@@ -74,7 +74,7 @@
 		</standRightAnimation>
 	</character>
 	<character>
-		<name>Slime</name>
+		<name>slime</name>
 		<firstFrame>slime1.png</firstFrame>
 		<moveUpAnimation>
 			<frameName>slime4.png</frameName>
@@ -110,7 +110,7 @@
 		</standRightAnimation>
 	</character>
 	<character>
-		<name>Shrine</name>
+		<name>shrine</name>
 		<firstFrame>shrine.png</firstFrame>
 		<moveUpAnimation>
 			<frameName>shrine.png</frameName>

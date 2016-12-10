@@ -487,6 +487,10 @@ StoreyInventoryHandler* Field::Storey::getInventoryHandler()
 
 bool Field::Storey::isMoveAble(cocos2d::Point mapCoord)
 {
+	if (getCharacter(mapCoord) && getCharacter(mapCoord)->getPlayType()==Character::Object)
+	{
+		return false;
+	}
 	if (getCharacter(mapCoord) && !getCharacter(mapCoord)->isDead()
 		&& getCharacter(mapCoord)->getPlayType() != Character::Hero)
 	{

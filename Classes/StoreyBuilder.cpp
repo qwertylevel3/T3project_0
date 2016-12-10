@@ -302,7 +302,7 @@ bool StoreyBuilder::placeRect(const Field::Rect& rect, int tile)
 
 			else
 			{
-				//test: 
+				//test:
 
 				if (RandomNumber::getInstance()->randomBool(0.1))
 				{
@@ -335,7 +335,7 @@ bool StoreyBuilder::placeObject(int tile)
 
 	int temp = storey->getTile(x, y);
 	if (storey->getTile(x, y) == Floor
-		|| storey->getTile(x,y)==Ice)
+		|| storey->getTile(x, y) == Ice)
 	{
 		if (tile == UpStair)
 		{
@@ -361,11 +361,23 @@ void Field::StoreyBuilder::placeMonster(const Rect & rect)
 	int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
 	int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
 
-	Character* monster = GameActorFactory::getInstance()->getActor("Slime");
-
+	Character* monster = GameActorFactory::getInstance()->getActor("slime");
 	CCAssert(monster, "get a null monster");
-
 	storey->addCharacter(x, y, monster);
+
+	int x1 = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
+	int y1 = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+
+	while (x1 == x && y1 == y)
+	{
+		int x1 = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
+		int y1 = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+	}
+
+	Character* shine = GameActorFactory::getInstance()->getActor("shrine");
+	CCAssert(shine, "get a null shine");
+	storey->addCharacter(x1, y1, shine);
+
 
 	//	for (int i=rect.x+1;i<rect.x+rect.width-2;i++)
 	//	{
