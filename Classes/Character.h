@@ -16,6 +16,7 @@ class AIBase;
 class InventoryHandler;
 class RoundHandler;
 class CharacterBar;
+class CharacterSpeakLabel;
 
 
 namespace Buff
@@ -212,6 +213,8 @@ protected:
 	std::vector<cocos2d::Point> getBowAtkSelect();
 
 	//////////////////////////////////////////////////////////////////////////
+	//speak Label
+	CharacterSpeakLabel* speakLabel;
 
 	//HP,MP Bar
 	CharacterBar* characterBar;

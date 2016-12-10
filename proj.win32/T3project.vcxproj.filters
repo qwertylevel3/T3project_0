@@ -524,6 +524,7 @@
     </ClCompile>
     <ClCompile Include="..\Classes\AIShrine.cpp" />
     <ClCompile Include="..\Classes\AIStatue.cpp" />
+    <ClCompile Include="..\Classes\CharacterSpeakLabel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -978,6 +979,7 @@
     </ClInclude>
     <ClInclude Include="..\Classes\AIShrine.h" />
     <ClInclude Include="..\Classes\AIStatue.h" />
+    <ClInclude Include="..\Classes\CharacterSpeakLabel.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
