@@ -109,4 +109,32 @@
 			<frameName>slime10.png</frameName>
 		</standRightAnimation>
 	</character>
+	<character>
+		<name>Shrine</name>
+		<firstFrame>shrine.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>shrine.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>shrine.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>shrine.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>shrine.png</frameName>
+		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>shrine.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>shrine.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>shrine.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>shrine.png</frameName>
+		</standRightAnimation>
+	</character>
 </characterBox>

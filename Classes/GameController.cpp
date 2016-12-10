@@ -6,7 +6,7 @@
 #include "SkillFactory.h"
 #include "CharacterFactory.h"
 #include "Player.h"
-#include "MonsterFactory.h"
+#include "GameActorFactory.h"
 #include "BattleSystem.h"
 #include "KeyController.h"
 #include "RoundSystem.h"
@@ -37,7 +37,7 @@ void GameController::init()
 	InventoryFactory::getInstance()->init();
 	CharacterFactory::getInstance()->init();
 	Player::getInstance()->init();
-	MonsterFactory::getInstance()->init();
+	GameActorFactory::getInstance()->init();
 	BattleSystem::getInstance()->init();
 	KeyController::getInstance()->init();
 	RoundSystem::getInstance()->init();

@@ -1,18 +1,18 @@
-#include "VergilAI.h"
+#include "AIVergil.h"
 #include "Player.h"
 #include "Character.h"
 #include "HudMessageBox.h"
 #include "DialogueSystem.h"
 
-VergilAI::VergilAI()
+AIVergil::AIVergil()
 {
 }
 
-VergilAI::~VergilAI()
+AIVergil::~AIVergil()
 {
 }
 
-void VergilAI::update()
+void AIVergil::update()
 {
 	int viewSize = characterPtr->getViewSize();
 
@@ -43,14 +43,12 @@ void VergilAI::update()
 	}
 }
 
-void VergilAI::interaction()
+void AIVergil::feedback(Character* character)
 {
-	characterPtr->speak(L"暂时不能说话哦");
-
-//	DialogueSystem::getInstance()->runDialogue("testDialogue",characterPtr);
+	characterPtr->speak(L"对话不能，现在");
 }
 
-void VergilAI::handleDialogueResult(std::string dialogueName, int resultNumber)
+void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 {
 	if (dialogueName=="testDialogue")
 	{

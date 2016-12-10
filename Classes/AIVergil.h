@@ -2,13 +2,13 @@
 
 #include "AIBase.h"
 
-class VergilAI:public AIBase
+class AIVergil:public AIBase
 {
 public:
-	VergilAI();
-	~VergilAI();
+	AIVergil();
+	~AIVergil();
 	void update();
-	void interaction();
+	void feedback(Character* character);
 	void handleDialogueResult(std::string dialogueName, int resultNumber);
 protected:
 

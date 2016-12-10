@@ -1,5 +1,6 @@
 #include "Character.h"
 #include "RoundSystem.h"
+#include "HudMessageBox.h"
 #include "ToolFunction.h"
 #include "RandomNumber.h"
 #include"MainLayer.h"
@@ -295,13 +296,50 @@ void Character::speak(std::wstring sentence)
 
 void Character::interaction()
 {
+	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+	cocos2d::Point playerCoord = getMapCoord();
+
+	cocos2d::Point targetCoord;
+
+	switch (getOrientation())
+	{
+	case Character::UP:
+		targetCoord.x = playerCoord.x;
+		targetCoord.y = playerCoord.y - 1;
+		break;
+	case Character::DOWN:
+		targetCoord.x = playerCoord.x;
+		targetCoord.y = playerCoord.y + 1;
+		break;
+	case Character::LEFT:
+		targetCoord.x = playerCoord.x - 1;
+		targetCoord.y = playerCoord.y;
+		break;
+	case Character::RIGHT:
+		targetCoord.x = playerCoord.x + 1;
+		targetCoord.y = playerCoord.y;
+		break;
+	}
+	Character* targetCharacter = storey->getCharacter(targetCoord);
+
+	if (!targetCharacter)
+	{
+		HudMessageBox::getInstance()->addMessage(L"面前没有任何单位");
+		return;
+	}
+
+	targetCharacter->feedback(this);
+}
+
+void Character::feedback(Character* character)
+{
 	if (ai)
 	{
-		ai->interaction();
+		ai->feedback(character);
 	}
 }
 
-void Character::handleDialogueResult(std::string dialogueName,int resultNumber)
+void Character::handleDialogueResult(std::string dialogueName, int resultNumber)
 {
 	ai->handleDialogueResult(dialogueName,resultNumber);
 }

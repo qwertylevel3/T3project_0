@@ -126,9 +126,6 @@
     <ClCompile Include="..\Classes\Supply.cpp">
       <Filter>src\inventory</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\MonsterModel.cpp">
-      <Filter>src\character</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\ToolFunction.cpp">
       <Filter>src\tool</Filter>
     </ClCompile>
@@ -327,9 +324,6 @@
     <ClCompile Include="..\Classes\CharacterFactory.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\MonsterFactory.cpp">
-      <Filter>src\character</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\DialogueFactory.cpp">
       <Filter>src\dialogue</Filter>
     </ClCompile>
@@ -456,9 +450,6 @@
     <ClCompile Include="..\Classes\AIFactory.cpp">
       <Filter>src\character\AI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\VergilAI.cpp">
-      <Filter>src\character\AI</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\HeroManager.cpp">
       <Filter>src\character\hero</Filter>
     </ClCompile>
@@ -522,6 +513,16 @@
     <ClCompile Include="..\Classes\CharacterBar.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\GameActorFactory.cpp">
+      <Filter>src\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameActorModel.cpp">
+      <Filter>src\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AIVergil.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AIShrine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -574,9 +575,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Supply.h">
       <Filter>src\inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\MonsterModel.h">
-      <Filter>src\character</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\ToolFunction.h">
       <Filter>src\tool</Filter>
@@ -779,9 +777,6 @@
     <ClInclude Include="..\Classes\CharacterFactory.h">
       <Filter>src\character</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\MonsterFactory.h">
-      <Filter>src\character</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\DialogueFactory.h">
       <Filter>src\dialogue</Filter>
     </ClInclude>
@@ -908,9 +903,6 @@
     <ClInclude Include="..\Classes\AIFactory.h">
       <Filter>src\character\AI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\VergilAI.h">
-      <Filter>src\character\AI</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\HeroManager.h">
       <Filter>src\character\hero</Filter>
     </ClInclude>
@@ -974,6 +966,16 @@
     <ClInclude Include="..\Classes\CharacterBar.h">
       <Filter>src\character</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\GameActorFactory.h">
+      <Filter>src\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameActorModel.h">
+      <Filter>src\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AIVergil.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AIShrine.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

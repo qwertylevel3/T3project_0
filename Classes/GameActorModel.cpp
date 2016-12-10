@@ -1,23 +1,24 @@
-#include "MonsterModel.h"
+#include "GameActorModel.h"
 #include"CharacterFactory.h"
 #include "AICommonEnemy.h"
 #include "InventoryFactory.h"
 #include "CharacterAttr.h"
 
-MonsterModel::MonsterModel()
+GameActorModel::GameActorModel()
 {
 }
 
-MonsterModel::~MonsterModel()
+GameActorModel::~GameActorModel()
 {
 }
 
-Character * MonsterModel::makeMonster()
+Character * GameActorModel::makeActor()
 {
 	Character* monster = CharacterFactory::getInstance()->getCharacter(characterName);
 
 	monster->setName(name);
-	monster->setPlayType(Character::Enemy);
+	monster->setPlayType(str2playType(playType));
+
 
 	monster->setPhysicalImmune(attr.physicalImmune);
 	monster->setMagicImmnue(attr.magicImmune);
@@ -39,7 +40,7 @@ Character * MonsterModel::makeMonster()
 	monster->setViewSize(attr.viewSize);
 	monster->setCharacterType(Character::Bad);
 
-	monster->setAI("AICommonEnemy");
+	monster->setAI(aiName);
 
 	if (leftHandName!="NULL")
 	{
@@ -64,4 +65,36 @@ Character * MonsterModel::makeMonster()
 	}
 
 	return monster;
+}
+
+Character::PlayType GameActorModel::str2playType(std::string playType)
+{
+	if (playType=="enemy")
+	{
+		return Character::Enemy;
+	}
+	else if (playType=="object")
+	{
+		return Character::Object;
+	}
+	else
+	{
+		CCAssert(false, "error play type in game actor");
+	}
+}
+
+Character::Type GameActorModel::str2CharacterType(std::string type)
+{
+	if (type=="good")
+	{
+		return Character::Good;
+	}
+	else if (type=="bad")
+	{
+		return Character::Bad;
+	}
+	else
+	{
+		return Character::Neutral;
+	}
 }

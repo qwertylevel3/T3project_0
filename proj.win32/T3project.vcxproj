@@ -153,6 +153,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AIBase.cpp" />
     <ClCompile Include="..\Classes\AICommonEnemy.cpp" />
     <ClCompile Include="..\Classes\AIFactory.cpp" />
+    <ClCompile Include="..\Classes\AIShrine.cpp" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\AreaSearchSelector.cpp" />
     <ClCompile Include="..\Classes\Armor.cpp" />
@@ -240,7 +241,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Thunder.cpp" />
     <ClCompile Include="..\Classes\Triangulate.cpp" />
     <ClCompile Include="..\Classes\VenomSphere.cpp" />
-    <ClCompile Include="..\Classes\VergilAI.cpp" />
+    <ClCompile Include="..\Classes\AIVergil.cpp" />
     <ClCompile Include="..\Classes\VertigoBuff.cpp" />
     <ClCompile Include="..\Classes\ViewSizeBuff.cpp" />
     <ClCompile Include="..\Classes\WeaponSphereHandler.cpp" />
@@ -275,8 +276,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\InventoryFactory.cpp" />
     <ClCompile Include="..\Classes\KeyController.cpp" />
     <ClCompile Include="..\Classes\MaskLayer.cpp" />
-    <ClCompile Include="..\Classes\MonsterFactory.cpp" />
-    <ClCompile Include="..\Classes\MonsterModel.cpp" />
+    <ClCompile Include="..\Classes\GameActorFactory.cpp" />
+    <ClCompile Include="..\Classes\GameActorModel.cpp" />
     <ClCompile Include="..\Classes\OptionCheckMenu.cpp" />
     <ClCompile Include="..\Classes\Player.cpp" />
     <ClCompile Include="..\Classes\Question.cpp" />
@@ -305,6 +306,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AIBase.h" />
     <ClInclude Include="..\Classes\AICommonEnemy.h" />
     <ClInclude Include="..\Classes\AIFactory.h" />
+    <ClInclude Include="..\Classes\AIShrine.h" />
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AreaSearchSelector.h" />
     <ClInclude Include="..\Classes\Armor.h" />
@@ -392,7 +394,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Thunder.h" />
     <ClInclude Include="..\Classes\Triangulate.h" />
     <ClInclude Include="..\Classes\VenomSphere.h" />
-    <ClInclude Include="..\Classes\VergilAI.h" />
+    <ClInclude Include="..\Classes\AIVergil.h" />
     <ClInclude Include="..\Classes\VertigoBuff.h" />
     <ClInclude Include="..\Classes\ViewSizeBuff.h" />
     <ClInclude Include="..\Classes\WeaponSphereHandler.h" />
@@ -429,8 +431,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\KeyController.h" />
     <ClInclude Include="..\Classes\Marco.h" />
     <ClInclude Include="..\Classes\MaskLayer.h" />
-    <ClInclude Include="..\Classes\MonsterFactory.h" />
-    <ClInclude Include="..\Classes\MonsterModel.h" />
+    <ClInclude Include="..\Classes\GameActorFactory.h" />
+    <ClInclude Include="..\Classes\GameActorModel.h" />
     <ClInclude Include="..\Classes\OptionCheckMenu.h" />
     <ClInclude Include="..\Classes\Player.h" />
     <ClInclude Include="..\Classes\Question.h" />

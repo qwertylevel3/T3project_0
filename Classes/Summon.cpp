@@ -1,5 +1,5 @@
 #include "Summon.h"
-#include "MonsterFactory.h"
+#include "GameActorFactory.h"
 #include "Dungeon.h"
 #include "FixedSelector.h"
 #include "ToolFunction.h"
@@ -29,7 +29,7 @@ std::string Skill::Summon::getExtraDescription()
 
 void Skill::Summon::run()
 {
-	Character* summonCharacter = MonsterFactory::getInstance()->getMonster(characterName);
+	Character* summonCharacter = GameActorFactory::getInstance()->getActor(characterName);
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 
 	FixedSelector selector;

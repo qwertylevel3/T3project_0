@@ -8,7 +8,7 @@ public:
 	AIBase();
 	virtual ~AIBase();
 	virtual void update();
-	virtual void interaction();
+	virtual void feedback(Character* character);
 	virtual void handleDialogueResult(std::string dialogueName,int resultNumber);
 	void setCharacter(Character* character);
 	Character* searchTargetBFS(Character::Type type);

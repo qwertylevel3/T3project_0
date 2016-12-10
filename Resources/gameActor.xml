@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
-<monsterBox>
-	<monster>
+<gameActorBox>
+	<actor>
 		<name>Slime</name>
 		<characterName>Slime</characterName>
+		<ai>AICommonEnemy</ai>
+		<playType>enemy</playType>
+		<characterType>bad</characterType>
 		<physicalImmune>0</physicalImmune>
 		<magicImmune>0</magicImmune>
 		<moveAble>1</moveAble>
@@ -22,10 +25,13 @@
 		<rightHand>NULL</rightHand>
 		<armor>NULL</armor>
 		<accessory>NULL</accessory>
-	</monster>
-	<monster>
+	</actor>
+	<actor>
 		<name>testMonster</name>
 		<characterName>Actor0</characterName>
+		<ai>AICommonEnemy</ai>
+		<playType>enemy</playType>
+		<characterType>bad</characterType>
 		<physicalImmune>0</physicalImmune>
 		<magicImmune>0</magicImmune>
 		<moveAble>1</moveAble>
@@ -44,5 +50,30 @@
 		<rightHand>NULL</rightHand>
 		<armor>NULL</armor>
 		<accessory>NULL</accessory>
-	</monster>
-</monsterBox>
+	</actor>
+	<actor>
+		<name>shrine</name>
+		<characterName>shrine</characterName>
+		<ai>AIShrine</ai>
+		<playType>object</playType>
+		<characterType>neutral</characterType>
+		<physicalImmune>0</physicalImmune>
+		<magicImmune>0</magicImmune>
+		<moveAble>0</moveAble>
+		<attackAble>0</attackAble>
+		<chantAble>0</chantAble>
+		<skillAble>1</skillAble>
+		<actionAble>1</actionAble>
+		<strength>1</strength>
+		<intellect>100</intellect>
+		<agility>1</agility>
+		<luck>0</luck>
+		<viewSize>4</viewSize>
+		<maxHP>100</maxHP>
+		<maxMP>100</maxMP>
+		<leftHand>torch000</leftHand>
+		<rightHand>NULL</rightHand>
+		<armor>NULL</armor>
+		<accessory>NULL</accessory>
+	</actor>
+</gameActorBox>

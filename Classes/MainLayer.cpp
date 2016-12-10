@@ -7,7 +7,7 @@
 #include"Player.h"
 #include"Dungeon.h"
 #include"InventoryFactory.h"
-#include"MonsterFactory.h"
+#include"GameActorFactory.h"
 #include "BattleSystem.h"
 #include "RoundSystem.h"
 #include "KeyController.h"

@@ -25,12 +25,12 @@ void AIBase::update()
 
 }
 
-void AIBase::interaction()
+void AIBase::feedback(Character* character)
 {
 	HudMessageBox::getInstance()->addMessage(L"对方不想和你说话");
 }
 
-void AIBase::handleDialogueResult(std::string dialogueName,int resultNumber)
+void AIBase::handleDialogueResult(std::string dialogueName, int resultNumber)
 {
 	
 }
