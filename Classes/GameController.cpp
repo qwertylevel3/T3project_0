@@ -51,6 +51,7 @@ void GameController::startMission(int level)
 	MaskLayer::getInstance()->clear();
 
 	MainLayer::getInstance()->clear();
+	RoundSystem::getInstance()->clear();
 
 
 

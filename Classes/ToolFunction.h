@@ -16,9 +16,22 @@ public:
 	static std::string wstring2string(std::wstring wstr);
 	static std::string WStr2UTF8(const std::wstring& src);
 
+	
+	//是否十字位相邻
+	static bool isNear4(cocos2d::Point oriCoord,cocos2d::Point targetCoord);
+	//是否相邻
+	static bool isNear8(cocos2d::Point oriCoord,cocos2d::Point targetCoord);
 
-	//找到原点附近有效的点(无character)
-	static cocos2d::Point validPlace(cocos2d::Point ori);
+
+
+
+
+
+	//找到原点附近有效的点(无character),如果查找失败返回ori
+	static cocos2d::Point validPlace(
+		Field::Storey* storey,
+		cocos2d::Point ori
+	);
 
 	//A*寻路，返回下一步要走的位置
 	static cocos2d::Point nextStep(

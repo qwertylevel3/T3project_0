@@ -193,4 +193,32 @@
 			<frameName>shrine.png</frameName>
 		</standRightAnimation>
 	</character>
+	<character>
+		<name>portal</name>
+		<firstFrame>portal.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>portal.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>portal.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>portal.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>portal.png</frameName>
+		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>portal.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>portal.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>portal.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>portal.png</frameName>
+		</standRightAnimation>
+	</character>
 </characterBox>

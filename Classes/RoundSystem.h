@@ -39,6 +39,7 @@ public:
 	~RoundSystem();
 	void start();
 	bool init();
+	void clear();
 	void initMission();
 	int getRoundCount();
 	void sendNextRoundMessage();

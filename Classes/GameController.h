@@ -10,5 +10,7 @@ public:
 	void init();
 	void startMission(int level);
 	void initPlist();
+protected:
+
 };
 

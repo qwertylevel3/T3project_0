@@ -85,10 +85,45 @@ std::string ToolFunction::WStr2UTF8(const std::wstring & src)
 	return dest;
 }
 
-cocos2d::Point ToolFunction::validPlace(cocos2d::Point ori)
+bool ToolFunction::isNear4(cocos2d::Point oriCoord, cocos2d::Point targetCoord)
 {
-	Storey* storey = Dungeon::getInstance()->getStorey();
+	if (oriCoord.x==targetCoord.x &&
+		(oriCoord.y==targetCoord.y-1 || oriCoord.y==targetCoord.y+1))
+	{
+		return true;
+	}
+	else if (oriCoord.y==targetCoord.y &&
+		(oriCoord.x==targetCoord.x-1 || oriCoord.x==targetCoord.x+1))
+	{
+		return true;
+	}
+	return false;
+}
 
+bool ToolFunction::isNear8(cocos2d::Point oriCoord, cocos2d::Point targetCoord)
+{
+	for (int i=-1;i<=1;i++)
+	{
+		cocos2d::Point tempPoint = oriCoord;
+		for (int j=-1;j<=1;j++)
+		{
+			if (i==0 && j==0)
+			{
+				continue;
+			}
+			tempPoint.x += i;
+			tempPoint.y += j;
+			if (targetCoord==tempPoint)
+			{
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+cocos2d::Point ToolFunction::validPlace(Field::Storey* storey,cocos2d::Point ori)
+{
 	int searchDeep = 1;
 
 	//´ýÓÅ»¯£¬bfs
@@ -118,7 +153,8 @@ cocos2d::Point ToolFunction::validPlace(cocos2d::Point ori)
 
 		searchDeep++;
 	}
-	CCAssert(searchDeep < 10, "out of search");
+	return ori;
+	//CCAssert(searchDeep < 10, "out of search");
 }
 
 cocos2d::Point ToolFunction::nextStep(cocos2d::Point src, cocos2d::Point dest)

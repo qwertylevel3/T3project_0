@@ -1,5 +1,6 @@
 #include "StoreyBuilder.h"
 #include"FieldEnum.h"
+#include "ToolFunction.h"
 #include"RandomNumber.h"
 #include"cocos2d.h"
 #include"Debug.h"
@@ -60,14 +61,10 @@ Storey* StoreyBuilder::generate()
 	{
 		CCAssert(false, "Unable to place down stairs\n");
 	}
-	//  //起点到终点的路径
-	//	std::vector<cocos2d::Point> path = ToolFunction::findPath(storey, storey->getUpCoord(), storey->getDownCoord());
-	//	for (int i = 0; i < path.size(); i++)
-	//	{
-	//		Character* monster = MonsterManager::getInstance()->getMonster("testMonster");
-	//		CCAssert(monster, "get a null monster");
-	//		storey->setCharacter(path[i].x, path[i].y, monster);
-	//	}
+
+	//放置游戏演员
+	placeGameActor();
+
 	return storey;
 }
 
@@ -179,7 +176,7 @@ bool StoreyBuilder::makeRoom(int x, int y, Direction dir, bool firstRoom /*= fal
 	{
 		rooms.emplace_back(room);
 
-		placeMonster(room);
+		//placeGameActor(room);
 
 		//房间的出口在非朝向的三个方向，如果是第一个房间，那么4个方向都可作为出口
 		//将当前步骤生成的可能的所有出口放入exits里面
@@ -335,7 +332,8 @@ bool StoreyBuilder::placeObject(int tile)
 
 	int temp = storey->getTile(x, y);
 	if (storey->getTile(x, y) == Floor
-		|| storey->getTile(x, y) == Ice)
+		|| storey->getTile(x, y) == Ice
+		|| storey->getTile(x,y)==Trap)
 	{
 		if (tile == UpStair)
 		{
@@ -356,55 +354,83 @@ bool StoreyBuilder::placeObject(int tile)
 	return false;
 }
 
-void Field::StoreyBuilder::placeMonster(const Rect & rect)
+void Field::StoreyBuilder::placeGameActor(const Rect & rect)
 {
-	int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
-	int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+	//房间内怪物数量(1-4之间)
+	int monsterNumber = RandomNumber::getInstance()->randomInt(1, 4);
 
-	Character* monster = GameActorFactory::getInstance()->getActor("slime");
-	CCAssert(monster, "get a null monster");
-	storey->addCharacter(x, y, monster);
+	for (int i = 0; i < monsterNumber; i++)
+	{
+		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
+		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
 
+		Character* monster = GameActorFactory::getInstance()->getActor("slime");
+		CCAssert(monster, "get a null monster");
+
+		placeGameActor(x, y, monster);
+	}
 
 	//////////////////////////////////////////////////////////////////////////
 
-	int x1 = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
-	int y1 = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
-
-	while (x1 == x && y1 == y)
+	//0.2概率生成星塔
+	if (RandomNumber::getInstance()->randomBool(0.2))
 	{
-		int x1 = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
-		int y1 = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
+		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+
+		Character* shine = GameActorFactory::getInstance()->getActor("shrine");
+		CCAssert(shine, "get a null shine");
+
+		placeGameActor(x, y, shine);
 	}
 
-	Character* shine = GameActorFactory::getInstance()->getActor("shrine");
-	CCAssert(shine, "get a null shine");
-	storey->addCharacter(x1, y1, shine);
-	//////////////////////////////////////////////////////////////////////////
+	//0.1概率生成神像
 
-	int x2 = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
-	int y2 = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
-
-	while ((x2 == x && y2 == y)
-		|| (x2==x1 && y2==y1))
+	if (RandomNumber::getInstance()->randomBool(0.1))
 	{
-		int x2 = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
-		int y2 = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
+		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+
+		Character* statue = GameActorFactory::getInstance()->getActor("statue");
+		CCAssert(statue, "get a null statue");
+
+		placeGameActor(x, y, statue);
 	}
 
-	Character* statue = GameActorFactory::getInstance()->getActor("statue");
-	CCAssert(statue, "get a null statue");
-	storey->addCharacter(x2, y2, statue);
+}
 
+void Field::StoreyBuilder::placeGameActor(int x, int y, Character* character)
+{
+	cocos2d::Point tempCoord;
+	if (storey->getCharacter(x, y))
+	{
+		//如果该点已近被占用，找一个附近的点
+		tempCoord = ToolFunction::validPlace(
+			storey,
+			cocos2d::Point(x, y)
+		);
 
+		//附近有合适的点
+		if (tempCoord.x = !x || tempCoord.y != y)
+		{
+			storey->addCharacter(tempCoord.x, tempCoord.y, character);
+		}
+	}
+	else
+	{
+		storey->addCharacter(x, y, character);
+	}
+}
 
+void Field::StoreyBuilder::placeGameActor()
+{
+	//设置向下一层的传送门
+	Character* portal = GameActorFactory::getInstance()->getActor("portal");
+	CCAssert(portal, "get a null portal");
+	storey->addCharacter(storey->getDownCoord().x, storey->getDownCoord().y, portal);
 
-	//	for (int i=rect.x+1;i<rect.x+rect.width-2;i++)
-	//	{
-	//		for (int j=rect.y+1;j<rect.y+rect.height-2;j++)
-	//		{
-	//			Character* monster = MonsterFactory::getInstance()->getMonster("Slime");
-	//			storey->setCharacter(i, j, monster);
-	//		}
-	//	}
+	for each (Rect room in rooms)
+	{
+		placeGameActor(room);
+	}
 }

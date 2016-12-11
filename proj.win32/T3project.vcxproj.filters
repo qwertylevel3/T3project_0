@@ -531,6 +531,7 @@
     <ClCompile Include="..\Classes\CharacterSpeakLabel.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\AIPortal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -992,6 +993,7 @@
     <ClInclude Include="..\Classes\CharacterSpeakLabel.h">
       <Filter>src\character</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\AIPortal.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

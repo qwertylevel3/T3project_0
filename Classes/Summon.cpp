@@ -41,7 +41,10 @@ void Skill::Summon::run()
 	if (storey->getCharacter(targetCoord)
 		|| !storey->isMoveAble(targetCoord))
 	{
-		targetCoord = ToolFunction::validPlace(targetCoord);
+		targetCoord = ToolFunction::validPlace(
+			Field::Dungeon::getInstance()->getStorey(),
+			targetCoord
+		);
 	}
 
 	storey->addCharacter(targetCoord, summonCharacter);

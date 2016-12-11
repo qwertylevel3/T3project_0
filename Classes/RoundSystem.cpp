@@ -195,3 +195,8 @@ void RoundSystem::addCharacter(Character* character)
 {
 	allCharacter.push_back(character);
 }
+
+void RoundSystem::clear()
+{
+	allCharacter.clear();
+}

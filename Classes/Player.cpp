@@ -106,10 +106,19 @@ void Player::init()
 void Player::initMission()
 {
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+	cocos2d::Point tempCoord = storey->getUpCoord();
+	if (storey->getCharacter(tempCoord))
+	{
+		tempCoord = ToolFunction::validPlace(
+			Field::Dungeon::getInstance()->getStorey(),
+			tempCoord
+		);
+	}
 
-	characterPtr->setMapCoord(storey->getUpCoord());
+	characterPtr->setMapCoord(tempCoord);
 
-	storey->addCharacter(storey->getUpCoord(), characterPtr);
+
+	storey->addCharacter(tempCoord, characterPtr);
 }
 
 void Player::autoNextStep()
