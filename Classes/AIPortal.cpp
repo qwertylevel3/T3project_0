@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "ToolFunction.h"
 #include "GameController.h"
+#include "SplashLayer.h"
 
 
 
@@ -29,7 +30,8 @@ void AIPortal::update()
 
 void AIPortal::feedback(Character* character)
 {
-	GameController::getInstance()->startMission(1);
+//	GameController::getInstance()->startMission(1);
+	GameController::getInstance()->nextMission();
 }
 
 bool AIPortal::isPlayerNear()

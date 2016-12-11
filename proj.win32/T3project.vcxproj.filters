@@ -532,6 +532,7 @@
       <Filter>src\character</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\AIPortal.cpp" />
+    <ClCompile Include="..\Classes\SplashLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -994,6 +995,7 @@
       <Filter>src\character</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AIPortal.h" />
+    <ClInclude Include="..\Classes\SplashLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

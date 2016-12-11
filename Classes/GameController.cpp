@@ -1,7 +1,9 @@
 #include "GameController.h"
 #include "RandomNumber.h"
+#include "2d/CCAnimation.h"
 #include "BuffFactory.h"
 #include "SphereFactory.h"
+#include "SplashLayer.h"
 #include "InventoryFactory.h"
 #include "SkillFactory.h"
 #include "CharacterFactory.h"
@@ -16,12 +18,9 @@
 #include "MyCamera.h"
 #include "EffectManager.h"
 
-
-
 GameController::GameController()
 {
 }
-
 
 GameController::~GameController()
 {
@@ -29,7 +28,6 @@ GameController::~GameController()
 
 void GameController::init()
 {
-	initPlist();
 	RandomNumber::getInstance()->setSeed(100);
 	Buff::BuffFactory::getInstance()->init();
 	Sphere::SphereFactory::getInstance()->init();
@@ -47,17 +45,13 @@ void GameController::init()
 
 void GameController::startMission(int level)
 {
-
 	MaskLayer::getInstance()->clear();
 
 	MainLayer::getInstance()->clear();
 	RoundSystem::getInstance()->clear();
 
-
-
 	Field::Dungeon::getInstance()->generate(1);
-//	Dungeon::getInstance()->writeToFile();
-
+	//	Dungeon::getInstance()->writeToFile();
 
 	Player::getInstance()->initMission();
 	HeroManager::getInstance()->initMission();
@@ -69,11 +63,12 @@ void GameController::startMission(int level)
 
 	MyCamera::getInstance()->setCamera(Player::getInstance()->getcharacterPtr()->getPosition());
 
-
-	
+	SplashLayer::getInstance()->fadeOutBlack(2);
 }
 
-void GameController::initPlist()
+void GameController::nextMission()
 {
+	SplashLayer::getInstance()->fadeInBlack(1);
+
 	
 }

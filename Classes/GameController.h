@@ -9,7 +9,7 @@ public:
 	~GameController();
 	void init();
 	void startMission(int level);
-	void initPlist();
+	void nextMission();
 protected:
 
 };

@@ -3,6 +3,7 @@
 #include "MainLayer.h"
 #include "HudLayer.h"
 #include "MaskLayer.h"
+#include "SplashLayer.h"
 #include <iostream>
 #include "Marco.h"
 
@@ -97,15 +98,18 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	auto gameSceneLayer = MainLayer::getInstance();
 	auto hudLayer = HudLayer::getInstance();
 	auto maskLayer = MaskLayer::getInstance();
+	auto splashLayer = SplashLayer::getInstance();
 
     // add layer as a child to scene
     scene->addChild(gameSceneLayer,0);
 	scene->addChild(maskLayer, 1);
 	scene->addChild(hudLayer,2);
+	scene->addChild(splashLayer,3);
 
 	MainLayer::getInstance()->init();
 	HudLayer::getInstance()->init();
 	MaskLayer::getInstance()->init();
+	SplashLayer::getInstance()->init();
 
     // run
     director->runWithScene(scene);
