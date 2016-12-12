@@ -540,7 +540,8 @@ void Character::runSkill(std::string skillName)
 {
 	if (skillHandler->runSkill(skillName))
 	{
-		if (skillName != ToolFunction::WStr2UTF8(L"attack_¹¥»÷_0_0"))
+		if (skillName != ToolFunction::WStr2UTF8(L"attack_¹¥»÷_0_0")
+			&& skillName!= ToolFunction::WStr2UTF8(L"chant_Ò÷³ª_0_0"))
 		{
 			addExp(ExpHandler::skillExpAdd);
 		}

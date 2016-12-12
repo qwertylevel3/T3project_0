@@ -84,6 +84,7 @@ int ExpHandler::getCurIntExp()
 void ExpHandler::levelStrUp()
 {
 	exp[0] = 0;
+	level[0]++;
 	characterPtr->setStrength(
 		characterPtr->getOriStrength() + 1
 	);
@@ -92,6 +93,7 @@ void ExpHandler::levelStrUp()
 void ExpHandler::levelAgiUp()
 {
 	exp[1] = 0;
+	level[1]++;
 	characterPtr->setAgility(
 		characterPtr->getAgility() + 1
 	);
@@ -100,6 +102,7 @@ void ExpHandler::levelAgiUp()
 void ExpHandler::levelIntUp()
 {
 	exp[2] = 0;
+	level[2]++;
 	characterPtr->setIntellect(
 		characterPtr->getOriIntellect() + 1
 	);

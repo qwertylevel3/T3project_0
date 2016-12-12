@@ -84,10 +84,21 @@ void HudPlayerStateMenu::init()
 	intExpLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	intExpLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 	bk->addChild(intExpLabel);
+
+	strLevelLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	strLevelLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
+	bk->addChild(strLevelLabel);
+
+	agiLevelLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	agiLevelLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
+	bk->addChild(agiLevelLabel);
+
+	intLevelLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	intLevelLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
+	bk->addChild(intLevelLabel);
+
 	//	luckLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	//	bk->addChild(luckLabel);
-
-
 
 	setPosition();
 
@@ -150,26 +161,39 @@ void HudPlayerStateMenu::update()
 
 	ExpHandler* expHandler = Player::getInstance()->getcharacterPtr()->getExphandler();
 
-
-
 	std::string strExp = ToolFunction::int2string(expHandler->getCurStrExp());
 	strExpLabel->setString(
-		ToolFunction::WStr2UTF8(L"str Exp:") +
+		ToolFunction::WStr2UTF8(L"Exp:") +
 		strExp
 	);
 
 	std::string agiExp = ToolFunction::int2string(expHandler->getCurAgiExp());
 	agiExpLabel->setString(
-		ToolFunction::WStr2UTF8(L"agi Exp:") +
+		ToolFunction::WStr2UTF8(L"Exp:") +
 		agiExp
 	);
 
 	std::string intExp = ToolFunction::int2string(expHandler->getCurIntExp());
 	intExpLabel->setString(
-		ToolFunction::WStr2UTF8(L"int Exp:") +
+		ToolFunction::WStr2UTF8(L"Exp:") +
 		intExp
 	);
 
+	std::string strLevel = ToolFunction::int2string(expHandler->getCurStrLevel());
+	strLevelLabel->setString(
+		ToolFunction::WStr2UTF8(L"Level:") +
+		strLevel
+	);
+	std::string agiLevel = ToolFunction::int2string(expHandler->getCurAgiLevel());
+	agiLevelLabel->setString(
+		ToolFunction::WStr2UTF8(L"Level:") +
+		agiLevel
+	);
+	std::string intLevel = ToolFunction::int2string(expHandler->getCurIntLevel());
+	intLevelLabel->setString(
+		ToolFunction::WStr2UTF8(L"Level:") +
+		intLevel
+	);
 
 	//////////////////////////////////////////////////////////////////////////
 
@@ -210,4 +234,8 @@ void HudPlayerStateMenu::setPosition()
 	strExpLabel->setPosition(250, 130);
 	agiExpLabel->setPosition(250, 100);
 	intExpLabel->setPosition(250, 70);
+
+	strLevelLabel->setPosition(330, 130);
+	agiLevelLabel->setPosition(330, 100);
+	intLevelLabel->setPosition(330, 70);
 }
