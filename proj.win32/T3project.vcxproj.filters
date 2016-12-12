@@ -531,8 +531,13 @@
     <ClCompile Include="..\Classes\CharacterSpeakLabel.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AIPortal.cpp" />
-    <ClCompile Include="..\Classes\SplashLayer.cpp" />
+    <ClCompile Include="..\Classes\AIPortal.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SplashLayer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ExpHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -994,8 +999,13 @@
     <ClInclude Include="..\Classes\CharacterSpeakLabel.h">
       <Filter>src\character</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AIPortal.h" />
-    <ClInclude Include="..\Classes\SplashLayer.h" />
+    <ClInclude Include="..\Classes\AIPortal.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SplashLayer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ExpHandler.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -1,5 +1,6 @@
 #include "Character.h"
 #include "RoundSystem.h"
+#include "ExpHandler.h"
 #include "CharacterSpeakLabel.h"
 #include "HudMessageBox.h"
 #include "ToolFunction.h"
@@ -56,6 +57,7 @@ Character::Character()
 	inventoryHandler = new InventoryHandler();
 	attrHandler = new CharacterAttrHandler(this);
 	buffHandler = new Buff::BuffHandler(this);
+	expHandler = new ExpHandler(this);
 
 	chant = 0;
 
@@ -257,6 +259,16 @@ void Character::idle()
 	processAction(0);
 }
 
+ExpHandler* Character::getExphandler()
+{
+	return expHandler;
+}
+
+void Character::addExp(const int value[3])
+{
+	expHandler->addExp(value);
+}
+
 void Character::speak(std::wstring sentence)
 {
 	speakLabel->speak(sentence);
@@ -380,10 +392,7 @@ void Character::setOrientationRight()
 	Animate* action = Animate::create(standRightAnimation);
 	action->setDuration(0.1);
 	sprite->runAction(action);
-	int a = 0;
 	setOrientation(Orientation::RIGHT);
-	int b = 5;
-	int c = a - b;
 }
 
 void Character::showMoveUpAnimation()
@@ -531,7 +540,11 @@ void Character::runSkill(std::string skillName)
 {
 	if (skillHandler->runSkill(skillName))
 	{
-		processAction(0.2);
+		if (skillName != ToolFunction::WStr2UTF8(L"attack_¹¥»÷_0_0"))
+		{
+			addExp(ExpHandler::skillExpAdd);
+		}
+		processAction(0.1);
 	}
 }
 
@@ -722,6 +735,21 @@ int Character::getMaxMP()
 	return attrHandler->getMaxMP();
 }
 
+int Character::getOriStrength()
+{
+	return attrHandler->getOriStrength();
+}
+
+int Character::getOriAgility()
+{
+	return attrHandler->getOriAgility();
+}
+
+int Character::getOriIntellect()
+{
+	return attrHandler->getOriIntellect();
+}
+
 int Character::getStrength()
 {
 	return attrHandler->getStrength();
@@ -795,16 +823,19 @@ void Character::setMaxMP(int m)
 void Character::setStrength(int strength)
 {
 	attrHandler->setStrength(strength);
+	buffHandler->calculateAttr();
 }
 
 void Character::setIntellect(int intellect)
 {
 	attrHandler->setIntellect(intellect);
+	buffHandler->calculateAttr();
 }
 
 void Character::setAgility(int agility)
 {
 	attrHandler->setAgility(agility);
+	buffHandler->calculateAttr();
 }
 
 void Character::setViewSize(int viewSize)

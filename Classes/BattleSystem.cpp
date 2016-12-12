@@ -18,6 +18,7 @@
 #include "MainLayer.h"
 #include "RandomNumber.h"
 #include "HudMessageBox.h"
+#include "ExpHandler.h"
 
 #include "Marco.h"
 
@@ -345,6 +346,7 @@ void BattleSystem::attack(Character * a, Character * b)
 	combo = 0;
 	do
 	{
+		a->addExp(ExpHandler::atkExpAdd);
 		if (a->getLeftHand() && a->getLeftHand()->getInventoryType() == Inventory::OneHandWeapon)
 		{
 #ifdef SHOWMESSAGE
@@ -391,6 +393,7 @@ void BattleSystem::attack(Character * a, Character * b)
 			cout << "combo!" << endl;
 #endif
 			combo++;
+			a->addExp(ExpHandler::comboExpAdd);
 		}
 	} while (!b->isDead());
 #ifdef SHOWMESSAGE
@@ -415,6 +418,7 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 #ifdef SHOWMESSAGE
 		cout << "evade!" << endl;
 #endif
+		b->addExp(ExpHandler::evadeExpAdd);
 		showAttackEffect(a, hand);
 		showMiss(b);
 		return;
@@ -423,6 +427,7 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 	int attackCount = 0;
 	if (isCritical(a))
 	{
+		a->addExp(ExpHandler::criticalExpAdd);
 		attackCount = getCriticalAttackCount(a, hand);
 #ifdef SHOWMESSAGE
 		cout << "critical atk!" << endl;
@@ -454,6 +459,7 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 	std::vector<Sphere::SphereBase*> sphereBox = sphereHandler->getSphereBoxRef();
 	for each (Sphere::SphereBase* sphere in sphereBox)
 	{
+		a->addExp(ExpHandler::sphereExpAdd);
 		sphere->run(a, b, realDamage);
 	}
 }
@@ -528,6 +534,7 @@ int BattleSystem::sufferAttack(Character* a, Character * b, AttackHand hand, int
 	bool block = isBlock(b);
 	if (block)
 	{
+		b->addExp(ExpHandler::blockExpAdd);
 		blockCount = getBlockCount(b);
 #ifdef SHOWMESSAGE
 		cout << "block!" << endl;

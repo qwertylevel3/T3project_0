@@ -16,7 +16,7 @@ Sphere::ManaBurnSphere::~ManaBurnSphere()
 void Sphere::ManaBurnSphere::run(Character* a, Character* b, int damage)
 {
 	double mpDamageValue = -double(damage)*(double(mpDamagePer) / 100.0);
-	a->sufferMPEffect(int(mpDamageValue));
+	b->sufferMPEffect(int(mpDamageValue));
 }
 
 Sphere::ManaBurnSphere* Sphere::ManaBurnSphere::createProtoType()

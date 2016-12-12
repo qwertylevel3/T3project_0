@@ -23,6 +23,10 @@ public:
 	int getMaxMP();
 	int getViewSize();
 
+	int getOriStrength();
+	int getOriIntellect();
+	int getOriAgility();
+
 	int getStrength();
 	int getIntellect();
 	int getAgility();

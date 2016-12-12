@@ -11,11 +11,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{298,700}</string>
+                <string>{309,700}</string>
                 <key>spriteSourceSize</key>
-                <string>{298,700}</string>
+                <string>{309,700}</string>
                 <key>textureRect</key>
-                <string>{{0,0},{298,700}}</string>
+                <string>{{0,0},{309,700}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -31,9 +31,9 @@
             <key>realTextureFileName</key>
             <string>dialogueActor.png</string>
             <key>size</key>
-            <string>{298,700}</string>
+            <string>{309,700}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:f77d9a8c55e3f3a2ef65052fc0471da4:dbcdc2b129d0c54751686aef82b8ca2a:86d9bba55a8fc447cc79f80a54dcb6c5$</string>
+            <string>$TexturePacker:SmartUpdate:b2d4c183ed0da4f37201a2742c278b23:bc69404eed180f5bd39971d169b0e379:86d9bba55a8fc447cc79f80a54dcb6c5$</string>
             <key>textureFileName</key>
             <string>dialogueActor.png</string>
         </dict>

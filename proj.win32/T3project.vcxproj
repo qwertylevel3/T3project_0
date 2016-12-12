@@ -190,6 +190,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\DogTagGenerator.cpp" />
     <ClCompile Include="..\Classes\EffectManager.cpp" />
     <ClCompile Include="..\Classes\EvadeBuff.cpp" />
+    <ClCompile Include="..\Classes\ExpHandler.cpp" />
     <ClCompile Include="..\Classes\FireBall.cpp" />
     <ClCompile Include="..\Classes\FixedSelector.cpp" />
     <ClCompile Include="..\Classes\GameController.cpp" />
@@ -347,6 +348,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\DogTagGenerator.h" />
     <ClInclude Include="..\Classes\EffectManager.h" />
     <ClInclude Include="..\Classes\EvadeBuff.h" />
+    <ClInclude Include="..\Classes\ExpHandler.h" />
     <ClInclude Include="..\Classes\FireBall.h" />
     <ClInclude Include="..\Classes\FixedSelector.h" />
     <ClInclude Include="..\Classes\GameController.h" />

@@ -1,5 +1,6 @@
 #include "HudPlayerStateMenu.h"
 #include "cocos2d.h"
+#include "ExpHandler.h"
 #include "Player.h"
 #include "BattleSystem.h"
 #include "ToolFunction.h"
@@ -72,6 +73,22 @@ void HudPlayerStateMenu::init()
 	//	goldLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	//	bk->addChild(goldLabel);
 
+	strExpLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	strExpLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
+	bk->addChild(strExpLabel);
+
+	agiExpLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	agiExpLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
+	bk->addChild(agiExpLabel);
+
+	intExpLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	intExpLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
+	bk->addChild(intExpLabel);
+	//	luckLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	//	bk->addChild(luckLabel);
+
+
+
 	setPosition();
 
 	update();
@@ -131,6 +148,29 @@ void HudPlayerStateMenu::update()
 		intellect
 	);
 
+	ExpHandler* expHandler = Player::getInstance()->getcharacterPtr()->getExphandler();
+
+
+
+	std::string strExp = ToolFunction::int2string(expHandler->getCurStrExp());
+	strExpLabel->setString(
+		ToolFunction::WStr2UTF8(L"str Exp:") +
+		strExp
+	);
+
+	std::string agiExp = ToolFunction::int2string(expHandler->getCurAgiExp());
+	agiExpLabel->setString(
+		ToolFunction::WStr2UTF8(L"agi Exp:") +
+		agiExp
+	);
+
+	std::string intExp = ToolFunction::int2string(expHandler->getCurIntExp());
+	intExpLabel->setString(
+		ToolFunction::WStr2UTF8(L"int Exp:") +
+		intExp
+	);
+
+
 	//////////////////////////////////////////////////////////////////////////
 
 	std::string weight = ToolFunction::int2string(characterPtr->getWeight());
@@ -166,4 +206,8 @@ void HudPlayerStateMenu::setPosition()
 	agiLabel->setPosition(170, 100);
 	intLabel->setPosition(170, 70);
 	weightLabel->setPosition(170, 40);
+
+	strExpLabel->setPosition(250, 130);
+	agiExpLabel->setPosition(250, 100);
+	intExpLabel->setPosition(250, 70);
 }

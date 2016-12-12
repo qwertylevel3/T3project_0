@@ -80,6 +80,21 @@ int CharacterAttrHandler::getViewSize()
 	return attr.viewSize;
 }
 
+int CharacterAttrHandler::getOriStrength()
+{
+	return oriAttr.strength;
+}
+
+int CharacterAttrHandler::getOriIntellect()
+{
+	return oriAttr.intellect;
+}
+
+int CharacterAttrHandler::getOriAgility()
+{
+	return oriAttr.agility;
+}
+
 int CharacterAttrHandler::getEvadePoint()
 {
 	return attr.evadePoint;

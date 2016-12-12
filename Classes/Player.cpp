@@ -38,7 +38,7 @@ void Player::init()
 	characterPtr->addSkill(L"ChantSelf_¿ìËÙÊ©·¨_20_0_100");
 	characterPtr->addSkill(L"BuffSelf_ÉÁ±Übuff_20_20_EvadeBuff_ÉÁ±Übuff_ATTR_Good_4_100_100");
 	characterPtr->addSkill(L"BuffCast_ÉÁ±Übuff×£¸£_20_20_EvadeBuff_ÉÁ±Übuff_ATTR_Good_4_100_100");
-	characterPtr->addSkill(L"Summon_ÕÙ»½Slime_20_20_Slime");
+	characterPtr->addSkill(L"Summon_ÕÙ»½slime_20_20_slime");
 	characterPtr->addSkill(L"BlinkSelf_ÉÁË¸_20_10_3");
 	characterPtr->addSkill(L"Repel_»÷ÍË_20_10_3_10");
 	characterPtr->addSkill(L"Thunder_ÉÁµç_20_10_30");
@@ -96,6 +96,9 @@ void Player::init()
 
 	std::wstring buffname3 = L"AccuracyBuff_ÃüÖÐbuff_ATTR_Good_4_100_100";
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname3));
+
+	std::wstring buffname4 = L"BaseAttrBuff_²âÊÔbuff_ATTR_Good_2_-1_3_0_0";
+	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname4));
 
 	//	std::wstring buffname2 = L"VertigoBuff_Ñ£ÔÎ_ATTR_Bad_2_10";
 	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));

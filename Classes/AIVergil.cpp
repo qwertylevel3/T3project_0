@@ -45,7 +45,8 @@ void AIVergil::update()
 
 void AIVergil::feedback(Character* character)
 {
-	characterPtr->speak(L"对话不能，现在");
+	// characterPtr->speak(L"对话不能，现在");
+	DialogueSystem::getInstance()->runDialogue("testDialogue");
 }
 
 void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)

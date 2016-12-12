@@ -27,6 +27,10 @@ void DialogueSystem::runDialogue(const std::string& dialogueName,Character* acto
 	{
 		setCurActor(actor);
 	}
+	else
+	{
+		setCurActor(nullptr);
+	}
 	Dialogue* dialogue = DialogueFactory::getInstance()->getDialogue(dialogueName);
 	DialogueDriver::getInstance()->startDialogue(dialogue);
 }

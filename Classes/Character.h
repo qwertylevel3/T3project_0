@@ -16,6 +16,7 @@ class AIBase;
 class InventoryHandler;
 class RoundHandler;
 class CharacterBar;
+class ExpHandler;
 class CharacterSpeakLabel;
 
 
@@ -84,6 +85,8 @@ public:
 	void die();
 	bool isDead();
 	void idle();
+	ExpHandler* getExphandler();
+	void addExp(const int value[3]);
 	void speak(std::wstring sentence);
 	void interaction();
 	void feedback(Character* character);
@@ -157,6 +160,10 @@ public:
 
 	int getMaxHP();
 	int getMaxMP();
+
+	int getOriStrength();
+	int getOriAgility();
+	int getOriIntellect();
 	int getStrength();
 	int getIntellect();
 	int getAgility();
@@ -218,6 +225,9 @@ protected:
 
 	//HP,MP Bar
 	CharacterBar* characterBar;
+
+	//exp handler
+	ExpHandler* expHandler;
 	
 	//round handler
 	RoundHandler* roundHandler;
