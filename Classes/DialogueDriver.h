@@ -29,6 +29,7 @@ protected:
 	std::map<std::string, cocos2d::Sprite* > actorSpriteBox;
 	cocos2d::ui::Scale9Sprite* dialogBk;
 	cocos2d::Label* textLabel;
+	cocos2d::Sprite* actorSprite;
 
 	int nextSentence();
 	int curIndex;

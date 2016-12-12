@@ -5,26 +5,26 @@
 		<name>testDialogue</name>
 		<sentence>
 			<type>statement</type>
-			<actorName>vergil_normal.png</actorName>
+			<actorName>dialogueVergil1.png</actorName>
 			<word>台词测试0</word>
 			<next>2</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>vergil_normal.png</actorName>
+			<actorName>dialogueVergil2.png</actorName>
 			<word>台词测试1</word>
 			<next>3</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>vergil_normal.png</actorName>
+			<actorName>dialogueVergil3.png</actorName>
 			<word>台词测试：
 超多文字超多文字超多文字超多文字超多文字超多文字超多文字超多文字超多文字</word>
 			<next>4</next>
 		</sentence>
 		<sentence>
 			<type>question</type>
-			<actorName>vergil_normal.png</actorName>
+			<actorName>dialogueVergil4.png</actorName>
 			<word>问题测试,选择</word>
 			<optionList>
 				<option>
@@ -39,7 +39,7 @@
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>vergil_normal.png</actorName>
+			<actorName>dialogueVergil5.png</actorName>
 			<word>台词测试结束</word>
 			<next>-1</next>
 		</sentence>

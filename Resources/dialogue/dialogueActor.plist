@@ -4,18 +4,93 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>vergil_normal.png</key>
+            <key>dialogueVergil1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{309,700}</string>
+                <string>{309,752}</string>
                 <key>spriteSourceSize</key>
-                <string>{309,700}</string>
+                <string>{309,752}</string>
                 <key>textureRect</key>
-                <string>{{0,0},{309,700}}</string>
+                <string>{{0,0},{309,752}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dialogueVergil2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{316,752}</string>
+                <key>spriteSourceSize</key>
+                <string>{316,752}</string>
+                <key>textureRect</key>
+                <string>{{309,0},{316,752}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dialogueVergil3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{311,752}</string>
+                <key>spriteSourceSize</key>
+                <string>{311,752}</string>
+                <key>textureRect</key>
+                <string>{{625,0},{311,752}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dialogueVergil4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{309,752}</string>
+                <key>spriteSourceSize</key>
+                <string>{309,752}</string>
+                <key>textureRect</key>
+                <string>{{936,0},{309,752}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dialogueVergil5.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{309,752}</string>
+                <key>spriteSourceSize</key>
+                <string>{309,752}</string>
+                <key>textureRect</key>
+                <string>{{1245,0},{309,752}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dialogueVergil6.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{309,752}</string>
+                <key>spriteSourceSize</key>
+                <string>{309,752}</string>
+                <key>textureRect</key>
+                <string>{{1554,0},{309,752}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -31,9 +106,9 @@
             <key>realTextureFileName</key>
             <string>dialogueActor.png</string>
             <key>size</key>
-            <string>{309,700}</string>
+            <string>{1863,752}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:b2d4c183ed0da4f37201a2742c278b23:bc69404eed180f5bd39971d169b0e379:86d9bba55a8fc447cc79f80a54dcb6c5$</string>
+            <string>$TexturePacker:SmartUpdate:5910bb84465b10849f6897ea7c832a27:7c44862e74098159d31191d87ca1d826:86d9bba55a8fc447cc79f80a54dcb6c5$</string>
             <key>textureFileName</key>
             <string>dialogueActor.png</string>
         </dict>
