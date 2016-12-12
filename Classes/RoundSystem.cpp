@@ -49,10 +49,17 @@ void RoundHandler::processAction(float dt)
 
 		cocos2d::Sprite* characterSprite = characterPtr->getSprite();
 
-		cocos2d::DelayTime* delayAction = cocos2d::DelayTime::create(dt);
-		cocos2d::CallFunc *callFun = cocos2d::CallFunc::create(RoundSystem::getInstance(), callfunc_selector(RoundSystem::sendNextRoundMessage));
-		cocos2d::Sequence *action = cocos2d::Sequence::create(delayAction, callFun, NULL);
-		characterSprite->runAction(action);
+		if (dt <= 0.0001)
+		{
+			RoundSystem::getInstance()->sendNextRoundMessage();
+		}
+		else
+		{
+			cocos2d::DelayTime* delayAction = cocos2d::DelayTime::create(dt);
+			cocos2d::CallFunc *callFun = cocos2d::CallFunc::create(RoundSystem::getInstance(), callfunc_selector(RoundSystem::sendNextRoundMessage));
+			cocos2d::Sequence *action = cocos2d::Sequence::create(delayAction, callFun, NULL);
+			characterSprite->runAction(action);
+		}
 	}
 }
 
@@ -94,10 +101,10 @@ bool RoundSystem::init()
 	chooseArrow->setZOrder(ZOrderManager::chooseArrowZ);
 	chooseArrow->retain();
 
-	listener = cocos2d::EventListenerCustom::create("roundOver", [=](cocos2d::EventCustom* event) {
-		nextRound();
-	});
-	_eventDispatcher->addEventListenerWithFixedPriority(listener, 1);
+	//	listener = cocos2d::EventListenerCustom::create("roundOver", [=](cocos2d::EventCustom* event) {
+	//		nextRound();
+	//	});
+	//	_eventDispatcher->addEventListenerWithFixedPriority(listener, 1);
 	return true;
 }
 
@@ -113,8 +120,7 @@ int RoundSystem::getRoundCount()
 
 void RoundSystem::sendNextRoundMessage()
 {
-	cocos2d::EventCustom event("roundOver");
-	_eventDispatcher->dispatchEvent(&event);
+	nextRound();
 }
 
 void RoundSystem::nextIndex()

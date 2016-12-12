@@ -545,7 +545,7 @@ void Character::runSkill(std::string skillName)
 		{
 			addExp(ExpHandler::skillExpAdd);
 		}
-		processAction(0.1);
+		processAction(0.2);
 	}
 }
 

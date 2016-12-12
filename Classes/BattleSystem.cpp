@@ -122,7 +122,7 @@ void BattleSystem::showOneHandEffect(Character* caster)
 	}
 
 	node->setVisible(true);
-	scene->addChild(node, 15);
+	scene->addChild(node,100);
 
 	cocos2d::Animate* animate = cocos2d::CCAnimate::create(animation);
 	animate->setDuration(0.2);

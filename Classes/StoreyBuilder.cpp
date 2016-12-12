@@ -358,7 +358,7 @@ void Field::StoreyBuilder::placeGameActor(const Rect & rect)
 {
 	//房间内怪物数量(1-4之间)
 //	int monsterNumber = RandomNumber::getInstance()->randomInt(4, 4);
-	int monsterNumber = 6;
+	int monsterNumber = 3;
 
 	for (int i = 0; i < monsterNumber; i++)
 	{
