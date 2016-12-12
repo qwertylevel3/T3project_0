@@ -129,9 +129,9 @@ cocos2d::Point ToolFunction::validPlace(Field::Storey* storey,cocos2d::Point ori
 	//´ýÓÅ»¯£¬bfs
 	while (searchDeep < 10)
 	{
-		for (int i = -searchDeep; i < searchDeep; i++)
+		for (int i = -searchDeep; i <= searchDeep; i++)
 		{
-			for (int j = -searchDeep; j < searchDeep; j++)
+			for (int j = -searchDeep; j <= searchDeep; j++)
 			{
 				if (i == 0 && j==0)
 				{

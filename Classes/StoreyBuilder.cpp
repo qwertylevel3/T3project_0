@@ -26,7 +26,7 @@ Storey* StoreyBuilder::generate()
 {
 	rooms.clear();
 	exits.clear();
-	storey = new Storey(100, 100);
+	storey = new Storey(50, 50);
 
 	int maxFeatures = 33;
 	// place the first room in the center
@@ -96,7 +96,7 @@ bool StoreyBuilder::createFeature()
 
 bool StoreyBuilder::createFeature(int x, int y, Direction dir)
 {
-	static const int roomChance = 33; // corridorChance = 100 - roomChance
+	static const int roomChance = 66; // corridorChance = 100 - roomChance
 
 	int dx = 0;
 	int dy = 0;
@@ -357,12 +357,16 @@ bool StoreyBuilder::placeObject(int tile)
 void Field::StoreyBuilder::placeGameActor(const Rect & rect)
 {
 	//房间内怪物数量(1-4之间)
-	int monsterNumber = RandomNumber::getInstance()->randomInt(1, 4);
+//	int monsterNumber = RandomNumber::getInstance()->randomInt(4, 4);
+	int monsterNumber = 4;
 
 	for (int i = 0; i < monsterNumber; i++)
 	{
-		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
-		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+//		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
+//		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+
+		int x = rect.x;
+		int y = rect.y;
 
 		Character* monster = GameActorFactory::getInstance()->getActor("slime");
 		CCAssert(monster, "get a null monster");
@@ -411,7 +415,7 @@ void Field::StoreyBuilder::placeGameActor(int x, int y, Character* character)
 		);
 
 		//附近有合适的点
-		if (tempCoord.x = !x || tempCoord.y != y)
+		if (tempCoord.x != x || tempCoord.y != y)
 		{
 			storey->addCharacter(tempCoord.x, tempCoord.y, character);
 		}

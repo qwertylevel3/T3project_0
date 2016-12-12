@@ -74,7 +74,8 @@ Character* AIBase::searchTargetBFS(Character::Type type)
 						continue;
 					}
 
-					if (storey->getCharacter(position)
+					if (storey->isValid(position)
+						&& storey->getCharacter(position)
 						&& storey->getCharacter(position)->getCharacterType()==type
 						&& !storey->getCharacter(position)->isDead())
 					{
