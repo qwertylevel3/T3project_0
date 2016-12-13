@@ -19,6 +19,7 @@ namespace Skill
 		~SkillFactory();
 		void init();
 		SkillBase* getSkill(Character* character,std::string s);
+		std::string querySkillCname(std::string skillID);
 	protected:
 		SkillBase* getSkillPrototype(Character* character,const std::string& skillName);
 		std::map<std::string, SkillBase*> skillPrototypeBox;

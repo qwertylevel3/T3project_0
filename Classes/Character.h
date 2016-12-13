@@ -148,6 +148,7 @@ public:
 	void addBuff(std::string buffID);
 	void removeBuff(std::string buffID);
 	void addSkill(std::wstring skillID);
+	void addSkill(std::string skillID);
 	//////////////////////////////////////////////////////////////////////////
 	bool isPhysicalImmune();
 	bool isMagicImmune();

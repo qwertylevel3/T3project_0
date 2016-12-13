@@ -539,6 +539,7 @@
     </ClCompile>
     <ClCompile Include="..\Classes\ExpHandler.cpp" />
     <ClCompile Include="..\Classes\ExpAdd.cpp" />
+    <ClCompile Include="..\Classes\LearnSkill.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1008,6 +1009,7 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ExpHandler.h" />
     <ClInclude Include="..\Classes\ExpAdd.h" />
+    <ClInclude Include="..\Classes\LearnSkill.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

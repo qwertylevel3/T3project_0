@@ -1,4 +1,5 @@
 #include "SkillFactory.h"
+#include "Character.h"
 #include "Attack.h"
 #include "Chant.h"
 #include "FireBall.h"
@@ -15,6 +16,7 @@
 #include "Repel.h"
 #include "Thunder.h"
 #include "ExpAdd.h"
+#include "LearnSkill.h"
 
 Skill::SkillFactory::SkillFactory()
 {
@@ -42,6 +44,7 @@ void Skill::SkillFactory::init()
 	Repel* repelPrototype = new Repel();
 	Thunder* thunderPrototype = new Thunder();
 	ExpAdd* expAddPrototype = new ExpAdd();
+	LearnSkill* learnSkillPrototype = new LearnSkill();
 
 	skillPrototypeBox["fireBall"] = fireBallPrototype;
 	skillPrototypeBox["attack"] = attackPrototype;
@@ -59,6 +62,7 @@ void Skill::SkillFactory::init()
 	skillPrototypeBox["Repel"] = repelPrototype;
 	skillPrototypeBox["Thunder"] = thunderPrototype;
 	skillPrototypeBox["ExpAdd"] = expAddPrototype;
+	skillPrototypeBox["LearnSkill"] = learnSkillPrototype;
 }
 
 Skill::SkillBase* Skill::SkillFactory::getSkill(Character* character,std::string s)
@@ -80,7 +84,14 @@ Skill::SkillBase* Skill::SkillFactory::getSkill(Character* character,std::string
 	return skill;
 }
 
-Skill::SkillBase* Skill::SkillFactory::getSkillPrototype(Character* character,const std::string& skillName)
+std::string Skill::SkillFactory::querySkillCname(std::string skillID)
+{
+	std::vector<std::string> tempVec;
+	split(skillID, '_', tempVec);
+	return tempVec[1];
+}
+
+Skill::SkillBase* Skill::SkillFactory::getSkillPrototype(Character* character, const std::string& skillName)
 {
 	SkillBase* skill=skillPrototypeBox[skillName]->createPrototype();
 	skill->setCaster(character);

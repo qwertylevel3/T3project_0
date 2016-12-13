@@ -691,6 +691,16 @@ void Character::addSkill(std::wstring skillID)
 	);
 }
 
+void Character::addSkill(std::string skillID)
+{
+	skillHandler->addSkill(
+		Skill::SkillFactory::getInstance()->getSkill(
+			this,
+			skillID
+		)
+	);
+}
+
 bool Character::isPhysicalImmune()
 {
 	return attrHandler->isPhysicalImmune();
