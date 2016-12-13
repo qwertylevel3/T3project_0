@@ -41,10 +41,16 @@ void RoundHandler::processAction(float dt)
 	if (actionPoint <= 0)
 	{
 		characterPtr->endRound();
-		//如果刚刚玩家结束了回合，锁定键盘
+		//如果刚刚玩家结束了回合，锁定键盘0.2m
 		if (characterPtr == Player::getInstance()->getcharacterPtr())
 		{
 			KeyController::getInstance()->setBlock(true);
+//			RoundSystem::getInstance()->playerBlockStart();
+			cocos2d::DelayTime* delayAction = cocos2d::DelayTime::create(0.2);
+			cocos2d::CallFunc *callFun = cocos2d::CallFunc::create(RoundSystem::getInstance(), callfunc_selector(RoundSystem::unlockPlayerKey));
+			cocos2d::Sequence *action = cocos2d::Sequence::create(delayAction, callFun, NULL);
+
+			Player::getInstance()->getcharacterPtr()->getSprite()->runAction(action);
 		}
 
 		cocos2d::Sprite* characterSprite = characterPtr->getSprite();
@@ -149,7 +155,8 @@ void RoundSystem::round()
 
 	if (isPlayer(curCharacter))
 	{
-		playerAction();
+//		playerAction();
+		circleOver=true;
 	}
 	else
 	{
@@ -159,6 +166,7 @@ void RoundSystem::round()
 
 void RoundSystem::NPCAction(Character* character)
 {
+	circleOver = false;
 	while (character->getActionPoint() != 0)
 	{
 		character->action();
@@ -167,6 +175,8 @@ void RoundSystem::NPCAction(Character* character)
 
 void RoundSystem::playerAction()
 {
+	std::cout << ToolFunction::getCurmTime() << std::endl;
+
 	KeyController::getInstance()->setBlock(false);
 }
 
@@ -205,4 +215,15 @@ void RoundSystem::addCharacter(Character* character)
 void RoundSystem::clear()
 {
 	allCharacter.clear();
+}
+
+
+void RoundSystem::unlockPlayerKey()
+{
+	KeyController::getInstance()->setBlock(false);
+}
+
+bool RoundSystem::isCircleOver()
+{
+	return circleOver;
 }

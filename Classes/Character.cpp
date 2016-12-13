@@ -941,7 +941,7 @@ int Character::getActionPoint()
 
 void Character::startRound()
 {
-	//	fixPosition();
+//	fixPosition();
 	roundHandler->startRound();
 	buffHandler->onRoundStart();
 	recalculateHP();

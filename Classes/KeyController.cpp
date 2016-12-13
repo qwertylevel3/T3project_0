@@ -1,5 +1,6 @@
 #include "KeyController.h"
 #include "Player.h"
+#include "RoundSystem.h"
 #include "HudMenuSystem.h"
 #include "DialogueSystem.h"
 #include "HudPlayerStateMenu.h"
@@ -26,7 +27,7 @@ void KeyController::init()
 
 void KeyController::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
-	if (block)
+	if (block || !RoundSystem::getInstance()->isCircleOver())
 	{
 		return;
 	}

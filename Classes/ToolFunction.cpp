@@ -1,5 +1,6 @@
 #include "ToolFunction.h"
 #include<sstream>
+#include <sys/timeb.h>
 #include"AStar.h"
 #include"Dungeon.h"
 
@@ -122,7 +123,18 @@ bool ToolFunction::isNear8(cocos2d::Point oriCoord, cocos2d::Point targetCoord)
 	return false;
 }
 
-cocos2d::Point ToolFunction::validPlace(Field::Storey* storey,cocos2d::Point ori)
+long ToolFunction::getCurmTime()
+{
+	long long time_last;
+	time_last = time(NULL);
+
+	struct timeb t1;
+	ftime(&t1);
+	time_t ttt = t1.millitm + t1.time * 1000;
+	return ttt;
+}
+
+cocos2d::Point ToolFunction::validPlace(Field::Storey* storey, cocos2d::Point ori)
 {
 	int searchDeep = 1;
 
