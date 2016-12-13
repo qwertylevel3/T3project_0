@@ -538,6 +538,7 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\ExpHandler.cpp" />
+    <ClCompile Include="..\Classes\ExpAdd.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1006,6 +1007,7 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\ExpHandler.h" />
+    <ClInclude Include="..\Classes\ExpAdd.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

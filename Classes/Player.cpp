@@ -42,6 +42,7 @@ void Player::init()
 	characterPtr->addSkill(L"BlinkSelf_闪烁_20_10_3");
 	characterPtr->addSkill(L"Repel_击退_20_10_3_10");
 	characterPtr->addSkill(L"Thunder_闪电_20_10_30");
+	characterPtr->addSkill(L"ExpAdd_经验增加_0_0_10_10_100");
 
 	setName("qwerty");
 
