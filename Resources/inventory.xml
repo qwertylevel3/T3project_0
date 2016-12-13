@@ -123,6 +123,9 @@
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
 		<skillName>HPRecoverySelf_生命恢复_0_0_20</skillName>
 	</inventory>
 	<inventory>

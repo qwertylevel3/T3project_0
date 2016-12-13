@@ -18,6 +18,9 @@ Supply* Supply::clone()
 	Supply* newSupply = new Supply();
 	copyData(newSupply);
 	newSupply->setSkillName(this->getSkillName());
+	newSupply->setStrRequire(strRequire);
+	newSupply->setAgiRequire(agiRequire);
+	newSupply->setIntRequire(intRequire);
 	return newSupply;
 }
 

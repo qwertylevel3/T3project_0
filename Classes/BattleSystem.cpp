@@ -305,7 +305,7 @@ Weapon* BattleSystem::getWeapon(Character* c, AttackHand hand)
 	case LeftHand:
 	case DoubleHand:
 	case Bow:
-		type = c->getLeftHand() ? c->getLeftHand()->getInventoryType() : Inventory::Type::Empty;
+		type = c->getLeftHand() ? c->getLeftHand()->getInventoryType() : Inventory::Type::Other;
 		if (type == Inventory::OneHandWeapon ||
 			type == Inventory::TwoHandWeapon ||
 			type == Inventory::Bow)
@@ -319,7 +319,7 @@ Weapon* BattleSystem::getWeapon(Character* c, AttackHand hand)
 
 		break;
 	case RightHand:
-		type = c->getRightHand() ? c->getRightHand()->getInventoryType() : Inventory::Empty;
+		type = c->getRightHand() ? c->getRightHand()->getInventoryType() : Inventory::Other;
 		if (type == Inventory::OneHandWeapon
 			|| type == Inventory::TwoHandWeapon
 			|| type == Inventory::Bow)

@@ -173,5 +173,8 @@ void InventoryFactory::initArrowData(tinyxml2::XMLElement* inventoryElement, Arr
 
 void InventoryFactory::initSupplyData(tinyxml2::XMLElement* inventoryElement, Supply* supplyModel)
 {
+	supplyModel->setStrRequire(getChildElementIntAttr(inventoryElement, "strRequire"));
+	supplyModel->setAgiRequire(getChildElementIntAttr(inventoryElement, "agiRequire"));
+	supplyModel->setIntRequire(getChildElementIntAttr(inventoryElement, "intRequire"));
 	supplyModel->setSkillName(getChildElementStrAttr(inventoryElement, "skillName"));
 }

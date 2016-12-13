@@ -36,15 +36,15 @@ void ExpHandler::addExp(const int e[3])
 	{
 		exp[i] += e[i];
 	}
-	if (isStrLevelUp())
+	while (isStrLevelUp())
 	{
 		levelStrUp();
 	}
-	if (isAgiLevelUp())
+	while (isAgiLevelUp())
 	{
 		levelAgiUp();
 	}
-	if (isIntLevelUp())
+	while (isIntLevelUp())
 	{
 		levelIntUp();
 	}
@@ -83,7 +83,7 @@ int ExpHandler::getCurIntExp()
 
 void ExpHandler::levelStrUp()
 {
-	exp[0] = 0;
+	exp[0] = exp[0] - expRequire[level[0] + 1];
 	level[0]++;
 	characterPtr->setStrength(
 		characterPtr->getOriStrength() + 1
@@ -92,7 +92,7 @@ void ExpHandler::levelStrUp()
 
 void ExpHandler::levelAgiUp()
 {
-	exp[1] = 0;
+	exp[1] = exp[1] - expRequire[level[1] + 1];
 	level[1]++;
 	characterPtr->setAgility(
 		characterPtr->getAgility() + 1
@@ -101,7 +101,7 @@ void ExpHandler::levelAgiUp()
 
 void ExpHandler::levelIntUp()
 {
-	exp[2] = 0;
+	exp[2] = exp[2] - expRequire[level[2] + 1];
 	level[2]++;
 	characterPtr->setIntellect(
 		characterPtr->getOriIntellect() + 1

@@ -120,7 +120,7 @@ void HudInventoryMenu::setItemTrigger(const std::string& inventoryName, HudMenuI
 	Inventory::Type inventoryType = InventoryFactory::getInstance()->queryInventoryType(inventoryName);
 	switch (inventoryType)
 	{
-	case Inventory::Empty:
+	case Inventory::Other:
 		break;
 	case Inventory::OneHandWeapon:
 	case Inventory::TwoHandWeapon:
@@ -133,8 +133,6 @@ void HudInventoryMenu::setItemTrigger(const std::string& inventoryName, HudMenuI
 		initUseableInventoryMenu(item);
 		break;
 	case Inventory::Accessory:
-		break;
-	case Inventory::Other:
 		break;
 	default:
 		break;
