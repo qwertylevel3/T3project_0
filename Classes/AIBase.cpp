@@ -101,6 +101,11 @@ void AIBase::seek(Character* target)
 	cocos2d::Point startPoint = characterPtr->getMapCoord();
 	cocos2d::Point endPoint = target->getMapCoord();
 	cocos2d::Point nextStep = ToolFunction::nextStep(startPoint, endPoint);
+	
+	if (nextStep==startPoint)
+	{
+		characterPtr->idle();
+	}
 
 	if (nextStep == endPoint)
 	{

@@ -2,6 +2,7 @@
 #include "2d/CCSprite.h"
 #include "MainLayer.h"
 #include "Dungeon.h"
+#include "ZOrderManager.h"
 
 
 TileInventoryHandler::TileInventoryHandler()
@@ -28,7 +29,7 @@ void TileInventoryHandler::addInventory(Inventory* inventory)
 		Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 		int storeyHeight = storey->getHeight();
 		sprite->setPosition(cocos2d::Point(coord.x * 32 + 16, (storeyHeight - coord.y) * 32 - 16));
-		MainLayer::getInstance()->addChild(sprite, 5);
+		MainLayer::getInstance()->addChild(sprite,ZOrderManager::inventoryZ);
 	}
 	inventoryBox.push_back(inventory);
 }

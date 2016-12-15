@@ -10,5 +10,6 @@ public:
 	static int chooseArrowZ;
 	static int characterZ;
 	static int tileMapZ;
+	static int inventoryZ;
 };
 

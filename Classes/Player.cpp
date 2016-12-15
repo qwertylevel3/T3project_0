@@ -45,7 +45,6 @@ void Player::init()
 	characterPtr->addSkill(L"ExpAdd_经验增加_0_0_10_10_100");
 	characterPtr->addSkill(L"LearnSkill_学习火球术_0_0_fireBall_火球术_5_5_20_5");
 
-
 	setName("qwerty");
 
 	controlMode = NormalMode;
@@ -89,9 +88,8 @@ void Player::init()
 	characterPtr->addInventory("strExpBook000");
 	characterPtr->addInventory("strAgiBook000");
 	characterPtr->addInventory("strIntBook000");
-
-
-
+	characterPtr->addInventory("skillBook000");
+	characterPtr->addInventory("scroll000");
 
 	//////////////////////////////////////////////////////////////////////////
 	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_20_100";

@@ -26,7 +26,7 @@ Storey* StoreyBuilder::generate()
 {
 	rooms.clear();
 	exits.clear();
-	storey = new Storey(50, 50);
+	storey = new Storey(20, 20);
 
 	int maxFeatures = 33;
 	// place the first room in the center
@@ -49,7 +49,8 @@ Storey* StoreyBuilder::generate()
 	{
 		if (!createFeature())
 		{
-			CCAssert(false, "Unable to place more features\n");
+			//CCAssert(false, "Unable to place more features\n");
+			break;
 		}
 		if (Debug::getInstance()->getDebugFlag())
 		{
@@ -141,7 +142,7 @@ bool StoreyBuilder::createFeature(int x, int y, Direction dir)
 bool StoreyBuilder::makeRoom(int x, int y, Direction dir, bool firstRoom /*= false*/)
 {
 	static const int minRoomSize = 3;
-	static const int maxRoomSize = 13;
+	static const int maxRoomSize = 8;
 
 	Rect room;
 	room.width = RandomNumber::getInstance()->randomInt(minRoomSize, maxRoomSize);

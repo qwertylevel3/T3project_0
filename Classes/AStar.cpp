@@ -145,6 +145,12 @@ std::vector<cocos2d::Point> AStar::findPath()
 	{
 		result.push_back(temp[i]);
 	}
+
+	if (result.empty())
+	{
+		result.push_back(startPoint);
+		return result;
+	}
 	return result;
 }
 
