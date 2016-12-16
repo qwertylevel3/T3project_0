@@ -174,16 +174,12 @@ void HudMenu::setHeight(int h)
 //	sprite->setTextureRect(cocos2d::Rect(0,0,getWidth(),h));
 	layout->setSize(cocos2d::Size(layout->getSize().width,h));
 	listView->setContentSize(cocos2d::Size(listView->getSize().width,h));
-
-
 }
 
 int HudMenu::getWidth()
 {
 //	return sprite->getTextureRect().size.width;
 	return listView->getSize().width;
-
-
 }
 
 int HudMenu::getHeight()
@@ -218,7 +214,6 @@ void HudMenu::chooseItem(int index)
 	position.x -= itemList[itemIndex]->getWidth() / 2;
 	position.x -= HudCursor::getInstance()->getSprite()->getTextureRect().size.width / 2;
 
-//	HudCursor::getInstance()->setPosition(position);
 
 	HudCursor::getInstance()->getSprite()->removeFromParent();
 
@@ -231,12 +226,14 @@ void HudMenu::chooseItem(int index)
 
 	HudCursor::getInstance()->getSprite()->setPosition(-8, 16);
 
-	listView->scrollToItem(
-		itemIndex,
+//	listView->scrollToItem(
+//		itemIndex,
+//		cocos2d::Vec2::ANCHOR_MIDDLE,
+//		cocos2d::Vec2::ANCHOR_MIDDLE
+//	);
+	listView->jumpToItem(itemIndex,
 		cocos2d::Vec2::ANCHOR_MIDDLE,
-		cocos2d::Vec2::ANCHOR_MIDDLE
-	);
-
+		cocos2d::Vec2::ANCHOR_MIDDLE);
 }
 
 void HudMenu::activeChildMenu(int index)
