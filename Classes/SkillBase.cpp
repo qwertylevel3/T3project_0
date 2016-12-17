@@ -92,7 +92,7 @@ void Skill::SkillBase::initMPCost(std::string MPCostStr)
 
 bool Skill::SkillBase::cost()
 {
-	if (chantCost > caster->getChant())
+	if (chantCost > caster->getChantCount())
 	{
 		HudMessageBox::getInstance()->addMessage(L"Ò÷³ªµãÊı²»¹»");
 		return false;

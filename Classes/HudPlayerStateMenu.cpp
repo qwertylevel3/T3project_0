@@ -133,7 +133,7 @@ void HudPlayerStateMenu::update()
 		MP + "/" + maxMP
 	);
 
-	std::string chant = ToolFunction::int2string(characterPtr->getChant());
+	std::string chant = ToolFunction::int2string(characterPtr->getChantCount());
 	chantLabel->setString(
 		ToolFunction::WStr2UTF8(L"Ò÷³ªµãÊý:") +
 		chant

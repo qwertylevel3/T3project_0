@@ -4,7 +4,7 @@
 	<actor>
 		<name>slime</name>
 		<characterName>slime</characterName>
-		<ai>AICommonEnemy</ai>
+		<ai>AISnack</ai>
 		<playType>enemy</playType>
 		<characterType>bad</characterType>
 		<physicalImmune>0</physicalImmune>
@@ -15,7 +15,7 @@
 		<skillAble>1</skillAble>
 		<actionAble>1</actionAble>
 		<strength>5</strength>
-		<intellect>0</intellect>
+		<intellect>3</intellect>
 		<agility>3</agility>
 		<luck>0</luck>
 		<viewSize>10</viewSize>

@@ -92,6 +92,7 @@ public:
 	void feedback(Character* character);
 	void handleDialogueResult(std::string dialogueName, int resultNumber);
 	void attack();
+	void chant();
 	void moveUp();
 	void moveDown();
 	void moveLeft();
@@ -258,7 +259,7 @@ protected:
 	CC_SYNTHESIZE(cocos2d::Point, mapCoord, MapCoord);
 	CC_SYNTHESIZE(int, HP, HP);
 	CC_SYNTHESIZE(int, MP, MP);
-	CC_SYNTHESIZE(int, chant, Chant);
+	CC_SYNTHESIZE(int, chantCount, ChantCount);
 	CC_SYNTHESIZE(int, gold, Gold);
 	CC_SYNTHESIZE(CharacterAttrHandler*, attrHandler, AttrHandler);
 	CC_SYNTHESIZE(int, level, Level);

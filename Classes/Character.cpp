@@ -59,7 +59,7 @@ Character::Character()
 	buffHandler = new Buff::BuffHandler(this);
 	expHandler = new ExpHandler(this);
 
-	chant = 0;
+	chantCount = 0;
 
 	characterBar = new CharacterBar();
 	speakLabel = new CharacterSpeakLabel();
@@ -227,13 +227,13 @@ void Character::showVibrateEffect()
 
 bool Character::accumulateChant(int value)
 {
-	chant += value;
+	chantCount += value;
 	return true;
 }
 
 void Character::clearChant()
 {
-	chant = 0;
+	chantCount = 0;
 }
 
 void Character::die()
@@ -328,6 +328,11 @@ void Character::attack()
 {
 	runSkill(ToolFunction::WStr2UTF8(L"attack_¹¥»÷_0_0"));
 	clearChant();
+}
+
+void Character::chant()
+{
+	runSkill(ToolFunction::WStr2UTF8(L"chant_Ò÷³ª_0_0"));
 }
 
 void Character::moveUp()
