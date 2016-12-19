@@ -8,13 +8,10 @@
 
 using namespace Field;
 
-
-
 AIBase::AIBase()
 {
 	characterPtr = nullptr;
 }
-
 
 AIBase::~AIBase()
 {
@@ -32,7 +29,6 @@ void AIBase::feedback(Character* character)
 
 void AIBase::handleDialogueResult(std::string dialogueName, int resultNumber)
 {
-	
 }
 
 void AIBase::setCharacter(Character* character)
@@ -42,7 +38,7 @@ void AIBase::setCharacter(Character* character)
 
 Character* AIBase::searchTargetBFS(Character::Type type)
 {
-	Storey* storey=Dungeon::getInstance()->getStorey();
+	Storey* storey = Dungeon::getInstance()->getStorey();
 	cocos2d::Point startPoint = characterPtr->getMapCoord();
 	int searchDeep = characterPtr->getViewSize();
 
@@ -51,9 +47,8 @@ Character* AIBase::searchTargetBFS(Character::Type type)
 
 	pointQueue.push(startPoint);
 
-
-	while (!pointQueue.empty() 
-		&& searchDeep!=0)
+	while (!pointQueue.empty()
+		&& searchDeep != 0)
 	{
 		cocos2d::Point curPoint = pointQueue.front();
 		pointQueue.pop();
@@ -76,7 +71,7 @@ Character* AIBase::searchTargetBFS(Character::Type type)
 
 					if (storey->isValid(position)
 						&& storey->getCharacter(position)
-						&& storey->getCharacter(position)->getCharacterType()==type
+						&& storey->getCharacter(position)->getCharacterType() == type
 						&& !storey->getCharacter(position)->isDead())
 					{
 						return storey->getCharacter(position);
@@ -95,33 +90,32 @@ Character* AIBase::searchTargetBFS(Character::Type type)
 	return nullptr;
 }
 
-
 void AIBase::seek(Character* target)
 {
 	cocos2d::Point startPoint = characterPtr->getMapCoord();
 	cocos2d::Point endPoint = target->getMapCoord();
 	cocos2d::Point nextStep = ToolFunction::nextStep(startPoint, endPoint);
-	
-	if (nextStep==startPoint)
+
+	if (nextStep == startPoint)
 	{
 		characterPtr->idle();
 	}
 
 	if (nextStep == endPoint)
 	{
-		if (startPoint.x>endPoint.x)
+		if (startPoint.x > endPoint.x)
 		{
 			characterPtr->setOrientationLeft();
 		}
-		else if (startPoint.x<endPoint.x)
+		else if (startPoint.x < endPoint.x)
 		{
 			characterPtr->setOrientationRight();
 		}
-		if (startPoint.y>endPoint.y)
+		if (startPoint.y > endPoint.y)
 		{
 			characterPtr->setOrientationUp();
 		}
-		else if(startPoint.y<endPoint.y)
+		else if (startPoint.y < endPoint.y)
 		{
 			characterPtr->setOrientationDown();
 		}
@@ -154,6 +148,31 @@ void AIBase::seek(Character* target)
 	}
 }
 
+void AIBase::changeOrientationTo(Character* target)
+{
+	cocos2d::Point startPoint = characterPtr->getMapCoord();
+	cocos2d::Point endPoint = target->getMapCoord();
+	cocos2d::Point nextStep = ToolFunction::nextStep(startPoint, endPoint);
+
+	if (startPoint.x > nextStep.x)
+	{
+		characterPtr->setOrientationLeft();
+	}
+	else if (startPoint.x < nextStep.x)
+	{
+		characterPtr->setOrientationRight();
+	}
+	if (startPoint.y > nextStep.y)
+	{
+		characterPtr->setOrientationUp();
+	}
+	else if (startPoint.y < nextStep.y)
+	{
+		characterPtr->setOrientationDown();
+	}
+	return;
+}
+
 void AIBase::flee(Character* target)
 {
 	cocos2d::Point startPoint = characterPtr->getMapCoord();
@@ -184,17 +203,14 @@ void AIBase::flee(Character* target)
 	{
 		CCAssert(false, "error nextStep");
 	}
-
 }
-
-
 
 bool AIBase::isInAttackArea(Character* target)
 {
 	std::vector<cocos2d::Point> atkArea = characterPtr->getAtkArea();
 	for each (cocos2d::Point point in atkArea)
 	{
-		if (target->getMapCoord()==point)
+		if (target->getMapCoord() == point)
 		{
 			return true;
 		}
@@ -205,20 +221,19 @@ bool AIBase::isInAttackArea(Character* target)
 bool AIBase::isNear(cocos2d::Point coord)
 {
 	cocos2d::Point characterCoord = characterPtr->getMapCoord();
-	if (coord.x==characterCoord.x
-		&& (coord.y==characterCoord.y+1 
-			|| coord.y==characterCoord.y-1
-			|| coord.y==characterCoord.y))
+	if (coord.x == characterCoord.x
+		&& (coord.y == characterCoord.y + 1
+			|| coord.y == characterCoord.y - 1
+			|| coord.y == characterCoord.y))
 	{
 		return true;
 	}
-	else 	if (coord.y==characterCoord.y
-		&& (coord.x==characterCoord.x+1 
-			|| coord.x==characterCoord.x-1
-			|| coord.x==characterCoord.x))
+	else 	if (coord.y == characterCoord.y
+		&& (coord.x == characterCoord.x + 1
+			|| coord.x == characterCoord.x - 1
+			|| coord.x == characterCoord.x))
 	{
 		return true;
 	}
 	return false;
 }
-
