@@ -151,6 +151,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Accessory.cpp" />
     <ClCompile Include="..\Classes\AccuracyBuff.cpp" />
     <ClCompile Include="..\Classes\AIBase.cpp" />
+    <ClCompile Include="..\Classes\AICentaur.cpp" />
     <ClCompile Include="..\Classes\AICommonEnemy.cpp" />
     <ClCompile Include="..\Classes\AIEnts.cpp" />
     <ClCompile Include="..\Classes\AIFactory.cpp" />
@@ -313,6 +314,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Accessory.h" />
     <ClInclude Include="..\Classes\AccuracyBuff.h" />
     <ClInclude Include="..\Classes\AIBase.h" />
+    <ClInclude Include="..\Classes\AICentaur.h" />
     <ClInclude Include="..\Classes\AICommonEnemy.h" />
     <ClInclude Include="..\Classes\AIEnts.h" />
     <ClInclude Include="..\Classes\AIFactory.h" />

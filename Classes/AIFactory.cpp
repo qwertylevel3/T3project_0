@@ -6,6 +6,7 @@
 #include "AIPortal.h"
 #include "AISnack.h"
 #include "AIEnts.h"
+#include "AICentaur.h"
 
 
 
@@ -47,6 +48,10 @@ AIBase* AIFactory::getAI(const std::string& AIName)
 	else if (AIName == "AIEnts")
 	{
 		return new AIEnts();
+	}
+	else if (AIName == "AICentaur")
+	{
+		return new AICentaur();
 	}
 	else
 	{

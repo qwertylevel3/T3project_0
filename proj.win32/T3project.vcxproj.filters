@@ -542,6 +542,7 @@
     <ClCompile Include="..\Classes\LearnSkill.cpp" />
     <ClCompile Include="..\Classes\AISnack.cpp" />
     <ClCompile Include="..\Classes\AIEnts.cpp" />
+    <ClCompile Include="..\Classes\AICentaur.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1014,6 +1015,7 @@
     <ClInclude Include="..\Classes\LearnSkill.h" />
     <ClInclude Include="..\Classes\AISnack.h" />
     <ClInclude Include="..\Classes\AIEnts.h" />
+    <ClInclude Include="..\Classes\AICentaur.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

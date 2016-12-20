@@ -46,7 +46,7 @@ void Skill::SkillFactory::init()
 	ExpAdd* expAddPrototype = new ExpAdd();
 	LearnSkill* learnSkillPrototype = new LearnSkill();
 
-	skillPrototypeBox["fireBall"] = fireBallPrototype;
+	skillPrototypeBox["FireBall"] = fireBallPrototype;
 	skillPrototypeBox["attack"] = attackPrototype;
 	skillPrototypeBox["chant"] = chantPrototype;
 	skillPrototypeBox["HPRecoverySelf"] = hpSelfPrototype;
