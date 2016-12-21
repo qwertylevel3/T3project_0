@@ -186,7 +186,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>10</intRequire>
-		<skillName>LearnSkill_学习火球术_0_0_fireBall_火球术_5_5_20_5</skillName>
+		<skillName>LearnSkill_学习火球术_0_0_FireBall_火球术_5_5_20_5</skillName>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -201,7 +201,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>10</intRequire>
-		<skillName>fireBall_火球术_0_0_20_5</skillName>
+		<skillName>FireBall_火球术_0_0_20_5</skillName>
 	</inventory>
 	<inventory>
 		<type>arrow</type>

@@ -4,7 +4,7 @@
 	<actor>
 		<name>slime</name>
 		<characterName>slime</characterName>
-		<ai>AICentaur</ai>
+		<ai>AIVampire</ai>
 		<playType>enemy</playType>
 		<characterType>bad</characterType>
 		<physicalImmune>0</physicalImmune>
@@ -19,10 +19,10 @@
 		<agility>3</agility>
 		<luck>0</luck>
 		<viewSize>10</viewSize>
-		<maxHP>20</maxHP>
-		<maxMP>0</maxMP>
-		<leftHand>sword000</leftHand>
-		<rightHand>NULL</rightHand>
+		<maxHP>100</maxHP>
+		<maxMP>400</maxMP>
+		<leftHand>sword001</leftHand>
+		<rightHand>sword001</rightHand>
 		<armor>NULL</armor>
 		<accessory>NULL</accessory>
 	</actor>
@@ -43,9 +43,9 @@
 		<intellect>10</intellect>
 		<agility>10</agility>
 		<luck>0</luck>
-		<viewSize>20</viewSize>
+		<viewSize>10</viewSize>
 		<maxHP>100</maxHP>
-		<maxMP>50</maxMP>
+		<maxMP>100</maxMP>
 		<leftHand>sword000</leftHand>
 		<rightHand>NULL</rightHand>
 		<armor>NULL</armor>

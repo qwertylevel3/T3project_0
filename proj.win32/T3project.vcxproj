@@ -159,6 +159,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AIShrine.cpp" />
     <ClCompile Include="..\Classes\AISnack.cpp" />
     <ClCompile Include="..\Classes\AIStatue.cpp" />
+    <ClCompile Include="..\Classes\AITauren.cpp" />
+    <ClCompile Include="..\Classes\AIVampire.cpp" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\AreaSearchSelector.cpp" />
     <ClCompile Include="..\Classes\Armor.cpp" />
@@ -322,6 +324,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AIShrine.h" />
     <ClInclude Include="..\Classes\AISnack.h" />
     <ClInclude Include="..\Classes\AIStatue.h" />
+    <ClInclude Include="..\Classes\AITauren.h" />
+    <ClInclude Include="..\Classes\AIVampire.h" />
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AreaSearchSelector.h" />
     <ClInclude Include="..\Classes\Armor.h" />
