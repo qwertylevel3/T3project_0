@@ -99,6 +99,7 @@ void AIBase::seek(Character* target)
 	if (nextStep == startPoint)
 	{
 		characterPtr->idle();
+		return;
 	}
 
 	if (nextStep == endPoint)

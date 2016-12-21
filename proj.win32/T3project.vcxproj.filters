@@ -545,6 +545,7 @@
     <ClCompile Include="..\Classes\AICentaur.cpp" />
     <ClCompile Include="..\Classes\AITauren.cpp" />
     <ClCompile Include="..\Classes\AIVampire.cpp" />
+    <ClCompile Include="..\Classes\AISummonWizard.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1020,6 +1021,7 @@
     <ClInclude Include="..\Classes\AICentaur.h" />
     <ClInclude Include="..\Classes\AITauren.h" />
     <ClInclude Include="..\Classes\AIVampire.h" />
+    <ClInclude Include="..\Classes\AISummonWizard.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

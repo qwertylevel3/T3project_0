@@ -9,6 +9,7 @@
 #include "AICentaur.h"
 #include "AITauren.h"
 #include "AIVampire.h"
+#include "AISummonWizard.h"
 
 
 
@@ -62,6 +63,10 @@ AIBase* AIFactory::getAI(const std::string& AIName)
 	else if (AIName == "AIVampire")
 	{
 		return new AIVampire();
+	}
+	else if (AIName == "AISummonWizard")
+	{
+		return new AISummonWizard();
 	}
 	else
 	{

@@ -4,7 +4,7 @@
 	<actor>
 		<name>slime</name>
 		<characterName>slime</characterName>
-		<ai>AIVampire</ai>
+		<ai>AISummonWizard</ai>
 		<playType>enemy</playType>
 		<characterType>bad</characterType>
 		<physicalImmune>0</physicalImmune>

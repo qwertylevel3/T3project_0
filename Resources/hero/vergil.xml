@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
 <Hero>
 	<name>vergil</name>
 	<characterName>vergil</characterName>
 	<AI>AIVergil</AI>
 	<level>1</level>
-	<HP>100</HP>
-	<MP>100</MP>
+	<HP>1000</HP>
+	<MP>1000</MP>
 	<STR>10</STR>
 	<AGI>10</AGI>
 	<INT>20</INT>
