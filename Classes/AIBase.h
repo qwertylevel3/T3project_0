@@ -16,7 +16,8 @@ protected:
 	Character* characterPtr;
 	void seek(Character* target);
 	void changeOrientationTo(Character* target);
-	void flee(Character* target);
+	//逃跑，如果成功移动，返回true，否则返回false
+	bool flee(Character* target);
 	bool isInAttackArea(Character* target);
 	bool isNear(cocos2d::Point coord);
 };

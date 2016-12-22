@@ -26,7 +26,18 @@ void AICommonEnemy::update()
 	{
 		if (isDangerous())
 		{
-			flee(targetCharacter);
+			if (!flee(targetCharacter))
+			{
+				changeOrientationTo(targetCharacter);
+				if (isInAttackArea(targetCharacter))
+				{
+					characterPtr->attack();
+				}
+				else
+				{
+					characterPtr->idle();
+				}
+			}
 		}
 		else
 		{

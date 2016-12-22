@@ -4,7 +4,7 @@
 	<actor>
 		<name>slime</name>
 		<characterName>slime</characterName>
-		<ai>AISummonWizard</ai>
+		<ai>AICommonEnemy</ai>
 		<playType>enemy</playType>
 		<characterType>bad</characterType>
 		<physicalImmune>0</physicalImmune>
@@ -20,9 +20,9 @@
 		<luck>0</luck>
 		<viewSize>10</viewSize>
 		<maxHP>100</maxHP>
-		<maxMP>400</maxMP>
-		<leftHand>sword001</leftHand>
-		<rightHand>sword001</rightHand>
+		<maxMP>20</maxMP>
+		<leftHand>sword000</leftHand>
+		<rightHand>NULL</rightHand>
 		<armor>NULL</armor>
 		<accessory>NULL</accessory>
 	</actor>

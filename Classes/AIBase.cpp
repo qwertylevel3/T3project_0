@@ -174,36 +174,47 @@ void AIBase::changeOrientationTo(Character* target)
 	return;
 }
 
-void AIBase::flee(Character* target)
+bool AIBase::flee(Character* target)
 {
 	cocos2d::Point startPoint = characterPtr->getMapCoord();
 	cocos2d::Point endPoint = target->getMapCoord();
 	cocos2d::Point nextStep = ToolFunction::nextStep(startPoint, endPoint);
 
+	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+
 	if (nextStep.x == startPoint.x + 1
-		&& nextStep.y == startPoint.y)
+		&& nextStep.y == startPoint.y
+		&& storey->isMoveAble(cocos2d::Point(startPoint.x-1,startPoint.y)))
 	{
 		characterPtr->moveLeft();
+		return true;
 	}
 	else if (nextStep.x == startPoint.x - 1
-		&& nextStep.y == startPoint.y)
+		&& nextStep.y == startPoint.y
+		&& storey->isMoveAble(cocos2d::Point(startPoint.x+1,startPoint.y)))
 	{
 		characterPtr->moveRight();
+		return true;
 	}
 	else if (nextStep.x == startPoint.x
-		&& nextStep.y == startPoint.y - 1)
+		&& nextStep.y == startPoint.y - 1
+		&& storey->isMoveAble(cocos2d::Point(startPoint.x,startPoint.y+1)))
 	{
 		characterPtr->moveDown();
+		return true;
 	}
 	else if (nextStep.x == startPoint.x
-		&& nextStep.y == startPoint.y + 1)
+		&& nextStep.y == startPoint.y + 1
+		&& storey->isMoveAble(cocos2d::Point(startPoint.x,startPoint.y-1)))
 	{
 		characterPtr->moveUp();
+		return true;
 	}
 	else
 	{
-		CCAssert(false, "error nextStep");
+		return false;
 	}
+	return false;
 }
 
 bool AIBase::isInAttackArea(Character* target)
