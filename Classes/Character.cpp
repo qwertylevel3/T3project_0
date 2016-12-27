@@ -30,6 +30,7 @@
 #include "AIFactory.h"
 #include "CharacterBar.h"
 #include "SkillFactory.h"
+#include "2d/CCAnimation.h"
 
 USING_NS_CC;
 using namespace Field;
@@ -402,30 +403,66 @@ void Character::setOrientationRight()
 
 void Character::showMoveUpAnimation()
 {
-	Animate* action = Animate::create(moveUpAnimation);
-	action->setDuration(0.2);
-	sprite->runAction(action);
+	Animate* action1 = Animate::create(moveUpAnimation);
+	action1->setDuration(0.2);
+
+	Animate* action2 = Animate::create(standUpAnimation);
+
+	sprite->runAction(
+		cocos2d::Sequence::create(
+			action1,
+			action2,
+			NULL
+		)
+	);
 }
 
 void Character::showMoveDownAnimation()
 {
-	Animate* action = Animate::create(moveDownAnimation);
-	action->setDuration(0.2);
-	sprite->runAction(action);
+	Animate* action1 = Animate::create(moveDownAnimation);
+	action1->setDuration(0.2);
+
+	Animate* action2 = Animate::create(standDownAnimation);
+
+	sprite->runAction(
+		cocos2d::Sequence::create(
+			action1,
+			action2,
+			NULL
+		)
+	);
 }
 
 void Character::showMoveLeftAnimation()
 {
-	Animate* action = Animate::create(moveLeftAnimation);
-	action->setDuration(0.2);
-	sprite->runAction(action);
+	Animate* action1 = Animate::create(moveLeftAnimation);
+	action1->setDuration(0.2);
+
+	Animate* action2 = Animate::create(standLeftAnimation);
+
+	sprite->runAction(
+		cocos2d::Sequence::create(
+			action1,
+			action2,
+			NULL
+		)
+	);
 }
 
 void Character::showMoveRightAnimation()
 {
-	Animate* action = Animate::create(moveRightAnimation);
-	action->setDuration(0.2);
-	sprite->runAction(action);
+	Animate* action1 = Animate::create(moveRightAnimation);
+	action1->setDuration(0.2);
+
+	Animate* action2 = Animate::create(standRightAnimation);
+
+	sprite->runAction(
+		cocos2d::Sequence::create(
+			action1,
+			action2,
+			NULL
+		)
+	);
 }
 
 void Character::equipLeftHand(Inventory* inventory)
