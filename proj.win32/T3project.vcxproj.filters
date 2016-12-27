@@ -538,15 +538,34 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\ExpHandler.cpp" />
-    <ClCompile Include="..\Classes\ExpAdd.cpp" />
-    <ClCompile Include="..\Classes\LearnSkill.cpp" />
-    <ClCompile Include="..\Classes\AISnack.cpp" />
-    <ClCompile Include="..\Classes\AIEnts.cpp" />
-    <ClCompile Include="..\Classes\AICentaur.cpp" />
-    <ClCompile Include="..\Classes\AITauren.cpp" />
-    <ClCompile Include="..\Classes\AIVampire.cpp" />
-    <ClCompile Include="..\Classes\AISummonWizard.cpp" />
-    <ClCompile Include="..\Classes\AIDestroyWizard.cpp" />
+    <ClCompile Include="..\Classes\AICentaur.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AIDestroyWizard.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AIEnts.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AISnack.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AISummonWizard.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AITauren.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AIVampire.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LearnSkill.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ExpAdd.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AIBlackSnack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1015,15 +1034,34 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\ExpHandler.h" />
-    <ClInclude Include="..\Classes\ExpAdd.h" />
-    <ClInclude Include="..\Classes\LearnSkill.h" />
-    <ClInclude Include="..\Classes\AISnack.h" />
-    <ClInclude Include="..\Classes\AIEnts.h" />
-    <ClInclude Include="..\Classes\AICentaur.h" />
-    <ClInclude Include="..\Classes\AITauren.h" />
-    <ClInclude Include="..\Classes\AIVampire.h" />
-    <ClInclude Include="..\Classes\AISummonWizard.h" />
-    <ClInclude Include="..\Classes\AIDestroyWizard.h" />
+    <ClInclude Include="..\Classes\AICentaur.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AIDestroyWizard.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AIEnts.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AISnack.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AISummonWizard.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AITauren.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AIVampire.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LearnSkill.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ExpAdd.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AIBlackSnack.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
