@@ -110,6 +110,42 @@
 		</standRightAnimation>
 	</character>
 	<character>
+		<name>snack</name>
+		<firstFrame>snack1.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>snack4.png</frameName>
+			<frameName>snack5.png</frameName>
+			<frameName>snack6.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>snack1.png</frameName>
+			<frameName>snack2.png</frameName>
+			<frameName>snack3.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>snack7.png</frameName>
+			<frameName>snack8.png</frameName>
+			<frameName>snack9.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>snack10.png</frameName>
+			<frameName>snack11.png</frameName>
+			<frameName>snack12.png</frameName>
+		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>snack4.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>snack1.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>snack7.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>snack10.png</frameName>
+		</standRightAnimation>
+	</character>
+	<character>
 		<name>chest</name>
 		<firstFrame>chest.png</firstFrame>
 		<moveUpAnimation>

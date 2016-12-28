@@ -369,7 +369,7 @@ void Field::StoreyBuilder::placeGameActor(const Rect & rect)
 		int x = rect.x;
 		int y = rect.y;
 
-		Character* monster = GameActorFactory::getInstance()->getActor("slime");
+		Character* monster = GameActorFactory::getInstance()->getActor("snack");
 		CCAssert(monster, "get a null monster");
 
 		placeGameActor(x, y, monster);
