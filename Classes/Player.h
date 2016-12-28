@@ -16,6 +16,9 @@ public:
 	void init();
 	void initMission();
 
+
+
+
 	//test...
 	void autoNextStep();
 

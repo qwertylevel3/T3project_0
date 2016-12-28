@@ -8,139 +8,69 @@ const int ExpHandler::expRequire[27] =
 	500,500,500,600,600,800,800
 };
 
-const int ExpHandler::atkExpAdd[3] = {5,5,0};
-const int ExpHandler::evadeExpAdd[3] = {0,5,0};
-const int ExpHandler::criticalExpAdd[3]={5,2,0};
-const int ExpHandler::blockExpAdd[3] = {5,2,0};
-const int ExpHandler::comboExpAdd[3] = {2,5,0};
-const int ExpHandler::sphereExpAdd[3] = {0,0,2};
-const int ExpHandler::skillExpAdd[3] = {0,0,10};
+const int ExpHandler::skillExpAdd = 40;
 
 ExpHandler::ExpHandler(Character* character)
 	:characterPtr(character)
 {
-	for (int i = 0; i < 3; i++)
-	{
-		exp[i] = 0;
-		level[i] = 1;
-	}
+	exp = 0;
+	level = 1;
+	attrPoint = 0;
 }
 
 ExpHandler::~ExpHandler()
 {
 }
 
-void ExpHandler::addExp(const int e[3])
+void ExpHandler::addExp(const int e)
 {
-	for (int i=0;i<3;i++)
+	exp += e;
+	while (isLevelUp())
 	{
-		exp[i] += e[i];
-	}
-	while (isStrLevelUp())
-	{
-		levelStrUp();
-	}
-	while (isAgiLevelUp())
-	{
-		levelAgiUp();
-	}
-	while (isIntLevelUp())
-	{
-		levelIntUp();
+		levelUp();
 	}
 }
 
-
-int ExpHandler::getCurStrLevel()
+void ExpHandler::useAttrPoint()
 {
-	return level[0];
+	attrPoint--;
 }
 
-int ExpHandler::getCurAgiLevel()
+int ExpHandler::getCurLevel()
 {
-	return level[1];
+	return level;
 }
 
-int ExpHandler::getCurIntLevel()
+int ExpHandler::getCurExp()
 {
-	return level[2];
+	return exp;
 }
 
-int ExpHandler::getCurStrExp()
+int ExpHandler::getCurAttrPoint()
 {
-	return exp[0];
+	return attrPoint;
 }
 
-int ExpHandler::getCurAgiExp()
+void ExpHandler::levelUp()
 {
-	return exp[1];
+	exp = exp - expRequire[level + 1];
+	level++;
+	attrPoint++;
+	//TODO:
+	//玩家的levelUp另外处理
+	if (characterPtr->getPlayType() != Character::Player)
+	{
+		characterPtr->levelUp();
+	}
 }
 
-int ExpHandler::getCurIntExp()
+bool ExpHandler::isLevelUp()
 {
-	return exp[2];
-}
-
-void ExpHandler::levelStrUp()
-{
-	exp[0] = exp[0] - expRequire[level[0] + 1];
-	level[0]++;
-	characterPtr->setStrength(
-		characterPtr->getOriStrength() + 1
-	);
-}
-
-void ExpHandler::levelAgiUp()
-{
-	exp[1] = exp[1] - expRequire[level[1] + 1];
-	level[1]++;
-	characterPtr->setAgility(
-		characterPtr->getAgility() + 1
-	);
-}
-
-void ExpHandler::levelIntUp()
-{
-	exp[2] = exp[2] - expRequire[level[2] + 1];
-	level[2]++;
-	characterPtr->setIntellect(
-		characterPtr->getOriIntellect() + 1
-	);
-}
-
-bool ExpHandler::isStrLevelUp()
-{
-	if (level[Str] >= 25)
+	if (level >= 25)
 	{
 		return false;
 	}
-	if (exp[Str] >= expRequire[level[Str] + 1])
-	{
-		return true;
-	}
-	return false;
-}
-
-bool ExpHandler::isAgiLevelUp()
-{
-	if (level[Agi] >= 25)
-	{
-		return false;
-	}
-	if (exp[Agi] >= expRequire[level[Agi] + 1])
-	{
-		return true;
-	}
-	return false;
-}
-
-bool ExpHandler::isIntLevelUp()
-{
-	if (level[Int] >= 25)
-	{
-		return false;
-	}
-	if (exp[Int] >= expRequire[level[Int] + 1])
+	if (exp >= expRequire[level + 1])
 	{
 		return true;
 	}

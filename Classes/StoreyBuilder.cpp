@@ -339,6 +339,7 @@ bool StoreyBuilder::placeObject(int tile)
 		if (tile == UpStair)
 		{
 			storey->setUpCoord(cocos2d::Point(x, y));
+			
 		}
 		else if (tile == DownStair)
 		{
@@ -429,6 +430,11 @@ void Field::StoreyBuilder::placeGameActor(int x, int y, Character* character)
 
 void Field::StoreyBuilder::placeGameActor()
 {
+	//设置起始点神像
+	Character* statue = GameActorFactory::getInstance()->getActor("statue");
+	CCAssert(statue, "get a null portal");
+	storey->addCharacter(storey->getUpCoord().x, storey->getUpCoord().y, statue);
+
 	//设置向下一层的传送门
 	Character* portal = GameActorFactory::getInstance()->getActor("portal");
 	CCAssert(portal, "get a null portal");

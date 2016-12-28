@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "ExpHandler.h"
 #include "HudMessageBox.h"
 #include "ToolFunction.h"
 #include"CharacterFactory.h"
@@ -85,9 +86,6 @@ void Player::init()
 	characterPtr->addInventory("torch000");
 	characterPtr->addInventory("torch000");
 	characterPtr->addInventory("supply000");
-	characterPtr->addInventory("strExpBook000");
-	characterPtr->addInventory("strAgiBook000");
-	characterPtr->addInventory("strIntBook000");
 	characterPtr->addInventory("skillBook000");
 	characterPtr->addInventory("scroll000");
 
@@ -130,6 +128,7 @@ void Player::initMission()
 
 	storey->addCharacter(tempCoord, characterPtr);
 }
+
 
 void Player::autoNextStep()
 {

@@ -14,6 +14,6 @@ namespace Skill
 		void run();
 		void initExtraMessage(std::vector<std::string> extraMessage);
 		virtual std::string getExtraDescription();
-		int value[3];
+		int value;
 	};
 }

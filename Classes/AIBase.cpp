@@ -1,10 +1,12 @@
 #include "AIBase.h"
+#include "ExpHandler.h"
 #include "Dungeon.h"
 #include "Character.h"
 #include "ToolFunction.h"
 #include <queue>
 #include "HudMessageBox.h"
 #include <set>
+#include "RandomNumber.h"
 
 using namespace Field;
 
@@ -88,6 +90,35 @@ Character* AIBase::searchTargetBFS(Character::Type type)
 	}
 
 	return nullptr;
+}
+
+void AIBase::levelUp()
+{
+	ExpHandler* expHandler = characterPtr->getExphandler();
+
+	while (expHandler->getCurAttrPoint() > 0)
+	{
+		int rn = RandomNumber::getInstance()->randomInt(1, 9);
+		if (rn <= 3)
+		{
+			characterPtr->setStrength(
+				characterPtr->getOriStrength() + 1
+			);
+		}
+		else if (rn <= 6 && rn > 3)
+		{
+			characterPtr->setAgility(
+				characterPtr->getOriAgility() + 1
+			);
+		}
+		else
+		{
+			characterPtr->setIntellect(
+				characterPtr->getOriIntellect() + 1
+			);
+		}
+		expHandler->useAttrPoint();
+	}
 }
 
 void AIBase::seek(Character* target)
@@ -184,28 +215,28 @@ bool AIBase::flee(Character* target)
 
 	if (nextStep.x == startPoint.x + 1
 		&& nextStep.y == startPoint.y
-		&& storey->isMoveAble(cocos2d::Point(startPoint.x-1,startPoint.y)))
+		&& storey->isMoveAble(cocos2d::Point(startPoint.x - 1, startPoint.y)))
 	{
 		characterPtr->moveLeft();
 		return true;
 	}
 	else if (nextStep.x == startPoint.x - 1
 		&& nextStep.y == startPoint.y
-		&& storey->isMoveAble(cocos2d::Point(startPoint.x+1,startPoint.y)))
+		&& storey->isMoveAble(cocos2d::Point(startPoint.x + 1, startPoint.y)))
 	{
 		characterPtr->moveRight();
 		return true;
 	}
 	else if (nextStep.x == startPoint.x
 		&& nextStep.y == startPoint.y - 1
-		&& storey->isMoveAble(cocos2d::Point(startPoint.x,startPoint.y+1)))
+		&& storey->isMoveAble(cocos2d::Point(startPoint.x, startPoint.y + 1)))
 	{
 		characterPtr->moveDown();
 		return true;
 	}
 	else if (nextStep.x == startPoint.x
 		&& nextStep.y == startPoint.y + 1
-		&& storey->isMoveAble(cocos2d::Point(startPoint.x,startPoint.y-1)))
+		&& storey->isMoveAble(cocos2d::Point(startPoint.x, startPoint.y - 1)))
 	{
 		characterPtr->moveUp();
 		return true;

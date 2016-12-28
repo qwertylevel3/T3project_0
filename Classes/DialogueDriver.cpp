@@ -38,7 +38,6 @@ void DialogueDriver::init()
 
 	cocos2d::CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("dialogue/dialogueActor.plist");
 
-
 	//////////////////////////////////////////////////////////////////////////
 
 //	Sprite* testActor0Sprite = Sprite::createWithSpriteFrameName("vergil1.png");
@@ -48,15 +47,12 @@ void DialogueDriver::init()
 //	HudLayer::getInstance()->addChild(testActor0Sprite);
 //	testActor0Sprite->setLocalZOrder(0);
 
-
 //	Sprite* testActor1Sprite = Sprite::createWithSpriteFrameName("vergil2.png");
 //	testActor1Sprite->setVisible(false);
 //	testActor1Sprite->setPosition(400, 150);
 //	actorSpriteBox["vergil2.png"] = testActor1Sprite;
 //	HudLayer::getInstance()->addChild(testActor1Sprite);
 //	testActor1Sprite->setLocalZOrder(0);
-
-
 
 	//////////////////////////////////////////////////////////////////////////
 
@@ -81,15 +77,21 @@ void DialogueDriver::run(Statement* statement)
 	std::string actorSpriteName = statement->getActorSpriteName();
 	std::string word = statement->getWord();
 
-//	actorSpriteBox[actorSpriteName]->setVisible(true);
+	//	actorSpriteBox[actorSpriteName]->setVisible(true);
 
-	actorSprite = Sprite::createWithSpriteFrameName(
-		actorSpriteName
-	);
-	actorSprite->setPosition(400, 150);
-	HudLayer::getInstance()->addChild(actorSprite);
-	actorSprite->setLocalZOrder(0);
 
+	if (actorSpriteName != "NULL")
+	{
+		actorSprite = Sprite::createWithSpriteFrameName(actorSpriteName);
+		actorSprite->setPosition(400, 150);
+		HudLayer::getInstance()->addChild(actorSprite);
+		actorSprite->setLocalZOrder(0);
+	}
+	else
+	{
+		actorSprite = Sprite::create();
+		HudLayer::getInstance()->addChild(actorSprite);
+	}
 
 	dialogBk->setVisible(true);
 	textLabel->setVisible(true);
@@ -101,13 +103,20 @@ void DialogueDriver::run(Question* question)
 	std::string actorSpriteName = question->getActorSpriteName();
 	std::string word = question->getWord();
 
-//	actorSpriteBox[actorSpriteName]->setVisible(true);
+	//	actorSpriteBox[actorSpriteName]->setVisible(true);
 
-	actorSprite = Sprite::createWithSpriteFrameName(actorSpriteName);
-	actorSprite->setPosition(400, 150);
-	HudLayer::getInstance()->addChild(actorSprite);
-	actorSprite->setLocalZOrder(0);
-
+	if (actorSpriteName != "NULL")
+	{
+		actorSprite = Sprite::createWithSpriteFrameName(actorSpriteName);
+		actorSprite->setPosition(400, 150);
+		HudLayer::getInstance()->addChild(actorSprite);
+		actorSprite->setLocalZOrder(0);
+	}
+	else
+	{
+		actorSprite = Sprite::create();
+		HudLayer::getInstance()->addChild(actorSprite);
+	}
 
 	dialogBk->setVisible(true);
 	textLabel->setVisible(true);
@@ -128,7 +137,7 @@ void DialogueDriver::startDialogue(Dialogue* dialogue)
 int DialogueDriver::nextSentence()
 {
 	std::string actorSpriteName = curSentence->getActorSpriteName();
-//	actorSpriteBox[actorSpriteName]->setVisible(false);
+	//	actorSpriteBox[actorSpriteName]->setVisible(false);
 	actorSprite->removeFromParent();
 
 	curIndex = curSentence->next();
@@ -164,8 +173,8 @@ void DialogueDriver::endDialogue(int endResult)
 	textLabel->setVisible(false);
 
 	std::string actorSpriteName = curSentence->getActorSpriteName();
-//	actorSpriteBox[actorSpriteName]->setVisible(false);
-//	actorSprite->removeFromParent();
+	//	actorSpriteBox[actorSpriteName]->setVisible(false);
+	//	actorSprite->removeFromParent();
 
 	KeyController::getInstance()->switchCtrlToPlayer();
 

@@ -73,29 +73,19 @@ void HudPlayerStateMenu::init()
 	//	goldLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	//	bk->addChild(goldLabel);
 
-	strExpLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	strExpLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
-	bk->addChild(strExpLabel);
+	expLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	expLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
+	bk->addChild(expLabel);
 
-	agiExpLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	agiExpLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
-	bk->addChild(agiExpLabel);
+	levelLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	levelLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
+	bk->addChild(levelLabel);
 
-	intExpLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	intExpLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
-	bk->addChild(intExpLabel);
+	pointLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	pointLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
+	bk->addChild(pointLabel);
 
-	strLevelLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	strLevelLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
-	bk->addChild(strLevelLabel);
 
-	agiLevelLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	agiLevelLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
-	bk->addChild(agiLevelLabel);
-
-	intLevelLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	intLevelLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
-	bk->addChild(intLevelLabel);
 
 	//	luckLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	//	bk->addChild(luckLabel);
@@ -161,38 +151,22 @@ void HudPlayerStateMenu::update()
 
 	ExpHandler* expHandler = Player::getInstance()->getcharacterPtr()->getExphandler();
 
-	std::string strExp = ToolFunction::int2string(expHandler->getCurStrExp());
-	strExpLabel->setString(
+	std::string exp = ToolFunction::int2string(expHandler->getCurExp());
+	expLabel->setString(
 		ToolFunction::WStr2UTF8(L"Exp:") +
-		strExp
+		exp
 	);
 
-	std::string agiExp = ToolFunction::int2string(expHandler->getCurAgiExp());
-	agiExpLabel->setString(
-		ToolFunction::WStr2UTF8(L"Exp:") +
-		agiExp
+	std::string level = ToolFunction::int2string(expHandler->getCurLevel());
+	levelLabel->setString(
+		ToolFunction::WStr2UTF8(L"Level:") +
+		level	
 	);
 
-	std::string intExp = ToolFunction::int2string(expHandler->getCurIntExp());
-	intExpLabel->setString(
-		ToolFunction::WStr2UTF8(L"Exp:") +
-		intExp
-	);
-
-	std::string strLevel = ToolFunction::int2string(expHandler->getCurStrLevel());
-	strLevelLabel->setString(
-		ToolFunction::WStr2UTF8(L"Level:") +
-		strLevel
-	);
-	std::string agiLevel = ToolFunction::int2string(expHandler->getCurAgiLevel());
-	agiLevelLabel->setString(
-		ToolFunction::WStr2UTF8(L"Level:") +
-		agiLevel
-	);
-	std::string intLevel = ToolFunction::int2string(expHandler->getCurIntLevel());
-	intLevelLabel->setString(
-		ToolFunction::WStr2UTF8(L"Level:") +
-		intLevel
+	std::string point = ToolFunction::int2string(expHandler->getCurAttrPoint());
+	pointLabel->setString(
+		ToolFunction::WStr2UTF8(L"ÊôÐÔµã:") +
+		point	
 	);
 
 	//////////////////////////////////////////////////////////////////////////
@@ -231,11 +205,7 @@ void HudPlayerStateMenu::setPosition()
 	intLabel->setPosition(170, 70);
 	weightLabel->setPosition(170, 40);
 
-	strExpLabel->setPosition(250, 130);
-	agiExpLabel->setPosition(250, 100);
-	intExpLabel->setPosition(250, 70);
-
-	strLevelLabel->setPosition(330, 130);
-	agiLevelLabel->setPosition(330, 100);
-	intLevelLabel->setPosition(330, 70);
+	expLabel->setPosition(250, 130);
+	levelLabel->setPosition(250, 100);
+	pointLabel->setPosition(250, 70);
 }

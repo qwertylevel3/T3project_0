@@ -130,51 +130,6 @@
 	</inventory>
 	<inventory>
 		<type>supply</type>
-		<name>strExpBook000</name>
-		<cname>力量之书</cname>
-		<tips>获得力量经验20</tips>
-		<level>1</level>
-		<price>10</price>
-		<weight>1</weight>
-		<spriteName>sword_icon.png</spriteName>
-		<buffBox/>
-		<strRequire>0</strRequire>
-		<agiRequire>0</agiRequire>
-		<intRequire>0</intRequire>
-		<skillName>ExpAdd_经验增加_0_0_20_0_0</skillName>
-	</inventory>
-	<inventory>
-		<type>supply</type>
-		<name>strAgiBook000</name>
-		<cname>敏捷之书</cname>
-		<tips>获得敏捷经验20</tips>
-		<level>1</level>
-		<price>10</price>
-		<weight>1</weight>
-		<spriteName>sword_icon.png</spriteName>
-		<buffBox/>
-		<strRequire>0</strRequire>
-		<agiRequire>0</agiRequire>
-		<intRequire>0</intRequire>
-		<skillName>ExpAdd_经验增加_0_0_0_20_0</skillName>
-	</inventory>
-	<inventory>
-		<type>supply</type>
-		<name>strIntBook000</name>
-		<cname>智力之书</cname>
-		<tips>获得智力经验20</tips>
-		<level>1</level>
-		<price>10</price>
-		<weight>1</weight>
-		<spriteName>sword_icon.png</spriteName>
-		<buffBox/>
-		<strRequire>0</strRequire>
-		<agiRequire>0</agiRequire>
-		<intRequire>0</intRequire>
-		<skillName>ExpAdd_经验增加_0_0_0_0_20</skillName>
-	</inventory>
-	<inventory>
-		<type>supply</type>
 		<name>skillBook000</name>
 		<cname>火球术之书</cname>
 		<tips>学习火球术</tips>

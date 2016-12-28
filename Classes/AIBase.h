@@ -12,6 +12,7 @@ public:
 	virtual void handleDialogueResult(std::string dialogueName,int resultNumber);
 	void setCharacter(Character* character);
 	Character* searchTargetBFS(Character::Type type);
+	virtual void levelUp();
 protected:
 	Character* characterPtr;
 	void seek(Character* target);

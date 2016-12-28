@@ -8,6 +8,7 @@ public:
 	AIStatue();
 	~AIStatue();
 	void feedback(Character* character);
+	void handleDialogueResult(std::string dialogueName, int resultNumber);
 protected:
 	int count;
 };

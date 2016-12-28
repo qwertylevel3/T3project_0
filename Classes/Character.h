@@ -86,8 +86,9 @@ public:
 	bool isDead();
 	void idle();
 	ExpHandler* getExphandler();
-	void addExp(const int value[3]);
+	void addExp(const int value);
 	void speak(std::wstring sentence);
+	void levelUp();
 	void interaction();
 	void feedback(Character* character);
 	void handleDialogueResult(std::string dialogueName, int resultNumber);

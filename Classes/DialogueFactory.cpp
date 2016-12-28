@@ -57,7 +57,7 @@ void DialogueFactory::init()
 		}
 		dialogueBox[dialogue->getName()] = dialogue;
 
-		dialogueElement = dialogueBoxElement->NextSiblingElement();
+		dialogueElement = dialogueElement->NextSiblingElement();
 	}
 }
 

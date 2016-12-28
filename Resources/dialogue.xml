@@ -44,4 +44,26 @@
 			<next>-1</next>
 		</sentence>
 	</dialogue>
+	<dialogue>
+		<name>levelUp</name>
+		<sentence>
+			<type>question</type>
+			<actorName>NULL</actorName>
+			<word>选择升级属性</word>
+			<optionList>
+				<option>
+					<label>力量</label>
+					<next>-1</next>
+				</option>
+				<option>
+					<label>敏捷</label>
+					<next>-2</next>
+				</option>
+				<option>
+					<label>智力</label>
+					<next>-3</next>
+				</option>
+			</optionList>
+		</sentence>
+	</dialogue>
 </dialogueBox>

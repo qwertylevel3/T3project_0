@@ -30,12 +30,9 @@ protected:
 
 	cocos2d::Label* weightLabel;
 
-	cocos2d::Label* strExpLabel;
-	cocos2d::Label* agiExpLabel;
-	cocos2d::Label* intExpLabel;
+	cocos2d::Label* expLabel;
+	cocos2d::Label* levelLabel;
+	cocos2d::Label* pointLabel;
 
-	cocos2d::Label* strLevelLabel;
-	cocos2d::Label* agiLevelLabel;
-	cocos2d::Label* intLevelLabel;
 };
 

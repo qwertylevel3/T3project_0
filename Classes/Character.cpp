@@ -265,7 +265,7 @@ ExpHandler* Character::getExphandler()
 	return expHandler;
 }
 
-void Character::addExp(const int value[3])
+void Character::addExp(const int value)
 {
 	expHandler->addExp(value);
 }
@@ -273,6 +273,14 @@ void Character::addExp(const int value[3])
 void Character::speak(std::wstring sentence)
 {
 	speakLabel->speak(sentence);
+}
+
+void Character::levelUp()
+{
+	if (ai)
+	{
+		ai->levelUp();
+	}
 }
 
 void Character::interaction()
@@ -583,7 +591,7 @@ void Character::runSkill(std::string skillName)
 	if (skillHandler->runSkill(skillName))
 	{
 		if (skillName != ToolFunction::WStr2UTF8(L"attack_¹¥»÷_0_0")
-			&& skillName!= ToolFunction::WStr2UTF8(L"chant_Ò÷³ª_0_0"))
+			&& skillName != ToolFunction::WStr2UTF8(L"chant_Ò÷³ª_0_0"))
 		{
 			addExp(ExpHandler::skillExpAdd);
 		}
@@ -993,7 +1001,7 @@ int Character::getActionPoint()
 
 void Character::startRound()
 {
-//	fixPosition();
+	//	fixPosition();
 	roundHandler->startRound();
 	buffHandler->onRoundStart();
 	recalculateHP();

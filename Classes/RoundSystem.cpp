@@ -45,7 +45,7 @@ void RoundHandler::processAction(float dt)
 		if (characterPtr == Player::getInstance()->getcharacterPtr())
 		{
 			KeyController::getInstance()->setBlock(true);
-//			RoundSystem::getInstance()->playerBlockStart();
+			//			RoundSystem::getInstance()->playerBlockStart();
 			cocos2d::DelayTime* delayAction = cocos2d::DelayTime::create(0.2);
 			cocos2d::CallFunc *callFun = cocos2d::CallFunc::create(RoundSystem::getInstance(), callfunc_selector(RoundSystem::unlockPlayerKey));
 			cocos2d::Sequence *action = cocos2d::Sequence::create(delayAction, callFun, NULL);
@@ -155,8 +155,7 @@ void RoundSystem::round()
 
 	if (isPlayer(curCharacter))
 	{
-//		playerAction();
-		circleOver=true;
+		playerAction();
 	}
 	else
 	{
@@ -175,9 +174,8 @@ void RoundSystem::NPCAction(Character* character)
 
 void RoundSystem::playerAction()
 {
-	std::cout << ToolFunction::getCurmTime() << std::endl;
+	circleOver = true;
 
-	KeyController::getInstance()->setBlock(false);
 }
 
 void RoundSystem::start()
@@ -216,7 +214,6 @@ void RoundSystem::clear()
 {
 	allCharacter.clear();
 }
-
 
 void RoundSystem::unlockPlayerKey()
 {
