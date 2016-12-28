@@ -1,6 +1,7 @@
 #include "AISnack.h"
 #include "RandomNumber.h"
 #include "ToolFunction.h"
+#include "BuffHandler.h"
 
 AISnack::AISnack()
 {
@@ -26,18 +27,27 @@ void AISnack::update()
 		}
 		else
 		{
-			//ÒÑÒ÷³ª
-			if (characterPtr->getChantCount() >= 1)
+			Buff::BuffHandler* targetBuffHandler = targetCharacter->getBuffHandler();
+			if (!targetBuffHandler->exist(
+				ToolFunction::WStr2UTF8(L"HPBuff_¶¾Òº_OnRoundStart_Bad_10_5_-2")))
 			{
-				characterPtr->runSkill(
-					ToolFunction::WStr2UTF8(L"BuffCast_¶¾Òº_0_0_HPBuff_¶¾Òº_OnRoundStart_Bad_10_5_-2")
-				);
-			}
-			else if (RandomNumber::getInstance()->randomBool(0.5))
-			{
-				if (characterPtr->getChantCount() == 0)
+				//ÒÑÒ÷³ª
+				if (characterPtr->getChantCount() >= 1)
 				{
-					characterPtr->chant();
+					characterPtr->runSkill(
+						ToolFunction::WStr2UTF8(L"BuffCast_¶¾Òº_0_0_HPBuff_¶¾Òº_OnRoundStart_Bad_10_5_-2")
+					);
+				}
+				else if (RandomNumber::getInstance()->randomBool(0.5))
+				{
+					if (characterPtr->getChantCount() == 0)
+					{
+						characterPtr->chant();
+					}
+					else
+					{
+						characterPtr->attack();
+					}
 				}
 				else
 				{
