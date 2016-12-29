@@ -20,11 +20,8 @@ Dungeon::~Dungeon()
 void Field::Dungeon::generate(int floorNum)
 {
 	clear();
-	for (int i = 0; i < floorNum; i++)
-	{
-		Storey* tempStorey=StoreyBuilder::getInstance()->generate();
-		this->addStorey(tempStorey);
-	}
+	Storey* tempStorey=StoreyBuilder::getInstance()->generate(floorNum);
+	this->addStorey(tempStorey);
 }
 
 int Field::Dungeon::getFloorNum()

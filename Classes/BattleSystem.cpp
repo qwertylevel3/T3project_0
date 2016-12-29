@@ -581,6 +581,8 @@ int BattleSystem::getAttackCount(Character* a, AttackHand hand)
 		attackCount = attackCount*strength / strReq;
 	}
 
+	attackCount += strength / 2;
+
 	return int(attackCount < 1 ? 1 : attackCount);
 }
 

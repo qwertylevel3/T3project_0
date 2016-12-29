@@ -41,16 +41,18 @@ void GameController::init()
 	RoundSystem::getInstance()->init();
 	HeroManager::getInstance()->init();
 	EffectManager::getInstance()->init();
+
+	curLevel = 1;
 }
 
-void GameController::startMission(int level)
+void GameController::startMission()
 {
 	MaskLayer::getInstance()->clear();
 
 	MainLayer::getInstance()->clear();
 	RoundSystem::getInstance()->clear();
 
-	Field::Dungeon::getInstance()->generate(1);
+	Field::Dungeon::getInstance()->generate(curLevel);
 	//	Dungeon::getInstance()->writeToFile();
 
 	Player::getInstance()->initMission();
@@ -63,12 +65,23 @@ void GameController::startMission(int level)
 
 	MyCamera::getInstance()->setCamera(Player::getInstance()->getcharacterPtr()->getPosition());
 
-	SplashLayer::getInstance()->fadeOutBlack(2);
+	if (curLevel == 1)
+	{
+		SplashLayer::getInstance()->showLogo(2);
+	}
+	else
+	{
+		SplashLayer::getInstance()->fadeOutBlack(2);
+	}
 }
 
 void GameController::nextMission()
 {
+	curLevel++;
 	SplashLayer::getInstance()->fadeInBlack(1);
+}
 
-	
+int GameController::getCurLevel()
+{
+	return curLevel;
 }

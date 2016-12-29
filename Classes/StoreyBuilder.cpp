@@ -22,11 +22,11 @@ void StoreyBuilder::init()
 {
 }
 
-Storey* StoreyBuilder::generate()
+Storey* StoreyBuilder::generate(int level)
 {
 	rooms.clear();
 	exits.clear();
-	storey = new Storey(20, 20);
+	storey = new Storey(20+level*5, 20+level*5);
 
 	int maxFeatures = 33;
 	// place the first room in the center
@@ -37,11 +37,6 @@ Storey* StoreyBuilder::generate()
 	if (!placeObject(UpStair))
 	{
 		CCAssert(false, "Unable to place up staris\n");
-	}
-
-	if (Debug::getInstance()->getDebugFlag())
-	{
-		storey->writeToFile("firstRoom");
 	}
 
 	// we already placed 1 feature (the first room)
@@ -64,7 +59,7 @@ Storey* StoreyBuilder::generate()
 	}
 
 	//放置游戏演员
-	placeGameActor();
+	placeGameActorAllRoom(level);
 
 	return storey;
 }
@@ -334,12 +329,11 @@ bool StoreyBuilder::placeObject(int tile)
 	int temp = storey->getTile(x, y);
 	if (storey->getTile(x, y) == Floor
 		|| storey->getTile(x, y) == Ice
-		|| storey->getTile(x,y)==Trap)
+		|| storey->getTile(x, y) == Trap)
 	{
 		if (tile == UpStair)
 		{
 			storey->setUpCoord(cocos2d::Point(x, y));
-			
 		}
 		else if (tile == DownStair)
 		{
@@ -356,21 +350,22 @@ bool StoreyBuilder::placeObject(int tile)
 	return false;
 }
 
-void Field::StoreyBuilder::placeGameActor(const Rect & rect)
+void Field::StoreyBuilder::placeGameActorLevel1(const Rect & rect)
 {
-	//房间内怪物数量(1-4之间)
-//	int monsterNumber = RandomNumber::getInstance()->randomInt(4, 4);
-	int monsterNumber = 3;
+	//房间内怪物数量(1-2之间)
+	int monsterNumber = RandomNumber::getInstance()->randomInt(1, 2);
 
 	for (int i = 0; i < monsterNumber; i++)
 	{
-//		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
-//		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+		int x = RandomNumber::getInstance()->randomInt(rect.x, rect.x + rect.width - 1);
+		int y = RandomNumber::getInstance()->randomInt(rect.y, rect.y + rect.height - 1);
 
-		int x = rect.x;
-		int y = rect.y;
+		//		int x = rect.x;
+		//		int y = rect.y;
+		//		int x = rect.x+rect.width - 1;
+		//		int y = rect.y+rect.height - 1;
 
-		Character* monster = GameActorFactory::getInstance()->getActor("snack");
+		Character* monster = GameActorFactory::getInstance()->getActor("slime");
 		CCAssert(monster, "get a null monster");
 
 		placeGameActor(x, y, monster);
@@ -402,7 +397,64 @@ void Field::StoreyBuilder::placeGameActor(const Rect & rect)
 
 		placeGameActor(x, y, statue);
 	}
+}
 
+void Field::StoreyBuilder::placeGameActorLevel2(const Rect& rect)
+{
+	//房间内怪物数量(1-4之间)
+	int monsterNumber = RandomNumber::getInstance()->randomInt(1, 4);
+
+	for (int i = 0; i < monsterNumber; i++)
+	{
+		int x = RandomNumber::getInstance()->randomInt(rect.x, rect.x + rect.width - 1);
+		int y = RandomNumber::getInstance()->randomInt(rect.y, rect.y + rect.height - 1);
+
+		//		int x = rect.x;
+		//		int y = rect.y;
+		//		int x = rect.x+rect.width - 1;
+		//		int y = rect.y+rect.height - 1;
+
+		int monsterType = RandomNumber::getInstance()->randomInt(1, 2);
+		Character* monster;
+		if (monsterType == 1)
+		{
+			monster = GameActorFactory::getInstance()->getActor("slime");
+		}
+		else
+		{
+			monster = GameActorFactory::getInstance()->getActor("snack");
+		}
+		CCAssert(monster, "get a null monster");
+
+		placeGameActor(x, y, monster);
+	}
+
+	//////////////////////////////////////////////////////////////////////////
+
+	//0.2概率生成星塔
+	if (RandomNumber::getInstance()->randomBool(0.2))
+	{
+		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
+		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+
+		Character* shine = GameActorFactory::getInstance()->getActor("shrine");
+		CCAssert(shine, "get a null shine");
+
+		placeGameActor(x, y, shine);
+	}
+
+	//0.1概率生成神像
+
+	if (RandomNumber::getInstance()->randomBool(0.1))
+	{
+		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
+		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+
+		Character* statue = GameActorFactory::getInstance()->getActor("statue");
+		CCAssert(statue, "get a null statue");
+
+		placeGameActor(x, y, statue);
+	}
 }
 
 void Field::StoreyBuilder::placeGameActor(int x, int y, Character* character)
@@ -428,7 +480,7 @@ void Field::StoreyBuilder::placeGameActor(int x, int y, Character* character)
 	}
 }
 
-void Field::StoreyBuilder::placeGameActor()
+void Field::StoreyBuilder::placeGameActorAllRoom(int level)
 {
 	//设置起始点神像
 	Character* statue = GameActorFactory::getInstance()->getActor("statue");
@@ -442,6 +494,17 @@ void Field::StoreyBuilder::placeGameActor()
 
 	for each (Rect room in rooms)
 	{
-		placeGameActor(room);
+		if (level==1)
+		{
+			placeGameActorLevel1(room);
+		}
+		else if (level==2)
+		{
+			placeGameActorLevel2(room);
+		}
+		else
+		{
+			placeGameActorLevel1(room);
+		}
 	}
 }

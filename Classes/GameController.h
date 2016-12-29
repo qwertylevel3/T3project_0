@@ -8,9 +8,11 @@ public:
 	GameController();
 	~GameController();
 	void init();
-	void startMission(int level);
+	void startMission();
 	void nextMission();
+	int getCurLevel();
 protected:
+	int curLevel;
 
 };
 

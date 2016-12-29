@@ -40,10 +40,20 @@ void SplashLayer::showLogo(float dt)
 	black->setOpacity(255);
 
 	logo->setOpacity(0);
-	auto action = cocos2d::FadeIn::create(dt);
-	auto actionBack = action->reverse();
+	auto logoAction = cocos2d::FadeIn::create(dt);
+	auto logoActionBack = logoAction->reverse();
 	logo->runAction(
-		cocos2d::Sequence::create(action, actionBack, nullptr)
+		cocos2d::Sequence::create(logoAction, logoActionBack, nullptr)
+	);
+
+	black->setOpacity(255);
+	auto blackAction = cocos2d::FadeOut::create(dt);
+	black->runAction(
+		cocos2d::Sequence::create(
+			cocos2d::DelayTime::create(dt*2),
+			blackAction,
+			nullptr
+			)
 	);
 }
 
@@ -79,5 +89,5 @@ void SplashLayer::fadeInBlack(float dt)
 
 void SplashLayer::startMission(SplashLayer* layer)
 {
-	GameController::getInstance()->startMission(1);
+	GameController::getInstance()->startMission();
 }

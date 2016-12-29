@@ -14,7 +14,7 @@ namespace Field {
 		StoreyBuilder();
 		~StoreyBuilder();
 
-		Storey* generate();
+		Storey* generate(int level);
 		void init();
 	private:
 		bool createFeature();
@@ -26,8 +26,9 @@ namespace Field {
 		bool placeRect(const Rect& rect, int tile);
 		bool placeObject(int tile);
 		void placeGameActor(int x, int y, Character* character);
-		void placeGameActor(const Rect& rect);
-		void placeGameActor();
+		void placeGameActorLevel1(const Rect& rect);
+		void placeGameActorLevel2(const Rect& rect);
+		void placeGameActorAllRoom(int level);
 
 
 
