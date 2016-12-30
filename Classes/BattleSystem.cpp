@@ -122,7 +122,7 @@ void BattleSystem::showOneHandEffect(Character* caster)
 	}
 
 	node->setVisible(true);
-	scene->addChild(node,100);
+	scene->addChild(node, 100);
 
 	cocos2d::Animate* animate = cocos2d::CCAnimate::create(animation);
 	animate->setDuration(0.2);
@@ -581,7 +581,10 @@ int BattleSystem::getAttackCount(Character* a, AttackHand hand)
 		attackCount = attackCount*strength / strReq;
 	}
 
-	attackCount += strength / 2;
+	if (strength > 10)
+	{
+		attackCount += (strength-10) / 2;
+	}
 
 	return int(attackCount < 1 ? 1 : attackCount);
 }

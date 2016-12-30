@@ -1,8 +1,10 @@
 #include "SplashLayer.h"
+#include "ToolFunction.h"
 #include "2d/CCSprite.h"
 #include "2d/CCActionInterval.h"
 #include "2d/CCActionInstant.h"
 #include "GameController.h"
+#include "2d/CCLabel.h"
 
 SplashLayer::SplashLayer()
 {
@@ -31,6 +33,13 @@ bool SplashLayer::init()
 	logo->setPosition(400, 300);
 	logo->setOpacity(0);
 	this->addChild(logo);
+
+	levelMessageLabel = cocos2d::Label::createWithTTF("", "fonts/arialuni.ttf", 40);
+	levelMessageLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_MIDDLE);
+	levelMessageLabel->setOpacity(0);
+	levelMessageLabel->setPosition(400, 300);
+	this->addChild(levelMessageLabel);
+
 
 	return true;
 }
@@ -64,6 +73,10 @@ void SplashLayer::fadeOutBlack(float dt)
 	black->runAction(
 		action
 	);
+
+	levelMessageLabel->runAction(
+		cocos2d::FadeOut::create(dt)
+	);
 }
 
 void SplashLayer::fadeInBlack(float dt)
@@ -73,6 +86,16 @@ void SplashLayer::fadeInBlack(float dt)
 	black->runAction(
 		action
 	);
+
+	int curLevel = GameController::getInstance()->getCurLevel();
+	levelMessageLabel->setString(
+		"Floor -" + ToolFunction::int2string(curLevel)
+	);
+
+	levelMessageLabel->runAction(
+		cocos2d::FadeIn::create(dt)
+	);
+
 
 	this->runAction(
 		cocos2d::Sequence::create(

@@ -26,7 +26,7 @@ Storey* StoreyBuilder::generate(int level)
 {
 	rooms.clear();
 	exits.clear();
-	storey = new Storey(20+level*5, 20+level*5);
+	storey = new Storey(18+level*3, 18+level*3);
 
 	int maxFeatures = 33;
 	// place the first room in the center

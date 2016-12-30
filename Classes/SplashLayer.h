@@ -6,6 +6,7 @@
 namespace cocos2d
 {
 	class Sprite;
+	class Label;
 }
 
 class SplashLayer:public cocos2d::Layer,public Singleton<SplashLayer>
@@ -21,5 +22,6 @@ public:
 protected:
 	cocos2d::Sprite* logo;
 	cocos2d::Sprite* black;
+	cocos2d::Label* levelMessageLabel;
 };
 
