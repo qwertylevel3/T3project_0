@@ -27,7 +27,7 @@ void AISummonWizard::update()
 			//“—æ≠“˜≥™«“ƒß∑®≥‰◊„
 			characterPtr->runSkill(
 				ToolFunction::WStr2UTF8(
-					L"Summon_’ŸªΩslime_20_10_chest"
+					L"Summon_’ŸªΩslime_20_10_slime"
 				)
 			);
 		}

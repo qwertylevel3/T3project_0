@@ -202,6 +202,34 @@
 		</standRightAnimation>
 	</character>
 	<character>
+		<name>summonWizard</name>
+		<firstFrame>summonWizard1.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>summonWizard2.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>summonWizard1.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>summonWizard3.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>summonWizard4.png</frameName>
+		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>summonWizard2.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>summonWizard1.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>summonWizard3.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>summonWizard4.png</frameName>
+		</standRightAnimation>
+	</character>
+	<character>
 		<name>statue</name>
 		<firstFrame>statue.png</firstFrame>
 		<moveUpAnimation>
