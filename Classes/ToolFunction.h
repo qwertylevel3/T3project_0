@@ -29,7 +29,12 @@ public:
 
 
 	//找到原点附近有效的点(无character),如果查找失败返回ori
-	static cocos2d::Point validPlace(
+	static cocos2d::Point findValidPlace(
+		Field::Storey* storey,
+		cocos2d::Point ori
+	);
+
+	static cocos2d::Point findValidPlaceWithoutTrap(
 		Field::Storey* storey,
 		cocos2d::Point ori
 	);

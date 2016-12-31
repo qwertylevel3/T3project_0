@@ -41,7 +41,7 @@ void Skill::Summon::run()
 	if (storey->getCharacter(targetCoord)
 		|| !storey->isMoveAble(targetCoord))
 	{
-		targetCoord = ToolFunction::validPlace(
+		targetCoord = ToolFunction::findValidPlace(
 			Field::Dungeon::getInstance()->getStorey(),
 			targetCoord
 		);

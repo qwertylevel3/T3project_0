@@ -53,7 +53,7 @@ void HeroManager::initMission()
 
 	for each (Character*  hero in heroBox)
 	{
-		cocos2d::Point coord = ToolFunction::validPlace(
+		cocos2d::Point coord = ToolFunction::findValidPlace(
 			Field::Dungeon::getInstance()->getStorey(),
 			playerCoord
 		);

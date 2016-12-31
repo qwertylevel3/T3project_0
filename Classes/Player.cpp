@@ -88,6 +88,7 @@ void Player::init()
 	characterPtr->addInventory("supply000");
 	characterPtr->addInventory("skillBook000");
 	characterPtr->addInventory("scroll000");
+	characterPtr->addInventory("sword003");
 
 	//////////////////////////////////////////////////////////////////////////
 	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_20_100";
@@ -117,7 +118,7 @@ void Player::initMission()
 	cocos2d::Point tempCoord = storey->getUpCoord();
 	if (storey->getCharacter(tempCoord))
 	{
-		tempCoord = ToolFunction::validPlace(
+		tempCoord = ToolFunction::findValidPlace(
 			Field::Dungeon::getInstance()->getStorey(),
 			tempCoord
 		);

@@ -59,6 +59,25 @@
 		</sphereBox>
 	</inventory>
 	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword003</name>
+		<cname>圣剑</cname>
+		<tips>测试用</tips>
+		<level>5</level>
+		<price>999</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<weaponDamage>99</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+			
+		</sphereBox>
+	</inventory>
+	<inventory>
 		<type>twoHandWeapon</type>
 		<name>bigSword000</name>
 		<cname>大剑</cname>

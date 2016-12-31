@@ -24,9 +24,11 @@ void StoreyBuilder::init()
 
 Storey* StoreyBuilder::generate(int level)
 {
+	curLevel = level;
+
 	rooms.clear();
 	exits.clear();
-	storey = new Storey(18+level*3, 18+level*3);
+	storey = new Storey(18 + level * 2, 18 + level * 2);
 
 	int maxFeatures = 33;
 	// place the first room in the center
@@ -59,7 +61,7 @@ Storey* StoreyBuilder::generate(int level)
 	}
 
 	//放置游戏演员
-	placeGameActorAllRoom(level);
+	placeGameActorAllRoom();
 
 	return storey;
 }
@@ -136,39 +138,9 @@ bool StoreyBuilder::createFeature(int x, int y, Direction dir)
 
 bool StoreyBuilder::makeRoom(int x, int y, Direction dir, bool firstRoom /*= false*/)
 {
-	static const int minRoomSize = 3;
-	static const int maxRoomSize = 8;
+	Rect room = makeRoomRect(x, y, dir);
 
-	Rect room;
-	room.width = RandomNumber::getInstance()->randomInt(minRoomSize, maxRoomSize);
-	room.height = RandomNumber::getInstance()->randomInt(minRoomSize, maxRoomSize);
-
-	//room并非以xy为中心生成，而是根据朝向，偏移一半的width或者heigh
-	if (dir == North)
-	{
-		room.x = x - room.width / 2;
-		room.y = y - room.height;
-	}
-
-	else if (dir == South)
-	{
-		room.x = x - room.width / 2;
-		room.y = y + 1;
-	}
-
-	else if (dir == West)
-	{
-		room.x = x - room.width;
-		room.y = y - room.height / 2;
-	}
-
-	else if (dir == East)
-	{
-		room.x = x + 1;
-		room.y = y - room.height / 2;
-	}
-
-	if (placeRect(room, Floor))
+	if (placeRect(room))
 	{
 		rooms.emplace_back(room);
 
@@ -256,7 +228,7 @@ bool StoreyBuilder::makeCorridor(int x, int y, Direction dir)
 		}
 	}
 
-	if (placeRect(corridor, Corridor))
+	if (placeRect(corridor))
 	{
 		if (dir != South && corridor.width != 1) // north side
 			exits.emplace_back(Rect{ corridor.x, corridor.y - 1, corridor.width, 1 });
@@ -273,7 +245,7 @@ bool StoreyBuilder::makeCorridor(int x, int y, Direction dir)
 	return false;
 }
 
-bool StoreyBuilder::placeRect(const Field::Rect& rect, int tile)
+bool StoreyBuilder::placeRect(const Field::Rect& rect)
 {
 	if (rect.x < 1 || rect.y < 1 || rect.x + rect.width > storey->getWidth() - 1 || rect.y + rect.height > storey->getHeight() - 1)
 		return false;
@@ -295,21 +267,43 @@ bool StoreyBuilder::placeRect(const Field::Rect& rect, int tile)
 
 			else
 			{
-				//test:
-
-				if (RandomNumber::getInstance()->randomBool(0.1))
+				//test
+				if (curLevel >= 7)
 				{
-					//十分之一概率为ice
-					storey->setTile(x, y, Ice);
+					//7层往上可能出现ice
+					if (RandomNumber::getInstance()->randomBool(0.1))
+					{
+						//十分之一概率为ice
+						storey->setTile(x, y, Ice);
+					}
+					else if (RandomNumber::getInstance()->randomBool(0.2))
+					{
+						//十分之一概率为Trap
+						storey->setTile(x, y, Trap);
+					}
+					else
+					{
+						storey->setTile(x, y, Floor);
+					}
 				}
-				else if (RandomNumber::getInstance()->randomBool(0.1))
+
+				else if (curLevel >= 5)
 				{
-					//十分之一概率为Trap
-					storey->setTile(x, y, Trap);
+					//5层向上可能出现trap
+					if (RandomNumber::getInstance()->randomBool(0.1))
+					{
+						//十分之一概率为Trap
+						storey->setTile(x, y, Trap);
+					}
+					else
+					{
+						storey->setTile(x, y, Floor);
+					}
 				}
 				else
 				{
-					storey->setTile(x, y, tile);
+					//其余只会有普通的floor
+					storey->setTile(x, y, Floor);
 				}
 			}
 		}
@@ -353,7 +347,7 @@ bool StoreyBuilder::placeObject(int tile)
 void Field::StoreyBuilder::placeGameActorLevel1(const Rect & rect)
 {
 	//房间内怪物数量(1-2之间)
-	int monsterNumber = RandomNumber::getInstance()->randomInt(1, 2);
+	int monsterNumber = RandomNumber::getInstance()->randomInt(1, 3);
 
 	for (int i = 0; i < monsterNumber; i++)
 	{
@@ -457,30 +451,62 @@ void Field::StoreyBuilder::placeGameActorLevel2(const Rect& rect)
 	}
 }
 
+Field::Rect Field::StoreyBuilder::makeRoomRect(int x, int y, Direction dir)
+{
+	//地牢越低，房间越大
+	static const int minRoomSize = 3+curLevel;
+	static const int maxRoomSize = 5+curLevel;
+
+	Rect room;
+	room.width = RandomNumber::getInstance()->randomInt(minRoomSize, maxRoomSize);
+	room.height = RandomNumber::getInstance()->randomInt(minRoomSize, maxRoomSize);
+
+	//room并非以xy为中心生成，而是根据朝向，偏移一半的width或者heigh
+	if (dir == North)
+	{
+		room.x = x - room.width / 2;
+		room.y = y - room.height;
+	}
+
+	else if (dir == South)
+	{
+		room.x = x - room.width / 2;
+		room.y = y + 1;
+	}
+
+	else if (dir == West)
+	{
+		room.x = x - room.width;
+		room.y = y - room.height / 2;
+	}
+
+	else if (dir == East)
+	{
+		room.x = x + 1;
+		room.y = y - room.height / 2;
+	}
+
+	return room;
+}
+
 void Field::StoreyBuilder::placeGameActor(int x, int y, Character* character)
 {
 	cocos2d::Point tempCoord;
-	if (storey->getCharacter(x, y))
-	{
-		//如果该点已近被占用，找一个附近的点
-		tempCoord = ToolFunction::validPlace(
-			storey,
-			cocos2d::Point(x, y)
-		);
+	//如果该点已近被占用，找一个附近的点
+	tempCoord = ToolFunction::findValidPlaceWithoutTrap(
+		storey,
+		cocos2d::Point(x, y)
+	);
 
-		//附近有合适的点
-		if (tempCoord.x != x || tempCoord.y != y)
-		{
-			storey->addCharacter(tempCoord.x, tempCoord.y, character);
-		}
-	}
-	else
+	//附近有合适的点
+	if (tempCoord.x != x || tempCoord.y != y)
 	{
-		storey->addCharacter(x, y, character);
+		storey->addCharacter(tempCoord.x, tempCoord.y, character);
 	}
+	//如果没有直接退出，不放置这个character
 }
 
-void Field::StoreyBuilder::placeGameActorAllRoom(int level)
+void Field::StoreyBuilder::placeGameActorAllRoom()
 {
 	//设置起始点神像
 	Character* statue = GameActorFactory::getInstance()->getActor("statue");
@@ -494,11 +520,11 @@ void Field::StoreyBuilder::placeGameActorAllRoom(int level)
 
 	for each (Rect room in rooms)
 	{
-		if (level==1)
+		if (curLevel == 1)
 		{
 			placeGameActorLevel1(room);
 		}
-		else if (level==2)
+		else if (curLevel == 2)
 		{
 			placeGameActorLevel2(room);
 		}

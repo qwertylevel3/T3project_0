@@ -1,5 +1,6 @@
 #include "ToolFunction.h"
 #include<sstream>
+#include "FieldEnum.h"
 #include <sys/timeb.h>
 #include"AStar.h"
 #include"Dungeon.h"
@@ -134,7 +135,7 @@ long ToolFunction::getCurmTime()
 	return ttt;
 }
 
-cocos2d::Point ToolFunction::validPlace(Field::Storey* storey, cocos2d::Point ori)
+cocos2d::Point ToolFunction::findValidPlace(Field::Storey* storey, cocos2d::Point ori)
 {
 	int searchDeep = 1;
 
@@ -157,6 +158,43 @@ cocos2d::Point ToolFunction::validPlace(Field::Storey* storey, cocos2d::Point or
 				if (storey->isValid(coord)
 					&&storey->isMoveAble(coord)
 					&& storey->getCharacter(coord)==nullptr)
+				{
+					return coord;
+				}
+
+			}
+		}
+
+		searchDeep++;
+	}
+	return ori;
+	//CCAssert(searchDeep < 10, "out of search");
+}
+
+cocos2d::Point ToolFunction::findValidPlaceWithoutTrap(Field::Storey* storey, cocos2d::Point ori)
+{
+	int searchDeep = 1;
+
+	//待优化，bfs
+	while (searchDeep < 10)
+	{
+		for (int i = -searchDeep; i <= searchDeep; i++)
+		{
+			for (int j = -searchDeep; j <= searchDeep; j++)
+			{
+				if (i == 0 && j==0)
+				{
+					continue;
+				}
+				cocos2d::Point coord = ori;
+				coord.x += i;
+				coord.y += j;
+
+				//条件
+				if (storey->isValid(coord)
+					&&storey->isMoveAble(coord)
+					&& storey->getCharacter(coord)==nullptr
+					&& storey->getTile(coord.x,coord.y)!=Field::Trap)
 				{
 					return coord;
 				}
