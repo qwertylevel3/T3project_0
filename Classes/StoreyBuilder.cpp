@@ -451,11 +451,74 @@ void Field::StoreyBuilder::placeGameActorLevel2(const Rect& rect)
 	}
 }
 
+void Field::StoreyBuilder::placeGameActorLevel3(const Rect& rect)
+{
+	//房间内怪物数量(1-4之间)
+	int monsterNumber = RandomNumber::getInstance()->randomInt(1, 4);
+
+	for (int i = 0; i < monsterNumber; i++)
+	{
+		int x = RandomNumber::getInstance()->randomInt(rect.x, rect.x + rect.width - 1);
+		int y = RandomNumber::getInstance()->randomInt(rect.y, rect.y + rect.height - 1);
+
+		//		int x = rect.x;
+		//		int y = rect.y;
+		//		int x = rect.x+rect.width - 1;
+		//		int y = rect.y+rect.height - 1;
+
+		int monsterType = RandomNumber::getInstance()->randomInt(1, 3);
+		Character* monster;
+		if (monsterType == 1)
+		{
+			monster = GameActorFactory::getInstance()->getActor("slime");
+		}
+		else if(monsterType==2)
+		{
+			monster = GameActorFactory::getInstance()->getActor("snack");
+		}
+		else
+		{
+			monster = GameActorFactory::getInstance()->getActor("ghost");
+		}
+		CCAssert(monster, "get a null monster");
+
+		placeGameActor(x, y, monster);
+	}
+
+	//////////////////////////////////////////////////////////////////////////
+
+	//0.2概率生成星塔
+	if (RandomNumber::getInstance()->randomBool(0.2))
+	{
+		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
+		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+
+		Character* shine = GameActorFactory::getInstance()->getActor("shrine");
+		CCAssert(shine, "get a null shine");
+
+		placeGameActor(x, y, shine);
+	}
+
+	//0.1概率生成神像
+
+	if (RandomNumber::getInstance()->randomBool(0.1))
+	{
+		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
+		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+
+		Character* statue = GameActorFactory::getInstance()->getActor("statue");
+		CCAssert(statue, "get a null statue");
+
+		placeGameActor(x, y, statue);
+	}
+
+}
+
 Field::Rect Field::StoreyBuilder::makeRoomRect(int x, int y, Direction dir)
 {
 	//地牢越低，房间越大
-	static const int minRoomSize = 3+curLevel;
-	static const int maxRoomSize = 5+curLevel;
+	int minRoomSize = 3;
+	int maxRoomSize = 5+curLevel/2;
 
 	Rect room;
 	room.width = RandomNumber::getInstance()->randomInt(minRoomSize, maxRoomSize);
@@ -530,7 +593,8 @@ void Field::StoreyBuilder::placeGameActorAllRoom()
 		}
 		else
 		{
-			placeGameActorLevel1(room);
+			placeGameActorLevel3(room);
 		}
+
 	}
 }

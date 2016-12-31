@@ -19,6 +19,31 @@
 		<agility>3</agility>
 		<luck>0</luck>
 		<viewSize>10</viewSize>
+		<maxHP>50</maxHP>
+		<maxMP>20</maxMP>
+		<leftHand>sword000</leftHand>
+		<rightHand>NULL</rightHand>
+		<armor>NULL</armor>
+		<accessory>NULL</accessory>
+	</actor>
+	<actor>
+		<name>ghost</name>
+		<characterName>ghost</characterName>
+		<ai>AICommonEnemy</ai>
+		<playType>enemy</playType>
+		<characterType>bad</characterType>
+		<physicalImmune>0</physicalImmune>
+		<magicImmune>0</magicImmune>
+		<moveAble>1</moveAble>
+		<attackAble>1</attackAble>
+		<chantAble>1</chantAble>
+		<skillAble>1</skillAble>
+		<actionAble>1</actionAble>
+		<strength>7</strength>
+		<intellect>3</intellect>
+		<agility>8</agility>
+		<luck>0</luck>
+		<viewSize>10</viewSize>
 		<maxHP>100</maxHP>
 		<maxMP>20</maxMP>
 		<leftHand>sword000</leftHand>

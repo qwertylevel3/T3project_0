@@ -174,6 +174,34 @@
 		</standRightAnimation>
 	</character>
 	<character>
+		<name>ghost</name>
+		<firstFrame>ghost1.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>ghost2.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>ghost1.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>ghost3.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>ghost4.png</frameName>
+		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>ghost2.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>ghost1.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>ghost3.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>ghost4.png</frameName>
+		</standRightAnimation>
+	</character>
+	<character>
 		<name>statue</name>
 		<firstFrame>statue.png</firstFrame>
 		<moveUpAnimation>

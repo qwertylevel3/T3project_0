@@ -34,4 +34,22 @@ void Skill::Chant::initExtraMessage(std::vector<std::string> extraMessage)
 void Skill::Chant::run()
 {
 	caster->accumulateChant(caster->getIntellect());
+
+	cocos2d::Sprite* magicCircle = cocos2d::Sprite::create("effect/magicCircle.png");
+
+	caster->getSprite()->addChild(magicCircle);
+	magicCircle->setPosition(16, 10);
+
+	magicCircle->runAction(
+		cocos2d::Spawn::create(
+			cocos2d::MoveBy::create(1, cocos2d::Vec2(0, 30)),
+			cocos2d::FadeOut::create(1),
+			cocos2d::Sequence::create(
+				cocos2d::DelayTime::create(1),
+				cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, magicCircle)),
+				NULL
+			),
+			NULL
+		)
+	);
 }
