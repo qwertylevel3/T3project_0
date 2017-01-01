@@ -230,6 +230,34 @@
 		</standRightAnimation>
 	</character>
 	<character>
+		<name>ents</name>
+		<firstFrame>ents.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>ents.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>ents.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>ents.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>ents.png</frameName>
+		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>ents.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>ents.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>ents.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>ents.png</frameName>
+		</standRightAnimation>
+	</character>
+	<character>
 		<name>statue</name>
 		<firstFrame>statue.png</firstFrame>
 		<moveUpAnimation>

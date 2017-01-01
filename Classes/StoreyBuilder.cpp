@@ -346,6 +346,7 @@ bool StoreyBuilder::placeObject(int tile)
 
 void Field::StoreyBuilder::placeGameActorLevel1(const Rect & rect)
 {
+	placeBuilding(rect);
 	//房间内怪物数量(1-2之间)
 	int monsterNumber = RandomNumber::getInstance()->randomInt(1, 3);
 
@@ -359,42 +360,18 @@ void Field::StoreyBuilder::placeGameActorLevel1(const Rect & rect)
 		//		int x = rect.x+rect.width - 1;
 		//		int y = rect.y+rect.height - 1;
 
-		Character* monster = GameActorFactory::getInstance()->getActor("summonWizard");
+		Character* monster = GameActorFactory::getInstance()->getActor("slime");
 		CCAssert(monster, "get a null monster");
 
 		placeGameActor(x, y, monster);
 	}
 
 	//////////////////////////////////////////////////////////////////////////
-
-	//0.2概率生成星塔
-	if (RandomNumber::getInstance()->randomBool(0.2))
-	{
-		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
-		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
-
-		Character* shine = GameActorFactory::getInstance()->getActor("shrine");
-		CCAssert(shine, "get a null shine");
-
-		placeGameActor(x, y, shine);
-	}
-
-	//0.1概率生成神像
-
-	if (RandomNumber::getInstance()->randomBool(0.1))
-	{
-		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
-		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
-
-		Character* statue = GameActorFactory::getInstance()->getActor("statue");
-		CCAssert(statue, "get a null statue");
-
-		placeGameActor(x, y, statue);
-	}
 }
 
 void Field::StoreyBuilder::placeGameActorLevel2(const Rect& rect)
 {
+	placeBuilding(rect);
 	//房间内怪物数量(1-4之间)
 	int monsterNumber = RandomNumber::getInstance()->randomInt(1, 4);
 
@@ -423,36 +400,11 @@ void Field::StoreyBuilder::placeGameActorLevel2(const Rect& rect)
 		placeGameActor(x, y, monster);
 	}
 
-	//////////////////////////////////////////////////////////////////////////
-
-	//0.2概率生成星塔
-	if (RandomNumber::getInstance()->randomBool(0.2))
-	{
-		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
-		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
-
-		Character* shine = GameActorFactory::getInstance()->getActor("shrine");
-		CCAssert(shine, "get a null shine");
-
-		placeGameActor(x, y, shine);
-	}
-
-	//0.1概率生成神像
-
-	if (RandomNumber::getInstance()->randomBool(0.1))
-	{
-		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
-		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
-
-		Character* statue = GameActorFactory::getInstance()->getActor("statue");
-		CCAssert(statue, "get a null statue");
-
-		placeGameActor(x, y, statue);
-	}
 }
 
 void Field::StoreyBuilder::placeGameActorLevel3(const Rect& rect)
 {
+	placeBuilding(rect);
 	//房间内怪物数量(1-4之间)
 	int monsterNumber = RandomNumber::getInstance()->randomInt(1, 4);
 
@@ -485,31 +437,46 @@ void Field::StoreyBuilder::placeGameActorLevel3(const Rect& rect)
 		placeGameActor(x, y, monster);
 	}
 
-	//////////////////////////////////////////////////////////////////////////
 
-	//0.2概率生成星塔
-	if (RandomNumber::getInstance()->randomBool(0.2))
+}
+
+void Field::StoreyBuilder::placeGameActorLevel4(const Rect& rect)
+{
+	placeBuilding(rect);
+	//房间内怪物数量(2-5之间)
+	int monsterNumber = RandomNumber::getInstance()->randomInt(2, 5);
+
+	for (int i = 0; i < monsterNumber; i++)
 	{
-		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
-		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+		int x = RandomNumber::getInstance()->randomInt(rect.x, rect.x + rect.width - 1);
+		int y = RandomNumber::getInstance()->randomInt(rect.y, rect.y + rect.height - 1);
 
-		Character* shine = GameActorFactory::getInstance()->getActor("shrine");
-		CCAssert(shine, "get a null shine");
+		//		int x = rect.x;
+		//		int y = rect.y;
+		//		int x = rect.x+rect.width - 1;
+		//		int y = rect.y+rect.height - 1;
 
-		placeGameActor(x, y, shine);
-	}
+		int monsterType = RandomNumber::getInstance()->randomInt(1, 10);
+		Character* monster;
+		if (monsterType == 1)
+		{
+			monster = GameActorFactory::getInstance()->getActor("slime");
+		}
+		else if(monsterType==2)
+		{
+			monster = GameActorFactory::getInstance()->getActor("snack");
+		}
+		else if (monsterType == 3)
+		{
+			monster = GameActorFactory::getInstance()->getActor("ghost");
+		}
+		else
+		{
+			monster = GameActorFactory::getInstance()->getActor("ents");
+		}
+		CCAssert(monster, "get a null monster");
 
-	//0.1概率生成神像
-
-	if (RandomNumber::getInstance()->randomBool(0.1))
-	{
-		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
-		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
-
-		Character* statue = GameActorFactory::getInstance()->getActor("statue");
-		CCAssert(statue, "get a null statue");
-
-		placeGameActor(x, y, statue);
+		placeGameActor(x, y, monster);
 	}
 
 }
@@ -569,6 +536,44 @@ void Field::StoreyBuilder::placeGameActor(int x, int y, Character* character)
 	//如果没有直接退出，不放置这个character
 }
 
+void Field::StoreyBuilder::placeBuilding(const Rect& rect)
+{
+	//0.2概率生成星塔
+	if (RandomNumber::getInstance()->randomBool(0.2))
+	{
+		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
+		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+
+		Character* shine = GameActorFactory::getInstance()->getActor("shrine");
+		CCAssert(shine, "get a null shine");
+
+		placeBuilding(x, y, shine);
+	}
+
+	//0.1概率生成神像
+
+	if (RandomNumber::getInstance()->randomBool(0.1))
+	{
+		int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
+		int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+
+		Character* statue = GameActorFactory::getInstance()->getActor("statue");
+		CCAssert(statue, "get a null statue");
+
+		placeBuilding(x, y, statue);
+	}
+
+}
+
+void Field::StoreyBuilder::placeBuilding(int x, int y, Character* building)
+{
+	if (storey->getTile(x,y)==Field::Trap)
+	{
+		storey->setTile(x, y, Field::Floor);
+	}
+	storey->addCharacter(x, y, building);
+}
+
 void Field::StoreyBuilder::placeGameActorAllRoom()
 {
 	//设置起始点神像
@@ -591,9 +596,13 @@ void Field::StoreyBuilder::placeGameActorAllRoom()
 		{
 			placeGameActorLevel2(room);
 		}
-		else
+		else if (curLevel==3)
 		{
 			placeGameActorLevel3(room);
+		}
+		else 
+		{
+			placeGameActorLevel4(room);
 		}
 
 	}

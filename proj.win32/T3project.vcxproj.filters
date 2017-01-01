@@ -537,7 +537,6 @@
     <ClCompile Include="..\Classes\SplashLayer.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\ExpHandler.cpp" />
     <ClCompile Include="..\Classes\AICentaur.cpp">
       <Filter>src\character\AI</Filter>
     </ClCompile>
@@ -565,7 +564,12 @@
     <ClCompile Include="..\Classes\ExpAdd.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AIBlackSnack.cpp" />
+    <ClCompile Include="..\Classes\AIBlackSnack.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ExpHandler.cpp">
+      <Filter>src\character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1033,7 +1037,6 @@
     <ClInclude Include="..\Classes\SplashLayer.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\ExpHandler.h" />
     <ClInclude Include="..\Classes\AICentaur.h">
       <Filter>src\character\AI</Filter>
     </ClInclude>
@@ -1061,7 +1064,12 @@
     <ClInclude Include="..\Classes\ExpAdd.h">
       <Filter>src\skill</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AIBlackSnack.h" />
+    <ClInclude Include="..\Classes\AIBlackSnack.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ExpHandler.h">
+      <Filter>src\character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

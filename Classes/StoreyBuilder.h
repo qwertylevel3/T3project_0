@@ -28,9 +28,12 @@ namespace Field {
 		bool placeObject(int tile);
 
 		void placeGameActor(int x, int y, Character* character);
+		void placeBuilding(int x, int y, Character* building);
+		void placeBuilding(const Rect& rect);
 		void placeGameActorLevel1(const Rect& rect);
 		void placeGameActorLevel2(const Rect& rect);
 		void placeGameActorLevel3(const Rect& rect);
+		void placeGameActorLevel4(const Rect& rect);
 		void placeGameActorAllRoom();
 
 		std::vector<Rect> rooms;
