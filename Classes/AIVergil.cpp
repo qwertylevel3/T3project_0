@@ -20,7 +20,7 @@ void AIVergil::update()
 
 	if (enemyTarget)
 	{
-		if (getManhattanDistance(Player::getInstance()->getcharacterPtr()) > 5)
+		if (getManhattanDistance(Player::getInstance()->getcharacterPtr()) > 10)
 		{
 			seek(Player::getInstance()->getcharacterPtr());
 		}

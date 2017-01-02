@@ -2,14 +2,13 @@
 
 #include "AIBase.h"
 
-class AIShrine:public AIBase
+class AIPersephone:public AIBase
 {
 public:
-	AIShrine();
-	~AIShrine();
+	AIPersephone();
+	~AIPersephone();
 	void update();
 	void feedback(Character* character);
 protected:
-	bool light;
 };
 

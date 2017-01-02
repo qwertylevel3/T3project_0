@@ -85,6 +85,10 @@ void HudPlayerStateMenu::init()
 	pointLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 	bk->addChild(pointLabel);
 
+	faithLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
+	faithLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
+	bk->addChild(faithLabel);
+
 
 
 	//	luckLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
@@ -168,6 +172,11 @@ void HudPlayerStateMenu::update()
 		ToolFunction::WStr2UTF8(L"属性点:") +
 		point	
 	);
+	std::string faith = ToolFunction::int2string(Player::getInstance()->getFaithValue());
+	faithLabel->setString(
+		ToolFunction::WStr2UTF8(L"属性点:") +
+		faith
+	);
 
 	//////////////////////////////////////////////////////////////////////////
 
@@ -208,4 +217,5 @@ void HudPlayerStateMenu::setPosition()
 	expLabel->setPosition(250, 130);
 	levelLabel->setPosition(250, 100);
 	pointLabel->setPosition(250, 70);
+	faithLabel->setPosition(250, 40);
 }

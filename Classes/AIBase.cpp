@@ -1,4 +1,5 @@
 #include "AIBase.h"
+#include "Player.h"
 #include "ExpHandler.h"
 #include "Dungeon.h"
 #include "Character.h"
@@ -237,6 +238,19 @@ void AIBase::seek(cocos2d::Point targetCoord)
 		return;
 	}
 	characterPtr->idle();
+}
+
+bool AIBase::isPlayerNear()
+{
+	cocos2d::Point oriCoord = characterPtr->getMapCoord();
+	cocos2d::Point playerCoord = Player::getInstance()->getcharacterPtr()->getMapCoord();
+
+	if (ToolFunction::isNear8(oriCoord,playerCoord))
+	{
+		return true;
+	}
+	return false;
+
 }
 
 void AIBase::changeOrientationTo(Character* target)

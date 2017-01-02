@@ -573,6 +573,7 @@
     <ClCompile Include="..\Classes\AICommonFriend.cpp" />
     <ClCompile Include="..\Classes\AISuccubus.cpp" />
     <ClCompile Include="..\Classes\SummonCreatureManager.cpp" />
+    <ClCompile Include="..\Classes\AIPersephone.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1076,6 +1077,7 @@
     <ClInclude Include="..\Classes\AICommonFriend.h" />
     <ClInclude Include="..\Classes\AISuccubus.h" />
     <ClInclude Include="..\Classes\SummonCreatureManager.h" />
+    <ClInclude Include="..\Classes\AIPersephone.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

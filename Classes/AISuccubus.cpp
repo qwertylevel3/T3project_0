@@ -32,7 +32,7 @@ void AISuccubus::update()
 	if (enemyTarget)
 	{
 		//如果和player距离过远，就跟随player
-		if (getManhattanDistance(Player::getInstance()->getcharacterPtr()) > 6)
+		if (getManhattanDistance(Player::getInstance()->getcharacterPtr()) > 10)
 		{
 			seek(Player::getInstance()->getcharacterPtr());
 		}

@@ -22,6 +22,7 @@ public:
 	//test...
 	void autoNextStep();
 
+	void addFaith(int value);
 	bool isInViewSize(cocos2d::Point coord);
 	bool isMoveAble(cocos2d::EventKeyboard::KeyCode keyCode);
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
@@ -38,6 +39,7 @@ protected:
 	void showAtkArea();
 	void hideAtkArea();
 	CC_SYNTHESIZE(Character*, characterPtr, characterPtr);
+	CC_SYNTHESIZE(int, faithValue, FaithValue);
 
 	ControlMode controlMode;
 

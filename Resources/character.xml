@@ -218,6 +218,42 @@
 		</standRightAnimation>
 	</character>
 	<character>
+		<name>persephone</name>
+		<firstFrame>persephone1.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>persephone4.png</frameName>
+			<frameName>persephone5.png</frameName>
+			<frameName>persephone6.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>persephone1.png</frameName>
+			<frameName>persephone2.png</frameName>
+			<frameName>persephone3.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>persephone7.png</frameName>
+			<frameName>persephone8.png</frameName>
+			<frameName>persephone9.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>persephone10.png</frameName>
+			<frameName>persephone11.png</frameName>
+			<frameName>persephone12.png</frameName>
+		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>persephone4.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>persephone1.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>persephone7.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>persephone10.png</frameName>
+		</standRightAnimation>
+	</character>
+	<character>
 		<name>chest</name>
 		<firstFrame>chest.png</firstFrame>
 		<moveUpAnimation>
@@ -387,30 +423,30 @@
 	</character>
 	<character>
 		<name>shrine</name>
-		<firstFrame>shrine.png</firstFrame>
+		<firstFrame>shrine1.png</firstFrame>
 		<moveUpAnimation>
-			<frameName>shrine.png</frameName>
+			<frameName>shrine1.png</frameName>
 		</moveUpAnimation>
 		<moveDownAnimation>
-			<frameName>shrine.png</frameName>
+			<frameName>shrine1.png</frameName>
 		</moveDownAnimation>
 		<moveLeftAnimation>
-			<frameName>shrine.png</frameName>
+			<frameName>shrine1.png</frameName>
 		</moveLeftAnimation>
 		<moveRightAnimation>
-			<frameName>shrine.png</frameName>
+			<frameName>shrine1.png</frameName>
 		</moveRightAnimation>
 		<standUpAnimation>
-			<frameName>shrine.png</frameName>
+			<frameName>shrine1.png</frameName>
 		</standUpAnimation>
 		<standDownAnimation>
-			<frameName>shrine.png</frameName>
+			<frameName>shrine2.png</frameName>
 		</standDownAnimation>
 		<standLeftAnimation>
-			<frameName>shrine.png</frameName>
+			<frameName>shrine2.png</frameName>
 		</standLeftAnimation>
 		<standRightAnimation>
-			<frameName>shrine.png</frameName>
+			<frameName>shrine2.png</frameName>
 		</standRightAnimation>
 	</character>
 	<character>

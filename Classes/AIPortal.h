@@ -10,6 +10,6 @@ public:
 	void update();
 	void feedback(Character* character);
 protected:
-	bool isPlayerNear();
+
 };
 

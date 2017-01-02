@@ -1,9 +1,11 @@
 #include "AIShrine.h"
+#include "Player.h"
 
 
 
 AIShrine::AIShrine()
 {
+	light = false;
 }
 
 
@@ -11,7 +13,28 @@ AIShrine::~AIShrine()
 {
 }
 
+void AIShrine::update()
+{
+	if (!light && isPlayerNear())
+	{
+		characterPtr->speak(L"按E点亮");
+		characterPtr->idle();
+	}
+	else
+	{
+		characterPtr->idle();
+	}
+}
+
 void AIShrine::feedback(Character* character)
 {
-	characterPtr->speak(L"这里是星塔，请提交您的信仰");
+	if (!light)
+	{
+		characterPtr->setViewSize(10);
+	}
+	light = true;
+	//设置为点亮的sprite
+	characterPtr->setOrientationDown();
+	Player::getInstance()->addFaith(1);
 }
+

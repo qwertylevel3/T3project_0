@@ -33,15 +33,3 @@ void AIPortal::feedback(Character* character)
 //	GameController::getInstance()->startMission(1);
 	GameController::getInstance()->nextMission();
 }
-
-bool AIPortal::isPlayerNear()
-{
-	cocos2d::Point oriCoord = characterPtr->getMapCoord();
-	cocos2d::Point playerCoord = Player::getInstance()->getcharacterPtr()->getMapCoord();
-
-	if (ToolFunction::isNear8(oriCoord,playerCoord))
-	{
-		return true;
-	}
-	return false;
-}

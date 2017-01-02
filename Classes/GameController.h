@@ -13,6 +13,5 @@ public:
 	int getCurLevel();
 protected:
 	int curLevel;
-
 };
 

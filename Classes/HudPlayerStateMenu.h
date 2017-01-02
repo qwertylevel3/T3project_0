@@ -34,5 +34,7 @@ protected:
 	cocos2d::Label* levelLabel;
 	cocos2d::Label* pointLabel;
 
+	cocos2d::Label* faithLabel;
+
 };
 

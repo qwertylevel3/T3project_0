@@ -29,6 +29,7 @@ Player::~Player()
 
 void Player::init()
 {
+	faithValue = 0;
 	historySize = 10;
 	characterPtr = CharacterFactory::getInstance()->getCharacter("player");
 
@@ -159,6 +160,11 @@ void Player::autoNextStep()
 	{
 		handleKeyPressed(cocos2d::EventKeyboard::KeyCode::KEY_DOWN_ARROW);
 	}
+}
+
+void Player::addFaith(int value)
+{
+	faithValue += value;
 }
 
 bool Player::isInViewSize(cocos2d::Point coord)
