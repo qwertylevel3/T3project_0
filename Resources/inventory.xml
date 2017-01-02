@@ -180,7 +180,7 @@
 	<inventory>
 		<type>supply</type>
 		<name>scroll001</name>
-		<cname>小黄本</cname>
+		<cname>黄色魔法书</cname>
 		<tips>上面有一些不可描述的图片和一些不可描述的文字</tips>
 		<level>5</level>
 		<price>999</price>

@@ -1,5 +1,6 @@
 #include "AIFactory.h"
 #include "AICommonEnemy.h"
+#include "AIDestroyWizard.h"
 #include "AIVergil.h"
 #include "AIShrine.h"
 #include "AIStatue.h"
@@ -82,6 +83,10 @@ AIBase* AIFactory::getAI(const std::string& AIName)
 	else if (AIName == "AISuccubus")
 	{
 		return new AISuccubus();
+	}
+	else if (AIName=="AIDestroyWizard")
+	{
+		return new AIDestroyWizard();
 	}
 	else
 	{

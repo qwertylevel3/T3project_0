@@ -102,9 +102,59 @@
 		<accessory>NULL</accessory>
 	</actor>
 	<actor>
+		<name>destroyWizard</name>
+		<characterName>destroyWizard</characterName>
+		<ai>AIDestroyWizard</ai>
+		<playType>enemy</playType>
+		<characterType>bad</characterType>
+		<physicalImmune>0</physicalImmune>
+		<magicImmune>0</magicImmune>
+		<moveAble>1</moveAble>
+		<attackAble>1</attackAble>
+		<chantAble>1</chantAble>
+		<skillAble>1</skillAble>
+		<actionAble>1</actionAble>
+		<strength>5</strength>
+		<intellect>20</intellect>
+		<agility>3</agility>
+		<luck>0</luck>
+		<viewSize>10</viewSize>
+		<maxHP>100</maxHP>
+		<maxMP>200</maxMP>
+		<leftHand>sword000</leftHand>
+		<rightHand>NULL</rightHand>
+		<armor>NULL</armor>
+		<accessory>NULL</accessory>
+	</actor>
+	<actor>
 		<name>snack</name>
 		<characterName>snack</characterName>
 		<ai>AISnack</ai>
+		<playType>enemy</playType>
+		<characterType>bad</characterType>
+		<physicalImmune>0</physicalImmune>
+		<magicImmune>0</magicImmune>
+		<moveAble>1</moveAble>
+		<attackAble>1</attackAble>
+		<chantAble>1</chantAble>
+		<skillAble>1</skillAble>
+		<actionAble>1</actionAble>
+		<strength>5</strength>
+		<intellect>3</intellect>
+		<agility>3</agility>
+		<luck>0</luck>
+		<viewSize>10</viewSize>
+		<maxHP>100</maxHP>
+		<maxMP>20</maxMP>
+		<leftHand>sword000</leftHand>
+		<rightHand>NULL</rightHand>
+		<armor>NULL</armor>
+		<accessory>NULL</accessory>
+	</actor>
+	<actor>
+		<name>blackSnack</name>
+		<characterName>blackSnack</characterName>
+		<ai>AIBlackSnack</ai>
 		<playType>enemy</playType>
 		<characterType>bad</characterType>
 		<physicalImmune>0</physicalImmune>

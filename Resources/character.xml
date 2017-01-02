@@ -182,6 +182,42 @@
 		</standRightAnimation>
 	</character>
 	<character>
+		<name>blackSnack</name>
+		<firstFrame>blackSnack1.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>blackSnack4.png</frameName>
+			<frameName>blackSnack5.png</frameName>
+			<frameName>blackSnack6.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>blackSnack1.png</frameName>
+			<frameName>blackSnack2.png</frameName>
+			<frameName>blackSnack3.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>blackSnack7.png</frameName>
+			<frameName>blackSnack8.png</frameName>
+			<frameName>blackSnack9.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>blackSnack10.png</frameName>
+			<frameName>blackSnack11.png</frameName>
+			<frameName>blackSnack12.png</frameName>
+		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>blackSnack4.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>blackSnack1.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>blackSnack7.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>blackSnack10.png</frameName>
+		</standRightAnimation>
+	</character>
+	<character>
 		<name>chest</name>
 		<firstFrame>chest.png</firstFrame>
 		<moveUpAnimation>
@@ -235,6 +271,34 @@
 		</standLeftAnimation>
 		<standRightAnimation>
 			<frameName>ghost4.png</frameName>
+		</standRightAnimation>
+	</character>
+	<character>
+		<name>destroyWizard</name>
+		<firstFrame>destroyWizard1.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>destroyWizard2.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>destroyWizard1.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>destroyWizard3.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>destroyWizard4.png</frameName>
+		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>destroyWizard2.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>destroyWizard1.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>destroyWizard3.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>destroyWizard4.png</frameName>
 		</standRightAnimation>
 	</character>
 	<character>

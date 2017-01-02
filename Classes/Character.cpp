@@ -175,18 +175,21 @@ void Character::showHPEffect(int hpOffset)
 bool Character::sufferMPEffect(int mpOffset)
 {
 	MP += mpOffset;
-	characterBar->update();
 	if (MP < 0)
 	{
 		MP = 0;
+		characterBar->update();
+
 		return false;
 	}
 	else if (MP > getMaxMP())
 	{
 		MP = getMaxMP();
+		characterBar->update();
+
 		return false;
 	}
-
+	characterBar->update();
 	return true;
 }
 

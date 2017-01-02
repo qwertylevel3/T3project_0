@@ -8,7 +8,6 @@ public:
 	AIDestroyWizard();
 	~AIDestroyWizard();
 	void update();
-	void feedback(Character* character);
 
 };
 

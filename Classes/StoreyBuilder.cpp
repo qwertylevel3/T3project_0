@@ -360,7 +360,7 @@ void Field::StoreyBuilder::placeGameActorLevel1(const Rect & rect)
 		//		int x = rect.x+rect.width - 1;
 		//		int y = rect.y+rect.height - 1;
 
-		Character* monster = GameActorFactory::getInstance()->getActor("slime");
+		Character* monster = GameActorFactory::getInstance()->getActor("blackSnack");
 		CCAssert(monster, "get a null monster");
 
 		placeGameActor(x, y, monster);
