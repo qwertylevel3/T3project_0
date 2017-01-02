@@ -124,7 +124,7 @@ bool ToolFunction::isNear8(cocos2d::Point oriCoord, cocos2d::Point targetCoord)
 	return false;
 }
 
-long ToolFunction::getCurmTime()
+long ToolFunction::getCurTime()
 {
 	long long time_last;
 	time_last = time(NULL);

@@ -570,6 +570,9 @@
     <ClCompile Include="..\Classes\ExpHandler.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\AICommonFriend.cpp" />
+    <ClCompile Include="..\Classes\AISuccubus.cpp" />
+    <ClCompile Include="..\Classes\SummonCreatureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1070,6 +1073,9 @@
     <ClInclude Include="..\Classes\ExpHandler.h">
       <Filter>src\character</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\AICommonFriend.h" />
+    <ClInclude Include="..\Classes\AISuccubus.h" />
+    <ClInclude Include="..\Classes\SummonCreatureManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

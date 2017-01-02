@@ -55,6 +55,7 @@ public:
 	AStar(cocos2d::Point start, cocos2d::Point end,
 		Field::Storey* s);
 	std::vector<cocos2d::Point> findPath();
+	std::vector<cocos2d::Point> findPath_v2();
 	cocos2d::Point nextStep();
 private:
 	list<AStarPoint> opened_list;//¿ªÆôÁÐ±í

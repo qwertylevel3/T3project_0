@@ -29,6 +29,7 @@ Player::~Player()
 
 void Player::init()
 {
+	historySize = 10;
 	characterPtr = CharacterFactory::getInstance()->getCharacter("player");
 
 	characterPtr->addSkill(L"FireBall_¿ìËÙ»ðÇò_20_20_20_5");
@@ -88,6 +89,7 @@ void Player::init()
 	characterPtr->addInventory("supply000");
 	characterPtr->addInventory("skillBook000");
 	characterPtr->addInventory("scroll000");
+	characterPtr->addInventory("scroll001");
 	characterPtr->addInventory("sword003");
 
 	//////////////////////////////////////////////////////////////////////////
@@ -270,6 +272,7 @@ void Player::playerMove(cocos2d::EventKeyboard::KeyCode keyCode)
 		playerSetOrientation(keyCode);
 		return;
 	}
+	recodePath(characterPtr->getMapCoord());
 	switch (keyCode)
 	{
 	case EventKeyboard::KeyCode::KEY_UP_ARROW:
@@ -289,6 +292,8 @@ void Player::playerMove(cocos2d::EventKeyboard::KeyCode keyCode)
 		MyCamera::getInstance()->moveCameraBy(cocos2d::Vec2(32, 0), 0.2);
 		break;
 	}
+
+
 }
 
 void Player::playerSetOrientation(cocos2d::EventKeyboard::KeyCode keyCode)
@@ -326,6 +331,12 @@ void Player::setName(const std::string& name)
 	characterPtr->setName(name);
 }
 
+
+std::vector<cocos2d::Point>& Player::getpathHistory()
+{
+	return pathHistory;
+}
+
 void Player::showCannotMoveReason()
 {
 	if (characterPtr->getWeight() < characterPtr->getSumWeight())
@@ -358,4 +369,14 @@ void Player::hideAtkArea()
 		targetSprite->removeFromParent();
 	}
 	targetSprites.clear();
+}
+
+void Player::recodePath(cocos2d::Point coord)
+{
+	pathHistory.push_back(coord);
+
+	if (pathHistory.size() > historySize)
+	{
+		pathHistory.erase(pathHistory.begin());
+	}
 }

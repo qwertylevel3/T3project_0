@@ -32,6 +32,7 @@ public:
 	void playerInteraction(cocos2d::EventKeyboard::KeyCode keyCode);
 	std::string getName();
 	void setName(const std::string& name);
+	std::vector<cocos2d::Point>& getpathHistory();
 protected:
 	void showCannotMoveReason();
 	void showAtkArea();
@@ -41,5 +42,10 @@ protected:
 	ControlMode controlMode;
 
 	std::vector<cocos2d::Sprite*> targetSprites;
+
+	//////////////////////////////////////////////////////////////////////////
+	void recodePath(cocos2d::Point coord);
+	std::vector<cocos2d::Point > pathHistory;
+	int historySize;
 };
 

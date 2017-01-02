@@ -53,13 +53,16 @@ void HeroManager::initMission()
 
 	for each (Character*  hero in heroBox)
 	{
-		cocos2d::Point coord = ToolFunction::findValidPlace(
-			Field::Dungeon::getInstance()->getStorey(),
-			playerCoord
-		);
-		//		hero->setMapCoord(cocos2d::Point(playerCoord.x, playerCoord.y + 1));
-		hero->setMapCoord(coord);
-		Field::Dungeon::getInstance()->addCharacter(hero);
+		if (!hero->isDead())
+		{
+			cocos2d::Point coord = ToolFunction::findValidPlace(
+				Field::Dungeon::getInstance()->getStorey(),
+				playerCoord
+			);
+			//		hero->setMapCoord(cocos2d::Point(playerCoord.x, playerCoord.y + 1));
+			hero->setMapCoord(coord);
+			Field::Dungeon::getInstance()->addCharacter(hero);
+		}
 	}
 }
 

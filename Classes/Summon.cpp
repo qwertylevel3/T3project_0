@@ -1,5 +1,6 @@
 #include "Summon.h"
 #include "GameActorFactory.h"
+#include "SummonCreatureManager.h"
 #include "Dungeon.h"
 #include "FixedSelector.h"
 #include "ToolFunction.h"
@@ -48,6 +49,7 @@ void Skill::Summon::run()
 	}
 
 	storey->addCharacter(targetCoord, summonCharacter);
+	SummonCreatureManager::getInstance()->addCharacter(summonCharacter);
 }
 
 void Skill::Summon::initExtraMessage(std::vector<std::string> extraMessage)

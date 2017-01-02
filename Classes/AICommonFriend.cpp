@@ -1,18 +1,15 @@
-#include "AIVergil.h"
+#include "AICommonFriend.h"
 #include "Player.h"
-#include "Character.h"
-#include "HudMessageBox.h"
-#include "DialogueSystem.h"
 
-AIVergil::AIVergil()
+AICommonFriend::AICommonFriend()
 {
 }
 
-AIVergil::~AIVergil()
+AICommonFriend::~AICommonFriend()
 {
 }
 
-void AIVergil::update()
+void AICommonFriend::update()
 {
 	int viewSize = characterPtr->getViewSize();
 
@@ -20,7 +17,8 @@ void AIVergil::update()
 
 	if (enemyTarget)
 	{
-		if (getManhattanDistance(Player::getInstance()->getcharacterPtr()) > 5)
+		//如果和player距离过远，就跟随player
+		if (getManhattanDistance(Player::getInstance()->getcharacterPtr()) > 6)
 		{
 			seek(Player::getInstance()->getcharacterPtr());
 		}
@@ -47,19 +45,5 @@ void AIVergil::update()
 		{
 			seek(Player::getInstance()->getcharacterPtr());
 		}
-	}
-}
-
-void AIVergil::feedback(Character* character)
-{
-	// characterPtr->speak(L"对话不能，现在");
-	DialogueSystem::getInstance()->runDialogue("testDialogue");
-}
-
-void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
-{
-	if (dialogueName == "testDialogue")
-	{
-		characterPtr->speak(L"对话完毕");
 	}
 }

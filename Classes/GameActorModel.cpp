@@ -77,6 +77,10 @@ Character::PlayType GameActorModel::str2playType(std::string playType)
 	{
 		return Character::Object;
 	}
+	else if (playType == "friend")
+	{
+		return Character::Friend;
+	}
 	else
 	{
 		CCAssert(false, "error play type in game actor");

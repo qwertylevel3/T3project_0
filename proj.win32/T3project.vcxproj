@@ -154,6 +154,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AIBlackSnack.cpp" />
     <ClCompile Include="..\Classes\AICentaur.cpp" />
     <ClCompile Include="..\Classes\AICommonEnemy.cpp" />
+    <ClCompile Include="..\Classes\AICommonFriend.cpp" />
     <ClCompile Include="..\Classes\AIDestroyWizard.cpp" />
     <ClCompile Include="..\Classes\AIEnts.cpp" />
     <ClCompile Include="..\Classes\AIFactory.cpp" />
@@ -161,6 +162,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AIShrine.cpp" />
     <ClCompile Include="..\Classes\AISnack.cpp" />
     <ClCompile Include="..\Classes\AIStatue.cpp" />
+    <ClCompile Include="..\Classes\AISuccubus.cpp" />
     <ClCompile Include="..\Classes\AISummonWizard.cpp" />
     <ClCompile Include="..\Classes\AITauren.cpp" />
     <ClCompile Include="..\Classes\AIVampire.cpp" />
@@ -253,6 +255,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\SplashLayer.cpp" />
     <ClCompile Include="..\Classes\ExpAdd.cpp" />
     <ClCompile Include="..\Classes\Summon.cpp" />
+    <ClCompile Include="..\Classes\SummonCreatureManager.cpp" />
     <ClCompile Include="..\Classes\Thunder.cpp" />
     <ClCompile Include="..\Classes\Triangulate.cpp" />
     <ClCompile Include="..\Classes\VenomSphere.cpp" />
@@ -322,6 +325,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AIBlackSnack.h" />
     <ClInclude Include="..\Classes\AICentaur.h" />
     <ClInclude Include="..\Classes\AICommonEnemy.h" />
+    <ClInclude Include="..\Classes\AICommonFriend.h" />
     <ClInclude Include="..\Classes\AIDestroyWizard.h" />
     <ClInclude Include="..\Classes\AIEnts.h" />
     <ClInclude Include="..\Classes\AIFactory.h" />
@@ -329,6 +333,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AIShrine.h" />
     <ClInclude Include="..\Classes\AISnack.h" />
     <ClInclude Include="..\Classes\AIStatue.h" />
+    <ClInclude Include="..\Classes\AISuccubus.h" />
     <ClInclude Include="..\Classes\AISummonWizard.h" />
     <ClInclude Include="..\Classes\AITauren.h" />
     <ClInclude Include="..\Classes\AIVampire.h" />
@@ -421,6 +426,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\SplashLayer.h" />
     <ClInclude Include="..\Classes\ExpAdd.h" />
     <ClInclude Include="..\Classes\Summon.h" />
+    <ClInclude Include="..\Classes\SummonCreatureManager.h" />
     <ClInclude Include="..\Classes\Thunder.h" />
     <ClInclude Include="..\Classes\Triangulate.h" />
     <ClInclude Include="..\Classes\VenomSphere.h" />

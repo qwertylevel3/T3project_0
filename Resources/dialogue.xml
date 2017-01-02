@@ -45,6 +45,39 @@
 		</sentence>
 	</dialogue>
 	<dialogue>
+		<name>talkSuccubus</name>
+		<sentence>
+			<type>question</type>
+			<actorName>succubus.png</actorName>
+			<word>要为我补充魔法么</word>
+			<optionList>
+				<option>
+					<label>好的</label>
+					<next>-1</next>
+				</option>
+				<option>
+					<label>姐姐不要</label>
+					<next>-1</next>
+				</option>
+			</optionList>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>summonSuccubus</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>succubus.png</actorName>
+			<word>哎呀，不小心把大姐姐召唤出来了，你可得实现我的100个愿望</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>似乎召唤了什么不得了的东西...</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
 		<name>levelUp</name>
 		<sentence>
 			<type>question</type>

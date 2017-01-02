@@ -178,6 +178,21 @@
 		<skillName>FireBall_火球术_0_0_20_5</skillName>
 	</inventory>
 	<inventory>
+		<type>supply</type>
+		<name>scroll001</name>
+		<cname>小黄本</cname>
+		<tips>上面有一些不可描述的图片和一些不可描述的文字</tips>
+		<level>5</level>
+		<price>999</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>10</intRequire>
+		<skillName>Summon_魅魔的召唤_0_0_succubus</skillName>
+	</inventory>
+	<inventory>
 		<type>arrow</type>
 		<name>arrow000</name>
 		<cname>箭</cname>

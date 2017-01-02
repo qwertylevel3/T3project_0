@@ -39,6 +39,8 @@ namespace Field {
 		StoreyInventoryHandler* getInventoryHandler();
 
 		bool isMoveAble(cocos2d::Point mapCoord);
+		//¬∑æ∂≤È’“”√
+		bool isRouteAble(cocos2d::Point mapCoord);
 		bool isMoveAble(int tile);
 		bool isPartner(cocos2d::Point mapCoord);
 		bool isWall(cocos2d::Point mapCoord);

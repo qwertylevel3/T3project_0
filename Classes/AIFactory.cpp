@@ -10,6 +10,8 @@
 #include "AITauren.h"
 #include "AIVampire.h"
 #include "AISummonWizard.h"
+#include "AICommonFriend.h"
+#include "AISuccubus.h"
 #include "AIBlackSnack.h"
 
 
@@ -72,6 +74,14 @@ AIBase* AIFactory::getAI(const std::string& AIName)
 	else if (AIName == "AIBlackSnack")
 	{
 		return new AIBlackSnack();
+	}
+	else if (AIName == "AICommonFriend")
+	{
+		return new AICommonFriend();
+	}
+	else if (AIName == "AISuccubus")
+	{
+		return new AISuccubus();
 	}
 	else
 	{

@@ -15,11 +15,18 @@ public:
 	virtual void levelUp();
 protected:
 	Character* characterPtr;
+	//计算character和target之间的麦哈顿距离
+	int getManhattanDistance(Character* target);
 	void seek(Character* target);
 	void changeOrientationTo(Character* target);
 	//逃跑，如果成功移动，返回true，否则返回false
 	bool flee(Character* target);
 	bool isInAttackArea(Character* target);
 	bool isNear(cocos2d::Point coord);
+	
+	//向targetCoord逼近
+	void seek(cocos2d::Point targetCoord);
+
+
 };
 

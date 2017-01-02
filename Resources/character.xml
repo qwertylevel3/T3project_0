@@ -74,6 +74,42 @@
 		</standRightAnimation>
 	</character>
 	<character>
+		<name>demon</name>
+		<firstFrame>demon1.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>demon4.png</frameName>
+			<frameName>demon5.png</frameName>
+			<frameName>demon6.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>demon1.png</frameName>
+			<frameName>demon2.png</frameName>
+			<frameName>demon3.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>demon7.png</frameName>
+			<frameName>demon8.png</frameName>
+			<frameName>demon9.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>demon10.png</frameName>
+			<frameName>demon11.png</frameName>
+			<frameName>demon12.png</frameName>
+		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>demon4.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>demon1.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>demon7.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>demon10.png</frameName>
+		</standRightAnimation>
+	</character>
+	<character>
 		<name>slime</name>
 		<firstFrame>slime1.png</firstFrame>
 		<moveUpAnimation>

@@ -121,11 +121,28 @@ void AIBase::levelUp()
 	}
 }
 
+int AIBase::getManhattanDistance(Character* target)
+{
+	cocos2d::Point coordCaster = characterPtr->getMapCoord();
+	cocos2d::Point coordTarget = target->getMapCoord();
+
+	return abs(coordCaster.x - coordTarget.x) + abs(coordCaster.y - coordTarget.y);
+}
+
 void AIBase::seek(Character* target)
 {
 	cocos2d::Point startPoint = characterPtr->getMapCoord();
 	cocos2d::Point endPoint = target->getMapCoord();
 	cocos2d::Point nextStep = ToolFunction::nextStep(startPoint, endPoint);
+
+	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+
+	//todo
+	if (nextStep == cocos2d::Point(-1, -1))
+	{
+		seek(endPoint);
+		return;
+	}
 
 	if (nextStep == startPoint)
 	{
@@ -178,6 +195,48 @@ void AIBase::seek(Character* target)
 	{
 		CCAssert(false, "error nextStep");
 	}
+}
+
+void AIBase::seek(cocos2d::Point targetCoord)
+{
+	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+	cocos2d::Point oriCoord = characterPtr->getMapCoord();
+
+	cocos2d::Point upCoord = cocos2d::Point(oriCoord.x, oriCoord.y - 1);
+	cocos2d::Point downCoord = cocos2d::Point(oriCoord.x, oriCoord.y + 1);
+	cocos2d::Point leftCoord = cocos2d::Point(oriCoord.x - 1, oriCoord.y);
+	cocos2d::Point rightCoord = cocos2d::Point(oriCoord.x + 1, oriCoord.y);
+
+	bool isMoveAbleUp = storey->isMoveAble(upCoord);
+	bool isMoveAbleDown = storey->isMoveAble(downCoord);
+	bool isMoveAbleLeft = storey->isMoveAble(leftCoord);
+	bool isMoveAbleRight = storey->isMoveAble(rightCoord);
+
+	if (targetCoord.x > oriCoord.x
+		&& isMoveAbleRight)
+	{
+		characterPtr->moveRight();
+		return;
+	}
+	else if (targetCoord.x < oriCoord.x
+		&& isMoveAbleLeft)
+	{
+		characterPtr->moveLeft();
+		return;
+	}
+	else if (targetCoord.y > oriCoord.y
+		&& isMoveAbleDown)
+	{
+		characterPtr->moveDown();
+		return;
+	}
+	else if (targetCoord.y < oriCoord.y
+		&& isMoveAbleUp)
+	{
+		characterPtr->moveUp();
+		return;
+	}
+	characterPtr->idle();
 }
 
 void AIBase::changeOrientationTo(Character* target)

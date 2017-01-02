@@ -37,7 +37,7 @@ class Character
 public:
 	enum PlayType
 	{
-		Player, Hero, Enemy,Object
+		Player, Hero, Enemy,Object,Friend
 	};
 	enum Type
 	{

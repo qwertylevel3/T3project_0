@@ -94,7 +94,7 @@ void Field::Storey::moveUp(Character* character)
 	{
 		characterMoveUp(character);
 	}
-	else if(isPartner(targetCoord))
+	else if (isPartner(targetCoord))
 	{
 		if (isPlayer(character))
 		{
@@ -124,7 +124,7 @@ void Field::Storey::moveDown(Character* character)
 	{
 		characterMoveDown(character);
 	}
-	else if(isPartner(targetCoord))
+	else if (isPartner(targetCoord))
 	{
 		if (isPlayer(character))
 		{
@@ -154,7 +154,7 @@ void Field::Storey::moveLeft(Character* character)
 	{
 		characterMoveLeft(character);
 	}
-	else if(isPartner(targetCoord))
+	else if (isPartner(targetCoord))
 	{
 		if (isPlayer(character))
 		{
@@ -184,7 +184,7 @@ void Field::Storey::moveRight(Character* character)
 	{
 		characterMoveRight(character);
 	}
-	else if(isPartner(targetCoord))
+	else if (isPartner(targetCoord))
 	{
 		if (isPlayer(character))
 		{
@@ -487,9 +487,8 @@ void Field::Storey::changeCharacterCoord(Character* character, cocos2d::Point ta
 		if (*iter == character)
 		{
 			cocos2d::Point targetPosition = getTilePosition(targetCoord);
-//			character->getSprite()->stopAllActions();
+			//			character->getSprite()->stopAllActions();
 			character->setPosition(targetPosition);
-
 
 			removeCharacter(character);
 			character->setMapCoord(targetCoord);
@@ -544,11 +543,32 @@ bool Field::Storey::isMoveAble(cocos2d::Point mapCoord)
 	return isMoveAble(getTile(mapCoord));
 }
 
+bool Field::Storey::isRouteAble(cocos2d::Point mapCoord)
+{
+	//	if (getCharacter(mapCoord) && !getCharacter(mapCoord)->isDead())
+	//	{
+	//		return false;
+	//	}
+	if (getCharacter(mapCoord) && !getCharacter(mapCoord)->isDead()
+		&& (getCharacter(mapCoord)->getPlayType() == Character::Hero
+			|| getCharacter(mapCoord)->getPlayType() == Character::Friend))
+	{
+		return true;
+	}
+	if (getCharacter(mapCoord) && !getCharacter(mapCoord)->isDead())
+	{
+		return false;
+	}
+
+	return isMoveAble(getTile(mapCoord));
+}
+
 bool Field::Storey::isPartner(cocos2d::Point mapCoord)
 {
 	if (getCharacter(mapCoord)
 		&& !getCharacter(mapCoord)->isDead()
-		&& getCharacter(mapCoord)->getPlayType() == Character::Hero)
+		&& (getCharacter(mapCoord)->getPlayType() == Character::Hero
+			|| getCharacter(mapCoord)->getPlayType() == Character::Friend))
 	{
 		return true;
 	}

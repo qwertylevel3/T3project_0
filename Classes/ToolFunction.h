@@ -22,7 +22,7 @@ public:
 	//ÊÇ·ñÏàÁÚ
 	static bool isNear8(cocos2d::Point oriCoord,cocos2d::Point targetCoord);
 
-	static long getCurmTime();
+	static long getCurTime();
 
 
 
