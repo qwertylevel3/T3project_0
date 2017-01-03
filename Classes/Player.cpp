@@ -164,7 +164,22 @@ void Player::autoNextStep()
 
 void Player::addFaith(int value)
 {
+	HudMessageBox::getInstance()->addMessage(
+		L"你获得了" +
+		ToolFunction::string2wstring(ToolFunction::int2string(value)) +
+		L"信仰值"
+	);
 	faithValue += value;
+}
+
+void Player::reduceFaith(int value)
+{
+	HudMessageBox::getInstance()->addMessage(
+		L"你失去了" +
+		ToolFunction::string2wstring(ToolFunction::int2string(value)) +
+		L"信仰值"
+	);
+	faithValue -= value;
 }
 
 bool Player::isInViewSize(cocos2d::Point coord)

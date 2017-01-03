@@ -1,4 +1,5 @@
 #include "AIVergil.h"
+#include "ToolFunction.h"
 #include "Player.h"
 #include "Character.h"
 #include "HudMessageBox.h"
@@ -39,7 +40,8 @@ void AIVergil::update()
 	else
 	{
 		cocos2d::Point playerCoord = Player::getInstance()->getcharacterPtr()->getMapCoord();
-		if (isNear(playerCoord))
+
+		if (ToolFunction::isNear4(characterPtr->getMapCoord(),playerCoord))
 		{
 			characterPtr->idle();
 		}

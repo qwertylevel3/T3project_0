@@ -1,4 +1,6 @@
 #include "AIStatue.h"
+#include "HudMessageBox.h"
+#include "RandomNumber.h"
 #include "BuffFactory.h"
 #include "ToolFunction.h"
 #include "Player.h"
@@ -31,14 +33,7 @@ void AIStatue::feedback(Character* character)
 	}
 	Character * playerCharacterPtr = Player::getInstance()->getcharacterPtr();
 	ExpHandler* expHandler = playerCharacterPtr->getExphandler();
-	if (expHandler->getCurAttrPoint()>0)
-	{
-		DialogueSystem::getInstance()->runDialogue("levelUp", this->characterPtr);
-	}
-	else
-	{
-		characterPtr->speak(L"没有属性点");
-	}
+	DialogueSystem::getInstance()->runDialogue("talkStatue", this->characterPtr);
 }
 
 void AIStatue::handleDialogueResult(std::string dialogueName, int resultNumber)
@@ -46,25 +41,72 @@ void AIStatue::handleDialogueResult(std::string dialogueName, int resultNumber)
 	Character * playerCharacterPtr = Player::getInstance()->getcharacterPtr();
 	ExpHandler* expHandler = playerCharacterPtr->getExphandler();
 
-	if (resultNumber == -1)
+	if (dialogueName == "talkStatue"
+		&& resultNumber == -1)
 	{
+		handlePray();
+	}
+	else if (dialogueName == "talkStatue"
+		&& resultNumber == -2)
+	{
+		handleLevelUp();
+	}
+	else if (dialogueName == "levelUp"
+		&& resultNumber == -1)
+	{
+		//升级力量
 		playerCharacterPtr->setStrength(
 			playerCharacterPtr->getOriStrength() + 1
 		);
 		expHandler->useAttrPoint();
 	}
-	else if (resultNumber == -2)
+	else if (dialogueName == "levelUp"
+		&& resultNumber == -2)
 	{
+		//升级敏捷
 		playerCharacterPtr->setAgility(
 			playerCharacterPtr->getOriAgility() + 1
 		);
 		expHandler->useAttrPoint();
 	}
-	else
+	else if (dialogueName == "levelUp"
+		&& resultNumber == -3)
 	{
+		//升级智力
 		playerCharacterPtr->setIntellect(
 			playerCharacterPtr->getOriIntellect() + 1
 		);
 		expHandler->useAttrPoint();
+	}
+}
+
+void AIStatue::handlePray()
+{
+	//祈祷
+	if (Player::getInstance()->getFaithValue() < 10)
+	{
+		characterPtr->speak(L"信仰不足");
+	}
+	else
+	{
+		Player::getInstance()->reduceFaith(10);
+
+		int roll = RandomNumber::getInstance()->randomInt(1, 100);
+		Player::getInstance()->getcharacterPtr()->addExp(200);
+		HudMessageBox::getInstance()->addMessage(L"你获得了200点经验");
+	}
+}
+
+void AIStatue::handleLevelUp()
+{
+	ExpHandler* expHandler = Player::getInstance()->getcharacterPtr()->getExphandler();
+
+	if (expHandler->getCurAttrPoint() > 0)
+	{
+		DialogueSystem::getInstance()->runDialogue("levelUp", this->characterPtr);
+	}
+	else
+	{
+		characterPtr->speak(L"没有属性点");
 	}
 }

@@ -17,7 +17,7 @@
 #include "base/ccTypes.h"
 #include "MainLayer.h"
 #include "RandomNumber.h"
-#include "HudMessageBox.h"
+//#include "HudMessageBox.h"
 #include "ExpHandler.h"
 
 #include "Marco.h"
@@ -439,11 +439,11 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 	}
 	int realDamage = sufferAttack(a, b, hand, attackCount);
 
-	HudMessageBox::getInstance()->addMessage(L"ÉËº¦£º" +
-		ToolFunction::string2wstring(
-			ToolFunction::int2string(realDamage)
-		)
-	);
+//	HudMessageBox::getInstance()->addMessage(L"ÉËº¦£º" +
+//		ToolFunction::string2wstring(
+//			ToolFunction::int2string(realDamage)
+//		)
+//	);
 
 	//sphereEffect µ÷ÓÃµã
 	Weapon* weapon = getWeapon(a, hand);

@@ -11,5 +11,7 @@ public:
 	void handleDialogueResult(std::string dialogueName, int resultNumber);
 protected:
 	int count;
+	void handlePray();
+	void handleLevelUp();
 };
 

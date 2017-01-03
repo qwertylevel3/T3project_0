@@ -23,6 +23,7 @@ public:
 	void autoNextStep();
 
 	void addFaith(int value);
+	void reduceFaith(int value);
 	bool isInViewSize(cocos2d::Point coord);
 	bool isMoveAble(cocos2d::EventKeyboard::KeyCode keyCode);
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);

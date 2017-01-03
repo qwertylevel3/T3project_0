@@ -49,7 +49,7 @@
 		<sentence>
 			<type>question</type>
 			<actorName>succubus.png</actorName>
-			<word>要为我补充魔法么</word>
+			<word>要为姐姐补充魔法么</word>
 			<optionList>
 				<option>
 					<label>好的</label>
@@ -67,7 +67,7 @@
 		<sentence>
 			<type>statement</type>
 			<actorName>succubus.png</actorName>
-			<word>哎呀，不小心把大姐姐召唤出来了，你可得实现我的100个愿望</word>
+			<word>哎呀，不小心把姐姐召唤出来了，你可得实现姐姐的100个愿望</word>
 			<next>2</next>
 		</sentence>
 		<sentence>
@@ -75,6 +75,24 @@
 			<actorName>NULL</actorName>
 			<word>似乎召唤了什么不得了的东西...</word>
 			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>talkStatue</name>
+		<sentence>
+			<type>question</type>
+			<actorName>NULL</actorName>
+			<word>选择</word>
+			<optionList>
+				<option>
+					<label>升级</label>
+					<next>-2</next>
+				</option>
+				<option>
+					<label>祈祷(-10信仰)</label>
+					<next>-1</next>
+				</option>
+			</optionList>
 		</sentence>
 	</dialogue>
 	<dialogue>
