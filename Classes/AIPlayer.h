@@ -10,5 +10,6 @@ public:
 	~AIPlayer();
 	void update();
 	void lastWords();
+	void handleDialogueResult(std::string dialogueName, int resultNumber);
 };
 

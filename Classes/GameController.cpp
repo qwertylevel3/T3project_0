@@ -1,4 +1,5 @@
 #include "GameController.h"
+#include "HudMessageBox.h"
 #include "SummonCreatureManager.h"
 #include "RandomNumber.h"
 #include "2d/CCAnimation.h"
@@ -96,7 +97,13 @@ void GameController::startGame()
 
 void GameController::reStartGame()
 {
+	Player::getInstance()->restart();
+	HeroManager::getInstance()->restart();
+//	SummonCreatureManager::getInstance()->restart();
 
+
+	curLevel = 1;
+	startMission();
 }
 
 void GameController::endGame()

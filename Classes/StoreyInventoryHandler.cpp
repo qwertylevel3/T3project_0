@@ -14,6 +14,11 @@ TileInventoryHandler::~TileInventoryHandler()
 {
 	MainLayer::getInstance()->removeChild(sprite);
 	std::vector<Inventory*>::iterator iter = inventoryBox.begin();
+	if (inventoryBox.size()==15)
+	{
+		int a = 1;
+
+	}
 	while (iter != inventoryBox.end())
 	{
 		delete *iter;
@@ -103,6 +108,10 @@ StoreyInventoryHandler::StoreyInventoryHandler(int w,int h)
 
 StoreyInventoryHandler::~StoreyInventoryHandler()
 {
+	for each (TileInventoryHandler* tileHandler in handlerMap)
+	{
+		delete tileHandler;
+	}
 }
 
 void StoreyInventoryHandler::addInventory(Inventory* inventory, int x, int y)

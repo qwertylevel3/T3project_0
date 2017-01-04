@@ -14,10 +14,6 @@ SummonCreatureManager::~SummonCreatureManager()
 
 void SummonCreatureManager::init()
 {
-	for each (Character* creature in creatureList)
-	{
-		delete creature;
-	}
 }
 
 void SummonCreatureManager::initMission()
@@ -43,4 +39,19 @@ void SummonCreatureManager::initMission()
 void SummonCreatureManager::addCharacter(Character* creature)
 {
 	creatureList.push_back(creature);
+}
+
+void SummonCreatureManager::restart()
+{
+	clear();
+	init();
+}
+
+void SummonCreatureManager::clear()
+{
+	for each (Character* creature in creatureList)
+	{
+		delete creature;
+	}
+	creatureList.clear();
 }

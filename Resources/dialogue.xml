@@ -96,6 +96,15 @@
 		</sentence>
 	</dialogue>
 	<dialogue>
+		<name>playerDie</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>你感觉眼前一黑，失去了知觉</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
 		<name>levelUp</name>
 		<sentence>
 			<type>question</type>

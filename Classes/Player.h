@@ -15,6 +15,8 @@ public:
 	~Player();
 	void init();
 	void initMission();
+	void restart();
+	void configPlayer();
 
 
 

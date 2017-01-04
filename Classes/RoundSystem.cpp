@@ -165,17 +165,23 @@ void RoundSystem::round()
 
 void RoundSystem::NPCAction(Character* character)
 {
-	circleOver = false;
-	while (character->getActionPoint() != 0)
+	if (character->isDead())
 	{
-		character->action();
+		nextRound();
+	}
+	else
+	{
+		circleOver = false;
+		while (character->getActionPoint() != 0)
+		{
+			character->action();
+		}
 	}
 }
 
 void RoundSystem::playerAction()
 {
 	circleOver = true;
-
 }
 
 void RoundSystem::start()
@@ -185,23 +191,23 @@ void RoundSystem::start()
 
 void RoundSystem::nextRound()
 {
-	do
-	{
-		nextIndex();
-	} while (allCharacter[curIndex]->isDead());
+	//	do
+	//	{
+	nextIndex();
+	//	} while (allCharacter[curIndex]->isDead());
 
-	//	if (isPlayer(allCharacter[curIndex]))
-	//	{
-	//		cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.2);
-	//		cocos2d::CallFunc *callFun = cocos2d::CallFunc::create(this, callfunc_selector(RoundSystem::round));
-	//		cocos2d::Sequence *action = cocos2d::Sequence::create(delayTime, callFun, NULL);
-	//		//this->runAction(action);
-	//		allCharacter[curIndex]->getSprite()->runAction(action);
-	//	}
-	//	else
-	//	{
-	//		round();
-	//	}
+		//	if (isPlayer(allCharacter[curIndex]))
+		//	{
+		//		cocos2d::DelayTime* delayTime = cocos2d::DelayTime::create(0.2);
+		//		cocos2d::CallFunc *callFun = cocos2d::CallFunc::create(this, callfunc_selector(RoundSystem::round));
+		//		cocos2d::Sequence *action = cocos2d::Sequence::create(delayTime, callFun, NULL);
+		//		//this->runAction(action);
+		//		allCharacter[curIndex]->getSprite()->runAction(action);
+		//	}
+		//	else
+		//	{
+		//		round();
+		//	}
 	round();
 }
 

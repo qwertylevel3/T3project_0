@@ -98,9 +98,9 @@ void InventoryHandler::drop(cocos2d::Point coord)
 	while (iter != inventoryBox.end())
 	{
 		Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
-		Inventory* inventory = InventoryFactory::getInstance()->getInventory(iter->first);
 		for (int i = 0; i < iter->second; i++)
 		{
+			Inventory* inventory = InventoryFactory::getInstance()->getInventory(iter->first);
 			storey->getInventoryHandler()->addInventory(inventory, coord.x, coord.y);
 		}
 		iter++;

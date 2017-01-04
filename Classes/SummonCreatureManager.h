@@ -16,7 +16,9 @@ public:
 	void init();
 	void initMission();
 	void addCharacter(Character* creature);
+	void restart();
 protected:
+	void clear();
 	std::vector<Character*> creatureList;
 };
 

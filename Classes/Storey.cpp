@@ -34,13 +34,15 @@ Storey::~Storey()
 	tileMap->release();
 	for each (Character* character in characterList)
 	{
-		//仅仅析构enemy和object，Hero和player另外处理
+		//仅仅析构enemy和object，Hero,Friend和player另外处理
 		if (character->getPlayType() == Character::Enemy
 			|| character->getPlayType() == Character::Object)
 		{
 			delete character;
 		}
 	}
+	characterList.clear();
+	delete inventoryHandler;
 }
 
 int Storey::getTile(int x, int y)

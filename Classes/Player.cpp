@@ -32,10 +32,42 @@ void Player::init()
 	faithValue = 0;
 	historySize = 10;
 	characterPtr = CharacterFactory::getInstance()->getCharacter("player");
-
-
 	characterPtr->setAI("AIPlayer");
 
+	configPlayer();
+
+}
+
+void Player::initMission()
+{
+	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+	cocos2d::Point tempCoord = storey->getUpCoord();
+	if (storey->getCharacter(tempCoord))
+	{
+		tempCoord = ToolFunction::findValidPlace(
+			Field::Dungeon::getInstance()->getStorey(),
+			tempCoord
+		);
+	}
+
+	characterPtr->setMapCoord(tempCoord);
+
+
+	storey->addCharacter(tempCoord, characterPtr);
+}
+
+
+void Player::restart()
+{
+	delete characterPtr;
+	characterPtr = CharacterFactory::getInstance()->getCharacter("player");
+	characterPtr->setAI("AIPlayer");
+
+	configPlayer();
+}
+
+void Player::configPlayer()
+{
 	characterPtr->addSkill(L"FireBall_¿ìËÙ»ðÇò_20_20_20_5");
 	characterPtr->addSkill(L"HPRecoverySelf_ÉúÃü»Ö¸´_20_20_20");
 	characterPtr->addSkill(L"MPRecoverySelf_Ä§·¨»Ö¸´_20_20_100");
@@ -116,26 +148,8 @@ void Player::init()
 	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
 
 
+
 }
-
-void Player::initMission()
-{
-	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
-	cocos2d::Point tempCoord = storey->getUpCoord();
-	if (storey->getCharacter(tempCoord))
-	{
-		tempCoord = ToolFunction::findValidPlace(
-			Field::Dungeon::getInstance()->getStorey(),
-			tempCoord
-		);
-	}
-
-	characterPtr->setMapCoord(tempCoord);
-
-
-	storey->addCharacter(tempCoord, characterPtr);
-}
-
 
 void Player::autoNextStep()
 {

@@ -242,10 +242,7 @@ void Character::clearChant()
 
 void Character::die()
 {
-	if (ai)
-	{
-		ai->lastWords();
-	}
+	
 
 	sprite->setVisible(false);
 	unequipLeftHand();
@@ -256,6 +253,11 @@ void Character::die()
 	inventoryHandler->drop(this->getMapCoord());
 
 	dead = true;
+
+	if (ai)
+	{
+		ai->lastWords();
+	}
 }
 
 bool Character::isDead()

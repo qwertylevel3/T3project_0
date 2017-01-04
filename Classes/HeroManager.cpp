@@ -66,6 +66,21 @@ void HeroManager::initMission()
 	}
 }
 
+void HeroManager::restart()
+{
+	clear();
+	init();
+}
+
+void HeroManager::clear()
+{
+	for each (Character*  hero in heroBox)
+	{
+		delete hero;
+	}
+	heroBox.clear();
+}
+
 void HeroManager::initHero(const std::string& fileName)
 {
 	std::string tempFileName = ".\\hero\\" + fileName;
