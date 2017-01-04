@@ -97,9 +97,11 @@ void GameController::startGame()
 
 void GameController::reStartGame()
 {
+	Field::Dungeon::getInstance()->clear();
+
 	Player::getInstance()->restart();
 	HeroManager::getInstance()->restart();
-//	SummonCreatureManager::getInstance()->restart();
+	SummonCreatureManager::getInstance()->restart();
 
 
 	curLevel = 1;
