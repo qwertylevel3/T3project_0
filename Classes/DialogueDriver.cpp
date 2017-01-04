@@ -1,6 +1,6 @@
 #include "DialogueDriver.h"
+#include "HudMessageBox.h"
 #include "ToolFunction.h"
-
 #include "HudLayer.h"
 #include "Sentence.h"
 #include "Question.h"
@@ -28,13 +28,13 @@ void DialogueDriver::init()
 
 	dialogBk = cocos2d::ui::Scale9Sprite::create("HUD/menu.png");
 	dialogBk->setScale9Enabled(true);
-	dialogBk->setContentSize(cocos2d::Size(750, 150));
+	dialogBk->setContentSize(cocos2d::Size(810, 160));
 	dialogBk->setOpacity(180);
 	HudLayer::getInstance()->addChild(dialogBk);
 	dialogBk->setLocalZOrder(1);
 	dialogBk->setVisible(false);
 
-	dialogBk->setPosition(400, 100);
+	dialogBk->setPosition(400,70);
 
 	cocos2d::CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("dialogue/dialogueActor.plist");
 
@@ -60,11 +60,11 @@ void DialogueDriver::init()
 	textLabel->setVisible(false);
 	HudLayer::getInstance()->addChild(textLabel);
 	textLabel->setLocalZOrder(3);
-	textLabel->setPosition(400, 100);
+	textLabel->setPosition(450, 95);
 	textLabel->setAlignment(CCTextAlignment::LEFT, CCVerticalTextAlignment::TOP);
-	textLabel->setWidth(700);
+	textLabel->setWidth(600);
 	textLabel->setHeight(24 * 4);
-	textLabel->setMaxLineWidth(700);
+	textLabel->setMaxLineWidth(600);
 	textLabel->setLineBreakWithoutSpace(false);
 	textLabel->enableShadow();
 	textLabel->setOpacity(255);
@@ -83,9 +83,12 @@ void DialogueDriver::run(Statement* statement)
 	if (actorSpriteName != "NULL")
 	{
 		actorSprite = Sprite::createWithSpriteFrameName(actorSpriteName);
-		actorSprite->setPosition(400, 150);
+		actorSprite->setPosition(75, 100);
+		actorSprite->getTexture()->setAliasTexParameters();
+
+
 		HudLayer::getInstance()->addChild(actorSprite);
-		actorSprite->setLocalZOrder(0);
+		actorSprite->setLocalZOrder(2);
 	}
 	else
 	{
@@ -108,9 +111,12 @@ void DialogueDriver::run(Question* question)
 	if (actorSpriteName != "NULL")
 	{
 		actorSprite = Sprite::createWithSpriteFrameName(actorSpriteName);
-		actorSprite->setPosition(400, 150);
+		actorSprite->setPosition(75, 100);
+		actorSprite->getTexture()->setAliasTexParameters();
+
+
 		HudLayer::getInstance()->addChild(actorSprite);
-		actorSprite->setLocalZOrder(0);
+		actorSprite->setLocalZOrder(2);
 	}
 	else
 	{
@@ -182,4 +188,5 @@ void DialogueDriver::endDialogue(int endResult)
 	{
 		curActor->handleDialogueResult(curDialogue->getName(), endResult);
 	}
+	HudMessageBox::getInstance()->show();
 }

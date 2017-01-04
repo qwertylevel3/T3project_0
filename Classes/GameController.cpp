@@ -1,4 +1,5 @@
 #include "GameController.h"
+#include "GameSaveManager.h"
 #include "HudMessageBox.h"
 #include "SummonCreatureManager.h"
 #include "RandomNumber.h"
@@ -30,6 +31,8 @@ GameController::~GameController()
 
 void GameController::init()
 {
+	GameSaveManager::getInstance()->load();
+
 	RandomNumber::getInstance()->setSeed(100);
 	Buff::BuffFactory::getInstance()->init();
 	Sphere::SphereFactory::getInstance()->init();
@@ -77,6 +80,7 @@ void GameController::startMission()
 	{
 		SplashLayer::getInstance()->fadeOutBlack(2);
 	}
+
 }
 
 void GameController::nextMission()

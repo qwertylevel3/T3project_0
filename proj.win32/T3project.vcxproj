@@ -206,6 +206,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\FireBall.cpp" />
     <ClCompile Include="..\Classes\FixedSelector.cpp" />
     <ClCompile Include="..\Classes\GameController.cpp" />
+    <ClCompile Include="..\Classes\GameSaveManager.cpp" />
     <ClCompile Include="..\Classes\HemophagiaSphere.cpp" />
     <ClCompile Include="..\Classes\HeroManager.cpp" />
     <ClCompile Include="..\Classes\HPBuff.cpp" />
@@ -379,6 +380,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\FireBall.h" />
     <ClInclude Include="..\Classes\FixedSelector.h" />
     <ClInclude Include="..\Classes\GameController.h" />
+    <ClInclude Include="..\Classes\GameSaveManager.h" />
     <ClInclude Include="..\Classes\HemophagiaSphere.h" />
     <ClInclude Include="..\Classes\HeroManager.h" />
     <ClInclude Include="..\Classes\HPBuff.h" />
