@@ -242,6 +242,11 @@ void Character::clearChant()
 
 void Character::die()
 {
+	if (ai)
+	{
+		ai->lastWords();
+	}
+
 	sprite->setVisible(false);
 	unequipLeftHand();
 	unequipRightHand();

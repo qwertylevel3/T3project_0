@@ -114,7 +114,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // run
     director->runWithScene(scene);
 
-	GameController::getInstance()->startMission();
+	GameController::getInstance()->startGame();
 
     return true;
 }

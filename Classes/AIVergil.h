@@ -10,6 +10,7 @@ public:
 	void update();
 	void feedback(Character* character);
 	void handleDialogueResult(std::string dialogueName, int resultNumber);
+	void lastWords();
 protected:
 
 };

@@ -1,4 +1,6 @@
 #include "AIFactory.h"
+#include "AIPlayer.h"
+#include "AIPersephone.h"
 #include "AICommonEnemy.h"
 #include "AIDestroyWizard.h"
 #include "AIVergil.h"
@@ -87,6 +89,14 @@ AIBase* AIFactory::getAI(const std::string& AIName)
 	else if (AIName=="AIDestroyWizard")
 	{
 		return new AIDestroyWizard();
+	}
+	else if (AIName=="AIPersephone")
+	{
+		return new AIPersephone();
+	}
+	else if (AIName == "AIPlayer")
+	{
+		return new AIPlayer();
 	}
 	else
 	{

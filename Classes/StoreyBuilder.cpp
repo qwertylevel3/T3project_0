@@ -581,14 +581,16 @@ void Field::StoreyBuilder::placeGameActorAllRoom()
 	CCAssert(statue, "get a null portal");
 	storey->addCharacter(storey->getUpCoord().x, storey->getUpCoord().y, statue);
 
-//	if (curLevel == 9)
-//	{
-//		//最后一层放置Boss
-//		Character* persephone = GameActorFactory::getInstance()->getActor("persephone");
-//		CCAssert(persephone, "get a null portal");
-//		storey->addCharacter(storey->getDownCoord().x, storey->getDownCoord().y, persephone);
-//	}
-//	else
+
+	//test
+	if (curLevel == 1)
+	{
+		//最后一层放置Boss
+		Character* persephone = GameActorFactory::getInstance()->getActor("persephone");
+		CCAssert(persephone, "get a null portal");
+		storey->addCharacter(storey->getDownCoord().x, storey->getDownCoord().y, persephone);
+	}
+	else
 	{
 		//否则设置向下一层的传送门
 		Character* portal = GameActorFactory::getInstance()->getActor("portal");

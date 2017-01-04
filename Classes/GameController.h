@@ -11,6 +11,10 @@ public:
 	void startMission();
 	void nextMission();
 	int getCurLevel();
+	void startGame();
+	void reStartGame();
+	void endGame();
+	void saveGame();
 protected:
 	int curLevel;
 };

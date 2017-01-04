@@ -1,4 +1,5 @@
 #include "AIPersephone.h"
+#include "GameController.h"
 
 
 
@@ -24,4 +25,10 @@ void AIPersephone::update()
 void AIPersephone::feedback(Character* character)
 {
 	characterPtr->speak(L"......");
+}
+
+void AIPersephone::lastWords()
+{
+	GameController::getInstance()->init();
+	GameController::getInstance()->startMission();
 }

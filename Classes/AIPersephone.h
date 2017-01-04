@@ -9,6 +9,7 @@ public:
 	~AIPersephone();
 	void update();
 	void feedback(Character* character);
+	void lastWords();
 protected:
 };
 

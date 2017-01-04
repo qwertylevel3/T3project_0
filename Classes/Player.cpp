@@ -33,6 +33,9 @@ void Player::init()
 	historySize = 10;
 	characterPtr = CharacterFactory::getInstance()->getCharacter("player");
 
+
+	characterPtr->setAI("AIPlayer");
+
 	characterPtr->addSkill(L"FireBall_¿ìËÙ»ðÇò_20_20_20_5");
 	characterPtr->addSkill(L"HPRecoverySelf_ÉúÃü»Ö¸´_20_20_20");
 	characterPtr->addSkill(L"MPRecoverySelf_Ä§·¨»Ö¸´_20_20_100");
@@ -52,8 +55,8 @@ void Player::init()
 
 	controlMode = NormalMode;
 
-	characterPtr->setHP(100);
-	characterPtr->setMaxHP(100);
+	characterPtr->setHP(10);
+	characterPtr->setMaxHP(10);
 	characterPtr->setMP(100);
 	characterPtr->setMaxMP(100);
 

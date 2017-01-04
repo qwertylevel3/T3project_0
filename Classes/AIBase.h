@@ -13,6 +13,8 @@ public:
 	void setCharacter(Character* character);
 	Character* searchTargetBFS(Character::Type type);
 	virtual void levelUp();
+	//死亡触发
+	virtual void lastWords();
 protected:
 	Character* characterPtr;
 	//计算character和target之间的麦哈顿距离

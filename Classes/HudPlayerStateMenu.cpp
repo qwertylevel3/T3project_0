@@ -174,7 +174,7 @@ void HudPlayerStateMenu::update()
 	);
 	std::string faith = ToolFunction::int2string(Player::getInstance()->getFaithValue());
 	faithLabel->setString(
-		ToolFunction::WStr2UTF8(L"属性点:") +
+		ToolFunction::WStr2UTF8(L"信仰值:") +
 		faith
 	);
 
@@ -214,8 +214,8 @@ void HudPlayerStateMenu::setPosition()
 	intLabel->setPosition(170, 70);
 	weightLabel->setPosition(170, 40);
 
-	expLabel->setPosition(250, 130);
-	levelLabel->setPosition(250, 100);
-	pointLabel->setPosition(250, 70);
-	faithLabel->setPosition(250, 40);
+	expLabel->setPosition(300, 130);
+	levelLabel->setPosition(300, 100);
+	pointLabel->setPosition(300, 70);
+	faithLabel->setPosition(300, 40);
 }

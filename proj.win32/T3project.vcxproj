@@ -159,6 +159,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AIEnts.cpp" />
     <ClCompile Include="..\Classes\AIFactory.cpp" />
     <ClCompile Include="..\Classes\AIPersephone.cpp" />
+    <ClCompile Include="..\Classes\AIPlayer.cpp" />
     <ClCompile Include="..\Classes\AIPortal.cpp" />
     <ClCompile Include="..\Classes\AIShrine.cpp" />
     <ClCompile Include="..\Classes\AISnack.cpp" />
@@ -331,6 +332,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AIEnts.h" />
     <ClInclude Include="..\Classes\AIFactory.h" />
     <ClInclude Include="..\Classes\AIPersephone.h" />
+    <ClInclude Include="..\Classes\AIPlayer.h" />
     <ClInclude Include="..\Classes\AIPortal.h" />
     <ClInclude Include="..\Classes\AIShrine.h" />
     <ClInclude Include="..\Classes\AISnack.h" />

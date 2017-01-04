@@ -88,3 +88,23 @@ int GameController::getCurLevel()
 {
 	return curLevel;
 }
+
+void GameController::startGame()
+{
+	startMission();
+}
+
+void GameController::reStartGame()
+{
+
+}
+
+void GameController::endGame()
+{
+
+}
+
+void GameController::saveGame()
+{
+
+}

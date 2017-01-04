@@ -122,6 +122,11 @@ void AIBase::levelUp()
 	}
 }
 
+void AIBase::lastWords()
+{
+	
+}
+
 int AIBase::getManhattanDistance(Character* target)
 {
 	cocos2d::Point coordCaster = characterPtr->getMapCoord();

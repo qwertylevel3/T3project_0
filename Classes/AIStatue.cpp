@@ -109,4 +109,5 @@ void AIStatue::handleLevelUp()
 	{
 		characterPtr->speak(L"没有属性点");
 	}
+	
 }
