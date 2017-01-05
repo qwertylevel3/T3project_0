@@ -233,6 +233,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudUnequipRightMenu.cpp" />
     <ClCompile Include="..\Classes\HudUseableInventoryMenu.cpp" />
     <ClCompile Include="..\Classes\Illuminant.cpp" />
+    <ClCompile Include="..\Classes\InventoryListGenerator.cpp" />
     <ClCompile Include="..\Classes\LearnSkill.cpp" />
     <ClCompile Include="..\Classes\LinerSelector.cpp" />
     <ClCompile Include="..\Classes\LuckBuff.cpp" />
@@ -407,6 +408,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudUnequipRightMenu.h" />
     <ClInclude Include="..\Classes\HudUseableInventoryMenu.h" />
     <ClInclude Include="..\Classes\Illuminant.h" />
+    <ClInclude Include="..\Classes\InventoryListGenerator.h" />
     <ClInclude Include="..\Classes\LearnSkill.h" />
     <ClInclude Include="..\Classes\LinerSelector.h" />
     <ClInclude Include="..\Classes\LuckBuff.h" />

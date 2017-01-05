@@ -1,4 +1,5 @@
 #include "GameController.h"
+#include "InventoryListGenerator.h"
 #include "GameSaveManager.h"
 #include "HudMessageBox.h"
 #include "SummonCreatureManager.h"
@@ -34,6 +35,7 @@ void GameController::init()
 	GameSaveManager::getInstance()->load();
 
 	RandomNumber::getInstance()->setSeed(100);
+	InventoryListGenerator::getInstance()->init();
 	Buff::BuffFactory::getInstance()->init();
 	Sphere::SphereFactory::getInstance()->init();
 	Skill::SkillFactory::getInstance()->init();

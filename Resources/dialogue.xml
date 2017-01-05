@@ -45,6 +45,30 @@
 		</sentence>
 	</dialogue>
 	<dialogue>
+		<name>talkVergil</name>
+		<sentence>
+			<type>question</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>那么，有什么问题么？</word>
+			<optionList>
+				<option>
+					<label>结束对话</label>
+					<next>-1</next>
+				</option>
+				<option>
+					<label>回到第一句</label>
+					<next>-2</next>
+				</option>
+			</optionList>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>台词测试结束</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
 		<name>talkSuccubus</name>
 		<sentence>
 			<type>question</type>

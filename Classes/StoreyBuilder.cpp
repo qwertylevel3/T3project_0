@@ -1,4 +1,6 @@
 #include "StoreyBuilder.h"
+#include "Character.h"
+#include "InventoryListGenerator.h"
 #include"FieldEnum.h"
 #include "ToolFunction.h"
 #include"RandomNumber.h"
@@ -360,8 +362,15 @@ void Field::StoreyBuilder::placeGameActorLevel1(const Rect & rect)
 		//		int x = rect.x+rect.width - 1;
 		//		int y = rect.y+rect.height - 1;
 
-		Character* monster = GameActorFactory::getInstance()->getActor("blackSnack");
+		Character* monster = GameActorFactory::getInstance()->getActor("slime");
 		CCAssert(monster, "get a null monster");
+
+		std::vector<std::string > slimeInvList = InventoryListGenerator::getInstance()->getInventoryList("slime");
+
+		for each (std::string  invID in slimeInvList)
+		{
+			monster->addInventory(invID);
+		}
 
 		placeGameActor(x, y, monster);
 	}

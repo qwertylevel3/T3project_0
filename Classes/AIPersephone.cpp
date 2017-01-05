@@ -29,6 +29,5 @@ void AIPersephone::feedback(Character* character)
 
 void AIPersephone::lastWords()
 {
-	GameController::getInstance()->init();
-	GameController::getInstance()->startMission();
+
 }

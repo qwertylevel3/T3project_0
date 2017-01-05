@@ -68,6 +68,5 @@ void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 
 void AIVergil::lastWords()
 {
-	HudMessageBox::getInstance()->addMessage(L"continue please...");
-	HudMessageBox::getInstance()->addMessage(L"vergil ËÀÍö");
+
 }

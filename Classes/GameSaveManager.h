@@ -11,7 +11,6 @@ public:
 	~GameSaveManager();
 	void init();
 
-
 	void load();
 	void save();
 	void output();
