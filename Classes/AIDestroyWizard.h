@@ -9,5 +9,7 @@ public:
 	~AIDestroyWizard();
 	void update();
 
+protected:
+	bool isInMagicArea(int distance);
 };
 

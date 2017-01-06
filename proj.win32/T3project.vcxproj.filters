@@ -577,6 +577,7 @@
     <ClCompile Include="..\Classes\AIPlayer.cpp" />
     <ClCompile Include="..\Classes\GameSaveManager.cpp" />
     <ClCompile Include="..\Classes\InventoryListGenerator.cpp" />
+    <ClCompile Include="..\Classes\RandomDirectDamage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1084,6 +1085,7 @@
     <ClInclude Include="..\Classes\AIPlayer.h" />
     <ClInclude Include="..\Classes\GameSaveManager.h" />
     <ClInclude Include="..\Classes\InventoryListGenerator.h" />
+    <ClInclude Include="..\Classes\RandomDirectDamage.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

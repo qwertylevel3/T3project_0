@@ -1,6 +1,7 @@
 #include "SkillFactory.h"
 #include "Character.h"
 #include "Attack.h"
+#include "RandomDirectDamage.h"
 #include "Chant.h"
 #include "FireBall.h"
 #include "HPRecoverySelf.h"
@@ -45,6 +46,7 @@ void Skill::SkillFactory::init()
 	Thunder* thunderPrototype = new Thunder();
 	ExpAdd* expAddPrototype = new ExpAdd();
 	LearnSkill* learnSkillPrototype = new LearnSkill();
+	RandomDirectDamage* randomDirectDamagePrototype = new RandomDirectDamage();
 
 	skillPrototypeBox["FireBall"] = fireBallPrototype;
 	skillPrototypeBox["attack"] = attackPrototype;
@@ -63,6 +65,7 @@ void Skill::SkillFactory::init()
 	skillPrototypeBox["Thunder"] = thunderPrototype;
 	skillPrototypeBox["ExpAdd"] = expAddPrototype;
 	skillPrototypeBox["LearnSkill"] = learnSkillPrototype;
+	skillPrototypeBox["RandomDirectDamage"] = randomDirectDamagePrototype;
 }
 
 Skill::SkillBase* Skill::SkillFactory::getSkill(Character* character,std::string s)

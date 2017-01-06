@@ -247,6 +247,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\MPRecoverySelf.cpp" />
     <ClCompile Include="..\Classes\MyCamera.cpp" />
     <ClCompile Include="..\Classes\PhysicalImmuneBuff.cpp" />
+    <ClCompile Include="..\Classes\RandomDirectDamage.cpp" />
     <ClCompile Include="..\Classes\Repel.cpp" />
     <ClCompile Include="..\Classes\SelectorBase.cpp" />
     <ClCompile Include="..\Classes\SingleDirectionSearchSelector.cpp" />
@@ -422,6 +423,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MPRecoverySelf.h" />
     <ClInclude Include="..\Classes\MyCamera.h" />
     <ClInclude Include="..\Classes\PhysicalImmuneBuff.h" />
+    <ClInclude Include="..\Classes\RandomDirectDamage.h" />
     <ClInclude Include="..\Classes\Repel.h" />
     <ClInclude Include="..\Classes\SelectorBase.h" />
     <ClInclude Include="..\Classes\SingleDirectionSearchSelector.h" />

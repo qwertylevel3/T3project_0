@@ -489,7 +489,8 @@ void Field::Storey::changeCharacterCoord(Character* character, cocos2d::Point ta
 		if (*iter == character)
 		{
 			cocos2d::Point targetPosition = getTilePosition(targetCoord);
-			//			character->getSprite()->stopAllActions();
+			character->getSprite()->stopAllActions();
+			
 			character->setPosition(targetPosition);
 
 			removeCharacter(character);

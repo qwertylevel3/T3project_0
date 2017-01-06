@@ -25,6 +25,9 @@ public:
 	static long getCurTime();
 
 
+	//计算两点之间的麦哈顿距离
+	static int getManhattanDistance(cocos2d::Point coord1, cocos2d::Point coord2);
+
 
 
 

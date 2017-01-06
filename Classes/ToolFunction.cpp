@@ -135,6 +135,11 @@ long ToolFunction::getCurTime()
 	return ttt;
 }
 
+int ToolFunction::getManhattanDistance(cocos2d::Point coord1, cocos2d::Point coord2)
+{
+	return abs(coord1.x - coord2.x) + abs(coord1.y - coord2.y);
+}
+
 cocos2d::Point ToolFunction::findValidPlace(Field::Storey* storey, cocos2d::Point ori)
 {
 	int searchDeep = 1;

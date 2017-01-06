@@ -83,12 +83,14 @@ void Player::configPlayer()
 	characterPtr->addSkill(L"ExpAdd_经验增加_0_0_10_10_100");
 	characterPtr->addSkill(L"LearnSkill_学习火球术_0_0_FireBall_火球术_5_5_20_5");
 
+	characterPtr->addSkill(L"RandomDirectDamage_死亡一指_10_10_-30_5_2");
+
 	setName("qwerty");
 
 	controlMode = NormalMode;
 
-	characterPtr->setHP(10);
-	characterPtr->setMaxHP(10);
+	characterPtr->setHP(100);
+	characterPtr->setMaxHP(100);
 	characterPtr->setMP(100);
 	characterPtr->setMaxMP(100);
 

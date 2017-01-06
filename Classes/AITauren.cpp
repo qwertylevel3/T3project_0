@@ -29,7 +29,7 @@ void AITauren::update()
 		}
 		else
 		{
-			if (RandomNumber::getInstance()->randomBool(0.5))
+			if (RandomNumber::getInstance()->randomBool(0.8))
 			{
 				characterPtr->runSkill(
 					ToolFunction::WStr2UTF8(L"Repel_»÷ÍË_0_0_1_10")
