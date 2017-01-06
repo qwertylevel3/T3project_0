@@ -29,6 +29,9 @@ protected:
 	//ÏòtargetCoord±Æ½ü
 	void seek(cocos2d::Point targetCoord);
 
+
+	//ÏÐ¹ä
+	void wander();
 	bool isPlayerNear();
 };
 

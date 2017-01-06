@@ -26,38 +26,66 @@ void AIDestroyWizard::update()
 
 		if (isInAttackArea(targetCharacter))
 		{
-			characterPtr->attack();
-		}
-		else if (isInMagicArea(4))
-		{
-			//ÒÑÒ÷³ª
-			if (characterPtr->getChantCount() >= 1)
+			//ÒÑÒ÷³ªÇÒÄ§·¨³ä×ã
+			if (characterPtr->getChantCount() >= 10
+				&& characterPtr->getMP() >= 40)
 			{
 				characterPtr->runSkill(
-					ToolFunction::WStr2UTF8(L"FireBall_Ä§·¨¼ı_0_1_10_4")
+					ToolFunction::WStr2UTF8(L"RandomDirectDamage_À×»÷_40_10_-20_5_0")
 				);
 			}
-			else if (RandomNumber::getInstance()->randomBool(0.8))
+			else if (characterPtr->getMP() >= 40 &&
+				RandomNumber::getInstance()->randomBool(0.8))
 			{
+				//Ä§·¨Öµ³ä×ã
 				if (characterPtr->getChantCount() == 0)
 				{
 					characterPtr->chant();
 				}
 				else
 				{
-					characterPtr->idle();
+					characterPtr->attack();
 				}
 			}
 			else
 			{
-				characterPtr->idle();
+				characterPtr->attack();
+			}
+		}
+		else if (isInMagicArea(4))
+		{
+			//ÒÑÒ÷³ªÇÒÄ§·¨³ä×ã
+			if (characterPtr->getChantCount() >= 10
+				&& characterPtr->getMP() >= 40)
+			{
+				characterPtr->runSkill(
+					ToolFunction::WStr2UTF8(L"RandomDirectDamage_À×»÷_40_10_-20_5_0")
+				);
+			}
+			else if (characterPtr->getMP() >= 40 &&
+				RandomNumber::getInstance()->randomBool(0.8))
+			{
+				//Ä§·¨Öµ³ä×ã
+				if (characterPtr->getChantCount() == 0)
+				{
+					characterPtr->chant();
+				}
+				else
+				{
+					//characterPtr->idle();
+					wander();
+				}
+			}
+			else
+			{
+				wander();
 			}
 		}
 		else
 		{
 			if (!flee(targetCharacter))
 			{
-				characterPtr->idle();
+				wander();
 			}
 		}
 	}

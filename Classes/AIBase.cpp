@@ -43,15 +43,16 @@ Character* AIBase::searchTargetBFS(Character::Type type)
 {
 	Storey* storey = Dungeon::getInstance()->getStorey();
 	cocos2d::Point startPoint = characterPtr->getMapCoord();
-	int searchDeep = characterPtr->getViewSize();
+//	int searchDeep = characterPtr->getViewSize();
+
+	int distance = characterPtr->getViewSize();
 
 	std::queue<cocos2d::Point> pointQueue;
 	std::set<cocos2d::Point> discardPoint;
 
 	pointQueue.push(startPoint);
 
-	while (!pointQueue.empty()
-		&& searchDeep != 0)
+	while (!pointQueue.empty())
 	{
 		cocos2d::Point curPoint = pointQueue.front();
 		pointQueue.pop();
@@ -63,31 +64,34 @@ Character* AIBase::searchTargetBFS(Character::Type type)
 			{
 				if ((i == 0 || j == 0) && (i != j))
 				{
-					cocos2d::Point position = curPoint;
-					position.x += i;
-					position.y += j;
+					cocos2d::Point coord = curPoint;
+					coord.x += i;
+					coord.y += j;
 
-					if (discardPoint.count(position))
+					if (discardPoint.count(coord))
 					{
 						continue;
 					}
 
-					if (storey->isValid(position)
-						&& storey->getCharacter(position)
-						&& storey->getCharacter(position)->getCharacterType() == type
-						&& !storey->getCharacter(position)->isDead())
+					if (storey->isValid(coord)
+						&& storey->getCharacter(coord)
+						&& storey->getCharacter(coord)->getCharacterType() == type
+						&& !storey->getCharacter(coord)->isDead())
 					{
-						return storey->getCharacter(position);
+						return storey->getCharacter(coord);
+					}
+					else if (ToolFunction::getManhattanDistance(coord,startPoint))
+					{
+						pointQueue.push(coord);
+						discardPoint.insert(coord);
 					}
 					else
 					{
-						pointQueue.push(position);
-						discardPoint.insert(position);
+						discardPoint.insert(coord);
 					}
 				}
 			}
 		}
-		searchDeep--;
 	}
 
 	return nullptr;
@@ -243,6 +247,69 @@ void AIBase::seek(cocos2d::Point targetCoord)
 		return;
 	}
 	characterPtr->idle();
+}
+
+void AIBase::wander()
+{
+	int roll = RandomNumber::getInstance()->randomInt(0, 4);
+
+	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+	cocos2d::Point coord = characterPtr->getMapCoord();
+
+	switch (roll)
+	{
+	case 0:
+		characterPtr->idle();
+		break;
+	case 1://up
+		coord.y--;
+		if (storey->isMoveAble(coord))
+		{
+			characterPtr->moveUp();
+		}
+		else
+		{
+			characterPtr->idle();
+		}
+		break;
+	case 2://down
+		coord.y++;
+		if (storey->isMoveAble(coord))
+		{
+			characterPtr->moveDown();
+		}
+		else
+		{
+			characterPtr->idle();
+		}
+		break;
+	case 3://left
+		coord.x--;
+		if (storey->isMoveAble(coord))
+		{
+			characterPtr->moveLeft();
+		}
+		else
+		{
+			characterPtr->idle();
+		}
+		break;
+	case 4:///right
+		coord.x++;
+		if( storey->isMoveAble(coord))
+		{
+			characterPtr->moveRight();
+		}
+		else
+		{
+			characterPtr->idle();
+		}
+		break;
+	default:
+		characterPtr->idle();
+		break;
+	}
+
 }
 
 bool AIBase::isPlayerNear()

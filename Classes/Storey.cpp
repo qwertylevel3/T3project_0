@@ -77,7 +77,14 @@ void Storey::setTile(int x, int y, int tile)
 
 Character * Field::Storey::getCharacter(int x, int y)
 {
-	return characterMap[x + y*width];
+	if (isValid(cocos2d::Point(x, y)))
+	{
+		return characterMap[x + y*width];
+	}
+	else
+	{
+		return nullptr;
+	}
 }
 
 std::list<Character* >& Field::Storey::getAllCharacter()
@@ -490,7 +497,7 @@ void Field::Storey::changeCharacterCoord(Character* character, cocos2d::Point ta
 		{
 			cocos2d::Point targetPosition = getTilePosition(targetCoord);
 			character->getSprite()->stopAllActions();
-			
+
 			character->setPosition(targetPosition);
 
 			removeCharacter(character);
