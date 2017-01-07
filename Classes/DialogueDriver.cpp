@@ -83,7 +83,8 @@ void DialogueDriver::run(Statement* statement)
 	if (actorSpriteName != "NULL")
 	{
 		actorSprite = Sprite::createWithSpriteFrameName(actorSpriteName);
-		actorSprite->setPosition(75, 100);
+		actorSprite->setAnchorPoint(cocos2d::Vec2::ANCHOR_BOTTOM_LEFT);
+//		actorSprite->setPosition(75, 100);
 		actorSprite->getTexture()->setAliasTexParameters();
 
 
@@ -111,7 +112,8 @@ void DialogueDriver::run(Question* question)
 	if (actorSpriteName != "NULL")
 	{
 		actorSprite = Sprite::createWithSpriteFrameName(actorSpriteName);
-		actorSprite->setPosition(75, 100);
+		actorSprite->setAnchorPoint(cocos2d::Vec2::ANCHOR_BOTTOM_LEFT);
+//		actorSprite->setPosition(75, 100);
 		actorSprite->getTexture()->setAliasTexParameters();
 
 

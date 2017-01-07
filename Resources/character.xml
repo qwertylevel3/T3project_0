@@ -110,6 +110,42 @@
 		</standRightAnimation>
 	</character>
 	<character>
+		<name>succubus</name>
+		<firstFrame>succubus1.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>succubus4.png</frameName>
+			<frameName>succubus5.png</frameName>
+			<frameName>succubus6.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>succubus1.png</frameName>
+			<frameName>succubus2.png</frameName>
+			<frameName>succubus3.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>succubus7.png</frameName>
+			<frameName>succubus8.png</frameName>
+			<frameName>succubus9.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>succubus10.png</frameName>
+			<frameName>succubus11.png</frameName>
+			<frameName>succubus12.png</frameName>
+		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>succubus4.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>succubus1.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>succubus7.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>succubus10.png</frameName>
+		</standRightAnimation>
+	</character>
+	<character>
 		<name>slime</name>
 		<firstFrame>slime1.png</firstFrame>
 		<moveUpAnimation>

@@ -4,8 +4,8 @@
 	<inventory>
 		<type>oneHandWeapon</type>
 		<name>sword000</name>
-		<cname>木剑</cname>
-		<tips>一把附魔的木剑</tips>
+		<cname>木棍</cname>
+		<tips>普通的木棍</tips>
 		<level>1</level>
 		<price>8</price>
 		<weight>1</weight>
@@ -16,9 +16,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
-		<sphereBox>
-			<sphereID>ManaBurnSphere_法力燃烧_100</sphereID>
-		</sphereBox>
+		<sphereBox/>
 	</inventory>
 	<inventory>
 		<type>oneHandWeapon</type>
@@ -36,7 +34,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<sphereBox>
-			<sphereID>HemophagiaSphere_吸血_100</sphereID>
+			<sphereID>HemophagiaSphere_吸血_30</sphereID>
 		</sphereBox>
 	</inventory>
 	<inventory>
@@ -70,6 +68,44 @@
 		<buffBox>
 		</buffBox>
 		<weaponDamage>99</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+			
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword004</name>
+		<cname>史莱姆的触手</cname>
+		<tips>史莱姆用这个攻击</tips>
+		<level>1</level>
+		<price>1</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<weaponDamage>2</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+			
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword005</name>
+		<cname>毒蛇之牙</cname>
+		<tips>很尖，小心划破手</tips>
+		<level>2</level>
+		<price>1</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<weaponDamage>5</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -135,8 +171,8 @@
 	<inventory>
 		<type>supply</type>
 		<name>supply000</name>
-		<cname>生命药水</cname>
-		<tips>回复生命</tips>
+		<cname>小型生命药水</cname>
+		<tips>回复生命20</tips>
 		<level>1</level>
 		<price>10</price>
 		<weight>1</weight>
@@ -146,6 +182,126 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>HPRecoverySelf_生命恢复_0_0_20</skillName>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>supply001</name>
+		<cname>小型魔法药水</cname>
+		<tips>回复魔法20</tips>
+		<level>1</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>MPRecoverySelf_魔法恢复_0_0_20</skillName>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>supply002</name>
+		<cname>生命药水</cname>
+		<tips>回复生命50</tips>
+		<level>3</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>HPRecoverySelf_生命恢复_0_0_50</skillName>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>supply003</name>
+		<cname>魔法药水</cname>
+		<tips>回复魔法50</tips>
+		<level>3</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>MPRecoverySelf_魔法恢复_0_0_50</skillName>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>supply004</name>
+		<cname>大型生命药水</cname>
+		<tips>回复生命100</tips>
+		<level>5</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>HPRecoverySelf_生命恢复_0_0_100</skillName>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>supply005</name>
+		<cname>大型魔法药水</cname>
+		<tips>回复魔法100</tips>
+		<level>5</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>MPRecoverySelf_魔法恢复_0_0_100</skillName>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>supply006</name>
+		<cname>究极生命药水</cname>
+		<tips>回复生命200</tips>
+		<level>7</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>HPRecoverySelf_生命恢复_0_0_200</skillName>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>supply007</name>
+		<cname>究极魔法药水</cname>
+		<tips>回复魔法200</tips>
+		<level>7</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>MPRecoverySelf_魔法恢复_0_0_200</skillName>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>supply008</name>
+		<cname>史莱姆粘液</cname>
+		<tips>回复生命10</tips>
+		<level>1</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>HPRecoverySelf_生命恢复_0_0_10</skillName>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -204,5 +360,31 @@
 		<buffBox>
 		</buffBox>
 		<damage>6</damage>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor000</name>
+		<cname>运动衫</cname>
+		<tips>一件普通的运动衫</tips>
+		<level>1</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<armorCount>1</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor001</name>
+		<cname>黄金甲</cname>
+		<tips>测试用</tips>
+		<level>1</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<armorCount>100</armorCount>
 	</inventory>
 </inventoryList>

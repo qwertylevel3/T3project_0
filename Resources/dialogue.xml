@@ -45,10 +45,19 @@
 		</sentence>
 	</dialogue>
 	<dialogue>
+		<name>talkPersephone</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>persephone.png</actorName>
+			<word>测试</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
 		<name>talkVergil</name>
 		<sentence>
 			<type>question</type>
-			<actorName>dialogueVergil1.png</actorName>
+			<actorName>dialogueVergil2.png</actorName>
 			<word>那么，有什么问题么？</word>
 			<optionList>
 				<option>

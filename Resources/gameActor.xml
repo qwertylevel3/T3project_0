@@ -178,7 +178,7 @@
 	</actor>
 	<actor>
 		<name>succubus</name>
-		<characterName>demon</characterName>
+		<characterName>succubus</characterName>
 		<ai>AISuccubus</ai>
 		<playType>friend</playType>
 		<characterType>good</characterType>

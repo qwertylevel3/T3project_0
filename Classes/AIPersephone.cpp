@@ -1,4 +1,5 @@
 #include "AIPersephone.h"
+#include "DialogueSystem.h"
 #include "GameController.h"
 
 
@@ -24,7 +25,7 @@ void AIPersephone::update()
 
 void AIPersephone::feedback(Character* character)
 {
-	characterPtr->speak(L"......");
+	DialogueSystem::getInstance()->runDialogue("talkPersephone");
 }
 
 void AIPersephone::lastWords()

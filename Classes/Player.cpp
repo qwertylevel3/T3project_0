@@ -120,7 +120,6 @@ void Player::configPlayer()
 	characterPtr->addInventory(testItem2);
 	characterPtr->addInventory(testItem3);
 
-	characterPtr->addInventory("bigSword000");
 	characterPtr->addInventory("sword002");
 	characterPtr->addInventory("torch000");
 	characterPtr->addInventory("torch000");
@@ -129,6 +128,8 @@ void Player::configPlayer()
 	characterPtr->addInventory("scroll000");
 	characterPtr->addInventory("scroll001");
 	characterPtr->addInventory("sword003");
+	characterPtr->addInventory("armor000");
+	characterPtr->addInventory("armor001");
 
 	//////////////////////////////////////////////////////////////////////////
 	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_20_100";
@@ -137,8 +138,8 @@ void Player::configPlayer()
 	std::wstring buffname1 = L"ChantBuff_自动吟唱_OnRoundStart_Good_10_20_1";
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname1));
 
-	std::wstring buffname2 = L"BlockProBuff_格挡增加_ATTR_Good_4_100_100";
-	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
+//	std::wstring buffname2 = L"BlockProBuff_格挡增加_ATTR_Good_4_100_100";
+//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
 
 	std::wstring buffname3 = L"AccuracyBuff_命中buff_ATTR_Good_4_100_100";
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname3));

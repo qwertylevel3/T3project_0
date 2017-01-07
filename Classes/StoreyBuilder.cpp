@@ -30,7 +30,7 @@ Storey* StoreyBuilder::generate(int level)
 
 	rooms.clear();
 	exits.clear();
-	storey = new Storey(18 + level * 2, 18 + level * 2);
+	storey = new Storey(18 + level * 1, 18 + level * 1);
 
 	int maxFeatures = 33;
 	// place the first room in the center
@@ -362,7 +362,7 @@ void Field::StoreyBuilder::placeGameActorLevel1(const Rect & rect)
 		//		int x = rect.x+rect.width - 1;
 		//		int y = rect.y+rect.height - 1;
 
-		Character* monster = GameActorFactory::getInstance()->getActor("slime");
+		Character* monster = GameActorFactory::getInstance()->getActor("demon");
 		CCAssert(monster, "get a null monster");
 
 		std::vector<std::string > slimeInvList = InventoryListGenerator::getInstance()->getInventoryList("slime");
@@ -486,6 +486,58 @@ void Field::StoreyBuilder::placeGameActorLevel4(const Rect& rect)
 	}
 }
 
+void Field::StoreyBuilder::placeGameActorLevel5(const Rect& rect)
+{
+	placeBuilding(rect);
+	//房间内怪物数量(2-5之间)
+	int monsterNumber = RandomNumber::getInstance()->randomInt(2, 5);
+
+	for (int i = 0; i < monsterNumber; i++)
+	{
+		int x = RandomNumber::getInstance()->randomInt(rect.x, rect.x + rect.width - 1);
+		int y = RandomNumber::getInstance()->randomInt(rect.y, rect.y + rect.height - 1);
+
+		//		int x = rect.x;
+		//		int y = rect.y;
+		//		int x = rect.x+rect.width - 1;
+		//		int y = rect.y+rect.height - 1;
+
+		int monsterType = RandomNumber::getInstance()->randomInt(1, 10);
+		Character* monster;
+		if (monsterType <= 3)
+		{
+			monster = GameActorFactory::getInstance()->getActor("blackSnack");
+		}
+		else if (monsterType <= 6)
+		{
+			monster = GameActorFactory::getInstance()->getActor("snack");
+		}
+		else
+		{
+			monster = GameActorFactory::getInstance()->getActor("ghost");
+		}
+		CCAssert(monster, "get a null monster");
+
+		placeGameActor(x, y, monster);
+	}
+}
+
+void Field::StoreyBuilder::placeGameActorLevel6(const Rect& rect)
+{
+}
+
+void Field::StoreyBuilder::placeGameActorLevel7(const Rect& rect)
+{
+}
+
+void Field::StoreyBuilder::placeGameActorLevel8(const Rect& rect)
+{
+}
+
+void Field::StoreyBuilder::placeGameActorLevel9(const Rect& rect)
+{
+}
+
 Field::Rect Field::StoreyBuilder::makeRoomRect(int x, int y, Direction dir)
 {
 	//地牢越低，房间越大
@@ -575,7 +627,7 @@ void Field::StoreyBuilder::placeBuilding(int x, int y, Character* building)
 	{
 		storey->setTile(x, y, Field::Floor);
 	}
-	if (storey->getCharacter(x,y))
+	if (storey->getCharacter(x, y))
 	{
 		//如果已经放置了，放弃
 		return;
@@ -589,7 +641,6 @@ void Field::StoreyBuilder::placeGameActorAllRoom()
 	Character* statue = GameActorFactory::getInstance()->getActor("statue");
 	CCAssert(statue, "get a null portal");
 	storey->addCharacter(storey->getUpCoord().x, storey->getUpCoord().y, statue);
-
 
 	//test
 	if (curLevel == 1)

@@ -1,13 +1,10 @@
 #include "AIShrine.h"
 #include "Player.h"
 
-
-
 AIShrine::AIShrine()
 {
 	light = false;
 }
-
 
 AIShrine::~AIShrine()
 {
@@ -31,10 +28,9 @@ void AIShrine::feedback(Character* character)
 	if (!light)
 	{
 		characterPtr->setViewSize(10);
+		light = true;
+		//设置为点亮的sprite
+		characterPtr->setOrientationDown();
+		Player::getInstance()->addFaith(1);
 	}
-	light = true;
-	//设置为点亮的sprite
-	characterPtr->setOrientationDown();
-	Player::getInstance()->addFaith(1);
 }
-

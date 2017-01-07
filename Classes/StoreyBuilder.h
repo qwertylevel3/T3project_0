@@ -34,6 +34,11 @@ namespace Field {
 		void placeGameActorLevel2(const Rect& rect);
 		void placeGameActorLevel3(const Rect& rect);
 		void placeGameActorLevel4(const Rect& rect);
+		void placeGameActorLevel5(const Rect& rect);
+		void placeGameActorLevel6(const Rect& rect);
+		void placeGameActorLevel7(const Rect& rect);
+		void placeGameActorLevel8(const Rect& rect);
+		void placeGameActorLevel9(const Rect& rect);
 		void placeGameActorAllRoom();
 
 		std::vector<Rect> rooms;

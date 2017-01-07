@@ -1,4 +1,5 @@
 #include "HudEquipMenu.h"
+#include "HudUnequipArmorMenu.h"
 #include "Player.h"
 #include "HudMenuItem.h"
 #include "InventoryFactory.h"
@@ -60,12 +61,17 @@ void HudEquipMenu::update()
 	armorLabel = ToolFunction::WStr2UTF8(L"»¤¼×:") + armorLabel;
 	accessoryLabel = ToolFunction::WStr2UTF8(L"¸½¼þ:") + accessoryLabel;
 
+
+	//////////////////////////////////////////////////////////////////////////
+
 	HudMenuItem* leftInventoryItem = new HudMenuItem(leftInventoryLabel);
 
 	HudUnequipLeftMenu* unequipLeftInventoryMenu = new HudUnequipLeftMenu();
 	unequipLeftInventoryMenu->setParent(this);
 	HudTrigActChildMenu* leftInventoryTrigger = new HudTrigActChildMenu(unequipLeftInventoryMenu);
 	leftInventoryItem->setTrigger(leftInventoryTrigger);
+
+	//////////////////////////////////////////////////////////////////////////
 
 	HudMenuItem* rightInventoryItem = new HudMenuItem(rightInventoryLabel);
 
@@ -74,7 +80,17 @@ void HudEquipMenu::update()
 	HudTrigActChildMenu* rightInventoryTrigger = new HudTrigActChildMenu(unequipRightInventoryMenu);
 	rightInventoryItem->setTrigger(rightInventoryTrigger);
 
+	//////////////////////////////////////////////////////////////////////////
+
 	HudMenuItem* armorInventoryItem = new HudMenuItem(armorLabel);
+
+	HudUnequipArmorMenu* unequipArmorMenu = new HudUnequipArmorMenu();
+	unequipArmorMenu->setParent(this);
+	HudTrigActChildMenu* armorTrigger = new HudTrigActChildMenu(unequipArmorMenu);
+	armorInventoryItem->setTrigger(armorTrigger);
+
+
+
 	HudMenuItem* accessoryInventoryItem = new HudMenuItem(accessoryLabel);
 
 	this->addItem(leftInventoryItem);

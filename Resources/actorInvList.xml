@@ -5,8 +5,12 @@
 		<actorName>slime</actorName>
 		<list>
 			<inventory>
-				<inventoryID>supply000</inventoryID>
+				<inventoryID>sword004</inventoryID>
 				<pro>100</pro>
+			</inventory>
+			<inventory>
+				<inventoryID>supply008</inventoryID>
+				<pro>50</pro>
 			</inventory>
 		</list>
 	</inventoryList>

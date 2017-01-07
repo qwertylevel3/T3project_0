@@ -1,4 +1,5 @@
 #include "HudInventoryMenu.h"
+#include "HudArmorMenu.h"
 #include "Player.h"
 #include "Inventory.h"
 #include "HudMenuItem.h"
@@ -126,6 +127,8 @@ void HudInventoryMenu::setItemTrigger(const std::string& inventoryName, HudMenuI
 	case Inventory::TwoHandWeapon:
 	case Inventory::Shield:
 	case Inventory::Armor:
+		initArmorMenu(item);
+		break;
 	case Inventory::Bow:
 		initEquipableInventoryMenu(item);
 		break;
@@ -153,6 +156,15 @@ void HudInventoryMenu::initUseableInventoryMenu(HudMenuItem* item)
 {
 	HudUseableInventoryMenu* menu = new HudUseableInventoryMenu();
 
+	menu->setParent(this);
+
+	HudTrigActChildMenu* trigger = new HudTrigActChildMenu(menu);
+	item->setTrigger(trigger);
+}
+
+void HudInventoryMenu::initArmorMenu(HudMenuItem* item)
+{
+	HudArmorMenu* menu = new HudArmorMenu();
 	menu->setParent(this);
 
 	HudTrigActChildMenu* trigger = new HudTrigActChildMenu(menu);

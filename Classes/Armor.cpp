@@ -1,4 +1,6 @@
 #include "Armor.h"
+#include "ToolFunction.h"
+#include "Character.h"
 
 
 
@@ -12,6 +14,12 @@ Armor::~Armor()
 {
 }
 
+void Armor::equipArmor(Character* character)
+{
+	character->unequipArmor();
+	character->setArmor(this);
+}
+
 Armor* Armor::clone()
 {
 	Armor* newArmor = new Armor();
@@ -22,4 +30,13 @@ Armor* Armor::clone()
 	newArmor->setArmorCount(armorCount);
 
 	return newArmor;
+}
+
+std::string Armor::getExtraDescription()
+{
+	std::string description;
+	description += ToolFunction::WStr2UTF8(L"»¤¼×Öµ:")
+		+ "+" + ToolFunction::int2string(armorCount) + "\n";
+
+	return description;
 }

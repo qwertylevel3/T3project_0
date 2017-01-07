@@ -18,5 +18,7 @@ protected:
 	void setItemTrigger(const std::string& inventoryName,HudMenuItem* item);
 	void initEquipableInventoryMenu(HudMenuItem* item);
 	void initUseableInventoryMenu(HudMenuItem* item);
+	void initArmorMenu(HudMenuItem* item);
+
 };
 

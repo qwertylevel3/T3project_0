@@ -594,6 +594,10 @@
     <ClCompile Include="..\Classes\AICommonFriend.cpp">
       <Filter>src\character\AI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\HudArmorMenu.cpp" />
+    <ClCompile Include="..\Classes\HudTrigEquipArmor.cpp" />
+    <ClCompile Include="..\Classes\HudUnequipArmorMenu.cpp" />
+    <ClCompile Include="..\Classes\HudTrigUnequipArmor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1118,6 +1122,10 @@
     <ClInclude Include="..\Classes\AICommonFriend.h">
       <Filter>src\character\AI</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\HudArmorMenu.h" />
+    <ClInclude Include="..\Classes\HudTrigEquipArmor.h" />
+    <ClInclude Include="..\Classes\HudUnequipArmorMenu.h" />
+    <ClInclude Include="..\Classes\HudTrigUnequipArmor.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
