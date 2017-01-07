@@ -11,7 +11,7 @@ USING_NS_CC;
 
 MaskLayer::MaskLayer()
 {
-//	this->setGlobalZOrder(50);
+	this->setGlobalZOrder(999);
 }
 
 MaskLayer::~MaskLayer()

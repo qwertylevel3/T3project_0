@@ -12,6 +12,9 @@ public:
 	virtual void handleDialogueResult(std::string dialogueName,int resultNumber);
 	void setCharacter(Character* character);
 	Character* searchTargetBFS(Character::Type type);
+	Character* searchTargetBFS(Character::Type type,int distance);
+
+
 	virtual void levelUp();
 	//À¿Õˆ¥•∑¢
 	virtual void lastWords();

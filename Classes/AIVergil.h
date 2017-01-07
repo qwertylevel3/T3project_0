@@ -2,7 +2,7 @@
 
 #include "AIBase.h"
 
-class AIVergil:public AIBase
+class AIVergil :public AIBase
 {
 public:
 	AIVergil();
@@ -12,6 +12,20 @@ public:
 	void handleDialogueResult(std::string dialogueName, int resultNumber);
 	void lastWords();
 protected:
+	//状态:
+	//0:紧密跟随
+	//1:自由活动
+	int curState;
 
+	//紧密跟随的ai
+	void stayCloseAI();
+	//自由活动的ai
+	void freeAI();
+
+	//获得player周围的enemy
+	std::vector<Character* > getEnemyAroundPlayer();
+
+	//比较两个character相对characterPtr的距离
+	bool cmpDistance(Character* a, Character* b);
+	
 };
-

@@ -98,7 +98,7 @@ void Player::configPlayer()
 	characterPtr->setAgility(10);
 	characterPtr->setIntellect(10);
 	characterPtr->setLuck(10);
-	characterPtr->setViewSize(5);
+	characterPtr->setViewSize(1);
 	characterPtr->setCharacterType(Character::Good);
 	characterPtr->setPlayType(Character::Player);
 

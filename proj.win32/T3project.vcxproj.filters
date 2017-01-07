@@ -570,14 +570,30 @@
     <ClCompile Include="..\Classes\ExpHandler.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AICommonFriend.cpp" />
-    <ClCompile Include="..\Classes\AISuccubus.cpp" />
-    <ClCompile Include="..\Classes\SummonCreatureManager.cpp" />
-    <ClCompile Include="..\Classes\AIPersephone.cpp" />
-    <ClCompile Include="..\Classes\AIPlayer.cpp" />
-    <ClCompile Include="..\Classes\GameSaveManager.cpp" />
-    <ClCompile Include="..\Classes\InventoryListGenerator.cpp" />
-    <ClCompile Include="..\Classes\RandomDirectDamage.cpp" />
+    <ClCompile Include="..\Classes\SummonCreatureManager.cpp">
+      <Filter>src\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RandomDirectDamage.cpp">
+      <Filter>src\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\InventoryListGenerator.cpp">
+      <Filter>src\inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameSaveManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AISuccubus.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AIPlayer.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AIPersephone.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AICommonFriend.cpp">
+      <Filter>src\character\AI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1078,14 +1094,30 @@
     <ClInclude Include="..\Classes\ExpHandler.h">
       <Filter>src\character</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AICommonFriend.h" />
-    <ClInclude Include="..\Classes\AISuccubus.h" />
-    <ClInclude Include="..\Classes\SummonCreatureManager.h" />
-    <ClInclude Include="..\Classes\AIPersephone.h" />
-    <ClInclude Include="..\Classes\AIPlayer.h" />
-    <ClInclude Include="..\Classes\GameSaveManager.h" />
-    <ClInclude Include="..\Classes\InventoryListGenerator.h" />
-    <ClInclude Include="..\Classes\RandomDirectDamage.h" />
+    <ClInclude Include="..\Classes\SummonCreatureManager.h">
+      <Filter>src\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RandomDirectDamage.h">
+      <Filter>src\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\InventoryListGenerator.h">
+      <Filter>src\inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameSaveManager.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AISuccubus.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AIPlayer.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AIPersephone.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AICommonFriend.h">
+      <Filter>src\character\AI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -52,12 +52,27 @@
 			<word>那么，有什么问题么？</word>
 			<optionList>
 				<option>
-					<label>结束对话</label>
-					<next>-1</next>
+					<label>关于战斗</label>
+					<next>2</next>
 				</option>
 				<option>
-					<label>回到第一句</label>
+					<label>没啥</label>
+					<next>-1</next>
+				</option>
+			</optionList>
+		</sentence>
+		<sentence>
+			<type>question</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>战斗策略？</word>
+			<optionList>
+				<option>
+					<label>跟紧一点</label>
 					<next>-2</next>
+				</option>
+				<option>
+					<label>自由活动</label>
+					<next>-3</next>
 				</option>
 			</optionList>
 		</sentence>

@@ -299,6 +299,11 @@ cocos2d::Point AStar::nextStep()
 		closed_list.clear();
 
 		std::vector<cocos2d::Point> path_v2 = findPath_v2();
+
+		if (path_v2[path_v2.size()-1]!=endPoint)
+		{
+			return startPoint;
+		}
 		return path_v2[0];
 	}
 	else

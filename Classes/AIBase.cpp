@@ -41,11 +41,16 @@ void AIBase::setCharacter(Character* character)
 
 Character* AIBase::searchTargetBFS(Character::Type type)
 {
+	int distance = characterPtr->getViewSize();
+
+	return searchTargetBFS(type, distance);
+}
+
+Character* AIBase::searchTargetBFS(Character::Type type, int distance)
+{
 	Storey* storey = Dungeon::getInstance()->getStorey();
 	cocos2d::Point startPoint = characterPtr->getMapCoord();
 //	int searchDeep = characterPtr->getViewSize();
-
-	int distance = characterPtr->getViewSize();
 
 	std::queue<cocos2d::Point> pointQueue;
 	std::set<cocos2d::Point> discardPoint;
@@ -80,7 +85,8 @@ Character* AIBase::searchTargetBFS(Character::Type type)
 					{
 						return storey->getCharacter(coord);
 					}
-					else if (ToolFunction::getManhattanDistance(coord,startPoint))
+					else if (ToolFunction::getManhattanDistance(coord,startPoint)<distance
+						&& storey->isValid(coord))
 					{
 						pointQueue.push(coord);
 						discardPoint.insert(coord);
@@ -147,16 +153,10 @@ void AIBase::seek(Character* target)
 
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 
-	//todo
-	if (nextStep == cocos2d::Point(-1, -1))
-	{
-		seek(endPoint);
-		return;
-	}
-
 	if (nextStep == startPoint)
 	{
-		characterPtr->idle();
+//		characterPtr->idle();
+		seek(endPoint);
 		return;
 	}
 

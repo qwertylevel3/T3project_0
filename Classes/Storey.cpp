@@ -79,7 +79,15 @@ Character * Field::Storey::getCharacter(int x, int y)
 {
 	if (isValid(cocos2d::Point(x, y)))
 	{
-		return characterMap[x + y*width];
+		if (characterMap[x + y*width]
+			&& !characterMap[x + y*width]->isDead())
+		{
+			return characterMap[x + y*width];
+		}
+		else
+		{
+			return nullptr;
+		}
 	}
 	else
 	{
