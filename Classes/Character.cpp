@@ -360,32 +360,36 @@ void Character::moveUp()
 	//	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->moveUp(this);
 
-	processAction(0);
 	clearChant();
+	processAction(0);
+
 }
 
 void Character::moveDown()
 {
 	//	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->moveDown(this);
-	processAction(0);
 	clearChant();
+	processAction(0);
+
 }
 
 void Character::moveLeft()
 {
 	//	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->moveLeft(this);
-	processAction(0);
 	clearChant();
+	processAction(0);
+
 }
 
 void Character::moveRight()
 {
 	//	MainLayer::getInstance()->focusPlayer();
 	Dungeon::getInstance()->getStorey()->moveRight(this);
-	processAction(0);
 	clearChant();
+	processAction(0);
+
 }
 
 void Character::setOrientationUp()
@@ -1041,7 +1045,6 @@ int Character::getActionPoint()
 
 void Character::startRound()
 {
-	//	fixPosition();
 	roundHandler->startRound();
 	buffHandler->onRoundStart();
 	recalculateHP();

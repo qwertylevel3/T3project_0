@@ -15,7 +15,7 @@ Buff::ChantBuff::~ChantBuff()
 
 void Buff::ChantBuff::apply(Character* target)
 {
-	target->accumulateChant(addPer*target->getIntellect());
+	target->accumulateChant(addPer*target->getIntellect()/100);
 }
 
 Buff::ChantBuff* Buff::ChantBuff::createPrototype()
@@ -26,7 +26,9 @@ Buff::ChantBuff* Buff::ChantBuff::createPrototype()
 std::string Buff::ChantBuff::getDescription()
 {
 	return ToolFunction::WStr2UTF8(L"每回合开始获得:")
-		+ ToolFunction::int2string(addPer) + "x"
+		+ ToolFunction::int2string(addPer)
+		+"%"
+		+ "x"
 		+ ToolFunction::WStr2UTF8(L"玩家智力 吟唱点");
 }
 
