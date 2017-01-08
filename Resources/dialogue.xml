@@ -71,6 +71,10 @@
 					<next>2</next>
 				</option>
 				<option>
+					<label>奶我一口。。。</label>
+					<next>-4</next>
+				</option>
+				<option>
 					<label>没啥</label>
 					<next>-1</next>
 				</option>
@@ -95,6 +99,15 @@
 			<type>statement</type>
 			<actorName>dialogueVergil2.png</actorName>
 			<word>台词测试结束</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>noMagicVergil</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>没魔法啦。。。</word>
 			<next>-1</next>
 		</sentence>
 	</dialogue>

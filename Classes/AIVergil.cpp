@@ -52,6 +52,25 @@ void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 	{
 		curState = 1;
 	}
+	else if (dialogueName=="talkVergil"
+		&& resultNumber==-4)
+	{
+		//求奶
+		Character* playerCharacter = Player::getInstance()->getcharacterPtr();
+		if (characterPtr->getMP() > 20)
+		{
+			changeOrientationTo(playerCharacter);
+			characterPtr->runSkill(
+				ToolFunction::WStr2UTF8(L"HPRecoveryCast_生命恢复_20_0_40")
+			);
+			HudMessageBox::getInstance()->addMessage(L"维吉尔向你释放了一个治疗法术");
+			return;
+		}
+		else
+		{
+			DialogueSystem::getInstance()->runDialogue("noMagicVergil");
+		}
+	}
 }
 
 void AIVergil::lastWords()
@@ -76,9 +95,26 @@ void AIVergil::stayCloseAI()
 		stateFlag = 1;
 	}
 
+	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
+	cocos2d::Point playerCoord = playerCharacter->getMapCoord();
+
+	if (ToolFunction::isNear4(characterPtr->getMapCoord(), playerCoord))
+	{
+		//player血量低且vergil有魔法,优先治疗
+		if (playerCharacter->getHP() < 50
+			&& characterPtr->getMP() > 20)
+		{
+			changeOrientationTo(playerCharacter);
+			characterPtr->runSkill(
+				ToolFunction::WStr2UTF8(L"HPRecoveryCast_生命恢复_20_0_40")
+			);
+			HudMessageBox::getInstance()->addMessage(L"维吉尔向你释放了一个治疗法术");
+			return;
+		}
+	}
+
 	if (stateFlag == 0)
 	{
-		cocos2d::Point playerCoord = Player::getInstance()->getcharacterPtr()->getMapCoord();
 		if (ToolFunction::isNear4(characterPtr->getMapCoord(), playerCoord))
 		{
 			//如果已经靠近了,查找四周的可攻击enemy

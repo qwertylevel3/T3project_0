@@ -12,5 +12,12 @@ public:
 	void handleDialogueResult(std::string dialogueName, int resultNumber);
 protected:
 	bool isFirst;
+
+	//获得player周围的enemy
+	std::vector<Character* > getEnemyAroundPlayer();
+
+	//比较两个character相对characterPtr的距离
+	bool cmpDistance(Character* a, Character* b);
+	
 };
 
