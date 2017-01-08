@@ -120,6 +120,13 @@ void InventoryFactory::initModel(tinyxml2::XMLElement* inventoryElement, const s
 	else if (type == "accessory")
 	{
 
+		Accessory* model = new Accessory();
+		model->setInventoryType(Inventory::Accessory);
+
+		initBaseData(inventoryElement, model);
+		initAccessoryData(inventoryElement, model);
+
+		inventoryMap[model->getName()] = model;
 	}
 	else if (type == "supply")
 	{
@@ -175,6 +182,11 @@ void InventoryFactory::initWeaponData(tinyxml2::XMLElement* inventoryElement, We
 void InventoryFactory::initArmorData(tinyxml2::XMLElement* inventoryElement, Armor* armorModel)
 {
 	armorModel->setArmorCount(getChildElementIntAttr(inventoryElement, "armorCount"));
+
+}
+
+void InventoryFactory::initAccessoryData(tinyxml2::XMLElement* inventoryElement, Accessory* accessoryModel)
+{
 
 }
 

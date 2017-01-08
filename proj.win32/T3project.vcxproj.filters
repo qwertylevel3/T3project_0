@@ -598,6 +598,10 @@
     <ClCompile Include="..\Classes\HudTrigEquipArmor.cpp" />
     <ClCompile Include="..\Classes\HudUnequipArmorMenu.cpp" />
     <ClCompile Include="..\Classes\HudTrigUnequipArmor.cpp" />
+    <ClCompile Include="..\Classes\HudAccessoryMenu.cpp" />
+    <ClCompile Include="..\Classes\HudTrigEquipAccessory.cpp" />
+    <ClCompile Include="..\Classes\HudUnequipAccessoryMenu.cpp" />
+    <ClCompile Include="..\Classes\HudTrigUnequipAccessory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1126,6 +1130,10 @@
     <ClInclude Include="..\Classes\HudTrigEquipArmor.h" />
     <ClInclude Include="..\Classes\HudUnequipArmorMenu.h" />
     <ClInclude Include="..\Classes\HudTrigUnequipArmor.h" />
+    <ClInclude Include="..\Classes\HudAccessoryMenu.h" />
+    <ClInclude Include="..\Classes\HudTrigEquipAccessory.h" />
+    <ClInclude Include="..\Classes\HudUnequipAccessoryMenu.h" />
+    <ClInclude Include="..\Classes\HudTrigUnequipAccessory.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -121,8 +121,8 @@ void Player::configPlayer()
 	characterPtr->addInventory(testItem3);
 
 	characterPtr->addInventory("sword002");
-	characterPtr->addInventory("torch000");
-	characterPtr->addInventory("torch000");
+//	characterPtr->addInventory("torch000");
+	characterPtr->addInventory("sword006");
 	characterPtr->addInventory("supply000");
 	characterPtr->addInventory("skillBook000");
 	characterPtr->addInventory("scroll000");
@@ -130,6 +130,7 @@ void Player::configPlayer()
 	characterPtr->addInventory("sword003");
 	characterPtr->addInventory("armor000");
 	characterPtr->addInventory("armor001");
+	characterPtr->addInventory("accessory000");
 
 	//////////////////////////////////////////////////////////////////////////
 	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_20_100";

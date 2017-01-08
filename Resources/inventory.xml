@@ -114,44 +114,8 @@
 		</sphereBox>
 	</inventory>
 	<inventory>
-		<type>twoHandWeapon</type>
-		<name>bigSword000</name>
-		<cname>大剑</cname>
-		<tips>攻击范围较广</tips>
-		<level>1</level>
-		<price>20</price>
-		<weight>6</weight>
-		<spriteName>sword_icon.png</spriteName>
-		<buffBox>
-		</buffBox>
-		<weaponDamage>8</weaponDamage>
-		<strRequire>0</strRequire>
-		<agiRequire>0</agiRequire>
-		<intRequire>0</intRequire>
-		<sphereBox>
-		</sphereBox>
-	</inventory>
-	<inventory>
-		<type>bow</type>
-		<name>bow000</name>
-		<cname>弓</cname>
-		<tips>无</tips>
-		<level>1</level>
-		<price>14</price>
-		<weight>2</weight>
-		<spriteName>sword_icon.png</spriteName>
-		<buffBox>
-		</buffBox>
-		<weaponDamage>6</weaponDamage>
-		<strRequire>0</strRequire>
-		<agiRequire>0</agiRequire>
-		<intRequire>0</intRequire>
-		<sphereBox>
-		</sphereBox>
-	</inventory>
-	<inventory>
 		<type>oneHandWeapon</type>
-		<name>torch000</name>
+		<name>sword006</name>
 		<cname>火炬</cname>
 		<tips>可以增加视野</tips>
 		<level>1</level>
@@ -167,6 +131,44 @@
 		<intRequire>0</intRequire>
 		<sphereBox>
 		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor000</name>
+		<cname>运动衫</cname>
+		<tips>一件普通的运动衫</tips>
+		<level>1</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<armorCount>1</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor001</name>
+		<cname>黄金甲</cname>
+		<tips>测试用</tips>
+		<level>1</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<armorCount>100</armorCount>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory000</name>
+		<cname>铜项链</cname>
+		<tips>普通的铜项链，装饰品</tips>
+		<level>1</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -349,6 +351,42 @@
 		<skillName>Summon_魅魔的召唤_0_0_succubus</skillName>
 	</inventory>
 	<inventory>
+		<type>twoHandWeapon</type>
+		<name>bigSword000</name>
+		<cname>大剑</cname>
+		<tips>攻击范围较广</tips>
+		<level>1</level>
+		<price>20</price>
+		<weight>6</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<weaponDamage>8</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>bow</type>
+		<name>bow000</name>
+		<cname>弓</cname>
+		<tips>无</tips>
+		<level>1</level>
+		<price>14</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<weaponDamage>6</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
 		<type>arrow</type>
 		<name>arrow000</name>
 		<cname>箭</cname>
@@ -360,31 +398,5 @@
 		<buffBox>
 		</buffBox>
 		<damage>6</damage>
-	</inventory>
-	<inventory>
-		<type>armor</type>
-		<name>armor000</name>
-		<cname>运动衫</cname>
-		<tips>一件普通的运动衫</tips>
-		<level>1</level>
-		<price>2</price>
-		<weight>1</weight>
-		<spriteName>sword_icon.png</spriteName>
-		<buffBox>
-		</buffBox>
-		<armorCount>1</armorCount>
-	</inventory>
-	<inventory>
-		<type>armor</type>
-		<name>armor001</name>
-		<cname>黄金甲</cname>
-		<tips>测试用</tips>
-		<level>1</level>
-		<price>2</price>
-		<weight>1</weight>
-		<spriteName>sword_icon.png</spriteName>
-		<buffBox>
-		</buffBox>
-		<armorCount>100</armorCount>
 	</inventory>
 </inventoryList>

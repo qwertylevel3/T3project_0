@@ -10,6 +10,7 @@ class Weapon;
 class Arrow;
 class Supply;
 class Armor;
+class Accessory;
 
 class InventoryFactory:public XMLConfigure,public Singleton<InventoryFactory>
 {
@@ -26,6 +27,7 @@ protected:
 	void initBaseData(tinyxml2::XMLElement* inventoryElement,Inventory* model);
 	void initWeaponData(tinyxml2::XMLElement* inventoryElement, Weapon* weaponModel);
 	void initArmorData(tinyxml2::XMLElement* inventoryElement, Armor* armorModel);
+	void initAccessoryData(tinyxml2::XMLElement* inventoryElement, Accessory* accessoryModel);
 	void initArrowData(tinyxml2::XMLElement* inventoryElement, Arrow* model);
 	void initSupplyData(tinyxml2::XMLElement* inventoryElement, Supply* supplyModel);
 

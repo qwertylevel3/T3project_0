@@ -1,4 +1,5 @@
 #include "HudEquipMenu.h"
+#include "HudUnequipAccessoryMenu.h"
 #include "HudUnequipArmorMenu.h"
 #include "Player.h"
 #include "HudMenuItem.h"
@@ -89,9 +90,16 @@ void HudEquipMenu::update()
 	HudTrigActChildMenu* armorTrigger = new HudTrigActChildMenu(unequipArmorMenu);
 	armorInventoryItem->setTrigger(armorTrigger);
 
-
+	//////////////////////////////////////////////////////////////////////////
 
 	HudMenuItem* accessoryInventoryItem = new HudMenuItem(accessoryLabel);
+
+	HudUnequipAccessoryMenu* unequipAccessoryMenu = new HudUnequipAccessoryMenu();
+	unequipAccessoryMenu->setParent(this);
+	HudTrigActChildMenu* accessoryTrigger = new HudTrigActChildMenu(unequipAccessoryMenu);
+	accessoryInventoryItem->setTrigger(accessoryTrigger);
+
+	//////////////////////////////////////////////////////////////////////////
 
 	this->addItem(leftInventoryItem);
 	this->addItem(rightInventoryItem);
