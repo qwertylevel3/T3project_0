@@ -291,6 +291,7 @@ void Character::levelUp()
 	{
 		ai->levelUp();
 	}
+
 }
 
 void Character::interaction()
@@ -488,21 +489,50 @@ void Character::equipLeftHand(Inventory* inventory)
 	//	MainLayer::getInstance()->focusPlayer();
 	inventory->equipLeftHand(this);
 	loadInventoryBuff(inventory);
+	processAction(0);
 }
 
 void Character::equipRightHand(Inventory* inventory)
 {
 	inventory->equipRightHand(this);
 	loadInventoryBuff(inventory);
+	processAction(0);
 }
 
 void Character::equipArmor(Inventory* inventory)
 {
 	inventory->equipArmor(this);
 	loadInventoryBuff(inventory);
+	processAction(0);
 }
 
 void Character::equipAccessory(Inventory* inventory)
+{
+	inventory->equipAccessory(this);
+	loadInventoryBuff(inventory);
+	processAction(0);
+}
+
+void Character::initLeftHand(Inventory* inventory)
+{
+	inventory->equipLeftHand(this);
+	loadInventoryBuff(inventory);
+}
+
+void Character::initRightHand(Inventory* inventory)
+{
+	inventory->equipRightHand(this);
+	loadInventoryBuff(inventory);
+
+}
+
+void Character::initArmor(Inventory* inventory)
+{
+	inventory->equipArmor(this);
+	loadInventoryBuff(inventory);
+}
+
+void Character::initAccessory(Inventory* inventory)
 {
 	inventory->equipAccessory(this);
 	loadInventoryBuff(inventory);

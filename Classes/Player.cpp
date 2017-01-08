@@ -105,10 +105,14 @@ void Player::configPlayer()
 	//testInventory......
 
 	Inventory* woodSword = InventoryFactory::getInstance()->getInventory("sword000");
-	woodSword->equipLeftHand(characterPtr);
+//	woodSword->equipLeftHand(characterPtr);
+//	characterPtr->equipLeftHand(woodSword);
+	characterPtr->initLeftHand(woodSword);
 
 	Inventory* ironSword = InventoryFactory::getInstance()->getInventory("sword001");
-	ironSword->equipRightHand(characterPtr);
+//	ironSword->equipRightHand(characterPtr);
+//	characterPtr->equipRightHand(ironSword);
+	characterPtr->initRightHand(ironSword);
 
 	Inventory* testItem0 = InventoryFactory::getInstance()->getInventory("sword001");
 	Inventory* testItem1 = InventoryFactory::getInstance()->getInventory("sword001");
@@ -131,6 +135,9 @@ void Player::configPlayer()
 	characterPtr->addInventory("armor000");
 	characterPtr->addInventory("armor001");
 	characterPtr->addInventory("accessory000");
+	characterPtr->addInventory("accessory002");
+
+
 
 	//////////////////////////////////////////////////////////////////////////
 	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_20_100";

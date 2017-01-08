@@ -116,23 +116,27 @@ void HeroManager::initHero(const std::string& fileName)
 	if (leftHandName != "NULL")
 	{
 		Inventory* left = InventoryFactory::getInstance()->getInventory(leftHandName);
-		characterPtr->equipLeftHand(left);
+//		characterPtr->equipLeftHand(left);
+		characterPtr->initLeftHand(left);
 	}
 	if (rightHandName != "NULL")
 	{
 		Inventory* right = InventoryFactory::getInstance()->getInventory(rightHandName);
-		characterPtr->equipRightHand(right);
+		characterPtr->initRightHand(right);
+//		characterPtr->equipRightHand(right);
 	}
 	if (armorName != "NULL")
 	{
 		Inventory* armor = InventoryFactory::getInstance()->getInventory(armorName);
-		characterPtr->equipArmor(armor);
+//		characterPtr->equipArmor(armor);
+		characterPtr->initArmor(armor);
 	}
 
 	if (accessoryName != "NULL")
 	{
 		Inventory* accessory = InventoryFactory::getInstance()->getInventory(accessoryName);
-		characterPtr->equipAccessory(accessory);
+//		characterPtr->equipAccessory(accessory);
+		characterPtr->initAccessory(accessory);
 	}
 
 	tinyxml2::XMLElement* inventoryListElement = getChildElement(heroElement, "inventoryList");

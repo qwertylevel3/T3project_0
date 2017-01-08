@@ -56,12 +56,18 @@ void ExpHandler::levelUp()
 	exp = exp - expRequire[level + 1];
 	level++;
 	attrPoint++;
+
+
+	characterPtr->setMaxHP(characterPtr->getMaxHP() + 10);
+	characterPtr->setHP(characterPtr->getMaxHP());
+	characterPtr->setMaxMP(characterPtr->getMaxMP() + 10);
+	characterPtr->setMP(characterPtr->getMaxMP());
 	//TODO:
 	//玩家的levelUp另外处理
-	if (characterPtr->getPlayType() != Character::Player)
-	{
+//	if (characterPtr->getPlayType() != Character::Player)
+//	{
 		characterPtr->levelUp();
-	}
+//	}
 }
 
 bool ExpHandler::isLevelUp()

@@ -137,6 +137,15 @@ void Buff::BuffHandler::calculateAttr()
 			buff->apply(characterPrt);
 		}
 	}
+
+	if (characterPrt->getHP()>characterPrt->getMaxHP())
+	{
+		characterPrt->setHP(characterPrt->getMaxHP());
+	}
+	if (characterPrt->getMP()>characterPrt->getMaxMP())
+	{
+		characterPrt->setMP(characterPrt->getMaxMP());
+	}
 }
 
 bool Buff::BuffHandler::exist(std::string buffID)

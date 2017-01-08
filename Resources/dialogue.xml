@@ -49,7 +49,13 @@
 		<sentence>
 			<type>statement</type>
 			<actorName>persephone.png</actorName>
-			<word>测试</word>
+			<word>来到我的领域，就不要跑了哦</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>你这家伙，让他过去啦</word>
 			<next>-1</next>
 		</sentence>
 	</dialogue>

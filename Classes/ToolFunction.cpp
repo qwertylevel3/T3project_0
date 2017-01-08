@@ -106,13 +106,13 @@ bool ToolFunction::isNear8(cocos2d::Point oriCoord, cocos2d::Point targetCoord)
 {
 	for (int i=-1;i<=1;i++)
 	{
-		cocos2d::Point tempPoint = oriCoord;
 		for (int j=-1;j<=1;j++)
 		{
 			if (i==0 && j==0)
 			{
 				continue;
 			}
+			cocos2d::Point tempPoint = oriCoord;
 			tempPoint.x += i;
 			tempPoint.y += j;
 			if (targetCoord==tempPoint)

@@ -112,6 +112,13 @@ public:
 	void equipArmor(Inventory* inventory);
 	void equipAccessory(Inventory* inventory);
 
+	//装备，但是不触发下个回合事件
+	void initLeftHand(Inventory* inventory);
+	void initRightHand(Inventory* inventory);
+	void initArmor(Inventory* inventory);
+	void initAccessory(Inventory* inventory);
+
+
 	void unequipLeftHand();
 	void unequipRightHand();
 	void unequipArmor();
@@ -206,6 +213,7 @@ public:
 	int getWeight();
 
 	int getArmorPoint();
+
 protected:
 	//每回合开始调用，防止position与坐标发生偏移
 	void fixPosition();
@@ -264,6 +272,11 @@ protected:
 	CC_SYNTHESIZE(int, gold, Gold);
 	CC_SYNTHESIZE(CharacterAttrHandler*, attrHandler, AttrHandler);
 	CC_SYNTHESIZE(int, level, Level);
+
+
+
+	
+
 
 	bool dead;
 

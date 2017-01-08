@@ -64,6 +64,5 @@ protected:
 	cocos2d::EventListenerCustom* listener;
 
 	bool circleOver;
-
 };
 

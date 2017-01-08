@@ -45,23 +45,27 @@ Character * GameActorModel::makeActor()
 	if (leftHandName!="NULL")
 	{
 		Inventory* left = InventoryFactory::getInstance()->getInventory(leftHandName);
-		monster->equipLeftHand(left);
+//		monster->equipLeftHand(left);
+		monster->initLeftHand(left);
 	}
 	if (rightHandName!="NULL")
 	{
 		Inventory* right = InventoryFactory::getInstance()->getInventory(rightHandName);
-		monster->equipRightHand(right);
+//		monster->equipRightHand(right);
+		monster->initRightHand(right);
 	}
 	if (armorName!="NULL")
 	{
 		Inventory* armor = InventoryFactory::getInstance()->getInventory(armorName);
-		monster->equipArmor(armor);
+//		monster->equipArmor(armor);
+		monster->initArmor(armor);
 	}
 
 	if (accessoryName!="NULL")
 	{
 		Inventory* accessory = InventoryFactory::getInstance()->getInventory(accessoryName);
-		monster->equipAccessory(accessory);
+//		monster->equipAccessory(accessory);
+		monster->initAccessory(accessory);
 	}
 
 	return monster;
