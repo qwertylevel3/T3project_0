@@ -28,6 +28,10 @@ protected:
 	bool flee(Character* target);
 	bool isInAttackArea(Character* target);
 	bool isNear(cocos2d::Point coord);
+
+
+	//某个位置是否可以到达
+	bool isAccessAble(cocos2d::Point coord);
 	
 	//向targetCoord逼近
 	void seek(cocos2d::Point targetCoord);

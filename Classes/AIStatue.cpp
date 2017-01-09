@@ -41,12 +41,12 @@ void AIStatue::handleDialogueResult(std::string dialogueName, int resultNumber)
 	Character * playerCharacterPtr = Player::getInstance()->getcharacterPtr();
 	ExpHandler* expHandler = playerCharacterPtr->getExphandler();
 
-	if (dialogueName == "talkStatue"
+	if (dialogueName == "statueTalk"
 		&& resultNumber == -1)
 	{
 		handlePray();
 	}
-	else if (dialogueName == "talkStatue"
+	else if (dialogueName == "statueTalk"
 		&& resultNumber == -2)
 	{
 		handleLevelUp();

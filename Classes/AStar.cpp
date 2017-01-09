@@ -293,23 +293,29 @@ cocos2d::Point AStar::nextStep()
 
 	if (path[path.size() - 1] != endPoint)
 	{
-		//for (unsigned int i = 0; i < malloc_space.size(); ++i)
-		//	delete(malloc_space[i]);
-		opened_list.clear();
-		closed_list.clear();
-
-		std::vector<cocos2d::Point> path_v2 = findPath_v2();
-
-		if (path_v2[path_v2.size()-1]!=endPoint)
-		{
-			return startPoint;
-		}
-		return path_v2[0];
+		return startPoint;
 	}
-	else
-	{
-		return path[0];
-	}
+	return path[0];
+
+//	if (path[path.size() - 1] != endPoint)
+//	{
+//		//for (unsigned int i = 0; i < malloc_space.size(); ++i)
+//		//	delete(malloc_space[i]);
+//		opened_list.clear();
+//		closed_list.clear();
+
+//		std::vector<cocos2d::Point> path_v2 = findPath_v2();
+
+//		if (path_v2[path_v2.size()-1]!=endPoint)
+//		{
+//			return startPoint;
+//		}
+//		return path_v2[0];
+//	}
+//	else
+//	{
+//		return path[0];
+//	}
 }
 
 /*

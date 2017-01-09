@@ -5,8 +5,8 @@
 	<characterName>vergil</characterName>
 	<AI>AIVergil</AI>
 	<level>1</level>
-	<HP>10</HP>
-	<MP>200</MP>
+	<HP>200</HP>
+	<MP>400</MP>
 	<STR>10</STR>
 	<AGI>10</AGI>
 	<INT>20</INT>

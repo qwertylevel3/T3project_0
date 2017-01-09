@@ -30,3 +30,8 @@ void AIPlayer::handleDialogueResult(std::string dialogueName, int resultNumber)
 	GameController::getInstance()->reStartGame();
 }
 
+void AIPlayer::levelUp()
+{
+
+}
+

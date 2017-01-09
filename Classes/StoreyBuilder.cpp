@@ -643,7 +643,7 @@ void Field::StoreyBuilder::placeGameActorAllRoom()
 	storey->addCharacter(storey->getUpCoord().x, storey->getUpCoord().y, statue);
 
 	//test
-	if (curLevel == 1)
+	if (curLevel == 9)
 	{
 		//最后一层放置Boss
 		Character* persephone = GameActorFactory::getInstance()->getActor("persephone");

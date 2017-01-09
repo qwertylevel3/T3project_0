@@ -178,6 +178,7 @@ void AIBase::seek(Character* target)
 		{
 			characterPtr->setOrientationDown();
 		}
+		characterPtr->idle();
 		return;
 	}
 
@@ -424,4 +425,19 @@ bool AIBase::isNear(cocos2d::Point coord)
 		return true;
 	}
 	return false;
+}
+
+bool AIBase::isAccessAble(cocos2d::Point coord)
+{
+	cocos2d::Point startPoint = characterPtr->getMapCoord();
+	cocos2d::Point endPoint = coord;
+	cocos2d::Point nextStep = ToolFunction::nextStep(startPoint, endPoint);
+
+	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+
+	if (nextStep == startPoint)
+	{
+		return false;
+	}
+	return true;
 }

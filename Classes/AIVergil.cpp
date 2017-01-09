@@ -52,8 +52,8 @@ void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 	{
 		curState = 1;
 	}
-	else if (dialogueName=="vergilTalk"
-		&& resultNumber==-4)
+	else if (dialogueName == "vergilTalk"
+		&& resultNumber == -4)
 	{
 		//ÇóÄÌ
 		Character* playerCharacter = Player::getInstance()->getcharacterPtr();
@@ -152,7 +152,15 @@ void AIVergil::stayCloseAI()
 		}
 		else
 		{
-			seek(enemy);
+			if (isAccessAble(enemy->getMapCoord()))
+			{
+				seek(enemy);
+			}
+			else
+			{
+				seek(playerCharacter);
+			}
+
 			return;
 		}
 	}
