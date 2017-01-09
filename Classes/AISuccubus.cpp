@@ -25,7 +25,7 @@ void AISuccubus::update()
 {
 	if (isFirst)
 	{
-		DialogueSystem::getInstance()->runDialogue("summonSuccubus");
+		DialogueSystem::getInstance()->runDialogue("succubusSummon");
 
 		isFirst = false;
 	}
@@ -132,7 +132,7 @@ void AISuccubus::update()
 
 void AISuccubus::feedback(Character* character)
 {
-	DialogueSystem::getInstance()->runDialogue("talkSuccubus", this->characterPtr);
+	DialogueSystem::getInstance()->runDialogue("succubusTalk", this->characterPtr);
 }
 
 void AISuccubus::handleDialogueResult(std::string dialogueName, int resultNumber)

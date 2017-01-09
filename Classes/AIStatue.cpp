@@ -33,7 +33,7 @@ void AIStatue::feedback(Character* character)
 	}
 	Character * playerCharacterPtr = Player::getInstance()->getcharacterPtr();
 	ExpHandler* expHandler = playerCharacterPtr->getExphandler();
-	DialogueSystem::getInstance()->runDialogue("talkStatue", this->characterPtr);
+	DialogueSystem::getInstance()->runDialogue("statueTalk", this->characterPtr);
 }
 
 void AIStatue::handleDialogueResult(std::string dialogueName, int resultNumber)

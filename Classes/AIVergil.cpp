@@ -37,22 +37,22 @@ void AIVergil::update()
 
 void AIVergil::feedback(Character* character)
 {
-	DialogueSystem::getInstance()->runDialogue("talkVergil", this->characterPtr);
+	DialogueSystem::getInstance()->runDialogue("vergilTalk", this->characterPtr);
 }
 
 void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 {
-	if (dialogueName == "talkVergil"
+	if (dialogueName == "vergilTalk"
 		&& resultNumber == -2)
 	{
 		curState = 0;
 	}
-	else if (dialogueName == "talkVergil"
+	else if (dialogueName == "vergilTalk"
 		&& resultNumber == -3)
 	{
 		curState = 1;
 	}
-	else if (dialogueName=="talkVergil"
+	else if (dialogueName=="vergilTalk"
 		&& resultNumber==-4)
 	{
 		//求奶
@@ -63,18 +63,20 @@ void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 			characterPtr->runSkill(
 				ToolFunction::WStr2UTF8(L"HPRecoveryCast_生命恢复_20_0_40")
 			);
-			HudMessageBox::getInstance()->addMessage(L"维吉尔向你释放了一个治疗法术");
+			HudMessageBox::getInstance()->addMessage(L"Vergil向你释放了一个治疗法术");
 			return;
 		}
 		else
 		{
-			DialogueSystem::getInstance()->runDialogue("noMagicVergil");
+			DialogueSystem::getInstance()->runDialogue("vergilNoMagic");
 		}
 	}
 }
 
 void AIVergil::lastWords()
 {
+	DialogueSystem::getInstance()->runDialogue("vergilDie");
+	HudMessageBox::getInstance()->addMessage(L"Vergil消失了");
 }
 
 void AIVergil::stayCloseAI()
@@ -108,7 +110,7 @@ void AIVergil::stayCloseAI()
 			characterPtr->runSkill(
 				ToolFunction::WStr2UTF8(L"HPRecoveryCast_生命恢复_20_0_40")
 			);
-			HudMessageBox::getInstance()->addMessage(L"维吉尔向你释放了一个治疗法术");
+			HudMessageBox::getInstance()->addMessage(L"Vergil向你释放了一个治疗法术");
 			return;
 		}
 	}

@@ -27,7 +27,7 @@ void AIPersephone::update()
 		&& ToolFunction::isNear8(characterPtr->getMapCoord(),
 			Player::getInstance()->getcharacterPtr()->getMapCoord()))
 	{
-		DialogueSystem::getInstance()->runDialogue("talkPersephone");
+		DialogueSystem::getInstance()->runDialogue("persephoneTalk");
 		talkFlag = 1;
 	}
 

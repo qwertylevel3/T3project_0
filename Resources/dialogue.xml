@@ -45,7 +45,7 @@
 		</sentence>
 	</dialogue>
 	<dialogue>
-		<name>talkPersephone</name>
+		<name>persephoneTalk</name>
 		<sentence>
 			<type>statement</type>
 			<actorName>persephone.png</actorName>
@@ -60,7 +60,7 @@
 		</sentence>
 	</dialogue>
 	<dialogue>
-		<name>talkVergil</name>
+		<name>vergilTalk</name>
 		<sentence>
 			<type>question</type>
 			<actorName>dialogueVergil2.png</actorName>
@@ -103,7 +103,7 @@
 		</sentence>
 	</dialogue>
 	<dialogue>
-		<name>noMagicVergil</name>
+		<name>vergilNoMagic</name>
 		<sentence>
 			<type>statement</type>
 			<actorName>dialogueVergil3.png</actorName>
@@ -112,7 +112,34 @@
 		</sentence>
 	</dialogue>
 	<dialogue>
-		<name>talkSuccubus</name>
+		<name>vergilDie</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>呃，这次是我的错。。。</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>不过不用担心，我已经是亡灵了，所以不会再死一次哦</word>
+			<next>3</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>只不过这副身体不能用了而已</word>
+			<next>4</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>剩下了路你就自己走吧。。。</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>succubusTalk</name>
 		<sentence>
 			<type>question</type>
 			<actorName>succubus.png</actorName>
@@ -130,7 +157,7 @@
 		</sentence>
 	</dialogue>
 	<dialogue>
-		<name>summonSuccubus</name>
+		<name>succubusSummon</name>
 		<sentence>
 			<type>statement</type>
 			<actorName>succubus.png</actorName>
@@ -145,7 +172,7 @@
 		</sentence>
 	</dialogue>
 	<dialogue>
-		<name>talkStatue</name>
+		<name>statueTalk</name>
 		<sentence>
 			<type>question</type>
 			<actorName>NULL</actorName>
