@@ -101,23 +101,33 @@ void BattleSystem::showOneHandEffect(Character* caster)
 	int rotateAngle = 0;
 	cocos2d::Point targetCoord;
 
+	cocos2d::Vec2 offset;
+
 	switch (caster->getOrientation())
 	{
 	case Character::Orientation::UP:
 		node->setPosition(cocos2d::Point(position.x, position.y + 32));
 		rotateAngle = 0;
+		offset.x = 0;
+		offset.y = 5;
 		break;
 	case Character::Orientation::DOWN:
 		node->setPosition(cocos2d::Point(position.x, position.y - 32));
 		rotateAngle = 180;
+		offset.x = 0;
+		offset.y = -5;
 		break;
 	case Character::Orientation::LEFT:
 		node->setPosition(cocos2d::Point(position.x - 32, position.y));
 		rotateAngle = 270;
+		offset.x = -5;
+		offset.y = 0;
 		break;
 	case Character::Orientation::RIGHT:
 		node->setPosition(cocos2d::Point(position.x + 32, position.y));
 		rotateAngle = 90;
+		offset.x = 5;
+		offset.y = 0;
 		break;
 	}
 
@@ -132,7 +142,12 @@ void BattleSystem::showOneHandEffect(Character* caster)
 
 	node->runAction(cocos2d::Sequence::create(
 		rotateAction,
-		animate,
+		cocos2d::Spawn::create(
+			animate,
+			cocos2d::MoveBy::create(0.2, offset),
+			cocos2d::FadeOut::create(0.2),
+			NULL
+		),
 		cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, node)),
 		NULL));
 }
@@ -547,7 +562,7 @@ int BattleSystem::sufferAttack(Character* a, Character * b, AttackHand hand, int
 	//showDamage(c, damage);
 
 	showAttackEffect(a, hand);
-	showSufferDamageEffect(b, a->getOrientation(), damage, block);
+//	showSufferDamageEffect(b, a->getOrientation(), damage, block);
 
 	return damage;
 }

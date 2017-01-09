@@ -202,6 +202,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\DogTagGenerator.cpp" />
     <ClCompile Include="..\Classes\EffectManager.cpp" />
     <ClCompile Include="..\Classes\EvadeBuff.cpp" />
+    <ClCompile Include="..\Classes\HudExchangeInventorySystem.cpp" />
     <ClCompile Include="..\Classes\ExpHandler.cpp" />
     <ClCompile Include="..\Classes\FireBall.cpp" />
     <ClCompile Include="..\Classes\FixedSelector.cpp" />
@@ -228,6 +229,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudTrigEquipArmor.cpp" />
     <ClCompile Include="..\Classes\HudTrigEquipLeft.cpp" />
     <ClCompile Include="..\Classes\HudTrigEquipRight.cpp" />
+    <ClCompile Include="..\Classes\HudTrigGiveInv.cpp" />
     <ClCompile Include="..\Classes\HudTrigPick.cpp" />
     <ClCompile Include="..\Classes\HudTrigThrow.cpp" />
     <ClCompile Include="..\Classes\HudTrigUnequipAccessory.cpp" />
@@ -386,6 +388,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\DogTagGenerator.h" />
     <ClInclude Include="..\Classes\EffectManager.h" />
     <ClInclude Include="..\Classes\EvadeBuff.h" />
+    <ClInclude Include="..\Classes\HudExchangeInventorySystem.h" />
     <ClInclude Include="..\Classes\ExpHandler.h" />
     <ClInclude Include="..\Classes\FireBall.h" />
     <ClInclude Include="..\Classes\FixedSelector.h" />
@@ -412,6 +415,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudTrigEquipArmor.h" />
     <ClInclude Include="..\Classes\HudTrigEquipLeft.h" />
     <ClInclude Include="..\Classes\HudTrigEquipRight.h" />
+    <ClInclude Include="..\Classes\HudTrigGiveInv.h" />
     <ClInclude Include="..\Classes\HudTrigPick.h" />
     <ClInclude Include="..\Classes\HudTrigThrow.h" />
     <ClInclude Include="..\Classes\HudTrigUnequipAccessory.h" />

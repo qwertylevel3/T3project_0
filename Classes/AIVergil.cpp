@@ -1,4 +1,5 @@
 #include "AIVergil.h"
+#include "HudExchangeInventorySystem.h"
 #include <algorithm>
 #include "Dungeon.h"
 #include "ToolFunction.h"
@@ -71,6 +72,19 @@ void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 			DialogueSystem::getInstance()->runDialogue("vergilNoMagic");
 		}
 	}
+	else if (dialogueName == "vergilTalk"
+		&& resultNumber == -5)
+	{
+		HudExchangeInventorySystem::getInstance()->exchangeInventory(Player::getInstance()->getcharacterPtr(),
+			characterPtr);
+	}
+	else if (dialogueName == "vergilTalk"
+		&& resultNumber == -6)
+	{
+		HudExchangeInventorySystem::getInstance()->exchangeInventory(characterPtr, 
+			Player::getInstance()->getcharacterPtr());
+	}
+
 }
 
 void AIVergil::lastWords()

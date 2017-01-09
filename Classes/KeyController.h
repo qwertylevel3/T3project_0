@@ -8,7 +8,7 @@ class KeyController:public Singleton<KeyController>
 public:
 	enum CurControl
 	{
-		PLAYER,MENU,DIALOG,OPTION
+		PLAYER,MENU,DIALOG,OPTION,EXCHANGEINV
 	};
 	KeyController();
 	~KeyController();
@@ -17,6 +17,7 @@ public:
 	void switchCtrlToPlayer();
 	void switchCtrlToMenu();
 	void switchCtrlToOption();
+	void switchCtrlToExchangeInv();
 
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 	void handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode);

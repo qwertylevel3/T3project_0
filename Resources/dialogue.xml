@@ -75,6 +75,14 @@
 					<next>-4</next>
 				</option>
 				<option>
+					<label>帮我背一点东西</label>
+					<next>-5</next>
+				</option>
+				<option>
+					<label>有什么好东西么</label>
+					<next>-6</next>
+				</option>
+				<option>
 					<label>没啥</label>
 					<next>-1</next>
 				</option>

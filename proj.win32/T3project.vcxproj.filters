@@ -492,9 +492,6 @@
     <ClCompile Include="..\Classes\Repel.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudTrigUseInventory.cpp">
-      <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\HudUseableInventoryMenu.cpp">
       <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
     </ClCompile>
@@ -594,14 +591,35 @@
     <ClCompile Include="..\Classes\AICommonFriend.cpp">
       <Filter>src\character\AI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudArmorMenu.cpp" />
-    <ClCompile Include="..\Classes\HudTrigEquipArmor.cpp" />
-    <ClCompile Include="..\Classes\HudUnequipArmorMenu.cpp" />
-    <ClCompile Include="..\Classes\HudTrigUnequipArmor.cpp" />
-    <ClCompile Include="..\Classes\HudAccessoryMenu.cpp" />
-    <ClCompile Include="..\Classes\HudTrigEquipAccessory.cpp" />
-    <ClCompile Include="..\Classes\HudUnequipAccessoryMenu.cpp" />
-    <ClCompile Include="..\Classes\HudTrigUnequipAccessory.cpp" />
+    <ClCompile Include="..\Classes\HudAccessoryMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudArmorMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudTrigUseInventory.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudTrigEquipAccessory.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudTrigEquipArmor.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudTrigUnequipAccessory.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudTrigUnequipArmor.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudUnequipAccessoryMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudUnequipArmorMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudExchangeInventorySystem.cpp" />
+    <ClCompile Include="..\Classes\HudTrigGiveInv.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1126,14 +1144,32 @@
     <ClInclude Include="..\Classes\AICommonFriend.h">
       <Filter>src\character\AI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudArmorMenu.h" />
-    <ClInclude Include="..\Classes\HudTrigEquipArmor.h" />
-    <ClInclude Include="..\Classes\HudUnequipArmorMenu.h" />
-    <ClInclude Include="..\Classes\HudTrigUnequipArmor.h" />
-    <ClInclude Include="..\Classes\HudAccessoryMenu.h" />
-    <ClInclude Include="..\Classes\HudTrigEquipAccessory.h" />
-    <ClInclude Include="..\Classes\HudUnequipAccessoryMenu.h" />
-    <ClInclude Include="..\Classes\HudTrigUnequipAccessory.h" />
+    <ClInclude Include="..\Classes\HudAccessoryMenu.h">
+      <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudArmorMenu.h">
+      <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudTrigEquipAccessory.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudTrigEquipArmor.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudTrigUnequipAccessory.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudTrigUnequipArmor.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudUnequipAccessoryMenu.h">
+      <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudUnequipArmorMenu.h">
+      <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudExchangeInventorySystem.h" />
+    <ClInclude Include="..\Classes\HudTrigGiveInv.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

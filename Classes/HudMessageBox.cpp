@@ -38,6 +38,10 @@ void HudMessageBox::show()
 void HudMessageBox::hide()
 {
 	bk->setVisible(false);
+	for each (cocos2d::Label* label in messageBox)
+	{
+		label->setVisible(false);
+	}
 
 }
 

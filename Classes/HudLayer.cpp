@@ -1,4 +1,5 @@
 #include "HudLayer.h"
+#include "HudExchangeInventorySystem.h"
 #include"HudMenuItem.h"
 #include"HudCursor.h"
 #include "HudMenuSystem.h"
@@ -33,17 +34,9 @@ bool HudLayer::init()
 	DialogueSystem::getInstance()->init();
 	HudBar::getInstance()->init();
 	HudMessageBox::getInstance()->init();
+	HudExchangeInventorySystem::getInstance()->init();
 
-	HudMessageBox::getInstance()->addMessage(L"消息0");
-	HudMessageBox::getInstance()->addMessage(L"消息1");
-	HudMessageBox::getInstance()->addMessage(L"消息2");
-	HudMessageBox::getInstance()->addMessage(L"消息3");
-	HudMessageBox::getInstance()->addMessage(L"消息4");
-	HudMessageBox::getInstance()->addMessage(L"消息5");
-	HudMessageBox::getInstance()->addMessage(L"消息6");
-	HudMessageBox::getInstance()->addMessage(L"消息7");
-	HudMessageBox::getInstance()->addMessage(L"消息8");
-	HudMessageBox::getInstance()->addMessage(L"消息9");
+
 
 
 //	DialogueSystem::getInstance()->runDialogue("testDialogue");
