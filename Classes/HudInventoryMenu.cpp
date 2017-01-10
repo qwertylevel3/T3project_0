@@ -1,4 +1,5 @@
 #include "HudInventoryMenu.h"
+#include "HudNoteMenu.h"
 #include "HudAccessoryMenu.h"
 #include "HudArmorMenu.h"
 #include "Player.h"
@@ -141,6 +142,9 @@ void HudInventoryMenu::setItemTrigger(const std::string& inventoryName, HudMenuI
 	case Inventory::Accessory:
 		initAccessoryMenu(item);
 		break;
+	case Inventory::Note:
+		initNoteMenu(item);
+		break;
 	default:
 		break;
 	}
@@ -178,6 +182,16 @@ void HudInventoryMenu::initArmorMenu(HudMenuItem* item)
 void HudInventoryMenu::initAccessoryMenu(HudMenuItem* item)
 {
 	HudAccessoryMenu* menu = new HudAccessoryMenu();
+
+	menu->setParent(this);
+
+	HudTrigActChildMenu* trigger = new HudTrigActChildMenu(menu);
+	item->setTrigger(trigger);
+}
+
+void HudInventoryMenu::initNoteMenu(HudMenuItem* item)
+{
+	HudNoteMenu* menu = new HudNoteMenu();
 
 	menu->setParent(this);
 

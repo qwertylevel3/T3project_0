@@ -1,4 +1,5 @@
 #include "AIVergil.h"
+#include "HudNoteSystem.h"
 #include "HudExchangeInventorySystem.h"
 #include <algorithm>
 #include "Dungeon.h"
@@ -75,16 +76,17 @@ void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 	else if (dialogueName == "vergilTalk"
 		&& resultNumber == -5)
 	{
+		//给东西
 		HudExchangeInventorySystem::getInstance()->exchangeInventory(Player::getInstance()->getcharacterPtr(),
 			characterPtr);
 	}
 	else if (dialogueName == "vergilTalk"
 		&& resultNumber == -6)
 	{
-		HudExchangeInventorySystem::getInstance()->exchangeInventory(characterPtr, 
+		//要东西
+		HudExchangeInventorySystem::getInstance()->exchangeInventory(characterPtr,
 			Player::getInstance()->getcharacterPtr());
 	}
-
 }
 
 void AIVergil::lastWords()
@@ -172,7 +174,16 @@ void AIVergil::stayCloseAI()
 			}
 			else
 			{
-				seek(playerCharacter);
+				std::vector<Character*> enemyAround = getEnemyAround();
+				if (!enemyAround.empty())
+				{
+					changeOrientationTo(enemyAround[0]);
+					characterPtr->attack();
+				}
+				else
+				{
+					seek(playerCharacter);
+				}
 			}
 
 			return;
@@ -219,6 +230,38 @@ void AIVergil::freeAI()
 	}
 }
 
+std::vector<Character* > AIVergil::getEnemyAround()
+{
+	std::vector<Character*> allEnemy;
+
+	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+	cocos2d::Point oriCoord = characterPtr->getMapCoord();
+
+	for (int i = -1; i <= 1; i++)
+	{
+		for (int j = -1; j <= 1; j++)
+		{
+			if (i != 0 && j != 0)
+			{
+				continue;
+			}
+
+			cocos2d::Point tempCoord = oriCoord;
+			tempCoord.x += i;
+			tempCoord.y += j;
+
+			Character* target = storey->getCharacter(tempCoord);
+
+			if (target
+				&& target->getCharacterType() == Character::Bad)
+			{
+				allEnemy.push_back(target);
+			}
+		}
+	}
+	return allEnemy;
+}
+
 std::vector<Character* > AIVergil::getEnemyAroundPlayer()
 {
 	std::vector<Character*> allEnemy;
@@ -250,4 +293,11 @@ bool AIVergil::cmpDistance(Character* a, Character* b)
 {
 	return ToolFunction::getManhattanDistance(a->getMapCoord(), characterPtr->getMapCoord())
 		< ToolFunction::getManhattanDistance(b->getMapCoord(), characterPtr->getMapCoord());
+}
+
+void AIVergil::tidyInventory()
+{
+	//整理物品
+	//
+	//TODO
 }

@@ -22,10 +22,15 @@ protected:
 	//自由活动的ai
 	void freeAI();
 
+	//获得周围的enemy
+	std::vector<Character* > getEnemyAround();
 	//获得player周围的enemy
 	std::vector<Character* > getEnemyAroundPlayer();
 
 	//比较两个character相对characterPtr的距离
 	bool cmpDistance(Character* a, Character* b);
-	
+
+
+	//整理物品
+	void tidyInventory();
 };

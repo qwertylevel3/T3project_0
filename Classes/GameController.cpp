@@ -1,4 +1,5 @@
 #include "GameController.h"
+#include "NoteTextFactory.h"
 #include "InventoryListGenerator.h"
 #include "GameSaveManager.h"
 #include "HudMessageBox.h"
@@ -35,6 +36,7 @@ void GameController::init()
 	GameSaveManager::getInstance()->load();
 
 	RandomNumber::getInstance()->setSeed(100);
+	NoteTextFactory::getInstance()->init();
 	InventoryListGenerator::getInstance()->init();
 	Buff::BuffFactory::getInstance()->init();
 	Sphere::SphereFactory::getInstance()->init();

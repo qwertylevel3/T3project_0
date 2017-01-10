@@ -20,6 +20,7 @@ protected:
 	void initUseableInventoryMenu(HudMenuItem* item);
 	void initArmorMenu(HudMenuItem* item);
 	void initAccessoryMenu(HudMenuItem* item);
+	void initNoteMenu(HudMenuItem* item);
 
 };
 

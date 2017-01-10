@@ -1,4 +1,5 @@
 #include "KeyController.h"
+#include "HudNoteSystem.h"
 #include "HudMessageBox.h"
 #include "HudExchangeInventorySystem.h"
 #include "Player.h"
@@ -82,6 +83,10 @@ void KeyController::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 			HudExchangeInventorySystem::getInstance()->close();
 		}
 	}
+	else if (control==NOTE)
+	{
+		HudNoteSystem::getInstance()->handleKeyPressed(keyCode);
+	}
 }
 
 void KeyController::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
@@ -133,6 +138,16 @@ void KeyController::switchCtrlToOption()
 void KeyController::switchCtrlToExchangeInv()
 {
 	control = EXCHANGEINV;
+}
+
+void KeyController::switchCtrlToNote()
+{
+	HudMenuSystem::getInstance()->hide();
+	HudPlayerStateMenu::getInstance()->hide();
+	HudMessageBox::getInstance()->show();
+	HudBar::getInstance()->show();
+
+	control = NOTE;
 }
 
 void KeyController::switchCtrlToDialog()

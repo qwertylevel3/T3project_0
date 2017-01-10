@@ -11,6 +11,7 @@ class Arrow;
 class Supply;
 class Armor;
 class Accessory;
+class Note;
 
 class InventoryFactory:public XMLConfigure,public Singleton<InventoryFactory>
 {
@@ -30,6 +31,7 @@ protected:
 	void initAccessoryData(tinyxml2::XMLElement* inventoryElement, Accessory* accessoryModel);
 	void initArrowData(tinyxml2::XMLElement* inventoryElement, Arrow* model);
 	void initSupplyData(tinyxml2::XMLElement* inventoryElement, Supply* supplyModel);
+	void initNoteData(tinyxml2::XMLElement* inventoryElement, Note* noteModel);
 
 	std::map<std::string, Inventory*> inventoryMap;
 	tinyxml2::XMLElement* curInventoryElement;

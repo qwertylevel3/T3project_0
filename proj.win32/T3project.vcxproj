@@ -222,6 +222,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudGroundMenu.cpp" />
     <ClCompile Include="..\Classes\HudMainMenu.cpp" />
     <ClCompile Include="..\Classes\HudMessageBox.cpp" />
+    <ClCompile Include="..\Classes\HudNoteMenu.cpp" />
+    <ClCompile Include="..\Classes\HudNoteSystem.cpp" />
     <ClCompile Include="..\Classes\HudSkillMenu.cpp" />
     <ClCompile Include="..\Classes\HudTrigActiveSkill.cpp" />
     <ClCompile Include="..\Classes\HudTrigDrop.cpp" />
@@ -231,6 +233,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudTrigEquipRight.cpp" />
     <ClCompile Include="..\Classes\HudTrigGiveInv.cpp" />
     <ClCompile Include="..\Classes\HudTrigPick.cpp" />
+    <ClCompile Include="..\Classes\HudTrigReadNote.cpp" />
     <ClCompile Include="..\Classes\HudTrigThrow.cpp" />
     <ClCompile Include="..\Classes\HudTrigUnequipAccessory.cpp" />
     <ClCompile Include="..\Classes\HudTrigUnequipArmor.cpp" />
@@ -256,6 +259,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\MPRecoveryCast.cpp" />
     <ClCompile Include="..\Classes\MPRecoverySelf.cpp" />
     <ClCompile Include="..\Classes\MyCamera.cpp" />
+    <ClCompile Include="..\Classes\Note.cpp" />
+    <ClCompile Include="..\Classes\NoteTextFactory.cpp" />
     <ClCompile Include="..\Classes\PhysicalImmuneBuff.cpp" />
     <ClCompile Include="..\Classes\RandomDirectDamage.cpp" />
     <ClCompile Include="..\Classes\Repel.cpp" />
@@ -408,6 +413,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudGroundMenu.h" />
     <ClInclude Include="..\Classes\HudMainMenu.h" />
     <ClInclude Include="..\Classes\HudMessageBox.h" />
+    <ClInclude Include="..\Classes\HudNoteMenu.h" />
+    <ClInclude Include="..\Classes\HudNoteSystem.h" />
     <ClInclude Include="..\Classes\HudSkillMenu.h" />
     <ClInclude Include="..\Classes\HudTrigActiveSkill.h" />
     <ClInclude Include="..\Classes\HudTrigDrop.h" />
@@ -417,6 +424,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudTrigEquipRight.h" />
     <ClInclude Include="..\Classes\HudTrigGiveInv.h" />
     <ClInclude Include="..\Classes\HudTrigPick.h" />
+    <ClInclude Include="..\Classes\HudTrigReadNote.h" />
     <ClInclude Include="..\Classes\HudTrigThrow.h" />
     <ClInclude Include="..\Classes\HudTrigUnequipAccessory.h" />
     <ClInclude Include="..\Classes\HudTrigUnequipArmor.h" />
@@ -442,6 +450,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MPRecoveryCast.h" />
     <ClInclude Include="..\Classes\MPRecoverySelf.h" />
     <ClInclude Include="..\Classes\MyCamera.h" />
+    <ClInclude Include="..\Classes\Note.h" />
+    <ClInclude Include="..\Classes\NoteTextFactory.h" />
     <ClInclude Include="..\Classes\PhysicalImmuneBuff.h" />
     <ClInclude Include="..\Classes\RandomDirectDamage.h" />
     <ClInclude Include="..\Classes\Repel.h" />

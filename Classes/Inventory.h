@@ -13,7 +13,7 @@ public:
 	{
 		Other,
 		OneHandWeapon,TwoHandWeapon,Bow,Shield,Arrow, 
-		Armor, Supply, Accessory
+		Armor, Supply, Accessory,Note
 	};
 
 	Inventory();

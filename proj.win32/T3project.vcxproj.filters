@@ -79,6 +79,9 @@
     <Filter Include="src\character\hero">
       <UniqueIdentifier>{543a3d35-7fa4-477c-8b13-d4082548163f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\inventory\note">
+      <UniqueIdentifier>{5c1a0fc2-8efa-49a0-9aa3-b19ae98ae8b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -618,8 +621,21 @@
     <ClCompile Include="..\Classes\HudUnequipArmorMenu.cpp">
       <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudExchangeInventorySystem.cpp" />
-    <ClCompile Include="..\Classes\HudTrigGiveInv.cpp" />
+    <ClCompile Include="..\Classes\HudExchangeInventorySystem.cpp">
+      <Filter>src\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudTrigGiveInv.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Note.cpp">
+      <Filter>src\inventory\note</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudNoteSystem.cpp">
+      <Filter>src\inventory\note</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\NoteTextFactory.cpp" />
+    <ClCompile Include="..\Classes\HudNoteMenu.cpp" />
+    <ClCompile Include="..\Classes\HudTrigReadNote.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1168,8 +1184,21 @@
     <ClInclude Include="..\Classes\HudUnequipArmorMenu.h">
       <Filter>src\HUD\menuSystem\menu\equipMenu</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudExchangeInventorySystem.h" />
-    <ClInclude Include="..\Classes\HudTrigGiveInv.h" />
+    <ClInclude Include="..\Classes\HudExchangeInventorySystem.h">
+      <Filter>src\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudTrigGiveInv.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudNoteSystem.h">
+      <Filter>src\inventory\note</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Note.h">
+      <Filter>src\inventory\note</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NoteTextFactory.h" />
+    <ClInclude Include="..\Classes\HudNoteMenu.h" />
+    <ClInclude Include="..\Classes\HudTrigReadNote.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

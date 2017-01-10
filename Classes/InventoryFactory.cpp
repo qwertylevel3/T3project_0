@@ -10,6 +10,7 @@
 #include "Supply.h"
 #include "Bow.h"
 #include "Arrow.h"
+#include "Note.h"
 
 USING_NS_CC;
 
@@ -138,6 +139,16 @@ void InventoryFactory::initModel(tinyxml2::XMLElement* inventoryElement, const s
 
 		inventoryMap[model->getName()] = model;
 	}
+	else if (type=="note")
+	{
+		Note* model = new Note();
+		model->setInventoryType(Inventory::Note);
+
+		initBaseData(inventoryElement, model);
+		initNoteData(inventoryElement, model);
+
+		inventoryMap[model->getName()] = model;
+	}
 	else
 	{
 		CCAssert(false, (std::string("unknow element type ") + type).c_str());
@@ -201,4 +212,9 @@ void InventoryFactory::initSupplyData(tinyxml2::XMLElement* inventoryElement, Su
 	supplyModel->setAgiRequire(getChildElementIntAttr(inventoryElement, "agiRequire"));
 	supplyModel->setIntRequire(getChildElementIntAttr(inventoryElement, "intRequire"));
 	supplyModel->setSkillName(getChildElementStrAttr(inventoryElement, "skillName"));
+}
+
+void InventoryFactory::initNoteData(tinyxml2::XMLElement* inventoryElement, Note* noteModel)
+{
+	noteModel->setTextID(getChildElementStrAttr(inventoryElement, "noteID"));
 }

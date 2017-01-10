@@ -1,4 +1,5 @@
 #include "HudLayer.h"
+#include "HudNoteSystem.h"
 #include "HudExchangeInventorySystem.h"
 #include"HudMenuItem.h"
 #include"HudCursor.h"
@@ -35,6 +36,8 @@ bool HudLayer::init()
 	HudBar::getInstance()->init();
 	HudMessageBox::getInstance()->init();
 	HudExchangeInventorySystem::getInstance()->init();
+	HudNoteSystem::getInstance()->init();
+	
 
 
 
