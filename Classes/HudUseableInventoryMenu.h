@@ -8,5 +8,6 @@ class HudUseableInventoryMenu:public HudMenu
 public:
 	HudUseableInventoryMenu();
 	~HudUseableInventoryMenu();
+	void show();
 };
 

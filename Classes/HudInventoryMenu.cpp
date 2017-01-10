@@ -17,17 +17,15 @@
 #include "HudDescriptionMenu.h"
 #include "HudCursor.h"
 
-
 HudInventoryMenu::HudInventoryMenu()
 	:HudMenu(cocos2d::Rect(
-		0,0,
+		0, 0,
 		HudLayout::getInstance()->getMediumMenuSize().width,
 		HudLayout::getInstance()->getMediumMenuSize().height))
 {
 	this->setPosition(HudLayout::getInstance()->getMediumMenuPosition().x,
 		HudLayout::getInstance()->getMediumMenuPosition().y);
 }
-
 
 HudInventoryMenu::~HudInventoryMenu()
 {
@@ -59,9 +57,9 @@ void HudInventoryMenu::update()
 		std::string cname = InventoryFactory::getInstance()->queryCname(iter->first);
 		std::string count = ToolFunction::int2string(iter->second);
 
-		HudMenuItem* inventoryItem = new HudMenuItem(cname+" x"+count);
+		HudMenuItem* inventoryItem = new HudMenuItem(cname + " x" + count);
 
-		setItemTrigger(iter->first,inventoryItem);
+		setItemTrigger(iter->first, inventoryItem);
 		this->addItem(inventoryItem);
 
 		iter++;
@@ -76,7 +74,6 @@ void HudInventoryMenu::update()
 
 void HudInventoryMenu::init()
 {
-
 }
 
 void HudInventoryMenu::addItem(HudMenuItem* item)
@@ -84,7 +81,6 @@ void HudInventoryMenu::addItem(HudMenuItem* item)
 	HudMenu::addItem(item);
 	item->setAliginment(cocos2d::TextHAlignment::LEFT);
 }
-
 
 void HudInventoryMenu::chooseItem(int index)
 {
@@ -96,13 +92,13 @@ void HudInventoryMenu::chooseItem(int index)
 	std::map<std::string, int>::iterator iter = inventoryMap.begin();
 
 	int count = 0;
-	while (iter!=inventoryMap.end()
-		&& count!=index)
+	while (iter != inventoryMap.end()
+		&& count != index)
 	{
 		count++;
 		iter++;
 	}
-	if (iter==inventoryMap.end())
+	if (iter == inventoryMap.end())
 	{
 		return;
 	}
@@ -111,10 +107,14 @@ void HudInventoryMenu::chooseItem(int index)
 
 	Inventory* inventory = InventoryFactory::getInstance()->getInventory(inventoryID);
 
-
 	HudDescriptionMenu::getInstance()->setDescription(
 		inventory->getDescription()
 	);
+	if (layout->isVisible())
+	{
+		HudDescriptionMenu::getInstance()->show();
+	}
+
 	delete inventory;
 }
 

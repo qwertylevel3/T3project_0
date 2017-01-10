@@ -1,4 +1,5 @@
 #include "HudArmorMenu.h"
+#include "HudDescriptionMenu.h"
 #include "HudTrigEquipArmor.h"
 #include "HudTrigThrow.h"
 #include "HudTrigDrop.h"
@@ -40,4 +41,11 @@ HudArmorMenu::HudArmorMenu()
 
 HudArmorMenu::~HudArmorMenu()
 {
+}
+
+void HudArmorMenu::show()
+{
+	HudMenu::show();
+
+	HudDescriptionMenu::getInstance()->hide();
 }

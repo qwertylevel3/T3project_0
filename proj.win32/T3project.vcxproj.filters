@@ -633,9 +633,15 @@
     <ClCompile Include="..\Classes\HudNoteSystem.cpp">
       <Filter>src\inventory\note</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\NoteTextFactory.cpp" />
-    <ClCompile Include="..\Classes\HudNoteMenu.cpp" />
-    <ClCompile Include="..\Classes\HudTrigReadNote.cpp" />
+    <ClCompile Include="..\Classes\HudTrigReadNote.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\NoteTextFactory.cpp">
+      <Filter>src\inventory\note</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudNoteMenu.cpp">
+      <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1196,9 +1202,15 @@
     <ClInclude Include="..\Classes\Note.h">
       <Filter>src\inventory\note</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\NoteTextFactory.h" />
-    <ClInclude Include="..\Classes\HudNoteMenu.h" />
-    <ClInclude Include="..\Classes\HudTrigReadNote.h" />
+    <ClInclude Include="..\Classes\HudTrigReadNote.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NoteTextFactory.h">
+      <Filter>src\inventory\note</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudNoteMenu.h">
+      <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

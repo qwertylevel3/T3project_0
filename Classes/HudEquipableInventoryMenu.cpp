@@ -1,4 +1,5 @@
 #include "HudEquipableInventoryMenu.h"
+#include "HudDescriptionMenu.h"
 #include "HudMenuItem.h"
 #include "ToolFunction.h"
 #include "HudTrigEquipLeft.h"
@@ -44,4 +45,11 @@ HudEquipableInventoryMenu::HudEquipableInventoryMenu()
 
 HudEquipableInventoryMenu::~HudEquipableInventoryMenu()
 {
+}
+
+void HudEquipableInventoryMenu::show()
+{
+	HudMenu::show();
+
+	HudDescriptionMenu::getInstance()->hide();
 }

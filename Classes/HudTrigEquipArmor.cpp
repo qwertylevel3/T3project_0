@@ -1,4 +1,5 @@
 #include "HudTrigEquipArmor.h"
+#include "KeyController.h"
 #include "HudMenuItem.h"
 #include "Player.h"
 #include "InventoryFactory.h"
@@ -27,6 +28,7 @@ void HudTrigEquipArmor::run()
 	Inventory* inventory = InventoryFactory::getInstance()->getInventory(inventoryName);
 
 	characterPtr->equipArmor(inventory);
+	KeyController::getInstance()->switchCtrlToPlayer();
 
 	menuItem->getParentMenu()->closeMenu();
 }

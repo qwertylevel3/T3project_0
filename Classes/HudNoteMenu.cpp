@@ -1,4 +1,5 @@
 #include "HudNoteMenu.h"
+#include "HudDescriptionMenu.h"
 #include "HudTrigReadNote.h"
 #include "HudTrigDrop.h"
 #include "HudTrigThrow.h"
@@ -42,3 +43,11 @@ HudNoteMenu::HudNoteMenu()
 HudNoteMenu::~HudNoteMenu()
 {
 }
+
+void HudNoteMenu::show()
+{
+	HudMenu::show();
+
+	HudDescriptionMenu::getInstance()->hide();
+}
+

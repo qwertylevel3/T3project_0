@@ -1,4 +1,5 @@
 #include "HudTrigActiveSkill.h"
+#include "KeyController.h"
 #include "HudSkillMenu.h"
 #include "Player.h"
 #include "SkillHandler.h"
@@ -23,6 +24,7 @@ void HudTrigActiveSkill::run()
 	Skill::SkillHandler* skillHandler = characterPtr->getSkillHandler();
 	std::string skillID = skillHandler->getSkillID(curIndex);
 	characterPtr->runSkill(skillID);
+	KeyController::getInstance()->switchCtrlToPlayer();
 
 	menuItem->getParentMenu()->closeMenu();
 }

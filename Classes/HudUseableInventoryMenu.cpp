@@ -1,4 +1,5 @@
 #include "HudUseableInventoryMenu.h"
+#include "HudDescriptionMenu.h"
 #include "HudLayout.h"
 #include "HudTrigUseInventory.h"
 #include "HudTrigDrop.h"
@@ -38,4 +39,11 @@ HudUseableInventoryMenu::HudUseableInventoryMenu()
 
 HudUseableInventoryMenu::~HudUseableInventoryMenu()
 {
+}
+
+void HudUseableInventoryMenu::show()
+{
+	HudMenu::show();
+
+	HudDescriptionMenu::getInstance()->hide();
 }

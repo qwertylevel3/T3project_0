@@ -146,6 +146,7 @@ void KeyController::switchCtrlToNote()
 	HudPlayerStateMenu::getInstance()->hide();
 	HudMessageBox::getInstance()->show();
 	HudBar::getInstance()->show();
+	
 
 	control = NOTE;
 }

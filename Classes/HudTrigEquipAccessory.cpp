@@ -1,4 +1,5 @@
 #include "HudTrigEquipAccessory.h"
+#include "KeyController.h"
 #include "Player.h"
 #include "InventoryFactory.h"
 #include "Character.h"
@@ -28,6 +29,7 @@ void HudTrigEquipAccessory::run()
 	Inventory* inventory = InventoryFactory::getInstance()->getInventory(inventoryName);
 
 	characterPtr->equipAccessory(inventory);
+	KeyController::getInstance()->switchCtrlToPlayer();
 
 	menuItem->getParentMenu()->closeMenu();
 }

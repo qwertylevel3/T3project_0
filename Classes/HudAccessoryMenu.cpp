@@ -1,4 +1,5 @@
 #include "HudAccessoryMenu.h"
+#include "HudDescriptionMenu.h"
 #include "HudTrigDrop.h"
 #include "HudTrigThrow.h"
 #include "HudMenuItem.h"
@@ -41,4 +42,11 @@ HudAccessoryMenu::HudAccessoryMenu()
 
 HudAccessoryMenu::~HudAccessoryMenu()
 {
+}
+
+void HudAccessoryMenu::show()
+{
+	HudMenu::show();
+
+	HudDescriptionMenu::getInstance()->hide();
 }

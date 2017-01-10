@@ -9,5 +9,6 @@ class HudEquipableInventoryMenu :
 public:
 	HudEquipableInventoryMenu();
 	~HudEquipableInventoryMenu();
+	void show();
 };
 

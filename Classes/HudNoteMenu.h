@@ -7,5 +7,6 @@ class HudNoteMenu:public HudMenu
 public:
 	HudNoteMenu();
 	~HudNoteMenu();
+	void show();
 };
 

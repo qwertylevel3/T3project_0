@@ -44,6 +44,7 @@ void HudMenuSystem::hide()
 {
 	HudCursor::getInstance()->hide();
 	HudMainMenu::getInstance()->hide();
+	HudDescriptionMenu::getInstance()->hide();
 }
 
 void HudMenuSystem::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
