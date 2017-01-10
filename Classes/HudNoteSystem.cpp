@@ -1,5 +1,5 @@
 #include "HudNoteSystem.h"
-#include "NoteTextFactory.h"
+#include "2d/CCAnimation.h"
 #include "KeyController.h"
 #include "ToolFunction.h"
 #include "HudLayer.h"
@@ -35,28 +35,75 @@ void HudNoteSystem::init()
 	//	description->ignoreContentAdaptWithSize(false);
 	//	description->setTextAreaSize(cocos2d::Size(150, 400));
 	layout->addChild(text);
+
+	leftArrow = cocos2d::Sprite::create("sys/noteArrowLeft.png");
+	rightArrow = cocos2d::Sprite::create("sys/noteArrowRight.png");
+
+	leftArrow->setPosition(175, 300);
+	rightArrow->setPosition(525, 300);
+	
+	HudLayer::getInstance()->addChild(leftArrow);
+	HudLayer::getInstance()->addChild(rightArrow);
+
 	hide();
 }
 
 void HudNoteSystem::openNote(std::string noteID)
 {
-	NoteText noteText = NoteTextFactory::getInstance()->getNoteText(noteID);
+	curNote = NoteTextFactory::getInstance()->getNoteText(noteID);
+	curPageIndex = 0;
 
-	setText(noteText.getPage(0));
-
+	setText(curNote.getPage(curPageIndex));
 
 	this->show();
+	showRightArrow();
+	hideLeftArrow();
 	KeyController::getInstance()->switchCtrlToNote();
 }
 
 void HudNoteSystem::nextPage()
 {
+	curPageIndex++;
+
+	if (curPageIndex>=curNote.getSize()-1)
+	{
+		curPageIndex = curNote.getSize() - 1;
+		showLeftArrow();
+		hideRightArrow();
+	}
+	else
+	{
+		showLeftArrow();
+		showRightArrow();
+	}
+
+	setText(curNote.getPage(curPageIndex));
+}
+
+void HudNoteSystem::previousPage()
+{
+	curPageIndex--;
+
+	if (curPageIndex<=0)
+	{
+		curPageIndex = 0;
+		showRightArrow();
+		hideLeftArrow();
+	}
+	else
+	{
+		showLeftArrow();
+		showRightArrow();
+	}
+	setText(curNote.getPage(curPageIndex));
 
 }
 
 void HudNoteSystem::hide()
 {
 	layout->setVisible(false);
+	leftArrow->setVisible(false);
+	rightArrow->setVisible(false);
 }
 
 void HudNoteSystem::show()
@@ -69,11 +116,62 @@ void HudNoteSystem::setText(std::string str)
 	text->setText(str);
 }
 
+void HudNoteSystem::showLeftArrow()
+{
+	leftArrow->setVisible(true);
+	leftArrow->stopAllActions();
+	leftArrow->setPosition(175, 300);
+	leftArrow->runAction(
+		cocos2d::RepeatForever::create(
+			cocos2d::Sequence::create(
+				cocos2d::MoveBy::create(1, cocos2d::Vec2(-5, 0)),
+				cocos2d::MoveBy::create(0.1, cocos2d::Vec2(5, 0)),
+				NULL
+			)
+		)
+	);
+}
+
+void HudNoteSystem::showRightArrow()
+{
+	rightArrow->setVisible(true);
+	rightArrow->setVisible(true);
+	rightArrow->stopAllActions();
+	rightArrow->setPosition(525, 300);
+	rightArrow->runAction(
+		cocos2d::RepeatForever::create(
+			cocos2d::Sequence::create(
+				cocos2d::MoveBy::create(1, cocos2d::Vec2(5, 0)),
+				cocos2d::MoveBy::create(0.1, cocos2d::Vec2(-5, 0)),
+				NULL
+			)
+		)
+	);
+}
+
+void HudNoteSystem::hideLeftArrow()
+{
+	leftArrow->setVisible(false);
+}
+
+void HudNoteSystem::hideRightArrow()
+{
+	rightArrow->setVisible(false);
+}
+
 void HudNoteSystem::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
 	if (keyCode==cocos2d::EventKeyboard::KeyCode::KEY_ESCAPE)
 	{
 		this->hide();
 		KeyController::getInstance()->switchCtrlToPlayer();
+	}
+	else if (keyCode == cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW)
+	{
+		previousPage();
+	}
+	else if (keyCode==cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
+	{
+		nextPage();
 	}
 }

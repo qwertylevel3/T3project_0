@@ -3,7 +3,9 @@
 <allNote>
 	<note>
 		<noteID>000</noteID>
-		<page>11</page>
-		<page>22</page>
+		<page>page1</page>
+		<page>page2</page>
+		<page>page3</page>
+		<page>page4</page>
 	</note>
 </allNote>
