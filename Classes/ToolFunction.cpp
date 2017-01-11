@@ -229,6 +229,15 @@ cocos2d::Point ToolFunction::nextStep_v2(cocos2d::Point src, cocos2d::Point dest
 	return astar.nextStep_v2();
 }
 
+cocos2d::Point ToolFunction::nextStep_v3(cocos2d::Point src, cocos2d::Point dest)
+{
+	Storey* storey = Dungeon::getInstance()->getStorey();
+
+	AStar astar(src, dest, storey);
+	return astar.nextStep_v3();
+
+}
+
 std::vector<cocos2d::Point> ToolFunction::findPath(cocos2d::Point src, cocos2d::Point dest)
 {
 	Storey* storey = Dungeon::getInstance()->getStorey();

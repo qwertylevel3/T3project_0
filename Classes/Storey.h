@@ -38,9 +38,12 @@ namespace Field {
 
 		StoreyInventoryHandler* getInventoryHandler();
 
+		//严格可到达
 		bool isMoveAble(cocos2d::Point mapCoord);
-		//路径查找用
-		bool isRouteAble(cocos2d::Point mapCoord);
+		//忽略队友
+		bool isMoveAble_v2(cocos2d::Point mapCoord);
+		//忽略路径上所有character
+		bool isMoveAble_v3(cocos2d::Point mapCoord);
 		bool isMoveAble(int tile);
 		bool isPartner(cocos2d::Point mapCoord);
 		bool isWall(cocos2d::Point mapCoord);

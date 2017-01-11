@@ -63,7 +63,7 @@ Storey* StoreyBuilder::generate(int level)
 	}
 
 	//放置游戏演员
-	placeGameActorAllRoom();
+	placeFeatureForRoom();
 
 	return storey;
 }
@@ -96,7 +96,7 @@ bool StoreyBuilder::createFeature()
 
 bool StoreyBuilder::createFeature(int x, int y, Direction dir)
 {
-	static const int roomChance = 66; // corridorChance = 100 - roomChance
+	static const int roomChance = 80; // corridorChance = 100 - roomChance
 
 	int dx = 0;
 	int dy = 0;
@@ -265,48 +265,13 @@ bool StoreyBuilder::placeRect(const Field::Rect& rect)
 			if (x == rect.x - 1 || y == rect.y - 1 || x == rect.x + rect.width || y == rect.y + rect.height)
 			{
 				storey->setTile(x, y, Wall);
+//				Character* wall = GameActorFactory::getInstance()->getActor("wall");
+//				storey->addCharacter(cocos2d::Point(x, y), wall);
 			}
 
 			else
 			{
-				//test
-				if (curLevel >= 7)
-				{
-					//7层往上可能出现ice
-					if (RandomNumber::getInstance()->randomBool(0.1))
-					{
-						//十分之一概率为ice
-						storey->setTile(x, y, Ice);
-					}
-					else if (RandomNumber::getInstance()->randomBool(0.2))
-					{
-						//十分之一概率为Trap
-						storey->setTile(x, y, Trap);
-					}
-					else
-					{
-						storey->setTile(x, y, Floor);
-					}
-				}
-
-				else if (curLevel >= 5)
-				{
-					//5层向上可能出现trap
-					if (RandomNumber::getInstance()->randomBool(0.1))
-					{
-						//十分之一概率为Trap
-						storey->setTile(x, y, Trap);
-					}
-					else
-					{
-						storey->setTile(x, y, Floor);
-					}
-				}
-				else
-				{
-					//其余只会有普通的floor
-					storey->setTile(x, y, Floor);
-				}
+				storey->setTile(x, y, Floor);
 			}
 		}
 
@@ -576,6 +541,47 @@ Field::Rect Field::StoreyBuilder::makeRoomRect(int x, int y, Direction dir)
 	return room;
 }
 
+void Field::StoreyBuilder::placeSpecialTile(const Rect& rect)
+{
+	//5层向上出现trap
+	if (curLevel >= 5)
+	{
+		//trap数量(0-2之间)
+		int trapNumber = RandomNumber::getInstance()->randomInt(0, 2);
+		for (int i = 0; i < trapNumber; i++)
+		{
+			int x = RandomNumber::getInstance()->randomInt(rect.x, rect.x + rect.width - 1);
+			int y = RandomNumber::getInstance()->randomInt(rect.y, rect.y + rect.height - 1);
+
+			//		int x = rect.x;
+			//		int y = rect.y;
+			//		int x = rect.x+rect.width - 1;
+			//		int y = rect.y+rect.height - 1;
+			storey->setTile(x, y, Field::Trap);
+		}
+	}
+
+	//7层向上出现ice
+	if (curLevel >= 7)
+	{
+		//房间内ice数量(0-2之间)
+		int iceNumber = RandomNumber::getInstance()->randomInt(0, 2);
+
+		for (int i = 0; i < iceNumber; i++)
+		{
+			//这里的ice位置不贴墙，防止出现ai队友无法走出房间的bug
+			int x = RandomNumber::getInstance()->randomInt(rect.x + 1, rect.x + rect.width - 2);
+			int y = RandomNumber::getInstance()->randomInt(rect.y + 1, rect.y + rect.height - 2);
+
+			//		int x = rect.x;
+			//		int y = rect.y;
+			//		int x = rect.x+rect.width - 1;
+			//		int y = rect.y+rect.height - 1;
+			storey->setTile(x, y, Field::Ice);
+		}
+	}
+}
+
 void Field::StoreyBuilder::placeGameActor(int x, int y, Character* character)
 {
 	cocos2d::Point tempCoord;
@@ -635,7 +641,7 @@ void Field::StoreyBuilder::placeBuilding(int x, int y, Character* building)
 	storey->addCharacter(x, y, building);
 }
 
-void Field::StoreyBuilder::placeGameActorAllRoom()
+void Field::StoreyBuilder::placeFeatureForRoom()
 {
 	//设置起始点神像
 	Character* statue = GameActorFactory::getInstance()->getActor("statue");
@@ -660,6 +666,8 @@ void Field::StoreyBuilder::placeGameActorAllRoom()
 
 	for each (Rect room in rooms)
 	{
+		placeSpecialTile(room);
+
 		if (curLevel == 1)
 		{
 			placeGameActorLevel1(room);

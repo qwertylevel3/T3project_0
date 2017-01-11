@@ -154,12 +154,15 @@ void AIBase::seek(Character* target)
 
 	if (nextStep == startPoint)
 	{
-		//characterPtr->idle();
 		nextStep = ToolFunction::nextStep_v2(startPoint, endPoint);
 		if (nextStep == startPoint)
 		{
-			seek(endPoint);
-			return;
+			nextStep = ToolFunction::nextStep_v3(startPoint, endPoint);
+			if (nextStep == startPoint)
+			{
+				seek(endPoint);
+				return;
+			}
 		}
 	}
 

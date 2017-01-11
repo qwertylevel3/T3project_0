@@ -1714,6 +1714,21 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
+            <key>wall.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{32,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{32,32}</string>
+                <key>textureRect</key>
+                <string>{{0,1824},{32,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
         </dict>
         <key>metadata</key>
         <dict>
@@ -1726,9 +1741,9 @@
             <key>realTextureFileName</key>
             <string>allCharacter.png</string>
             <key>size</key>
-            <string>{64,1824}</string>
+            <string>{64,1856}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:10b4034aabb886d920eb96feaca1fd42:71884a01826c1f50cebb8208481a6ca7:30ea09d570a813938397c6246ca177a5$</string>
+            <string>$TexturePacker:SmartUpdate:7d269bc703104163a642dda411988108:d74961c18dea63ce2fb5d04a8add7dd6:30ea09d570a813938397c6246ca177a5$</string>
             <key>textureFileName</key>
             <string>allCharacter.png</string>
         </dict>

@@ -561,12 +561,28 @@ bool Field::Storey::isMoveAble(cocos2d::Point mapCoord)
 	return isMoveAble(getTile(mapCoord));
 }
 
-bool Field::Storey::isRouteAble(cocos2d::Point mapCoord)
+bool Field::Storey::isMoveAble_v2(cocos2d::Point mapCoord)
 {
-	//	if (getCharacter(mapCoord) && !getCharacter(mapCoord)->isDead())
+	if (getCharacter(mapCoord) && !getCharacter(mapCoord)->isDead()
+		&& (getCharacter(mapCoord)->getPlayType() == Character::Object
+			|| getCharacter(mapCoord)->getPlayType()==Character::Enemy))
+	{
+		return false;
+	}
+	//	if (getCharacter(mapCoord) && !getCharacter(mapCoord)->isDead()
+	//		&& getCharacter(mapCoord)->getPlayType() != Character::Hero)
 	//	{
 	//		return false;
 	//	}
+	//	if (isPartner(mapCoord))
+	//	{
+	//		return true;
+	//	}
+	return isMoveAble(getTile(mapCoord));
+}
+
+bool Field::Storey::isMoveAble_v3(cocos2d::Point mapCoord)
+{
 	if (getCharacter(mapCoord) && !getCharacter(mapCoord)->isDead()
 		&& getCharacter(mapCoord)->getPlayType()==Character::Object)
 	{
@@ -574,6 +590,7 @@ bool Field::Storey::isRouteAble(cocos2d::Point mapCoord)
 	}
 	return isMoveAble(getTile(mapCoord));
 }
+
 
 bool Field::Storey::isPartner(cocos2d::Point mapCoord)
 {

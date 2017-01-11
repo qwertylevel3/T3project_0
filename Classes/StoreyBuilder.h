@@ -27,6 +27,7 @@ namespace Field {
 		bool placeRect(const Rect& rect);
 		bool placeObject(int tile);
 
+		void placeSpecialTile(const Rect& rect);
 		void placeGameActor(int x, int y, Character* character);
 		void placeBuilding(int x, int y, Character* building);
 		void placeBuilding(const Rect& rect);
@@ -39,7 +40,7 @@ namespace Field {
 		void placeGameActorLevel7(const Rect& rect);
 		void placeGameActorLevel8(const Rect& rect);
 		void placeGameActorLevel9(const Rect& rect);
-		void placeGameActorAllRoom();
+		void placeFeatureForRoom();
 
 		std::vector<Rect> rooms;
 		std::vector<Rect> exits;

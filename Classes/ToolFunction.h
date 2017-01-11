@@ -47,8 +47,13 @@ public:
 		cocos2d::Point src,
 		cocos2d::Point dest
 	);
-	//A*寻路，返回下一步要走的位置，非严格可到达(中间忽略阻碍的Character)
+	//A*寻路，返回下一步要走的位置，非严格可到达(中间忽略阻碍的队友)
 	static cocos2d::Point nextStep_v2(
+		cocos2d::Point src,
+		cocos2d::Point dest
+	);
+	//A*寻路，返回下一步要走的位置，非严格可到达(中间忽略阻碍的character)
+	static cocos2d::Point nextStep_v3(
 		cocos2d::Point src,
 		cocos2d::Point dest
 	);
