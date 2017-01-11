@@ -83,6 +83,10 @@
 					<next>-6</next>
 				</option>
 				<option>
+					<label>看看现在的状态</label>
+					<next>-7</next>
+				</option>
+				<option>
 					<label>没啥</label>
 					<next>-1</next>
 				</option>

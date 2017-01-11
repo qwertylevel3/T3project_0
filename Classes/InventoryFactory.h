@@ -23,6 +23,7 @@ public:
 	std::string queryCname(const std::string& inventoryName);
 	Inventory::Type queryInventoryType(const std::string& inventoryName);
 	int queryInventoryWeight(const std::string& inventoryName);
+	int queryInventoryLevel(const std::string& inventoryName);
 protected:
 	void initModel(tinyxml2::XMLElement* inventoryElement,const std::string& type);
 	void initBaseData(tinyxml2::XMLElement* inventoryElement,Inventory* model);

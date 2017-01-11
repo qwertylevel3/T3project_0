@@ -78,6 +78,25 @@ void HudNoteSystem::openNote(std::string noteID)
 	KeyController::getInstance()->switchCtrlToNote();
 }
 
+void HudNoteSystem::openNote(NoteText note)
+{
+	curNote = note;
+	curPageIndex = 0;
+
+	setText(curNote.getPage(curPageIndex));
+
+	this->show();
+
+	if (curNote.getSize()>1)
+	{
+		showRightArrow();
+	}
+
+	hideLeftArrow();
+	updateFooter();
+	KeyController::getInstance()->switchCtrlToNote();
+}
+
 void HudNoteSystem::nextPage()
 {
 	curPageIndex++;

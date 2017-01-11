@@ -29,8 +29,9 @@ protected:
 
 	//比较两个character相对characterPtr的距离
 	bool cmpDistance(Character* a, Character* b);
-
-
 	//整理物品
 	void tidyInventory();
+
+	void chooseBetterLefthand();
+	void showCurState();
 };

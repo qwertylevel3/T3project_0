@@ -1053,7 +1053,8 @@ void Character::startRound()
 	Storey* storey = Dungeon::getInstance()->getStorey();
 
 	//如果站在Trap上，掉血
-	if (storey->isTrap(mapCoord))
+	if (storey->isTrap(mapCoord)
+		&& !this->isDead())
 	{
 		sufferHPEffect(-5);
 	}

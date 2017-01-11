@@ -64,6 +64,11 @@ int InventoryFactory::queryInventoryWeight(const std::string& inventoryName)
 	return inventoryMap[inventoryName]->getWeight();
 }
 
+int InventoryFactory::queryInventoryLevel(const std::string& inventoryName)
+{
+	return inventoryMap[inventoryName]->getLevel();
+}
+
 void InventoryFactory::initModel(tinyxml2::XMLElement* inventoryElement, const std::string& type)
 {
 	if (type == "oneHandWeapon")

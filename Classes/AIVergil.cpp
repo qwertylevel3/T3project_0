@@ -1,4 +1,11 @@
 #include "AIVergil.h"
+#include "Armor.h"
+#include "Accessory.h"
+#include "NoteTextFactory.h"
+#include "HudNoteSystem.h"
+#include "InventoryInHand.h"
+#include "InventoryFactory.h"
+#include "InventoryHandler.h"
 #include "HudNoteSystem.h"
 #include "HudExchangeInventorySystem.h"
 #include <algorithm>
@@ -86,6 +93,11 @@ void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 		//要东西
 		HudExchangeInventorySystem::getInstance()->exchangeInventory(characterPtr,
 			Player::getInstance()->getcharacterPtr());
+	}
+	else if (dialogueName == "vergilTalk"
+		&& resultNumber == -7)
+	{
+		showCurState();
 	}
 }
 
@@ -297,7 +309,56 @@ bool AIVergil::cmpDistance(Character* a, Character* b)
 
 void AIVergil::tidyInventory()
 {
-	//整理物品
-	//
-	//TODO
+}
+
+void AIVergil::chooseBetterLefthand()
+{
+	InventoryHandler* inventoryHandler = characterPtr->getInventoryHandler();
+	std::map<std::string, int> allInventory = inventoryHandler->getAllInventory();
+
+	std::map<std::string, int>::iterator iter = allInventory.begin();
+
+	while (iter != allInventory.end())
+	{
+		if (InventoryFactory::getInstance()->queryInventoryLevel(iter->first)
+		> characterPtr->getLeftHand()->getLevel())
+		{
+			characterPtr->removeInventory(iter->first);
+			Inventory* inventory = InventoryFactory::getInstance()->getInventory(iter->first);
+
+			characterPtr->equipLeftHand(inventory);
+		}
+
+		iter++;
+	}
+}
+
+void AIVergil::showCurState()
+{
+	NoteText note;
+
+	std::string  characterLevel = ToolFunction::int2string(characterPtr->getLevel());
+
+	std::string characterInt = ToolFunction::int2string(characterPtr->getIntellect());
+	std::string characterStr = ToolFunction::int2string(characterPtr->getStrength());
+	std::string characterAgi = ToolFunction::int2string(characterPtr->getAgility());
+
+	std::string leftHandName = characterPtr->getLeftHand() ? characterPtr->getLeftHand()->getCname() : "NULL";
+	std::string rightHandName = characterPtr->getRightHand() ? characterPtr->getRightHand()->getCname() : "NULL";;
+	std::string armorName = characterPtr->getArmor() ? characterPtr->getArmor()->getCname() : "NULL";;
+	std::string accessoryName = characterPtr->getAccessory() ? characterPtr->getAccessory()->getCname() : "NULL";
+
+	note.addPage(
+		"Vergil\n"+
+		ToolFunction::WStr2UTF8(L"当前等级:") + characterLevel + "\n" +
+		ToolFunction::WStr2UTF8(L"力量:") + characterStr + "\n" +
+		ToolFunction::WStr2UTF8(L"敏捷:") + characterAgi + "\n" +
+		ToolFunction::WStr2UTF8(L"智力:") + characterInt + "\n" +
+		ToolFunction::WStr2UTF8(L"左手:") + leftHandName + "\n" +
+		ToolFunction::WStr2UTF8(L"右手:") + rightHandName + "\n" +
+		ToolFunction::WStr2UTF8(L"护甲:") + armorName + "\n" +
+		ToolFunction::WStr2UTF8(L"附件:") + accessoryName + "\n"
+	);
+
+	HudNoteSystem::getInstance()->openNote(note);
 }

@@ -14,6 +14,7 @@ public:
 	~HudNoteSystem();
 	void init();
 	void openNote(std::string noteID);
+	void openNote(NoteText note);
 
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 protected:
