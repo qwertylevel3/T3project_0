@@ -1,4 +1,5 @@
 #include "AIVergil.h"
+#include "Supply.h"
 #include "Armor.h"
 #include "Accessory.h"
 #include "NoteTextFactory.h"
@@ -32,6 +33,13 @@ AIVergil::~AIVergil()
 void AIVergil::update()
 {
 	tidyInventory();
+	if (characterPtr->getHP()!=characterPtr->getMaxHP())
+	{
+		if (tryUseHPSupply())
+		{
+			return;
+		}
+	}
 	switch (curState)
 	{
 	case 0:
@@ -314,6 +322,31 @@ void AIVergil::tidyInventory()
 	//	chooseBetterRighthand();
 	chooseBetterArmor();
 	chooseBetterAccessory();
+}
+
+bool AIVergil::tryUseHPSupply()
+{
+	InventoryHandler* inventoryHandler = characterPtr->getInventoryHandler();
+	std::map<std::string, int> allInventory = inventoryHandler->getAllInventory();
+	std::map<std::string, int>::iterator iter = allInventory.begin();
+
+	while (iter != allInventory.end())
+	{
+		if (InventoryFactory::getInstance()->queryInventoryType(iter->first) == Inventory::Supply)
+		{
+			Supply* supply = static_cast<Supply*>(InventoryFactory::getInstance()->getInventory(iter->first));
+			if (supply->getSupplyType() == Supply::HPSupply)
+			{
+				characterPtr->removeInventory(iter->first);
+				supply->use(characterPtr);
+				HudMessageBox::getInstance()->addMessage(L"Vergil尝试着回复了自己的HP");
+			}
+			delete supply;
+			return true;
+		}
+		iter++;
+	}
+	return false;
 }
 
 void AIVergil::chooseBetterLefthand()

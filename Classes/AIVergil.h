@@ -32,6 +32,9 @@ protected:
 	//整理物品
 	void tidyInventory();
 
+	//如果成功回复HP，返回true
+	bool tryUseHPSupply();
+
 	void chooseBetterLefthand();
 	void chooseBetterRighthand();
 	void chooseBetterArmor();

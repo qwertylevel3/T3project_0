@@ -302,6 +302,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>HPRecoverySelf_生命恢复_0_0_20</skillName>
+		<supplyType>0</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -317,6 +318,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>MPRecoverySelf_魔法恢复_0_0_20</skillName>
+		<supplyType>1</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -332,6 +334,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>HPRecoverySelf_生命恢复_0_0_50</skillName>
+		<supplyType>0</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -347,6 +350,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>MPRecoverySelf_魔法恢复_0_0_50</skillName>
+		<supplyType>1</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -362,6 +366,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>HPRecoverySelf_生命恢复_0_0_100</skillName>
+		<supplyType>0</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -377,6 +382,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>MPRecoverySelf_魔法恢复_0_0_100</skillName>
+		<supplyType>1</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -392,6 +398,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>HPRecoverySelf_生命恢复_0_0_200</skillName>
+		<supplyType>0</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -407,6 +414,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>MPRecoverySelf_魔法恢复_0_0_200</skillName>
+		<supplyType>1</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -422,6 +430,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>HPRecoverySelf_生命恢复_0_0_10</skillName>
+		<supplyType>0</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -437,6 +446,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>10</intRequire>
 		<skillName>LearnSkill_学习火球术_0_0_FireBall_火球术_5_5_20_5</skillName>
+		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -452,6 +462,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>10</intRequire>
 		<skillName>FireBall_火球术_0_0_20_5</skillName>
+		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -467,6 +478,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>10</intRequire>
 		<skillName>Summon_魅魔的召唤_0_0_succubus</skillName>
+		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
 		<type>note</type>

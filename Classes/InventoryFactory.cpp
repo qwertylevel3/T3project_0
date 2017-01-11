@@ -217,6 +217,8 @@ void InventoryFactory::initSupplyData(tinyxml2::XMLElement* inventoryElement, Su
 	supplyModel->setAgiRequire(getChildElementIntAttr(inventoryElement, "agiRequire"));
 	supplyModel->setIntRequire(getChildElementIntAttr(inventoryElement, "intRequire"));
 	supplyModel->setSkillName(getChildElementStrAttr(inventoryElement, "skillName"));
+	supplyModel->setSupplyType(getChildElementIntAttr(inventoryElement, "supplyType"));
+
 }
 
 void InventoryFactory::initNoteData(tinyxml2::XMLElement* inventoryElement, Note* noteModel)
