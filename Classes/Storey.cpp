@@ -568,16 +568,10 @@ bool Field::Storey::isRouteAble(cocos2d::Point mapCoord)
 	//		return false;
 	//	}
 	if (getCharacter(mapCoord) && !getCharacter(mapCoord)->isDead()
-		&& (getCharacter(mapCoord)->getPlayType() == Character::Hero
-			|| getCharacter(mapCoord)->getPlayType() == Character::Friend))
-	{
-		return true;
-	}
-	if (getCharacter(mapCoord) && !getCharacter(mapCoord)->isDead())
+		&& getCharacter(mapCoord)->getPlayType()==Character::Object)
 	{
 		return false;
 	}
-
 	return isMoveAble(getTile(mapCoord));
 }
 

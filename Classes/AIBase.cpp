@@ -50,7 +50,7 @@ Character* AIBase::searchTargetBFS(Character::Type type, int distance)
 {
 	Storey* storey = Dungeon::getInstance()->getStorey();
 	cocos2d::Point startPoint = characterPtr->getMapCoord();
-//	int searchDeep = characterPtr->getViewSize();
+	//	int searchDeep = characterPtr->getViewSize();
 
 	std::queue<cocos2d::Point> pointQueue;
 	std::set<cocos2d::Point> discardPoint;
@@ -85,7 +85,7 @@ Character* AIBase::searchTargetBFS(Character::Type type, int distance)
 					{
 						return storey->getCharacter(coord);
 					}
-					else if (ToolFunction::getManhattanDistance(coord,startPoint)<distance
+					else if (ToolFunction::getManhattanDistance(coord, startPoint) < distance
 						&& storey->isValid(coord))
 					{
 						pointQueue.push(coord);
@@ -134,7 +134,6 @@ void AIBase::levelUp()
 
 void AIBase::lastWords()
 {
-	
 }
 
 int AIBase::getManhattanDistance(Character* target)
@@ -155,9 +154,13 @@ void AIBase::seek(Character* target)
 
 	if (nextStep == startPoint)
 	{
-//		characterPtr->idle();
-		seek(endPoint);
-		return;
+		//characterPtr->idle();
+		nextStep = ToolFunction::nextStep_v2(startPoint, endPoint);
+		if (nextStep == startPoint)
+		{
+			seek(endPoint);
+			return;
+		}
 	}
 
 	if (nextStep == endPoint)
@@ -297,7 +300,7 @@ void AIBase::wander()
 		break;
 	case 4:///right
 		coord.x++;
-		if( storey->isMoveAble(coord))
+		if (storey->isMoveAble(coord))
 		{
 			characterPtr->moveRight();
 		}
@@ -310,7 +313,6 @@ void AIBase::wander()
 		characterPtr->idle();
 		break;
 	}
-
 }
 
 bool AIBase::isPlayerNear()
@@ -318,12 +320,11 @@ bool AIBase::isPlayerNear()
 	cocos2d::Point oriCoord = characterPtr->getMapCoord();
 	cocos2d::Point playerCoord = Player::getInstance()->getcharacterPtr()->getMapCoord();
 
-	if (ToolFunction::isNear8(oriCoord,playerCoord))
+	if (ToolFunction::isNear8(oriCoord, playerCoord))
 	{
 		return true;
 	}
 	return false;
-
 }
 
 void AIBase::changeOrientationTo(Character* target)

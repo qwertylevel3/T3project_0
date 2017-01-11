@@ -57,6 +57,7 @@ public:
 	std::vector<cocos2d::Point> findPath();
 	std::vector<cocos2d::Point> findPath_v2();
 	cocos2d::Point nextStep();
+	cocos2d::Point nextStep_v2();
 private:
 	list<AStarPoint> opened_list;//开启列表
 	list<AStarPoint> closed_list;//关闭列表

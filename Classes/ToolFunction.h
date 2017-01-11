@@ -42,11 +42,19 @@ public:
 		cocos2d::Point ori
 	);
 
-	//A*寻路，返回下一步要走的位置
+	//A*寻路，返回下一步要走的位置，严格可到达
 	static cocos2d::Point nextStep(
 		cocos2d::Point src,
 		cocos2d::Point dest
 	);
+	//A*寻路，返回下一步要走的位置，非严格可到达(中间忽略阻碍的Character)
+	static cocos2d::Point nextStep_v2(
+		cocos2d::Point src,
+		cocos2d::Point dest
+	);
+
+
+
 	static std::vector<cocos2d::Point> findPath(
 		cocos2d::Point src,
 		cocos2d::Point dest

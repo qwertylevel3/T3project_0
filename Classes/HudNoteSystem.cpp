@@ -36,6 +36,17 @@ void HudNoteSystem::init()
 	//	description->setTextAreaSize(cocos2d::Size(150, 400));
 	layout->addChild(text);
 
+
+	footer = cocos2d::ui::Text::create("", "fonts/arialuni.ttf", 20);
+	footer->setAnchorPoint(cocos2d::Vec2::ANCHOR_BOTTOM_LEFT);
+	footer->setPosition(cocos2d::Vec2(200, -65));
+	footer->setOpacity(255);
+	footer->ignoreContentAdaptWithSize(false);
+	footer->setContentSize(cocos2d::Size(100, 100));
+	//	description->ignoreContentAdaptWithSize(false);
+	//	description->setTextAreaSize(cocos2d::Size(150, 400));
+	layout->addChild(footer);
+
 	leftArrow = cocos2d::Sprite::create("sys/noteArrowLeft.png");
 	rightArrow = cocos2d::Sprite::create("sys/noteArrowRight.png");
 
@@ -56,8 +67,14 @@ void HudNoteSystem::openNote(std::string noteID)
 	setText(curNote.getPage(curPageIndex));
 
 	this->show();
-	showRightArrow();
+
+	if (curNote.getSize()>1)
+	{
+		showRightArrow();
+	}
+
 	hideLeftArrow();
+	updateFooter();
 	KeyController::getInstance()->switchCtrlToNote();
 }
 
@@ -78,6 +95,7 @@ void HudNoteSystem::nextPage()
 	}
 
 	setText(curNote.getPage(curPageIndex));
+	updateFooter();
 }
 
 void HudNoteSystem::previousPage()
@@ -96,7 +114,7 @@ void HudNoteSystem::previousPage()
 		showRightArrow();
 	}
 	setText(curNote.getPage(curPageIndex));
-
+	updateFooter();
 }
 
 void HudNoteSystem::hide()
@@ -114,6 +132,14 @@ void HudNoteSystem::show()
 void HudNoteSystem::setText(std::string str)
 {
 	text->setText(str);
+}
+
+void HudNoteSystem::updateFooter()
+{
+	footer->setText("page : "+
+		ToolFunction::int2string(curPageIndex+1)+
+		"/"+
+		ToolFunction::int2string(curNote.getSize()));
 }
 
 void HudNoteSystem::showLeftArrow()

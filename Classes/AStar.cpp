@@ -318,6 +318,17 @@ cocos2d::Point AStar::nextStep()
 //	}
 }
 
+cocos2d::Point AStar::nextStep_v2()
+{
+	std::vector<cocos2d::Point> path = findPath_v2();
+
+	if (path[path.size() - 1] != endPoint)
+	{
+		return startPoint;
+	}
+	return path[0];
+}
+
 /*
 * 计算两个点之前的距离，采用的是曼哈顿距离
 * distance = |start.x-end.x| + |start.y-end.y|

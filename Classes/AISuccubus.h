@@ -13,6 +13,8 @@ public:
 protected:
 	bool isFirst;
 
+	//获得周围的enemy
+	std::vector<Character* > getEnemyAround();
 	//获得player周围的enemy
 	std::vector<Character* > getEnemyAroundPlayer();
 

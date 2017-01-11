@@ -22,11 +22,13 @@ protected:
 	void hide();
 	void show();
 	void setText(std::string str);
+	void updateFooter();
 	void showLeftArrow();
 	void showRightArrow();
 	void hideLeftArrow();
 	void hideRightArrow();
 	cocos2d::ui::Text* text;
+	cocos2d::ui::Text* footer;
 	cocos2d::ui::Layout* layout;
 	cocos2d::Sprite* leftArrow;
 	cocos2d::Sprite* rightArrow;

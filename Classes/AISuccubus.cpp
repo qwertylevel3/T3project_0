@@ -45,6 +45,8 @@ void AISuccubus::update()
 		stateFlag = 1;
 	}
 
+	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
+
 	if (stateFlag == 0)
 	{
 		cocos2d::Point playerCoord = Player::getInstance()->getcharacterPtr()->getMapCoord();
@@ -83,7 +85,23 @@ void AISuccubus::update()
 		}
 		else
 		{
-			seek(enemy);
+			if (isAccessAble(enemy->getMapCoord()))
+			{
+				seek(enemy);
+			}
+			else
+			{
+				std::vector<Character*> enemyAround = getEnemyAround();
+				if (!enemyAround.empty())
+				{
+					changeOrientationTo(enemyAround[0]);
+					characterPtr->attack();
+				}
+				else
+				{
+					seek(playerCharacter);
+				}
+			}
 			return;
 		}
 	}
@@ -143,6 +161,38 @@ void AISuccubus::handleDialogueResult(std::string dialogueName, int resultNumber
 
 	HudMessageBox::getInstance()->addMessage(L"你感觉身体被掏空");
 
+}
+
+std::vector<Character* > AISuccubus::getEnemyAround()
+{
+	std::vector<Character*> allEnemy;
+
+	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+	cocos2d::Point oriCoord = characterPtr->getMapCoord();
+
+	for (int i = -1; i <= 1; i++)
+	{
+		for (int j = -1; j <= 1; j++)
+		{
+			if (i != 0 && j != 0)
+			{
+				continue;
+			}
+
+			cocos2d::Point tempCoord = oriCoord;
+			tempCoord.x += i;
+			tempCoord.y += j;
+
+			Character* target = storey->getCharacter(tempCoord);
+
+			if (target
+				&& target->getCharacterType() == Character::Bad)
+			{
+				allEnemy.push_back(target);
+			}
+		}
+	}
+	return allEnemy;
 }
 
 std::vector<Character* > AISuccubus::getEnemyAroundPlayer()
