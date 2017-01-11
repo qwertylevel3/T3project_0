@@ -45,6 +45,16 @@ bool CharacterAttrHandler::isActionAble()
 	return attr.actionAble;
 }
 
+int CharacterAttrHandler::getOriMaxHP()
+{
+	return oriAttr.maxHP;
+}
+
+int CharacterAttrHandler::getOriMaxMP()
+{
+	return oriAttr.maxMP;
+}
+
 int CharacterAttrHandler::getMaxHP()
 {
 	return attr.maxHP;

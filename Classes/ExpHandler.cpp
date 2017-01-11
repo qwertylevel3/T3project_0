@@ -1,4 +1,5 @@
 #include "ExpHandler.h"
+#include "CharacterAttrHandler.h"
 #include "Character.h"
 
 const int ExpHandler::expRequire[27] =
@@ -57,9 +58,10 @@ void ExpHandler::levelUp()
 	level++;
 	attrPoint++;
 
+	CharacterAttrHandler* attrHandler = characterPtr->getAttrHandler();
 
-	characterPtr->setMaxHP(characterPtr->getMaxHP() + 10);
-	characterPtr->setMaxMP(characterPtr->getMaxMP() + 10);
+	characterPtr->setMaxHP(attrHandler->getOriMaxHP() + 10);
+	characterPtr->setMaxMP(attrHandler->getOriMaxMP() + 10);
 
 	//TODO:
 	//玩家的levelUp另外处理

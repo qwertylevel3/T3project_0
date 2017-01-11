@@ -19,6 +19,10 @@ public:
 	bool isChantAble();
 	bool isActionAble();
 	
+	
+
+	int getOriMaxHP();
+	int getOriMaxMP();
 	int getMaxHP();
 	int getMaxMP();
 	int getViewSize();
