@@ -33,5 +33,8 @@ protected:
 	void tidyInventory();
 
 	void chooseBetterLefthand();
+	void chooseBetterRighthand();
+	void chooseBetterArmor();
+	void chooseBetterAccessory();
 	void showCurState();
 };

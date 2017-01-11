@@ -98,7 +98,6 @@ void HeroManager::initHero(const std::string& fileName)
 	characterPtr->setPlayType(Character::Hero);
 
 	characterPtr->setAI(getChildElementStrAttr(heroElement, "AI"));
-	characterPtr->setLevel(getChildElementIntAttr(heroElement, "level"));
 	characterPtr->setHP(getChildElementIntAttr(heroElement, "HP"));
 	characterPtr->setMaxHP(getChildElementIntAttr(heroElement, "HP"));
 	characterPtr->setMP(getChildElementIntAttr(heroElement, "MP"));

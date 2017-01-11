@@ -214,6 +214,7 @@ public:
 
 	int getArmorPoint();
 
+	int getLevel();
 protected:
 	//每回合开始调用，防止position与坐标发生偏移
 	void fixPosition();
@@ -271,7 +272,7 @@ protected:
 	CC_SYNTHESIZE(int, chantCount, ChantCount);
 	CC_SYNTHESIZE(int, gold, Gold);
 	CC_SYNTHESIZE(CharacterAttrHandler*, attrHandler, AttrHandler);
-	CC_SYNTHESIZE(int, level, Level);
+//	CC_SYNTHESIZE(int, level, Level);
 
 
 

@@ -31,6 +31,7 @@ AIVergil::~AIVergil()
 
 void AIVergil::update()
 {
+	tidyInventory();
 	switch (curState)
 	{
 	case 0:
@@ -309,6 +310,10 @@ bool AIVergil::cmpDistance(Character* a, Character* b)
 
 void AIVergil::tidyInventory()
 {
+	chooseBetterLefthand();
+	//	chooseBetterRighthand();
+	chooseBetterArmor();
+	chooseBetterAccessory();
 }
 
 void AIVergil::chooseBetterLefthand()
@@ -318,10 +323,13 @@ void AIVergil::chooseBetterLefthand()
 
 	std::map<std::string, int>::iterator iter = allInventory.begin();
 
+	int curLeftHandLevel = characterPtr->getLeftHand() ? characterPtr->getLeftHand()->getLevel() : 0;
+
 	while (iter != allInventory.end())
 	{
-		if (InventoryFactory::getInstance()->queryInventoryLevel(iter->first)
-		> characterPtr->getLeftHand()->getLevel())
+		if ((InventoryFactory::getInstance()->queryInventoryLevel(iter->first)
+		> curLeftHandLevel)
+			&& InventoryFactory::getInstance()->queryInventoryType(iter->first) == Inventory::OneHandWeapon)
 		{
 			characterPtr->removeInventory(iter->first);
 			Inventory* inventory = InventoryFactory::getInstance()->getInventory(iter->first);
@@ -329,6 +337,80 @@ void AIVergil::chooseBetterLefthand()
 			characterPtr->equipLeftHand(inventory);
 		}
 
+		iter++;
+	}
+}
+
+void AIVergil::chooseBetterRighthand()
+{
+	InventoryHandler* inventoryHandler = characterPtr->getInventoryHandler();
+	std::map<std::string, int> allInventory = inventoryHandler->getAllInventory();
+
+	std::map<std::string, int>::iterator iter = allInventory.begin();
+
+	int curRighthandLevel = characterPtr->getRightHand() ? characterPtr->getRightHand()->getLevel() : 0;
+
+	while (iter != allInventory.end())
+	{
+		if ((InventoryFactory::getInstance()->queryInventoryLevel(iter->first)
+			> curRighthandLevel)
+			&& InventoryFactory::getInstance()->queryInventoryType(iter->first) == Inventory::OneHandWeapon)
+		{
+			characterPtr->removeInventory(iter->first);
+			Inventory* inventory = InventoryFactory::getInstance()->getInventory(iter->first);
+
+			characterPtr->equipRightHand(inventory);
+		}
+
+		iter++;
+	}
+}
+
+void AIVergil::chooseBetterArmor()
+{
+	InventoryHandler* inventoryHandler = characterPtr->getInventoryHandler();
+	std::map<std::string, int> allInventory = inventoryHandler->getAllInventory();
+
+	std::map<std::string, int>::iterator iter = allInventory.begin();
+
+	int curArmorLevel = characterPtr->getArmor() ? characterPtr->getArmor()->getLevel() : 0;
+
+	while (iter != allInventory.end())
+	{
+		if ((InventoryFactory::getInstance()->queryInventoryLevel(iter->first)
+			> curArmorLevel)
+			&& InventoryFactory::getInstance()->queryInventoryType(iter->first) == Inventory::Armor)
+		{
+			characterPtr->removeInventory(iter->first);
+			Inventory* inventory = InventoryFactory::getInstance()->getInventory(iter->first);
+
+			characterPtr->equipArmor(inventory);
+		}
+
+		iter++;
+	}
+}
+
+void AIVergil::chooseBetterAccessory()
+{
+	InventoryHandler* inventoryHandler = characterPtr->getInventoryHandler();
+	std::map<std::string, int> allInventory = inventoryHandler->getAllInventory();
+
+	std::map<std::string, int>::iterator iter = allInventory.begin();
+
+	int curAccessoryLevel = characterPtr->getAccessory() ? characterPtr->getAccessory()->getLevel() : 0;
+
+	while (iter != allInventory.end())
+	{
+		if ((InventoryFactory::getInstance()->queryInventoryLevel(iter->first)
+			> curAccessoryLevel)
+			&& InventoryFactory::getInstance()->queryInventoryType(iter->first) == Inventory::Accessory)
+		{
+			characterPtr->removeInventory(iter->first);
+			Inventory* inventory = InventoryFactory::getInstance()->getInventory(iter->first);
+
+			characterPtr->equipAccessory(inventory);
+		}
 		iter++;
 	}
 }
@@ -349,7 +431,7 @@ void AIVergil::showCurState()
 	std::string accessoryName = characterPtr->getAccessory() ? characterPtr->getAccessory()->getCname() : "NULL";
 
 	note.addPage(
-		"Vergil\n"+
+		"Vergil\n" +
 		ToolFunction::WStr2UTF8(L"当前等级:") + characterLevel + "\n" +
 		ToolFunction::WStr2UTF8(L"力量:") + characterStr + "\n" +
 		ToolFunction::WStr2UTF8(L"敏捷:") + characterAgi + "\n" +

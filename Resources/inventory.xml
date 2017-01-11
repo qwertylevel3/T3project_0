@@ -23,7 +23,7 @@
 		<name>sword001</name>
 		<cname>吸血铁剑</cname>
 		<tips>吸血铁剑</tips>
-		<level>1</level>
+		<level>5</level>
 		<price>10</price>
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -42,7 +42,7 @@
 		<name>sword002</name>
 		<cname>钢剑</cname>
 		<tips>普通的钢剑</tips>
-		<level>1</level>
+		<level>4</level>
 		<price>14</price>
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>

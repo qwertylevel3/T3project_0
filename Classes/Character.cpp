@@ -1007,6 +1007,11 @@ int Character::getArmorPoint()
 	return 0;
 }
 
+int Character::getLevel()
+{
+	return expHandler->getCurLevel();
+}
+
 void Character::update()
 {
 	buffHandler->update();
