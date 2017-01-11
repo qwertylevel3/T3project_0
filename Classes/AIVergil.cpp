@@ -33,9 +33,16 @@ AIVergil::~AIVergil()
 void AIVergil::update()
 {
 	tidyInventory();
-	if (characterPtr->getHP()!=characterPtr->getMaxHP())
+	if (characterPtr->getHP() != characterPtr->getMaxHP())
 	{
 		if (tryUseHPSupply())
+		{
+			return;
+		}
+	}
+	if (characterPtr->getMP() != characterPtr->getMaxMP())
+	{
+		if (tryUseMPSupply())
 		{
 			return;
 		}
@@ -326,6 +333,7 @@ void AIVergil::tidyInventory()
 
 bool AIVergil::tryUseHPSupply()
 {
+	bool flag = false;
 	InventoryHandler* inventoryHandler = characterPtr->getInventoryHandler();
 	std::map<std::string, int> allInventory = inventoryHandler->getAllInventory();
 	std::map<std::string, int>::iterator iter = allInventory.begin();
@@ -340,13 +348,48 @@ bool AIVergil::tryUseHPSupply()
 				characterPtr->removeInventory(iter->first);
 				supply->use(characterPtr);
 				HudMessageBox::getInstance()->addMessage(L"Vergil尝试着回复了自己的HP");
+				flag = true;
 			}
 			delete supply;
-			return true;
+
+			if (flag)
+			{
+				break;
+			}
 		}
 		iter++;
 	}
-	return false;
+	return flag;
+}
+
+bool AIVergil::tryUseMPSupply()
+{
+	bool flag = false;
+	InventoryHandler* inventoryHandler = characterPtr->getInventoryHandler();
+	std::map<std::string, int> allInventory = inventoryHandler->getAllInventory();
+	std::map<std::string, int>::iterator iter = allInventory.begin();
+
+	while (iter != allInventory.end())
+	{
+		if (InventoryFactory::getInstance()->queryInventoryType(iter->first) == Inventory::Supply)
+		{
+			Supply* supply = static_cast<Supply*>(InventoryFactory::getInstance()->getInventory(iter->first));
+			if (supply->getSupplyType() == Supply::MPSupply)
+			{
+				characterPtr->removeInventory(iter->first);
+				supply->use(characterPtr);
+				HudMessageBox::getInstance()->addMessage(L"Vergil尝试着回复了自己的MP");
+				flag = true;
+			}
+			delete supply;
+			if (flag)
+			{
+				break;
+			}
+		}
+		iter++;
+	}
+	return flag;
 }
 
 void AIVergil::chooseBetterLefthand()
@@ -453,6 +496,10 @@ void AIVergil::showCurState()
 	NoteText note;
 
 	std::string  characterLevel = ToolFunction::int2string(characterPtr->getLevel());
+	std::string characterHP = ToolFunction::int2string(characterPtr->getHP()) + "/"+
+		ToolFunction::int2string(characterPtr->getMaxHP());
+	std::string characterMP = ToolFunction::int2string(characterPtr->getMP()) + "/"+
+		ToolFunction::int2string(characterPtr->getMaxMP());
 
 	std::string characterInt = ToolFunction::int2string(characterPtr->getIntellect());
 	std::string characterStr = ToolFunction::int2string(characterPtr->getStrength());
@@ -466,6 +513,8 @@ void AIVergil::showCurState()
 	note.addPage(
 		"Vergil\n" +
 		ToolFunction::WStr2UTF8(L"当前等级:") + characterLevel + "\n" +
+		ToolFunction::WStr2UTF8(L"HP:") + characterHP + "\n" +
+		ToolFunction::WStr2UTF8(L"MP:") + characterMP + "\n" +
 		ToolFunction::WStr2UTF8(L"力量:") + characterStr + "\n" +
 		ToolFunction::WStr2UTF8(L"敏捷:") + characterAgi + "\n" +
 		ToolFunction::WStr2UTF8(L"智力:") + characterInt + "\n" +

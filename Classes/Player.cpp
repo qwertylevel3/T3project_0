@@ -128,6 +128,11 @@ void Player::configPlayer()
 //	characterPtr->addInventory("torch000");
 	characterPtr->addInventory("sword006");
 	characterPtr->addInventory("supply000");
+	characterPtr->addInventory("supply001");
+	characterPtr->addInventory("supply002");
+	characterPtr->addInventory("supply003");
+	characterPtr->addInventory("supply004");
+	characterPtr->addInventory("supply005");
 	characterPtr->addInventory("skillBook000");
 	characterPtr->addInventory("scroll000");
 	characterPtr->addInventory("scroll001");
