@@ -3,7 +3,7 @@
 #include "InventoryListGenerator.h"
 #include "GameSaveManager.h"
 #include "HudMessageBox.h"
-#include "SummonCreatureManager.h"
+#include "FriendCreatureManager.h"
 #include "RandomNumber.h"
 #include "2d/CCAnimation.h"
 #include "BuffFactory.h"
@@ -50,7 +50,7 @@ void GameController::init()
 	RoundSystem::getInstance()->init();
 	HeroManager::getInstance()->init();
 	EffectManager::getInstance()->init();
-	SummonCreatureManager::getInstance()->init();
+	FriendCreatureManager::getInstance()->init();
 
 	curLevel = 1;
 }
@@ -67,7 +67,7 @@ void GameController::startMission()
 
 	Player::getInstance()->initMission();
 	HeroManager::getInstance()->initMission();
-	SummonCreatureManager::getInstance()->initMission();
+	FriendCreatureManager::getInstance()->initMission();
 
 	MainLayer::getInstance()->initMission();
 	MaskLayer::getInstance()->initMission();
@@ -109,7 +109,7 @@ void GameController::reStartGame()
 
 	Player::getInstance()->restart();
 	HeroManager::getInstance()->restart();
-	SummonCreatureManager::getInstance()->restart();
+	FriendCreatureManager::getInstance()->restart();
 
 
 	curLevel = 1;

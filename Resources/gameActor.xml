@@ -21,7 +21,7 @@
 		<viewSize>3</viewSize>
 		<maxHP>100</maxHP>
 		<maxMP>20</maxMP>
-		<leftHand>sword000</leftHand>
+		<leftHand>sword005</leftHand>
 		<rightHand>NULL</rightHand>
 		<armor>NULL</armor>
 		<accessory>NULL</accessory>
@@ -46,7 +46,7 @@
 		<viewSize>3</viewSize>
 		<maxHP>100</maxHP>
 		<maxMP>20</maxMP>
-		<leftHand>sword000</leftHand>
+		<leftHand>sword002</leftHand>
 		<rightHand>NULL</rightHand>
 		<armor>NULL</armor>
 		<accessory>NULL</accessory>
@@ -71,7 +71,7 @@
 		<viewSize>3</viewSize>
 		<maxHP>200</maxHP>
 		<maxMP>10</maxMP>
-		<leftHand>sword000</leftHand>
+		<leftHand>sword010</leftHand>
 		<rightHand>NULL</rightHand>
 		<armor>NULL</armor>
 		<accessory>NULL</accessory>
@@ -98,8 +98,8 @@
 		<maxMP>200</maxMP>
 		<leftHand>sword000</leftHand>
 		<rightHand>NULL</rightHand>
-		<armor>NULL</armor>
-		<accessory>NULL</accessory>
+		<armor>armor006</armor>
+		<accessory>accessory003</accessory>
 	</actor>
 	<actor>
 		<name>destroyWizard</name>
@@ -121,10 +121,10 @@
 		<viewSize>3</viewSize>
 		<maxHP>100</maxHP>
 		<maxMP>200</maxMP>
-		<leftHand>sword000</leftHand>
+		<leftHand>sword011</leftHand>
 		<rightHand>NULL</rightHand>
-		<armor>NULL</armor>
-		<accessory>NULL</accessory>
+		<armor>armor006</armor>
+		<accessory>accessory003</accessory>
 	</actor>
 	<actor>
 		<name>snack</name>
@@ -146,9 +146,9 @@
 		<viewSize>3</viewSize>
 		<maxHP>100</maxHP>
 		<maxMP>20</maxMP>
-		<leftHand>sword000</leftHand>
+		<leftHand>sword006</leftHand>
 		<rightHand>NULL</rightHand>
-		<armor>NULL</armor>
+		<armor>armor002</armor>
 		<accessory>NULL</accessory>
 	</actor>
 	<actor>
@@ -171,9 +171,9 @@
 		<viewSize>3</viewSize>
 		<maxHP>100</maxHP>
 		<maxMP>20</maxMP>
-		<leftHand>sword000</leftHand>
+		<leftHand>sword006</leftHand>
 		<rightHand>NULL</rightHand>
-		<armor>NULL</armor>
+		<armor>armor002</armor>
 		<accessory>NULL</accessory>
 	</actor>
 	<actor>
@@ -196,10 +196,10 @@
 		<viewSize>3</viewSize>
 		<maxHP>200</maxHP>
 		<maxMP>200</maxMP>
-		<leftHand>sword000</leftHand>
+		<leftHand>sword008</leftHand>
 		<rightHand>NULL</rightHand>
-		<armor>NULL</armor>
-		<accessory>NULL</accessory>
+		<armor>armor007</armor>
+		<accessory>accessory005</accessory>
 	</actor>
 	<actor>
 		<name>persephone</name>
@@ -221,33 +221,8 @@
 		<viewSize>3</viewSize>
 		<maxHP>1000</maxHP>
 		<maxMP>1000</maxMP>
-		<leftHand>sword000</leftHand>
-		<rightHand>NULL</rightHand>
-		<armor>NULL</armor>
-		<accessory>NULL</accessory>
-	</actor>
-	<actor>
-		<name>testMonster</name>
-		<characterName>Actor0</characterName>
-		<ai>AICommonEnemy</ai>
-		<playType>enemy</playType>
-		<characterType>bad</characterType>
-		<physicalImmune>0</physicalImmune>
-		<magicImmune>0</magicImmune>
-		<moveAble>1</moveAble>
-		<attackAble>1</attackAble>
-		<chantAble>1</chantAble>
-		<skillAble>1</skillAble>
-		<actionAble>1</actionAble>
-		<strength>10</strength>
-		<intellect>10</intellect>
-		<agility>10</agility>
-		<luck>0</luck>
-		<viewSize>3</viewSize>
-		<maxHP>100</maxHP>
-		<maxMP>100</maxMP>
-		<leftHand>sword000</leftHand>
-		<rightHand>NULL</rightHand>
+		<leftHand>sword008</leftHand>
+		<rightHand>sword008</rightHand>
 		<armor>NULL</armor>
 		<accessory>NULL</accessory>
 	</actor>
@@ -271,10 +246,10 @@
 		<viewSize>5</viewSize>
 		<maxHP>200</maxHP>
 		<maxMP>200</maxMP>
-		<leftHand>sword000</leftHand>
+		<leftHand>sword009</leftHand>
 		<rightHand>NULL</rightHand>
 		<armor>NULL</armor>
-		<accessory>NULL</accessory>
+		<accessory>accessory005</accessory>
 	</actor>
 	<actor>
 		<name>shrine</name>

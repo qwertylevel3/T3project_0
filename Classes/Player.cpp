@@ -79,9 +79,9 @@ void Player::configPlayer()
 	characterPtr->addSkill(L"Summon_召唤slime_20_20_slime");
 	characterPtr->addSkill(L"BlinkSelf_闪烁_20_10_3");
 	characterPtr->addSkill(L"Repel_击退_20_10_3_10");
-	characterPtr->addSkill(L"Thunder_闪电_20_10_30");
+	characterPtr->addSkill(L"Thunder_闪电_20_10_-30");
 	characterPtr->addSkill(L"ExpAdd_经验增加_0_0_10_10_100");
-	characterPtr->addSkill(L"LearnSkill_学习火球术_0_0_FireBall_火球术_5_5_20_5");
+	characterPtr->addSkill(L"LearnSkill_学习火球术_0_0_FireBall_火球术_5_5_-20_5");
 
 //	characterPtr->addSkill(L"RandomDirectDamage_死亡一指_10_10_-30_5_2");
 

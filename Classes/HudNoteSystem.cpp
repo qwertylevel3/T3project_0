@@ -20,7 +20,7 @@ void HudNoteSystem::init()
 	layout->setBackGroundImageScale9Enabled(true);
 	layout->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 
-	layout->setSize(cocos2d::Size(300,400));
+	layout->setSize(cocos2d::Size(300, 400));
 	layout->setOpacity(180);
 	layout->setPosition(cocos2d::Vec2(200, 500));
 
@@ -36,13 +36,12 @@ void HudNoteSystem::init()
 	//	description->setTextAreaSize(cocos2d::Size(150, 400));
 	layout->addChild(text);
 
-
-	footer = cocos2d::ui::Text::create("", "fonts/arialuni.ttf", 20);
+	footer = cocos2d::ui::Text::create("", "fonts/arialuni.ttf", 18);
 	footer->setAnchorPoint(cocos2d::Vec2::ANCHOR_BOTTOM_LEFT);
-	footer->setPosition(cocos2d::Vec2(200, -65));
+	footer->setPosition(cocos2d::Vec2(50, -65));
 	footer->setOpacity(255);
 	footer->ignoreContentAdaptWithSize(false);
-	footer->setContentSize(cocos2d::Size(100, 100));
+	footer->setContentSize(cocos2d::Size(300, 100));
 	//	description->ignoreContentAdaptWithSize(false);
 	//	description->setTextAreaSize(cocos2d::Size(150, 400));
 	layout->addChild(footer);
@@ -52,7 +51,7 @@ void HudNoteSystem::init()
 
 	leftArrow->setPosition(175, 300);
 	rightArrow->setPosition(525, 300);
-	
+
 	HudLayer::getInstance()->addChild(leftArrow);
 	HudLayer::getInstance()->addChild(rightArrow);
 
@@ -68,7 +67,7 @@ void HudNoteSystem::openNote(std::string noteID)
 
 	this->show();
 
-	if (curNote.getSize()>1)
+	if (curNote.getSize() > 1)
 	{
 		showRightArrow();
 	}
@@ -87,7 +86,7 @@ void HudNoteSystem::openNote(NoteText note)
 
 	this->show();
 
-	if (curNote.getSize()>1)
+	if (curNote.getSize() > 1)
 	{
 		showRightArrow();
 	}
@@ -101,16 +100,23 @@ void HudNoteSystem::nextPage()
 {
 	curPageIndex++;
 
-	if (curPageIndex>=curNote.getSize()-1)
+	if (curPageIndex >= curNote.getSize() - 1)
 	{
 		curPageIndex = curNote.getSize() - 1;
-		showLeftArrow();
+		if (curNote.getSize() > 1)
+		{
+			showLeftArrow();
+		}
+
 		hideRightArrow();
 	}
 	else
 	{
-		showLeftArrow();
-		showRightArrow();
+		if (curNote.getSize() > 1)
+		{
+			showLeftArrow();
+			showRightArrow();
+		}
 	}
 
 	setText(curNote.getPage(curPageIndex));
@@ -121,16 +127,24 @@ void HudNoteSystem::previousPage()
 {
 	curPageIndex--;
 
-	if (curPageIndex<=0)
+	if (curPageIndex <= 0)
 	{
 		curPageIndex = 0;
-		showRightArrow();
+
+		if (curNote.getSize() > 1)
+		{
+			showRightArrow();
+		}
+
 		hideLeftArrow();
 	}
 	else
 	{
-		showLeftArrow();
-		showRightArrow();
+		if (curNote.getSize() > 1)
+		{
+			showLeftArrow();
+			showRightArrow();
+		}
 	}
 	setText(curNote.getPage(curPageIndex));
 	updateFooter();
@@ -155,9 +169,11 @@ void HudNoteSystem::setText(std::string str)
 
 void HudNoteSystem::updateFooter()
 {
-	footer->setText("page : "+
-		ToolFunction::int2string(curPageIndex+1)+
-		"/"+
+	footer->setText(
+		ToolFunction::WStr2UTF8(L"[×óÓÒ·­Ò³|EscÍË³ö] page: ") +
+
+		ToolFunction::int2string(curPageIndex + 1) +
+		"/" +
 		ToolFunction::int2string(curNote.getSize()));
 }
 
@@ -206,7 +222,7 @@ void HudNoteSystem::hideRightArrow()
 
 void HudNoteSystem::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 {
-	if (keyCode==cocos2d::EventKeyboard::KeyCode::KEY_ESCAPE)
+	if (keyCode == cocos2d::EventKeyboard::KeyCode::KEY_ESCAPE)
 	{
 		this->hide();
 		KeyController::getInstance()->switchCtrlToPlayer();
@@ -215,7 +231,7 @@ void HudNoteSystem::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 	{
 		previousPage();
 	}
-	else if (keyCode==cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
+	else if (keyCode == cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
 	{
 		nextPage();
 	}

@@ -7,12 +7,11 @@
 class Character;
 
 
-//处理召唤生物的资源保存和析构
-class SummonCreatureManager:public Singleton<SummonCreatureManager>
+class FriendCreatureManager:public Singleton<FriendCreatureManager>
 {
 public:
-	SummonCreatureManager();
-	~SummonCreatureManager();
+	FriendCreatureManager();
+	~FriendCreatureManager();
 	void init();
 	void initMission();
 	void addCharacter(Character* creature);

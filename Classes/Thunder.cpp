@@ -58,7 +58,8 @@ void Skill::Thunder::run()
 		Character* targetCharacter = storey->getCharacter(coord);
 		if (targetCharacter)
 		{
-			targetCharacter->sufferHPEffect(-damage);
+			targetCharacter->sufferHPEffect(damage);
+			caster->addExp(-damage);
 		}
 	}
 }

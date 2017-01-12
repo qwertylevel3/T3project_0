@@ -33,6 +33,7 @@ void Skill::RandomDirectDamage::run()
 	if (target)
 	{
 		target->sufferHPEffect(damage);
+		caster->addExp(-damage);
 		EffectManager::getInstance()->showEffect("thunder", target->getPosition(), 0.2);
 	}
 }

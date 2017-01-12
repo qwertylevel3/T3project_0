@@ -70,7 +70,8 @@ void Skill::FireBall::run()
 	{
 		return;
 	}
-	targetCharacter->sufferHPEffect(-damage);
+	targetCharacter->sufferHPEffect(damage);
+	caster->addExp(-damage);
 }
 
 void Skill::FireBall::initExtraMessage(std::vector<std::string> extraMessage)

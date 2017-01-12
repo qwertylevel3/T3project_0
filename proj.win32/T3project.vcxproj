@@ -275,7 +275,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\SplashLayer.cpp" />
     <ClCompile Include="..\Classes\ExpAdd.cpp" />
     <ClCompile Include="..\Classes\Summon.cpp" />
-    <ClCompile Include="..\Classes\SummonCreatureManager.cpp" />
+    <ClCompile Include="..\Classes\FriendCreatureManager.cpp" />
     <ClCompile Include="..\Classes\Thunder.cpp" />
     <ClCompile Include="..\Classes\Triangulate.cpp" />
     <ClCompile Include="..\Classes\VenomSphere.cpp" />
@@ -466,7 +466,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\SplashLayer.h" />
     <ClInclude Include="..\Classes\ExpAdd.h" />
     <ClInclude Include="..\Classes\Summon.h" />
-    <ClInclude Include="..\Classes\SummonCreatureManager.h" />
+    <ClInclude Include="..\Classes\FriendCreatureManager.h" />
     <ClInclude Include="..\Classes\Thunder.h" />
     <ClInclude Include="..\Classes\Triangulate.h" />
     <ClInclude Include="..\Classes\VenomSphere.h" />

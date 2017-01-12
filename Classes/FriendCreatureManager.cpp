@@ -1,22 +1,22 @@
-#include "SummonCreatureManager.h"
+#include "FriendCreatureManager.h"
 #include "Player.h"
 #include "Character.h"
 #include "Dungeon.h"
 #include "ToolFunction.h"
 
-SummonCreatureManager::SummonCreatureManager()
+FriendCreatureManager::FriendCreatureManager()
 {
 }
 
-SummonCreatureManager::~SummonCreatureManager()
+FriendCreatureManager::~FriendCreatureManager()
 {
 }
 
-void SummonCreatureManager::init()
+void FriendCreatureManager::init()
 {
 }
 
-void SummonCreatureManager::initMission()
+void FriendCreatureManager::initMission()
 {
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 	Character* playerCharacterPtr = Player::getInstance()->getcharacterPtr();
@@ -36,18 +36,18 @@ void SummonCreatureManager::initMission()
 	}
 }
 
-void SummonCreatureManager::addCharacter(Character* creature)
+void FriendCreatureManager::addCharacter(Character* creature)
 {
 	creatureList.push_back(creature);
 }
 
-void SummonCreatureManager::restart()
+void FriendCreatureManager::restart()
 {
 	clear();
 	init();
 }
 
-void SummonCreatureManager::clear()
+void FriendCreatureManager::clear()
 {
 	for each (Character* creature in creatureList)
 	{

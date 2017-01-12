@@ -570,9 +570,6 @@
     <ClCompile Include="..\Classes\ExpHandler.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\SummonCreatureManager.cpp">
-      <Filter>src\character</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\RandomDirectDamage.cpp">
       <Filter>src\skill</Filter>
     </ClCompile>
@@ -641,6 +638,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\HudNoteMenu.cpp">
       <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FriendCreatureManager.cpp">
+      <Filter>src\character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1142,9 +1142,6 @@
     <ClInclude Include="..\Classes\ExpHandler.h">
       <Filter>src\character</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\SummonCreatureManager.h">
-      <Filter>src\character</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\RandomDirectDamage.h">
       <Filter>src\skill</Filter>
     </ClInclude>
@@ -1210,6 +1207,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HudNoteMenu.h">
       <Filter>src\HUD\menuSystem\menu\inventoryMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FriendCreatureManager.h">
+      <Filter>src\character</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
