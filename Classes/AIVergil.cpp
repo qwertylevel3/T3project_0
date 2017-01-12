@@ -32,15 +32,18 @@ AIVergil::~AIVergil()
 
 void AIVergil::update()
 {
-	tidyInventory();
-	if (characterPtr->getHP() != characterPtr->getMaxHP())
+	if (tidyInventory())
+	{
+		return;
+	}
+	if (characterPtr->getHP() < characterPtr->getMaxHP() / 2)
 	{
 		if (tryUseHPSupply())
 		{
 			return;
 		}
 	}
-	if (characterPtr->getMP() != characterPtr->getMaxMP())
+	if (characterPtr->getMP() < characterPtr->getMaxMP() / 2)
 	{
 		if (tryUseMPSupply())
 		{
@@ -322,13 +325,25 @@ bool AIVergil::cmpDistance(Character* a, Character* b)
 	return ToolFunction::getManhattanDistance(a->getMapCoord(), characterPtr->getMapCoord())
 		< ToolFunction::getManhattanDistance(b->getMapCoord(), characterPtr->getMapCoord());
 }
-
-void AIVergil::tidyInventory()
+bool AIVergil::tidyInventory()
 {
-	chooseBetterLefthand();
-	//	chooseBetterRighthand();
-	chooseBetterArmor();
-	chooseBetterAccessory();
+	if (chooseBetterLefthand())
+	{
+		return true;
+	}
+//	if (chooseBetterRighthand())
+//	{
+//		return true;
+//	}
+	if (chooseBetterArmor())
+	{
+		return true;
+	}
+	if (chooseBetterAccessory())
+	{
+		return true;
+	}
+	return false;
 }
 
 bool AIVergil::tryUseHPSupply()
@@ -392,103 +407,159 @@ bool AIVergil::tryUseMPSupply()
 	return flag;
 }
 
-void AIVergil::chooseBetterLefthand()
+bool AIVergil::chooseBetterLefthand()
 {
+	bool flag = false;
 	InventoryHandler* inventoryHandler = characterPtr->getInventoryHandler();
 	std::map<std::string, int> allInventory = inventoryHandler->getAllInventory();
 
 	std::map<std::string, int>::iterator iter = allInventory.begin();
 
 	int curLeftHandLevel = characterPtr->getLeftHand() ? characterPtr->getLeftHand()->getLevel() : 0;
+	std::string curLeftHandName = characterPtr->getLeftHand() ? characterPtr->getLeftHand()->getName() : "NULL";
+
+	int maxLevel = curLeftHandLevel;
+	std::string maxInventory = curLeftHandName;
 
 	while (iter != allInventory.end())
 	{
-		if ((InventoryFactory::getInstance()->queryInventoryLevel(iter->first)
-		> curLeftHandLevel)
-			&& InventoryFactory::getInstance()->queryInventoryType(iter->first) == Inventory::OneHandWeapon)
-		{
-			characterPtr->removeInventory(iter->first);
-			Inventory* inventory = InventoryFactory::getInstance()->getInventory(iter->first);
+		Inventory::Type invType = InventoryFactory::getInstance()->queryInventoryType(iter->first);
+		int invLevel = InventoryFactory::getInstance()->queryInventoryLevel(iter->first);
 
-			characterPtr->equipLeftHand(inventory);
+		if (invType == Inventory::OneHandWeapon && invLevel > maxLevel)
+		{
+			maxLevel = invLevel;
+			maxInventory = iter->first;
 		}
 
 		iter++;
 	}
+	if (maxInventory != curLeftHandName)
+	{
+		characterPtr->removeInventory(maxInventory);
+		Inventory* inventory = InventoryFactory::getInstance()->getInventory(maxInventory);
+		characterPtr->equipLeftHand(inventory);
+		HudMessageBox::getInstance()->addMessage(L"Vergil换了一件更好的武器");
+		return true;
+	}
+	return false;
 }
 
-void AIVergil::chooseBetterRighthand()
+bool AIVergil::chooseBetterRighthand()
 {
+	bool flag = false;
 	InventoryHandler* inventoryHandler = characterPtr->getInventoryHandler();
 	std::map<std::string, int> allInventory = inventoryHandler->getAllInventory();
 
 	std::map<std::string, int>::iterator iter = allInventory.begin();
 
-	int curRighthandLevel = characterPtr->getRightHand() ? characterPtr->getRightHand()->getLevel() : 0;
+	int curRightHandLevel = characterPtr->getRightHand() ? characterPtr->getRightHand()->getLevel() : 0;
+	std::string curRightHandName = characterPtr->getRightHand() ? characterPtr->getRightHand()->getName() : "NULL";
+
+	int maxLevel = curRightHandLevel;
+	std::string maxInventory = curRightHandName;
 
 	while (iter != allInventory.end())
 	{
-		if ((InventoryFactory::getInstance()->queryInventoryLevel(iter->first)
-			> curRighthandLevel)
-			&& InventoryFactory::getInstance()->queryInventoryType(iter->first) == Inventory::OneHandWeapon)
-		{
-			characterPtr->removeInventory(iter->first);
-			Inventory* inventory = InventoryFactory::getInstance()->getInventory(iter->first);
+		Inventory::Type invType = InventoryFactory::getInstance()->queryInventoryType(iter->first);
+		int invLevel = InventoryFactory::getInstance()->queryInventoryLevel(iter->first);
 
-			characterPtr->equipRightHand(inventory);
+		if (invType == Inventory::OneHandWeapon && invLevel > maxLevel)
+		{
+			maxLevel = invLevel;
+			maxInventory = iter->first;
 		}
 
 		iter++;
 	}
+	if (maxInventory != curRightHandName)
+	{
+		characterPtr->removeInventory(maxInventory);
+		Inventory* inventory = InventoryFactory::getInstance()->getInventory(maxInventory);
+		characterPtr->equipRightHand(inventory);
+		HudMessageBox::getInstance()->addMessage(L"Vergil更换了一件右手武器");
+		return true;
+	}
+	return false;
 }
 
-void AIVergil::chooseBetterArmor()
+bool AIVergil::chooseBetterArmor()
 {
+	bool flag = false;
 	InventoryHandler* inventoryHandler = characterPtr->getInventoryHandler();
 	std::map<std::string, int> allInventory = inventoryHandler->getAllInventory();
 
 	std::map<std::string, int>::iterator iter = allInventory.begin();
 
 	int curArmorLevel = characterPtr->getArmor() ? characterPtr->getArmor()->getLevel() : 0;
+	std::string curArmorName = characterPtr->getArmor() ? characterPtr->getArmor()->getName() : "NULL";
+
+	int maxLevel = curArmorLevel;
+	std::string maxInventory = curArmorName;
 
 	while (iter != allInventory.end())
 	{
-		if ((InventoryFactory::getInstance()->queryInventoryLevel(iter->first)
-			> curArmorLevel)
-			&& InventoryFactory::getInstance()->queryInventoryType(iter->first) == Inventory::Armor)
-		{
-			characterPtr->removeInventory(iter->first);
-			Inventory* inventory = InventoryFactory::getInstance()->getInventory(iter->first);
+		Inventory::Type invType = InventoryFactory::getInstance()->queryInventoryType(iter->first);
+		int invLevel = InventoryFactory::getInstance()->queryInventoryLevel(iter->first);
 
-			characterPtr->equipArmor(inventory);
+		if (invType == Inventory::Armor && invLevel > maxLevel)
+		{
+			maxLevel = invLevel;
+			maxInventory = iter->first;
 		}
 
 		iter++;
 	}
+	if (maxInventory != curArmorName)
+	{
+		characterPtr->removeInventory(maxInventory);
+		Inventory* inventory = InventoryFactory::getInstance()->getInventory(maxInventory);
+		characterPtr->equipArmor(inventory);
+		HudMessageBox::getInstance()->addMessage(L"Vergil更换了一件护甲");
+		return true;
+	}
+	return false;
 }
 
-void AIVergil::chooseBetterAccessory()
+bool AIVergil::chooseBetterAccessory()
 {
+	bool flag = false;
 	InventoryHandler* inventoryHandler = characterPtr->getInventoryHandler();
 	std::map<std::string, int> allInventory = inventoryHandler->getAllInventory();
 
 	std::map<std::string, int>::iterator iter = allInventory.begin();
 
 	int curAccessoryLevel = characterPtr->getAccessory() ? characterPtr->getAccessory()->getLevel() : 0;
+	std::string curAccessoryName = characterPtr->getAccessory() ? characterPtr->getAccessory()->getName() : "NULL";
+
+	int maxLevel = curAccessoryLevel;
+	std::string maxInventory = curAccessoryName;
 
 	while (iter != allInventory.end())
 	{
-		if ((InventoryFactory::getInstance()->queryInventoryLevel(iter->first)
-			> curAccessoryLevel)
-			&& InventoryFactory::getInstance()->queryInventoryType(iter->first) == Inventory::Accessory)
-		{
-			characterPtr->removeInventory(iter->first);
-			Inventory* inventory = InventoryFactory::getInstance()->getInventory(iter->first);
+		Inventory::Type invType = InventoryFactory::getInstance()->queryInventoryType(iter->first);
+		int invLevel = InventoryFactory::getInstance()->queryInventoryLevel(iter->first);
 
-			characterPtr->equipAccessory(inventory);
+		if (invType == Inventory::Accessory && invLevel > maxLevel)
+		{
+			maxLevel = invLevel;
+			maxInventory = iter->first;
 		}
+
 		iter++;
 	}
+	if (maxInventory != curAccessoryName)
+	{
+		characterPtr->removeInventory(maxInventory);
+		Inventory* inventory = InventoryFactory::getInstance()->getInventory(maxInventory);
+		characterPtr->equipAccessory(inventory);
+		HudMessageBox::getInstance()->addMessage(L"Vergil更换了一件附件");
+		return true;
+	}
+	return false;
+
+
+
 }
 
 void AIVergil::showCurState()
@@ -496,9 +567,9 @@ void AIVergil::showCurState()
 	NoteText note;
 
 	std::string  characterLevel = ToolFunction::int2string(characterPtr->getLevel());
-	std::string characterHP = ToolFunction::int2string(characterPtr->getHP()) + "/"+
+	std::string characterHP = ToolFunction::int2string(characterPtr->getHP()) + "/" +
 		ToolFunction::int2string(characterPtr->getMaxHP());
-	std::string characterMP = ToolFunction::int2string(characterPtr->getMP()) + "/"+
+	std::string characterMP = ToolFunction::int2string(characterPtr->getMP()) + "/" +
 		ToolFunction::int2string(characterPtr->getMaxMP());
 
 	std::string characterInt = ToolFunction::int2string(characterPtr->getIntellect());

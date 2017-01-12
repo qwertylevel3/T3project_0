@@ -29,16 +29,17 @@ protected:
 
 	//比较两个character相对characterPtr的距离
 	bool cmpDistance(Character* a, Character* b);
-	//整理物品
-	void tidyInventory();
+	//整理物品,如果装备某件物品，返回true
+	bool tidyInventory();
 
 	//如果成功回复，返回true
 	bool tryUseHPSupply();
 	bool tryUseMPSupply();
 
-	void chooseBetterLefthand();
-	void chooseBetterRighthand();
-	void chooseBetterArmor();
-	void chooseBetterAccessory();
+	//TODO
+	bool chooseBetterLefthand();
+	bool chooseBetterRighthand();
+	bool chooseBetterArmor();
+	bool chooseBetterAccessory();
 	void showCurState();
 };
