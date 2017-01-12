@@ -1,4 +1,5 @@
 #include "AIVergil.h"
+#include "BuffHandler.h"
 #include "Supply.h"
 #include "Armor.h"
 #include "Accessory.h"
@@ -116,7 +117,20 @@ void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 	else if (dialogueName == "vergilTalk"
 		&& resultNumber == -7)
 	{
+		//ÏÔÊ¾µ±Ç°×´Ì¬
 		showCurState();
+	}
+	else if (dialogueName == "vergilTalk"
+		&& resultNumber == -8)
+	{
+		//ÏĞÁÄ
+		smallTalk();
+	}
+	else if (dialogueName == "vergilAddBuff"
+		&& resultNumber == -1)
+	{
+		//¸øbuff
+		addBuffToPlayer();
 	}
 }
 
@@ -331,10 +345,10 @@ bool AIVergil::tidyInventory()
 	{
 		return true;
 	}
-//	if (chooseBetterRighthand())
-//	{
-//		return true;
-//	}
+	//	if (chooseBetterRighthand())
+	//	{
+	//		return true;
+	//	}
 	if (chooseBetterArmor())
 	{
 		return true;
@@ -557,9 +571,6 @@ bool AIVergil::chooseBetterAccessory()
 		return true;
 	}
 	return false;
-
-
-
 }
 
 void AIVergil::showCurState()
@@ -596,4 +607,32 @@ void AIVergil::showCurState()
 	);
 
 	HudNoteSystem::getInstance()->openNote(note);
+}
+
+void AIVergil::smallTalk()
+{
+	Buff::BuffHandler* targetBuffHandler = Player::getInstance()->getcharacterPtr()->getBuffHandler();
+
+	if ((!getEnemyAround().empty() || !getEnemyAroundPlayer().empty())
+		&& characterPtr->getMP() >= 20
+		&& !targetBuffHandler->exist(
+			ToolFunction::WStr2UTF8(L"ChantBuff_VergilµÄÒ÷³ª×£¸£_OnRoundStart_Good_10_20_100"))
+		)
+	{
+		DialogueSystem::getInstance()->runDialogue("vergilAddBuff", characterPtr);
+	}
+	else
+	{
+		DialogueSystem::getInstance()->runDialogue("vergilSmallTalk", characterPtr);
+	}
+}
+
+
+void AIVergil::addBuffToPlayer()
+{
+	changeOrientationTo(Player::getInstance()->getcharacterPtr());
+	characterPtr->runSkill(
+		ToolFunction::WStr2UTF8(L"BuffCast_Ò÷³ª×£¸£_20_0_ChantBuff_VergilµÄÒ÷³ª×£¸£_OnRoundStart_Good_10_20_100")
+	);
+	HudMessageBox::getInstance()->addMessage(L"VergilÎªÄã¸½¼ÓÁËÒ÷³ª×£¸£");
 }

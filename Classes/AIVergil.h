@@ -36,10 +36,12 @@ protected:
 	bool tryUseHPSupply();
 	bool tryUseMPSupply();
 
-	//TODO
 	bool chooseBetterLefthand();
 	bool chooseBetterRighthand();
 	bool chooseBetterArmor();
 	bool chooseBetterAccessory();
 	void showCurState();
+	//周围没有危险就闲聊，否则加buff
+	void smallTalk();
+	void addBuffToPlayer();
 };
