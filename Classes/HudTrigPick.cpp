@@ -7,12 +7,9 @@
 #include "StoreyInventoryHandler.h"
 #include "Player.h"
 
-
-
 HudTrigPick::HudTrigPick()
 {
 }
-
 
 HudTrigPick::~HudTrigPick()
 {
@@ -26,10 +23,9 @@ void HudTrigPick::run()
 
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 	StoreyInventoryHandler* storeyInventoryHandler = storey->getInventoryHandler();
-	Inventory* ivnentory = 
-		storeyInventoryHandler->getInventory(curIndex, 
-			characterPtr->getMapCoord().x, 
-			characterPtr->getMapCoord().y);
+	Inventory* ivnentory = storeyInventoryHandler->getInventory(curIndex,
+		characterPtr->getMapCoord().x,
+		characterPtr->getMapCoord().y);
 	storeyInventoryHandler->removeInventory(curIndex,
 		characterPtr->getMapCoord().x,
 		characterPtr->getMapCoord().y);

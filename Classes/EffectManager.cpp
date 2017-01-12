@@ -27,7 +27,7 @@ void EffectManager::showEffect(const std::string& effectName, cocos2d::Point pos
 
 	cocos2d::Sprite* node = cocos2d::Sprite::create();
 	MainLayer::getInstance()->addChild(node, 15);
-	node->setPosition(position.x,position.y-16);
+	node->setPosition(position.x, position.y - 16);
 
 	node->runAction(
 		cocos2d::Sequence::create(
@@ -67,6 +67,14 @@ void EffectManager::initAnimationBox()
 	thunderSV.push_back("thunder4.png");
 
 	animationBox["thunder"] = thunderSV;
+	//////////////////////////////////////////////////////////////////////////
+	std::vector<std::string > summonSV;
+
+	summonSV.push_back("summon1.png");
+	summonSV.push_back("summon2.png");
+	summonSV.push_back("summon3.png");
+
+	animationBox["summon"] = summonSV;
 }
 
 cocos2d::Animation* EffectManager::getAnimation(const std::string& animationName)
@@ -79,7 +87,6 @@ cocos2d::Animation* EffectManager::getAnimation(const std::string& animationName
 		cocos2d::SpriteFrame* p = cocos2d::SpriteFrameCache::getInstance()->getSpriteFrameByName(frameName);
 		p->setAnchorPoint(cocos2d::Vec2::ANCHOR_MIDDLE_BOTTOM);
 		animationSF.pushBack(p);
-
 	}
 	cocos2d::Animation* animation = cocos2d::Animation::createWithSpriteFrames(animationSF, 0.1f);
 	animation->setDelayPerUnit(0.2);

@@ -54,7 +54,7 @@ void TileInventoryHandler::removeInventory(int index)
 			}
 			return;
 		}
-		index++;
+		count++;
 		iter++;
 	}
 }

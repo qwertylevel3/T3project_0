@@ -94,22 +94,52 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>thunder1.png</key>
+            <key>summon1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{32,96}</string>
+                <string>{32,32}</string>
                 <key>spriteSourceSize</key>
-                <string>{32,96}</string>
+                <string>{32,32}</string>
                 <key>textureRect</key>
-                <string>{{0,192},{32,96}}</string>
+                <string>{{0,192},{32,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>thunder2.png</key>
+            <key>summon2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{32,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{32,32}</string>
+                <key>textureRect</key>
+                <string>{{0,224},{32,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>summon3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{32,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{32,32}</string>
+                <key>textureRect</key>
+                <string>{{0,256},{32,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>thunder1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -124,7 +154,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>thunder3.png</key>
+            <key>thunder2.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -139,7 +169,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>thunder4.png</key>
+            <key>thunder3.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -151,6 +181,21 @@
                 <string>{32,96}</string>
                 <key>textureRect</key>
                 <string>{{0,480},{32,96}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>thunder4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{32,96}</string>
+                <key>spriteSourceSize</key>
+                <string>{32,96}</string>
+                <key>textureRect</key>
+                <string>{{0,576},{32,96}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -166,9 +211,9 @@
             <key>realTextureFileName</key>
             <string>effect.png</string>
             <key>size</key>
-            <string>{32,576}</string>
+            <string>{32,672}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:7f41e2ea1d5a90f7d0c76500d180a81e:6e37ba9d1a536fe0b45be51f462ec489:3dfbfbc8204a359f1a81f2ee84fdb371$</string>
+            <string>$TexturePacker:SmartUpdate:db6f332e836a5ccce71e93db8b30cb95:a74e4ba5aa7ac64943fc73acc7756f9a:3dfbfbc8204a359f1a81f2ee84fdb371$</string>
             <key>textureFileName</key>
             <string>effect.png</string>
         </dict>

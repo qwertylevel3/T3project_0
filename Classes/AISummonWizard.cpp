@@ -22,32 +22,33 @@ void AISummonWizard::update()
 	if (targetCharacter)
 	{
 		if (characterPtr->getChantCount() >= 10
-			&& characterPtr->getMP() >= 20)
+			&& characterPtr->getMP() >= 60)
 		{
 			//ÒÑ¾­Ò÷³ªÇÒÄ§·¨³ä×ã
 			characterPtr->runSkill(
 				ToolFunction::WStr2UTF8(
-					L"Summon_ÕÙ»½slime_20_10_slime"
+					L"Summon_ÕÙ»½slime_60_10_slime"
 				)
 			);
 		}
-		else if (RandomNumber::getInstance()->randomBool(0.8)
-			&& characterPtr->getMP() >= 20)
+		else if (RandomNumber::getInstance()->randomBool(0.4)
+			&& characterPtr->getMP() >= 60)
 		{
 			//Èç¹ûÓÐÄ§·¨
 			characterPtr->chant();
 		}
 		else
 		{
-			this->changeOrientationTo(targetCharacter);	
+			if (!flee(targetCharacter))
 			{
+				this->changeOrientationTo(targetCharacter);
 				if (isInAttackArea(targetCharacter))
 				{
 					characterPtr->attack();
 				}
 				else
 				{
-					flee(targetCharacter);
+					characterPtr->idle();
 				}
 			}
 		}

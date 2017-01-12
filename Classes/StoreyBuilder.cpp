@@ -265,8 +265,8 @@ bool StoreyBuilder::placeRect(const Field::Rect& rect)
 			if (x == rect.x - 1 || y == rect.y - 1 || x == rect.x + rect.width || y == rect.y + rect.height)
 			{
 				storey->setTile(x, y, Wall);
-//				Character* wall = GameActorFactory::getInstance()->getActor("wall");
-//				storey->addCharacter(cocos2d::Point(x, y), wall);
+				//				Character* wall = GameActorFactory::getInstance()->getActor("wall");
+				//				storey->addCharacter(cocos2d::Point(x, y), wall);
 			}
 
 			else
@@ -327,7 +327,7 @@ void Field::StoreyBuilder::placeGameActorLevel1(const Rect & rect)
 		//		int x = rect.x+rect.width - 1;
 		//		int y = rect.y+rect.height - 1;
 
-		Character* monster = GameActorFactory::getInstance()->getActor("destroyWizard");
+		Character* monster = GameActorFactory::getInstance()->getActor("summonWizard");
 		CCAssert(monster, "get a null monster");
 
 		std::vector<std::string > slimeInvList = InventoryListGenerator::getInstance()->getInventoryList("slime");
@@ -680,9 +680,29 @@ void Field::StoreyBuilder::placeFeatureForRoom()
 		{
 			placeGameActorLevel3(room);
 		}
-		else
+		else if (curLevel == 4)
 		{
 			placeGameActorLevel4(room);
+		}
+		else if (curLevel == 5)
+		{
+			placeGameActorLevel5(room);
+		}
+		else if (curLevel == 6)
+		{
+			placeGameActorLevel6(room);
+		}
+		else if (curLevel == 7)
+		{
+			placeGameActorLevel7(room);
+		}
+		else if (curLevel == 8)
+		{
+			placeGameActorLevel8(room);
+		}
+		else if (curLevel == 9)
+		{
+			placeGameActorLevel9(room);
 		}
 	}
 }
