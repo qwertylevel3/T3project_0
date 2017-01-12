@@ -1,4 +1,5 @@
 #include "HudGroundMenu.h"
+#include "HudCursor.h"
 #include "HudLayout.h"
 #include "HudMenuItem.h"
 #include "base/ccTypes.h"
@@ -64,4 +65,5 @@ void HudGroundMenu::update()
 		this->addItem(emptyItem);
 
 	}
+	HudCursor::getInstance()->setCurMenu(this);
 }

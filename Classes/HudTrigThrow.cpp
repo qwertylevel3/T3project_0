@@ -111,8 +111,10 @@ void HudTrigThrow::throwResult(Inventory* inventory,cocos2d::Point targetCoord)
 	//hit！
 	if (targetCharacter)
 	{
+		//投掷消减对象chant点数
 		int damage = 10 * inventory->getLevel();
 		targetCharacter->sufferHPEffect(-damage);
+		targetCharacter->clearChant();
 		delete inventory;
 	}
 	else

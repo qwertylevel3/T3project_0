@@ -1,4 +1,5 @@
 #include "HudBuffMenu.h"
+#include "HudCursor.h"
 #include "HudLayout.h"
 #include "HudMenuItem.h"
 #include "Player.h"
@@ -57,12 +58,20 @@ void HudBuffMenu::update()
 		HudMenuItem* emptyItem = new HudMenuItem("empty");
 		this->addItem(emptyItem);
 	}
+	HudCursor::getInstance()->setCurMenu(this);
+	
 }
 
 
 void HudBuffMenu::chooseItem(int index)
 {
 	HudMenu::chooseItem(index);
+
+
+	index = index > itemList.size() - 1 ? itemList.size()-1 : index;
+	index = index < 0 ? 0 : index;
+
+
 
 	Character* characterPrt = Player::getInstance()->getcharacterPtr();
 	Buff::BuffHandler* buffHandler = characterPrt->getBuffHandler();

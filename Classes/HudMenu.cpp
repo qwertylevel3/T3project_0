@@ -202,7 +202,6 @@ void HudMenu::chooseItem(int index)
 	}
 
 	itemIndex = index;
-
 	itemIndex = itemIndex > itemList.size() - 1 ? itemList.size()-1 : itemIndex;
 	itemIndex = itemIndex < 0 ? 0 : itemIndex;
 
