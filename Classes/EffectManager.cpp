@@ -27,7 +27,7 @@ void EffectManager::showEffect(const std::string& effectName, cocos2d::Point pos
 
 	cocos2d::Sprite* node = cocos2d::Sprite::create();
 	MainLayer::getInstance()->addChild(node, 15);
-	node->setPosition(position);
+	node->setPosition(position.x,position.y-16);
 
 	node->runAction(
 		cocos2d::Sequence::create(
@@ -40,7 +40,7 @@ void EffectManager::showEffect(const std::string& effectName, cocos2d::Point pos
 
 void EffectManager::initPlistFile()
 {
-	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile("effect/HPRecovery.plist");
+	cocos2d::SpriteFrameCache::getInstance()->addSpriteFramesWithFile("effect/effect.plist");
 }
 
 void EffectManager::initAnimationBox()
@@ -51,6 +51,22 @@ void EffectManager::initAnimationBox()
 	hpRecoverySV.push_back("HPRecovery3.png");
 
 	animationBox["HPRecovery"] = hpRecoverySV;
+	//////////////////////////////////////////////////////////////////////////
+	std::vector<std::string > magicCircleSV;
+	magicCircleSV.push_back("magicCircle1.png");
+	magicCircleSV.push_back("magicCircle2.png");
+	magicCircleSV.push_back("magicCircle3.png");
+
+	animationBox["magicCircle"] = magicCircleSV;
+	//////////////////////////////////////////////////////////////////////////
+	std::vector<std::string > thunderSV;
+
+	thunderSV.push_back("thunder1.png");
+	thunderSV.push_back("thunder2.png");
+	thunderSV.push_back("thunder3.png");
+	thunderSV.push_back("thunder4.png");
+
+	animationBox["thunder"] = thunderSV;
 }
 
 cocos2d::Animation* EffectManager::getAnimation(const std::string& animationName)
@@ -60,13 +76,13 @@ cocos2d::Animation* EffectManager::getAnimation(const std::string& animationName
 	cocos2d::Vector< cocos2d::SpriteFrame* > animationSF = cocos2d::Vector< cocos2d::SpriteFrame* >::Vector();
 	for each (std::string frameName in animationVector)
 	{
-		animationSF.pushBack(
-			cocos2d::SpriteFrameCache::getInstance()->getSpriteFrameByName(
-				frameName)
-		);
+		cocos2d::SpriteFrame* p = cocos2d::SpriteFrameCache::getInstance()->getSpriteFrameByName(frameName);
+		p->setAnchorPoint(cocos2d::Vec2::ANCHOR_MIDDLE_BOTTOM);
+		animationSF.pushBack(p);
+
 	}
 	cocos2d::Animation* animation = cocos2d::Animation::createWithSpriteFrames(animationSF, 0.1f);
-	animation->setDelayPerUnit(0.01);
+	animation->setDelayPerUnit(0.2);
 	animation->setRestoreOriginalFrame(true);
 	animation->setLoops(3);
 	return animation;

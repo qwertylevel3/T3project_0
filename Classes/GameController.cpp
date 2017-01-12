@@ -52,7 +52,7 @@ void GameController::init()
 	EffectManager::getInstance()->init();
 	SummonCreatureManager::getInstance()->init();
 
-	curLevel = 9;
+	curLevel = 1;
 }
 
 void GameController::startMission()

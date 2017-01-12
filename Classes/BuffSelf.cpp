@@ -1,4 +1,5 @@
 #include "BuffSelf.h"
+#include "EffectManager.h"
 #include "Character.h"
 #include "ToolFunction.h"
 #include "BuffFactory.h"
@@ -35,6 +36,7 @@ std::string Skill::BuffSelf::getExtraDescription()
 void Skill::BuffSelf::run()
 {
 	caster->addBuff(buffID);
+		EffectManager::getInstance()->showEffect("magicCircle", caster->getPosition(), 0.5);
 }
 
 void Skill::BuffSelf::initExtraMessage(std::vector<std::string> extraMessage)

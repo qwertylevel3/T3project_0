@@ -1,4 +1,5 @@
 #include "BuffCast.h"
+#include "EffectManager.h"
 #include "Character.h"
 #include "FixedSelector.h"
 #include "Dungeon.h"
@@ -50,6 +51,7 @@ void Skill::BuffCast::run()
 	if (target)
 	{
 		target->addBuff(buffID);
+		EffectManager::getInstance()->showEffect("magicCircle", target->getPosition(), 0.5);
 	}
 
 }

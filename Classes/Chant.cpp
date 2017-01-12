@@ -1,4 +1,5 @@
 #include "Chant.h"
+#include "EffectManager.h"
 #include "Character.h"
 #include "FixedSelector.h"
 #include "ToolFunction.h"
@@ -35,6 +36,9 @@ void Skill::Chant::run()
 {
 	caster->accumulateChant(caster->getIntellect());
 
+
+//	EffectManager::getInstance()->showEffect("magicCircle", caster->getPosition(), 0.5);
+
 	cocos2d::Sprite* magicCircle = cocos2d::Sprite::create("effect/magicCircle.png");
 
 	caster->getSprite()->addChild(magicCircle);
@@ -43,7 +47,7 @@ void Skill::Chant::run()
 	magicCircle->runAction(
 		cocos2d::Spawn::create(
 			cocos2d::MoveBy::create(1, cocos2d::Vec2(0, 30)),
-			cocos2d::FadeOut::create(1),
+//			cocos2d::FadeOut::create(1),
 			cocos2d::Sequence::create(
 				cocos2d::DelayTime::create(1),
 				cocos2d::CallFunc::create(CC_CALLBACK_0(cocos2d::Sprite::removeFromParent, magicCircle)),

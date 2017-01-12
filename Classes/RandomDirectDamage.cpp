@@ -1,6 +1,7 @@
 #include "RandomDirectDamage.h"
 #include "Dungeon.h"
 #include "ToolFunction.h"
+#include "EffectManager.h"
 
 
 
@@ -32,6 +33,7 @@ void Skill::RandomDirectDamage::run()
 	if (target)
 	{
 		target->sufferHPEffect(damage);
+		EffectManager::getInstance()->showEffect("thunder", target->getPosition(), 0.2);
 	}
 }
 
