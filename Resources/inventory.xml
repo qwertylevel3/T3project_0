@@ -12,7 +12,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<weaponDamage>4</weaponDamage>
+		<weaponDamage>1</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -29,7 +29,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<weaponDamage>6</weaponDamage>
+		<weaponDamage>4</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -40,15 +40,15 @@
 	<inventory>
 		<type>oneHandWeapon</type>
 		<name>sword002</name>
-		<cname>钢剑</cname>
-		<tips>普通的钢剑</tips>
-		<level>4</level>
+		<cname>铁剑</cname>
+		<tips>普通的铁剑</tips>
+		<level>3</level>
 		<price>14</price>
-		<weight>2</weight>
+		<weight>3</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<weaponDamage>8</weaponDamage>
+		<weaponDamage>4</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -59,6 +59,25 @@
 	<inventory>
 		<type>oneHandWeapon</type>
 		<name>sword003</name>
+		<cname>钢剑</cname>
+		<tips>普通的钢剑</tips>
+		<level>4</level>
+		<price>16</price>
+		<weight>4</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<weaponDamage>5</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword004</name>
 		<cname>圣剑</cname>
 		<tips>测试用</tips>
 		<level>9</level>
@@ -77,7 +96,7 @@
 	</inventory>
 	<inventory>
 		<type>oneHandWeapon</type>
-		<name>sword004</name>
+		<name>sword005</name>
 		<cname>史莱姆的触手</cname>
 		<tips>史莱姆用这个攻击</tips>
 		<level>1</level>
@@ -86,26 +105,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<weaponDamage>2</weaponDamage>
-		<strRequire>0</strRequire>
-		<agiRequire>0</agiRequire>
-		<intRequire>0</intRequire>
-		<sphereBox>
-			
-		</sphereBox>
-	</inventory>
-	<inventory>
-		<type>oneHandWeapon</type>
-		<name>sword005</name>
-		<cname>毒蛇之牙</cname>
-		<tips>很尖，小心划破手</tips>
-		<level>2</level>
-		<price>1</price>
-		<weight>1</weight>
-		<spriteName>sword_icon.png</spriteName>
-		<buffBox>
-		</buffBox>
-		<weaponDamage>5</weaponDamage>
+		<weaponDamage>1</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -116,6 +116,25 @@
 	<inventory>
 		<type>oneHandWeapon</type>
 		<name>sword006</name>
+		<cname>毒蛇之牙</cname>
+		<tips>很尖，小心划破手</tips>
+		<level>2</level>
+		<price>1</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<weaponDamage>3</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+			
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword007</name>
 		<cname>火炬</cname>
 		<tips>可以增加视野</tips>
 		<level>1</level>
@@ -126,6 +145,106 @@
 			<buffID>ViewSizeBuff_火炬之光_ATTR_Good_1_-1_5</buffID>
 		</buffBox>
 		<weaponDamage>1</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword008</name>
+		<cname>恶魔的三叉戟</cname>
+		<tips>地狱恶魔的通用装备,每个尖都有独特的效果</tips>
+		<level>7</level>
+		<price>9</price>
+		<weight>4</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>CriticalProBuff_三叉戟之力1_ATTR_Good_4_-1_13</buffID>
+			<buffID>CriticalPointBuff_三叉戟之力2_ATTR_Good_4_-1_13</buffID>
+			<buffID>CriticalPerBuff_三叉戟之力3_ATTR_Good_4_-1_13</buffID>
+		</buffBox>
+		<weaponDamage>13</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+			
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword009</name>
+		<cname>魅魔的皮鞭</cname>
+		<tips>一般用来SM</tips>
+		<level>7</level>
+		<price>9</price>
+		<weight>4</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_沉迷SM_ATTR_Good_2_-1_3_3_-5</buffID>
+		</buffBox>
+		<weaponDamage>13</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+			<sphereID>HemophagiaSphere_吸血_10</sphereID>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword010</name>
+		<cname>铁枝树干</cname>
+		<tips>经典出门装备</tips>
+		<level>2</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_全属性附加_ATTR_Good_2_-1_1_1_1</buffID>
+		</buffBox>
+		<weaponDamage>1</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword011</name>
+		<cname>法术权杖</cname>
+		<tips>巫师的必备品</tips>
+		<level>7</level>
+		<price>9</price>
+		<weight>3</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>ChantBuff_自动吟唱_OnRoundStart_Good_10_-1_100</buffID>
+			<buffID>BaseAttrBuff_权杖之力_ATTR_Good_2_-1_0_0_5</buffID>
+		</buffBox>
+		<weaponDamage>1</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword012</name>
+		<cname>Vergil的匕首</cname>
+		<tips>精致的短刀，Vergil用它来防身</tips>
+		<level>3</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_敏捷附加_ATTR_Good_2_-1_0_4_0</buffID>
+		</buffBox>
+		<weaponDamage>3</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -228,7 +347,7 @@
 		<type>accessory</type>
 		<name>accessory000</name>
 		<cname>333之证</cname>
-		<tips>虽然很旧了，但是上面的宝石依旧闪闪发光，全属性+3</tips>
+		<tips>虽然很旧了，但是上面的宝石依旧闪闪发光</tips>
 		<level>9</level>
 		<price>333</price>
 		<weight>0</weight>
@@ -444,8 +563,24 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>15</intRequire>
 		<skillName>LearnSkill_学习火球术_0_0_FireBall_火球术_5_5_20_5</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>skillBook001</name>
+		<cname>召雷之书</cname>
+		<tips>学习随机闪电</tips>
+		<level>1</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>17</intRequire>
+		<skillName>LearnSkill_学习随机闪电_0_0_RandomDirectDamage_随机闪电_15_15_-30_5_2</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>

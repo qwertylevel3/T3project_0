@@ -109,7 +109,7 @@ std::string Inventory::getBaseDescription()
 			Buff::BuffBase* buff = Buff::BuffFactory::getInstance()->getBuff(buffID);
 
 			description += ToolFunction::int2string(count)+"."+
-				buff->getDescription();
+				buff->getDescription()+"\n";
 			count++;
 		}
 		return description + "\n";

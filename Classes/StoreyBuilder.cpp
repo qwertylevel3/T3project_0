@@ -489,18 +489,146 @@ void Field::StoreyBuilder::placeGameActorLevel5(const Rect& rect)
 
 void Field::StoreyBuilder::placeGameActorLevel6(const Rect& rect)
 {
+	placeBuilding(rect);
+	//房间内怪物数量(2-5之间)
+	int monsterNumber = RandomNumber::getInstance()->randomInt(2, 5);
+
+	for (int i = 0; i < monsterNumber; i++)
+	{
+		int x = RandomNumber::getInstance()->randomInt(rect.x, rect.x + rect.width - 1);
+		int y = RandomNumber::getInstance()->randomInt(rect.y, rect.y + rect.height - 1);
+
+		//		int x = rect.x;
+		//		int y = rect.y;
+		//		int x = rect.x+rect.width - 1;
+		//		int y = rect.y+rect.height - 1;
+
+		int monsterType = RandomNumber::getInstance()->randomInt(1, 10);
+		Character* monster;
+		if (monsterType <= 3)
+		{
+			monster = GameActorFactory::getInstance()->getActor("blackSnack");
+		}
+		else if (monsterType <= 6)
+		{
+			monster = GameActorFactory::getInstance()->getActor("demon");
+		}
+		else
+		{
+			monster = GameActorFactory::getInstance()->getActor("ghost");
+		}
+		CCAssert(monster, "get a null monster");
+
+		placeGameActor(x, y, monster);
+	}
 }
 
 void Field::StoreyBuilder::placeGameActorLevel7(const Rect& rect)
 {
+	placeBuilding(rect);
+	//房间内怪物数量(2-5之间)
+	int monsterNumber = RandomNumber::getInstance()->randomInt(2, 5);
+
+	for (int i = 0; i < monsterNumber; i++)
+	{
+		int x = RandomNumber::getInstance()->randomInt(rect.x, rect.x + rect.width - 1);
+		int y = RandomNumber::getInstance()->randomInt(rect.y, rect.y + rect.height - 1);
+
+		//		int x = rect.x;
+		//		int y = rect.y;
+		//		int x = rect.x+rect.width - 1;
+		//		int y = rect.y+rect.height - 1;
+
+		int monsterType = RandomNumber::getInstance()->randomInt(1, 10);
+		Character* monster;
+		if (monsterType <= 2)
+		{
+			monster = GameActorFactory::getInstance()->getActor("ghost");
+		}
+		else if (monsterType <= 8)
+		{
+			monster = GameActorFactory::getInstance()->getActor("demon");
+		}
+		else
+		{
+			monster = GameActorFactory::getInstance()->getActor("summonWizard");
+		}
+		CCAssert(monster, "get a null monster");
+
+		placeGameActor(x, y, monster);
+	}
 }
 
 void Field::StoreyBuilder::placeGameActorLevel8(const Rect& rect)
 {
+	placeBuilding(rect);
+	//房间内怪物数量(2-5之间)
+	int monsterNumber = RandomNumber::getInstance()->randomInt(2, 5);
+
+	for (int i = 0; i < monsterNumber; i++)
+	{
+		int x = RandomNumber::getInstance()->randomInt(rect.x, rect.x + rect.width - 1);
+		int y = RandomNumber::getInstance()->randomInt(rect.y, rect.y + rect.height - 1);
+
+		//		int x = rect.x;
+		//		int y = rect.y;
+		//		int x = rect.x+rect.width - 1;
+		//		int y = rect.y+rect.height - 1;
+
+		int monsterType = RandomNumber::getInstance()->randomInt(1, 10);
+		Character* monster;
+		if (monsterType <= 6)
+		{
+			monster = GameActorFactory::getInstance()->getActor("demon");
+		}
+		else if (monsterType <= 8)
+		{
+			monster = GameActorFactory::getInstance()->getActor("summonWizard");
+		}
+		else
+		{
+			monster = GameActorFactory::getInstance()->getActor("destroyWizard");
+		}
+		CCAssert(monster, "get a null monster");
+
+		placeGameActor(x, y, monster);
+	}
 }
 
 void Field::StoreyBuilder::placeGameActorLevel9(const Rect& rect)
 {
+	placeBuilding(rect);
+	//房间内怪物数量(2-5之间)
+	int monsterNumber = RandomNumber::getInstance()->randomInt(2, 5);
+
+	for (int i = 0; i < monsterNumber; i++)
+	{
+		int x = RandomNumber::getInstance()->randomInt(rect.x, rect.x + rect.width - 1);
+		int y = RandomNumber::getInstance()->randomInt(rect.y, rect.y + rect.height - 1);
+
+		//		int x = rect.x;
+		//		int y = rect.y;
+		//		int x = rect.x+rect.width - 1;
+		//		int y = rect.y+rect.height - 1;
+
+		int monsterType = RandomNumber::getInstance()->randomInt(1, 10);
+		Character* monster;
+		if (monsterType <= 6)
+		{
+			monster = GameActorFactory::getInstance()->getActor("demon");
+		}
+		else if (monsterType <= 7)
+		{
+			monster = GameActorFactory::getInstance()->getActor("summonWizard");
+		}
+		else
+		{
+			monster = GameActorFactory::getInstance()->getActor("destroyWizard");
+		}
+		CCAssert(monster, "get a null monster");
+
+		placeGameActor(x, y, monster);
+	}
 }
 
 Field::Rect Field::StoreyBuilder::makeRoomRect(int x, int y, Direction dir)

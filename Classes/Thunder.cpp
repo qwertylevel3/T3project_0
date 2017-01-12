@@ -1,4 +1,5 @@
 #include "Thunder.h"
+#include "EffectManager.h"
 #include "ToolFunction.h"
 #include "FixedSelector.h"
 #include "Dungeon.h"
@@ -49,6 +50,11 @@ void Skill::Thunder::run()
 
 	for each (cocos2d::Point coord in coords)
 	{
+		cocos2d::Point targetPosition = storey->getTilePosition(coord);
+
+		EffectManager::getInstance()->showEffect("thunder", targetPosition, 0.3);
+
+
 		Character* targetCharacter = storey->getCharacter(coord);
 		if (targetCharacter)
 		{

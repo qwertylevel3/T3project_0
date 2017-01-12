@@ -83,7 +83,7 @@ void Player::configPlayer()
 	characterPtr->addSkill(L"ExpAdd_经验增加_0_0_10_10_100");
 	characterPtr->addSkill(L"LearnSkill_学习火球术_0_0_FireBall_火球术_5_5_20_5");
 
-	characterPtr->addSkill(L"RandomDirectDamage_死亡一指_10_10_-30_5_2");
+//	characterPtr->addSkill(L"RandomDirectDamage_死亡一指_10_10_-30_5_2");
 
 	setName("qwerty");
 
@@ -133,7 +133,7 @@ void Player::configPlayer()
 	characterPtr->addInventory("supply003");
 	characterPtr->addInventory("supply004");
 	characterPtr->addInventory("supply005");
-	characterPtr->addInventory("skillBook000");
+	characterPtr->addInventory("skillBook001");
 	characterPtr->addInventory("scroll000");
 	characterPtr->addInventory("scroll001");
 	characterPtr->addInventory("sword003");
@@ -142,6 +142,8 @@ void Player::configPlayer()
 	characterPtr->addInventory("accessory003");
 	characterPtr->addInventory("accessory002");
 	characterPtr->addInventory("note000");
+	characterPtr->addInventory("sword011");
+
 
 
 
@@ -160,11 +162,6 @@ void Player::configPlayer()
 
 	std::wstring buffname4 = L"BaseAttrBuff_测试buff_ATTR_Good_2_-1_3_0_0";
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname4));
-
-	//	std::wstring buffname2 = L"VertigoBuff_眩晕_ATTR_Bad_2_10";
-	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
-
-
 
 }
 
