@@ -155,6 +155,7 @@ void KeyController::switchCtrlToDialog()
 {
 	HudMenuSystem::getInstance()->hide();
 	HudPlayerStateMenu::getInstance()->hide();
+	HudMessageBox::getInstance()->hide();
 	HudBar::getInstance()->hide();
 	control = DIALOG;
 }

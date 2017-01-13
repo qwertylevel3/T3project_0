@@ -435,6 +435,20 @@
 		</buffBox>
 	</inventory>
 	<inventory>
+		<type>accessory</type>
+		<name>accessory006</name>
+		<cname>《埃涅阿斯纪》</cname>
+		<tips>Vergil所著史诗</tips>
+		<level>9</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_埃涅阿斯纪1_ATTR_Good_2_-1_0_0_20</buffID>
+			<buffID>MPBuff_埃涅阿斯纪2_OnRoundStart_Good_10_-1_2</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
 		<type>supply</type>
 		<name>supply000</name>
 		<cname>小型生命药水</cname>
@@ -640,6 +654,70 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>10</intRequire>
 		<skillName>Summon_魅魔的召唤_0_0_succubus</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll002</name>
+		<cname>小型经验书</cname>
+		<tips>直接增加经验50</tips>
+		<level>2</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>ExpAdd_经验增加_0_0_50</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll003</name>
+		<cname>经验书</cname>
+		<tips>直接增加经验100</tips>
+		<level>4</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>ExpAdd_经验增加_0_0_100</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll004</name>
+		<cname>大型经验书</cname>
+		<tips>直接增加经验200</tips>
+		<level>6</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>ExpAdd_经验增加_0_0_200</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll005</name>
+		<cname>究极经验书</cname>
+		<tips>直接增加经验400</tips>
+		<level>8</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>ExpAdd_经验增加_0_0_400</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>

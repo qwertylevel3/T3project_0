@@ -164,7 +164,7 @@ void AIVergil::stayCloseAI()
 	if (ToolFunction::isNear4(characterPtr->getMapCoord(), playerCoord))
 	{
 		//player血量低且vergil有魔法,优先治疗
-		if (playerCharacter->getHP() < 50
+		if (playerCharacter->getHP() < playerCharacter->getMaxHP()/2
 			&& characterPtr->getMP() > 20)
 		{
 			changeOrientationTo(playerCharacter);

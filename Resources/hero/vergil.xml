@@ -13,7 +13,7 @@
 	<leftHand>sword012</leftHand>
 	<rightHand>sword007</rightHand>
 	<armor>NULL</armor>
-	<accessory>NULL</accessory>
+	<accessory>accessory006</accessory>
 	<inventoryList>
 		<inventory>sword000</inventory>
 	</inventoryList>

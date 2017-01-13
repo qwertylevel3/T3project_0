@@ -69,6 +69,12 @@ void DialogueDriver::init()
 	textLabel->enableShadow();
 	textLabel->setOpacity(255);
 
+	enterSprite = cocos2d::Sprite::create("sys/enter.png");
+	HudLayer::getInstance()->addChild(enterSprite);
+	enterSprite->setPosition(700, 50);
+	enterSprite->setVisible(false);
+
+
 	OptionCheckMenu::getInstance()->init();
 }
 
@@ -100,6 +106,19 @@ void DialogueDriver::run(Statement* statement)
 	dialogBk->setVisible(true);
 	textLabel->setVisible(true);
 	textLabel->setString(word);
+
+	enterSprite->setLocalZOrder(3);
+	enterSprite->stopAllActions();
+	enterSprite->setVisible(true);
+	enterSprite->runAction(
+		cocos2d::RepeatForever::create(
+			cocos2d::Sequence::create(
+				cocos2d::MoveBy::create(1,cocos2d::Vec2(0,-5)),
+				cocos2d::MoveBy::create(0.01,cocos2d::Vec2(0,5)),
+				NULL
+			)
+		)
+	);
 }
 
 void DialogueDriver::run(Question* question)
@@ -179,6 +198,7 @@ void DialogueDriver::endDialogue(int endResult)
 {
 	dialogBk->setVisible(false);
 	textLabel->setVisible(false);
+	enterSprite->setVisible(false);
 
 	std::string actorSpriteName = curSentence->getActorSpriteName();
 	//	actorSpriteBox[actorSpriteName]->setVisible(false);
@@ -190,5 +210,4 @@ void DialogueDriver::endDialogue(int endResult)
 	{
 		curActor->handleDialogueResult(curDialogue->getName(), endResult);
 	}
-	HudMessageBox::getInstance()->show();
 }

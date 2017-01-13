@@ -74,6 +74,9 @@ void OptionCheckMenu::run(Question* question)
 	KeyController::getInstance()->switchCtrlToOption();
 	HudCursor::getInstance()->setCurMenu(this);
 
+	//选择初始化为第一个
+	chooseItem(0);
+
 	show();
 }
 

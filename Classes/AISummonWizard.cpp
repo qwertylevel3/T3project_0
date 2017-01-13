@@ -21,7 +21,7 @@ void AISummonWizard::update()
 	Character* targetCharacter = searchTargetBFS(Character::Good);
 	if (targetCharacter)
 	{
-		if (characterPtr->getChantCount() >= 10
+		if (characterPtr->getChantCount() >= 20
 			&& characterPtr->getMP() >= 60)
 		{
 			//ря╬╜рВЁ╙грд╖╥╗ЁДвЦ

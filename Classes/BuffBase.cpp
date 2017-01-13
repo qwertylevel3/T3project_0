@@ -65,9 +65,16 @@ bool Buff::BuffBase::isActive()
 
 std::string Buff::BuffBase::getDurationDescriptionStr()
 {
-	return ToolFunction::WStr2UTF8(L"剩余")
-		+ ToolFunction::int2string(duration)
-		+ ToolFunction::WStr2UTF8(L"回合\n");
+	if (duration == -1)
+	{
+		return ToolFunction::WStr2UTF8(L"持续效果\n");
+	}
+	else
+	{
+		return ToolFunction::WStr2UTF8(L"剩余")
+			+ ToolFunction::int2string(duration)
+			+ ToolFunction::WStr2UTF8(L"回合\n");
+	}
 }
 
 void Buff::BuffBase::initBaseMessage(std::vector<std::string> baseMessage)
@@ -79,7 +86,6 @@ void Buff::BuffBase::initBaseMessage(std::vector<std::string> baseMessage)
 	initDuration(baseMessage[4]);
 }
 
-
 void Buff::BuffBase::initCname(std::string cnameStr)
 {
 	cname = cnameStr;
@@ -87,7 +93,7 @@ void Buff::BuffBase::initCname(std::string cnameStr)
 
 void Buff::BuffBase::initTrigType(const std::string& trigTypeStr)
 {
-	if (trigTypeStr=="ATTR")
+	if (trigTypeStr == "ATTR")
 	{
 		trigType = ATTR;
 	}

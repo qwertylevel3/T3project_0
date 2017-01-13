@@ -32,7 +32,7 @@ void DialogueFactory::init()
 
 		Statement* sentence = new Statement();
 
-		sentence->setActorSpriteName("null");
+		sentence->setActorSpriteName("NULL");
 		sentence->setWord("error");
 		sentence->setNextIndex(-1);
 

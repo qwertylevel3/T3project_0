@@ -24,7 +24,6 @@ void DialogueSystem::init()
 void DialogueSystem::runDialogue(const std::string& dialogueName,Character* actor)
 {
 	KeyController::getInstance()->switchCtrlToDialog();
-	HudMessageBox::getInstance()->hide();
 	if (actor)
 	{
 		setCurActor(actor);

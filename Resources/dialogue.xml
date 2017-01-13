@@ -132,7 +132,7 @@
 		<sentence>
 			<type>statement</type>
 			<actorName>dialogueVergil3.png</actorName>
-			<word>关键时刻聊个啥啊，把头伸过来，姐给你加个Buff</word>
+			<word>关键时刻聊个啥啊，把头伸过来，我给你加个Buff</word>
 			<next>-1</next>
 		</sentence>
 	</dialogue>
@@ -185,7 +185,7 @@
 				</option>
 				<option>
 					<label>姐姐不要</label>
-					<next>-1</next>
+					<next>-2</next>
 				</option>
 			</optionList>
 		</sentence>
@@ -228,7 +228,7 @@
 		<sentence>
 			<type>statement</type>
 			<actorName>NULL</actorName>
-			<word>你感觉眼前一黑，失去了知觉</word>
+			<word>你眼前一黑，失去了知觉</word>
 			<next>-1</next>
 		</sentence>
 	</dialogue>

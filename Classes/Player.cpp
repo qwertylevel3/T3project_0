@@ -80,7 +80,7 @@ void Player::configPlayer()
 	characterPtr->addSkill(L"BlinkSelf_闪烁_20_10_3");
 	characterPtr->addSkill(L"Repel_击退_20_10_3_10");
 	characterPtr->addSkill(L"Thunder_闪电_20_10_-30");
-	characterPtr->addSkill(L"ExpAdd_经验增加_0_0_10_10_100");
+	characterPtr->addSkill(L"ExpAdd_经验增加_0_0_100");
 	characterPtr->addSkill(L"LearnSkill_学习火球术_0_0_FireBall_火球术_5_5_-20_5");
 
 //	characterPtr->addSkill(L"RandomDirectDamage_死亡一指_10_10_-30_5_2");
@@ -136,11 +136,14 @@ void Player::configPlayer()
 	characterPtr->addInventory("skillBook001");
 	characterPtr->addInventory("scroll000");
 	characterPtr->addInventory("scroll001");
+	characterPtr->addInventory("scroll004");
+
 	characterPtr->addInventory("sword003");
 	characterPtr->addInventory("armor000");
 	characterPtr->addInventory("armor006");
 	characterPtr->addInventory("accessory003");
 	characterPtr->addInventory("accessory002");
+	characterPtr->addInventory("accessory006");
 	characterPtr->addInventory("note000");
 	characterPtr->addInventory("sword011");
 
@@ -148,7 +151,7 @@ void Player::configPlayer()
 
 
 	//////////////////////////////////////////////////////////////////////////
-	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_20_100";
+	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_-1_100";
 	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname0));
 
 	std::wstring buffname1 = L"ChantBuff_自动吟唱_OnRoundStart_Good_10_20_1";

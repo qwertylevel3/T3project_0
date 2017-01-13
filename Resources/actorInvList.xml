@@ -14,4 +14,25 @@
 			</inventory>
 		</list>
 	</inventoryList>
+	<inventoryList>
+		<actorName>ghost</actorName>
+		<list>
+			<inventory>
+				<inventoryID>supply000</inventoryID>
+				<pro>50</pro>
+			</inventory>
+			<inventory>
+				<inventoryID>supply001</inventoryID>
+				<pro>50</pro>
+			</inventory>
+			<inventory>
+				<inventoryID>supply002</inventoryID>
+				<pro>10</pro>
+			</inventory>
+			<inventory>
+				<inventoryID>supply003</inventoryID>
+				<pro>10</pro>
+			</inventory>
+		</list>
+	</inventoryList>
 </allList>

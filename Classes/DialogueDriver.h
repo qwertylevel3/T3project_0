@@ -30,11 +30,13 @@ protected:
 	cocos2d::ui::Scale9Sprite* dialogBk;
 	cocos2d::Label* textLabel;
 	cocos2d::Sprite* actorSprite;
+	cocos2d::Sprite* enterSprite;
 
 	int nextSentence();
 	int curIndex;
 	Dialogue* curDialogue;
 	Sentence* curSentence;
 	Character* curActor;
+ 
 };
 

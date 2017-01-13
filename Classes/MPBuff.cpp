@@ -29,7 +29,8 @@ std::string Buff::MPBuff::getDescription()
 {
 	return ToolFunction::WStr2UTF8(L"每回合开始")
 		+ (effectValue > 0 ? "+" : "")
-		+ ToolFunction::int2string(effectValue);
+		+ ToolFunction::int2string(effectValue)
+		+ ToolFunction::WStr2UTF8(L"法力值");
 }
 
 void Buff::MPBuff::initExtraMessage(std::vector<std::string> baseMessage)
