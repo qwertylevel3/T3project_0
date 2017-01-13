@@ -7,5 +7,6 @@ class HudGroundInventoryMenu:public HudMenu
 public:
 	HudGroundInventoryMenu();
 	~HudGroundInventoryMenu();
+	void show();
 };
 

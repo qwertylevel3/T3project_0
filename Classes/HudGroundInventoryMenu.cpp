@@ -1,4 +1,5 @@
 #include "HudGroundInventoryMenu.h"
+#include "HudDescriptionMenu.h"
 #include "HudLayout.h"
 #include "HudMenuItem.h"
 #include "ToolFunction.h"
@@ -24,4 +25,10 @@ HudGroundInventoryMenu::HudGroundInventoryMenu()
 
 HudGroundInventoryMenu::~HudGroundInventoryMenu()
 {
+}
+
+void HudGroundInventoryMenu::show()
+{
+	HudMenu::show();
+	HudDescriptionMenu::getInstance()->hide();
 }

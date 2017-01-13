@@ -67,6 +67,7 @@ void HudInventoryMenu::update()
 	if (itemList.empty())
 	{
 		HudMenuItem* emptyItem = new HudMenuItem("empty");
+		HudDescriptionMenu::getInstance()->setDescription(L"empty");
 		this->addItem(emptyItem);
 	}
 	HudCursor::getInstance()->setCurMenu(this);
