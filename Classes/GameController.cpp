@@ -63,7 +63,7 @@ void GameController::startMission()
 	RoundSystem::getInstance()->clear();
 
 	Field::Dungeon::getInstance()->generate(curLevel);
-//		Field::Dungeon::getInstance()->writeToFile();
+		Field::Dungeon::getInstance()->writeToFile();
 
 	Player::getInstance()->initMission();
 	HeroManager::getInstance()->initMission();

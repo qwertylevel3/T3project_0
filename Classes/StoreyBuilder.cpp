@@ -712,19 +712,30 @@ void Field::StoreyBuilder::placeSpecialTile(const Rect& rect)
 
 void Field::StoreyBuilder::placeGameActor(int x, int y, Character* character)
 {
-	cocos2d::Point tempCoord;
-	//如果该点已近被占用，找一个附近的点
-	tempCoord = ToolFunction::findValidPlaceWithoutTrap(
-		storey,
-		cocos2d::Point(x, y)
-	);
-
-	//附近有合适的点
-	if (tempCoord.x != x || tempCoord.y != y)
+	cocos2d::Point coord(x, y);
+	if (storey->isValid(coord)
+		&& storey->isMoveAble(coord)
+		&& storey->getCharacter(coord) == nullptr
+		&& storey->getTile(coord.x, coord.y) != Field::Trap)
 	{
-		storey->addCharacter(tempCoord.x, tempCoord.y, character);
+		storey->addCharacter(coord.x, coord.y, character);
 	}
-	//如果没有直接退出，不放置这个character
+	else
+	{
+		cocos2d::Point tempCoord;
+		//如果该点已近被占用，找一个附近的点
+		tempCoord = ToolFunction::findValidPlaceWithoutTrap(
+			storey,
+			cocos2d::Point(x, y)
+		);
+
+		//附近有合适的点
+		if (tempCoord.x != x || tempCoord.y != y)
+		{
+			storey->addCharacter(tempCoord.x, tempCoord.y, character);
+		}
+		//如果没有直接退出，不放置这个character
+	}
 }
 
 void Field::StoreyBuilder::placeBuilding(const Rect& rect)
@@ -790,6 +801,47 @@ void Field::StoreyBuilder::placeFeatureForRoom()
 		Character* portal = GameActorFactory::getInstance()->getActor("portal");
 		CCAssert(portal, "get a null portal");
 		storey->addCharacter(storey->getDownCoord().x, storey->getDownCoord().y, portal);
+	}
+
+	//设置宝箱
+	for (int i = 1; i < storey->getWidth() - 1; i++)
+	{
+		for (int j = 1; j < storey->getHeight() - 1; j++)
+		{
+			if (storey->getTile(i, j) == Field::Floor)
+			{
+				int count = 0;
+				if (storey->getTile(i - 1, j) == Field::Wall)
+				{
+					count++;
+				}
+				if (storey->getTile(i + 1, j) == Field::Wall)
+				{
+					count++;
+				}
+				if (storey->getTile(i, j - 1) == Field::Wall)
+				{
+					count++;
+				}
+				if (storey->getTile(i, j + 1) == Field::Wall)
+				{
+					count++;
+				}
+
+				if (count == 3)
+				{
+					int roll = RandomNumber::getInstance()->randomInt(1, 10);
+					if (roll == 1)
+					{
+						continue;
+					}
+					Character* chest = GameActorFactory::getInstance()->getActor("chest");
+					CCAssert(chest, "get a null chest");
+
+					placeGameActor(i, j, chest);
+				}
+			}
+		}
 	}
 
 	for each (Rect room in rooms)
