@@ -37,10 +37,6 @@ void HudPlayerStateMenu::init()
 
 	HudLayer::getInstance()->addChild(bk);
 
-	playerNameLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
-	playerNameLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
-	bk->addChild(playerNameLabel);
-
 	hpLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 16);
 	hpLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 	bk->addChild(hpLabel);
@@ -106,12 +102,6 @@ void HudPlayerStateMenu::update()
 	Character* characterPtr = Player::getInstance()->getcharacterPtr();
 
 	//////////////////////////////////////////////////////////////////////////
-
-	std::string playerName = Player::getInstance()->getName();
-	playerNameLabel->setString(
-		ToolFunction::WStr2UTF8(L"Íæ¼ÒÃû:") +
-		playerName
-	);
 
 	std::string maxHP = ToolFunction::int2string(characterPtr->getMaxHP());
 	std::string HP = ToolFunction::int2string(characterPtr->getHP());
@@ -204,10 +194,9 @@ void HudPlayerStateMenu::setPosition()
 {
 	//	bk->setPosition(bk->getTexture()->getPixelsWide() / 2, bk->getTexture()->getPixelsHigh() / 2);
 
-	playerNameLabel->setPosition(30, 130);
-	hpLabel->setPosition(30, 100);
-	mpLabel->setPosition(30, 70);
-	chantLabel->setPosition(30, 40);
+	hpLabel->setPosition(30, 130);
+	mpLabel->setPosition(30, 100);
+	chantLabel->setPosition(30, 70);
 
 	strLabel->setPosition(170, 130);
 	agiLabel->setPosition(170, 100);

@@ -33,6 +33,22 @@
 				<inventoryID>supply003</inventoryID>
 				<pro>10</pro>
 			</inventory>
+			<inventory>
+				<inventoryID>scroll000</inventoryID>
+				<pro>5</pro>
+			</inventory>
+			<inventory>
+				<inventoryID>scroll001</inventoryID>
+				<pro>1</pro>
+			</inventory>
+			<inventory>
+				<inventoryID>scroll004</inventoryID>
+				<pro>20</pro>
+			</inventory>
+			<inventory>
+				<inventoryID>scroll005</inventoryID>
+				<pro>20</pro>
+			</inventory>
 		</list>
 	</inventoryList>
 </allList>

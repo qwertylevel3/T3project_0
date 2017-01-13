@@ -19,7 +19,6 @@ protected:
 //	cocos2d::Sprite* bk;
 	cocos2d::ui::Layout* bk;
 
-	cocos2d::Label* playerNameLabel;
 	cocos2d::Label* hpLabel;
 	cocos2d::Label* mpLabel;
 	cocos2d::Label* chantLabel;

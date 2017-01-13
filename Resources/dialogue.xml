@@ -79,10 +79,6 @@
 					<next>-5</next>
 				</option>
 				<option>
-					<label>有什么好东西么</label>
-					<next>-6</next>
-				</option>
-				<option>
 					<label>看看现在的状态</label>
 					<next>-7</next>
 				</option>

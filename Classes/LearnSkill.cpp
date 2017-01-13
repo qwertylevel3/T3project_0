@@ -1,4 +1,5 @@
 #include "LearnSkill.h"
+#include "HudMessageBox.h"
 #include "ToolFunction.h"
 #include "SkillFactory.h"
 #include "Character.h"
@@ -20,6 +21,15 @@ void Skill::LearnSkill::run()
 {
 	caster->addSkill(
 		skillID
+	);
+
+	std::string casterName = caster->getName();
+	std::string skillName = SkillFactory::getInstance()->querySkillCname(skillID);
+
+	HudMessageBox::getInstance()->addMessage(
+		casterName +
+		ToolFunction::WStr2UTF8(L"я╖о╟ак") +
+		skillName
 	);
 }
 

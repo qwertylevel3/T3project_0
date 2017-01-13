@@ -1,4 +1,5 @@
 #include "HudExchangeInventorySystem.h"
+#include "HudMessageBox.h"
 #include "HudLayer.h"
 #include "HudLayer.h"
 #include "KeyController.h"
@@ -54,8 +55,12 @@ void HudExchangeInventoryMenu::update()
 	{
 		std::string cname = InventoryFactory::getInstance()->queryCname(iter->first);
 		std::string count = ToolFunction::int2string(iter->second);
+		std::string weight = ToolFunction::int2string(InventoryFactory::getInstance()->queryInventoryWeight(iter->first));
 
-		HudMenuItem* inventoryItem = new HudMenuItem(cname + " x" + count);
+		HudMenuItem* inventoryItem = new HudMenuItem(
+			cname + " x" + count+
+			"["+weight+"kg]"
+		);
 
 		setItemTrigger(inventoryItem);
 		this->addItem(inventoryItem);
@@ -159,8 +164,19 @@ void HudExchangeInventorySystem::AgiveB()
 	int curIndex = menuA->getCurIndex();
 
 	std::string inventoryName = characterA->queryInventoryNameByIndex(curIndex);
-	characterA->removeInventory(inventoryName);
 
+
+	int curWeight = characterB->getWeight();
+	int curSumWeight = characterB->getSumWeight();
+	int inventoryWeight = InventoryFactory::getInstance()->queryInventoryWeight(inventoryName);
+
+	if (curSumWeight+inventoryWeight>curWeight)
+	{
+		HudMessageBox::getInstance()->addMessage(L"超出对方负重上限");
+		return;
+	}
+
+	characterA->removeInventory(inventoryName);
 	characterB->addInventory(inventoryName);
 
 	menuA->update();

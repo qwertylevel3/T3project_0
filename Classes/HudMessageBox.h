@@ -19,6 +19,7 @@ public:
 	void show();
 	void hide();
 	void addMessage(std::wstring message);
+	void addMessage(std::string message);
 protected:
 	void formatMessageBox();
 

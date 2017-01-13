@@ -1,4 +1,5 @@
 #include "AIBlackSnack.h"
+#include "HudMessageBox.h"
 #include "ToolFunction.h"
 #include "RandomNumber.h"
 #include "BuffHandler.h"
@@ -29,15 +30,20 @@ void AIBlackSnack::update()
 		{
 			Buff::BuffHandler* targetBuffHandler = targetCharacter->getBuffHandler();
 			if (!targetBuffHandler->exist(
-				ToolFunction::WStr2UTF8(L"ViewSizeBuff_ÖÂÃ¤_ATTR_Bad_1_5_-3")))
+				ToolFunction::WStr2UTF8(L"ViewSizeBuff_ÖÂÃ¤_ATTR_Bad_1_10_-3")))
 			{
 				//Èç¹ûµ±Ç°Ä¿±êÃ»ÓÐÖÂÃ¤
 				//ÒÑÒ÷³ª
 				if (characterPtr->getChantCount() >= 1)
 				{
 					characterPtr->runSkill(
-						ToolFunction::WStr2UTF8(L"BuffCast_ÖÂÃ¤_0_0_ViewSizeBuff_ÖÂÃ¤_ATTR_Bad_1_5_-3")
+						ToolFunction::WStr2UTF8(L"BuffCast_ÖÂÃ¤_0_0_ViewSizeBuff_ÖÂÃ¤_ATTR_Bad_1_10_-3")
 					);
+					HudMessageBox::getInstance()->addMessage(
+						targetCharacter->getName()+
+						ToolFunction::WStr2UTF8(L"ÖÐÁËÖÂÃ¤buff")
+					);
+
 				}
 				else if (RandomNumber::getInstance()->randomBool(0.9))
 				{

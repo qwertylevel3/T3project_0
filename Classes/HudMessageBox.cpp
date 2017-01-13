@@ -66,6 +66,27 @@ void HudMessageBox::addMessage(std::wstring message)
 	formatMessageBox();
 }
 
+void HudMessageBox::addMessage(std::string message)
+{
+	cocos2d::Label* messageLabel = cocos2d::Label::createWithTTF(message, "fonts/arialuni.ttf", 16);
+	messageLabel->setMaxLineWidth(280);
+	messageLabel->setWidth(280);
+	messageLabel->setHorizontalAlignment(cocos2d::TextHAlignment::LEFT);
+
+	if (messageBox.size()==maxMessageNumber)
+	{
+		cocos2d::Label* lastLabel = messageBox.front();
+		messageBox.erase(messageBox.begin());
+		lastLabel->removeFromParent();
+	}
+	
+	messageBox.push_back(messageLabel);
+//	HudLayer::getInstance()->addChild(messageLabel);
+	bk->addChild(messageLabel);
+
+	formatMessageBox();
+}
+
 void HudMessageBox::formatMessageBox()
 {
 	int count = 0;

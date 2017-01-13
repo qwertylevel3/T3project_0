@@ -34,6 +34,7 @@ void Player::init()
 	characterPtr = CharacterFactory::getInstance()->getCharacter("player");
 	characterPtr->setAI("AIPlayer");
 
+
 	configPlayer();
 
 }
@@ -85,7 +86,7 @@ void Player::configPlayer()
 
 //	characterPtr->addSkill(L"RandomDirectDamage_ËÀÍöÒ»Ö¸_10_10_-30_5_2");
 
-	setName("qwerty");
+	setName(ToolFunction::WStr2UTF8(L"Äã"));
 
 	controlMode = NormalMode;
 
