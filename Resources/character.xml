@@ -146,6 +146,42 @@
 		</standRightAnimation>
 	</character>
 	<character>
+		<name>sslime</name>
+		<firstFrame>sslime1.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>sslime4.png</frameName>
+			<frameName>sslime5.png</frameName>
+			<frameName>sslime6.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>sslime1.png</frameName>
+			<frameName>sslime2.png</frameName>
+			<frameName>sslime3.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>sslime7.png</frameName>
+			<frameName>sslime8.png</frameName>
+			<frameName>sslime9.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>sslime10.png</frameName>
+			<frameName>sslime11.png</frameName>
+			<frameName>sslime12.png</frameName>
+		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>sslime4.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>sslime1.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>sslime7.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>sslime10.png</frameName>
+		</standRightAnimation>
+	</character>
+	<character>
 		<name>slime</name>
 		<firstFrame>slime1.png</firstFrame>
 		<moveUpAnimation>

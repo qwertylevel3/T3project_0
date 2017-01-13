@@ -51,4 +51,37 @@
 			</inventory>
 		</list>
 	</inventoryList>
+	<inventoryList>
+		<actorName>ents</actorName>
+		<list>
+			<inventory>
+				<inventoryID>scroll005</inventoryID>
+				<pro>80</pro>
+			</inventory>
+			<inventory>
+				<inventoryID>scroll0010</inventoryID>
+				<pro>20</pro>
+			</inventory>
+			<inventory>
+				<inventoryID>scroll0011</inventoryID>
+				<pro>20</pro>
+			</inventory>
+			<inventory>
+				<inventoryID>scroll0012</inventoryID>
+				<pro>40</pro>
+			</inventory>
+			<inventory>
+				<inventoryID>scroll0013</inventoryID>
+				<pro>20</pro>
+			</inventory>
+			<inventory>
+				<inventoryID>scroll0014</inventoryID>
+				<pro>20</pro>
+			</inventory>
+			<inventory>
+				<inventoryID>accessory007</inventoryID>
+				<pro>5</pro>
+			</inventory>
+		</list>
+	</inventoryList>
 </allList>

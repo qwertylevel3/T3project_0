@@ -252,6 +252,25 @@
 		</sphereBox>
 	</inventory>
 	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword013</name>
+		<cname>荆棘藤蔓</cname>
+		<tips>带刺的鞭子</tips>
+		<level>4</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>CriticalProBuff_荆棘藤蔓_ATTR_Good_4_-1_9</buffID>
+		</buffBox>
+		<weaponDamage>7</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
 		<type>armor</type>
 		<name>armor000</name>
 		<cname>运动衫</cname>
@@ -446,6 +465,19 @@
 		<buffBox>
 			<buffID>BaseAttrBuff_埃涅阿斯纪1_ATTR_Good_2_-1_0_0_20</buffID>
 			<buffID>MPBuff_埃涅阿斯纪2_OnRoundStart_Good_10_-1_2</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory007</name>
+		<cname>荆棘之心</cname>
+		<tips>无畏之心</tips>
+		<level>6</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>ComboProBuff_荆棘之心_ATTR_Good_4_-1_15</buffID>
 		</buffBox>
 	</inventory>
 	<inventory>
@@ -958,6 +990,22 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>16</intRequire>
 		<skillName>BuffSelf_魔法回复_0_0_MPBuff_魔法回复_OnRoundStart_Good_10_40_10</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll017</name>
+		<cname>蓝色魔法卷轴</cname>
+		<tips>史莱姆召唤</tips>
+		<level>3</level>
+		<price>3</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>12</intRequire>
+		<skillName>Summon_slime的召唤_0_0_sslime</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
