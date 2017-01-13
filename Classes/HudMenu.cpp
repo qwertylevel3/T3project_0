@@ -81,6 +81,11 @@ void HudMenu::handleRight()
 	activeChildMenu(itemIndex);
 }
 
+void HudMenu::handleEnter()
+{
+	activeChildMenu(itemIndex);
+}
+
 int HudMenu::getCurIndex()
 {
 	return itemIndex;

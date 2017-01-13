@@ -38,6 +38,14 @@ void OptionCheckMenu::handleRight()
 	DialogueDriver::getInstance()->handleKeyPressed(cocos2d::EventKeyboard::KeyCode::KEY_ENTER);
 }
 
+void OptionCheckMenu::handleEnter()
+{
+	HudMenu::handleEnter();
+	KeyController::getInstance()->switchCtrlToDialog();
+	hide();
+	DialogueDriver::getInstance()->handleKeyPressed(cocos2d::EventKeyboard::KeyCode::KEY_ENTER);
+}
+
 void OptionCheckMenu::show()
 {
 	HudMenu::show();

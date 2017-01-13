@@ -670,7 +670,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>ExpAdd_经验增加_0_0_50</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>3</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -686,7 +686,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>ExpAdd_经验增加_0_0_100</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>3</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -702,7 +702,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>ExpAdd_经验增加_0_0_200</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>3</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -718,7 +718,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>ExpAdd_经验增加_0_0_400</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>3</supplyType>
 	</inventory>
 	<inventory>
 		<type>note</type>

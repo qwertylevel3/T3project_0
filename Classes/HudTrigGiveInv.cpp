@@ -14,5 +14,5 @@ HudTrigGiveInv::~HudTrigGiveInv()
 
 void HudTrigGiveInv::run()
 {
-		HudExchangeInventorySystem::getInstance()->AgiveB();
+		HudExchangeInventorySystem::getInstance()->give();
 }

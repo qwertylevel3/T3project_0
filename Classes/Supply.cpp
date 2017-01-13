@@ -1,4 +1,5 @@
 #include "Supply.h"
+#include "ToolFunction.h"
 #include "Character.h"
 
 
@@ -42,10 +43,23 @@ void Supply::setSupplyType(int typeID)
 	}
 	else if (typeID==2)
 	{
+		supplyType = MagicSupply;
+	}
+	else if (typeID==3)
+	{
 		supplyType = OtherSupply;
+	}
+}
+
+std::string Supply::getExtraDescription()
+{
+	if (supplyType==MagicSupply)
+	{
+		return ToolFunction::WStr2UTF8(L"÷«¡¶–Ë«Û£∫") +
+			ToolFunction::int2string(intRequire);
 	}
 	else
 	{
-		supplyType = OtherSupply;
+		return "";
 	}
 }

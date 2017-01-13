@@ -19,6 +19,8 @@ public:
 	virtual void handleUp();
 	virtual void handleDown();
 	virtual void handleRight();
+	virtual void handleEnter();
+
 
 	void show();
 	void hide();

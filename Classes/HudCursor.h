@@ -24,6 +24,7 @@ public:
 	void handleRight();
 	void handleUp();
 	void handleDown();
+	void handleEnter();
 	void showAnimation();
 
 protected:

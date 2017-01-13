@@ -27,6 +27,8 @@ void HudCursor::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 	switch (keyCode)
 	{
 	case EventKeyboard::KeyCode::KEY_ENTER:
+		handleEnter();
+		break;
 	case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
 		handleRight();
 		break;
@@ -104,6 +106,11 @@ void HudCursor::handleUp()
 void HudCursor::handleDown()
 {
 	curMenu->handleDown();
+}
+
+void HudCursor::handleEnter()
+{
+	curMenu->handleEnter();
 }
 
 void HudCursor::showAnimation()

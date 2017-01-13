@@ -19,6 +19,7 @@ public:
 	virtual void handleDown();
 	virtual void handleLeft();
 	virtual void handleRight();
+	virtual void handleEnter();
 
 	int getCurIndex();
 

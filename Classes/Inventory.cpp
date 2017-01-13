@@ -95,7 +95,7 @@ std::string Inventory::getBaseDescription()
 {
 	std::string description;
 
-	description += tips+"\n";
+	description += tips+"\n\n";
 
 	if (!getAllInventoryBuff().empty())
 	{
