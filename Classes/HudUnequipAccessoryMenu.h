@@ -7,5 +7,6 @@ class HudUnequipAccessoryMenu:public HudMenu
 public:
 	HudUnequipAccessoryMenu();
 	~HudUnequipAccessoryMenu();
+	void show();
 };
 

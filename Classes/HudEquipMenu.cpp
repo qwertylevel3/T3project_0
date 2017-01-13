@@ -1,4 +1,5 @@
 #include "HudEquipMenu.h"
+#include "HudDescriptionMenu.h"
 #include "HudUnequipAccessoryMenu.h"
 #include "HudUnequipArmorMenu.h"
 #include "Player.h"
@@ -14,11 +15,9 @@
 #include "HudUnequipRightMenu.h"
 #include "HudCursor.h"
 
-
-
 HudEquipMenu::HudEquipMenu()
 	:HudMenu(cocos2d::Rect(
-		0,0,
+		0, 0,
 		HudLayout::getInstance()->getMediumMenuSize().width,
 		HudLayout::getInstance()->getMediumMenuSize().height))
 {
@@ -32,7 +31,6 @@ HudEquipMenu::~HudEquipMenu()
 
 void HudEquipMenu::init()
 {
-
 }
 
 void HudEquipMenu::addItem(HudMenuItem* item)
@@ -61,7 +59,6 @@ void HudEquipMenu::update()
 	rightInventoryLabel = ToolFunction::WStr2UTF8(L"ÓÒÊÖ:") + rightInventoryLabel;
 	armorLabel = ToolFunction::WStr2UTF8(L"»¤¼×:") + armorLabel;
 	accessoryLabel = ToolFunction::WStr2UTF8(L"¸½¼ş:") + accessoryLabel;
-
 
 	//////////////////////////////////////////////////////////////////////////
 
@@ -106,7 +103,58 @@ void HudEquipMenu::update()
 	this->addItem(armorInventoryItem);
 	this->addItem(accessoryInventoryItem);
 
-
 	HudCursor::getInstance()->setCurMenu(this);
 }
 
+void HudEquipMenu::chooseItem(int index)
+{
+	HudMenu::chooseItem(index);
+
+	Inventory* curInventory;
+
+	switch (index)
+	{
+	case 0:
+		curInventory = Player::getInstance()->getcharacterPtr()->getLeftHand();
+		break;
+	case 1:
+		curInventory = Player::getInstance()->getcharacterPtr()->getRightHand();
+		break;
+	case 2:
+		curInventory = Player::getInstance()->getcharacterPtr()->getArmor();
+		break;
+	case 3:
+		curInventory = Player::getInstance()->getcharacterPtr()->getAccessory();
+		break;
+	default:
+		break;
+	}
+
+	if (curInventory == nullptr)
+	{
+		HudDescriptionMenu::getInstance()->setDescription(L"empty");
+	}
+	else
+	{
+		HudDescriptionMenu::getInstance()->setDescription(
+			curInventory->getDescription()
+		);
+	}
+
+	if (layout->isVisible())
+	{
+		HudDescriptionMenu::getInstance()->show();
+	}
+}
+
+void HudEquipMenu::show()
+{
+	HudMenu::show();
+	HudDescriptionMenu::getInstance()->show();
+}
+
+void HudEquipMenu::hide()
+{
+	HudMenu::hide();
+	HudDescriptionMenu::getInstance()->hide();
+}

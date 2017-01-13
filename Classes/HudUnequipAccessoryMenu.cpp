@@ -1,4 +1,5 @@
 #include "HudUnequipAccessoryMenu.h"
+#include "HudDescriptionMenu.h"
 #include "ToolFunction.h"
 #include "HudTrigUnequipAccessory.h"
 #include "HudLayout.h"
@@ -29,4 +30,10 @@ HudUnequipAccessoryMenu::HudUnequipAccessoryMenu()
 
 HudUnequipAccessoryMenu::~HudUnequipAccessoryMenu()
 {
+}
+
+void HudUnequipAccessoryMenu::show()
+{
+	HudMenu::show();
+	HudDescriptionMenu::getInstance()->hide();
 }

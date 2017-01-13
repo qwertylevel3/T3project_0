@@ -11,5 +11,8 @@ public:
 	void init();
 	void addItem(HudMenuItem* item);
 	void update();
+	void chooseItem(int index);
+	void show();
+	void hide();
 };
 

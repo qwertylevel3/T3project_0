@@ -1,4 +1,5 @@
 #include "HudUnequipArmorMenu.h"
+#include "HudDescriptionMenu.h"
 #include "ToolFunction.h"
 #include "HudTrigUnequipArmor.h"
 #include "HudLayout.h"
@@ -28,4 +29,10 @@ HudUnequipArmorMenu::HudUnequipArmorMenu()
 
 HudUnequipArmorMenu::~HudUnequipArmorMenu()
 {
+}
+
+void HudUnequipArmorMenu::show()
+{
+	HudMenu::show();
+	HudDescriptionMenu::getInstance()->hide();
 }

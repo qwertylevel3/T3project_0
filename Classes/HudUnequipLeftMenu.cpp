@@ -1,4 +1,5 @@
 #include "HudUnequipLeftMenu.h"
+#include "HudDescriptionMenu.h"
 #include "HudLayout.h"
 #include "HudMenuItem.h"
 #include "ToolFunction.h"
@@ -25,4 +26,10 @@ HudUnequipLeftMenu::HudUnequipLeftMenu()
 
 HudUnequipLeftMenu::~HudUnequipLeftMenu()
 {
+}
+
+void HudUnequipLeftMenu::show()
+{
+	HudMenu::show();
+	HudDescriptionMenu::getInstance()->hide();
 }
