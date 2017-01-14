@@ -31,8 +31,6 @@ void AIStatue::feedback(Character* character)
 		character->sufferMPEffect(100);
 		count--;
 	}
-	Character * playerCharacterPtr = Player::getInstance()->getcharacterPtr();
-	ExpHandler* expHandler = playerCharacterPtr->getExphandler();
 	DialogueSystem::getInstance()->runDialogue("statueTalk", this->characterPtr);
 }
 
@@ -85,7 +83,7 @@ void AIStatue::handlePray()
 	//祈祷
 	if (Player::getInstance()->getFaithValue() < 10)
 	{
-		characterPtr->speak(L"信仰不足");
+		DialogueSystem::getInstance()->runDialogue("noFaith", characterPtr);
 	}
 	else
 	{
@@ -107,7 +105,7 @@ void AIStatue::handleLevelUp()
 	}
 	else
 	{
-		characterPtr->speak(L"没有属性点");
+		DialogueSystem::getInstance()->runDialogue("noAttrPoint", this->characterPtr);
 	}
 	
 }

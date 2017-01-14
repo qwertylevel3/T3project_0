@@ -96,7 +96,7 @@ bool StoreyBuilder::createFeature()
 
 bool StoreyBuilder::createFeature(int x, int y, Direction dir)
 {
-	static const int roomChance = 80; // corridorChance = 100 - roomChance
+	static const int roomChance = 90; // corridorChance = 100 - roomChance
 
 	int dx = 0;
 	int dy = 0;

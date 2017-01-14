@@ -145,7 +145,7 @@ bool RoundSystem::isPlayer(Character* character)
 
 void RoundSystem::round()
 {
-//	CCASSERT(!allCharacter.empty(), "empty character list in roundSys");
+	//	CCASSERT(!allCharacter.empty(), "empty character list in roundSys");
 
 	if (allCharacter.empty())
 	{
@@ -153,8 +153,12 @@ void RoundSystem::round()
 	}
 
 	Character* curCharacter = allCharacter[curIndex];
-	curCharacter->startRound();
-	curCharacter->update();
+
+	if (!curCharacter->isDead())
+	{
+		curCharacter->startRound();
+		curCharacter->update();
+	}
 
 	RoundHandler* roundHandler = allCharacter[curIndex]->getRoundHandler();
 

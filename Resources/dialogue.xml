@@ -250,4 +250,22 @@
 			</optionList>
 		</sentence>
 	</dialogue>
+	<dialogue>
+		<name>noAttrPoint</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>没有属性点</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>noFaith</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>信仰值不足</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
 </dialogueBox>

@@ -311,7 +311,7 @@
 			</inventory>
 			<inventory>
 				<inventoryID>sword000</inventoryID>
-				<pro>80</pro>
+				<pro>30</pro>
 			</inventory>
 			<inventory>
 				<inventoryID>sword007</inventoryID>
@@ -319,7 +319,7 @@
 			</inventory>
 			<inventory>
 				<inventoryID>sword010</inventoryID>
-				<pro>60</pro>
+				<pro>20</pro>
 			</inventory>
 			<inventory>
 				<inventoryID>accessory001</inventoryID>
@@ -380,7 +380,7 @@
 			</inventory>
 			<inventory>
 				<inventoryID>sword000</inventoryID>
-				<pro>80</pro>
+				<pro>10</pro>
 			</inventory>
 			<inventory>
 				<inventoryID>sword007</inventoryID>
@@ -388,7 +388,7 @@
 			</inventory>
 			<inventory>
 				<inventoryID>sword010</inventoryID>
-				<pro>60</pro>
+				<pro>30</pro>
 			</inventory>
 			<inventory>
 				<inventoryID>accessory001</inventoryID>
@@ -453,7 +453,7 @@
 			</inventory>
 			<inventory>
 				<inventoryID>sword010</inventoryID>
-				<pro>60</pro>
+				<pro>30</pro>
 			</inventory>
 			<inventory>
 				<inventoryID>accessory001</inventoryID>
@@ -513,16 +513,12 @@
 				<pro>20</pro>
 			</inventory>
 			<inventory>
-				<inventoryID>sword000</inventoryID>
-				<pro>80</pro>
-			</inventory>
-			<inventory>
 				<inventoryID>sword007</inventoryID>
 				<pro>1</pro>
 			</inventory>
 			<inventory>
 				<inventoryID>sword010</inventoryID>
-				<pro>60</pro>
+				<pro>30</pro>
 			</inventory>
 			<inventory>
 				<inventoryID>accessory001</inventoryID>
