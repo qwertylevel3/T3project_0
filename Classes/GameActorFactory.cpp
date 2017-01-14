@@ -1,4 +1,5 @@
 #include "GameActorFactory.h"
+#include "InventoryListGenerator.h"
 #include"Character.h"
 #include"GameActorModel.h"
 #include<sstream>
@@ -7,7 +8,6 @@
 GameActorFactory::GameActorFactory()
 {
 }
-
 
 GameActorFactory::~GameActorFactory()
 {
@@ -29,15 +29,22 @@ void GameActorFactory::init()
 
 Character * GameActorFactory::getActor(const std::string& name)
 {
-	return actorMap[name]->makeActor();
+	Character* actor = actorMap[name]->makeActor();
+	std::vector<std::string > invList = InventoryListGenerator::getInstance()->getInventoryList(name);
+
+	for each (std::string  invID in invList)
+	{
+		actor->addInventory(invID);
+	}
+	return actor;
 }
 
 void GameActorFactory::initModel(tinyxml2::XMLElement* actorElement)
 {
 	GameActorModel* model = new GameActorModel();
 
-	model->setName(getChildElementStrAttr(actorElement,"name"));
-	model->setCharacterName(getChildElementStrAttr(actorElement,"characterName"));
+	model->setName(getChildElementStrAttr(actorElement, "name"));
+	model->setCharacterName(getChildElementStrAttr(actorElement, "characterName"));
 	model->setAIName(getChildElementStrAttr(actorElement, "ai"));
 	model->setPlayType(getChildElementStrAttr(actorElement, "playType"));
 	model->setCharacterType(getChildElementStrAttr(actorElement, "characterType"));
@@ -52,8 +59,8 @@ void GameActorFactory::initModel(tinyxml2::XMLElement* actorElement)
 	model->attr.actionAble = getChildElementIntAttr(actorElement, "chantAble");
 
 	model->attr.strength = getChildElementIntAttr(actorElement, "strength");
-	model->attr.intellect=getChildElementIntAttr(actorElement,"intellect");
-	model->attr.agility=getChildElementIntAttr(actorElement,"agility");
+	model->attr.intellect = getChildElementIntAttr(actorElement, "intellect");
+	model->attr.agility = getChildElementIntAttr(actorElement, "agility");
 	model->attr.luck = getChildElementIntAttr(actorElement, "luck");
 	model->attr.viewSize = getChildElementIntAttr(actorElement, "viewSize");
 	model->attr.maxHP = getChildElementIntAttr(actorElement, "maxHP");

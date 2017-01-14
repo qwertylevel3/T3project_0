@@ -1,15 +1,12 @@
 #include "InventoryListGenerator.h"
 #include "RandomNumber.h"
 
-
 ActorInventoryList::ActorInventoryList()
 {
-
 }
 
 ActorInventoryList::~ActorInventoryList()
 {
-
 }
 
 std::vector<std::string> ActorInventoryList::generate()
@@ -20,7 +17,7 @@ std::vector<std::string> ActorInventoryList::generate()
 	{
 		int roll = RandomNumber::getInstance()->randomInt(0, 100);
 
-		if (roll<invHandle.pro)
+		if (roll < invHandle.pro)
 		{
 			inventoryList.push_back(invHandle.inventoryID);
 		}
@@ -38,7 +35,6 @@ void ActorInventoryList::addInvHandle(InvHandle invHandle)
 InventoryListGenerator::InventoryListGenerator()
 {
 }
-
 
 InventoryListGenerator::~InventoryListGenerator()
 {
@@ -58,18 +54,25 @@ void InventoryListGenerator::init()
 
 		inventoryListElement = inventoryListElement->NextSiblingElement();
 	}
-
 }
 
 std::vector<std::string> InventoryListGenerator::getInventoryList(std::string actorName)
 {
-	return allActorInvList[actorName].generate();
+	if (allActorInvList.count(actorName) > 0)
+	{
+		return allActorInvList[actorName].generate();
+	}
+	else
+	{
+		std::vector<std::string > temp;
+		return temp;
+	}
 }
 
 void InventoryListGenerator::generateActorInvList(tinyxml2::XMLElement* invListElement)
 {
 	ActorInventoryList invList;
-	
+
 	tinyxml2::XMLElement* actorNameElement = invListElement->FirstChildElement("actorName");
 	std::string actorName = actorNameElement->GetText();
 
@@ -92,4 +95,3 @@ void InventoryListGenerator::generateActorInvList(tinyxml2::XMLElement* invListE
 
 	allActorInvList[actorName] = invList;
 }
-

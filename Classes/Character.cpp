@@ -519,6 +519,7 @@ void Character::equipAccessory(Inventory* inventory)
 
 void Character::initLeftHand(Inventory* inventory)
 {
+	
 	inventory->equipLeftHand(this);
 	loadInventoryBuff(inventory);
 }

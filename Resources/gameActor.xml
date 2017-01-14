@@ -71,7 +71,7 @@
 		<viewSize>3</viewSize>
 		<maxHP>200</maxHP>
 		<maxMP>10</maxMP>
-		<leftHand>sword010</leftHand>
+		<leftHand>sword013</leftHand>
 		<rightHand>sword013</rightHand>
 		<armor>NULL</armor>
 		<accessory>NULL</accessory>
@@ -290,19 +290,19 @@
 		<skillAble>1</skillAble>
 		<actionAble>1</actionAble>
 		<strength>1</strength>
-		<intellect>100</intellect>
+		<intellect>1</intellect>
 		<agility>1</agility>
 		<luck>0</luck>
 		<viewSize>0</viewSize>
 		<maxHP>100</maxHP>
-		<maxMP>100</maxMP>
+		<maxMP>1</maxMP>
 		<leftHand>NULL</leftHand>
 		<rightHand>NULL</rightHand>
 		<armor>NULL</armor>
 		<accessory>NULL</accessory>
 	</actor>
 	<actor>
-		<name>chest</name>
+		<name>chest1</name>
 		<characterName>chest</characterName>
 		<ai>AIChest</ai>
 		<playType>object</playType>
@@ -315,12 +315,212 @@
 		<skillAble>1</skillAble>
 		<actionAble>1</actionAble>
 		<strength>1</strength>
-		<intellect>100</intellect>
+		<intellect>1</intellect>
 		<agility>1</agility>
 		<luck>0</luck>
 		<viewSize>0</viewSize>
-		<maxHP>100</maxHP>
-		<maxMP>100</maxMP>
+		<maxHP>20</maxHP>
+		<maxMP>1</maxMP>
+		<leftHand>NULL</leftHand>
+		<rightHand>NULL</rightHand>
+		<armor>NULL</armor>
+		<accessory>NULL</accessory>
+	</actor>
+	<actor>
+		<name>chest2</name>
+		<characterName>chest</characterName>
+		<ai>AIChest</ai>
+		<playType>object</playType>
+		<characterType>neutral</characterType>
+		<physicalImmune>0</physicalImmune>
+		<magicImmune>0</magicImmune>
+		<moveAble>0</moveAble>
+		<attackAble>0</attackAble>
+		<chantAble>0</chantAble>
+		<skillAble>1</skillAble>
+		<actionAble>1</actionAble>
+		<strength>1</strength>
+		<intellect>1</intellect>
+		<agility>1</agility>
+		<luck>0</luck>
+		<viewSize>0</viewSize>
+		<maxHP>40</maxHP>
+		<maxMP>1</maxMP>
+		<leftHand>NULL</leftHand>
+		<rightHand>NULL</rightHand>
+		<armor>NULL</armor>
+		<accessory>NULL</accessory>
+	</actor>
+	<actor>
+		<name>chest3</name>
+		<characterName>chest</characterName>
+		<ai>AIChest</ai>
+		<playType>object</playType>
+		<characterType>neutral</characterType>
+		<physicalImmune>0</physicalImmune>
+		<magicImmune>0</magicImmune>
+		<moveAble>0</moveAble>
+		<attackAble>0</attackAble>
+		<chantAble>0</chantAble>
+		<skillAble>1</skillAble>
+		<actionAble>1</actionAble>
+		<strength>1</strength>
+		<intellect>1</intellect>
+		<agility>1</agility>
+		<luck>0</luck>
+		<viewSize>0</viewSize>
+		<maxHP>40</maxHP>
+		<maxMP>1</maxMP>
+		<leftHand>NULL</leftHand>
+		<rightHand>NULL</rightHand>
+		<armor>NULL</armor>
+		<accessory>NULL</accessory>
+	</actor>
+	<actor>
+		<name>chest4</name>
+		<characterName>chest</characterName>
+		<ai>AIChest</ai>
+		<playType>object</playType>
+		<characterType>neutral</characterType>
+		<physicalImmune>0</physicalImmune>
+		<magicImmune>0</magicImmune>
+		<moveAble>0</moveAble>
+		<attackAble>0</attackAble>
+		<chantAble>0</chantAble>
+		<skillAble>1</skillAble>
+		<actionAble>1</actionAble>
+		<strength>1</strength>
+		<intellect>1</intellect>
+		<agility>1</agility>
+		<luck>0</luck>
+		<viewSize>0</viewSize>
+		<maxHP>50</maxHP>
+		<maxMP>1</maxMP>
+		<leftHand>NULL</leftHand>
+		<rightHand>NULL</rightHand>
+		<armor>NULL</armor>
+		<accessory>NULL</accessory>
+	</actor>
+	<actor>
+		<name>chest5</name>
+		<characterName>chest</characterName>
+		<ai>AIChest</ai>
+		<playType>object</playType>
+		<characterType>neutral</characterType>
+		<physicalImmune>0</physicalImmune>
+		<magicImmune>0</magicImmune>
+		<moveAble>0</moveAble>
+		<attackAble>0</attackAble>
+		<chantAble>0</chantAble>
+		<skillAble>1</skillAble>
+		<actionAble>1</actionAble>
+		<strength>1</strength>
+		<intellect>1</intellect>
+		<agility>1</agility>
+		<luck>0</luck>
+		<viewSize>0</viewSize>
+		<maxHP>50</maxHP>
+		<maxMP>1</maxMP>
+		<leftHand>NULL</leftHand>
+		<rightHand>NULL</rightHand>
+		<armor>NULL</armor>
+		<accessory>NULL</accessory>
+	</actor>
+	<actor>
+		<name>chest6</name>
+		<characterName>chest</characterName>
+		<ai>AIChest</ai>
+		<playType>object</playType>
+		<characterType>neutral</characterType>
+		<physicalImmune>0</physicalImmune>
+		<magicImmune>0</magicImmune>
+		<moveAble>0</moveAble>
+		<attackAble>0</attackAble>
+		<chantAble>0</chantAble>
+		<skillAble>1</skillAble>
+		<actionAble>1</actionAble>
+		<strength>1</strength>
+		<intellect>1</intellect>
+		<agility>1</agility>
+		<luck>0</luck>
+		<viewSize>0</viewSize>
+		<maxHP>50</maxHP>
+		<maxMP>1</maxMP>
+		<leftHand>NULL</leftHand>
+		<rightHand>NULL</rightHand>
+		<armor>NULL</armor>
+		<accessory>NULL</accessory>
+	</actor>
+	<actor>
+		<name>chest7</name>
+		<characterName>chest</characterName>
+		<ai>AIChest</ai>
+		<playType>object</playType>
+		<characterType>neutral</characterType>
+		<physicalImmune>0</physicalImmune>
+		<magicImmune>0</magicImmune>
+		<moveAble>0</moveAble>
+		<attackAble>0</attackAble>
+		<chantAble>0</chantAble>
+		<skillAble>1</skillAble>
+		<actionAble>1</actionAble>
+		<strength>1</strength>
+		<intellect>1</intellect>
+		<agility>1</agility>
+		<luck>0</luck>
+		<viewSize>0</viewSize>
+		<maxHP>50</maxHP>
+		<maxMP>1</maxMP>
+		<leftHand>NULL</leftHand>
+		<rightHand>NULL</rightHand>
+		<armor>NULL</armor>
+		<accessory>NULL</accessory>
+	</actor>
+	<actor>
+		<name>chest8</name>
+		<characterName>chest</characterName>
+		<ai>AIChest</ai>
+		<playType>object</playType>
+		<characterType>neutral</characterType>
+		<physicalImmune>0</physicalImmune>
+		<magicImmune>0</magicImmune>
+		<moveAble>0</moveAble>
+		<attackAble>0</attackAble>
+		<chantAble>0</chantAble>
+		<skillAble>1</skillAble>
+		<actionAble>1</actionAble>
+		<strength>1</strength>
+		<intellect>1</intellect>
+		<agility>1</agility>
+		<luck>0</luck>
+		<viewSize>0</viewSize>
+		<maxHP>50</maxHP>
+		<maxMP>1</maxMP>
+		<leftHand>NULL</leftHand>
+		<rightHand>NULL</rightHand>
+		<armor>NULL</armor>
+		<accessory>NULL</accessory>
+	</actor>
+	<actor>
+		<name>chest9</name>
+		<characterName>chest</characterName>
+		<ai>AIChest</ai>
+		<playType>object</playType>
+		<characterType>neutral</characterType>
+		<physicalImmune>0</physicalImmune>
+		<magicImmune>0</magicImmune>
+		<moveAble>0</moveAble>
+		<attackAble>0</attackAble>
+		<chantAble>0</chantAble>
+		<skillAble>1</skillAble>
+		<actionAble>1</actionAble>
+		<strength>1</strength>
+		<intellect>1</intellect>
+		<agility>1</agility>
+		<luck>0</luck>
+		<viewSize>0</viewSize>
+		<maxHP>50</maxHP>
+		<maxMP>1</maxMP>
 		<leftHand>NULL</leftHand>
 		<rightHand>NULL</rightHand>
 		<armor>NULL</armor>
@@ -340,12 +540,12 @@
 		<skillAble>1</skillAble>
 		<actionAble>1</actionAble>
 		<strength>1</strength>
-		<intellect>100</intellect>
+		<intellect>1</intellect>
 		<agility>1</agility>
 		<luck>0</luck>
 		<viewSize>4</viewSize>
 		<maxHP>100</maxHP>
-		<maxMP>100</maxMP>
+		<maxMP>1</maxMP>
 		<leftHand>NULL</leftHand>
 		<rightHand>NULL</rightHand>
 		<armor>NULL</armor>
@@ -365,12 +565,12 @@
 		<skillAble>1</skillAble>
 		<actionAble>1</actionAble>
 		<strength>1</strength>
-		<intellect>100</intellect>
+		<intellect>1</intellect>
 		<agility>1</agility>
 		<luck>0</luck>
 		<viewSize>0</viewSize>
 		<maxHP>100</maxHP>
-		<maxMP>100</maxMP>
+		<maxMP>1</maxMP>
 		<leftHand>NULL</leftHand>
 		<rightHand>NULL</rightHand>
 		<armor>NULL</armor>

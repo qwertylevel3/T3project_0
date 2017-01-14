@@ -327,15 +327,10 @@ void Field::StoreyBuilder::placeGameActorLevel1(const Rect & rect)
 		//		int x = rect.x+rect.width - 1;
 		//		int y = rect.y+rect.height - 1;
 
-		Character* monster = GameActorFactory::getInstance()->getActor("summonWizard");
+		Character* monster = GameActorFactory::getInstance()->getActor("slime");
 		CCAssert(monster, "get a null monster");
 
-		std::vector<std::string > slimeInvList = InventoryListGenerator::getInstance()->getInventoryList("slime");
 
-		for each (std::string  invID in slimeInvList)
-		{
-			monster->addInventory(invID);
-		}
 
 		placeGameActor(x, y, monster);
 	}
@@ -835,7 +830,8 @@ void Field::StoreyBuilder::placeFeatureForRoom()
 					{
 						continue;
 					}
-					Character* chest = GameActorFactory::getInstance()->getActor("chest");
+					std::string chestName = "chest" + ToolFunction::int2string(curLevel);
+					Character* chest = GameActorFactory::getInstance()->getActor(chestName);
 					CCAssert(chest, "get a null chest");
 
 					placeGameActor(i, j, chest);

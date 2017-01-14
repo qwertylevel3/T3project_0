@@ -196,8 +196,8 @@
 	<inventory>
 		<type>oneHandWeapon</type>
 		<name>sword010</name>
-		<cname>铁枝树干</cname>
-		<tips>经典出门装备</tips>
+		<cname>附魔匕首</cname>
+		<tips>附上了魔法的普通匕首</tips>
 		<level>2</level>
 		<price>9</price>
 		<weight>1</weight>
@@ -205,7 +205,7 @@
 		<buffBox>
 			<buffID>BaseAttrBuff_全属性附加_ATTR_Good_2_-1_1_1_1</buffID>
 		</buffBox>
-		<weaponDamage>1</weaponDamage>
+		<weaponDamage>3</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -271,6 +271,44 @@
 		</sphereBox>
 	</inventory>
 	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword014</name>
+		<cname>干将</cname>
+		<tips>雌雄双剑之一</tips>
+		<level>8</level>
+		<price>9</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_干将_ATTR_Good_2_-1_20_-5_0</buffID>
+		</buffBox>
+		<weaponDamage>15</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword015</name>
+		<cname>莫邪</cname>
+		<tips>雌雄双剑之一</tips>
+		<level>8</level>
+		<price>9</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_莫邪_ATTR_Good_2_-1_-5_20_0</buffID>
+		</buffBox>
+		<weaponDamage>15</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
 		<type>armor</type>
 		<name>armor000</name>
 		<cname>运动衫</cname>
@@ -329,7 +367,7 @@
 		<tips>普通的铁甲</tips>
 		<level>4</level>
 		<price>2</price>
-		<weight>3</weight>
+		<weight>4</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
@@ -340,9 +378,9 @@
 		<name>armor005</name>
 		<cname>钢制铠甲</cname>
 		<tips>比铁甲结实，但是更重</tips>
-		<level>4</level>
+		<level>6</level>
 		<price>2</price>
-		<weight>5</weight>
+		<weight>6</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
@@ -701,6 +739,22 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>HPRecoverySelf_生命恢复_0_0_200</skillName>
+		<supplyType>0</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>supply008</name>
+		<cname>史莱姆粘液</cname>
+		<tips>味道很恶心</tips>
+		<level>1</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>HPRecoverySelf_生命恢复_0_0_10</skillName>
 		<supplyType>0</supplyType>
 	</inventory>
 	<inventory>

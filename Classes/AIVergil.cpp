@@ -33,9 +33,6 @@ AIVergil::~AIVergil()
 
 void AIVergil::update()
 {
-	characterPtr->idle();
-	return;
-
 	if (tidyInventory())
 	{
 		return;
@@ -89,11 +86,11 @@ void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 	{
 		//求奶
 		Character* playerCharacter = Player::getInstance()->getcharacterPtr();
-		if (characterPtr->getMP() > 20)
+		if (characterPtr->getMP() > 40)
 		{
 			changeOrientationTo(playerCharacter);
 			characterPtr->runSkill(
-				ToolFunction::WStr2UTF8(L"HPRecoveryCast_生命恢复_20_0_40")
+				ToolFunction::WStr2UTF8(L"HPRecoveryCast_生命恢复_40_0_50")
 			);
 			HudMessageBox::getInstance()->addMessage(L"Vergil向你释放了一个治疗法术");
 			return;
@@ -168,11 +165,11 @@ void AIVergil::stayCloseAI()
 	{
 		//player血量低且vergil有魔法,优先治疗
 		if (playerCharacter->getHP() < playerCharacter->getMaxHP()/2
-			&& characterPtr->getMP() > 20)
+			&& characterPtr->getMP() > 40)
 		{
 			changeOrientationTo(playerCharacter);
 			characterPtr->runSkill(
-				ToolFunction::WStr2UTF8(L"HPRecoveryCast_生命恢复_20_0_40")
+				ToolFunction::WStr2UTF8(L"HPRecoveryCast_生命恢复_40_0_50")
 			);
 			HudMessageBox::getInstance()->addMessage(L"Vergil向你释放了一个治疗法术");
 			return;
