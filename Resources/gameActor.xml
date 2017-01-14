@@ -19,7 +19,7 @@
 		<agility>3</agility>
 		<luck>0</luck>
 		<viewSize>3</viewSize>
-		<maxHP>100</maxHP>
+		<maxHP>50</maxHP>
 		<maxMP>20</maxMP>
 		<leftHand>sword005</leftHand>
 		<rightHand>NULL</rightHand>
@@ -41,7 +41,7 @@
 		<actionAble>1</actionAble>
 		<strength>7</strength>
 		<intellect>3</intellect>
-		<agility>8</agility>
+		<agility>15</agility>
 		<luck>0</luck>
 		<viewSize>3</viewSize>
 		<maxHP>100</maxHP>
@@ -141,10 +141,10 @@
 		<actionAble>1</actionAble>
 		<strength>5</strength>
 		<intellect>3</intellect>
-		<agility>3</agility>
+		<agility>15</agility>
 		<luck>0</luck>
 		<viewSize>3</viewSize>
-		<maxHP>100</maxHP>
+		<maxHP>70</maxHP>
 		<maxMP>20</maxMP>
 		<leftHand>sword006</leftHand>
 		<rightHand>NULL</rightHand>
@@ -164,9 +164,9 @@
 		<chantAble>1</chantAble>
 		<skillAble>1</skillAble>
 		<actionAble>1</actionAble>
-		<strength>20</strength>
+		<strength>8</strength>
 		<intellect>3</intellect>
-		<agility>3</agility>
+		<agility>15</agility>
 		<luck>0</luck>
 		<viewSize>3</viewSize>
 		<maxHP>100</maxHP>
@@ -199,7 +199,7 @@
 		<leftHand>sword008</leftHand>
 		<rightHand>NULL</rightHand>
 		<armor>armor007</armor>
-		<accessory>accessory005</accessory>
+		<accessory>accessory013</accessory>
 	</actor>
 	<actor>
 		<name>persephone</name>

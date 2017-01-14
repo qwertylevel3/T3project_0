@@ -83,6 +83,7 @@ void Player::configPlayer()
 	characterPtr->addSkill(L"Thunder_闪电_20_10_-30");
 	characterPtr->addSkill(L"ExpAdd_经验增加_0_0_100");
 	characterPtr->addSkill(L"LearnSkill_学习火球术_0_0_FireBall_火球术_5_5_-20_5");
+	characterPtr->addSkill(L"BuffSelf_毒液_0_0_HPBuff_毒液_OnRoundStart_Bad_10_10_-3");
 
 //	characterPtr->addSkill(L"RandomDirectDamage_死亡一指_10_10_-30_5_2");
 
@@ -148,6 +149,7 @@ void Player::configPlayer()
 	characterPtr->addInventory("note000");
 	characterPtr->addInventory("sword011");
 	characterPtr->addInventory("scroll017");
+	characterPtr->addInventory("scroll003");
 
 
 

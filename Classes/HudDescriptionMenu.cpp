@@ -32,12 +32,12 @@ void HudDescriptionMenu::init()
 	
 	HudLayer::getInstance()->addChild(layout);
 
-	title = cocos2d::ui::Text::create(ToolFunction::WStr2UTF8(L"说明:"), "fonts/arialuni.ttf", 22);
+	title = cocos2d::ui::Text::create(ToolFunction::WStr2UTF8(L"说明:"), "fonts/arialuni.ttf", 20);
 	title->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 	title->setOpacity(255);
 	layout->addChild(title);
 	title->setPosition(cocos2d::Vec2(10, 398));
-	description=cocos2d::ui::Text::create("","fonts/arialuni.ttf", 20);
+	description=cocos2d::ui::Text::create("","fonts/arialuni.ttf", 16);
 	description->setAnchorPoint(cocos2d::Vec2::ANCHOR_BOTTOM_LEFT);
 	description->setPosition(cocos2d::Vec2(10, -30));
 	description->setOpacity(255);

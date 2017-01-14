@@ -33,6 +33,9 @@ AIVergil::~AIVergil()
 
 void AIVergil::update()
 {
+	characterPtr->idle();
+	return;
+
 	if (tidyInventory())
 	{
 		return;

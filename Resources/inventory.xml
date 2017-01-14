@@ -12,7 +12,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<weaponDamage>1</weaponDamage>
+		<weaponDamage>2</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -29,7 +29,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<weaponDamage>4</weaponDamage>
+		<weaponDamage>8</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -48,7 +48,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<weaponDamage>4</weaponDamage>
+		<weaponDamage>8</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -67,7 +67,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<weaponDamage>5</weaponDamage>
+		<weaponDamage>12</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -105,7 +105,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<weaponDamage>1</weaponDamage>
+		<weaponDamage>3</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -124,7 +124,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<weaponDamage>3</weaponDamage>
+		<weaponDamage>6</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -165,7 +165,7 @@
 			<buffID>CriticalPointBuff_三叉戟之力2_ATTR_Good_4_-1_9</buffID>
 			<buffID>CriticalPerBuff_三叉戟之力3_ATTR_Good_4_-1_9</buffID>
 		</buffBox>
-		<weaponDamage>9</weaponDamage>
+		<weaponDamage>13</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -244,7 +244,7 @@
 		<buffBox>
 			<buffID>BaseAttrBuff_敏捷附加_ATTR_Good_2_-1_0_4_0</buffID>
 		</buffBox>
-		<weaponDamage>3</weaponDamage>
+		<weaponDamage>7</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -263,7 +263,7 @@
 		<buffBox>
 			<buffID>CriticalProBuff_荆棘藤蔓_ATTR_Good_4_-1_9</buffID>
 		</buffBox>
-		<weaponDamage>7</weaponDamage>
+		<weaponDamage>5</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -367,14 +367,14 @@
 		<name>armor007</name>
 		<cname>恶魔的工作服</cname>
 		<tips>在这里工作需要穿工作服</tips>
-		<level>7</level>
+		<level>5</level>
 		<price>2</price>
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 			<buffID>BaseAttrBuff_工作服的效果_ATTR_Good_2_-1_2_2_2</buffID>
 		</buffBox>
-		<armorCount>8</armorCount>
+		<armorCount>4</armorCount>
 	</inventory>
 	<inventory>
 		<type>accessory</type>
@@ -386,7 +386,7 @@
 		<weight>0</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>BaseAttrBuff_梦想的证明_ATTR_Good_2_-1_3_3_3</buffID>
+			<buffID>BaseAttrBuff_梦想的证明_ATTR_Good_2_-1_33_33_33</buffID>
 		</buffBox>
 	</inventory>
 	<inventory>
@@ -478,6 +478,85 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 			<buffID>ComboProBuff_荆棘之心_ATTR_Good_4_-1_15</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory008</name>
+		<cname>小袋子</cname>
+		<tips>可以增加负重</tips>
+		<level>2</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>WeightBuff_负重增加_ATTR_Good_4_-1_5</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory009</name>
+		<cname>大袋子</cname>
+		<tips>可以增加负重</tips>
+		<level>4</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>WeightBuff_负重增加_ATTR_Good_4_-1_10</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory010</name>
+		<cname>旅行包</cname>
+		<tips>这个明显不是这个世界的东西</tips>
+		<level>6</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>WeightBuff_负重增加_ATTR_Good_4_-1_15</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory011</name>
+		<cname>魔法石</cname>
+		<tips>法师们的最爱，收藏价值极高</tips>
+		<level>7</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>MaxMPBuff_魔法石1_ATTR_Good_1_-1_50</buffID>
+			<buffID>MPBuff_魔法石2_OnRoundStart_Good_10_-1_5</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory012</name>
+		<cname>恶魔之角</cname>
+		<tips>这个其实只是个装饰</tips>
+		<level>4</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>AccuracyBuff_恶魔之角_ATTR_Good_4_-1_20</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory013</name>
+		<cname>恶魔的工作证</cname>
+		<tips>在这里工作的所有恶魔都有一张自己的工作证</tips>
+		<level>4</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_恶魔的工作证_ATTR_Good_2_-1_3_3_3</buffID>
 		</buffBox>
 	</inventory>
 	<inventory>
@@ -610,10 +689,10 @@
 	</inventory>
 	<inventory>
 		<type>supply</type>
-		<name>supply008</name>
-		<cname>史莱姆粘液</cname>
-		<tips>回复生命10</tips>
-		<level>1</level>
+		<name>supply006</name>
+		<cname>究极生命药水</cname>
+		<tips>回复生命200</tips>
+		<level>7</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -621,7 +700,23 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
-		<skillName>HPRecoverySelf_生命恢复_0_0_10</skillName>
+		<skillName>HPRecoverySelf_生命恢复_0_0_200</skillName>
+		<supplyType>0</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>supply009</name>
+		<cname>宫保鸡丁</cname>
+		<tips>某人的最爱，回复400点生命</tips>
+		<level>9</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>HPRecoverySelf_生命恢复_0_0_400</skillName>
 		<supplyType>0</supplyType>
 	</inventory>
 	<inventory>

@@ -95,6 +95,9 @@ std::string Inventory::getBaseDescription()
 {
 	std::string description;
 
+	description += "Level:" + ToolFunction::int2string(level)+"\n";
+	description += "Weight:" + ToolFunction::int2string(weight) + "\n\n";
+
 	description += tips+"\n\n";
 
 	if (!getAllInventoryBuff().empty())

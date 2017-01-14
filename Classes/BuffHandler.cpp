@@ -83,8 +83,10 @@ void  Buff::BuffHandler::onInjured()
 void  Buff::BuffHandler::onRoundStart()
 {
 	calculateAttr();
-	for each (BuffBase* buff in buffBox)
+
+	for (int i=0;i<buffBox.size();i++)
 	{
+		BuffBase* buff = buffBox[i];
 		if (buff->getTrigType() == BuffBase::OnRoundStart)
 		{
 			buff->apply(characterPrt);
