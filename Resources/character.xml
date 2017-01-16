@@ -182,6 +182,42 @@
 		</standRightAnimation>
 	</character>
 	<character>
+		<name>eslime</name>
+		<firstFrame>eslime1.png</firstFrame>
+		<moveUpAnimation>
+			<frameName>eslime4.png</frameName>
+			<frameName>eslime5.png</frameName>
+			<frameName>eslime6.png</frameName>
+		</moveUpAnimation>
+		<moveDownAnimation>
+			<frameName>eslime1.png</frameName>
+			<frameName>eslime2.png</frameName>
+			<frameName>eslime3.png</frameName>
+		</moveDownAnimation>
+		<moveLeftAnimation>
+			<frameName>eslime7.png</frameName>
+			<frameName>eslime8.png</frameName>
+			<frameName>eslime9.png</frameName>
+		</moveLeftAnimation>
+		<moveRightAnimation>
+			<frameName>eslime10.png</frameName>
+			<frameName>eslime11.png</frameName>
+			<frameName>eslime12.png</frameName>
+		</moveRightAnimation>
+		<standUpAnimation>
+			<frameName>eslime4.png</frameName>
+		</standUpAnimation>
+		<standDownAnimation>
+			<frameName>eslime1.png</frameName>
+		</standDownAnimation>
+		<standLeftAnimation>
+			<frameName>eslime7.png</frameName>
+		</standLeftAnimation>
+		<standRightAnimation>
+			<frameName>eslime10.png</frameName>
+		</standRightAnimation>
+	</character>
+	<character>
 		<name>slime</name>
 		<firstFrame>slime1.png</firstFrame>
 		<moveUpAnimation>

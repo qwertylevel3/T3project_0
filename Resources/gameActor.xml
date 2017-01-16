@@ -147,7 +147,7 @@
 		<maxHP>70</maxHP>
 		<maxMP>20</maxMP>
 		<leftHand>sword006</leftHand>
-		<rightHand>NULL</rightHand>
+		<rightHand>sword006</rightHand>
 		<armor>armor002</armor>
 		<accessory>NULL</accessory>
 	</actor>
@@ -172,7 +172,7 @@
 		<maxHP>100</maxHP>
 		<maxMP>20</maxMP>
 		<leftHand>sword006</leftHand>
-		<rightHand>NULL</rightHand>
+		<rightHand>sword006</rightHand>
 		<armor>armor002</armor>
 		<accessory>NULL</accessory>
 	</actor>
@@ -227,6 +227,31 @@
 		<accessory>NULL</accessory>
 	</actor>
 	<actor>
+		<name>eslime</name>
+		<characterName>eslime</characterName>
+		<ai>AICommonEnemy</ai>
+		<playType>enemy</playType>
+		<characterType>bad</characterType>
+		<physicalImmune>0</physicalImmune>
+		<magicImmune>0</magicImmune>
+		<moveAble>1</moveAble>
+		<attackAble>1</attackAble>
+		<chantAble>1</chantAble>
+		<skillAble>1</skillAble>
+		<actionAble>1</actionAble>
+		<strength>10</strength>
+		<intellect>10</intellect>
+		<agility>10</agility>
+		<luck>0</luck>
+		<viewSize>3</viewSize>
+		<maxHP>100</maxHP>
+		<maxMP>20</maxMP>
+		<leftHand>sword028</leftHand>
+		<rightHand>sword028</rightHand>
+		<armor>NULL</armor>
+		<accessory>NULL</accessory>
+	</actor>
+	<actor>
 		<name>sslime</name>
 		<characterName>sslime</characterName>
 		<ai>AICommonFriend</ai>
@@ -239,9 +264,9 @@
 		<chantAble>1</chantAble>
 		<skillAble>1</skillAble>
 		<actionAble>1</actionAble>
-		<strength>5</strength>
-		<intellect>3</intellect>
-		<agility>3</agility>
+		<strength>10</strength>
+		<intellect>6</intellect>
+		<agility>6</agility>
 		<luck>0</luck>
 		<viewSize>3</viewSize>
 		<maxHP>100</maxHP>
@@ -272,8 +297,8 @@
 		<maxHP>200</maxHP>
 		<maxMP>200</maxMP>
 		<leftHand>sword009</leftHand>
-		<rightHand>NULL</rightHand>
-		<armor>NULL</armor>
+		<rightHand>sword008</rightHand>
+		<armor>armor012</armor>
 		<accessory>accessory005</accessory>
 	</actor>
 	<actor>

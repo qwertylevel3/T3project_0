@@ -34,7 +34,7 @@ void DialogueDriver::init()
 	dialogBk->setLocalZOrder(1);
 	dialogBk->setVisible(false);
 
-	dialogBk->setPosition(400,70);
+	dialogBk->setPosition(400, 70);
 
 	cocos2d::CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("dialogue/dialogueActor.plist");
 
@@ -74,6 +74,7 @@ void DialogueDriver::init()
 	enterSprite->setPosition(700, 50);
 	enterSprite->setVisible(false);
 
+	actorSprite = nullptr;
 
 	OptionCheckMenu::getInstance()->init();
 }
@@ -85,22 +86,26 @@ void DialogueDriver::run(Statement* statement)
 
 	//	actorSpriteBox[actorSpriteName]->setVisible(true);
 
-
 	if (actorSpriteName != "NULL")
 	{
+		if (actorSprite)
+		{
+			actorSprite->removeFromParent();
+		}
+
 		actorSprite = Sprite::createWithSpriteFrameName(actorSpriteName);
 		actorSprite->setAnchorPoint(cocos2d::Vec2::ANCHOR_BOTTOM_LEFT);
-//		actorSprite->setPosition(75, 100);
+		//		actorSprite->setPosition(75, 100);
 		actorSprite->getTexture()->setAliasTexParameters();
-
 
 		HudLayer::getInstance()->addChild(actorSprite);
 		actorSprite->setLocalZOrder(2);
 	}
 	else
 	{
-		actorSprite = Sprite::create();
-		HudLayer::getInstance()->addChild(actorSprite);
+		//		actorSprite = Sprite::create();
+		actorSprite = nullptr;
+		//		HudLayer::getInstance()->addChild(actorSprite);
 	}
 
 	dialogBk->setVisible(true);
@@ -113,8 +118,8 @@ void DialogueDriver::run(Statement* statement)
 	enterSprite->runAction(
 		cocos2d::RepeatForever::create(
 			cocos2d::Sequence::create(
-				cocos2d::MoveBy::create(1,cocos2d::Vec2(0,-5)),
-				cocos2d::MoveBy::create(0.01,cocos2d::Vec2(0,5)),
+				cocos2d::MoveBy::create(1, cocos2d::Vec2(0, -5)),
+				cocos2d::MoveBy::create(0.01, cocos2d::Vec2(0, 5)),
 				NULL
 			)
 		)
@@ -130,19 +135,24 @@ void DialogueDriver::run(Question* question)
 
 	if (actorSpriteName != "NULL")
 	{
+		if (actorSprite)
+		{
+			actorSprite->removeFromParent();
+		}
+
 		actorSprite = Sprite::createWithSpriteFrameName(actorSpriteName);
 		actorSprite->setAnchorPoint(cocos2d::Vec2::ANCHOR_BOTTOM_LEFT);
-//		actorSprite->setPosition(75, 100);
+		//		actorSprite->setPosition(75, 100);
 		actorSprite->getTexture()->setAliasTexParameters();
-
 
 		HudLayer::getInstance()->addChild(actorSprite);
 		actorSprite->setLocalZOrder(2);
 	}
 	else
 	{
-		actorSprite = Sprite::create();
-		HudLayer::getInstance()->addChild(actorSprite);
+		actorSprite = nullptr;
+		//		actorSprite = Sprite::create();
+		//		HudLayer::getInstance()->addChild(actorSprite);
 	}
 
 	dialogBk->setVisible(true);
@@ -165,7 +175,12 @@ int DialogueDriver::nextSentence()
 {
 	std::string actorSpriteName = curSentence->getActorSpriteName();
 	//	actorSpriteBox[actorSpriteName]->setVisible(false);
-	actorSprite->removeFromParent();
+	if (actorSprite)
+	{
+		actorSprite->removeFromParent();
+	}
+	actorSprite = nullptr;
+
 
 	curIndex = curSentence->next();
 	if (curIndex < 0)
@@ -200,7 +215,13 @@ void DialogueDriver::endDialogue(int endResult)
 	textLabel->setVisible(false);
 	enterSprite->setVisible(false);
 
-	std::string actorSpriteName = curSentence->getActorSpriteName();
+	if (actorSprite)
+	{
+		actorSprite->removeFromParent();
+	}
+	actorSprite = nullptr;
+
+	//std::string actorSpriteName = curSentence->getActorSpriteName();
 	//	actorSpriteBox[actorSpriteName]->setVisible(false);
 	//	actorSprite->removeFromParent();
 

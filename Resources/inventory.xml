@@ -545,6 +545,25 @@
 		</sphereBox>
 	</inventory>
 	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword028</name>
+		<cname>红色史莱姆的触手</cname>
+		<tips>史莱姆触手变异版本，要强的多</tips>
+		<level>5</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>CriticalProBuff_变异_ATTR_Good_4_-1_10</buffID>
+		</buffBox>
+		<weaponDamage>9</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
 		<type>armor</type>
 		<name>armor000</name>
 		<cname>运动衫</cname>
@@ -702,6 +721,21 @@
 		<buffBox>
 			<buffID>BaseAttrBuff_星月祝福1_ATTR_Good_2_-1_3_3_3</buffID>
 			<buffID>HPBuff_星月祝福2_OnRoundStart_Good_10_-1_1</buffID>
+		</buffBox>
+		<armorCount>8</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor012</name>
+		<cname>桃心女王</cname>
+		<tips>夜店女王必备</tips>
+		<level>7</level>
+		<price>2</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_夜店女王1_ATTR_Good_2_-1_0_5_0</buffID>
+			<buffID>EvadeBuff_夜店女王2_ATTR_Good_4_-1_20</buffID>
 		</buffBox>
 		<armorCount>8</armorCount>
 	</inventory>
