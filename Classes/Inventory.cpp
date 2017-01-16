@@ -115,7 +115,7 @@ std::string Inventory::getBaseDescription()
 				buff->getDescription()+"\n";
 			count++;
 		}
-		return description + "\n";
+		return description;
 	}
 	return description;
 }

@@ -117,6 +117,10 @@ void Player::configPlayer()
 	characterPtr->addInventory("scroll003");
 
 	characterPtr->addInventory("sword021");
+	characterPtr->addInventory("sword022");
+	characterPtr->addInventory("sword023");
+
+
 
 	//////////////////////////////////////////////////////////////////////////
 //	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_-1_100";

@@ -36,6 +36,7 @@ public:
 	int getBlockProCount(Character* c);
 	int getComboProCount(Character* c);
 protected:
+	void showVibrateEffect(Character* character);
 	void showAttackEffect(Character* caster,AttackHand hand);
 	void showOneHandEffect(Character* caster);
 	void showTwoHandEffect(Character* caster);

@@ -168,7 +168,7 @@ void Character::showHPEffect(int hpOffset)
 				NULL
 			)
 		);
-		showVibrateEffect();
+		//showVibrateEffect();
 	}
 }
 

@@ -412,7 +412,7 @@
 		<tips>反魔法利刃</tips>
 		<level>7</level>
 		<price>9</price>
-		<weight>0</weight>
+		<weight>3</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 			
@@ -424,6 +424,47 @@
 		<sphereBox>
 			<sphereID>ManaBurnSphere_破魔1_300</sphereID>
 			<sphereID>AntiChantSphere_破魔2_70</sphereID>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword022</name>
+		<cname>天使之刃</cname>
+		<tips>带着天使的祝福前进吧</tips>
+		<level>8</level>
+		<price>9</price>
+		<weight>4</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_天使祝福1_ATTR_Good_2_-1_5_5_5</buffID>
+			<buffID>HPBuff_天使祝福2_OnRoundStart_Good_10_-1_3</buffID>
+		</buffBox>
+		<weaponDamage>20</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword023</name>
+		<cname>嗜血</cname>
+		<tips>饮血剑</tips>
+		<level>8</level>
+		<price>9</price>
+		<weight>4</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>HPBuff_嗜血1_OnRoundStart_Good_10_-1_-1</buffID>
+			<buffID>BaseAttrBuff_嗜血2_ATTR_Good_2_-1_10_10_-10</buffID>
+		</buffBox>
+		<weaponDamage>20</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+			<sphereID>HemophagiaSphere_吸血_100</sphereID>
 		</sphereBox>
 	</inventory>
 	<inventory>
