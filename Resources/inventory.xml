@@ -217,15 +217,15 @@
 		<name>sword011</name>
 		<cname>法术权杖</cname>
 		<tips>巫师的必备品</tips>
-		<level>7</level>
+		<level>4</level>
 		<price>9</price>
 		<weight>3</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>ChantBuff_自动吟唱_OnRoundStart_Good_10_-1_100</buffID>
-			<buffID>BaseAttrBuff_权杖之力_ATTR_Good_2_-1_0_0_5</buffID>
+			<buffID>MPBuff_权杖之力1_OnRoundStart_Good_10_-1_2</buffID>
+			<buffID>BaseAttrBuff_权杖之力1_ATTR_Good_2_-1_0_0_5</buffID>
 		</buffBox>
-		<weaponDamage>1</weaponDamage>
+		<weaponDamage>5</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -313,12 +313,12 @@
 		<name>sword016</name>
 		<cname>水晶球</cname>
 		<tips>可以预测未来</tips>
-		<level>5</level>
+		<level>4</level>
 		<price>9</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>BaseAttrBuff_水晶球_ATTR_Good_2_-1_0_0_10</buffID>
+			<buffID>BaseAttrBuff_水晶球_ATTR_Good_2_-1_0_0_4</buffID>
 		</buffBox>
 		<weaponDamage>1</weaponDamage>
 		<strRequire>0</strRequire>
@@ -437,7 +437,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 			<buffID>BaseAttrBuff_天使祝福1_ATTR_Good_2_-1_5_5_5</buffID>
-			<buffID>HPBuff_天使祝福2_OnRoundStart_Good_10_-1_3</buffID>
+			<buffID>HPBuff_天使祝福2_OnRoundStart_Good_10_-1_2</buffID>
 		</buffBox>
 		<weaponDamage>20</weaponDamage>
 		<strRequire>0</strRequire>
@@ -465,6 +465,83 @@
 		<intRequire>0</intRequire>
 		<sphereBox>
 			<sphereID>HemophagiaSphere_吸血_100</sphereID>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword024</name>
+		<cname>学徒之杖</cname>
+		<tips>新手法杖</tips>
+		<level>2</level>
+		<price>9</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_学徒之杖_ATTR_Good_2_-1_0_0_2</buffID>
+		</buffBox>
+		<weaponDamage>2</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword025</name>
+		<cname>学徒短刀</cname>
+		<tips>新手短刀</tips>
+		<level>2</level>
+		<price>9</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_学徒短刀_ATTR_Good_2_-1_2_0_0</buffID>
+		</buffBox>
+		<weaponDamage>4</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword026</name>
+		<cname>学徒短剑</cname>
+		<tips>新手短剑</tips>
+		<level>2</level>
+		<price>9</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_学徒短剑_ATTR_Good_2_-1_0_2_0</buffID>
+		</buffBox>
+		<weaponDamage>4</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword027</name>
+		<cname>星月兄弟会之剑</cname>
+		<tips>星月盟统一装备之一</tips>
+		<level>6</level>
+		<price>9</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_星月祝福1_ATTR_Good_2_-1_3_3_3</buffID>
+			<buffID>HPBuff_星月祝福2_OnRoundStart_Good_10_-1_1</buffID>
+		</buffBox>
+		<weaponDamage>12</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
 		</sphereBox>
 	</inventory>
 	<inventory>
@@ -555,7 +632,7 @@
 		<weight>0</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>ChantBuff_自动吟唱_OnRoundStart_Good_10_-1_100</buffID>
+			<buffID>MPBuff_魔法回复_OnRoundStart_Good_10_-1_1</buffID>
 		</buffBox>
 		<armorCount>2</armorCount>
 	</inventory>
@@ -612,6 +689,21 @@
 			<buffID>BaseAttrBuff_链甲_ATTR_Good_2_-1_0_3_0</buffID>
 		</buffBox>
 		<armorCount>6</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor011</name>
+		<cname>星月兄弟会之甲</cname>
+		<tips>星月盟统一装备之一</tips>
+		<level>6</level>
+		<price>2</price>
+		<weight>4</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_星月祝福1_ATTR_Good_2_-1_3_3_3</buffID>
+			<buffID>HPBuff_星月祝福2_OnRoundStart_Good_10_-1_1</buffID>
+		</buffBox>
+		<armorCount>8</armorCount>
 	</inventory>
 	<inventory>
 		<type>accessory</type>
@@ -794,6 +886,34 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 			<buffID>BaseAttrBuff_恶魔的工作证_ATTR_Good_2_-1_3_3_3</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory014</name>
+		<cname>星月兄弟会之章</cname>
+		<tips>星月兄弟会的证明</tips>
+		<level>6</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_星月祝福1_ATTR_Good_2_-1_3_3_3</buffID>
+			<buffID>HPBuff_星月祝福2_OnRoundStart_Good_10_-1_1</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory015</name>
+		<cname>群星之祝福</cname>
+		<tips>Stella神祝福过的徽章,让群星照亮你的路</tips>
+		<level>8</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>ViewSizeBuff_星光_ATTR_Good_1_-1_4</buffID>
+			<buffID>EvadeBuff_Stella的祝福_ATTR_Good_4_-1_15</buffID>
 		</buffBox>
 	</inventory>
 	<inventory>
@@ -1001,7 +1121,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>17</intRequire>
-		<skillName>LearnSkill_学习随机闪电_0_0_RandomDirectDamage_随机闪电_15_15_-30_5_2</skillName>
+		<skillName>LearnSkill_学习随机闪电_0_0_RandomDirectDamage_随机闪电_15_15_100_5_2</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -1065,7 +1185,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>20</intRequire>
-		<skillName>RandomDirectDamage_随机闪电_0_0_-30_5_2</skillName>
+		<skillName>RandomDirectDamage_随机闪电_0_0_100_5_2</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>

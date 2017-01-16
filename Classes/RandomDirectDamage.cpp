@@ -22,13 +22,17 @@ Skill::RandomDirectDamage* Skill::RandomDirectDamage::createPrototype()
 std::string Skill::RandomDirectDamage::getExtraDescription()
 {
 	return ToolFunction::WStr2UTF8(L"效果:\n")
-		+ ToolFunction::WStr2UTF8(L"对附近一个单位造成")
-		+ ToolFunction::int2string(damage) + ToolFunction::WStr2UTF8(L"伤害");
+		+ ToolFunction::WStr2UTF8(L"对附近一个单位造成:(")
+		+ ToolFunction::int2string(damagePre) 
+		+ToolFunction::WStr2UTF8(L"% x [智力点数])")
+		+ ToolFunction::WStr2UTF8(L"伤害");
 }
 
 void Skill::RandomDirectDamage::run()
 {
 	Character* target = searchTargetBFS(targetType);
+	
+	int damage = -double(damagePre)*double(caster->getIntellect()) / 100.0;
 
 	if (target)
 	{
@@ -40,7 +44,7 @@ void Skill::RandomDirectDamage::run()
 
 void Skill::RandomDirectDamage::initExtraMessage(std::vector<std::string> extraMessage)
 {
-	damage = ToolFunction::string2int(extraMessage[0]);
+	damagePre = ToolFunction::string2int(extraMessage[0]);
 	distance = ToolFunction::string2int(extraMessage[1]);
 
 

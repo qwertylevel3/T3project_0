@@ -17,7 +17,7 @@ namespace Skill
 		void initExtraMessage(std::vector<std::string> extraMessage);
 		Character* searchTargetBFS(Character::Type type);
 
-		int damage;
+		int damagePre;
 		int distance;
 		Character::Type targetType;
 	};

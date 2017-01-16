@@ -1,4 +1,5 @@
 #include "AIDestroyWizard.h"
+#include "HudMessageBox.h"
 #include "Dungeon.h"
 #include "ToolFunction.h"
 #include "RandomNumber.h"
@@ -22,16 +23,19 @@ void AIDestroyWizard::update()
 
 	if (targetCharacter)
 	{
+		std::string chantStr = ToolFunction::int2string(characterPtr->getChantCount());
+		HudMessageBox::getInstance()->addMessage(chantStr);
+
 		this->changeOrientationTo(targetCharacter);
 
 		if (isInAttackArea(targetCharacter))
 		{
 			//ÒÑÒ÷³ªÇÒÄ§·¨³ä×ã
-			if (characterPtr->getChantCount() >= 10
+			if (characterPtr->getChantCount() >= 20
 				&& characterPtr->getMP() >= 40)
 			{
 				characterPtr->runSkill(
-					ToolFunction::WStr2UTF8(L"RandomDirectDamage_À×»÷_40_10_-20_5_0")
+					ToolFunction::WStr2UTF8(L"RandomDirectDamage_À×»÷_40_20_100_5_0")
 				);
 			}
 			else if (characterPtr->getMP() >= 40 &&
@@ -55,11 +59,11 @@ void AIDestroyWizard::update()
 		else if (isInMagicArea(4))
 		{
 			//ÒÑÒ÷³ªÇÒÄ§·¨³ä×ã
-			if (characterPtr->getChantCount() >= 10
+			if (characterPtr->getChantCount() >= 20
 				&& characterPtr->getMP() >= 40)
 			{
 				characterPtr->runSkill(
-					ToolFunction::WStr2UTF8(L"RandomDirectDamage_À×»÷_40_10_-20_5_0")
+					ToolFunction::WStr2UTF8(L"RandomDirectDamage_À×»÷_40_20_100_5_0")
 				);
 			}
 			else if (characterPtr->getMP() >= 40 &&

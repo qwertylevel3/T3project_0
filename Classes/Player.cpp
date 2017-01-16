@@ -98,7 +98,7 @@ void Player::configPlayer()
 
 	characterPtr->setStrength(10);
 	characterPtr->setAgility(10);
-	characterPtr->setIntellect(10);
+	characterPtr->setIntellect(20);
 	characterPtr->setLuck(10);
 	characterPtr->setViewSize(1);
 	characterPtr->setCharacterType(Character::Good);
@@ -119,6 +119,10 @@ void Player::configPlayer()
 	characterPtr->addInventory("sword021");
 	characterPtr->addInventory("sword022");
 	characterPtr->addInventory("sword023");
+
+	characterPtr->addInventory("skillBook000");
+	characterPtr->addInventory("skillBook001");
+	characterPtr->addInventory("skillBook002");
 
 
 
