@@ -44,9 +44,10 @@ protected:
 	bool chooseBetterArmor();
 	bool chooseBetterAccessory();
 	void showCurState();
-	//周围没有危险就闲聊，否则加buff
+	//闲聊
 	void smallTalk();
-	void addBuffToPlayer();
+	void tryBuffToPlayer();
+	void castBuffToPlayer();
 	void healCast();
 	void healSelf();
 };

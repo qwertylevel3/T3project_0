@@ -130,11 +130,17 @@ void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 		//ÏĞÁÄ
 		smallTalk();
 	}
-	else if (dialogueName == "vergilAddBuff"
+	else if (dialogueName == "vergilTalk"
+		&& resultNumber == -10)
+	{
+		//³¢ÊÔ¸øbuff
+		tryBuffToPlayer();
+	}
+	else if (dialogueName == "vergilCastBuff"
 		&& resultNumber == -1)
 	{
 		//¸øbuff
-		addBuffToPlayer();
+		castBuffToPlayer();
 	}
 }
 
@@ -604,27 +610,36 @@ void AIVergil::smallTalk()
 {
 	Buff::BuffHandler* targetBuffHandler = Player::getInstance()->getcharacterPtr()->getBuffHandler();
 
-	if ((!getEnemyAround().empty() || !getEnemyAroundPlayer().empty())
-		&& characterPtr->getMP() >= 20
-		&& !targetBuffHandler->exist(
-			ToolFunction::WStr2UTF8(L"ChantBuff_VergilµÄÒ÷³ª×£¸£_OnRoundStart_Good_10_20_100"))
+	DialogueSystem::getInstance()->runDialogue("vergilSmallTalk", characterPtr);
+}
+
+void AIVergil::tryBuffToPlayer()
+{
+	Buff::BuffHandler* targetBuffHandler = Player::getInstance()->getcharacterPtr()->getBuffHandler();
+
+	if (targetBuffHandler->exist(
+		ToolFunction::WStr2UTF8(L"ChantBuff_VergilµÄÒ÷³ª×£¸£_OnRoundStart_Good_10_20_100"))
 		)
 	{
-		DialogueSystem::getInstance()->runDialogue("vergilAddBuff", characterPtr);
+		DialogueSystem::getInstance()->runDialogue("vergilNoBuff");
+	}
+	else if (characterPtr->getMP() < 20)
+	{
+		DialogueSystem::getInstance()->runDialogue("vergilNoMagic");
 	}
 	else
 	{
-		DialogueSystem::getInstance()->runDialogue("vergilSmallTalk", characterPtr);
+		DialogueSystem::getInstance()->runDialogue("vergilCastBuff", characterPtr);
 	}
 }
 
-void AIVergil::addBuffToPlayer()
+void AIVergil::castBuffToPlayer()
 {
 	changeOrientationTo(Player::getInstance()->getcharacterPtr());
 	characterPtr->runSkill(
 		ToolFunction::WStr2UTF8(L"BuffCast_Ò÷³ª×£¸£_20_0_ChantBuff_VergilµÄÒ÷³ª×£¸£_OnRoundStart_Good_10_20_100")
 	);
-	HudMessageBox::getInstance()->addMessage(L"VergilÎªÄã¸½¼ÓÁËÒ÷³ª×£¸£");
+	HudMessageBox::getInstance()->addMessage(L"VergilÊÍ·ÅÁËÒ÷³ª×£¸£");
 }
 
 void AIVergil::healCast()

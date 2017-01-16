@@ -71,10 +71,6 @@
 					<next>2</next>
 				</option>
 				<option>
-					<label>奶我一口。。。</label>
-					<next>-4</next>
-				</option>
-				<option>
 					<label>帮我背一点东西</label>
 					<next>-5</next>
 				</option>
@@ -105,6 +101,14 @@
 					<label>在这等我</label>
 					<next>3</next>
 				</option>
+				<option>
+					<label>奶我一口。。。</label>
+					<next>-4</next>
+				</option>
+				<option>
+					<label>帮我加个Buff</label>
+					<next>-10</next>
+				</option>
 			</optionList>
 		</sentence>
 		<sentence>
@@ -130,11 +134,20 @@
 		</sentence>
 	</dialogue>
 	<dialogue>
-		<name>vergilAddBuff</name>
+		<name>vergilNoBuff</name>
 		<sentence>
 			<type>statement</type>
 			<actorName>dialogueVergil3.png</actorName>
-			<word>关键时刻聊个啥啊，把头伸过来，我给你加个Buff</word>
+			<word>Buff只能叠加一次哦</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>vergilCastBuff</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>把头伸过来，我给你加个Buff</word>
 			<next>-1</next>
 		</sentence>
 	</dialogue>
