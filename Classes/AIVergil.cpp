@@ -45,7 +45,7 @@ void AIVergil::update()
 		}
 	}
 	if (characterPtr->getHP() < characterPtr->getMaxHP() / 2
-		&& characterPtr->getMP()>40)
+		&& characterPtr->getMP() > 40)
 	{
 		healSelf();
 		return;
@@ -61,10 +61,10 @@ void AIVergil::update()
 	switch (curState)
 	{
 	case 0:
-		stayCloseAI();
+		followAI();
 		break;
 	case 1:
-		freeAI();
+		waitAI();
 		break;
 	default:
 		break;
@@ -144,7 +144,7 @@ void AIVergil::lastWords()
 	HudMessageBox::getInstance()->addMessage(L"Vergil消失了");
 }
 
-void AIVergil::stayCloseAI()
+void AIVergil::followAI()
 {
 	//状态
 	//0为player周围没有enemy，跟随
@@ -237,42 +237,32 @@ void AIVergil::stayCloseAI()
 	}
 }
 
-void AIVergil::freeAI()
+void AIVergil::waitAI()
 {
-	int viewSize = characterPtr->getViewSize();
+	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
+	cocos2d::Point playerCoord = playerCharacter->getMapCoord();
 
-	Character* enemyTarget = searchTargetBFS(Character::Bad);
-
-	if (enemyTarget)
+	if (ToolFunction::isNear4(characterPtr->getMapCoord(), playerCoord))
 	{
-		if (getManhattanDistance(Player::getInstance()->getcharacterPtr()) > 5)
+		//player血量低且vergil有魔法,优先治疗
+		if (playerCharacter->getHP() < playerCharacter->getMaxHP() / 2
+			&& characterPtr->getMP() > 40)
 		{
-			seek(Player::getInstance()->getcharacterPtr());
+			changeOrientationTo(playerCharacter);
+			healCast();
+			return;
 		}
-		else
-		{
-			if (isInAttackArea(enemyTarget))
-			{
-				characterPtr->attack();
-			}
-			else
-			{
-				seek(enemyTarget);
-			}
-		}
+	}
+
+	Character* targetCharacter = searchTargetBFS(Character::Bad, 1);
+	if (targetCharacter)
+	{
+		changeOrientationTo(targetCharacter);
+		characterPtr->attack();
 	}
 	else
 	{
-		cocos2d::Point playerCoord = Player::getInstance()->getcharacterPtr()->getMapCoord();
-
-		if (ToolFunction::isNear4(characterPtr->getMapCoord(), playerCoord))
-		{
-			characterPtr->idle();
-		}
-		else
-		{
-			seek(Player::getInstance()->getcharacterPtr());
-		}
+		characterPtr->idle();
 	}
 }
 

@@ -23,8 +23,8 @@ void AIDestroyWizard::update()
 
 	if (targetCharacter)
 	{
-		std::string chantStr = ToolFunction::int2string(characterPtr->getChantCount());
-		HudMessageBox::getInstance()->addMessage(chantStr);
+//		std::string chantStr = ToolFunction::int2string(characterPtr->getChantCount());
+//		HudMessageBox::getInstance()->addMessage(chantStr);
 
 		this->changeOrientationTo(targetCharacter);
 

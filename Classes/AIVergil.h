@@ -14,13 +14,16 @@ public:
 protected:
 	//状态:
 	//0:紧密跟随
-	//1:自由活动
+	//1:站着不动
 	int curState;
 
-	//紧密跟随的ai
-	void stayCloseAI();
-	//自由活动的ai
-	void freeAI();
+	//行动
+	void followAI();
+
+	//等待
+	void waitAI();
+
+	
 
 	//获得周围的enemy
 	std::vector<Character* > getEnemyAround();
