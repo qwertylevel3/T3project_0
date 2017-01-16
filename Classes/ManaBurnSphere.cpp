@@ -27,8 +27,9 @@ Sphere::ManaBurnSphere* Sphere::ManaBurnSphere::createProtoType()
 std::string Sphere::ManaBurnSphere::getDescription()
 {
 	return ToolFunction::WStr2UTF8(L"法力燃烧:\n")
-		+ ToolFunction::WStr2UTF8(L"每次攻击造成:")
+		+ ToolFunction::WStr2UTF8(L"每次攻击造成:(")
 		+ToolFunction::int2string(mpDamagePer)
+		+"%x [Damage])"
 		+ ToolFunction::WStr2UTF8(L"魔法值伤害");
 }
 

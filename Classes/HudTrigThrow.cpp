@@ -40,7 +40,7 @@ void HudTrigThrow::run()
 	showEffect(inventory,targetCoord);
 	//////////////////////////////////////////////////////////////////////////
 
-
+	characterPtr->processAction(0.1);
 	menuItem->getParentMenu()->closeMenu();
 }
 

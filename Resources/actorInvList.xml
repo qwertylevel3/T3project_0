@@ -6,11 +6,7 @@
 		<list>
 			<inventory>
 				<inventoryID>supply008</inventoryID>
-				<pro>100</pro>
-			</inventory>
-			<inventory>
-				<inventoryID>supply008</inventoryID>
-				<pro>50</pro>
+				<pro>20</pro>
 			</inventory>
 			<inventory>
 				<inventoryID>scroll017</inventoryID>
@@ -60,26 +56,26 @@
 		<list>
 			<inventory>
 				<inventoryID>scroll005</inventoryID>
-				<pro>80</pro>
+				<pro>30</pro>
 			</inventory>
 			<inventory>
-				<inventoryID>scroll0010</inventoryID>
+				<inventoryID>scroll010</inventoryID>
 				<pro>20</pro>
 			</inventory>
 			<inventory>
-				<inventoryID>scroll0011</inventoryID>
+				<inventoryID>scroll011</inventoryID>
 				<pro>20</pro>
 			</inventory>
 			<inventory>
-				<inventoryID>scroll0012</inventoryID>
+				<inventoryID>scroll012</inventoryID>
 				<pro>40</pro>
 			</inventory>
 			<inventory>
-				<inventoryID>scroll0013</inventoryID>
+				<inventoryID>scroll013</inventoryID>
 				<pro>20</pro>
 			</inventory>
 			<inventory>
-				<inventoryID>scroll0014</inventoryID>
+				<inventoryID>scroll014</inventoryID>
 				<pro>20</pro>
 			</inventory>
 			<inventory>

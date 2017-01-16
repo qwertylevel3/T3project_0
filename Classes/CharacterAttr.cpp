@@ -37,7 +37,7 @@ void CharacterAttr::calculateBattleAttr()
 
 	accuracyPoint = agility + 70;
 
-	criticalPro = agility*0.5;
+	criticalPro = agility*1;
 	criticalPro = criticalPro > 90 ? 90 : criticalPro;
 
 	criticalPer = strength + 100;

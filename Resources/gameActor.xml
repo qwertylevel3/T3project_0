@@ -22,7 +22,7 @@
 		<maxHP>50</maxHP>
 		<maxMP>20</maxMP>
 		<leftHand>sword005</leftHand>
-		<rightHand>NULL</rightHand>
+		<rightHand>sword005</rightHand>
 		<armor>NULL</armor>
 		<accessory>NULL</accessory>
 	</actor>
@@ -47,8 +47,8 @@
 		<maxHP>100</maxHP>
 		<maxMP>20</maxMP>
 		<leftHand>sword002</leftHand>
-		<rightHand>NULL</rightHand>
-		<armor>NULL</armor>
+		<rightHand>sword003</rightHand>
+		<armor>armor004</armor>
 		<accessory>NULL</accessory>
 	</actor>
 	<actor>
@@ -96,8 +96,8 @@
 		<viewSize>3</viewSize>
 		<maxHP>100</maxHP>
 		<maxMP>200</maxMP>
-		<leftHand>sword000</leftHand>
-		<rightHand>NULL</rightHand>
+		<leftHand>sword011</leftHand>
+		<rightHand>sword016</rightHand>
 		<armor>armor006</armor>
 		<accessory>accessory003</accessory>
 	</actor>
@@ -122,7 +122,7 @@
 		<maxHP>100</maxHP>
 		<maxMP>200</maxMP>
 		<leftHand>sword011</leftHand>
-		<rightHand>NULL</rightHand>
+		<rightHand>sword016</rightHand>
 		<armor>armor006</armor>
 		<accessory>accessory003</accessory>
 	</actor>

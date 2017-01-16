@@ -79,14 +79,14 @@
 		<type>oneHandWeapon</type>
 		<name>sword004</name>
 		<cname>圣剑</cname>
-		<tips>测试用</tips>
+		<tips>圣剑</tips>
 		<level>9</level>
 		<price>999</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<weaponDamage>99</weaponDamage>
+		<weaponDamage>30</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -309,6 +309,124 @@
 		</sphereBox>
 	</inventory>
 	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword016</name>
+		<cname>水晶球</cname>
+		<tips>可以预测未来</tips>
+		<level>5</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_水晶球_ATTR_Good_2_-1_0_0_10</buffID>
+		</buffBox>
+		<weaponDamage>1</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword017</name>
+		<cname>A.M.的蓝色法杖</cname>
+		<tips>传奇法师A.M.用过的法杖之一</tips>
+		<level>9</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>MaxMPBuff_蓝杖1_ATTR_Good_1_-1_200</buffID>
+			<buffID>MPBuff_蓝杖2_OnRoundStart_Good_10_-1_2</buffID>
+		</buffBox>
+		<weaponDamage>1</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword018</name>
+		<cname>A.M.的红色法杖</cname>
+		<tips>传奇法师A.M.用过的法杖之一</tips>
+		<level>9</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_红杖1_ATTR_Good_2_-1_0_0_20</buffID>
+			<buffID>ChantBuff_红杖2_OnRoundStart_Good_10_-1_200</buffID>
+		</buffBox>
+		<weaponDamage>1</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword019</name>
+		<cname>被诅咒的剑</cname>
+		<tips>没有什么是免费的，剑也一样</tips>
+		<level>8</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>HPBuff_诅咒_OnRoundStart_Bad_10_-1_-3</buffID>
+		</buffBox>
+		<weaponDamage>25</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword020</name>
+		<cname>暗影之锋</cname>
+		<tips>阴影中的剑,不是最强的剑，但是最快的剑</tips>
+		<level>8</level>
+		<price>9</price>
+		<weight>0</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_阴影之力_ATTR_Good_2_-1_-5_60_0</buffID>
+		</buffBox>
+		<weaponDamage>5</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword021</name>
+		<cname>破魔刀</cname>
+		<tips>反魔法利刃</tips>
+		<level>7</level>
+		<price>9</price>
+		<weight>0</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			
+		</buffBox>
+		<weaponDamage>15</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+			<sphereID>ManaBurnSphere_破魔1_300</sphereID>
+			<sphereID>AntiChantSphere_破魔2_70</sphereID>
+		</sphereBox>
+	</inventory>
+	<inventory>
 		<type>armor</type>
 		<name>armor000</name>
 		<cname>运动衫</cname>
@@ -367,7 +485,7 @@
 		<tips>普通的铁甲</tips>
 		<level>4</level>
 		<price>2</price>
-		<weight>4</weight>
+		<weight>5</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
@@ -380,7 +498,7 @@
 		<tips>比铁甲结实，但是更重</tips>
 		<level>6</level>
 		<price>2</price>
-		<weight>6</weight>
+		<weight>7</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
@@ -413,6 +531,46 @@
 			<buffID>BaseAttrBuff_工作服的效果_ATTR_Good_2_-1_2_2_2</buffID>
 		</buffBox>
 		<armorCount>4</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor008</name>
+		<cname>一块牌子</cname>
+		<tips>不要小看这块牌子,这是神器</tips>
+		<level>9</level>
+		<price>2</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<armorCount>20</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor009</name>
+		<cname>板甲</cname>
+		<tips>结实耐用，但是也没有几个人能承受它的重量</tips>
+		<level>7</level>
+		<price>2</price>
+		<weight>10</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<armorCount>14</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor010</name>
+		<cname>链甲</cname>
+		<tips>灵活，但是牺牲了防护力</tips>
+		<level>5</level>
+		<price>2</price>
+		<weight>3</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_链甲_ATTR_Good_2_-1_0_3_0</buffID>
+		</buffBox>
+		<armorCount>6</armorCount>
 	</inventory>
 	<inventory>
 		<type>accessory</type>
@@ -515,7 +673,7 @@
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>ComboProBuff_荆棘之心_ATTR_Good_4_-1_15</buffID>
+			<buffID>ComboBuff_荆棘之心_ATTR_Good_4_-1_15</buffID>
 		</buffBox>
 	</inventory>
 	<inventory>
@@ -1059,7 +1217,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>13</intRequire>
 		<skillName>BuffSelf_生命回复_0_0_HPBuff_生命回复_OnRoundStart_Good_10_20_6</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>0</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -1075,7 +1233,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>13</intRequire>
 		<skillName>BuffSelf_魔法回复_0_0_MPBuff_魔法回复_OnRoundStart_Good_10_20_6</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>1</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -1091,7 +1249,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>16</intRequire>
 		<skillName>BuffSelf_生命回复_0_0_HPBuff_生命回复_OnRoundStart_Good_10_40_6</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>0</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -1107,7 +1265,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>16</intRequire>
 		<skillName>BuffSelf_魔法回复_0_0_MPBuff_魔法回复_OnRoundStart_Good_10_40_6</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>1</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -1123,7 +1281,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>16</intRequire>
 		<skillName>BuffSelf_生命回复_0_0_HPBuff_生命回复_OnRoundStart_Good_10_40_10</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>0</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -1139,7 +1297,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>16</intRequire>
 		<skillName>BuffSelf_魔法回复_0_0_MPBuff_魔法回复_OnRoundStart_Good_10_40_10</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>1</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>

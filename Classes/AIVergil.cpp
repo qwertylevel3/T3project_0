@@ -44,6 +44,12 @@ void AIVergil::update()
 			return;
 		}
 	}
+	if (characterPtr->getHP() < characterPtr->getMaxHP() / 2
+		&& characterPtr->getMP()>40)
+	{
+		healSelf();
+		return;
+	}
 	if (characterPtr->getMP() < characterPtr->getMaxMP() / 2)
 	{
 		if (tryUseMPSupply())
@@ -51,6 +57,7 @@ void AIVergil::update()
 			return;
 		}
 	}
+
 	switch (curState)
 	{
 	case 0:
@@ -89,10 +96,7 @@ void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 		if (characterPtr->getMP() > 40)
 		{
 			changeOrientationTo(playerCharacter);
-			characterPtr->runSkill(
-				ToolFunction::WStr2UTF8(L"HPRecoveryCast_生命恢复_40_0_50")
-			);
-			HudMessageBox::getInstance()->addMessage(L"Vergil向你释放了一个治疗法术");
+			healCast();
 			return;
 		}
 		else
@@ -164,14 +168,11 @@ void AIVergil::stayCloseAI()
 	if (ToolFunction::isNear4(characterPtr->getMapCoord(), playerCoord))
 	{
 		//player血量低且vergil有魔法,优先治疗
-		if (playerCharacter->getHP() < playerCharacter->getMaxHP()/2
+		if (playerCharacter->getHP() < playerCharacter->getMaxHP() / 2
 			&& characterPtr->getMP() > 40)
 		{
 			changeOrientationTo(playerCharacter);
-			characterPtr->runSkill(
-				ToolFunction::WStr2UTF8(L"HPRecoveryCast_生命恢复_40_0_50")
-			);
-			HudMessageBox::getInstance()->addMessage(L"Vergil向你释放了一个治疗法术");
+			healCast();
 			return;
 		}
 	}
@@ -627,7 +628,6 @@ void AIVergil::smallTalk()
 	}
 }
 
-
 void AIVergil::addBuffToPlayer()
 {
 	changeOrientationTo(Player::getInstance()->getcharacterPtr());
@@ -635,4 +635,22 @@ void AIVergil::addBuffToPlayer()
 		ToolFunction::WStr2UTF8(L"BuffCast_吟唱祝福_20_0_ChantBuff_Vergil的吟唱祝福_OnRoundStart_Good_10_20_100")
 	);
 	HudMessageBox::getInstance()->addMessage(L"Vergil为你附加了吟唱祝福");
+}
+
+void AIVergil::healCast()
+{
+	characterPtr->runSkill(
+		ToolFunction::WStr2UTF8(L"HPRecoveryCast_生命恢复_40_0_50")
+	);
+	characterPtr->addExp(50);
+	HudMessageBox::getInstance()->addMessage(L"Vergil向你释放了一个治疗法术");
+}
+
+void AIVergil::healSelf()
+{
+	characterPtr->runSkill(
+		ToolFunction::WStr2UTF8(L"HPRecoverySelf_生命恢复_40_0_50")
+	);
+	characterPtr->addExp(50);
+	HudMessageBox::getInstance()->addMessage(L"Vergil向自己释放了一个治疗法术");
 }

@@ -44,4 +44,6 @@ protected:
 	//周围没有危险就闲聊，否则加buff
 	void smallTalk();
 	void addBuffToPlayer();
+	void healCast();
+	void healSelf();
 };

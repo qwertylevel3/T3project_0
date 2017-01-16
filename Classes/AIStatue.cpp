@@ -1,4 +1,5 @@
 #include "AIStatue.h"
+#include "InventoryFactory.h"
 #include "HudMessageBox.h"
 #include "RandomNumber.h"
 #include "BuffFactory.h"
@@ -49,6 +50,10 @@ void AIStatue::handleDialogueResult(std::string dialogueName, int resultNumber)
 	{
 		handleLevelUp();
 	}
+	else if (dialogueName == "pray")
+	{
+		handlePrayResult(resultNumber);
+	}
 	else if (dialogueName == "levelUp"
 		&& resultNumber == -1)
 	{
@@ -87,11 +92,7 @@ void AIStatue::handlePray()
 	}
 	else
 	{
-		Player::getInstance()->reduceFaith(10);
-
-		int roll = RandomNumber::getInstance()->randomInt(1, 100);
-		Player::getInstance()->getcharacterPtr()->addExp(200);
-		HudMessageBox::getInstance()->addMessage(L"你获得了200点经验");
+		DialogueSystem::getInstance()->runDialogue("pray", characterPtr);
 	}
 }
 
@@ -107,5 +108,159 @@ void AIStatue::handleLevelUp()
 	{
 		DialogueSystem::getInstance()->runDialogue("noAttrPoint", this->characterPtr);
 	}
-	
+}
+
+void AIStatue::handlePrayResult(int resultNumber)
+{
+	switch (resultNumber)
+	{
+	case -1:
+		giveWeapon();
+		break;
+	case -2:
+		giveArmor();
+		break;
+	case -3:
+		giveAccessory();
+		break;
+	case -4:
+		giveInventory();
+		break;
+	case -5:
+		giveHP();
+		break;
+	case -6:
+		giveMP();
+		break;
+	default:
+		break;
+	}
+}
+
+void AIStatue::giveWeapon()
+{
+	Player::getInstance()->reduceFaith(10);
+	HudMessageBox::getInstance()->addMessage(L"你失去了10信仰点数");
+
+	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
+
+	int roll = RandomNumber::getInstance()->randomInt(1, 100);
+	std::string inventoryID;
+
+
+	if (roll<=1)
+	{
+		inventoryID = "sword004";
+	}
+	else if (roll>1 && roll<=5)
+	{
+		inventoryID = "sword014";
+	}
+	else if (roll>5 && roll<=9)
+	{
+		inventoryID = "sword015";
+	}
+	else if (roll>9 && roll <=30)
+	{
+		inventoryID = "sword003";
+	}
+	else if (roll>30 && roll<=60)
+	{
+		inventoryID = "sword002";
+	}
+	else if (roll>60 && roll<=80)
+	{
+		inventoryID = "sword001";
+	}
+	else
+	{
+		inventoryID = "sword007";
+	}
+	playerCharacter->addInventory(inventoryID);
+	std::string inventoryCName = InventoryFactory::getInstance()->queryCname(inventoryID);
+	HudMessageBox::getInstance()->addMessage(
+		ToolFunction::WStr2UTF8(L"你获得了")
+		+ inventoryCName
+	);
+}
+
+void AIStatue::giveArmor()
+{
+	Player::getInstance()->reduceFaith(10);
+	HudMessageBox::getInstance()->addMessage(L"你失去了10信仰点数");
+
+	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
+
+	int roll = RandomNumber::getInstance()->randomInt(1, 100);
+	std::string inventoryID;
+
+
+	if (roll<=1)
+	{
+		inventoryID = "sword004";
+	}
+	else if (roll>1 && roll<=5)
+	{
+		inventoryID = "sword014";
+	}
+	else if (roll>5 && roll<=9)
+	{
+		inventoryID = "sword015";
+	}
+	else if (roll>9 && roll <=30)
+	{
+		inventoryID = "sword003";
+	}
+	else if (roll>30 && roll<=60)
+	{
+		inventoryID = "sword002";
+	}
+	else if (roll>60 && roll<=80)
+	{
+		inventoryID = "sword001";
+	}
+	else
+	{
+		inventoryID = "sword007";
+	}
+	playerCharacter->addInventory(inventoryID);
+	std::string inventoryCName = InventoryFactory::getInstance()->queryCname(inventoryID);
+	HudMessageBox::getInstance()->addMessage(
+		ToolFunction::WStr2UTF8(L"你获得了")
+		+ inventoryCName
+	);
+
+
+}
+
+void AIStatue::giveAccessory()
+{
+	Player::getInstance()->reduceFaith(10);
+	HudMessageBox::getInstance()->addMessage(L"你失去了10信仰点数");
+
+
+}
+
+void AIStatue::giveInventory()
+{
+	Player::getInstance()->reduceFaith(10);
+	HudMessageBox::getInstance()->addMessage(L"你失去了10信仰点数");
+
+
+}
+
+void AIStatue::giveHP()
+{
+	Player::getInstance()->reduceFaith(10);
+	HudMessageBox::getInstance()->addMessage(L"你失去了10信仰点数");
+
+
+}
+
+void AIStatue::giveMP()
+{
+	Player::getInstance()->reduceFaith(10);
+	HudMessageBox::getInstance()->addMessage(L"你失去了10信仰点数");
+
+
 }
