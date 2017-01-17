@@ -30,7 +30,7 @@ void AIShrine::feedback(Character* character)
 		characterPtr->setViewSize(10);
 		light = true;
 		//设置为点亮的sprite
-		characterPtr->setOrientationDown();
+		characterPtr->setOrientationUp();
 		Player::getInstance()->addFaith(1);
 	}
 }

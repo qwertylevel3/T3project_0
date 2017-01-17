@@ -85,15 +85,16 @@ bool Character::sufferHPEffect(int hpOffset)
 {
 	showHPEffect(hpOffset);
 	HP += hpOffset;
-	characterBar->update();
 	if (HP <= 0)
 	{
+		characterBar->update();
 		die();
 		return false;
 	}
 	else if (HP >= getMaxHP())
 	{
 		HP = getMaxHP();
+		characterBar->update();
 		return false;
 	}
 	return true;

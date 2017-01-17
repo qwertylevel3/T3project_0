@@ -545,10 +545,10 @@
 			<frameName>shrine1.png</frameName>
 		</moveRightAnimation>
 		<standUpAnimation>
-			<frameName>shrine1.png</frameName>
+			<frameName>shrine2.png</frameName>
 		</standUpAnimation>
 		<standDownAnimation>
-			<frameName>shrine2.png</frameName>
+			<frameName>shrine1.png</frameName>
 		</standDownAnimation>
 		<standLeftAnimation>
 			<frameName>shrine2.png</frameName>

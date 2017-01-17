@@ -18,6 +18,14 @@ void AIBlackSnack::update()
 	{
 		return;
 	}
+
+	//³¢ÊÔÆÆ»µµãÁÁµÄĞÇËş
+	if (tryDestroyShrine())
+	{
+		return;
+	}
+
+
 	int viewSize = characterPtr->getViewSize();
 	Character* targetCharacter = searchTargetBFS(Character::Good);
 	if (targetCharacter)
@@ -40,10 +48,9 @@ void AIBlackSnack::update()
 						ToolFunction::WStr2UTF8(L"BuffCast_ÖÂÃ¤_0_0_ViewSizeBuff_ÖÂÃ¤_ATTR_Bad_1_10_-3")
 					);
 					HudMessageBox::getInstance()->addMessage(
-						targetCharacter->getName()+
+						targetCharacter->getName() +
 						ToolFunction::WStr2UTF8(L"ÖĞÁËÖÂÃ¤buff")
 					);
-
 				}
 				else if (RandomNumber::getInstance()->randomBool(0.9))
 				{
@@ -75,4 +82,26 @@ void AIBlackSnack::update()
 
 void AIBlackSnack::feedback(Character* character)
 {
+}
+
+bool AIBlackSnack::tryDestroyShrine()
+{
+	Character* targetCharacter = searchTargetBFS(Character::Neutral);
+
+	//up´ú±íµãÁÁ
+	if (targetCharacter
+		&& targetCharacter->getName() == "shrine"
+		&& targetCharacter->getOrientation() == Character::Orientation::UP)
+	{
+		if (!isInAttackArea(targetCharacter))
+		{
+			seek(targetCharacter);
+		}
+		else
+		{
+			characterPtr->attack();
+		}
+		return true;
+	}
+	return false;
 }

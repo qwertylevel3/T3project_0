@@ -19,7 +19,7 @@
 		<agility>3</agility>
 		<luck>0</luck>
 		<viewSize>3</viewSize>
-		<maxHP>50</maxHP>
+		<maxHP>30</maxHP>
 		<maxMP>20</maxMP>
 		<leftHand>sword005</leftHand>
 		<rightHand>sword005</rightHand>
@@ -44,7 +44,7 @@
 		<agility>25</agility>
 		<luck>0</luck>
 		<viewSize>3</viewSize>
-		<maxHP>100</maxHP>
+		<maxHP>80</maxHP>
 		<maxMP>20</maxMP>
 		<leftHand>sword002</leftHand>
 		<rightHand>sword003</rightHand>
@@ -144,7 +144,7 @@
 		<agility>15</agility>
 		<luck>0</luck>
 		<viewSize>3</viewSize>
-		<maxHP>70</maxHP>
+		<maxHP>60</maxHP>
 		<maxMP>20</maxMP>
 		<leftHand>sword006</leftHand>
 		<rightHand>NULL</rightHand>
@@ -319,7 +319,7 @@
 		<agility>1</agility>
 		<luck>0</luck>
 		<viewSize>0</viewSize>
-		<maxHP>100</maxHP>
+		<maxHP>50</maxHP>
 		<maxMP>1</maxMP>
 		<leftHand>NULL</leftHand>
 		<rightHand>NULL</rightHand>

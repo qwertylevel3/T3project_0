@@ -182,7 +182,7 @@ std::vector<std::string > InventoryListGenerator::generateGhostInvList()
 	std::string level3Inv = getRandomInv(3, 20);
 	addInv2List(level3Inv, invList);
 
-	std::string level4Inv = getRandomInv(4, 50);
+	std::string level4Inv = getRandomInv(4, 20);
 	addInv2List(level4Inv, invList);
 
 	std::string level5Inv = getRandomInv(5, 20);

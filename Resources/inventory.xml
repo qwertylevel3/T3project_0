@@ -1257,6 +1257,22 @@
 	</inventory>
 	<inventory>
 		<type>supply</type>
+		<name>skillBook004</name>
+		<cname>亥吉亚之书</cname>
+		<tips>学习治疗技能</tips>
+		<level>4</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>15</intRequire>
+		<skillName>LearnSkill_学习闪烁_0_0_BlinkSelf_闪烁_15_15_3</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
 		<name>scroll000</name>
 		<cname>火球术卷轴</cname>
 		<tips>释放一个直线火球</tips>
