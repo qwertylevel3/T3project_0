@@ -32,7 +32,6 @@ bool HudLayer::init()
 	HudDescriptionMenu::getInstance()->init();
 	HudMenuSystem::getInstance()->init();
 	HudPlayerStateMenu::getInstance()->init();
-	DialogueSystem::getInstance()->init();
 	HudBar::getInstance()->init();
 	HudMessageBox::getInstance()->init();
 	HudExchangeInventorySystem::getInstance()->init();

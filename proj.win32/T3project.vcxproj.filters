@@ -643,6 +643,7 @@
       <Filter>src\character</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\AntiChantSphere.cpp" />
+    <ClCompile Include="..\Classes\DialogueLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1213,6 +1214,7 @@
       <Filter>src\character</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AntiChantSphere.h" />
+    <ClInclude Include="..\Classes\DialogueLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

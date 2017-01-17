@@ -1,7 +1,7 @@
 #include "DialogueDriver.h"
 #include "HudMessageBox.h"
 #include "ToolFunction.h"
-#include "HudLayer.h"
+#include "DialogueLayer.h"
 #include "Sentence.h"
 #include "Question.h"
 #include "Statement.h"
@@ -30,7 +30,7 @@ void DialogueDriver::init()
 	dialogBk->setScale9Enabled(true);
 	dialogBk->setContentSize(cocos2d::Size(810, 160));
 	dialogBk->setOpacity(180);
-	HudLayer::getInstance()->addChild(dialogBk);
+	DialogueLayer::getInstance()->addChild(dialogBk);
 	dialogBk->setLocalZOrder(1);
 	dialogBk->setVisible(false);
 
@@ -58,7 +58,7 @@ void DialogueDriver::init()
 
 	textLabel = Label::createWithTTF("", "fonts/arialuni.ttf", 24);
 	textLabel->setVisible(false);
-	HudLayer::getInstance()->addChild(textLabel);
+	DialogueLayer::getInstance()->addChild(textLabel);
 	textLabel->setLocalZOrder(3);
 	textLabel->setPosition(450, 95);
 	textLabel->setAlignment(CCTextAlignment::LEFT, CCVerticalTextAlignment::TOP);
@@ -70,7 +70,7 @@ void DialogueDriver::init()
 	textLabel->setOpacity(255);
 
 	enterSprite = cocos2d::Sprite::create("sys/enter.png");
-	HudLayer::getInstance()->addChild(enterSprite);
+	DialogueLayer::getInstance()->addChild(enterSprite);
 	enterSprite->setPosition(700, 50);
 	enterSprite->setVisible(false);
 
@@ -98,7 +98,7 @@ void DialogueDriver::run(Statement* statement)
 		//		actorSprite->setPosition(75, 100);
 		actorSprite->getTexture()->setAliasTexParameters();
 
-		HudLayer::getInstance()->addChild(actorSprite);
+		DialogueLayer::getInstance()->addChild(actorSprite);
 		actorSprite->setLocalZOrder(2);
 	}
 	else
@@ -145,7 +145,7 @@ void DialogueDriver::run(Question* question)
 		//		actorSprite->setPosition(75, 100);
 		actorSprite->getTexture()->setAliasTexParameters();
 
-		HudLayer::getInstance()->addChild(actorSprite);
+		DialogueLayer::getInstance()->addChild(actorSprite);
 		actorSprite->setLocalZOrder(2);
 	}
 	else

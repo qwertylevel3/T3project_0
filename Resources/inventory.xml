@@ -1204,7 +1204,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>13</intRequire>
-		<skillName>LearnSkill_学习火球术_0_0_FireBall_火球术_5_5_100_5</skillName>
+		<skillName>LearnSkill_学习火球术_0_0_FireBall_火球术_15_15_80_5</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>

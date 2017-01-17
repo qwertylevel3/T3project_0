@@ -198,6 +198,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\CriticalPerBuff.cpp" />
     <ClCompile Include="..\Classes\CriticalPointBuff.cpp" />
     <ClCompile Include="..\Classes\CriticalProBuff.cpp" />
+    <ClCompile Include="..\Classes\DialogueLayer.cpp" />
     <ClCompile Include="..\Classes\DisabilitySphere.cpp" />
     <ClCompile Include="..\Classes\DogTag.cpp" />
     <ClCompile Include="..\Classes\DogTagGenerator.cpp" />
@@ -390,6 +391,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\CriticalPerBuff.h" />
     <ClInclude Include="..\Classes\CriticalPointBuff.h" />
     <ClInclude Include="..\Classes\CriticalProBuff.h" />
+    <ClInclude Include="..\Classes\DialogueLayer.h" />
     <ClInclude Include="..\Classes\DisabilitySphere.h" />
     <ClInclude Include="..\Classes\DogTag.h" />
     <ClInclude Include="..\Classes\DogTagGenerator.h" />

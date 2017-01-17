@@ -1,4 +1,5 @@
 #include "AppDelegate.h"
+#include "DialogueLayer.h"
 #include "GameController.h"
 #include "MainLayer.h"
 #include "HudLayer.h"
@@ -94,22 +95,24 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	GameController::getInstance()->init();
     
-    // 'layer' is an autorelease object
 	auto gameSceneLayer = MainLayer::getInstance();
 	auto hudLayer = HudLayer::getInstance();
 	auto maskLayer = MaskLayer::getInstance();
 	auto splashLayer = SplashLayer::getInstance();
+	auto dialogueLayer = DialogueLayer::getInstance();
 
     // add layer as a child to scene
     scene->addChild(gameSceneLayer,0);
 	scene->addChild(maskLayer, 1);
 	scene->addChild(hudLayer,2);
 	scene->addChild(splashLayer,3);
+	scene->addChild(dialogueLayer, 4);
 
 	MainLayer::getInstance()->init();
 	HudLayer::getInstance()->init();
 	MaskLayer::getInstance()->init();
 	SplashLayer::getInstance()->init();
+	DialogueLayer::getInstance()->init();
 
     // run
     director->runWithScene(scene);
