@@ -116,16 +116,16 @@ void Player::configPlayer()
 
 
 
-//	for (int i = 0; i < 10; i++)
-//	{
-//		std::string invName = InventoryFactory::getInstance()->getRandomInventory(9);
-//		characterPtr->addInventory(invName);
-//	}
-//	for (int i = 0; i < 10; i++)
-//	{
-//		std::string invName = InventoryFactory::getInstance()->getRandomInventory(8);
-//		characterPtr->addInventory(invName);
-//	}
+	for (int i = 0; i < 20; i++)
+	{
+		std::string invName = InventoryFactory::getInstance()->getRandomInventory(9);
+		characterPtr->addInventory(invName);
+	}
+	for (int i = 0; i < 20; i++)
+	{
+		std::string invName = InventoryFactory::getInstance()->getRandomInventory(8);
+		characterPtr->addInventory(invName);
+	}
 
 	//////////////////////////////////////////////////////////////////////////
 //	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_-1_100";
@@ -273,6 +273,11 @@ void Player::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 			playerChant();
 			break;
 		}
+		if (keyCode == EventKeyboard::KeyCode::KEY_T)
+		{
+			playerIdle();
+			break;
+		}
 		playerMove(keyCode);
 		break;
 	case HaltMode:
@@ -377,6 +382,11 @@ std::vector<cocos2d::Point>& Player::getpathHistory()
 void Player::playerChant()
 {
 	characterPtr->chant();
+}
+
+void Player::playerIdle()
+{
+	characterPtr->idle();
 }
 
 void Player::showCannotMoveReason()

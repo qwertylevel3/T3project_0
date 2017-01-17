@@ -41,7 +41,7 @@
 		<actionAble>1</actionAble>
 		<strength>7</strength>
 		<intellect>3</intellect>
-		<agility>15</agility>
+		<agility>25</agility>
 		<luck>0</luck>
 		<viewSize>3</viewSize>
 		<maxHP>100</maxHP>
@@ -64,7 +64,7 @@
 		<chantAble>1</chantAble>
 		<skillAble>1</skillAble>
 		<actionAble>1</actionAble>
-		<strength>20</strength>
+		<strength>25</strength>
 		<intellect>3</intellect>
 		<agility>1</agility>
 		<luck>0</luck>

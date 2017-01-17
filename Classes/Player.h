@@ -39,6 +39,7 @@ public:
 	std::vector<cocos2d::Point>& getpathHistory();
 protected:
 	void playerChant();
+	void playerIdle();
 	void showCannotMoveReason();
 	void showAtkArea();
 	void hideAtkArea();

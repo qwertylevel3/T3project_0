@@ -25,14 +25,14 @@ HudMenu::HudMenu(cocos2d::Rect rect)
 	listView->setContentSize(
 		cocos2d::Size(
 			rect.size.width,
-			rect.size.height//-20
+			rect.size.height-10
 		)
 	);
 	listView->setOpacity(255);
 	listView->setAnchorPoint(cocos2d::Vec2::ANCHOR_BOTTOM_LEFT);
 //	listView->setAnchorPoint(cocos2d::Vec2::ANCHOR_TOP_LEFT);
 	listView->setBackGroundImageScale9Enabled(true);
-	listView->setPosition(cocos2d::Vec2(20, 0));
+	listView->setPosition(cocos2d::Vec2(20, 5));
 	listView->setBounceEnabled(false);
 
 	layout->addChild(listView);
@@ -178,7 +178,7 @@ void HudMenu::setHeight(int h)
 {
 //	sprite->setTextureRect(cocos2d::Rect(0,0,getWidth(),h));
 	layout->setSize(cocos2d::Size(layout->getSize().width,h));
-	listView->setContentSize(cocos2d::Size(listView->getSize().width,h));
+	listView->setContentSize(cocos2d::Size(listView->getSize().width,h-10));
 }
 
 int HudMenu::getWidth()

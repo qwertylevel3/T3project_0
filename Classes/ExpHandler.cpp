@@ -52,6 +52,11 @@ int ExpHandler::getCurAttrPoint()
 	return attrPoint;
 }
 
+int ExpHandler::getCurRequireExp()
+{
+	return expRequire[level + 1];
+}
+
 void ExpHandler::levelUp()
 {
 	exp = exp - expRequire[level + 1];

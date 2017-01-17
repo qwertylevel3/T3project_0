@@ -18,7 +18,7 @@ public:
 	int getCurLevel();
 	int getCurExp();
 	int getCurAttrPoint();
-
+	int getCurRequireExp();
 
 protected:
 	void levelUp();

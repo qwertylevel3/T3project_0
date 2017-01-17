@@ -96,6 +96,6 @@ void OptionCheckMenu::addOption(const std::string& optionLabel)
 void OptionCheckMenu::initHeight()
 {
 	int optionCount = curQuestion->getSize();
-	int height = optionCount*24+20;
+	int height = optionCount*24+10;
 	this->setHeight(height);
 }

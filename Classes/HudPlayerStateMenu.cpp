@@ -146,9 +146,14 @@ void HudPlayerStateMenu::update()
 	ExpHandler* expHandler = Player::getInstance()->getcharacterPtr()->getExphandler();
 
 	std::string exp = ToolFunction::int2string(expHandler->getCurExp());
+	std::string requireExp = ToolFunction::int2string(expHandler->getCurRequireExp());
+
 	expLabel->setString(
 		ToolFunction::WStr2UTF8(L"Exp:") +
-		exp
+		exp+
+		"/"+
+		requireExp
+
 	);
 
 	std::string level = ToolFunction::int2string(expHandler->getCurLevel());
