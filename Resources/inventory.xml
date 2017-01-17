@@ -67,7 +67,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<weaponDamage>12</weaponDamage>
+		<weaponDamage>10</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -137,12 +137,12 @@
 		<name>sword007</name>
 		<cname>火炬</cname>
 		<tips>可以增加视野</tips>
-		<level>1</level>
+		<level>2</level>
 		<price>2</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>ViewSizeBuff_火炬之光_ATTR_Good_1_-1_5</buffID>
+			<buffID>ViewSizeBuff_火炬之光_ATTR_Good_1_-1_4</buffID>
 		</buffBox>
 		<weaponDamage>1</weaponDamage>
 		<strRequire>0</strRequire>
@@ -235,8 +235,8 @@
 	<inventory>
 		<type>oneHandWeapon</type>
 		<name>sword012</name>
-		<cname>Vergil的匕首</cname>
-		<tips>精致的短刀，Vergil用它来防身</tips>
+		<cname>镶金匕首</cname>
+		<tips>精致的短刀，可用来防身</tips>
 		<level>3</level>
 		<price>9</price>
 		<weight>1</weight>
@@ -244,7 +244,7 @@
 		<buffBox>
 			<buffID>BaseAttrBuff_敏捷附加_ATTR_Good_2_-1_0_4_0</buffID>
 		</buffBox>
-		<weaponDamage>7</weaponDamage>
+		<weaponDamage>4</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -391,7 +391,7 @@
 		<name>sword020</name>
 		<cname>暗影之锋</cname>
 		<tips>阴影中的剑,不是最强的剑，但是最快的剑</tips>
-		<level>8</level>
+		<level>7</level>
 		<price>9</price>
 		<weight>0</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -579,15 +579,15 @@
 	<inventory>
 		<type>armor</type>
 		<name>armor001</name>
-		<cname>黄金甲</cname>
-		<tips>测试用</tips>
-		<level>1</level>
+		<cname>皮甲</cname>
+		<tips>初级护甲</tips>
+		<level>9</level>
 		<price>2</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<armorCount>100</armorCount>
+		<armorCount>3</armorCount>
 	</inventory>
 	<inventory>
 		<type>armor</type>
@@ -600,7 +600,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<armorCount>4</armorCount>
+		<armorCount>2</armorCount>
 	</inventory>
 	<inventory>
 		<type>armor</type>
@@ -613,7 +613,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<armorCount>6</armorCount>
+		<armorCount>4</armorCount>
 	</inventory>
 	<inventory>
 		<type>armor</type>
@@ -626,7 +626,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<armorCount>8</armorCount>
+		<armorCount>6</armorCount>
 	</inventory>
 	<inventory>
 		<type>armor</type>
@@ -639,7 +639,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<armorCount>10</armorCount>
+		<armorCount>8</armorCount>
 	</inventory>
 	<inventory>
 		<type>armor</type>
@@ -1051,7 +1051,7 @@
 		<name>supply006</name>
 		<cname>究极生命药水</cname>
 		<tips>回复生命200</tips>
-		<level>7</level>
+		<level>6</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1067,7 +1067,7 @@
 		<name>supply007</name>
 		<cname>究极魔法药水</cname>
 		<tips>回复魔法200</tips>
-		<level>7</level>
+		<level>6</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1080,24 +1080,8 @@
 	</inventory>
 	<inventory>
 		<type>supply</type>
-		<name>supply006</name>
-		<cname>究极生命药水</cname>
-		<tips>回复生命200</tips>
-		<level>7</level>
-		<price>10</price>
-		<weight>1</weight>
-		<spriteName>sword_icon.png</spriteName>
-		<buffBox/>
-		<strRequire>0</strRequire>
-		<agiRequire>0</agiRequire>
-		<intRequire>0</intRequire>
-		<skillName>HPRecoverySelf_生命恢复_0_0_200</skillName>
-		<supplyType>0</supplyType>
-	</inventory>
-	<inventory>
-		<type>supply</type>
 		<name>supply008</name>
-		<cname>史莱姆粘液</cname>
+		<cname>不明的粘液</cname>
 		<tips>味道很恶心</tips>
 		<level>1</level>
 		<price>10</price>
@@ -1131,7 +1115,7 @@
 		<name>skillBook000</name>
 		<cname>火球术之书</cname>
 		<tips>学习火球术</tips>
-		<level>4</level>
+		<level>2</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1147,7 +1131,7 @@
 		<name>skillBook001</name>
 		<cname>召雷之书</cname>
 		<tips>学习随机闪电</tips>
-		<level>7</level>
+		<level>5</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1163,7 +1147,7 @@
 		<name>skillBook002</name>
 		<cname>禁忌之书</cname>
 		<tips>由于书中的魔法实在太强，被法师协会所封印</tips>
-		<level>9</level>
+		<level>8</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1195,7 +1179,7 @@
 		<name>scroll000</name>
 		<cname>火球术卷轴</cname>
 		<tips>释放火球术</tips>
-		<level>2</level>
+		<level>1</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1227,7 +1211,7 @@
 		<name>scroll002</name>
 		<cname>闪电风暴卷轴</cname>
 		<tips>释放一次闪电风暴</tips>
-		<level>7</level>
+		<level>6</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1242,8 +1226,8 @@
 		<type>supply</type>
 		<name>scroll003</name>
 		<cname>黄色魔法书</cname>
-		<tips>上面有一些不可描述的图片和一些不可描述的文字</tips>
-		<level>5</level>
+		<tips>上面有一些不可描述的图片和一些不可描述的文字，使用者需奉献一切</tips>
+		<level>6</level>
 		<price>999</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1259,7 +1243,7 @@
 		<name>scroll004</name>
 		<cname>小型经验书</cname>
 		<tips>直接增加经验50</tips>
-		<level>2</level>
+		<level>1</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1275,7 +1259,7 @@
 		<name>scroll005</name>
 		<cname>经验书</cname>
 		<tips>直接增加经验100</tips>
-		<level>4</level>
+		<level>3</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1291,7 +1275,7 @@
 		<name>scroll006</name>
 		<cname>大型经验书</cname>
 		<tips>直接增加经验200</tips>
-		<level>6</level>
+		<level>5</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1307,7 +1291,7 @@
 		<name>scroll007</name>
 		<cname>究极经验书</cname>
 		<tips>直接增加经验400</tips>
-		<level>8</level>
+		<level>7</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1323,7 +1307,7 @@
 		<name>scroll008</name>
 		<cname>闪烁卷轴</cname>
 		<tips>向前闪现一段距离，用来吓人效果很好</tips>
-		<level>2</level>
+		<level>3</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1403,7 +1387,7 @@
 		<name>scroll013</name>
 		<cname>生命恢复卷轴</cname>
 		<tips>20回合内每个回合开始恢复6HP</tips>
-		<level>5</level>
+		<level>4</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1419,7 +1403,7 @@
 		<name>scroll014</name>
 		<cname>魔法恢复卷轴</cname>
 		<tips>20回合内每个回合开始恢复6MP</tips>
-		<level>5</level>
+		<level>4</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1467,7 +1451,7 @@
 		<name>scroll015</name>
 		<cname>究极生命恢复卷轴</cname>
 		<tips>40回合内每个回合开始恢复10HP</tips>
-		<level>6</level>
+		<level>7</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1483,7 +1467,7 @@
 		<name>scroll016</name>
 		<cname>究极魔法恢复卷轴</cname>
 		<tips>40回合内每个回合开始恢复10MP</tips>
-		<level>6</level>
+		<level>7</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1508,6 +1492,54 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>12</intRequire>
 		<skillName>Summon_slime的召唤_0_0_sslime</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll018</name>
+		<cname>《数学分析》</cname>
+		<tips>这个明显不是这个世界的著作,需要极高的智商才能阅读</tips>
+		<level>3</level>
+		<price>3</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>30</intRequire>
+		<skillName>BuffSelf_数学分析考试通过_0_0_BaseAttrBuff_数学分析_ATTR_Good_2_-1_0_0_50</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll019</name>
+		<cname>《c++Primer》</cname>
+		<tips>初级法术入门</tips>
+		<level>3</level>
+		<price>3</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>14</intRequire>
+		<skillName>BuffSelf_c++考试通过_0_0_BaseAttrBuff_c++入门_ATTR_Good_2_-1_0_0_5</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll020</name>
+		<cname>《健身手册》</cname>
+		<tips>强健肌肉参考，增加3点力量</tips>
+		<level>2</level>
+		<price>3</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>10</intRequire>
+		<skillName>BuffSelf_锻炼_0_0_BaseAttrBuff_肌肉强健_ATTR_Good_2_-1_3_0_0</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>

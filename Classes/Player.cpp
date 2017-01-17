@@ -98,7 +98,7 @@ void Player::configPlayer()
 
 	characterPtr->setStrength(10);
 	characterPtr->setAgility(10);
-	characterPtr->setIntellect(20);
+	characterPtr->setIntellect(10);
 	characterPtr->setLuck(10);
 	characterPtr->setViewSize(1);
 	characterPtr->setCharacterType(Character::Good);
@@ -113,13 +113,6 @@ void Player::configPlayer()
 	characterPtr->initArmor(armor);
 
 	characterPtr->addInventory("note000");
-	characterPtr->addInventory("scroll017");
-	characterPtr->addInventory("scroll003");
-
-	characterPtr->addInventory("sword027");
-	characterPtr->addInventory("armor011");
-	characterPtr->addInventory("accessory014");
-	characterPtr->addInventory("accessory015");
 
 	//////////////////////////////////////////////////////////////////////////
 //	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_-1_100";

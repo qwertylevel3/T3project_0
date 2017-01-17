@@ -32,6 +32,26 @@ public:
 	//根据actorName分配特定的inventoryList<inventory id>
 	std::vector<std::string> getInventoryList(std::string actorName);
 protected:
-	std::map<std::string, ActorInventoryList> allActorInvList;
-	void generateActorInvList(tinyxml2::XMLElement* invListElement);
+	//pro概率出现随机level物品
+	std::string getRandomInv(int level, int pro);
+
+	void addInv2List(std::string invName,std::vector<std::string >& invList);
+
+	std::vector<std::string > generateSlimeInvList();
+	std::vector<std::string > generateSnackInvList();
+	std::vector<std::string > generateBlackSnackInvList();
+	std::vector<std::string > generateGhostInvList();
+	std::vector<std::string > generateDemonInvList();
+	std::vector<std::string > generateWizardInvList();
+	std::vector<std::string > generateEntsInvList();
+
+	std::vector<std::string > generateChest1();
+	std::vector<std::string > generateChest2();
+	std::vector<std::string > generateChest3();
+	std::vector<std::string > generateChest4();
+	std::vector<std::string > generateChest5();
+	std::vector<std::string > generateChest6();
+	std::vector<std::string > generateChest7();
+	std::vector<std::string > generateChest8();
+	std::vector<std::string > generateChest9();
 };

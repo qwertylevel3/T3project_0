@@ -1,4 +1,5 @@
 #include "InventoryFactory.h"
+#include "RandomNumber.h"
 #include"cocos2d.h"
 #include<sstream>
 #include "OneHandWeapon.h"
@@ -28,6 +29,13 @@ InventoryFactory::~InventoryFactory()
 void InventoryFactory::init()
 {
 //	CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("weapon.plist");
+
+	for (int i = 0; i <= 9; i++)
+	{
+		std::vector<std::string> tempBox;
+		inventoryLevelBox.push_back(tempBox);
+	}
+
 
 	tinyxml2::XMLDocument doc;
 	doc.LoadFile("inventory.xml");
@@ -67,6 +75,15 @@ int InventoryFactory::queryInventoryWeight(const std::string& inventoryName)
 int InventoryFactory::queryInventoryLevel(const std::string& inventoryName)
 {
 	return inventoryMap[inventoryName]->getLevel();
+}
+
+std::string InventoryFactory::getRandomInventory(int level)
+{
+	int size = inventoryLevelBox[level].size();
+
+	int roll = RandomNumber::getInstance()->randomInt(0, size - 1);
+
+	return inventoryLevelBox[level][roll];
 }
 
 void InventoryFactory::initModel(tinyxml2::XMLElement* inventoryElement, const std::string& type)
@@ -162,10 +179,21 @@ void InventoryFactory::initModel(tinyxml2::XMLElement* inventoryElement, const s
 
 void InventoryFactory::initBaseData(tinyxml2::XMLElement* inventoryElement,Inventory* model)
 {
-	model->setName(getChildElementStrAttr(inventoryElement, "name"));
+	std::string name = getChildElementStrAttr(inventoryElement, "name");
+	model->setName(name);
+
 	model->setCname(getChildElementStrAttr(inventoryElement, "cname"));
 	model->setTips(getChildElementStrAttr(inventoryElement, "tips"));
-	model->setLevel(getChildElementIntAttr(inventoryElement, "level"));
+
+	//////////////////////////////////////////////////////////////////////////
+
+	int level = getChildElementIntAttr(inventoryElement, "level");
+	model->setLevel(level);
+
+	inventoryLevelBox[level].push_back(name);
+
+	//////////////////////////////////////////////////////////////////////////
+
 	model->setPrice(getChildElementIntAttr(inventoryElement, "price"));
 	model->setWeight(getChildElementIntAttr(inventoryElement, "weight"));
 	model->setSpriteName(getChildElementStrAttr(inventoryElement, "spriteName"));

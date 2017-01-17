@@ -192,7 +192,7 @@
 		<sentence>
 			<type>question</type>
 			<actorName>succubus.png</actorName>
-			<word>要为姐姐补充魔法么</word>
+			<word>那么，要为我补魔么?</word>
 			<optionList>
 				<option>
 					<label>好的</label>
@@ -210,7 +210,7 @@
 		<sentence>
 			<type>statement</type>
 			<actorName>succubus.png</actorName>
-			<word>哎呀，不小心把姐姐召唤出来了，你可得实现姐姐的100个愿望</word>
+			<word>那么，我们这样就算是签订了契约了呢，你可得实现我的100个愿望</word>
 			<next>2</next>
 		</sentence>
 		<sentence>

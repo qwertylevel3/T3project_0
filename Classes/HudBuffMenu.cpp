@@ -8,18 +8,15 @@
 #include "HudDescriptionMenu.h"
 #include "ToolFunction.h"
 
-
-
 HudBuffMenu::HudBuffMenu()
 	:HudMenu(cocos2d::Rect(
-		0,0,
+		0, 0,
 		HudLayout::getInstance()->getMediumMenuSize().width,
 		HudLayout::getInstance()->getMediumMenuSize().height))
 {
 	this->setPosition(HudLayout::getInstance()->getMediumMenuPosition().x,
 		HudLayout::getInstance()->getMediumMenuPosition().y);
 }
-
 
 HudBuffMenu::~HudBuffMenu()
 {
@@ -59,19 +56,14 @@ void HudBuffMenu::update()
 		this->addItem(emptyItem);
 	}
 	HudCursor::getInstance()->setCurMenu(this);
-	
 }
-
 
 void HudBuffMenu::chooseItem(int index)
 {
 	HudMenu::chooseItem(index);
 
-
-	index = index > itemList.size() - 1 ? itemList.size()-1 : index;
+	index = index > itemList.size() - 1 ? itemList.size() - 1 : index;
 	index = index < 0 ? 0 : index;
-
-
 
 	Character* characterPrt = Player::getInstance()->getcharacterPtr();
 	Buff::BuffHandler* buffHandler = characterPrt->getBuffHandler();
@@ -80,14 +72,16 @@ void HudBuffMenu::chooseItem(int index)
 
 	if (buffBox.empty())
 	{
+		HudDescriptionMenu::getInstance()->setDescription(
+			"empty"
+		);
 		return;
 	}
-
 
 	Buff::BuffBase* curBuff = buffBox[index];
 
 	HudDescriptionMenu::getInstance()->setDescription(
-		curBuff->getDurationDescriptionStr()+curBuff->getDescription()
+		curBuff->getDurationDescriptionStr() + curBuff->getDescription()
 	);
 }
 

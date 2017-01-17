@@ -4,7 +4,7 @@
 	<name>vergil</name>
 	<characterName>vergil</characterName>
 	<AI>AIVergil</AI>
-	<HP>20</HP>
+	<HP>200</HP>
 	<MP>200</MP>
 	<STR>10</STR>
 	<AGI>10</AGI>

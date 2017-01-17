@@ -9,13 +9,10 @@
 using std::placeholders::_1;
 using std::placeholders::_2;
 
-
-
 AISuccubus::AISuccubus()
 {
 	isFirst = true;
 }
-
 
 AISuccubus::~AISuccubus()
 {
@@ -29,7 +26,12 @@ void AISuccubus::update()
 
 		isFirst = false;
 	}
-//状态
+
+	if (characterPtr->getHP()<characterPtr->getMaxHP()/2)
+	{
+		healSelf();
+	}
+
 	//0为player周围没有enemy，跟随
 	//1为player周围有enemy，保护player
 	static int stateFlag = 0;
@@ -105,47 +107,6 @@ void AISuccubus::update()
 			return;
 		}
 	}
-
-
-
-	
-
-//	int viewSize = characterPtr->getViewSize();
-
-//	Character* enemyTarget = searchTargetBFS(Character::Bad);
-
-//	if (enemyTarget)
-//	{
-//		//如果和player距离过远，就跟随player
-//		if (getManhattanDistance(Player::getInstance()->getcharacterPtr()) > 10)
-//		{
-//			seek(Player::getInstance()->getcharacterPtr());
-//		}
-//		else
-//		{
-//			if (isInAttackArea(enemyTarget))
-//			{
-//				characterPtr->attack();
-//			}
-//			else
-//			{
-//				seek(enemyTarget);
-//			}
-//		}
-//	}
-//	else
-//	{
-//		cocos2d::Point playerCoord = Player::getInstance()->getcharacterPtr()->getMapCoord();
-//		if (isNear(playerCoord))
-//		{
-//			characterPtr->idle();
-//		}
-//		else
-//		{
-//			seek(Player::getInstance()->getcharacterPtr());
-//		}
-//	}
-
 }
 
 void AISuccubus::feedback(Character* character)
@@ -155,12 +116,20 @@ void AISuccubus::feedback(Character* character)
 
 void AISuccubus::handleDialogueResult(std::string dialogueName, int resultNumber)
 {
-	Player::getInstance()->getcharacterPtr()->sufferHPEffect(-19);
-	characterPtr->sufferHPEffect(100);
-	characterPtr->sufferMPEffect(100);
+	healSelf();
+}
 
-	HudMessageBox::getInstance()->addMessage(L"你感觉身体被掏空");
+void AISuccubus::healSelf()
+{
+		Character* playerCharacter = Player::getInstance()->getcharacterPtr();
+		playerCharacter->sufferHPEffect(-20);
+		playerCharacter->sufferMPEffect(-20);
 
+		characterPtr->sufferHPEffect(100);
+		characterPtr->sufferMPEffect(100);
+
+		HudMessageBox::getInstance()->addMessage(L"succubus使用了灵魂榨取");
+		HudMessageBox::getInstance()->addMessage(L"你感觉身体被掏空");
 }
 
 std::vector<Character* > AISuccubus::getEnemyAround()

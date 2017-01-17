@@ -147,7 +147,7 @@
 		<maxHP>70</maxHP>
 		<maxMP>20</maxMP>
 		<leftHand>sword006</leftHand>
-		<rightHand>sword006</rightHand>
+		<rightHand>NULL</rightHand>
 		<armor>armor002</armor>
 		<accessory>NULL</accessory>
 	</actor>

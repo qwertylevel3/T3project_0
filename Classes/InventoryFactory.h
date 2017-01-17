@@ -24,6 +24,7 @@ public:
 	Inventory::Type queryInventoryType(const std::string& inventoryName);
 	int queryInventoryWeight(const std::string& inventoryName);
 	int queryInventoryLevel(const std::string& inventoryName);
+	std::string getRandomInventory(int level);
 protected:
 	void initModel(tinyxml2::XMLElement* inventoryElement,const std::string& type);
 	void initBaseData(tinyxml2::XMLElement* inventoryElement,Inventory* model);
@@ -36,5 +37,7 @@ protected:
 
 	std::map<std::string, Inventory*> inventoryMap;
 	tinyxml2::XMLElement* curInventoryElement;
+
+	std::vector<std::vector<std::string> > inventoryLevelBox;
 };
 
