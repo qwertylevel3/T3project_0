@@ -19,8 +19,6 @@ public:
 	void configPlayer();
 
 
-
-
 	//test...
 	void autoNextStep();
 

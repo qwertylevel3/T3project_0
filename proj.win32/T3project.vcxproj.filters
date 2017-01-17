@@ -649,6 +649,7 @@
       <Filter>src\sphere</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\HPSelfAccordInt.cpp" />
+    <ClCompile Include="..\Classes\HPCastAccordInt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1225,6 +1226,7 @@
       <Filter>src\sphere</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HPSelfAccordInt.h" />
+    <ClInclude Include="..\Classes\HPCastAccordInt.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -652,7 +652,7 @@ void AIVergil::castBuffToPlayer()
 void AIVergil::healCast()
 {
 	characterPtr->runSkill(
-		ToolFunction::WStr2UTF8(L"HPRecoveryCast_生命恢复_40_0_50")
+		ToolFunction::WStr2UTF8(L"HPCastAccordInt_生命恢复_40_0_100")
 	);
 	characterPtr->addExp(50);
 	HudMessageBox::getInstance()->addMessage(L"Vergil向你释放了一个治疗法术");
@@ -661,7 +661,7 @@ void AIVergil::healCast()
 void AIVergil::healSelf()
 {
 	characterPtr->runSkill(
-		ToolFunction::WStr2UTF8(L"HPRecoverySelf_生命恢复_40_0_50")
+		ToolFunction::WStr2UTF8(L"HPSelfAccordInt_生命恢复_40_0_100")
 	);
 	characterPtr->addExp(50);
 	HudMessageBox::getInstance()->addMessage(L"Vergil向自己释放了一个治疗法术");

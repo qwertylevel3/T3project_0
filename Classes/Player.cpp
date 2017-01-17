@@ -69,9 +69,7 @@ void Player::restart()
 
 void Player::configPlayer()
 {
-	characterPtr->addSkill(L"HPSelfAccordInt_治疗_20_20_100");
-
-
+	characterPtr->addSkill(L"HPCastAccordInt_治疗_20_20_100");
 
 //	characterPtr->addSkill(L"FireBall_快速火球_20_20_20_5");
 //	characterPtr->addSkill(L"HPRecoverySelf_生命恢复_20_20_20");
@@ -88,7 +86,6 @@ void Player::configPlayer()
 //	characterPtr->addSkill(L"ExpAdd_经验增加_0_0_100");
 //	characterPtr->addSkill(L"LearnSkill_学习火球术_0_0_FireBall_火球术_5_5_-20_5");
 //	characterPtr->addSkill(L"BuffSelf_毒液_0_0_HPBuff_毒液_OnRoundStart_Bad_10_10_-3");
-
 //	characterPtr->addSkill(L"RandomDirectDamage_死亡一指_10_10_-30_5_2");
 
 	setName(ToolFunction::WStr2UTF8(L"你"));

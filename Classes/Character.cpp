@@ -85,6 +85,8 @@ bool Character::sufferHPEffect(int hpOffset)
 {
 	showHPEffect(hpOffset);
 	HP += hpOffset;
+	characterBar->update();
+
 	if (HP <= 0)
 	{
 		characterBar->update();
@@ -243,8 +245,6 @@ void Character::clearChant()
 
 void Character::die()
 {
-	
-
 	sprite->setVisible(false);
 	unequipLeftHand();
 	unequipRightHand();
@@ -292,7 +292,6 @@ void Character::levelUp()
 	{
 		ai->levelUp();
 	}
-
 }
 
 void Character::interaction()
@@ -363,7 +362,6 @@ void Character::moveUp()
 
 	clearChant();
 	processAction(0);
-
 }
 
 void Character::moveDown()
@@ -372,7 +370,6 @@ void Character::moveDown()
 	Dungeon::getInstance()->getStorey()->moveDown(this);
 	clearChant();
 	processAction(0);
-
 }
 
 void Character::moveLeft()
@@ -381,7 +378,6 @@ void Character::moveLeft()
 	Dungeon::getInstance()->getStorey()->moveLeft(this);
 	clearChant();
 	processAction(0);
-
 }
 
 void Character::moveRight()
@@ -390,7 +386,6 @@ void Character::moveRight()
 	Dungeon::getInstance()->getStorey()->moveRight(this);
 	clearChant();
 	processAction(0);
-
 }
 
 void Character::setOrientationUp()
@@ -520,7 +515,6 @@ void Character::equipAccessory(Inventory* inventory)
 
 void Character::initLeftHand(Inventory* inventory)
 {
-	
 	inventory->equipLeftHand(this);
 	loadInventoryBuff(inventory);
 }
@@ -529,7 +523,6 @@ void Character::initRightHand(Inventory* inventory)
 {
 	inventory->equipRightHand(this);
 	loadInventoryBuff(inventory);
-
 }
 
 void Character::initArmor(Inventory* inventory)
