@@ -75,6 +75,17 @@ void EffectManager::initAnimationBox()
 	summonSV.push_back("summon3.png");
 
 	animationBox["summon"] = summonSV;
+
+	//////////////////////////////////////////////////////////////////////////
+
+	std::vector<std::string > mpRecoverySV;
+	mpRecoverySV.push_back("MPRecovery1.png");
+	mpRecoverySV.push_back("MPRecovery2.png");
+	mpRecoverySV.push_back("MPRecovery3.png");
+
+	animationBox["MPRecovery"] = mpRecoverySV;
+
+
 }
 
 cocos2d::Animation* EffectManager::getAnimation(const std::string& animationName)

@@ -1430,7 +1430,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>12</intRequire>
-		<skillName>BuffSelf_夜视_0_0_ViewSIzeBUff_夜视_ATTR_Good_1_40_2</skillName>
+		<skillName>BuffSelf_夜视_0_0_ViewSizeBuff_夜视_ATTR_Good_1_40_2</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>

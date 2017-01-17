@@ -1,4 +1,5 @@
 #include "MPRecoverySelf.h"
+#include "EffectManager.h"
 #include "ToolFunction.h"
 #include "Character.h"
 
@@ -28,6 +29,11 @@ std::string Skill::MPRecoverySelf::getExtraDescription()
 void Skill::MPRecoverySelf::run()
 {
 	caster->sufferMPEffect(value);
+	EffectManager::getInstance()->showEffect(
+		"MPRecovery",
+		caster->getPosition(),
+		1.0);
+
 }
 
 void Skill::MPRecoverySelf::initExtraMessage(std::vector<std::string> extraMessage)

@@ -1,4 +1,5 @@
 #include "MPRecoveryCast.h"
+#include "EffectManager.h"
 #include "ToolFunction.h"
 #include "FixedSelector.h"
 #include "Dungeon.h"
@@ -36,6 +37,9 @@ void Skill::MPRecoveryCast::run()
 	cocos2d::Point targetPosition = storey->getTilePosition(targetCoord);
 
 	//EffectManager::getInstance()->showEffect("HPRecovery", targetPosition, 1.0);
+	EffectManager::getInstance()->showEffect("MPRecovery", targetPosition, 1.0);
+
+
 
 	if (target)
 	{
