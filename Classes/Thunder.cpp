@@ -24,8 +24,10 @@ Skill::Thunder* Skill::Thunder::createPrototype()
 std::string Skill::Thunder::getExtraDescription()
 {
 	return ToolFunction::WStr2UTF8(L"效果")
-		+ ToolFunction::WStr2UTF8(L"面前3x3范围内所有单位受到")
-		+ ToolFunction::int2string(damage) + ToolFunction::WStr2UTF8(L"伤害");
+		+ ToolFunction::WStr2UTF8(L"面前3x3范围内所有单位受到:(")
+		+ ToolFunction::int2string(damagePer)
+		+ ToolFunction::WStr2UTF8(L"% x [玩家智力]")
+		+ ToolFunction::WStr2UTF8(L"伤害");
 }
 
 void Skill::Thunder::run()
@@ -58,6 +60,7 @@ void Skill::Thunder::run()
 		Character* targetCharacter = storey->getCharacter(coord);
 		if (targetCharacter)
 		{
+			int damage = -double(damagePer)*double(caster->getIntellect())/100.0;
 			targetCharacter->sufferHPEffect(damage);
 			caster->addExp(-damage);
 		}
@@ -66,5 +69,5 @@ void Skill::Thunder::run()
 
 void Skill::Thunder::initExtraMessage(std::vector<std::string> extraMessage)
 {
-	damage = ToolFunction::string2int(extraMessage[0]);
+	damagePer = ToolFunction::string2int(extraMessage[0]);
 }

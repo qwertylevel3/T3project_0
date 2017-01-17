@@ -150,6 +150,13 @@ void AIVergil::lastWords()
 	HudMessageBox::getInstance()->addMessage(L"Vergil消失了");
 }
 
+void AIVergil::levelUp()
+{
+	AIBase::levelUp();
+
+	HudMessageBox::getInstance()->addMessage(L"Vergil升级了");
+}
+
 void AIVergil::followAI()
 {
 	//状态

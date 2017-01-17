@@ -30,6 +30,8 @@ void AIStatue::feedback(Character* character)
 		);
 		character->sufferHPEffect(100);
 		character->sufferMPEffect(100);
+
+		HudMessageBox::getInstance()->addMessage(L"Äã»ñµÃÁË×£¸£");
 		count--;
 	}
 	DialogueSystem::getInstance()->runDialogue("statueTalk", this->characterPtr);

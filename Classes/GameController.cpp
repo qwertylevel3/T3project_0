@@ -57,13 +57,15 @@ void GameController::init()
 
 void GameController::startMission()
 {
+	HudMessageBox::getInstance()->clear();
+
 	MaskLayer::getInstance()->clear();
 
 	MainLayer::getInstance()->clear();
 	RoundSystem::getInstance()->clear();
 
 	Field::Dungeon::getInstance()->generate(curLevel);
-		Field::Dungeon::getInstance()->writeToFile();
+	//	Field::Dungeon::getInstance()->writeToFile();
 
 	Player::getInstance()->initMission();
 	HeroManager::getInstance()->initMission();
@@ -82,7 +84,7 @@ void GameController::startMission()
 	}
 	else
 	{
-		SplashLayer::getInstance()->fadeOutBlack(2);
+		SplashLayer::getInstance()->fadeOutBlackAndFloorNumber(2);
 	}
 
 }
@@ -90,7 +92,7 @@ void GameController::startMission()
 void GameController::nextMission()
 {
 	curLevel++;
-	SplashLayer::getInstance()->fadeInBlack(1);
+	SplashLayer::getInstance()->nextMission(1);
 }
 
 int GameController::getCurLevel()

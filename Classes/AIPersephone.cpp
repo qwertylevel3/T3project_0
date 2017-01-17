@@ -1,16 +1,14 @@
 #include "AIPersephone.h"
+#include "HudMessageBox.h"
 #include "ToolFunction.h"
 #include "DialogueSystem.h"
 #include "GameController.h"
 #include "Player.h"
 
-
-
 AIPersephone::AIPersephone()
 {
 	talkFlag = 0;
 }
-
 
 AIPersephone::~AIPersephone()
 {
@@ -23,24 +21,63 @@ void AIPersephone::update()
 		return;
 	}
 
-	if (talkFlag==0
+	if (talkFlag == 0
 		&& ToolFunction::isNear8(characterPtr->getMapCoord(),
 			Player::getInstance()->getcharacterPtr()->getMapCoord()))
 	{
-		DialogueSystem::getInstance()->runDialogue("persephoneTalk");
+		DialogueSystem::getInstance()->runDialogue("persephoneTalk", characterPtr);
 		talkFlag = 1;
 	}
 
-	characterPtr->idle();
-}
+	//////////////////////////////////////////////////////////////////////////
 
+	int viewSize = characterPtr->getViewSize();
+	Character* targetCharacter = searchTargetBFS(Character::Good);
+	if (targetCharacter)
+	{
+		if (!isInAttackArea(targetCharacter))
+		{
+			seek(targetCharacter);
+		}
+		else
+		{
+			characterPtr->attack();
+		}
+	}
+	else
+	{
+		characterPtr->idle();
+	}
+}
 
 void AIPersephone::feedback(Character* character)
 {
-
 }
 
 void AIPersephone::lastWords()
 {
+}
 
+void AIPersephone::handleDialogueResult(std::string dialogueName, int resultNumber)
+{
+	if (dialogueName == "persephoneTalk"
+		&& resultNumber == -1)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			summonDemon();
+		}
+	}
+}
+
+void AIPersephone::summonDemon()
+{
+	characterPtr->runSkill("summon_’ŸªΩ_0_0_demon");
+	HudMessageBox::getInstance()->addMessage(L"persephone’ŸªΩ¡À∂Òƒß");
+}
+
+void AIPersephone::castThunder()
+{
+	characterPtr->runSkill("Thunder_…¡µÁ_30_30_100");
+	HudMessageBox::getInstance()->addMessage(L"persephone Õ∑≈¡À…¡µÁ");
 }

@@ -15,6 +15,6 @@ namespace Skill
 		void run();
 		void initExtraMessage(std::vector<std::string> extraMessage);
 
-		int damage;
+		int damagePer;
 	};
 }

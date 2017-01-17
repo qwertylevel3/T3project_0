@@ -1,4 +1,5 @@
 #include "AIPlayer.h"
+#include "SplashLayer.h"
 #include "GameController.h"
 #include "HudMessageBox.h"
 #include "DialogueSystem.h"
@@ -27,11 +28,12 @@ void AIPlayer::lastWords()
 
 void AIPlayer::handleDialogueResult(std::string dialogueName, int resultNumber)
 {
+	SplashLayer::getInstance()->fadeInBlack(2);
 	GameController::getInstance()->reStartGame();
 }
 
 void AIPlayer::levelUp()
 {
-
+	HudMessageBox::getInstance()->addMessage(L"ÄãÉı¼¶ÁË");
 }
 

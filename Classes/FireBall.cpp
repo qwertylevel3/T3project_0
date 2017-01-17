@@ -22,8 +22,10 @@ Skill::FireBall* Skill::FireBall::createPrototype()
 std::string Skill::FireBall::getExtraDescription()
 {
 	return ToolFunction::WStr2UTF8(L"效果:\n")
-		+ ToolFunction::WStr2UTF8(L"施放一个火球，对击中单位造成")
-		+ ToolFunction::int2string(damage) + ToolFunction::WStr2UTF8(L"伤害");
+		+ ToolFunction::WStr2UTF8(L"施放一个火球，对击中单位造成:(")
+		+ ToolFunction::int2string(damagePer) 
+		+ToolFunction::WStr2UTF8(L"%x[玩家智力])")
+		+ ToolFunction::WStr2UTF8(L"伤害");
 }
 
 void Skill::FireBall::run()
@@ -70,13 +72,15 @@ void Skill::FireBall::run()
 	{
 		return;
 	}
+	int damage = -double(damagePer)* double(caster->getIntellect()) / 100.0;
+
 	targetCharacter->sufferHPEffect(damage);
 	caster->addExp(-damage);
 }
 
 void Skill::FireBall::initExtraMessage(std::vector<std::string> extraMessage)
 {
-	damage = ToolFunction::string2int(extraMessage[0]);
+	damagePer = ToolFunction::string2int(extraMessage[0]);
 	distance = ToolFunction::string2int(extraMessage[1]);
 }
 

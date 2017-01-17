@@ -87,6 +87,15 @@ void HudMessageBox::addMessage(std::string message)
 	formatMessageBox();
 }
 
+void HudMessageBox::clear()
+{
+	for (int i=0;i<messageBox.size();i++)
+	{
+		messageBox[i]->removeFromParent();
+	}
+	messageBox.clear();
+}
+
 void HudMessageBox::formatMessageBox()
 {
 	int count = 0;

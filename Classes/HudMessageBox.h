@@ -20,6 +20,7 @@ public:
 	void hide();
 	void addMessage(std::wstring message);
 	void addMessage(std::string message);
+	void clear();
 protected:
 	void formatMessageBox();
 

@@ -30,7 +30,10 @@ Storey* StoreyBuilder::generate(int level)
 
 	rooms.clear();
 	exits.clear();
-	storey = new Storey(18 + level * 1, 18 + level * 1);
+
+	int storeySize = 18 + level / 2;
+
+	storey = new Storey(storeySize, storeySize);
 
 	int maxFeatures = 33;
 	// place the first room in the center
@@ -314,8 +317,10 @@ bool StoreyBuilder::placeObject(int tile)
 void Field::StoreyBuilder::placeGameActorLevel1(const Rect & rect)
 {
 	placeBuilding(rect);
-	//房间内怪物数量(1-2之间)
+	//房间内怪物数量(1-3之间)
 	int monsterNumber = RandomNumber::getInstance()->randomInt(1, 3);
+
+//	int monsterNumber = 8;
 
 	for (int i = 0; i < monsterNumber; i++)
 	{
@@ -329,8 +334,6 @@ void Field::StoreyBuilder::placeGameActorLevel1(const Rect & rect)
 
 		Character* monster = GameActorFactory::getInstance()->getActor("slime");
 		CCAssert(monster, "get a null monster");
-
-
 
 		placeGameActor(x, y, monster);
 	}

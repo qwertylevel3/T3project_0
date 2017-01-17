@@ -66,36 +66,16 @@ void SplashLayer::showLogo(float dt)
 	);
 }
 
-void SplashLayer::fadeOutBlack(float dt)
+void SplashLayer::fadeOutBlackAndFloorNumber(float dt)
 {
-	black->setOpacity(255);
-	auto action = cocos2d::FadeOut::create(dt);
-	black->runAction(
-		action
-	);
-
-	levelMessageLabel->runAction(
-		cocos2d::FadeOut::create(dt)
-	);
+	fadeOutBlack(dt);
+	fadeOutFloorNumber(dt);
 }
 
-void SplashLayer::fadeInBlack(float dt)
+void SplashLayer::nextMission(float dt)
 {
-	black->setOpacity(0);
-	auto action = cocos2d::FadeIn::create(dt);
-	black->runAction(
-		action
-	);
-
-	int curLevel = GameController::getInstance()->getCurLevel();
-	levelMessageLabel->setString(
-		"Floor -" + ToolFunction::int2string(curLevel)
-	);
-
-	levelMessageLabel->runAction(
-		cocos2d::FadeIn::create(dt)
-	);
-
+	fadeInBlack(dt);
+	fadeInFloorNumber(dt);
 
 	this->runAction(
 		cocos2d::Sequence::create(
@@ -113,4 +93,46 @@ void SplashLayer::fadeInBlack(float dt)
 void SplashLayer::startMission(SplashLayer* layer)
 {
 	GameController::getInstance()->startMission();
+}
+
+void SplashLayer::fadeInBlack(float dt)
+{
+	black->setOpacity(0);
+	auto action = cocos2d::FadeIn::create(dt);
+	black->runAction(
+		action
+	);
+
+}
+
+void SplashLayer::fadeInFloorNumber(float dt)
+{
+	int curLevel = GameController::getInstance()->getCurLevel();
+	levelMessageLabel->setString(
+		"Floor -" + ToolFunction::int2string(curLevel)
+	);
+
+	levelMessageLabel->runAction(
+		cocos2d::FadeIn::create(dt)
+	);
+
+
+}
+
+void SplashLayer::fadeOutFloorNumber(float dt)
+{
+	levelMessageLabel->runAction(
+		cocos2d::FadeOut::create(dt)
+	);
+
+}
+
+void SplashLayer::fadeOutBlack(float dt)
+{
+	black->setOpacity(255);
+	auto action = cocos2d::FadeOut::create(dt);
+	black->runAction(
+		action
+	);
+
 }

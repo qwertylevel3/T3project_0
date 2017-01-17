@@ -91,14 +91,14 @@ void Player::configPlayer()
 
 	controlMode = NormalMode;
 
-	characterPtr->setHP(100);
-	characterPtr->setMaxHP(100);
+	characterPtr->setHP(300);
+	characterPtr->setMaxHP(300);
 	characterPtr->setMP(100);
 	characterPtr->setMaxMP(100);
 
 	characterPtr->setStrength(10);
 	characterPtr->setAgility(10);
-	characterPtr->setIntellect(10);
+	characterPtr->setIntellect(30);
 	characterPtr->setLuck(10);
 	characterPtr->setViewSize(1);
 	characterPtr->setCharacterType(Character::Good);
@@ -113,6 +113,22 @@ void Player::configPlayer()
 	characterPtr->initArmor(armor);
 
 	characterPtr->addInventory("note000");
+	characterPtr->addInventory("scroll000");
+	characterPtr->addInventory("scroll002");
+	characterPtr->addInventory("skillBook000");
+	characterPtr->addInventory("skillBook002");
+
+
+//	for (int i = 0; i < 10; i++)
+//	{
+//		std::string invName = InventoryFactory::getInstance()->getRandomInventory(9);
+//		characterPtr->addInventory(invName);
+//	}
+//	for (int i = 0; i < 10; i++)
+//	{
+//		std::string invName = InventoryFactory::getInstance()->getRandomInventory(8);
+//		characterPtr->addInventory(invName);
+//	}
 
 	//////////////////////////////////////////////////////////////////////////
 //	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_-1_100";
@@ -255,6 +271,11 @@ void Player::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 			showAtkArea();
 			break;
 		}
+		if (keyCode==EventKeyboard::KeyCode::KEY_C)
+		{
+			playerChant();
+			break;
+		}
 		playerMove(keyCode);
 		break;
 	case HaltMode:
@@ -354,6 +375,11 @@ void Player::setName(const std::string& name)
 std::vector<cocos2d::Point>& Player::getpathHistory()
 {
 	return pathHistory;
+}
+
+void Player::playerChant()
+{
+	characterPtr->chant();
 }
 
 void Player::showCannotMoveReason()

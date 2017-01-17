@@ -38,6 +38,7 @@ public:
 	void setName(const std::string& name);
 	std::vector<cocos2d::Point>& getpathHistory();
 protected:
+	void playerChant();
 	void showCannotMoveReason();
 	void showAtkArea();
 	void hideAtkArea();

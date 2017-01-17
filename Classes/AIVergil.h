@@ -11,7 +11,10 @@ public:
 	void feedback(Character* character);
 	void handleDialogueResult(std::string dialogueName, int resultNumber);
 	void lastWords();
+	void levelUp();
 protected:
+
+
 	//×´Ì¬:
 	//0:½ôÃÜ¸úËæ
 	//1:Õ¾×Å²»¶¯
