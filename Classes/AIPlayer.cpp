@@ -22,7 +22,7 @@ void AIPlayer::update()
 
 void AIPlayer::lastWords()
 {
-//	HudMessageBox::getInstance()->addMessage(L"you die...");
+	SplashLayer::getInstance()->fadeInBlack(2);
 	DialogueSystem::getInstance()->runDialogue("playerDie",characterPtr);
 }
 
