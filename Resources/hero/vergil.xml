@@ -12,7 +12,7 @@
 	<luck>10</luck>
 	<leftHand>sword012</leftHand>
 	<rightHand>sword007</rightHand>
-	<armor>NULL</armor>
+	<armor>armor014</armor>
 	<accessory>accessory006</accessory>
 	<inventoryList>
 		<inventory>sword000</inventory>

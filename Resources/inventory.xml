@@ -632,13 +632,13 @@
 		<name>armor002</name>
 		<cname>蛇皮</cname>
 		<tips>出奇的保暖</tips>
-		<level>2</level>
+		<level>1</level>
 		<price>2</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<armorCount>2</armorCount>
+		<armorCount>1</armorCount>
 	</inventory>
 	<inventory>
 		<type>armor</type>
@@ -791,6 +791,20 @@
 			<buffID>AccuracyBuff_地狱之王2_ATTR_Good_4_-1_100</buffID>
 		</buffBox>
 		<armorCount>15</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor014</name>
+		<cname>蓝色披风</cname>
+		<tips>罗马风格的披风</tips>
+		<level>3</level>
+		<price>2</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_蓝色披风_ATTR_Good_2_-1_0_0_5</buffID>
+		</buffBox>
+		<armorCount>3</armorCount>
 	</inventory>
 	<inventory>
 		<type>accessory</type>

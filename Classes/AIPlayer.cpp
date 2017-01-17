@@ -28,7 +28,6 @@ void AIPlayer::lastWords()
 
 void AIPlayer::handleDialogueResult(std::string dialogueName, int resultNumber)
 {
-	SplashLayer::getInstance()->fadeInBlack(2);
 	GameController::getInstance()->reStartGame();
 }
 

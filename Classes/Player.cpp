@@ -91,8 +91,8 @@ void Player::configPlayer()
 
 	controlMode = NormalMode;
 
-	characterPtr->setHP(100);
-	characterPtr->setMaxHP(100);
+	characterPtr->setHP(10);
+	characterPtr->setMaxHP(10);
 	characterPtr->setMP(100);
 	characterPtr->setMaxMP(100);
 
@@ -113,7 +113,6 @@ void Player::configPlayer()
 	characterPtr->initArmor(armor);
 
 	characterPtr->addInventory("note000");
-	characterPtr->addInventory("supply001");
 
 
 

@@ -48,7 +48,7 @@
 		<maxMP>20</maxMP>
 		<leftHand>sword002</leftHand>
 		<rightHand>sword003</rightHand>
-		<armor>armor004</armor>
+		<armor>NULL</armor>
 		<accessory>NULL</accessory>
 	</actor>
 	<actor>
