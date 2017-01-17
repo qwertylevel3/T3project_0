@@ -6,6 +6,7 @@
 #include "VenomSphere.h"
 #include "ManaBurnSphere.h"
 #include "AntiChantSphere.h"
+#include "ActiveSkilllSphere.h"
 #include "base/ccMacros.h"
 
 
@@ -33,6 +34,7 @@ void Sphere::SphereFactory::init()
 	VenomSphere* venomSphere = new VenomSphere();
 	ManaBurnSphere* manaBurnSphere = new ManaBurnSphere();
 	AntiChantSphere* antiChantSphere = new AntiChantSphere();
+	ActiveSkilllSphere* activeSkillSphere = new ActiveSkilllSphere();
 
 
 	sphereBox["HemophagiaSphere"] = hemoSphere;
@@ -41,6 +43,7 @@ void Sphere::SphereFactory::init()
 	sphereBox["VenomSphere"] = venomSphere;
 	sphereBox["ManaBurnSphere"] = manaBurnSphere;
 	sphereBox["AntiChantSphere"] = antiChantSphere;
+	sphereBox["ActiveSkillSphere"] = activeSkillSphere;
 }
 
 Sphere::SphereBase* Sphere::SphereFactory::getSphere(const std::string& sphereID)

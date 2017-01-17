@@ -650,6 +650,7 @@
     </ClCompile>
     <ClCompile Include="..\Classes\HPSelfAccordInt.cpp" />
     <ClCompile Include="..\Classes\HPCastAccordInt.cpp" />
+    <ClCompile Include="..\Classes\ActiveSkilllSphere.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1227,6 +1228,7 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HPSelfAccordInt.h" />
     <ClInclude Include="..\Classes\HPCastAccordInt.h" />
+    <ClInclude Include="..\Classes\ActiveSkilllSphere.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -638,6 +638,11 @@ void Character::runSkill(std::string skillName)
 	}
 }
 
+void Character::runSkillNoProcess(std::string skillName)
+{
+	skillHandler->runSkill(skillName);
+}
+
 std::vector<cocos2d::Point> Character::getAtkArea()
 {
 	std::vector<cocos2d::Point> vec;

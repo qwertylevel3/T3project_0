@@ -602,6 +602,25 @@
 		</sphereBox>
 	</inventory>
 	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword031</name>
+		<cname>雷神之怒</cname>
+		<tips>雷电的化身</tips>
+		<level>9</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<weaponDamage>15</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+			<sphereID>ActiveSkillSphere_雷神之怒_70_RandomDirectDamage_雷电_0_0_80_4_2</sphereID>
+		</sphereBox>
+	</inventory>
+	<inventory>
 		<type>armor</type>
 		<name>armor000</name>
 		<cname>运动衫</cname>

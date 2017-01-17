@@ -134,6 +134,7 @@ public:
 	cocos2d::Node* getParent();
 
 	void runSkill(std::string skillName);
+	void runSkillNoProcess(std::string skillName);
 
 	std::vector<cocos2d::Point> getAtkArea();
 	std::vector<cocos2d::Point> getAtkSelect();

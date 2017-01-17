@@ -69,7 +69,6 @@ void Player::restart()
 
 void Player::configPlayer()
 {
-	characterPtr->addSkill(L"HPCastAccordInt_治疗_20_20_100");
 
 //	characterPtr->addSkill(L"FireBall_快速火球_20_20_20_5");
 //	characterPtr->addSkill(L"HPRecoverySelf_生命恢复_20_20_20");
@@ -114,19 +113,20 @@ void Player::configPlayer()
 	characterPtr->initArmor(armor);
 
 	characterPtr->addInventory("note000");
+	characterPtr->addInventory("sword031");
 
 
 
-	for (int i = 0; i < 20; i++)
-	{
-		std::string invName = InventoryFactory::getInstance()->getRandomInventory(9);
-		characterPtr->addInventory(invName);
-	}
-	for (int i = 0; i < 20; i++)
-	{
-		std::string invName = InventoryFactory::getInstance()->getRandomInventory(8);
-		characterPtr->addInventory(invName);
-	}
+//	for (int i = 0; i < 20; i++)
+//	{
+//		std::string invName = InventoryFactory::getInstance()->getRandomInventory(9);
+//		characterPtr->addInventory(invName);
+//	}
+//	for (int i = 0; i < 20; i++)
+//	{
+//		std::string invName = InventoryFactory::getInstance()->getRandomInventory(8);
+//		characterPtr->addInventory(invName);
+//	}
 
 	//////////////////////////////////////////////////////////////////////////
 //	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_-1_100";
