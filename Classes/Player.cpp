@@ -69,6 +69,10 @@ void Player::restart()
 
 void Player::configPlayer()
 {
+	characterPtr->addSkill(L"HPSelfAccordInt_ÖÎÁÆ_20_20_100");
+
+
+
 //	characterPtr->addSkill(L"FireBall_¿ìËÙ»ðÇò_20_20_20_5");
 //	characterPtr->addSkill(L"HPRecoverySelf_ÉúÃü»Ö¸´_20_20_20");
 //	characterPtr->addSkill(L"MPRecoverySelf_Ä§·¨»Ö¸´_20_20_100");

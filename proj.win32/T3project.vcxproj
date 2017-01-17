@@ -204,6 +204,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\DogTagGenerator.cpp" />
     <ClCompile Include="..\Classes\EffectManager.cpp" />
     <ClCompile Include="..\Classes\EvadeBuff.cpp" />
+    <ClCompile Include="..\Classes\HPSelfAccordInt.cpp" />
     <ClCompile Include="..\Classes\HudExchangeInventorySystem.cpp" />
     <ClCompile Include="..\Classes\ExpHandler.cpp" />
     <ClCompile Include="..\Classes\FireBall.cpp" />
@@ -397,6 +398,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\DogTagGenerator.h" />
     <ClInclude Include="..\Classes\EffectManager.h" />
     <ClInclude Include="..\Classes\EvadeBuff.h" />
+    <ClInclude Include="..\Classes\HPSelfAccordInt.h" />
     <ClInclude Include="..\Classes\HudExchangeInventorySystem.h" />
     <ClInclude Include="..\Classes\ExpHandler.h" />
     <ClInclude Include="..\Classes\FireBall.h" />

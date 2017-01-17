@@ -642,8 +642,13 @@
     <ClCompile Include="..\Classes\FriendCreatureManager.cpp">
       <Filter>src\character</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AntiChantSphere.cpp" />
-    <ClCompile Include="..\Classes\DialogueLayer.cpp" />
+    <ClCompile Include="..\Classes\DialogueLayer.cpp">
+      <Filter>src\dialogue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AntiChantSphere.cpp">
+      <Filter>src\sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HPSelfAccordInt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1213,8 +1218,13 @@
     <ClInclude Include="..\Classes\FriendCreatureManager.h">
       <Filter>src\character</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AntiChantSphere.h" />
-    <ClInclude Include="..\Classes\DialogueLayer.h" />
+    <ClInclude Include="..\Classes\DialogueLayer.h">
+      <Filter>src\dialogue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AntiChantSphere.h">
+      <Filter>src\sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HPSelfAccordInt.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

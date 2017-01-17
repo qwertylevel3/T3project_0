@@ -1,4 +1,5 @@
 #include "SkillFactory.h"
+#include "HPSelfAccordInt.h"
 #include "Character.h"
 #include "Attack.h"
 #include "RandomDirectDamage.h"
@@ -47,6 +48,7 @@ void Skill::SkillFactory::init()
 	ExpAdd* expAddPrototype = new ExpAdd();
 	LearnSkill* learnSkillPrototype = new LearnSkill();
 	RandomDirectDamage* randomDirectDamagePrototype = new RandomDirectDamage();
+	HPSelfAccordInt* hpSelfAccordInt = new HPSelfAccordInt();
 
 	skillPrototypeBox["FireBall"] = fireBallPrototype;
 	skillPrototypeBox["attack"] = attackPrototype;
@@ -66,6 +68,7 @@ void Skill::SkillFactory::init()
 	skillPrototypeBox["ExpAdd"] = expAddPrototype;
 	skillPrototypeBox["LearnSkill"] = learnSkillPrototype;
 	skillPrototypeBox["RandomDirectDamage"] = randomDirectDamagePrototype;
+	skillPrototypeBox["HPSelfAccordInt"] = hpSelfAccordInt;
 }
 
 Skill::SkillBase* Skill::SkillFactory::getSkill(Character* character,std::string s)
