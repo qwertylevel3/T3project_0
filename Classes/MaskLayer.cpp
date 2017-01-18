@@ -33,6 +33,17 @@ bool MaskLayer::init()
 
 void MaskLayer::update(float dt)
 {
+	for (std::vector<Illuminant* >::iterator iter = lightBox.begin(); iter != lightBox.end();)
+	{
+		if ((*iter)->isExtinguish())
+		{
+			delete *iter;
+			iter = lightBox.erase(iter);
+		}
+		else
+			iter++;
+	}
+
 	for each (Illuminant* light in lightBox)
 	{
 		light->update();
@@ -86,7 +97,7 @@ void MaskLayer::clear()
 		mask->removeFromParent();
 	}
 
-	for each (Illuminant* light in lightBox)
+	for each (IlluminantForCharacter* light in lightBox)
 	{
 		delete light;
 	}
@@ -95,7 +106,6 @@ void MaskLayer::clear()
 
 void MaskLayer::initMission()
 {
-//	clear();
 
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 	//////////////////////////////////////////////////////////////////////////
@@ -126,7 +136,13 @@ void MaskLayer::addLightForCharacter(Character* character)
 {
 	if (character->getCharacterType() != Character::Bad)
 	{
-		Illuminant* light = new Illuminant(character);
+		IlluminantForCharacter* light = new IlluminantForCharacter(character);
 		addLight(light);
 	}
+}
+
+void MaskLayer::addLightFixed(int size,cocos2d::Point coord, int dt)
+{
+	IlluminantFixed* light = new IlluminantFixed(size, coord, dt);
+	addLight(light);
 }

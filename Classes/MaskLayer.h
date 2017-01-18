@@ -9,6 +9,8 @@
 
 class Character;
 class Illuminant;
+class IlluminantFixed;
+class IlluminantForCharacter;
 
 class MaskLayer :public cocos2d::Layer, public Singleton<MaskLayer>
 {
@@ -22,6 +24,7 @@ public:
 	void clear();
 	void initMission();
 	void addLightForCharacter(Character* character);
+	void addLightFixed(int size,cocos2d::Point coord,int dt);
 protected:
 	void addLight(Illuminant* light);
 	std::vector<Illuminant* > lightBox;

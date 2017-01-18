@@ -1,4 +1,5 @@
 #include "Thunder.h"
+#include "MaskLayer.h"
 #include "EffectManager.h"
 #include "ToolFunction.h"
 #include "FixedSelector.h"
@@ -52,6 +53,7 @@ void Skill::Thunder::run()
 
 	for each (cocos2d::Point coord in coords)
 	{
+		MaskLayer::getInstance()->addLightFixed(2, coord, 200);
 		cocos2d::Point targetPosition = storey->getTilePosition(coord);
 
 		EffectManager::getInstance()->showEffect("thunder", targetPosition, 0.3);

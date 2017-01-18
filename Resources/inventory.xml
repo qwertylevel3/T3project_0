@@ -1254,7 +1254,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>30</intRequire>
+		<intRequire>35</intRequire>
 		<skillName>LearnSkill_学习闪电_0_0_Thunder_闪电_30_30_80</skillName>
 		<supplyType>2</supplyType>
 	</inventory>

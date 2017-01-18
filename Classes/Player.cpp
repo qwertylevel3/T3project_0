@@ -94,7 +94,7 @@ void Player::configPlayer()
 
 	characterPtr->setStrength(10);
 	characterPtr->setAgility(10);
-	characterPtr->setIntellect(30);
+	characterPtr->setIntellect(35);
 	characterPtr->setLuck(10);
 	characterPtr->setViewSize(1);
 	characterPtr->setCharacterType(Character::Good);
@@ -110,6 +110,7 @@ void Player::configPlayer()
 
 	characterPtr->addInventory("note000");
 	characterPtr->addInventory("skillBook001");
+	characterPtr->addInventory("skillBook002");
 
 
 
@@ -452,6 +453,11 @@ void Player::playerChant()
 void Player::playerIdle()
 {
 	characterPtr->idle();
+	HudMessageBox::getInstance()->addMessage(
+		ToolFunction::int2string(
+			ToolFunction::getCurTime()
+		)
+	);
 }
 
 void Player::showCannotMoveReason()
