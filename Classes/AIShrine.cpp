@@ -27,7 +27,7 @@ void AIShrine::feedback(Character* character)
 {
 	if (!light)
 	{
-		characterPtr->setViewSize(10);
+		characterPtr->setViewSize(3);
 		light = true;
 		//设置为点亮的sprite
 		characterPtr->setOrientationUp();

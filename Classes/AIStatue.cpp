@@ -25,7 +25,7 @@ void AIStatue::feedback(Character* character)
 
 		character->addBuff(
 			ToolFunction::WStr2UTF8(
-				L"ViewSizeBuff_女神祝福_ATTR_Good_1_40_3"
+				L"ViewSizeBuff_女神祝福_ATTR_Good_1_40_1"
 			)
 		);
 		character->sufferHPEffect(400);

@@ -160,12 +160,20 @@ void AIBase::seek(Character* target)
 			nextStep = ToolFunction::nextStep_v3(startPoint, endPoint);
 			if (nextStep == startPoint)
 			{
-				seek(endPoint);
+				approach(endPoint);
 				return;
 			}
 		}
 	}
 
+	goNextStep(startPoint,endPoint,nextStep);
+}
+
+void AIBase::goNextStep(
+	cocos2d::Point startPoint,
+	cocos2d::Point endPoint,
+	cocos2d::Point nextStep)
+{
 	if (nextStep == endPoint)
 	{
 		if (startPoint.x > endPoint.x)
@@ -214,7 +222,7 @@ void AIBase::seek(Character* target)
 	}
 }
 
-void AIBase::seek(cocos2d::Point targetCoord)
+void AIBase::approach(cocos2d::Point targetCoord)
 {
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 	cocos2d::Point oriCoord = characterPtr->getMapCoord();
@@ -429,6 +437,37 @@ bool AIBase::isNear(cocos2d::Point coord)
 		return true;
 	}
 	return false;
+}
+
+std::vector<Character* > AIBase::getTargetAround(cocos2d::Point ori, Character::Type type, int searchSize)
+{
+	std::vector<Character*> allTarget;
+
+	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+
+	for (int i = -searchSize; i <= searchSize; i++)
+	{
+		for (int j = -searchSize; j <= searchSize; j++)
+		{
+			if (abs(i) + abs(j) > searchSize)
+			{
+				continue;
+			}
+
+			cocos2d::Point tempCoord = ori;
+			tempCoord.x += i;
+			tempCoord.y += j;
+
+			Character* target = storey->getCharacter(tempCoord);
+
+			if (target
+				&& target->getCharacterType() == type)
+			{
+				allTarget.push_back(target);
+			}
+		}
+	}
+	return allTarget;
 }
 
 bool AIBase::isAccessAble(cocos2d::Point coord)

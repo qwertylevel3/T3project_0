@@ -41,7 +41,7 @@ bool Illuminant::isExtinguish()
 IlluminantForCharacter::IlluminantForCharacter(Character* c)
 {
 	character = c;
-	size = c->getViewSize();
+	size = c->getViewSize()*2;
 
 	light->setScale(size);
 }
@@ -57,9 +57,9 @@ void IlluminantForCharacter::update()
 	{
 		light->setVisible(false);
 	}
-	if (character->getViewSize()!=size)
+	if (character->getViewSize()*2!=size)
 	{
-		size = character->getViewSize();
+		size = character->getViewSize()*2;
 		light->setScale(size);
 	}
 	light->setPosition(character->getPosition());

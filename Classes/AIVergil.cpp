@@ -1,4 +1,5 @@
 #include "AIVergil.h"
+#include "RandomNumber.h"
 #include "BuffHandler.h"
 #include "Supply.h"
 #include "Armor.h"
@@ -33,6 +34,24 @@ AIVergil::~AIVergil()
 
 void AIVergil::update()
 {
+	//TODO:
+	if (safe)
+	{
+		updateSafe();
+		if (!safe)
+		{
+			int roll = RandomNumber::getInstance()->randomInt(1, 10);
+			if (roll == 1);
+			{
+				characterPtr->speak(L"小心哦");
+			}
+		}
+	}
+	else
+	{
+		updateSafe();
+	}
+
 	if (tidyInventory())
 	{
 		return;
@@ -66,7 +85,11 @@ void AIVergil::update()
 	case 1:
 		waitAI();
 		break;
+	case 2:
+		leadAI();
+		break;
 	default:
+		characterPtr->idle();
 		break;
 	}
 }
@@ -135,6 +158,12 @@ void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 	{
 		//尝试给buff
 		tryBuffToPlayer();
+	}
+	else if (dialogueName == "vergilTalk"
+		&& resultNumber == -11)
+	{
+		//引路
+		curState = 2;
 	}
 	else if (dialogueName == "vergilCastBuff"
 		&& resultNumber == -1)
@@ -213,40 +242,7 @@ void AIVergil::followAI()
 	}
 	else
 	{
-		auto bound_cmp = bind(&AIVergil::cmpDistance, this, _1, _2);
-		sort(allEnemy.begin(), allEnemy.end(), bound_cmp);
-
-		Character* enemy = allEnemy[0];
-
-		if (ToolFunction::isNear4(enemy->getMapCoord(),
-			characterPtr->getMapCoord()))
-		{
-			changeOrientationTo(enemy);
-			characterPtr->attack();
-			return;
-		}
-		else
-		{
-			if (isAccessAble(enemy->getMapCoord()))
-			{
-				seek(enemy);
-			}
-			else
-			{
-				std::vector<Character*> enemyAround = getEnemyAround();
-				if (!enemyAround.empty())
-				{
-					changeOrientationTo(enemyAround[0]);
-					characterPtr->attack();
-				}
-				else
-				{
-					seek(playerCharacter);
-				}
-			}
-
-			return;
-		}
+		protectPlayer();
 	}
 }
 
@@ -279,36 +275,124 @@ void AIVergil::waitAI()
 	}
 }
 
-std::vector<Character* > AIVergil::getEnemyAround()
+void AIVergil::leadAI()
 {
-	std::vector<Character*> allEnemy;
-
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
-	cocos2d::Point oriCoord = characterPtr->getMapCoord();
 
-	for (int i = -1; i <= 1; i++)
+	cocos2d::Point downCoord = storey->getDownCoord();
+	cocos2d::Point startCoord = characterPtr->getMapCoord();
+
+	if (isSafe())
 	{
-		for (int j = -1; j <= 1; j++)
+		if (getManhattanDistance(Player::getInstance()->getcharacterPtr()) > 3)
 		{
-			if (i != 0 && j != 0)
+			//距离player太远
+			seek(Player::getInstance()->getcharacterPtr());
+		}
+		else
+		{
+			cocos2d::Point nextStep = ToolFunction::nextStep_v3(
+				startCoord,
+				downCoord
+			);
+			if (nextStep == startCoord)
 			{
-				continue;
+				characterPtr->speak(L"呃。。。");
+				characterPtr->idle();
+				HudMessageBox::getInstance()->addMessage(L"Vergil似乎迷路了");
 			}
-
-			cocos2d::Point tempCoord = oriCoord;
-			tempCoord.x += i;
-			tempCoord.y += j;
-
-			Character* target = storey->getCharacter(tempCoord);
-
-			if (target
-				&& target->getCharacterType() == Character::Bad)
+			else
 			{
-				allEnemy.push_back(target);
+				goNextStep(startCoord, downCoord, nextStep);
 			}
 		}
 	}
-	return allEnemy;
+	else
+	{
+		protectPlayer();
+	}
+}
+
+void AIVergil::protectPlayer()
+{
+	std::vector<Character* > allEnemy = getEnemyAroundPlayer();
+	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
+
+	if (allEnemy.empty())
+	{
+		seek(playerCharacter);
+		return;
+	}
+
+
+	auto bound_cmp = bind(&AIVergil::cmpDistance, this, _1, _2);
+	sort(allEnemy.begin(), allEnemy.end(), bound_cmp);
+
+	Character* enemy = allEnemy[0];
+
+	if (ToolFunction::isNear4(enemy->getMapCoord(),
+		characterPtr->getMapCoord()))
+	{
+		changeOrientationTo(enemy);
+		characterPtr->attack();
+		return;
+	}
+	else
+	{
+		if (isAccessAble(enemy->getMapCoord()))
+		{
+			seek(enemy);
+		}
+		else
+		{
+			std::vector<Character*> enemyAround = getEnemyAround();
+			if (!enemyAround.empty())
+			{
+				changeOrientationTo(enemyAround[0]);
+				characterPtr->attack();
+			}
+			else
+			{
+				seek(playerCharacter);
+			}
+		}
+
+		return;
+	}
+}
+
+std::vector<Character* > AIVergil::getEnemyAround()
+{
+	return getTargetAround(characterPtr->getMapCoord(), Character::Bad, 1);
+
+	//	std::vector<Character*> allEnemy;
+
+	//	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
+	//	cocos2d::Point oriCoord = characterPtr->getMapCoord();
+
+	//	for (int i = -1; i <= 1; i++)
+	//	{
+	//		for (int j = -1; j <= 1; j++)
+	//		{
+	//			if (i != 0 && j != 0)
+	//			{
+	//				continue;
+	//			}
+
+	//			cocos2d::Point tempCoord = oriCoord;
+	//			tempCoord.x += i;
+	//			tempCoord.y += j;
+
+	//			Character* target = storey->getCharacter(tempCoord);
+
+	//			if (target
+	//				&& target->getCharacterType() == Character::Bad)
+	//			{
+	//				allEnemy.push_back(target);
+	//			}
+	//		}
+	//	}
+	//	return allEnemy;
 }
 
 std::vector<Character* > AIVergil::getEnemyAroundPlayer()
@@ -336,6 +420,36 @@ std::vector<Character* > AIVergil::getEnemyAroundPlayer()
 		}
 	}
 	return allEnemy;
+}
+
+std::vector<Character* > AIVergil::getEnemyInView()
+{
+	return getTargetAround(
+		characterPtr->getMapCoord(),
+		Character::Bad,
+		characterPtr->getViewSize() + 1
+	);
+}
+
+std::vector<Character* > AIVergil::getEnemyInPlayerView()
+{
+	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
+
+	return getTargetAround(
+		playerCharacter->getMapCoord(),
+		Character::Bad,
+		playerCharacter->getViewSize() + 1
+	);
+}
+
+bool AIVergil::isSafe()
+{
+	if (getEnemyInPlayerView().empty()
+		&& getEnemyInView().empty())
+	{
+		return true;
+	}
+	return false;
 }
 
 bool AIVergil::cmpDistance(Character* a, Character* b)
@@ -665,4 +779,16 @@ void AIVergil::healSelf()
 	);
 	characterPtr->addExp(50);
 	HudMessageBox::getInstance()->addMessage(L"Vergil向自己释放了一个治疗法术");
+}
+
+void AIVergil::updateSafe()
+{
+	if (isSafe())
+	{
+		safe = true;
+	}
+	else
+	{
+		safe = false;
+	}
 }

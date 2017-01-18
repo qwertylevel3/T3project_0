@@ -31,7 +31,7 @@ Storey* StoreyBuilder::generate(int level)
 	rooms.clear();
 	exits.clear();
 
-	int storeySize = 18 + level / 2;
+	int storeySize = 15 + level / 2;
 
 	storey = new Storey(storeySize, storeySize);
 

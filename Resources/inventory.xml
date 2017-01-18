@@ -142,7 +142,7 @@
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>ViewSizeBuff_火炬之光_ATTR_Good_1_-1_4</buffID>
+			<buffID>ViewSizeBuff_火炬之光_ATTR_Good_1_-1_2</buffID>
 		</buffBox>
 		<weaponDamage>1</weaponDamage>
 		<strRequire>0</strRequire>
@@ -223,7 +223,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 			<buffID>MPBuff_权杖之力1_OnRoundStart_Good_10_-1_2</buffID>
-			<buffID>BaseAttrBuff_权杖之力1_ATTR_Good_2_-1_0_0_5</buffID>
+			<buffID>BaseAttrBuff_权杖之力2_ATTR_Good_2_-1_0_0_5</buffID>
 		</buffBox>
 		<weaponDamage>5</weaponDamage>
 		<strRequire>0</strRequire>
@@ -1054,40 +1054,8 @@
 		<type>supply</type>
 		<name>supply000</name>
 		<cname>小型生命药水</cname>
-		<tips>回复生命20</tips>
-		<level>1</level>
-		<price>10</price>
-		<weight>1</weight>
-		<spriteName>sword_icon.png</spriteName>
-		<buffBox/>
-		<strRequire>0</strRequire>
-		<agiRequire>0</agiRequire>
-		<intRequire>0</intRequire>
-		<skillName>HPRecoverySelf_生命恢复_0_0_20</skillName>
-		<supplyType>0</supplyType>
-	</inventory>
-	<inventory>
-		<type>supply</type>
-		<name>supply001</name>
-		<cname>小型魔法药水</cname>
-		<tips>回复魔法20</tips>
-		<level>1</level>
-		<price>10</price>
-		<weight>1</weight>
-		<spriteName>sword_icon.png</spriteName>
-		<buffBox/>
-		<strRequire>0</strRequire>
-		<agiRequire>0</agiRequire>
-		<intRequire>0</intRequire>
-		<skillName>MPRecoverySelf_魔法恢复_0_0_20</skillName>
-		<supplyType>1</supplyType>
-	</inventory>
-	<inventory>
-		<type>supply</type>
-		<name>supply002</name>
-		<cname>生命药水</cname>
 		<tips>回复生命50</tips>
-		<level>3</level>
+		<level>2</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1100,10 +1068,10 @@
 	</inventory>
 	<inventory>
 		<type>supply</type>
-		<name>supply003</name>
-		<cname>魔法药水</cname>
+		<name>supply001</name>
+		<cname>小型魔法药水</cname>
 		<tips>回复魔法50</tips>
-		<level>3</level>
+		<level>2</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1116,10 +1084,10 @@
 	</inventory>
 	<inventory>
 		<type>supply</type>
-		<name>supply004</name>
-		<cname>大型生命药水</cname>
+		<name>supply002</name>
+		<cname>生命药水</cname>
 		<tips>回复生命100</tips>
-		<level>5</level>
+		<level>3</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1132,10 +1100,10 @@
 	</inventory>
 	<inventory>
 		<type>supply</type>
-		<name>supply005</name>
-		<cname>大型魔法药水</cname>
+		<name>supply003</name>
+		<cname>魔法药水</cname>
 		<tips>回复魔法100</tips>
-		<level>5</level>
+		<level>3</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1148,10 +1116,10 @@
 	</inventory>
 	<inventory>
 		<type>supply</type>
-		<name>supply006</name>
-		<cname>究极生命药水</cname>
+		<name>supply004</name>
+		<cname>大型生命药水</cname>
 		<tips>回复生命200</tips>
-		<level>6</level>
+		<level>5</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1164,10 +1132,10 @@
 	</inventory>
 	<inventory>
 		<type>supply</type>
-		<name>supply007</name>
-		<cname>究极魔法药水</cname>
+		<name>supply005</name>
+		<cname>大型魔法药水</cname>
 		<tips>回复魔法200</tips>
-		<level>6</level>
+		<level>5</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1176,6 +1144,38 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>MPRecoverySelf_魔法恢复_0_0_200</skillName>
+		<supplyType>1</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>supply006</name>
+		<cname>究极生命药水</cname>
+		<tips>回复生命400</tips>
+		<level>7</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>HPRecoverySelf_生命恢复_0_0_400</skillName>
+		<supplyType>0</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>supply007</name>
+		<cname>究极魔法药水</cname>
+		<tips>回复魔法400</tips>
+		<level>7</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>MPRecoverySelf_魔法恢复_0_0_400</skillName>
 		<supplyType>1</supplyType>
 	</inventory>
 	<inventory>
@@ -1198,7 +1198,7 @@
 		<type>supply</type>
 		<name>supply009</name>
 		<cname>宫保鸡丁</cname>
-		<tips>某人的最爱，回复400点生命</tips>
+		<tips>某人的最爱，回复1000点生命</tips>
 		<level>9</level>
 		<price>10</price>
 		<weight>1</weight>
@@ -1207,7 +1207,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
-		<skillName>HPRecoverySelf_生命恢复_0_0_400</skillName>
+		<skillName>HPRecoverySelf_生命恢复_0_0_1000</skillName>
 		<supplyType>0</supplyType>
 	</inventory>
 	<inventory>
@@ -1223,7 +1223,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>13</intRequire>
-		<skillName>LearnSkill_学习火球术_0_0_FireBall_火球术_15_15_80_5</skillName>
+		<skillName>LearnSkill_学习火球术_0_0_FireBall_火球术_20_20_80_5</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -1239,7 +1239,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>17</intRequire>
-		<skillName>LearnSkill_学习随机闪电_0_0_RandomDirectDamage_随机闪电_15_15_100_3_2</skillName>
+		<skillName>LearnSkill_学习随机闪电_0_0_RandomDirectDamage_随机闪电_30_30_100_3_2</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -1255,7 +1255,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>35</intRequire>
-		<skillName>LearnSkill_学习闪电_0_0_Thunder_闪电_30_30_80</skillName>
+		<skillName>LearnSkill_学习闪电_0_0_Thunder_闪电_80_80_80</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -1271,7 +1271,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>15</intRequire>
-		<skillName>LearnSkill_学习闪烁_0_0_BlinkSelf_闪烁_15_15_3</skillName>
+		<skillName>LearnSkill_学习闪烁_0_0_BlinkSelf_闪烁_20_20_3</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -1279,7 +1279,7 @@
 		<name>skillBook004</name>
 		<cname>自愈之书</cname>
 		<tips>学习自愈技能</tips>
-		<level>3</level>
+		<level>4</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1287,7 +1287,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>15</intRequire>
-		<skillName>LearnSkill_学习自愈_0_0_HPSelfAccordInt_自愈_15_15_100</skillName>
+		<skillName>LearnSkill_学习自愈_0_0_HPSelfAccordInt_自愈_40_30_100</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -1303,7 +1303,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>16</intRequire>
-		<skillName>LearnSkill_学习自愈_0_0_HPCastAccordInt_治疗_15_15_100</skillName>
+		<skillName>LearnSkill_学习自愈_0_0_HPCastAccordInt_治疗_40_30_100</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -1311,7 +1311,7 @@
 		<name>skillBook006</name>
 		<cname>缓速自愈之书</cname>
 		<tips>学习缓速自愈技能</tips>
-		<level>4</level>
+		<level>6</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1319,7 +1319,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>19</intRequire>
-		<skillName>LearnSkill_学习自愈_0_0_BuffSelf_缓速自愈_20_20_HPBuff_自愈_OnRoundStart_Good_10_30_5</skillName>
+		<skillName>LearnSkill_学习自愈_0_0_BuffSelf_缓速自愈_20_20_HPBuff_自愈_OnRoundStart_Good_40_30_5</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -1327,7 +1327,7 @@
 		<name>skillBook007</name>
 		<cname>缓速治疗之书</cname>
 		<tips>学习缓速治疗技能</tips>
-		<level>5</level>
+		<level>6</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1335,7 +1335,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>20</intRequire>
-		<skillName>LearnSkill_学习治疗_0_0_BuffCast_缓速治疗_20_20_HPBuff_缓速治疗_OnRoundStart_Good_10_30_5</skillName>
+		<skillName>LearnSkill_学习治疗_0_0_BuffCast_缓速治疗_20_20_HPBuff_缓速治疗_OnRoundStart_Good_40_30_5</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -1550,7 +1550,7 @@
 		<type>supply</type>
 		<name>scroll013</name>
 		<cname>生命恢复卷轴</cname>
-		<tips>20回合内每个回合开始恢复6HP</tips>
+		<tips>25回合内每个回合开始恢复3HP</tips>
 		<level>4</level>
 		<price>10</price>
 		<weight>1</weight>
@@ -1559,14 +1559,14 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>13</intRequire>
-		<skillName>BuffSelf_生命回复_0_0_HPBuff_生命回复_OnRoundStart_Good_10_20_6</skillName>
+		<skillName>BuffSelf_生命回复_0_0_HPBuff_生命回复_OnRoundStart_Good_10_20_3</skillName>
 		<supplyType>0</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
 		<name>scroll014</name>
 		<cname>魔法恢复卷轴</cname>
-		<tips>20回合内每个回合开始恢复6MP</tips>
+		<tips>25回合内每个回合开始恢复3MP</tips>
 		<level>4</level>
 		<price>10</price>
 		<weight>1</weight>
@@ -1575,15 +1575,47 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>13</intRequire>
-		<skillName>BuffSelf_魔法回复_0_0_MPBuff_魔法回复_OnRoundStart_Good_10_20_6</skillName>
+		<skillName>BuffSelf_魔法回复_0_0_MPBuff_魔法回复_OnRoundStart_Good_10_20_3</skillName>
 		<supplyType>1</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
 		<name>scroll015</name>
 		<cname>长效生命恢复卷轴</cname>
-		<tips>40回合内每个回合开始恢复6HP</tips>
+		<tips>45回合内每个回合开始恢复3HP</tips>
 		<level>6</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>16</intRequire>
+		<skillName>BuffSelf_生命回复_0_0_HPBuff_生命回复_OnRoundStart_Good_10_40_3</skillName>
+		<supplyType>0</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll016</name>
+		<cname>长效魔法恢复卷轴</cname>
+		<tips>45回合内每个回合开始恢复3MP</tips>
+		<level>6</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>16</intRequire>
+		<skillName>BuffSelf_魔法回复_0_0_MPBuff_魔法回复_OnRoundStart_Good_10_40_3</skillName>
+		<supplyType>1</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll015</name>
+		<cname>究极生命恢复卷轴</cname>
+		<tips>45回合内每个回合开始恢复6HP</tips>
+		<level>7</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1597,9 +1629,9 @@
 	<inventory>
 		<type>supply</type>
 		<name>scroll016</name>
-		<cname>长效魔法恢复卷轴</cname>
-		<tips>40回合内每个回合开始恢复6MP</tips>
-		<level>6</level>
+		<cname>究极魔法恢复卷轴</cname>
+		<tips>45回合内每个回合开始恢复6MP</tips>
+		<level>7</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1608,38 +1640,6 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>16</intRequire>
 		<skillName>BuffSelf_魔法回复_0_0_MPBuff_魔法回复_OnRoundStart_Good_10_40_6</skillName>
-		<supplyType>1</supplyType>
-	</inventory>
-	<inventory>
-		<type>supply</type>
-		<name>scroll015</name>
-		<cname>究极生命恢复卷轴</cname>
-		<tips>40回合内每个回合开始恢复10HP</tips>
-		<level>7</level>
-		<price>10</price>
-		<weight>1</weight>
-		<spriteName>sword_icon.png</spriteName>
-		<buffBox/>
-		<strRequire>0</strRequire>
-		<agiRequire>0</agiRequire>
-		<intRequire>16</intRequire>
-		<skillName>BuffSelf_生命回复_0_0_HPBuff_生命回复_OnRoundStart_Good_10_40_10</skillName>
-		<supplyType>0</supplyType>
-	</inventory>
-	<inventory>
-		<type>supply</type>
-		<name>scroll016</name>
-		<cname>究极魔法恢复卷轴</cname>
-		<tips>40回合内每个回合开始恢复10MP</tips>
-		<level>7</level>
-		<price>10</price>
-		<weight>1</weight>
-		<spriteName>sword_icon.png</spriteName>
-		<buffBox/>
-		<strRequire>0</strRequire>
-		<agiRequire>0</agiRequire>
-		<intRequire>16</intRequire>
-		<skillName>BuffSelf_魔法回复_0_0_MPBuff_魔法回复_OnRoundStart_Good_10_40_10</skillName>
 		<supplyType>1</supplyType>
 	</inventory>
 	<inventory>
@@ -1663,14 +1663,14 @@
 		<name>scroll018</name>
 		<cname>《数学分析》</cname>
 		<tips>这个明显不是这个世界的著作,需要极高的智商才能阅读</tips>
-		<level>3</level>
+		<level>6</level>
 		<price>3</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>35</intRequire>
+		<intRequire>40</intRequire>
 		<skillName>BuffSelf_数学分析考试通过_0_0_BaseAttrBuff_数学分析_ATTR_Good_2_-1_0_0_10</skillName>
 		<supplyType>2</supplyType>
 	</inventory>

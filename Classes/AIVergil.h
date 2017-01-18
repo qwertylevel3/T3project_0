@@ -18,6 +18,7 @@ protected:
 	//状态:
 	//0:紧密跟随
 	//1:站着不动
+	//2:引路
 	int curState;
 
 	//行动
@@ -26,12 +27,29 @@ protected:
 	//等待
 	void waitAI();
 
+	//引路
+	void leadAI();
+
+
+	//尝试保护玩家
+	void protectPlayer();
 	
 
 	//获得周围的enemy
 	std::vector<Character* > getEnemyAround();
 	//获得player周围的enemy
 	std::vector<Character* > getEnemyAroundPlayer();
+
+
+	//获得视野范围内enemy
+	std::vector<Character* > getEnemyInView();
+	//获得player视野范围内的enemy
+	std::vector<Character* > getEnemyInPlayerView();
+
+
+
+	//判断周围是否有enemy
+	bool isSafe();
 
 	//比较两个character相对characterPtr的距离
 	bool cmpDistance(Character* a, Character* b);
@@ -53,4 +71,7 @@ protected:
 	void castBuffToPlayer();
 	void healCast();
 	void healSelf();
+
+	void updateSafe();
+	bool safe;
 };

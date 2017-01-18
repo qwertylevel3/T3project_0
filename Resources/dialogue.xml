@@ -73,6 +73,18 @@
 			<word>那么，有什么问题么？</word>
 			<optionList>
 				<option>
+					<label>跟我走</label>
+					<next>4</next>
+				</option>
+				<option>
+					<label>在这等我</label>
+					<next>3</next>
+				</option>
+				<option>
+					<label>你来带路吧</label>
+					<next>5</next>
+				</option>
+				<option>
 					<label>关于战斗</label>
 					<next>2</next>
 				</option>
@@ -100,14 +112,6 @@
 			<word>战斗策略？</word>
 			<optionList>
 				<option>
-					<label>一起走吧</label>
-					<next>4</next>
-				</option>
-				<option>
-					<label>在这等我</label>
-					<next>3</next>
-				</option>
-				<option>
 					<label>奶我一口。。。</label>
 					<next>-4</next>
 				</option>
@@ -128,6 +132,12 @@
 			<actorName>dialogueVergil3.png</actorName>
 			<word>好的</word>
 			<next>-2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>那你可要跟上哦</word>
+			<next>-11</next>
 		</sentence>
 	</dialogue>
 	<dialogue>
