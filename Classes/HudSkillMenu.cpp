@@ -8,11 +8,9 @@
 #include "HudTrigActiveSkill.h"
 #include "HudDescriptionMenu.h"
 
-
-
 HudSkillMenu::HudSkillMenu()
 	:HudMenu(cocos2d::Rect(
-		0,0,
+		0, 0,
 		HudLayout::getInstance()->getMediumMenuSize().width,
 		HudLayout::getInstance()->getMediumMenuSize().height))
 {
@@ -37,11 +35,30 @@ void HudSkillMenu::update()
 	int count = 1;
 	for each (Skill::SkillBase* skill in skillBox)
 	{
-		HudMenuItem* item = new HudMenuItem(
-			ToolFunction::int2string(count++)+
-			":"+
-			skill->getCname()
-		);
+		HudMenuItem* item;
+		if (count == 10)
+		{
+			item= new HudMenuItem(
+				ToolFunction::int2string(0) +
+				":" +
+				skill->getCname()
+			);
+		}
+		else if (count>=0 && count<=9)
+		{
+			item= new HudMenuItem(
+				ToolFunction::int2string(count++) +
+				":" +
+				skill->getCname()
+			);
+		}
+		else
+		{
+			item= new HudMenuItem(
+				skill->getCname()
+			);
+		}
+
 		this->addItem(item);
 		HudTrigActiveSkill* trigger = new HudTrigActiveSkill();
 		item->setTrigger(trigger);

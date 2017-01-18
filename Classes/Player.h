@@ -28,7 +28,7 @@ public:
 	bool isMoveAble(cocos2d::EventKeyboard::KeyCode keyCode);
 	void handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode);
 	void handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode);
-	void playerAttack(cocos2d::EventKeyboard::KeyCode keyCode);
+
 	void playerMove(cocos2d::EventKeyboard::KeyCode keyCode);
 	void playerSetOrientation(cocos2d::EventKeyboard::KeyCode keyCode);
 	void playerInteraction(cocos2d::EventKeyboard::KeyCode keyCode);
@@ -36,8 +36,11 @@ public:
 	void setName(const std::string& name);
 	std::vector<cocos2d::Point>& getpathHistory();
 protected:
+	void playerAction(cocos2d::EventKeyboard::KeyCode keyCode);
 	void playerChant();
 	void playerIdle();
+	void playerAttack();
+	void playerRunSkill(cocos2d::EventKeyboard::KeyCode keyCode);
 	void showCannotMoveReason();
 	void showAtkArea();
 	void hideAtkArea();

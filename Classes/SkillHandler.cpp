@@ -54,5 +54,9 @@ void Skill::SkillHandler::addSkill(SkillBase* skill)
 
 std::string Skill::SkillHandler::getSkillID(int index)
 {
+	if (index>=skillBox.size())
+	{
+		return "";
+	}
 	return skillBox[index]->getID();
 }

@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "SkillHandler.h"
 #include "ExpHandler.h"
 #include "HudMessageBox.h"
 #include "ToolFunction.h"
@@ -113,7 +114,6 @@ void Player::configPlayer()
 	characterPtr->addInventory("skillBook006");
 	characterPtr->addInventory("skillBook007");
 	characterPtr->addInventory("skillBook001");
-
 
 	//	for (int i = 0; i < 20; i++)
 	//	{
@@ -250,33 +250,7 @@ void Player::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 	switch (controlMode)
 	{
 	case NormalMode:
-		if (keyCode == EventKeyboard::KeyCode::KEY_SPACE)
-		{
-			playerAttack(keyCode);
-			break;
-		}
-		if (keyCode == EventKeyboard::KeyCode::KEY_E)
-		{
-			playerInteraction(keyCode);
-			break;
-		}
-		if (keyCode == EventKeyboard::KeyCode::KEY_CTRL)
-		{
-			controlMode = HaltMode;
-			showAtkArea();
-			break;
-		}
-		if (keyCode == EventKeyboard::KeyCode::KEY_C)
-		{
-			playerChant();
-			break;
-		}
-		if (keyCode == EventKeyboard::KeyCode::KEY_T)
-		{
-			playerIdle();
-			break;
-		}
-		playerMove(keyCode);
+		playerAction(keyCode);
 		break;
 	case HaltMode:
 		playerSetOrientation(keyCode);
@@ -300,9 +274,63 @@ void Player::handleKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode)
 	}
 }
 
-void Player::playerAttack(cocos2d::EventKeyboard::KeyCode keyCode)
+void Player::playerAttack()
 {
 	characterPtr->attack();
+}
+
+void Player::playerRunSkill(cocos2d::EventKeyboard::KeyCode keyCode)
+{
+	int curIndex;
+
+	switch (keyCode)
+	{
+	case cocos2d::EventKeyboard::KeyCode::KEY_0:
+		curIndex = 9;
+		break;
+	case cocos2d::EventKeyboard::KeyCode::KEY_1:
+		curIndex = 0;
+		break;
+	case cocos2d::EventKeyboard::KeyCode::KEY_2:
+		curIndex = 1;
+		break;
+	case cocos2d::EventKeyboard::KeyCode::KEY_3:
+		curIndex = 2;
+		break;
+	case cocos2d::EventKeyboard::KeyCode::KEY_4:
+		curIndex = 3;
+		break;
+	case cocos2d::EventKeyboard::KeyCode::KEY_5:
+		curIndex = 4;
+		break;
+	case cocos2d::EventKeyboard::KeyCode::KEY_6:
+		curIndex = 5;
+		break;
+	case cocos2d::EventKeyboard::KeyCode::KEY_7:
+		curIndex = 6;
+		break;
+	case cocos2d::EventKeyboard::KeyCode::KEY_8:
+		curIndex = 7;
+		break;
+	case cocos2d::EventKeyboard::KeyCode::KEY_9:
+		curIndex = 8;
+		break;
+	default:
+		curIndex = -1;
+		break;
+	}
+
+	if (curIndex == -1)
+	{
+		return;
+	}
+
+	Skill::SkillHandler* skillHandler = characterPtr->getSkillHandler();
+	std::string skillID = skillHandler->getSkillID(curIndex);
+	if (skillID != "")
+	{
+		characterPtr->runSkill(skillID);
+	}
 }
 
 void Player::playerMove(cocos2d::EventKeyboard::KeyCode keyCode)
@@ -372,6 +400,42 @@ void Player::setName(const std::string& name)
 std::vector<cocos2d::Point>& Player::getpathHistory()
 {
 	return pathHistory;
+}
+
+void Player::playerAction(cocos2d::EventKeyboard::KeyCode keyCode)
+{
+	if (keyCode == EventKeyboard::KeyCode::KEY_SPACE)
+	{
+		playerAttack();
+	}
+	if (keyCode == EventKeyboard::KeyCode::KEY_E)
+	{
+		playerInteraction(keyCode);
+	}
+	else if (keyCode == EventKeyboard::KeyCode::KEY_CTRL)
+	{
+		controlMode = HaltMode;
+		showAtkArea();
+	}
+	else if (keyCode == EventKeyboard::KeyCode::KEY_C)
+	{
+		playerChant();
+	}
+	else if (keyCode == EventKeyboard::KeyCode::KEY_T)
+	{
+		playerIdle();
+	}
+	else if (keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW
+		|| keyCode == EventKeyboard::KeyCode::KEY_LEFT_ARROW
+		|| keyCode == EventKeyboard::KeyCode::KEY_UP_ARROW
+		|| keyCode == EventKeyboard::KeyCode::KEY_DOWN_ARROW)
+	{
+		playerMove(keyCode);
+	}
+	else
+	{
+		playerRunSkill(keyCode);
+	}
 }
 
 void Player::playerChant()
