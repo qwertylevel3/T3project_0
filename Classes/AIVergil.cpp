@@ -34,28 +34,18 @@ AIVergil::~AIVergil()
 
 void AIVergil::update()
 {
-	//TODO:
-	if (safe)
+	//尝试治疗身边的player
+	if (healPlayer())
 	{
-		updateSafe();
-		if (!safe)
-		{
-			int roll = RandomNumber::getInstance()->randomInt(1, 10);
-			if (roll == 1);
-			{
-				characterPtr->speak(L"小心哦");
-			}
-		}
-	}
-	else
-	{
-		updateSafe();
+		return;
 	}
 
+	//整理物品
 	if (tidyInventory())
 	{
 		return;
 	}
+	//尝试使用物品回复
 	if (characterPtr->getHP() < characterPtr->getMaxHP() / 2)
 	{
 		if (tryUseHPSupply())
@@ -77,6 +67,7 @@ void AIVergil::update()
 		}
 	}
 
+	//行动
 	switch (curState)
 	{
 	case 0:
@@ -207,18 +198,6 @@ void AIVergil::followAI()
 	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
 	cocos2d::Point playerCoord = playerCharacter->getMapCoord();
 
-	if (ToolFunction::isNear4(characterPtr->getMapCoord(), playerCoord))
-	{
-		//player血量低且vergil有魔法,优先治疗
-		if (playerCharacter->getHP() < playerCharacter->getMaxHP() / 2
-			&& characterPtr->getMP() > 40)
-		{
-			changeOrientationTo(playerCharacter);
-			healCast();
-			return;
-		}
-	}
-
 	if (stateFlag == 0)
 	{
 		if (ToolFunction::isNear4(characterPtr->getMapCoord(), playerCoord))
@@ -250,18 +229,6 @@ void AIVergil::waitAI()
 {
 	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
 	cocos2d::Point playerCoord = playerCharacter->getMapCoord();
-
-	if (ToolFunction::isNear4(characterPtr->getMapCoord(), playerCoord))
-	{
-		//player血量低且vergil有魔法,优先治疗
-		if (playerCharacter->getHP() < playerCharacter->getMaxHP() / 2
-			&& characterPtr->getMP() > 40)
-		{
-			changeOrientationTo(playerCharacter);
-			healCast();
-			return;
-		}
-	}
 
 	Character* targetCharacter = searchTargetBFS(Character::Bad, 1);
 	if (targetCharacter)
@@ -309,6 +276,11 @@ void AIVergil::leadAI()
 	}
 	else
 	{
+		int roll = RandomNumber::getInstance()->randomInt(1, 100);
+		if (roll == 1)
+		{
+			characterPtr->speak(L"小心");
+		}
 		protectPlayer();
 	}
 }
@@ -323,7 +295,6 @@ void AIVergil::protectPlayer()
 		seek(playerCharacter);
 		return;
 	}
-
 
 	auto bound_cmp = bind(&AIVergil::cmpDistance, this, _1, _2);
 	sort(allEnemy.begin(), allEnemy.end(), bound_cmp);
@@ -359,6 +330,25 @@ void AIVergil::protectPlayer()
 
 		return;
 	}
+}
+
+bool AIVergil::healPlayer()
+{
+	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
+
+	if (ToolFunction::isNear4(characterPtr->getMapCoord(),
+		playerCharacter->getMapCoord()))
+	{
+		//player血量低且vergil有魔法,优先治疗
+		if (playerCharacter->getHP() < playerCharacter->getMaxHP() / 2
+			&& characterPtr->getMP() > 40)
+		{
+			changeOrientationTo(playerCharacter);
+			healCast();
+			return true;
+		}
+	}
+	return false;
 }
 
 std::vector<Character* > AIVergil::getEnemyAround()
@@ -779,16 +769,4 @@ void AIVergil::healSelf()
 	);
 	characterPtr->addExp(50);
 	HudMessageBox::getInstance()->addMessage(L"Vergil向自己释放了一个治疗法术");
-}
-
-void AIVergil::updateSafe()
-{
-	if (isSafe())
-	{
-		safe = true;
-	}
-	else
-	{
-		safe = false;
-	}
 }

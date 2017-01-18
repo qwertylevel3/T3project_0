@@ -33,6 +33,10 @@ protected:
 
 	//尝试保护玩家
 	void protectPlayer();
+
+
+	//尝试治疗身边的player
+	bool healPlayer();
 	
 
 	//获得周围的enemy
@@ -72,6 +76,4 @@ protected:
 	void healCast();
 	void healSelf();
 
-	void updateSafe();
-	bool safe;
 };

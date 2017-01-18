@@ -453,11 +453,11 @@ void Player::playerChant()
 void Player::playerIdle()
 {
 	characterPtr->idle();
-	HudMessageBox::getInstance()->addMessage(
-		ToolFunction::int2string(
-			ToolFunction::getCurTime()
-		)
-	);
+//	HudMessageBox::getInstance()->addMessage(
+//		ToolFunction::int2string(
+//			ToolFunction::getCurTime()
+//		)
+//	);
 }
 
 void Player::showCannotMoveReason()

@@ -97,5 +97,8 @@ void OptionCheckMenu::initHeight()
 {
 	int optionCount = curQuestion->getSize();
 	int height = optionCount*30+10;
+
+	height = height > 200 ? 200 : height;
+	
 	this->setHeight(height);
 }
