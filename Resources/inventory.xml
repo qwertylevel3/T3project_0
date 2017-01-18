@@ -1276,6 +1276,70 @@
 	</inventory>
 	<inventory>
 		<type>supply</type>
+		<name>skillBook004</name>
+		<cname>自愈之书</cname>
+		<tips>学习自愈技能</tips>
+		<level>3</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>15</intRequire>
+		<skillName>LearnSkill_学习自愈_0_0_HPSelfAccordInt_自愈_15_15_100</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>skillBook005</name>
+		<cname>治疗之书</cname>
+		<tips>学习治疗技能</tips>
+		<level>4</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>16</intRequire>
+		<skillName>LearnSkill_学习自愈_0_0_HPCastAccordInt_治疗_15_15_100</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>skillBook006</name>
+		<cname>缓速自愈之书</cname>
+		<tips>学习缓速自愈技能</tips>
+		<level>4</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>19</intRequire>
+		<skillName>LearnSkill_学习自愈_0_0_BuffSelf_缓速自愈_20_20_HPBuff_自愈_OnRoundStart_Good_10_30_5</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>skillBook007</name>
+		<cname>缓速治疗之书</cname>
+		<tips>学习缓速治疗技能</tips>
+		<level>5</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>20</intRequire>
+		<skillName>LearnSkill_学习治疗_0_0_BuffCast_缓速治疗_20_20_HPBuff_缓速治疗_OnRoundStart_Good_10_30_5</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
 		<name>scroll000</name>
 		<cname>火球术卷轴</cname>
 		<tips>释放一个直线火球</tips>

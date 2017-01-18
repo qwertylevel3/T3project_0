@@ -34,9 +34,7 @@ void Player::init()
 	characterPtr = CharacterFactory::getInstance()->getCharacter("player");
 	characterPtr->setAI("AIPlayer");
 
-
 	configPlayer();
-
 }
 
 void Player::initMission()
@@ -53,10 +51,8 @@ void Player::initMission()
 
 	characterPtr->setMapCoord(tempCoord);
 
-
 	storey->addCharacter(tempCoord, characterPtr);
 }
-
 
 void Player::restart()
 {
@@ -69,36 +65,35 @@ void Player::restart()
 
 void Player::configPlayer()
 {
-
-//	characterPtr->addSkill(L"FireBall_快速火球_20_20_20_5");
-//	characterPtr->addSkill(L"HPRecoverySelf_生命恢复_20_20_20");
-//	characterPtr->addSkill(L"MPRecoverySelf_魔法恢复_20_20_100");
-//	characterPtr->addSkill(L"HPRecoveryCast_治疗_20_20_100");
-//	characterPtr->addSkill(L"MPRecoveryCast_魔法增量_20_20_100");
-//	characterPtr->addSkill(L"ChantSelf_快速施法_20_0_100");
-//	characterPtr->addSkill(L"BuffSelf_闪避buff_20_20_EvadeBuff_闪避buff_ATTR_Good_4_100_100");
-//	characterPtr->addSkill(L"BuffCast_闪避buff祝福_20_20_EvadeBuff_闪避buff_ATTR_Good_4_100_100");
-//	characterPtr->addSkill(L"Summon_召唤slime_20_20_slime");
-//	characterPtr->addSkill(L"BlinkSelf_闪烁_20_10_3");
-//	characterPtr->addSkill(L"Repel_击退_20_10_3_10");
-//	characterPtr->addSkill(L"Thunder_闪电_20_10_-30");
-//	characterPtr->addSkill(L"ExpAdd_经验增加_0_0_100");
-//	characterPtr->addSkill(L"LearnSkill_学习火球术_0_0_FireBall_火球术_5_5_-20_5");
-//	characterPtr->addSkill(L"BuffSelf_毒液_0_0_HPBuff_毒液_OnRoundStart_Bad_10_10_-3");
-//	characterPtr->addSkill(L"RandomDirectDamage_死亡一指_10_10_-30_5_2");
+	//	characterPtr->addSkill(L"FireBall_快速火球_20_20_20_5");
+	//	characterPtr->addSkill(L"HPRecoverySelf_生命恢复_20_20_20");
+	//	characterPtr->addSkill(L"MPRecoverySelf_魔法恢复_20_20_100");
+	//	characterPtr->addSkill(L"HPRecoveryCast_治疗_20_20_100");
+	//	characterPtr->addSkill(L"MPRecoveryCast_魔法增量_20_20_100");
+	//	characterPtr->addSkill(L"ChantSelf_快速施法_20_0_100");
+	//	characterPtr->addSkill(L"BuffSelf_闪避buff_20_20_EvadeBuff_闪避buff_ATTR_Good_4_100_100");
+	//	characterPtr->addSkill(L"BuffCast_闪避buff祝福_20_20_EvadeBuff_闪避buff_ATTR_Good_4_100_100");
+	//	characterPtr->addSkill(L"Summon_召唤slime_20_20_slime");
+	//	characterPtr->addSkill(L"BlinkSelf_闪烁_20_10_3");
+	//	characterPtr->addSkill(L"Repel_击退_20_10_3_10");
+	//	characterPtr->addSkill(L"Thunder_闪电_20_10_-30");
+	//	characterPtr->addSkill(L"ExpAdd_经验增加_0_0_100");
+	//	characterPtr->addSkill(L"LearnSkill_学习火球术_0_0_FireBall_火球术_5_5_-20_5");
+	//	characterPtr->addSkill(L"BuffSelf_毒液_0_0_HPBuff_毒液_OnRoundStart_Bad_10_10_-3");
+	//	characterPtr->addSkill(L"RandomDirectDamage_死亡一指_10_10_-30_5_2");
 
 	setName(ToolFunction::WStr2UTF8(L"你"));
 
 	controlMode = NormalMode;
 
-	characterPtr->setHP(10);
-	characterPtr->setMaxHP(10);
+	characterPtr->setHP(100);
+	characterPtr->setMaxHP(100);
 	characterPtr->setMP(100);
 	characterPtr->setMaxMP(100);
 
 	characterPtr->setStrength(10);
 	characterPtr->setAgility(10);
-	characterPtr->setIntellect(10);
+	characterPtr->setIntellect(30);
 	characterPtr->setLuck(10);
 	characterPtr->setViewSize(1);
 	characterPtr->setCharacterType(Character::Good);
@@ -113,37 +108,39 @@ void Player::configPlayer()
 	characterPtr->initArmor(armor);
 
 	characterPtr->addInventory("note000");
-	characterPtr->addInventory("sword031");
+	characterPtr->addInventory("skillBook004");
+	characterPtr->addInventory("skillBook005");
+	characterPtr->addInventory("skillBook006");
+	characterPtr->addInventory("skillBook007");
+	characterPtr->addInventory("skillBook001");
 
 
+	//	for (int i = 0; i < 20; i++)
+	//	{
+	//		std::string invName = InventoryFactory::getInstance()->getRandomInventory(9);
+	//		characterPtr->addInventory(invName);
+	//	}
+	//	for (int i = 0; i < 20; i++)
+	//	{
+	//		std::string invName = InventoryFactory::getInstance()->getRandomInventory(8);
+	//		characterPtr->addInventory(invName);
+	//	}
 
-//	for (int i = 0; i < 20; i++)
-//	{
-//		std::string invName = InventoryFactory::getInstance()->getRandomInventory(9);
-//		characterPtr->addInventory(invName);
-//	}
-//	for (int i = 0; i < 20; i++)
-//	{
-//		std::string invName = InventoryFactory::getInstance()->getRandomInventory(8);
-//		characterPtr->addInventory(invName);
-//	}
+		//////////////////////////////////////////////////////////////////////////
+	//	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_-1_100";
+	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname0));
 
-	//////////////////////////////////////////////////////////////////////////
-//	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_-1_100";
-//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname0));
+	//	std::wstring buffname1 = L"ChantBuff_自动吟唱_OnRoundStart_Good_10_20_1";
+	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname1));
 
-//	std::wstring buffname1 = L"ChantBuff_自动吟唱_OnRoundStart_Good_10_20_1";
-//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname1));
+	//	std::wstring buffname2 = L"BlockProBuff_格挡增加_ATTR_Good_4_100_100";
+	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
 
-//	std::wstring buffname2 = L"BlockProBuff_格挡增加_ATTR_Good_4_100_100";
-//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
+	//	std::wstring buffname3 = L"AccuracyBuff_命中buff_ATTR_Good_4_100_100";
+	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname3));
 
-//	std::wstring buffname3 = L"AccuracyBuff_命中buff_ATTR_Good_4_100_100";
-//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname3));
-
-//	std::wstring buffname4 = L"BaseAttrBuff_测试buff_ATTR_Good_2_-1_3_0_0";
-//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname4));
-
+	//	std::wstring buffname4 = L"BaseAttrBuff_测试buff_ATTR_Good_2_-1_3_0_0";
+	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname4));
 }
 
 void Player::autoNextStep()
@@ -258,7 +255,7 @@ void Player::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 			playerAttack(keyCode);
 			break;
 		}
-		if (keyCode==EventKeyboard::KeyCode::KEY_E)
+		if (keyCode == EventKeyboard::KeyCode::KEY_E)
 		{
 			playerInteraction(keyCode);
 			break;
@@ -269,7 +266,7 @@ void Player::handleKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode)
 			showAtkArea();
 			break;
 		}
-		if (keyCode==EventKeyboard::KeyCode::KEY_C)
+		if (keyCode == EventKeyboard::KeyCode::KEY_C)
 		{
 			playerChant();
 			break;
@@ -335,8 +332,6 @@ void Player::playerMove(cocos2d::EventKeyboard::KeyCode keyCode)
 		MyCamera::getInstance()->moveCameraBy(cocos2d::Vec2(32, 0), 0.2);
 		break;
 	}
-
-
 }
 
 void Player::playerSetOrientation(cocos2d::EventKeyboard::KeyCode keyCode)
@@ -373,7 +368,6 @@ void Player::setName(const std::string& name)
 	CCAssert(characterPtr, "characterPtr is null");
 	characterPtr->setName(name);
 }
-
 
 std::vector<cocos2d::Point>& Player::getpathHistory()
 {

@@ -1,4 +1,5 @@
 #include "HudSkillMenu.h"
+#include "ToolFunction.h"
 #include "HudLayout.h"
 #include "HudMenuItem.h"
 #include "Player.h"
@@ -33,9 +34,14 @@ void HudSkillMenu::update()
 
 	std::vector<Skill::SkillBase*> skillBox = skillHandler->getSkillBoxRef();
 
+	int count = 1;
 	for each (Skill::SkillBase* skill in skillBox)
 	{
-		HudMenuItem* item = new HudMenuItem(skill->getCname());
+		HudMenuItem* item = new HudMenuItem(
+			ToolFunction::int2string(count++)+
+			":"+
+			skill->getCname()
+		);
 		this->addItem(item);
 		HudTrigActiveSkill* trigger = new HudTrigActiveSkill();
 		item->setTrigger(trigger);
