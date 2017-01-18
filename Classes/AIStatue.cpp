@@ -25,11 +25,11 @@ void AIStatue::feedback(Character* character)
 
 		character->addBuff(
 			ToolFunction::WStr2UTF8(
-				L"ViewSizeBuff_女神祝福_ATTR_Good_1_20_3"
+				L"ViewSizeBuff_女神祝福_ATTR_Good_1_40_3"
 			)
 		);
-		character->sufferHPEffect(100);
-		character->sufferMPEffect(100);
+		character->sufferHPEffect(400);
+		character->sufferMPEffect(400);
 
 		HudMessageBox::getInstance()->addMessage(L"你获得了祝福");
 		count--;

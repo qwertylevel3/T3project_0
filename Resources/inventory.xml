@@ -638,7 +638,7 @@
 		<name>armor001</name>
 		<cname>皮甲</cname>
 		<tips>初级护甲</tips>
-		<level>9</level>
+		<level>2</level>
 		<price>2</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -737,7 +737,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<armorCount>20</armorCount>
+		<armorCount>25</armorCount>
 	</inventory>
 	<inventory>
 		<type>armor</type>
@@ -1239,7 +1239,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>17</intRequire>
-		<skillName>LearnSkill_学习随机闪电_0_0_RandomDirectDamage_随机闪电_15_15_100_5_2</skillName>
+		<skillName>LearnSkill_学习随机闪电_0_0_RandomDirectDamage_随机闪电_15_15_100_3_2</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -1367,7 +1367,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>18</intRequire>
-		<skillName>RandomDirectDamage_随机闪电_0_0_100_5_2</skillName>
+		<skillName>RandomDirectDamage_随机闪电_0_0_100_3_2</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>

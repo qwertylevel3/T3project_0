@@ -165,6 +165,12 @@ void DialogueDriver::run(Question* question)
 
 void DialogueDriver::startDialogue(Dialogue* dialogue)
 {
+	if (actorSprite)
+	{
+		actorSprite->removeFromParent();
+		actorSprite = nullptr;
+	}
+
 	curIndex = 1;
 	curDialogue = dialogue;
 	curSentence = dialogue->getSentence(curIndex);

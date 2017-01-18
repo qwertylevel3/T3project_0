@@ -35,6 +35,7 @@ void AIPersephone::update()
 	Character* targetCharacter = searchTargetBFS(Character::Good);
 	if (targetCharacter)
 	{
+		changeOrientationTo(targetCharacter);
 		if (!isInAttackArea(targetCharacter))
 		{
 			seek(targetCharacter);
@@ -72,7 +73,7 @@ void AIPersephone::handleDialogueResult(std::string dialogueName, int resultNumb
 
 void AIPersephone::summonDemon()
 {
-	characterPtr->runSkill("summon_ÕÙ»½_0_0_demon");
+	characterPtr->runSkill("Summon_ÕÙ»½_0_0_demon");
 	HudMessageBox::getInstance()->addMessage(L"persephoneÕÙ»½ÁË¶ñÄ§");
 }
 

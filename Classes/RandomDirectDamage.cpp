@@ -28,8 +28,8 @@ std::string Skill::RandomDirectDamage::getExtraDescription()
 
 void Skill::RandomDirectDamage::run()
 {
-	std::vector<Character*> allTarget=getTargetAround(targetType);
-//	Character* target = searchTargetBFS(targetType);
+	std::vector<Character*> allTarget = getTargetAround(targetType);
+	//	Character* target = searchTargetBFS(targetType);
 
 	if (allTarget.empty())
 	{
@@ -129,7 +129,7 @@ Character* Skill::RandomDirectDamage::searchTargetBFS(Character::Type type)
 
 std::vector<Character*> Skill::RandomDirectDamage::getTargetAround(Character::Type type)
 {
-	int size = 3;
+	int size = distance;
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 
 	std::vector<Character* > allTarget;
@@ -138,9 +138,14 @@ std::vector<Character*> Skill::RandomDirectDamage::getTargetAround(Character::Ty
 	{
 		for (int j = -size; j <= size; j++)
 		{
+			if (abs(i) + abs(j) > distance)
+			{
+				continue;
+			}
+
 			cocos2d::Point ori = caster->getMapCoord();
 
-			Character* target = storey->getCharacter(ori.x+i, ori.y+j);
+			Character* target = storey->getCharacter(ori.x + i, ori.y + j);
 
 			if (target
 				&& target->getCharacterType() == type

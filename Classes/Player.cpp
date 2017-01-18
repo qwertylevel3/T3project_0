@@ -87,8 +87,8 @@ void Player::configPlayer()
 
 	controlMode = NormalMode;
 
-	characterPtr->setHP(100);
-	characterPtr->setMaxHP(100);
+	characterPtr->setHP(340);
+	characterPtr->setMaxHP(340);
 	characterPtr->setMP(100);
 	characterPtr->setMaxMP(100);
 
@@ -109,22 +109,28 @@ void Player::configPlayer()
 	characterPtr->initArmor(armor);
 
 	characterPtr->addInventory("note000");
-	characterPtr->addInventory("skillBook004");
-	characterPtr->addInventory("skillBook005");
-	characterPtr->addInventory("skillBook006");
-	characterPtr->addInventory("skillBook007");
 	characterPtr->addInventory("skillBook001");
 
-	//	for (int i = 0; i < 20; i++)
-	//	{
-	//		std::string invName = InventoryFactory::getInstance()->getRandomInventory(9);
-	//		characterPtr->addInventory(invName);
-	//	}
-	//	for (int i = 0; i < 20; i++)
-	//	{
-	//		std::string invName = InventoryFactory::getInstance()->getRandomInventory(8);
-	//		characterPtr->addInventory(invName);
-	//	}
+
+
+//	for (int i=0;i<5;i++)
+//	{
+//		characterPtr->addInventory("supply009");
+//	}
+
+
+
+
+//		for (int i = 0; i < 20; i++)
+//		{
+//			std::string invName = InventoryFactory::getInstance()->getRandomInventory(9);
+//			characterPtr->addInventory(invName);
+//		}
+//		for (int i = 0; i < 20; i++)
+//		{
+//			std::string invName = InventoryFactory::getInstance()->getRandomInventory(8);
+//			characterPtr->addInventory(invName);
+//		}
 
 		//////////////////////////////////////////////////////////////////////////
 	//	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_-1_100";

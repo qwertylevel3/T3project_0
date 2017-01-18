@@ -214,9 +214,9 @@
 		<chantAble>1</chantAble>
 		<skillAble>1</skillAble>
 		<actionAble>1</actionAble>
-		<strength>50</strength>
+		<strength>20</strength>
 		<intellect>100</intellect>
-		<agility>30</agility>
+		<agility>20</agility>
 		<luck>0</luck>
 		<viewSize>3</viewSize>
 		<maxHP>1000</maxHP>
