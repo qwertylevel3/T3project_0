@@ -114,6 +114,7 @@ void DialogueDriver::run(Statement* statement)
 
 	enterSprite->setLocalZOrder(3);
 	enterSprite->stopAllActions();
+	enterSprite->setPosition(700, 50);
 	enterSprite->setVisible(true);
 	enterSprite->runAction(
 		cocos2d::RepeatForever::create(

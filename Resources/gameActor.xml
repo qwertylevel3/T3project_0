@@ -90,7 +90,7 @@
 		<skillAble>1</skillAble>
 		<actionAble>1</actionAble>
 		<strength>5</strength>
-		<intellect>20</intellect>
+		<intellect>30</intellect>
 		<agility>3</agility>
 		<luck>0</luck>
 		<viewSize>3</viewSize>
@@ -115,7 +115,7 @@
 		<skillAble>1</skillAble>
 		<actionAble>1</actionAble>
 		<strength>5</strength>
-		<intellect>20</intellect>
+		<intellect>30</intellect>
 		<agility>3</agility>
 		<luck>0</luck>
 		<viewSize>3</viewSize>

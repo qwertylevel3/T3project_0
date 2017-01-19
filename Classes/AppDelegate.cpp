@@ -94,7 +94,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto scene = Scene::create();
 
 	GameController::getInstance()->init();
-    
+
 	auto gameSceneLayer = MainLayer::getInstance();
 	auto hudLayer = HudLayer::getInstance();
 	auto maskLayer = MaskLayer::getInstance();

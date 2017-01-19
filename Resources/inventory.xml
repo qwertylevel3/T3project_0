@@ -534,8 +534,8 @@
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>BaseAttrBuff_星月祝福1_ATTR_Good_2_-1_3_3_3</buffID>
-			<buffID>HPBuff_星月祝福2_OnRoundStart_Good_10_-1_1</buffID>
+			<buffID>BaseAttrBuff_星月祝福1_ATTR_Good_2_-1_5_5_0</buffID>
+			<buffID>AccuracyBuff_星月祝福2_ATTR_Good_4_-1_25</buffID>
 		</buffBox>
 		<weaponDamage>12</weaponDamage>
 		<strRequire>0</strRequire>
@@ -618,6 +618,26 @@
 		<intRequire>0</intRequire>
 		<sphereBox>
 			<sphereID>ActiveSkillSphere_雷神之怒_70_RandomDirectDamage_雷电_0_0_80_4_2</sphereID>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword032</name>
+		<cname>星月兄弟会之杖</cname>
+		<tips>星月盟统一装备之一</tips>
+		<level>6</level>
+		<price>9</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>MPBuff_星月祝福3_OnRoundStart_Good_10_-1_2</buffID>
+			<buffID>ChantBuff_星月祝福4_OnRoundStart_Good_10_-1_100</buffID>
+		</buffBox>
+		<weaponDamage>3</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
 		</sphereBox>
 	</inventory>
 	<inventory>
@@ -776,8 +796,8 @@
 		<weight>4</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>BaseAttrBuff_星月祝福1_ATTR_Good_2_-1_3_3_3</buffID>
-			<buffID>HPBuff_星月祝福2_OnRoundStart_Good_10_-1_1</buffID>
+			<buffID>MaxHPBuff_星月祝福5_ATTR_Good_1_-1_50</buffID>
+			<buffID>HPBuff_星月祝福6_OnRoundStart_Good_10_-1_1</buffID>
 		</buffBox>
 		<armorCount>8</armorCount>
 	</inventory>
@@ -824,6 +844,21 @@
 			<buffID>BaseAttrBuff_蓝色披风_ATTR_Good_2_-1_0_0_5</buffID>
 		</buffBox>
 		<armorCount>3</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor015</name>
+		<cname>Stella之守护</cname>
+		<tips>群星之神与你同在</tips>
+		<level>9</level>
+		<price>2</price>
+		<weight>0</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>ViewSizeBuff_Stella之守护1_ATTR_Good_1_-1_3</buffID>
+			<buffID>EvadeBuff_Stella之守护2_ATTR_Good_4_-1_25</buffID>
+		</buffBox>
+		<armorCount>18</armorCount>
 	</inventory>
 	<inventory>
 		<type>accessory</type>
@@ -1019,8 +1054,8 @@
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>BaseAttrBuff_星月祝福1_ATTR_Good_2_-1_3_3_3</buffID>
-			<buffID>HPBuff_星月祝福2_OnRoundStart_Good_10_-1_1</buffID>
+			<buffID>EvadeBuff_星月祝福7_ATTR_Good_4_-1_15</buffID>
+			<buffID>ViewSizeBuff_星月祝福8_ATTR_Good_1_-1_1</buffID>
 		</buffBox>
 	</inventory>
 	<inventory>

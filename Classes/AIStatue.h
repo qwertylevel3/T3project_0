@@ -15,9 +15,9 @@ protected:
 	void handleLevelUp();
 	void handlePrayResult(int resultNumber);
 	void giveWeapon();
+	void giveWand();
 	void giveArmor();
 	void giveAccessory();
-	void giveInventory();
 	void giveHP();
 	void giveMP();
 };

@@ -47,7 +47,7 @@ void Skill::RandomDirectDamage::run()
 	{
 		target->sufferHPEffect(damage);
 		caster->addExp(-damage);
-		MaskLayer::getInstance()->addLightFixed(2, target->getMapCoord(), 200);
+		MaskLayer::getInstance()->addLightFixed(4, target->getMapCoord(), 200);
 		EffectManager::getInstance()->showEffect("thunder", target->getPosition(), 0.2);
 
 	}

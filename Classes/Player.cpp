@@ -87,8 +87,8 @@ void Player::configPlayer()
 
 	controlMode = NormalMode;
 
-	characterPtr->setHP(5);
-	characterPtr->setMaxHP(5);
+	characterPtr->setHP(100);
+	characterPtr->setMaxHP(100);
 	characterPtr->setMP(100);
 	characterPtr->setMaxMP(100);
 
@@ -109,7 +109,9 @@ void Player::configPlayer()
 	characterPtr->initArmor(armor);
 
 	characterPtr->addInventory("note000");
+	characterPtr->addInventory("sword031");
 
+	Player::getInstance()->addFaith(999);
 
 //	for (int i=0;i<5;i++)
 //	{
@@ -177,11 +179,11 @@ void Player::autoNextStep()
 
 void Player::addFaith(int value)
 {
-	HudMessageBox::getInstance()->addMessage(
-		L"你获得了" +
-		ToolFunction::string2wstring(ToolFunction::int2string(value)) +
-		L"信仰值"
-	);
+//	HudMessageBox::getInstance()->addMessage(
+//		L"你获得了" +
+//		ToolFunction::string2wstring(ToolFunction::int2string(value)) +
+//		L"信仰值"
+//	);
 	faithValue += value;
 }
 
