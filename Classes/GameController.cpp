@@ -90,6 +90,7 @@ void GameController::startMission()
 	{
 		//todo
 		SplashLayer::getInstance()->fadeOutBlackAndFloorNumber(2);
+		runStartDialogue();
 	}
 	else
 	{
@@ -124,6 +125,7 @@ void GameController::reStartGame()
 	FriendCreatureManager::getInstance()->restart();
 
 
+
 	curLevel = 1;
 	startMission();
 }
@@ -142,8 +144,38 @@ void GameController::runStartDialogue()
 {
 	if (GameSaveManager::getInstance()->getPlayCount()==0)
 	{
+		//第一次进入游戏
 		DialogueSystem::getInstance()->runDialogue("vergilFirstTalk");
 		GameSaveManager::getInstance()->increasePlayCount();
 		GameSaveManager::getInstance()->save();
+	}
+	else if (GameSaveManager::getInstance()->getDieCount()==1)
+	{
+		//第一次死亡
+		//todo
+//		DialogueSystem::getInstance()->runDialogue("vergilFirstTalk");
+	}
+	else
+	{
+		int roll = RandomNumber::getInstance()->randomInt(1, 4);
+
+		switch (roll)
+		{
+		case 1:
+			DialogueSystem::getInstance()->runDialogue("vergilStartTalk1");
+			break;
+		case 2:
+			DialogueSystem::getInstance()->runDialogue("vergilStartTalk2");
+			break;
+		case 3:
+			DialogueSystem::getInstance()->runDialogue("vergilStartTalk3");
+			break;
+		case 4:
+			DialogueSystem::getInstance()->runDialogue("vergilStartTalk4");
+			break;
+		default:
+			DialogueSystem::getInstance()->runDialogue("vergilStartTalk1");
+			break;
+		}
 	}
 }

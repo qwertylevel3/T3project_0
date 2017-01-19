@@ -138,8 +138,62 @@
 		<name>vergilFirstTalk</name>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil3.png</actorName>
+			<actorName>NULL</actorName>
+			<word>......</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>......</word>
+			<next>3</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>好吧，这是第一次见面</word>
+			<next>4</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
 			<word>初次见面，请多指教</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>vergilStartTalk1</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>好吧，我们继续前进</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>vergilStartTalk2</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>所以说又是这样么</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>vergilStartTalk3</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>走吧，你来带路</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>vergilStartTalk4</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>hoc opus ,hic labor est</word>
 			<next>-1</next>
 		</sentence>
 	</dialogue>
