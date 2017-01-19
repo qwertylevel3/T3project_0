@@ -13,6 +13,7 @@ class SplashLayer:public cocos2d::Layer,public Singleton<SplashLayer>
 {
 public:
 	static void startMission(SplashLayer* layer);
+	static void fadeoutBlackAndStart(SplashLayer* layer);
 	SplashLayer();
 	~SplashLayer();
 	bool init();

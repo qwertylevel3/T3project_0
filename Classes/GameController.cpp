@@ -96,12 +96,6 @@ void GameController::startMission()
 		SplashLayer::getInstance()->fadeOutBlackAndFloorNumber(2);
 	}
 
-	if (GameSaveManager::getInstance()->getPlayCount()==0)
-	{
-		DialogueSystem::getInstance()->runDialogue("vergilFirstTalk");
-		GameSaveManager::getInstance()->increasePlayCount();
-		GameSaveManager::getInstance()->save();
-	}
 
 }
 
@@ -142,4 +136,14 @@ void GameController::endGame()
 void GameController::saveGame()
 {
 
+}
+
+void GameController::runStartDialogue()
+{
+	if (GameSaveManager::getInstance()->getPlayCount()==0)
+	{
+		DialogueSystem::getInstance()->runDialogue("vergilFirstTalk");
+		GameSaveManager::getInstance()->increasePlayCount();
+		GameSaveManager::getInstance()->save();
+	}
 }

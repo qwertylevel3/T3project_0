@@ -40,7 +40,6 @@ bool SplashLayer::init()
 	levelMessageLabel->setPosition(400, 300);
 	this->addChild(levelMessageLabel);
 
-
 	return true;
 }
 
@@ -48,22 +47,32 @@ void SplashLayer::showLogo(float dt)
 {
 	black->setOpacity(255);
 
+	//logoµ­Èëµ­³ö
 	logo->setOpacity(0);
 	auto logoAction = cocos2d::FadeIn::create(dt);
 	auto logoActionBack = logoAction->reverse();
 	logo->runAction(
-		cocos2d::Sequence::create(logoAction, logoActionBack, nullptr)
+		cocos2d::Sequence::create(
+			cocos2d::Sequence::create(logoAction, logoActionBack, nullptr),
+			cocos2d::CallFunc::create(
+				CC_CALLBACK_0(
+					SplashLayer::fadeoutBlackAndStart, this
+				)
+			),
+			NULL
+		)
+
 	);
 
-	black->setOpacity(255);
-	auto blackAction = cocos2d::FadeOut::create(dt);
-	black->runAction(
-		cocos2d::Sequence::create(
-			cocos2d::DelayTime::create(dt*2),
-			blackAction,
-			nullptr
-			)
-	);
+//	black->setOpacity(255);
+//	auto blackAction = cocos2d::FadeOut::create(dt);
+//	black->runAction(
+//		cocos2d::Sequence::create(
+//			cocos2d::DelayTime::create(dt * 2),
+//			blackAction,
+//			nullptr
+//		)
+//	);
 }
 
 void SplashLayer::fadeOutBlackAndFloorNumber(float dt)
@@ -82,7 +91,7 @@ void SplashLayer::nextMission(float dt)
 			cocos2d::DelayTime::create(1),
 			cocos2d::CallFunc::create(
 				CC_CALLBACK_0(
-					SplashLayer::startMission,this
+					SplashLayer::startMission, this
 				)
 			),
 			nullptr
@@ -102,21 +111,18 @@ void SplashLayer::fadeInBlack(float dt)
 	black->runAction(
 		action
 	);
-
 }
 
 void SplashLayer::fadeInFloorNumber(float dt)
 {
 	int curLevel = GameController::getInstance()->getCurLevel();
 	levelMessageLabel->setString(
-		"Floor -" + ToolFunction::int2string(curLevel)
+		"FLOOR -" + ToolFunction::int2string(curLevel)
 	);
 
 	levelMessageLabel->runAction(
 		cocos2d::FadeIn::create(dt)
 	);
-
-
 }
 
 void SplashLayer::fadeOutFloorNumber(float dt)
@@ -124,7 +130,6 @@ void SplashLayer::fadeOutFloorNumber(float dt)
 	levelMessageLabel->runAction(
 		cocos2d::FadeOut::create(dt)
 	);
-
 }
 
 void SplashLayer::fadeOutBlack(float dt)
@@ -134,5 +139,10 @@ void SplashLayer::fadeOutBlack(float dt)
 	black->runAction(
 		action
 	);
+}
 
+void SplashLayer::fadeoutBlackAndStart(SplashLayer* layer)
+{
+	layer->fadeOutBlack(2);
+	GameController::getInstance()->runStartDialogue();
 }

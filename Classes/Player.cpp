@@ -87,8 +87,8 @@ void Player::configPlayer()
 
 	controlMode = NormalMode;
 
-	characterPtr->setHP(100);
-	characterPtr->setMaxHP(100);
+	characterPtr->setHP(5);
+	characterPtr->setMaxHP(5);
 	characterPtr->setMP(100);
 	characterPtr->setMaxMP(100);
 

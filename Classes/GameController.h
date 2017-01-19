@@ -15,6 +15,7 @@ public:
 	void reStartGame();
 	void endGame();
 	void saveGame();
+	void runStartDialogue();
 protected:
 	int curLevel;
 	bool firstPlay;
