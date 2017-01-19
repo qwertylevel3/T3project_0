@@ -258,20 +258,32 @@ void AIVergil::leadAI()
 		}
 		else
 		{
-			cocos2d::Point nextStep = ToolFunction::nextStep_v3(
+			cocos2d::Point nextStep = ToolFunction::nextStep(
 				startCoord,
 				downCoord
 			);
 			if (nextStep == startCoord)
 			{
-				characterPtr->speak(L"呃。。。");
-				characterPtr->idle();
-				HudMessageBox::getInstance()->addMessage(L"Vergil似乎迷路了");
+				nextStep = ToolFunction::nextStep_v2(
+					startCoord,
+					downCoord
+				);
+				if (nextStep == startCoord)
+				{
+					nextStep = ToolFunction::nextStep_v3(
+						startCoord,
+						downCoord
+					);
+					if (nextStep == startCoord)
+					{
+						characterPtr->speak(L"呃。。。");
+						characterPtr->idle();
+						HudMessageBox::getInstance()->addMessage(L"Vergil似乎迷路了");
+						return;
+					}
+				}
 			}
-			else
-			{
-				goNextStep(startCoord, downCoord, nextStep);
-			}
+			goNextStep(startCoord, downCoord, nextStep);
 		}
 	}
 	else
@@ -281,7 +293,8 @@ void AIVergil::leadAI()
 		{
 			characterPtr->speak(L"小心");
 		}
-		protectPlayer();
+		//protectPlayer();
+		followAI();
 	}
 }
 
