@@ -1,4 +1,5 @@
 #include "LearnSkill.h"
+#include "SkillHandler.h"
 #include "HudMessageBox.h"
 #include "ToolFunction.h"
 #include "SkillFactory.h"
@@ -19,6 +20,22 @@ Skill::LearnSkill* Skill::LearnSkill::createPrototype()
 
 void Skill::LearnSkill::run()
 {
+	SkillHandler* skillHandler = caster->getSkillHandler();
+
+	if (skillHandler->exist(skillID))
+	{
+		std::string casterName = caster->getName();
+		std::string skillName = SkillFactory::getInstance()->querySkillCname(skillID);
+
+		HudMessageBox::getInstance()->addMessage(
+			casterName +
+			ToolFunction::WStr2UTF8(L"已经学习了") +
+			skillName
+		);
+
+		return;
+	}
+
 	caster->addSkill(
 		skillID
 	);
@@ -37,7 +54,7 @@ void Skill::LearnSkill::initExtraMessage(std::vector<std::string> extraMessage)
 {
 	skillID = extraMessage[0];
 
-	for (int i=1;i<extraMessage.size();i++)
+	for (int i = 1; i < extraMessage.size(); i++)
 	{
 		skillID += "_" + extraMessage[i];
 	}

@@ -60,3 +60,16 @@ std::string Skill::SkillHandler::getSkillID(int index)
 	}
 	return skillBox[index]->getID();
 }
+
+bool Skill::SkillHandler::exist(std::string skillID)
+{
+	for (int i=0;i<skillBox.size();i++)
+	{
+		if (skillBox[i]->getID()==skillID)
+		{
+
+			return true;
+		}
+	}
+	return false;
+}

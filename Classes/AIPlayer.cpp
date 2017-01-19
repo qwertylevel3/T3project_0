@@ -8,6 +8,7 @@
 
 AIPlayer::AIPlayer()
 {
+	releaseControl = false;
 }
 
 

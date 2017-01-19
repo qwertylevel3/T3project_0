@@ -54,12 +54,6 @@
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil3.png</actorName>
-			<word>你这家伙，让他过去啦</word>
-			<next>3</next>
-		</sentence>
-		<sentence>
-			<type>statement</type>
 			<actorName>persephone.png</actorName>
 			<word>出来吧，我的使魔</word>
 			<next>-1</next>
@@ -138,6 +132,15 @@
 			<actorName>dialogueVergil3.png</actorName>
 			<word>那你可要跟上哦</word>
 			<next>-11</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>vergilFirstTalk</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>初次见面，请多指教</word>
+			<next>-1</next>
 		</sentence>
 	</dialogue>
 	<dialogue>

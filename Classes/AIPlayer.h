@@ -12,5 +12,7 @@ public:
 	void lastWords();
 	void handleDialogueResult(std::string dialogueName, int resultNumber);
 	void levelUp();
+protected:
+	bool releaseControl;
 };
 

@@ -17,5 +17,6 @@ public:
 	void saveGame();
 protected:
 	int curLevel;
+	bool firstPlay;
 };
 

@@ -1,4 +1,5 @@
 #include "GameController.h"
+#include "DialogueSystem.h"
 #include "NoteTextFactory.h"
 #include "InventoryListGenerator.h"
 #include "GameSaveManager.h"
@@ -53,6 +54,8 @@ void GameController::init()
 	FriendCreatureManager::getInstance()->init();
 
 	curLevel = 1;
+
+	firstPlay = true;
 }
 
 void GameController::startMission()
@@ -78,13 +81,26 @@ void GameController::startMission()
 
 	MyCamera::getInstance()->setCamera(Player::getInstance()->getcharacterPtr()->getPosition());
 
-	if (curLevel == 1)
+	if (firstPlay)
 	{
 		SplashLayer::getInstance()->showLogo(2);
+		firstPlay = false;
+	}
+	else if (curLevel==1)
+	{
+		//todo
+		SplashLayer::getInstance()->fadeOutBlackAndFloorNumber(2);
 	}
 	else
 	{
 		SplashLayer::getInstance()->fadeOutBlackAndFloorNumber(2);
+	}
+
+	if (GameSaveManager::getInstance()->getPlayCount()==0)
+	{
+		DialogueSystem::getInstance()->runDialogue("vergilFirstTalk");
+		GameSaveManager::getInstance()->increasePlayCount();
+		GameSaveManager::getInstance()->save();
 	}
 
 }

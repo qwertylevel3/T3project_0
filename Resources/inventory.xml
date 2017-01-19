@@ -12,7 +12,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<weaponDamage>2</weaponDamage>
+		<weaponDamage>3</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>

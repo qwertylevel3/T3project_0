@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gamesave>
-	<testFlag>0</testFlag>
+<gamesave version="1.0">
+    <playCount>1</playCount>
+    <dieCount>0</dieCount>
+    <vergilDieCount>0</vergilDieCount>
+    <persephoneDieCount>0</persephoneDieCount>
+    <clearGameCount>0</clearGameCount>
 </gamesave>

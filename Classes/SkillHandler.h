@@ -15,6 +15,7 @@ namespace Skill
 		std::vector<SkillBase* >& getSkillBoxRef();
 		void addSkill(SkillBase* skill);
 		std::string getSkillID(int index);
+		bool exist(std::string skillID);
 	protected:
 		Character* characterPtr;
 		std::vector<SkillBase* > skillBox;
