@@ -207,8 +207,6 @@ std::vector<std::string > InventoryListGenerator::generateDemonInvList()
 	std::string level8Inv = getRandomInv(8, 5);
 	addInv2List(level8Inv, invList);
 
-	std::string level9Inv = getRandomInv(9, 1);
-	addInv2List(level9Inv, invList);
 
 	return invList;
 }
@@ -228,9 +226,6 @@ std::vector<std::string > InventoryListGenerator::generateWizardInvList()
 
 	std::string level8Inv = getRandomInv(8, 5);
 	addInv2List(level8Inv, invList);
-
-	std::string level9Inv = getRandomInv(9, 1);
-	addInv2List(level9Inv, invList);
 
 	return invList;
 }
@@ -385,8 +380,6 @@ std::vector<std::string > InventoryListGenerator::generateChest8()
 	std::string level8Inv = getRandomInv(8, 10);
 	addInv2List(level8Inv, invList);
 
-	std::string level9Inv = getRandomInv(9, 1);
-	addInv2List(level9Inv, invList);
 
 	return invList;
 }

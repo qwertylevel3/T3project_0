@@ -41,6 +41,7 @@ void AICommonEnemy::update()
 		}
 		else
 		{
+			changeOrientationTo(targetCharacter);
 			if (!isInAttackArea(targetCharacter))
 			{
 				seek(targetCharacter);

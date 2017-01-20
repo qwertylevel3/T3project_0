@@ -33,40 +33,48 @@ Storey* StoreyBuilder::generate(int level)
 
 	int storeySize = 18 + level / 3;
 
-	storey = new Storey(storeySize, storeySize);
+	storey = nullptr;
 
 	int maxFeatures = 33;
-	// place the first room in the center
-	if (!makeRoom(storey->getWidth() / 2, storey->getHeight() / 2, static_cast<Direction>(RandomNumber::getInstance()->randomInt(4), true)))
-	{
-		CCAssert(false, "Unable to place the first room\n");
-	}
-	if (!placeObject(UpStair))
-	{
-		CCAssert(false, "Unable to place up staris\n");
-	}
+	bool flag = true;
 
-	// we already placed 1 feature (the first room)
-	for (int i = 1; i < maxFeatures; ++i)
+	do
 	{
-		if (!createFeature())
+		if (storey)
 		{
-			//CCAssert(false, "Unable to place more features\n");
-			break;
+			delete storey;
 		}
-		if (Debug::getInstance()->getDebugFlag())
+		storey = new Storey(storeySize, storeySize);
+		// place the first room in the center
+		if (!makeRoom(storey->getWidth() / 2, storey->getHeight() / 2, static_cast<Direction>(RandomNumber::getInstance()->randomInt(4), true)))
 		{
-			storey->writeToFile("temp");
+			continue;
 		}
-	}
+		if (!placeObject(UpStair))
+		{
+			continue;
+		}
 
-	if (!placeObject(DownStair))
-	{
-		CCAssert(false, "Unable to place down stairs\n");
-	}
+		// we already placed 1 feature (the first room)
+		for (int i = 1; i < maxFeatures; ++i)
+		{
+			if (!createFeature())
+			{
+				//CCAssert(false, "Unable to place more features\n");
+				break;
+			}
+		}
 
-	//放置游戏演员
-	placeFeatureForRoom();
+		if (!placeObject(DownStair))
+		{
+			continue;
+		}
+
+		//放置游戏演员
+		placeFeatureForRoom();
+
+		flag = false;
+	} while (flag);
 
 	return storey;
 }
@@ -320,7 +328,7 @@ void Field::StoreyBuilder::placeGameActorLevel1(const Rect & rect)
 	//房间内怪物数量(1-3之间)
 	int monsterNumber = RandomNumber::getInstance()->randomInt(1, 3);
 
-//	int monsterNumber = 8;
+	//	int monsterNumber = 8;
 
 	for (int i = 0; i < monsterNumber; i++)
 	{
@@ -631,9 +639,8 @@ void Field::StoreyBuilder::placeGameActorLevel9(const Rect& rect)
 
 Field::Rect Field::StoreyBuilder::makeRoomRect(int x, int y, Direction dir)
 {
-	//地牢越低，房间越大
 	int minRoomSize = 3;
-	int maxRoomSize = 5 + curLevel / 2;
+	int maxRoomSize = 5 + curLevel / 3;
 
 	Rect room;
 	room.width = RandomNumber::getInstance()->randomInt(minRoomSize, maxRoomSize);

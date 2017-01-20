@@ -64,7 +64,7 @@ void AIPersephone::handleDialogueResult(std::string dialogueName, int resultNumb
 	if (dialogueName == "persephoneTalk"
 		&& resultNumber == -1)
 	{
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i < 2; i++)
 		{
 			summonDemon();
 		}

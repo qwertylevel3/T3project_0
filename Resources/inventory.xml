@@ -161,11 +161,11 @@
 		<weight>4</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>CriticalProBuff_三叉戟之力1_ATTR_Good_4_-1_9</buffID>
-			<buffID>CriticalPointBuff_三叉戟之力2_ATTR_Good_4_-1_9</buffID>
-			<buffID>CriticalPerBuff_三叉戟之力3_ATTR_Good_4_-1_9</buffID>
+			<buffID>CriticalProBuff_三叉戟之力1_ATTR_Good_4_-1_6</buffID>
+			<buffID>CriticalPointBuff_三叉戟之力2_ATTR_Good_4_-1_6</buffID>
+			<buffID>CriticalPerBuff_三叉戟之力3_ATTR_Good_4_-1_6</buffID>
 		</buffBox>
-		<weaponDamage>13</weaponDamage>
+		<weaponDamage>12</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -529,7 +529,7 @@
 		<name>sword027</name>
 		<cname>星月兄弟会之剑</cname>
 		<tips>星月盟统一装备之一</tips>
-		<level>6</level>
+		<level>7</level>
 		<price>9</price>
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -625,7 +625,7 @@
 		<name>sword032</name>
 		<cname>星月兄弟会之杖</cname>
 		<tips>星月盟统一装备之一</tips>
-		<level>6</level>
+		<level>7</level>
 		<price>9</price>
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -791,7 +791,7 @@
 		<name>armor011</name>
 		<cname>星月兄弟会之甲</cname>
 		<tips>星月盟统一装备之一</tips>
-		<level>6</level>
+		<level>7</level>
 		<price>2</price>
 		<weight>4</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1049,7 +1049,7 @@
 		<name>accessory014</name>
 		<cname>星月兄弟会之章</cname>
 		<tips>星月兄弟会的证明</tips>
-		<level>6</level>
+		<level>7</level>
 		<price>2</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1375,6 +1375,22 @@
 	</inventory>
 	<inventory>
 		<type>supply</type>
+		<name>skillBook008</name>
+		<cname>史莱姆召唤之书</cname>
+		<tips>学习史莱姆召唤</tips>
+		<level>3</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>10</intRequire>
+		<skillName>LearnSkill_学习史莱姆召唤_0_0_Summon_Slime召唤_50_30_sslime</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
 		<name>scroll000</name>
 		<cname>火球术卷轴</cname>
 		<tips>释放一个直线火球</tips>
@@ -1386,7 +1402,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>12</intRequire>
-		<skillName>FireBall_火球术_0_0_100_5</skillName>
+		<skillName>FireBall_火球术_0_0_150_5</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -1402,7 +1418,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>18</intRequire>
-		<skillName>RandomDirectDamage_随机闪电_0_0_100_3_2</skillName>
+		<skillName>RandomDirectDamage_随机闪电_0_0_200_3_2</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -1418,7 +1434,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>25</intRequire>
-		<skillName>Thunder_闪电_0_0_80</skillName>
+		<skillName>Thunder_闪电_0_0_120</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -1593,7 +1609,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>13</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_生命回复_0_0_HPBuff_生命回复_OnRoundStart_Good_10_20_3</skillName>
 		<supplyType>0</supplyType>
 	</inventory>
@@ -1609,7 +1625,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>13</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_魔法回复_0_0_MPBuff_魔法回复_OnRoundStart_Good_10_20_3</skillName>
 		<supplyType>1</supplyType>
 	</inventory>
@@ -1625,7 +1641,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>16</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_生命回复_0_0_HPBuff_生命回复_OnRoundStart_Good_10_40_3</skillName>
 		<supplyType>0</supplyType>
 	</inventory>
@@ -1641,7 +1657,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>16</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_魔法回复_0_0_MPBuff_魔法回复_OnRoundStart_Good_10_40_3</skillName>
 		<supplyType>1</supplyType>
 	</inventory>
@@ -1657,7 +1673,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>16</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_生命回复_0_0_HPBuff_生命回复_OnRoundStart_Good_10_40_6</skillName>
 		<supplyType>0</supplyType>
 	</inventory>
@@ -1673,7 +1689,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>16</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_魔法回复_0_0_MPBuff_魔法回复_OnRoundStart_Good_10_40_6</skillName>
 		<supplyType>1</supplyType>
 	</inventory>

@@ -198,11 +198,143 @@
 		</sentence>
 	</dialogue>
 	<dialogue>
-		<name>vergilSmallTalk</name>
+		<name>vergilNotSafe</name>
 		<sentence>
 			<type>statement</type>
 			<actorName>dialogueVergil3.png</actorName>
-			<word>走吧，别扯淡了</word>
+			<word>现在可不是闲聊的时候哦</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>vergilNoSmallTalk</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>走吧，以后再聊</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>vergilTips1</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>你知道么，其实我是亡灵哦</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>这幅身体也是魔法合成的</word>
+			<next>3</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>因为某些原因我没法去那个地方，所以留在这里了</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>vergilTips2</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>史莱姆的味道。。。</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>超恶心的。。。</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>vergilTips3</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>明明我嘱咐朋友把我的手稿销毁的</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>可是似乎他们并没有这么做</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>vergilTips4</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>其实很久以前我不是这样的</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>我是说我的性格。。。</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>vergilTips5</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>你不是唯一一个由我引路的幸存者</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>很久以前我曾今还为一个人引过路</word>
+			<next>3</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>你当然知道他的名字啦</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>vergilTips6</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>我跟你讲</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>Stella神像，手感超赞的</word>
+			<next>3</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>这人似乎暴露了什么奇怪的嗜好。。。</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>vergilTips7</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>我是诗人，诗人哦</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>真的哦</word>
 			<next>-1</next>
 		</sentence>
 	</dialogue>
@@ -240,18 +372,6 @@
 			<actorName>dialogueVergil3.png</actorName>
 			<word>呃，这次是我的错。。。</word>
 			<next>2</next>
-		</sentence>
-		<sentence>
-			<type>statement</type>
-			<actorName>dialogueVergil2.png</actorName>
-			<word>不过不用担心，我已经是亡灵了，所以不会再死一次哦</word>
-			<next>3</next>
-		</sentence>
-		<sentence>
-			<type>statement</type>
-			<actorName>dialogueVergil1.png</actorName>
-			<word>只不过这副身体不能用了而已</word>
-			<next>4</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>

@@ -109,9 +109,9 @@ void Player::configPlayer()
 	characterPtr->initArmor(armor);
 
 	characterPtr->addInventory("note000");
-	characterPtr->addInventory("sword031");
 
-	Player::getInstance()->addFaith(999);
+	characterPtr->addInventory("scroll012");
+	characterPtr->addInventory("scroll013");
 
 //	for (int i=0;i<5;i++)
 //	{
@@ -179,11 +179,11 @@ void Player::autoNextStep()
 
 void Player::addFaith(int value)
 {
-//	HudMessageBox::getInstance()->addMessage(
-//		L"你获得了" +
-//		ToolFunction::string2wstring(ToolFunction::int2string(value)) +
-//		L"信仰值"
-//	);
+	HudMessageBox::getInstance()->addMessage(
+		L"你获得了" +
+		ToolFunction::string2wstring(ToolFunction::int2string(value)) +
+		L"信仰值"
+	);
 	faithValue += value;
 }
 

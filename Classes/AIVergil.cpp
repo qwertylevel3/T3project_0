@@ -26,6 +26,8 @@ AIVergil::AIVergil()
 {
 	//默认为紧密跟随
 	curState = 0;
+
+	smallTalkCount = 4;
 }
 
 AIVergil::~AIVergil()
@@ -34,6 +36,9 @@ AIVergil::~AIVergil()
 
 void AIVergil::update()
 {
+	//更新闲聊计数器
+	updateSmallTalkCount();
+
 	//尝试治疗身边的player
 	if (healPlayer())
 	{
@@ -732,9 +737,28 @@ void AIVergil::showCurState()
 
 void AIVergil::smallTalk()
 {
-	Buff::BuffHandler* targetBuffHandler = Player::getInstance()->getcharacterPtr()->getBuffHandler();
+	if (!isSafe())
+	{
+		DialogueSystem::getInstance()->runDialogue("vergilNotSafe");
+		return;
+	}
 
-	DialogueSystem::getInstance()->runDialogue("vergilSmallTalk", characterPtr);
+	if (smallTalkCount < 4)
+	{
+		DialogueSystem::getInstance()->runDialogue("vergilNoSmallTalk");
+		return;
+	}
+	else
+	{
+		int roll = RandomNumber::getInstance()->randomInt(1, 7);
+
+		std::string tipsName = "vergilTips" + ToolFunction::int2string(roll);
+
+		DialogueSystem::getInstance()->runDialogue(tipsName);
+
+		smallTalkCount = 0;
+	}
+
 }
 
 void AIVergil::tryBuffToPlayer()
@@ -782,4 +806,14 @@ void AIVergil::healSelf()
 	);
 	characterPtr->addExp(50);
 	HudMessageBox::getInstance()->addMessage(L"Vergil向自己释放了一个治疗法术");
+}
+
+void AIVergil::updateSmallTalkCount()
+{
+	smallTalkCount++;
+
+	if (smallTalkCount >= 4)
+	{
+		smallTalkCount = 4;
+	}
 }

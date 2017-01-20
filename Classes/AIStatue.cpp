@@ -87,15 +87,7 @@ void AIStatue::handleDialogueResult(std::string dialogueName, int resultNumber)
 
 void AIStatue::handlePray()
 {
-	//祈祷
-	if (Player::getInstance()->getFaithValue() < 10)
-	{
-		DialogueSystem::getInstance()->runDialogue("noFaith", characterPtr);
-	}
-	else
-	{
-		DialogueSystem::getInstance()->runDialogue("pray", characterPtr);
-	}
+	DialogueSystem::getInstance()->runDialogue("pray", characterPtr);
 }
 
 void AIStatue::handleLevelUp()
@@ -141,6 +133,13 @@ void AIStatue::handlePrayResult(int resultNumber)
 
 void AIStatue::giveWeapon()
 {
+	if (Player::getInstance()->getFaithValue()<30)
+	{
+		DialogueSystem::getInstance()->runDialogue("noFaith");
+		return;
+	}
+
+
 	Player::getInstance()->reduceFaith(30);
 	HudMessageBox::getInstance()->addMessage(L"你失去了30信仰点数");
 
@@ -149,11 +148,11 @@ void AIStatue::giveWeapon()
 	int roll = RandomNumber::getInstance()->randomInt(1, 100);
 	std::string inventoryID;
 
-	if (roll<=90)
+	if (roll <= 90)
 	{
 		inventoryID = "sword027";
 	}
-	else if (roll>90 && roll<=95)
+	else if (roll > 90 && roll <= 95)
 	{
 		inventoryID = "sword022";
 	}
@@ -172,6 +171,11 @@ void AIStatue::giveWeapon()
 
 void AIStatue::giveWand()
 {
+	if (Player::getInstance()->getFaithValue()<30)
+	{
+		DialogueSystem::getInstance()->runDialogue("noFaith");
+		return;
+	}
 	Player::getInstance()->reduceFaith(30);
 	HudMessageBox::getInstance()->addMessage(L"你失去了30信仰点数");
 
@@ -180,11 +184,11 @@ void AIStatue::giveWand()
 	int roll = RandomNumber::getInstance()->randomInt(1, 100);
 	std::string inventoryID;
 
-	if (roll<=90)
+	if (roll <= 90)
 	{
 		inventoryID = "sword032";
 	}
-	else if (roll>90 && roll<=95)
+	else if (roll > 90 && roll <= 95)
 	{
 		inventoryID = "sword017";
 	}
@@ -199,11 +203,17 @@ void AIStatue::giveWand()
 		ToolFunction::WStr2UTF8(L"你获得了")
 		+ inventoryCName
 	);
-
 }
 
 void AIStatue::giveArmor()
 {
+	if (Player::getInstance()->getFaithValue()<30)
+	{
+		DialogueSystem::getInstance()->runDialogue("noFaith");
+		return;
+	}
+
+
 	Player::getInstance()->reduceFaith(30);
 	HudMessageBox::getInstance()->addMessage(L"你失去了30信仰点数");
 
@@ -212,11 +222,11 @@ void AIStatue::giveArmor()
 	int roll = RandomNumber::getInstance()->randomInt(1, 100);
 	std::string inventoryID;
 
-	if (roll<=90)
+	if (roll <= 90)
 	{
 		inventoryID = "armor011";
 	}
-	else if (roll>90 && roll<=95)
+	else if (roll > 90 && roll <= 95)
 	{
 		inventoryID = "armor008";
 	}
@@ -235,6 +245,13 @@ void AIStatue::giveArmor()
 
 void AIStatue::giveAccessory()
 {
+	if (Player::getInstance()->getFaithValue()<30)
+	{
+		DialogueSystem::getInstance()->runDialogue("noFaith");
+		return;
+	}
+
+
 	Player::getInstance()->reduceFaith(30);
 	HudMessageBox::getInstance()->addMessage(L"你失去了30信仰点数");
 
@@ -243,11 +260,11 @@ void AIStatue::giveAccessory()
 	int roll = RandomNumber::getInstance()->randomInt(1, 100);
 	std::string inventoryID;
 
-	if (roll<=90)
+	if (roll <= 90)
 	{
 		inventoryID = "accessory014";
 	}
-	else if (roll>90 && roll<=95)
+	else if (roll > 90 && roll <= 95)
 	{
 		inventoryID = "accessory015";
 	}
@@ -262,21 +279,31 @@ void AIStatue::giveAccessory()
 		ToolFunction::WStr2UTF8(L"你获得了")
 		+ inventoryCName
 	);
-
 }
 
 void AIStatue::giveHP()
 {
+	if (Player::getInstance()->getFaithValue()<5)
+	{
+		DialogueSystem::getInstance()->runDialogue("noFaith");
+		return;
+	}
+
+
 	Player::getInstance()->reduceFaith(5);
 	HudMessageBox::getInstance()->addMessage(L"你失去了5信仰点数");
 
 	Player::getInstance()->getcharacterPtr()->sufferHPEffect(999);
-
-
 }
 
 void AIStatue::giveMP()
 {
+	if (Player::getInstance()->getFaithValue()<5)
+	{
+		DialogueSystem::getInstance()->runDialogue("noFaith");
+		return;
+	}
+
 	Player::getInstance()->reduceFaith(5);
 	HudMessageBox::getInstance()->addMessage(L"你失去了5信仰点数");
 

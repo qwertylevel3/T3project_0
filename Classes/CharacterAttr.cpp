@@ -52,5 +52,5 @@ void CharacterAttr::calculateBattleAttr()
 	comboPro = agility;
 	comboPro = comboPro > 90 ? 90 : comboPro;
 
-	weight = strength * 2;
+	weight = strength+5;
 }

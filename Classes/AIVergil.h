@@ -76,4 +76,9 @@ protected:
 	void healCast();
 	void healSelf();
 
+	void updateSmallTalkCount();
+
+
+	int smallTalkCount;
+
 };
