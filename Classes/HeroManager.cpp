@@ -72,6 +72,18 @@ void HeroManager::restart()
 	init();
 }
 
+Character* HeroManager::getHero(std::string heroName)
+{
+	for (int i=0;i<heroBox.size();i++)
+	{
+		if (heroBox[i]->getName()==heroName)
+		{
+			return heroBox[i];
+		}
+	}
+	return nullptr;
+}
+
 void HeroManager::clear()
 {
 	for each (Character*  hero in heroBox)

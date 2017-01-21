@@ -131,6 +131,12 @@
 			<type>statement</type>
 			<actorName>dialogueVergil3.png</actorName>
 			<word>那你可要跟上哦</word>
+			<next>6</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>如果有危险，我还是听你的</word>
 			<next>-11</next>
 		</sentence>
 	</dialogue>
@@ -150,14 +156,86 @@
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil2.png</actorName>
-			<word>好吧，这是第一次见面</word>
+			<actorName>NULL</actorName>
+			<word>头好痛...这是哪，发生了什么事</word>
 			<next>4</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>喂，你还好吧？</word>
+			<next>5</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
 			<actorName>dialogueVergil1.png</actorName>
-			<word>初次见面，请多指教</word>
+			<word>似乎又是一个误入这里的</word>
+			<next>6</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>所以说这是哪里啊。。。</word>
+			<next>7</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>不管怎样，先活动一下身体吧</word>
+			<next>8</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>可以用方向键移动哦</word>
+			<next>9</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>按住Ctrl的同时按下方向键可以原地转身</word>
+			<next>10</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>空格键可以进行攻击</word>
+			<next>11</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>按'E'可赛艇,呃不</word>
+			<next>12</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>按'E'可以和面前的角色交互</word>
+			<next>13</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>Enter可以打开菜单</word>
+			<next>14</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>那么，我们走吧，一起离开这里</word>
+			<next>15</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>如果还要什么问题的话，这里有一本指南，记得看哦</word>
+			<next>16</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>所以说这里到底是哪里啊。。。</word>
 			<next>-1</next>
 		</sentence>
 	</dialogue>
@@ -175,7 +253,7 @@
 		<sentence>
 			<type>statement</type>
 			<actorName>dialogueVergil1.png</actorName>
-			<word>所以说又是这样么</word>
+			<word>所以说又要重新开始么</word>
 			<next>-1</next>
 		</sentence>
 	</dialogue>

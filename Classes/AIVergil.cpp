@@ -97,7 +97,12 @@ void AIVergil::feedback(Character* character)
 
 void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 {
-	if (dialogueName == "vergilTalk"
+	if (dialogueName=="vergilFirstTalk"
+		&& resultNumber==-1)
+	{
+		HudMessageBox::getInstance()->addMessage(L"你获得了《生存手册》");
+	}
+	else if (dialogueName == "vergilTalk"
 		&& resultNumber == -2)
 	{
 		curState = 0;
@@ -293,12 +298,9 @@ void AIVergil::leadAI()
 	}
 	else
 	{
-		int roll = RandomNumber::getInstance()->randomInt(1, 100);
-		if (roll == 1)
-		{
-			characterPtr->speak(L"小心");
-		}
-		//protectPlayer();
+		characterPtr->speak(L"小心");
+		HudMessageBox::getInstance()->addMessage(L"vergil察觉到周围有敌人");
+		curState = 0;
 		followAI();
 	}
 }

@@ -17,6 +17,8 @@ public:
 	void initMission();
 	void restart();
 
+	Character* getHero(std::string heroName);
+
 protected:
 	void clear();
 	void initHero(const std::string& fileName);

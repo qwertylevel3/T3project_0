@@ -93,6 +93,12 @@ void HudSkillMenu::hide()
 void HudSkillMenu::chooseItem(int index)
 {
 	HudMenu::chooseItem(index);
+
+	index = index;
+	index = index > itemList.size() - 1 ? itemList.size()-1 : index;
+	index = index < 0 ? 0 : index;
+
+
 	Character* characterPrt = Player::getInstance()->getcharacterPtr();
 	Skill::SkillHandler* skillHandler = characterPrt->getSkillHandler();
 

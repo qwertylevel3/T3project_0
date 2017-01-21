@@ -36,7 +36,7 @@ void GameController::init()
 {
 	GameSaveManager::getInstance()->load();
 
-	RandomNumber::getInstance()->setSeed(100);
+	RandomNumber::getInstance()->setSeed(101);
 	NoteTextFactory::getInstance()->init();
 	InventoryListGenerator::getInstance()->init();
 	Buff::BuffFactory::getInstance()->init();
@@ -144,8 +144,10 @@ void GameController::runStartDialogue()
 {
 	if (GameSaveManager::getInstance()->getPlayCount()==0)
 	{
+		Character* vergilCharacter = HeroManager::getInstance()->getHero("vergil");
+
 		//第一次进入游戏
-		DialogueSystem::getInstance()->runDialogue("vergilFirstTalk");
+		DialogueSystem::getInstance()->runDialogue("vergilFirstTalk",vergilCharacter);
 		GameSaveManager::getInstance()->increasePlayCount();
 		GameSaveManager::getInstance()->save();
 	}

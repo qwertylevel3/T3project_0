@@ -391,14 +391,15 @@
 		<name>sword020</name>
 		<cname>暗影之锋</cname>
 		<tips>阴影中的剑,不是最强的剑，但是最快的剑</tips>
-		<level>7</level>
+		<level>8</level>
 		<price>9</price>
 		<weight>0</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>BaseAttrBuff_阴影之力_ATTR_Good_2_-1_-5_60_0</buffID>
+			<buffID>BaseAttrBuff_阴影之力1_ATTR_Good_2_-1_-5_10_0</buffID>
+			<buffID>ComboBuff_阴影之力2_ATTR_Good_4_-1_25</buffID>
 		</buffBox>
-		<weaponDamage>5</weaponDamage>
+		<weaponDamage>2</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -1068,7 +1069,7 @@
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>ViewSizeBuff_星光_ATTR_Good_1_-1_4</buffID>
+			<buffID>ViewSizeBuff_星光_ATTR_Good_1_-1_2</buffID>
 			<buffID>EvadeBuff_Stella的祝福_ATTR_Good_4_-1_15</buffID>
 		</buffBox>
 	</inventory>
