@@ -286,6 +286,11 @@ void Character::speak(std::wstring sentence)
 	speakLabel->speak(sentence);
 }
 
+void Character::hideSpeakLabel()
+{
+	speakLabel->setVisibleFalse();
+}
+
 void Character::levelUp()
 {
 	if (ai)

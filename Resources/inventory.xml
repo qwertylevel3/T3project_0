@@ -1083,7 +1083,7 @@
 		<weight>0</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>EvadeBuff_黑色的羽毛_ATTR_Good_4_-1_1</buffID>
+			<buffID>EvadeBuff_黑色的羽毛_ATTR_Good_4_-1_10</buffID>
 		</buffBox>
 	</inventory>
 	<inventory>
@@ -1402,7 +1402,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>12</intRequire>
+		<intRequire>11</intRequire>
 		<skillName>FireBall_火球术_0_0_150_5</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
@@ -1738,16 +1738,16 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>14</intRequire>
-		<skillName>BuffSelf_c++考试通过_0_0_BaseAttrBuff_c++入门_ATTR_Good_2_-1_0_0_5</skillName>
+		<intRequire>13</intRequire>
+		<skillName>BuffSelf_c++考试通过_0_0_BaseAttrBuff_c++入门_ATTR_Good_2_-1_0_0_2</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
 		<name>scroll020</name>
 		<cname>《健身手册》</cname>
-		<tips>强健肌肉参考，增加3点力量</tips>
-		<level>2</level>
+		<tips>强健肌肉参考，增加2点力量</tips>
+		<level>3</level>
 		<price>3</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1755,7 +1755,23 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>10</intRequire>
-		<skillName>BuffSelf_锻炼_0_0_BaseAttrBuff_肌肉强健_ATTR_Good_2_-1_3_0_0</skillName>
+		<skillName>BuffSelf_锻炼_0_0_BaseAttrBuff_肌肉强健_ATTR_Good_2_-1_2_0_0</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll021</name>
+		<cname>《忍者入门指南》</cname>
+		<tips>增加2点敏捷</tips>
+		<level>3</level>
+		<price>3</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>10</intRequire>
+		<skillName>BuffSelf_锻炼_0_0_BaseAttrBuff_敏捷提高_ATTR_Good_2_-1_0_2_0</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>

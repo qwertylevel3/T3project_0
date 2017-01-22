@@ -88,6 +88,7 @@ public:
 	ExpHandler* getExphandler();
 	void addExp(const int value);
 	void speak(std::wstring sentence);
+	void hideSpeakLabel();
 	void levelUp();
 	void interaction();
 	void feedback(Character* character);

@@ -87,14 +87,14 @@ void Player::configPlayer()
 
 	controlMode = NormalMode;
 
-	characterPtr->setHP(10);
-	characterPtr->setMaxHP(10);
+	characterPtr->setHP(100);
+	characterPtr->setMaxHP(100);
 	characterPtr->setMP(100);
 	characterPtr->setMaxMP(100);
 
 	characterPtr->setStrength(10);
 	characterPtr->setAgility(10);
-	characterPtr->setIntellect(20);
+	characterPtr->setIntellect(10);
 	characterPtr->setLuck(10);
 	characterPtr->setViewSize(1);
 	characterPtr->setCharacterType(Character::Good);
@@ -109,7 +109,6 @@ void Player::configPlayer()
 	characterPtr->initArmor(armor);
 
 	characterPtr->addInventory("note000");
-	characterPtr->addInventory("skillBook001");
 
 
 //	for (int i=0;i<5;i++)

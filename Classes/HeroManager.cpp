@@ -62,6 +62,7 @@ void HeroManager::initMission()
 			//		hero->setMapCoord(cocos2d::Point(playerCoord.x, playerCoord.y + 1));
 			hero->setMapCoord(coord);
 			Field::Dungeon::getInstance()->addCharacter(hero);
+			hero->hideSpeakLabel();
 		}
 	}
 }
