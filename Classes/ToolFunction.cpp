@@ -89,13 +89,13 @@ std::string ToolFunction::WStr2UTF8(const std::wstring & src)
 
 bool ToolFunction::isNear4(cocos2d::Point oriCoord, cocos2d::Point targetCoord)
 {
-	if (oriCoord.x==targetCoord.x &&
-		(oriCoord.y==targetCoord.y-1 || oriCoord.y==targetCoord.y+1))
+	if (oriCoord.x == targetCoord.x &&
+		(oriCoord.y == targetCoord.y - 1 || oriCoord.y == targetCoord.y + 1))
 	{
 		return true;
 	}
-	else if (oriCoord.y==targetCoord.y &&
-		(oriCoord.x==targetCoord.x-1 || oriCoord.x==targetCoord.x+1))
+	else if (oriCoord.y == targetCoord.y &&
+		(oriCoord.x == targetCoord.x - 1 || oriCoord.x == targetCoord.x + 1))
 	{
 		return true;
 	}
@@ -104,18 +104,18 @@ bool ToolFunction::isNear4(cocos2d::Point oriCoord, cocos2d::Point targetCoord)
 
 bool ToolFunction::isNear8(cocos2d::Point oriCoord, cocos2d::Point targetCoord)
 {
-	for (int i=-1;i<=1;i++)
+	for (int i = -1; i <= 1; i++)
 	{
-		for (int j=-1;j<=1;j++)
+		for (int j = -1; j <= 1; j++)
 		{
-			if (i==0 && j==0)
+			if (i == 0 && j == 0)
 			{
 				continue;
 			}
 			cocos2d::Point tempPoint = oriCoord;
 			tempPoint.x += i;
 			tempPoint.y += j;
-			if (targetCoord==tempPoint)
+			if (targetCoord == tempPoint)
 			{
 				return true;
 			}
@@ -144,71 +144,97 @@ cocos2d::Point ToolFunction::findValidPlace(Field::Storey* storey, cocos2d::Poin
 {
 	int searchDeep = 1;
 
-	//待优化，bfs
-	while (searchDeep < 10)
+	std::queue<cocos2d::Point> pointQ;
+	std::set<cocos2d::Point > invalidSet;
+
+	pointQ.push(ori);
+	invalidSet.insert(ori);
+
+	while (!pointQ.empty())
 	{
-		for (int i = -searchDeep; i <= searchDeep; i++)
+		cocos2d::Point startPoint = pointQ.front();
+		pointQ.pop();
+
+		cocos2d::Point coord[4];
+
+		coord[0] = cocos2d::Point(startPoint.x, startPoint.y - 1);
+		coord[1] = cocos2d::Point(startPoint.x, startPoint.y + 1);
+		coord[2] = cocos2d::Point(startPoint.x - 1, startPoint.y);
+		coord[3] = cocos2d::Point(startPoint.x + 1, startPoint.y);
+
+		for (int i = 0; i < 4; i++)
 		{
-			for (int j = -searchDeep; j <= searchDeep; j++)
+			if (invalidSet.count(coord[i]) == 0)
 			{
-				if (i == 0 && j==0)
+				if (storey->isValid(coord[i])
+					&& storey->isMoveAble(coord[i])
+					&& storey->getCharacter(coord[i]) == nullptr)
 				{
-					continue;
+					return coord[i];
 				}
-				cocos2d::Point coord = ori;
-				coord.x += i;
-				coord.y += j;
-
-				//条件
-				if (storey->isValid(coord)
-					&&storey->isMoveAble(coord)
-					&& storey->getCharacter(coord)==nullptr)
+				else if (getManhattanDistance(ori, coord[i]) <= searchDeep)
 				{
-					return coord;
+					invalidSet.insert(coord[i]);
+					pointQ.push(coord[i]);
 				}
-
+				else
+				{
+					invalidSet.insert(coord[i]);
+				}
 			}
 		}
-
-		searchDeep++;
 	}
+
 	return ori;
 	//CCAssert(searchDeep < 10, "out of search");
 }
 
 cocos2d::Point ToolFunction::findValidPlaceWithoutTrap(Field::Storey* storey, cocos2d::Point ori)
 {
-	int searchDeep = 1;
+	int searchDeep = 2;
 
-	//待优化，bfs
-	while (searchDeep < 10)
+	std::queue<cocos2d::Point> pointQ;
+	std::set<cocos2d::Point > invalidSet;
+
+	pointQ.push(ori);
+	invalidSet.insert(ori);
+
+	while (!pointQ.empty())
 	{
-		for (int i = -searchDeep; i <= searchDeep; i++)
+		cocos2d::Point startPoint = pointQ.front();
+		pointQ.pop();
+
+		cocos2d::Point coord[4];
+
+		coord[0] = cocos2d::Point(startPoint.x, startPoint.y - 1);
+		coord[1] = cocos2d::Point(startPoint.x, startPoint.y + 1);
+		coord[2] = cocos2d::Point(startPoint.x - 1, startPoint.y);
+		coord[3] = cocos2d::Point(startPoint.x + 1, startPoint.y);
+
+		for (int i = 0; i < 4; i++)
 		{
-			for (int j = -searchDeep; j <= searchDeep; j++)
+			if (invalidSet.count(coord[i]) == 0)
 			{
-				if (i == 0 && j==0)
+				if (storey->isValid(coord[i])
+					&& storey->isMoveAble(coord[i])
+					&& storey->getCharacter(coord[i]) == nullptr
+					&& storey->getTile(coord[i].x, coord[i].y) != Field::Trap)
 				{
-					continue;
+					return coord[i];
 				}
-				cocos2d::Point coord = ori;
-				coord.x += i;
-				coord.y += j;
-
-				//条件
-				if (storey->isValid(coord)
-					&&storey->isMoveAble(coord)
-					&& storey->getCharacter(coord)==nullptr
-					&& storey->getTile(coord.x,coord.y)!=Field::Trap)
+				else if (getManhattanDistance(ori, coord[i]) <= searchDeep)
 				{
-					return coord;
+					invalidSet.insert(coord[i]);
+					pointQ.push(coord[i]);
 				}
-
+				else
+				{
+					invalidSet.insert(coord[i]);
+				}
 			}
 		}
-
-		searchDeep++;
 	}
+
 	return ori;
 	//CCAssert(searchDeep < 10, "out of search");
 }
@@ -235,7 +261,6 @@ cocos2d::Point ToolFunction::nextStep_v3(cocos2d::Point src, cocos2d::Point dest
 
 	AStar astar(src, dest, storey);
 	return astar.nextStep_v3();
-
 }
 
 std::vector<cocos2d::Point> ToolFunction::findPath(cocos2d::Point src, cocos2d::Point dest)
