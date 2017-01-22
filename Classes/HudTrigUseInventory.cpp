@@ -1,4 +1,5 @@
 #include "HudTrigUseInventory.h"
+#include "KeyController.h"
 #include "HudInventoryMenu.h"
 #include "InventoryHandler.h"
 #include "Character.h"
@@ -38,6 +39,8 @@ void HudTrigUseInventory::run()
 
 	supply->use(characterPtr);
 	delete supply;
+
+	KeyController::getInstance()->switchCtrlToPlayer();
 
 	menuItem->getParentMenu()->closeMenu();
 }

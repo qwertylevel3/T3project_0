@@ -50,26 +50,17 @@ void AIVergil::update()
 	{
 		return;
 	}
-	//尝试使用物品回复
-	if (characterPtr->getHP() < characterPtr->getMaxHP() / 2)
+
+	//尝试恢复自己
+	if (recovery())
 	{
-		if (tryUseHPSupply())
-		{
-			return;
-		}
-	}
-	if (characterPtr->getHP() < characterPtr->getMaxHP() / 2
-		&& characterPtr->getMP() > 40)
-	{
-		healSelf();
 		return;
 	}
-	if (characterPtr->getMP() < characterPtr->getMaxMP() / 2)
+
+	//尝试增加自己属性
+	if (tryAddAttr())
 	{
-		if (tryUseMPSupply())
-		{
-			return;
-		}
+		return;
 	}
 
 	//行动
@@ -97,8 +88,8 @@ void AIVergil::feedback(Character* character)
 
 void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 {
-	if (dialogueName=="vergilFirstTalk"
-		&& resultNumber==-1)
+	if (dialogueName == "vergilFirstTalk"
+		&& resultNumber == -1)
 	{
 		HudMessageBox::getInstance()->addMessage(L"你获得了《生存手册》");
 	}
@@ -185,6 +176,33 @@ void AIVergil::levelUp()
 	AIBase::levelUp();
 
 	HudMessageBox::getInstance()->addMessage(L"Vergil升级了");
+}
+
+bool AIVergil::recovery()
+{
+	//尝试使用物品回复
+	if (characterPtr->getHP() < characterPtr->getMaxHP() / 2)
+	{
+		if (tryUseHPSupply())
+		{
+			return true;
+		}
+	}
+	if (characterPtr->getHP() < characterPtr->getMaxHP() / 2
+		&& characterPtr->getMP() > 40)
+	{
+		healSelf();
+		return true;
+	}
+	if (characterPtr->getMP() < characterPtr->getMaxMP() / 2)
+	{
+		if (tryUseMPSupply())
+		{
+			return true;
+		}
+	}
+
+	return false;
 }
 
 void AIVergil::followAI()
@@ -298,10 +316,10 @@ void AIVergil::leadAI()
 	}
 	else
 	{
-		characterPtr->speak(L"小心");
-		HudMessageBox::getInstance()->addMessage(L"vergil察觉到周围有敌人");
-		curState = 0;
-		followAI();
+//		characterPtr->speak(L"小心");
+//		HudMessageBox::getInstance()->addMessage(L"vergil察觉到周围有敌人");
+//		curState = 0;
+//		followAI();
 	}
 }
 
@@ -549,6 +567,41 @@ bool AIVergil::tryUseMPSupply()
 	return flag;
 }
 
+bool AIVergil::tryAddAttr()
+{
+	if (isSafe())
+	{
+		bool flag = false;
+		InventoryHandler* inventoryHandler = characterPtr->getInventoryHandler();
+		std::map<std::string, int> allInventory = inventoryHandler->getAllInventory();
+		std::map<std::string, int>::iterator iter = allInventory.begin();
+
+		while (iter != allInventory.end())
+		{
+			if (InventoryFactory::getInstance()->queryInventoryType(iter->first) == Inventory::Supply)
+			{
+				Supply* supply = static_cast<Supply*>(InventoryFactory::getInstance()->getInventory(iter->first));
+				if (supply->getSupplyType() == Supply::AttrSupply)
+				{
+					characterPtr->removeInventory(iter->first);
+					supply->use(characterPtr);
+					HudMessageBox::getInstance()->addMessage(L"Vergil尝试着阅读一些属性书");
+					flag = true;
+				}
+				delete supply;
+
+				if (flag)
+				{
+					break;
+				}
+			}
+			iter++;
+		}
+		return flag;
+	}
+	return false;
+}
+
 bool AIVergil::chooseBetterLefthand()
 {
 	bool flag = false;
@@ -752,7 +805,7 @@ void AIVergil::smallTalk()
 	}
 	else
 	{
-		int roll = RandomNumber::getInstance()->randomInt(1, 7);
+		int roll = RandomNumber::getInstance()->randomInt(1, 10);
 
 		std::string tipsName = "vergilTips" + ToolFunction::int2string(roll);
 
@@ -760,7 +813,6 @@ void AIVergil::smallTalk()
 
 		smallTalkCount = 0;
 	}
-
 }
 
 void AIVergil::tryBuffToPlayer()

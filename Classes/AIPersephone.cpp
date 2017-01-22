@@ -1,4 +1,5 @@
 #include "AIPersephone.h"
+#include "RandomNumber.h"
 #include "HudMessageBox.h"
 #include "ToolFunction.h"
 #include "DialogueSystem.h"
@@ -42,7 +43,16 @@ void AIPersephone::update()
 		}
 		else
 		{
-			characterPtr->attack();
+			int roll = RandomNumber::getInstance()->randomInt(1, 10);
+
+			if (roll <= 2)
+			{
+				characterPtr->runSkill("Thunder_иа╣Г_0_0_100");
+			}
+			else
+			{
+				characterPtr->attack();
+			}
 		}
 	}
 	else

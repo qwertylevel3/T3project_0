@@ -47,13 +47,22 @@ void Supply::setSupplyType(int typeID)
 	}
 	else if (typeID==3)
 	{
+		supplyType = BattleSupply;
+	}
+	else if (typeID==4)
+	{
+		supplyType = AttrSupply;
+	}
+	else if (typeID==9)
+	{
 		supplyType = OtherSupply;
 	}
 }
 
 std::string Supply::getExtraDescription()
 {
-	if (supplyType==MagicSupply)
+	if (supplyType==MagicSupply
+		|| supplyType==AttrSupply)
 	{
 		return ToolFunction::WStr2UTF8(L"÷«¡¶–Ë«Û£∫") +
 			ToolFunction::int2string(intRequire);

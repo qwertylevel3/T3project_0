@@ -53,7 +53,7 @@ void GameController::init()
 	EffectManager::getInstance()->init();
 	FriendCreatureManager::getInstance()->init();
 
-	curLevel = 9;
+	curLevel = 1;
 
 	firstPlay = true;
 }

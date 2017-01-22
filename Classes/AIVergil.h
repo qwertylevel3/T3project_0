@@ -14,6 +14,10 @@ public:
 	void levelUp();
 protected:
 
+	//尝试恢复
+	bool recovery();
+
+
 
 	//状态:
 	//0:紧密跟随
@@ -63,6 +67,8 @@ protected:
 	//如果成功回复，返回true
 	bool tryUseHPSupply();
 	bool tryUseMPSupply();
+
+	bool tryAddAttr();
 
 	bool chooseBetterLefthand();
 	bool chooseBetterRighthand();

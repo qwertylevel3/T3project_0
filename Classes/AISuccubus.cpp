@@ -122,8 +122,8 @@ void AISuccubus::handleDialogueResult(std::string dialogueName, int resultNumber
 void AISuccubus::healSelf()
 {
 		Character* playerCharacter = Player::getInstance()->getcharacterPtr();
-		playerCharacter->sufferHPEffect(-20);
-		playerCharacter->sufferMPEffect(-20);
+		playerCharacter->sufferHPEffect(-30);
+		playerCharacter->sufferMPEffect(-30);
 
 		characterPtr->sufferHPEffect(100);
 		characterPtr->sufferMPEffect(100);

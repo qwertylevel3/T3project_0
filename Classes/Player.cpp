@@ -94,7 +94,7 @@ void Player::configPlayer()
 
 	characterPtr->setStrength(10);
 	characterPtr->setAgility(10);
-	characterPtr->setIntellect(10);
+	characterPtr->setIntellect(30);
 	characterPtr->setLuck(10);
 	characterPtr->setViewSize(1);
 	characterPtr->setCharacterType(Character::Good);
@@ -102,49 +102,44 @@ void Player::configPlayer()
 
 	//testInventory......
 
-	Inventory* woodSword = InventoryFactory::getInstance()->getInventory("sword000");
-	characterPtr->initLeftHand(woodSword);
+	Inventory* woodSword1 = InventoryFactory::getInstance()->getInventory("sword000");
+	characterPtr->initLeftHand(woodSword1);
+
+	Inventory* woodSword2 = InventoryFactory::getInstance()->getInventory("sword000");
+	characterPtr->initRightHand(woodSword2);
 
 	Inventory* armor = InventoryFactory::getInstance()->getInventory("armor000");
 	characterPtr->initArmor(armor);
 
 	characterPtr->addInventory("note000");
-
-
-//	for (int i=0;i<5;i++)
-//	{
-//		characterPtr->addInventory("supply009");
-//	}
-
+	characterPtr->addInventory("scroll018");
+	characterPtr->addInventory("scroll019");
+	characterPtr->addInventory("scroll020");
+	characterPtr->addInventory("scroll021");
 
 
 
-//		for (int i = 0; i < 20; i++)
-//		{
-//			std::string invName = InventoryFactory::getInstance()->getRandomInventory(9);
-//			characterPtr->addInventory(invName);
-//		}
-//		for (int i = 0; i < 20; i++)
-//		{
-//			std::string invName = InventoryFactory::getInstance()->getRandomInventory(8);
-//			characterPtr->addInventory(invName);
-//		}
 
-		//////////////////////////////////////////////////////////////////////////
-	//	std::wstring buffname0 = L"WeightBuff_负重提高_ATTR_Good_4_-1_100";
-	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname0));
 
-	//	std::wstring buffname1 = L"ChantBuff_自动吟唱_OnRoundStart_Good_10_20_1";
-	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname1));
 
-	//	std::wstring buffname2 = L"BlockProBuff_格挡增加_ATTR_Good_4_100_100";
-	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname2));
 
-	//	std::wstring buffname3 = L"AccuracyBuff_命中buff_ATTR_Good_4_100_100";
-	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname3));
 
-	//	std::wstring buffname4 = L"BaseAttrBuff_测试buff_ATTR_Good_2_-1_3_0_0";
-	//	characterPtr->addBuff(ToolFunction::WStr2UTF8(buffname4));
+//测试装备
+	characterPtr->addInventory("armor009");
+	characterPtr->addInventory("sword022");
+	characterPtr->addInventory("sword027");
+
+	characterPtr->addInventory("armor012");
+	characterPtr->addInventory("sword022");
+	characterPtr->addInventory("sword027");
+
+	for (int i=0;i<5;i++)
+	{
+		characterPtr->addInventory("supply009");
+	}
+
+
+
 }
 
 void Player::autoNextStep()

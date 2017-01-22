@@ -460,7 +460,7 @@
 			<buffID>HPBuff_嗜血1_OnRoundStart_Good_10_-1_-1</buffID>
 			<buffID>BaseAttrBuff_嗜血2_ATTR_Good_2_-1_10_10_-10</buffID>
 		</buffBox>
-		<weaponDamage>20</weaponDamage>
+		<weaponDamage>15</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -538,7 +538,7 @@
 			<buffID>BaseAttrBuff_星月祝福1_ATTR_Good_2_-1_5_5_0</buffID>
 			<buffID>AccuracyBuff_星月祝福2_ATTR_Good_4_-1_25</buffID>
 		</buffBox>
-		<weaponDamage>12</weaponDamage>
+		<weaponDamage>16</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -574,9 +574,9 @@
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>CriticalProBuff_堕落天使之力_ATTR_Good_4_-1_20</buffID>
+			<buffID>CriticalProBuff_堕落天使之力1_ATTR_Good_4_-1_20</buffID>
 		</buffBox>
-		<weaponDamage>23</weaponDamage>
+		<weaponDamage>21</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -593,9 +593,9 @@
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>CriticalPointBuff_堕落天使之力_ATTR_Good_4_-1_20</buffID>
+			<buffID>CriticalPointBuff_堕落天使之力2_ATTR_Good_4_-1_20</buffID>
 		</buffBox>
-		<weaponDamage>23</weaponDamage>
+		<weaponDamage>21</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -633,6 +633,64 @@
 		<buffBox>
 			<buffID>MPBuff_星月祝福3_OnRoundStart_Good_10_-1_2</buffID>
 			<buffID>ChantBuff_星月祝福4_OnRoundStart_Good_10_-1_100</buffID>
+		</buffBox>
+		<weaponDamage>3</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword033</name>
+		<cname>新手吟唱权杖</cname>
+		<tips>新手法师入门权杖</tips>
+		<level>2</level>
+		<price>9</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>ChantBuff_吟唱祝福_OnRoundStart_Good_10_-1_50</buffID>
+		</buffBox>
+		<weaponDamage>3</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword034</name>
+		<cname>刺客短刀</cname>
+		<tips>如果你是一名刺客，带上它吧</tips>
+		<level>4</level>
+		<price>9</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>EvadeBuff_刺客1_ATTR_Good_4_-1_20</buffID>
+			<buffID>ComboBuff_刺客2_ATTR_Good_4_-1_10</buffID>
+		</buffBox>
+		<weaponDamage>4</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword035</name>
+		<cname>吟唱权杖</cname>
+		<tips>免去了吟唱的痛苦...</tips>
+		<level>5</level>
+		<price>9</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>ChantBuff_吟唱祝福_OnRoundStart_Good_10_-1_100</buffID>
 		</buffBox>
 		<weaponDamage>3</weaponDamage>
 		<strRequire>0</strRequire>
@@ -860,6 +918,21 @@
 			<buffID>EvadeBuff_Stella之守护2_ATTR_Good_4_-1_25</buffID>
 		</buffBox>
 		<armorCount>18</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor016</name>
+		<cname>血牛之甲</cname>
+		<tips>当传奇法师A.M.还不是法师的时候穿过的护甲，专为挡刀而生</tips>
+		<level>8</level>
+		<price>2</price>
+		<weight>10</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>MaxHPBuff_血牛1_ATTR_Good_1_-1_150</buffID>
+			<buffID>EvadeBuff_血牛2_ATTR_Good_4_-1_-100</buffID>
+		</buffBox>
+		<armorCount>12</armorCount>
 	</inventory>
 	<inventory>
 		<type>accessory</type>
@@ -1283,7 +1356,7 @@
 		<name>skillBook002</name>
 		<cname>雷神之书</cname>
 		<tips>学习闪电风暴</tips>
-		<level>8</level>
+		<level>7</level>
 		<price>10</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1386,8 +1459,24 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>13</intRequire>
 		<skillName>LearnSkill_学习史莱姆召唤_0_0_Summon_Slime召唤_50_30_sslime</skillName>
+		<supplyType>2</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>skillBook009</name>
+		<cname>黄色魔导书目录</cname>
+		<tips>注意身体</tips>
+		<level>9</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>10</intRequire>
+		<skillName>LearnSkill_学习魅魔的召唤_0_0_Summon_魅魔的召唤_300_100_succubus</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -1443,7 +1532,7 @@
 		<name>scroll003</name>
 		<cname>黄色魔法书</cname>
 		<tips>上面有一些不可描述的图片和一些不可描述的文字，使用者需奉献一切</tips>
-		<level>8</level>
+		<level>7</level>
 		<price>999</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1468,7 +1557,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>ExpAdd_经验增加_0_0_50</skillName>
-		<supplyType>3</supplyType>
+		<supplyType>9</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -1484,7 +1573,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>ExpAdd_经验增加_0_0_100</skillName>
-		<supplyType>3</supplyType>
+		<supplyType>9</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -1500,7 +1589,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>ExpAdd_经验增加_0_0_200</skillName>
-		<supplyType>3</supplyType>
+		<supplyType>9</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -1516,7 +1605,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>ExpAdd_经验增加_0_0_400</skillName>
-		<supplyType>3</supplyType>
+		<supplyType>9</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -1530,7 +1619,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>12</intRequire>
+		<intRequire>10</intRequire>
 		<skillName>BlinkSelf_闪烁_0_0_3</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
@@ -1546,9 +1635,9 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>12</intRequire>
+		<intRequire>10</intRequire>
 		<skillName>BuffSelf_闪避buff祝福_0_0_EvadeBuff_闪避buff_ATTR_Good_4_20_20</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>3</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -1562,9 +1651,9 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>12</intRequire>
+		<intRequire>10</intRequire>
 		<skillName>BuffSelf_暴击buff祝福_0_0_CriticalProBuff_暴击Buff_ATTR_Good_4_20_20</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>3</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -1578,9 +1667,9 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>12</intRequire>
+		<intRequire>10</intRequire>
 		<skillName>BuffSelf_夜视_0_0_ViewSizeBuff_夜视_ATTR_Good_1_40_2</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>3</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -1594,9 +1683,9 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>12</intRequire>
+		<intRequire>10</intRequire>
 		<skillName>BuffSelf_鹰眼祝福_0_0_AccuracyBuff_鹰眼_ATTR_Good_4_20_20</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>3</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
@@ -1706,7 +1795,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>12</intRequire>
+		<intRequire>10</intRequire>
 		<skillName>Summon_slime的召唤_0_0_sslime</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
@@ -1724,14 +1813,14 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>40</intRequire>
 		<skillName>BuffSelf_数学分析考试通过_0_0_BaseAttrBuff_数学分析_ATTR_Good_2_-1_0_0_10</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>4</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
 		<name>scroll019</name>
 		<cname>《c++Primer》</cname>
 		<tips>初级法术入门</tips>
-		<level>3</level>
+		<level>4</level>
 		<price>3</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1740,14 +1829,14 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>13</intRequire>
 		<skillName>BuffSelf_c++考试通过_0_0_BaseAttrBuff_c++入门_ATTR_Good_2_-1_0_0_2</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>4</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
 		<name>scroll020</name>
 		<cname>《健身手册》</cname>
 		<tips>强健肌肉参考，增加2点力量</tips>
-		<level>3</level>
+		<level>4</level>
 		<price>3</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1756,14 +1845,14 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>10</intRequire>
 		<skillName>BuffSelf_锻炼_0_0_BaseAttrBuff_肌肉强健_ATTR_Good_2_-1_2_0_0</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>4</supplyType>
 	</inventory>
 	<inventory>
 		<type>supply</type>
 		<name>scroll021</name>
 		<cname>《忍者入门指南》</cname>
 		<tips>增加2点敏捷</tips>
-		<level>3</level>
+		<level>4</level>
 		<price>3</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -1772,7 +1861,135 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>10</intRequire>
 		<skillName>BuffSelf_锻炼_0_0_BaseAttrBuff_敏捷提高_ATTR_Good_2_-1_0_2_0</skillName>
-		<supplyType>2</supplyType>
+		<supplyType>4</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll022</name>
+		<cname>狂化卷轴</cname>
+		<tips>5回合内提高暴击概率60%</tips>
+		<level>7</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>10</intRequire>
+		<skillName>BuffSelf_狂化_0_0_CriticalProBuff_暴击Buff_ATTR_Good_4_5_50</skillName>
+		<supplyType>3</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll023</name>
+		<cname>加速卷轴</cname>
+		<tips>5回合内提高闪避概率60%</tips>
+		<level>7</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>10</intRequire>
+		<skillName>BuffSelf_狂化_0_0_EvadeBuff_加速_ATTR_Good_4_5_50</skillName>
+		<supplyType>3</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll024</name>
+		<cname>群星闪耀</cname>
+		<tips>全地图可视1回合</tips>
+		<level>9</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>10</intRequire>
+		<skillName>BuffSelf_群星闪耀_0_0_ViewSizeBuff_星光_ATTR_Good_1_1_50</skillName>
+		<supplyType>9</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll025</name>
+		<cname>游侠之祝福卷轴</cname>
+		<tips>8回合内命中率提高100%</tips>
+		<level>7</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>10</intRequire>
+		<skillName>BuffSelf_祝福_0_0_AccuracyBuff_游侠之祝福_ATTR_Good_4_8_100</skillName>
+		<supplyType>3</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll026</name>
+		<cname>G.K.卷轴</cname>
+		<tips>"下一回合，你将死于我的连击之下"      --G.K.</tips>
+		<level>9</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>10</intRequire>
+		<skillName>BuffSelf_祝福_0_0_ComboBuff_GK之祝福_ATTR_Good_4_1_100</skillName>
+		<supplyType>3</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll027</name>
+		<cname>大型闪避卷轴</cname>
+		<tips>10回合内提高闪避值40%</tips>
+		<level>6</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>10</intRequire>
+		<skillName>BuffSelf_闪避buff祝福_0_0_EvadeBuff_闪避buff_ATTR_Good_4_10_40</skillName>
+		<supplyType>3</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll028</name>
+		<cname>大型暴击卷轴</cname>
+		<tips>10回合内提高暴击概率40%</tips>
+		<level>6</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>10</intRequire>
+		<skillName>BuffSelf_暴击buff祝福_0_0_CriticalProBuff_暴击Buff_ATTR_Good_4_10_40</skillName>
+		<supplyType>3</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll030</name>
+		<cname>钛金鹰眼卷轴</cname>
+		<tips>10回合内提高命中率60%</tips>
+		<level>6</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>10</intRequire>
+		<skillName>BuffSelf_鹰眼祝福_0_0_AccuracyBuff_钛金鹰眼_ATTR_Good_4_10_60</skillName>
+		<supplyType>3</supplyType>
 	</inventory>
 	<inventory>
 		<type>note</type>

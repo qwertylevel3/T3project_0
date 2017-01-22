@@ -65,7 +65,7 @@ bool Buff::BuffBase::isActive()
 
 std::string Buff::BuffBase::getDurationDescriptionStr()
 {
-	if (duration == -1)
+	if (duration == -2)
 	{
 		return ToolFunction::WStr2UTF8(L"持续效果\n");
 	}
@@ -138,5 +138,5 @@ void Buff::BuffBase::initPriority(const std::string& priorityStr)
 
 void Buff::BuffBase::initDuration(const std::string& durationStr)
 {
-	duration = ToolFunction::string2int(durationStr);
+	duration = ToolFunction::string2int(durationStr)-1;
 }

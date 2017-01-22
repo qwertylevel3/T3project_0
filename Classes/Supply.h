@@ -7,7 +7,7 @@ class Supply:public Inventory
 public:
 	enum SupplyType
 	{
-		HPSupply,MPSupply,MagicSupply,OtherSupply
+		HPSupply,MPSupply,MagicSupply,AttrSupply,BattleSupply,OtherSupply
 	};
 	Supply();
 	~Supply();

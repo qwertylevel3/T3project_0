@@ -31,7 +31,7 @@ Storey* StoreyBuilder::generate(int level)
 	rooms.clear();
 	exits.clear();
 
-	int storeySize = 18 + level / 3;
+	int storeySize = 16 + level / 2;
 
 	storey = nullptr;
 
@@ -640,7 +640,7 @@ void Field::StoreyBuilder::placeGameActorLevel9(const Rect& rect)
 Field::Rect Field::StoreyBuilder::makeRoomRect(int x, int y, Direction dir)
 {
 	int minRoomSize = 3;
-	int maxRoomSize = 5 + curLevel / 3;
+	int maxRoomSize = 5;
 
 	Rect room;
 	room.width = RandomNumber::getInstance()->randomInt(minRoomSize, maxRoomSize);
