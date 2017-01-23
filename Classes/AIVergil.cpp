@@ -815,7 +815,7 @@ void AIVergil::smallTalk()
 	}
 	else
 	{
-		int roll = RandomNumber::getInstance()->randomInt(1, 10);
+		int roll = RandomNumber::getInstance()->randomInt(1, 12);
 
 		std::string tipsName = "vergilTips" + ToolFunction::int2string(roll);
 

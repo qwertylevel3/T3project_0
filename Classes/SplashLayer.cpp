@@ -20,6 +20,13 @@ bool SplashLayer::init()
 	{
 		return false;
 	}
+	white = cocos2d::Sprite::create("sys/white.png");
+	white->setVisible(true);
+	white->setOpacity(0);
+	white->setPosition(400, 300);
+	white->setScaleX(800 / white->getContentSize().width);
+	white->setScaleY(600 / white->getContentSize().height);
+	this->addChild(white);
 
 	black = cocos2d::Sprite::create("sys/black.png");
 	black->setVisible(true);
@@ -34,6 +41,11 @@ bool SplashLayer::init()
 	logo->setOpacity(0);
 	this->addChild(logo);
 
+	title = cocos2d::Sprite::create("sys/title.png");
+	title->setPosition(400, 300);
+	title->setOpacity(0);
+	this->addChild(title);
+
 	levelMessageLabel = cocos2d::Label::createWithTTF("", "fonts/arialuni.ttf", 40);
 	levelMessageLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_MIDDLE);
 	levelMessageLabel->setOpacity(0);
@@ -43,7 +55,7 @@ bool SplashLayer::init()
 	return true;
 }
 
-void SplashLayer::showLogo(float dt)
+void SplashLayer::startGame(float dt)
 {
 	black->setOpacity(255);
 
@@ -52,8 +64,17 @@ void SplashLayer::showLogo(float dt)
 	auto logoAction = cocos2d::FadeIn::create(dt);
 	auto logoActionBack = logoAction->reverse();
 	logo->runAction(
+		cocos2d::Sequence::create(logoAction, logoActionBack, nullptr)
+	);
+
+	//titleµ­Èëµ­³ö
+	title->setOpacity(0);
+	auto titleAction = cocos2d::FadeIn::create(dt);
+	auto titleActionBack = titleAction->reverse();
+	title->runAction(
 		cocos2d::Sequence::create(
-			cocos2d::Sequence::create(logoAction, logoActionBack, nullptr),
+			cocos2d::DelayTime::create(dt * 2),
+			cocos2d::Sequence::create(titleAction, titleActionBack, nullptr),
 			cocos2d::CallFunc::create(
 				CC_CALLBACK_0(
 					SplashLayer::fadeoutBlackAndStart, this
@@ -61,18 +82,7 @@ void SplashLayer::showLogo(float dt)
 			),
 			NULL
 		)
-
 	);
-
-//	black->setOpacity(255);
-//	auto blackAction = cocos2d::FadeOut::create(dt);
-//	black->runAction(
-//		cocos2d::Sequence::create(
-//			cocos2d::DelayTime::create(dt * 2),
-//			blackAction,
-//			nullptr
-//		)
-//	);
 }
 
 void SplashLayer::fadeOutBlackAndFloorNumber(float dt)
@@ -145,4 +155,37 @@ void SplashLayer::fadeoutBlackAndStart(SplashLayer* layer)
 {
 	layer->fadeOutBlack(2);
 	GameController::getInstance()->runStartDialogue();
+}
+
+void SplashLayer::fadeInWhite(float dt)
+{
+	white->setOpacity(0);
+	auto action = cocos2d::FadeIn::create(dt);
+	white->runAction(
+		action
+	);
+}
+
+void SplashLayer::clearGame()
+{
+	white->setOpacity(0);
+
+	white->runAction(
+		cocos2d::Sequence::create(
+			cocos2d::FadeIn::create(2),
+			cocos2d::DelayTime::create(1.9),
+			cocos2d::FadeOut::create(0.1),
+			NULL
+		)
+
+	);
+
+	black->setOpacity(0);
+	black->runAction(
+		cocos2d::Sequence::create(
+			cocos2d::DelayTime::create(2),
+			cocos2d::FadeIn::create(2),
+			NULL
+		)
+	);
 }

@@ -1,4 +1,5 @@
 #include "GameController.h"
+#include "ToolFunction.h"
 #include "DialogueSystem.h"
 #include "NoteTextFactory.h"
 #include "InventoryListGenerator.h"
@@ -36,7 +37,9 @@ void GameController::init()
 {
 	GameSaveManager::getInstance()->load();
 
-	RandomNumber::getInstance()->setSeed(101);
+	int seed=ToolFunction::getCurTime();
+
+	RandomNumber::getInstance()->setSeed(seed);
 	NoteTextFactory::getInstance()->init();
 	InventoryListGenerator::getInstance()->init();
 	Buff::BuffFactory::getInstance()->init();
@@ -56,6 +59,11 @@ void GameController::init()
 	curLevel = 1;
 
 	firstPlay = true;
+
+	GameSaveManager::getInstance()->increasePlayCount();
+	GameSaveManager::getInstance()->save();
+
+	KeyController::getInstance()->setBlock(true);
 }
 
 void GameController::startMission()
@@ -83,7 +91,7 @@ void GameController::startMission()
 
 	if (firstPlay)
 	{
-		SplashLayer::getInstance()->showLogo(2);
+		SplashLayer::getInstance()->startGame(2);
 		firstPlay = false;
 	}
 	else if (curLevel==1)
@@ -127,7 +135,10 @@ void GameController::reStartGame()
 
 
 	curLevel = 1;
+	GameSaveManager::getInstance()->increasePlayCount();
+	GameSaveManager::getInstance()->save();
 	startMission();
+
 }
 
 void GameController::endGame()
@@ -142,20 +153,28 @@ void GameController::saveGame()
 
 void GameController::runStartDialogue()
 {
-	if (GameSaveManager::getInstance()->getPlayCount()==0)
+	KeyController::getInstance()->setBlock(false);
+
+	if (GameSaveManager::getInstance()->getPlayCount()==1)
 	{
 		Character* vergilCharacter = HeroManager::getInstance()->getHero("vergil");
 
 		//第一次进入游戏
 		DialogueSystem::getInstance()->runDialogue("vergilFirstTalk",vergilCharacter);
-		GameSaveManager::getInstance()->increasePlayCount();
-		GameSaveManager::getInstance()->save();
 	}
 	else if (GameSaveManager::getInstance()->getDieCount()==1)
 	{
 		//第一次死亡
-		//todo
-//		DialogueSystem::getInstance()->runDialogue("vergilFirstTalk");
+		GameSaveManager::getInstance()->increaseDieCount();
+		GameSaveManager::getInstance()->save();
+		DialogueSystem::getInstance()->runDialogue("firstDie");
+	}
+	else if (GameSaveManager::getInstance()->getFirstClear()==1)
+	{
+		//第一次通关重来
+		DialogueSystem::getInstance()->runDialogue("firstClear");
+		GameSaveManager::getInstance()->increaseFirstClear();
+		GameSaveManager::getInstance()->save();
 	}
 	else
 	{

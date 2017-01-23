@@ -1,4 +1,5 @@
 #include "AIPlayer.h"
+#include "GameSaveManager.h"
 #include "SplashLayer.h"
 #include "GameController.h"
 #include "HudMessageBox.h"
@@ -23,6 +24,8 @@ void AIPlayer::update()
 void AIPlayer::lastWords()
 {
 	SplashLayer::getInstance()->fadeInBlack(2);
+	GameSaveManager::getInstance()->increaseDieCount();
+	GameSaveManager::getInstance()->save();
 	DialogueSystem::getInstance()->runDialogue("playerDie",characterPtr);
 }
 

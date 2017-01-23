@@ -30,6 +30,7 @@ void GameSaveManager::load()
 	vergilDieCount = this->getChildElementIntAttr(gamesaveElement, "vergilDieCount");
 	persephoneDieCount = this->getChildElementIntAttr(gamesaveElement, "persephoneDieCount");
 	clearGameCount = this->getChildElementIntAttr(gamesaveElement, "clearGameCount");
+	firstClear = this->getChildElementIntAttr(gamesaveElement, "firstClear");
 }
 
 void GameSaveManager::save()
@@ -58,6 +59,9 @@ void GameSaveManager::save()
 	saveValue(pDoc, gamesaveElement, "vergilDieCount", vergilDieCount);
 	saveValue(pDoc, gamesaveElement, "persephoneDieCount", persephoneDieCount);
 	saveValue(pDoc, gamesaveElement, "clearGameCount", clearGameCount);
+	saveValue(pDoc, gamesaveElement, "firstClear", firstClear);
+
+
 
 	pDoc->SaveFile(filePath.c_str());//保存文件 参数：路径
 //	pDoc->Print();//打印
@@ -89,6 +93,11 @@ int GameSaveManager::getClearGameCount()
 	return clearGameCount;
 }
 
+int GameSaveManager::getFirstClear()
+{
+	return firstClear;
+}
+
 void GameSaveManager::increasePlayCount()
 {
 	playCount++;
@@ -112,6 +121,11 @@ void GameSaveManager::increasePersephoneDieCount()
 void GameSaveManager::increaseClearGameCount()
 {
 	clearGameCount++;
+}
+
+void GameSaveManager::increaseFirstClear()
+{
+	firstClear++;
 }
 
 void GameSaveManager::saveValue(

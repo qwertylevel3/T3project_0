@@ -151,7 +151,7 @@
 		<sentence>
 			<type>statement</type>
 			<actorName>NULL</actorName>
-			<word>......</word>
+			<word>............</word>
 			<next>3</next>
 		</sentence>
 		<sentence>
@@ -462,6 +462,36 @@
 		</sentence>
 	</dialogue>
 	<dialogue>
+		<name>vergilTips11</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>如果是高等级物品的话</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>投掷也能造成大量伤害哦</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>vergilTips12</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>其实是存在9级物品的哦</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>只不过掉落率太低了而已...</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
 		<name>vergilNoBuff</name>
 		<sentence>
 			<type>statement</type>
@@ -638,6 +668,135 @@
 			<type>statement</type>
 			<actorName>NULL</actorName>
 			<word>信仰值不足</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>clearGame</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>......</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>走出结界</word>
+			<next>3</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>此刻</word>
+			<next>3</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>映入眼帘的</word>
+			<next>3</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>是灿烂的群星[Stella]</word>
+			<next>4</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>那么，这次就到这里了</word>
+			<next>5</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>下次再见喽</word>
+			<next>6</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>Thank you for playing</word>
+			<next>7</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>[To Be Continue...]</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>firstDie</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>......</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>发生了什么事,我应该被干掉了...</word>
+			<next>3</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>你醒了？</word>
+			<next>4</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>呃，不要担心，现在又重新开始了</word>
+			<next>5</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>这是我的能力哦</word>
+			<next>6</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>一定程度修改历史的能力</word>
+			<next>7</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>重新开始么...</word>
+			<next>8</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>NULL</actorName>
+			<word>可是怎么感觉不太一样...</word>
+			<next>9</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>因为蝴蝶效应，所以每次重置结界都会发生一点变化</word>
+			<next>10</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>不过相信我，一定会带你走出这个结界</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>firstClear</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>所以说，你怎么又回来了啊</word>
 			<next>-1</next>
 		</sentence>
 	</dialogue>

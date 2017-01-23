@@ -94,7 +94,7 @@ void Player::configPlayer()
 
 	characterPtr->setStrength(10);
 	characterPtr->setAgility(10);
-	characterPtr->setIntellect(30);
+	characterPtr->setIntellect(10);
 	characterPtr->setLuck(10);
 	characterPtr->setViewSize(1);
 	characterPtr->setCharacterType(Character::Good);
@@ -112,10 +112,10 @@ void Player::configPlayer()
 	characterPtr->initArmor(armor);
 
 	characterPtr->addInventory("note000");
-	characterPtr->addInventory("scroll018");
-	characterPtr->addInventory("scroll019");
-	characterPtr->addInventory("scroll020");
-	characterPtr->addInventory("scroll021");
+//	characterPtr->addInventory("scroll018");
+//	characterPtr->addInventory("scroll019");
+//	characterPtr->addInventory("scroll020");
+//	characterPtr->addInventory("scroll021");
 
 
 

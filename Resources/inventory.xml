@@ -280,7 +280,7 @@
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>BaseAttrBuff_干将_ATTR_Good_2_-1_20_-5_0</buffID>
+			<buffID>BaseAttrBuff_干将_ATTR_Good_2_-1_15_-5_0</buffID>
 		</buffBox>
 		<weaponDamage>15</weaponDamage>
 		<strRequire>0</strRequire>
@@ -299,7 +299,7 @@
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>BaseAttrBuff_莫邪_ATTR_Good_2_-1_-5_20_0</buffID>
+			<buffID>BaseAttrBuff_莫邪_ATTR_Good_2_-1_-5_15_0</buffID>
 		</buffBox>
 		<weaponDamage>15</weaponDamage>
 		<strRequire>0</strRequire>
@@ -457,7 +457,7 @@
 		<weight>4</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>HPBuff_嗜血1_OnRoundStart_Good_10_-1_-1</buffID>
+			<buffID>HPBuff_嗜血1_OnRoundStart_Good_10_-1_-10</buffID>
 			<buffID>BaseAttrBuff_嗜血2_ATTR_Good_2_-1_10_10_-10</buffID>
 		</buffBox>
 		<weaponDamage>15</weaponDamage>
@@ -465,7 +465,7 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<sphereBox>
-			<sphereID>HemophagiaSphere_吸血_100</sphereID>
+			<sphereID>HemophagiaSphere_吸血_50</sphereID>
 		</sphereBox>
 	</inventory>
 	<inventory>

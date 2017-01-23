@@ -1,4 +1,6 @@
 #include "AIPersephone.h"
+#include "GameSaveManager.h"
+#include "SplashLayer.h"
 #include "RandomNumber.h"
 #include "HudMessageBox.h"
 #include "ToolFunction.h"
@@ -67,6 +69,9 @@ void AIPersephone::feedback(Character* character)
 
 void AIPersephone::lastWords()
 {
+//	SplashLayer::getInstance()->fadeInWhite(2);
+	SplashLayer::getInstance()->clearGame();
+	DialogueSystem::getInstance()->runDialogue("clearGame",characterPtr);
 }
 
 void AIPersephone::handleDialogueResult(std::string dialogueName, int resultNumber)
@@ -78,6 +83,15 @@ void AIPersephone::handleDialogueResult(std::string dialogueName, int resultNumb
 		{
 			summonDemon();
 		}
+	}
+	else if (dialogueName == "clearGame"
+		&& resultNumber == -1)
+	{
+		GameSaveManager::getInstance()->increaseClearGameCount();
+		GameSaveManager::getInstance()->increasePersephoneDieCount();
+		GameSaveManager::getInstance()->increaseFirstClear();
+		GameSaveManager::getInstance()->save();
+		GameController::getInstance()->reStartGame();
 	}
 }
 
