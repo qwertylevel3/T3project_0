@@ -316,10 +316,10 @@ void AIVergil::leadAI()
 	}
 	else
 	{
-//		characterPtr->speak(L"小心");
-//		HudMessageBox::getInstance()->addMessage(L"vergil察觉到周围有敌人");
-//		curState = 0;
-//		followAI();
+		characterPtr->speak(L"小心");
+		HudMessageBox::getInstance()->addMessage(L"vergil察觉到周围有敌人");
+		curState = 0;
+		followAI();
 	}
 }
 

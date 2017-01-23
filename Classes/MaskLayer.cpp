@@ -124,7 +124,7 @@ void MaskLayer::initMission()
 
 //	mask->setGlobalZOrder(100);
 
-	darkOn();
+	darkOff();
 }
 
 void MaskLayer::addLight(Illuminant* light)

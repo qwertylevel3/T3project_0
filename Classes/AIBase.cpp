@@ -1,4 +1,6 @@
 #include "AIBase.h"
+#include <queue>
+#include <set>
 #include "Player.h"
 #include "ExpHandler.h"
 #include "Dungeon.h"
@@ -166,7 +168,7 @@ void AIBase::seek(Character* target)
 		}
 	}
 
-	goNextStep(startPoint,endPoint,nextStep);
+	goNextStep(startPoint, endPoint, nextStep);
 }
 
 void AIBase::goNextStep(
@@ -445,25 +447,50 @@ std::vector<Character* > AIBase::getTargetAround(cocos2d::Point ori, Character::
 
 	Field::Storey* storey = Field::Dungeon::getInstance()->getStorey();
 
-	for (int i = -searchSize; i <= searchSize; i++)
+	std::queue<cocos2d::Point> coordQ;
+	std::set<cocos2d::Point> invalidCoord;
+
+	coordQ.push(ori);
+	invalidCoord.insert(ori);
+
+	while (!coordQ.empty())
 	{
-		for (int j = -searchSize; j <= searchSize; j++)
+		cocos2d::Point startCoord = coordQ.front();
+		coordQ.pop();
+
+		cocos2d::Point coords[4];
+
+		coords[0] = cocos2d::Point(startCoord.x, startCoord.y - 1);
+		coords[1] = cocos2d::Point(startCoord.x, startCoord.y + 1);
+		coords[2] = cocos2d::Point(startCoord.x - 1, startCoord.y);
+		coords[3] = cocos2d::Point(startCoord.x + 1, startCoord.y);
+
+		for (int i = 0; i < 4; i++)
 		{
-			if (abs(i) + abs(j) > searchSize)
+			if (invalidCoord.count(coords[i]) == 0
+				&& storey->isValid(coords[i])
+				&& ToolFunction::getManhattanDistance(ori, coords[i]) <= searchSize
+				&& storey->getCharacter(coords[i])
+				&& !storey->getCharacter(coords[i])->isDead()
+				&& storey->getCharacter(coords[i])->getCharacterType() == type
+				)
 			{
-				continue;
+				allTarget.push_back(storey->getCharacter(coords[i]));
+				coordQ.push(coords[i]);
+				invalidCoord.insert(coords[i]);
 			}
-
-			cocos2d::Point tempCoord = ori;
-			tempCoord.x += i;
-			tempCoord.y += j;
-
-			Character* target = storey->getCharacter(tempCoord);
-
-			if (target
-				&& target->getCharacterType() == type)
+			else if (
+				invalidCoord.count(coords[i]) == 0
+				&& storey->isValid(coords[i])
+				&& ToolFunction::getManhattanDistance(ori, coords[i]) <= searchSize
+				)
 			{
-				allTarget.push_back(target);
+				coordQ.push(coords[i]);
+				invalidCoord.insert(coords[i]);
+			}
+			else
+			{
+				invalidCoord.insert(coords[i]);
 			}
 		}
 	}

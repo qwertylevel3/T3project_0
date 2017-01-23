@@ -125,18 +125,18 @@ void Player::configPlayer()
 
 
 //²âÊÔ×°±¸
-	characterPtr->addInventory("armor009");
-	characterPtr->addInventory("sword022");
-	characterPtr->addInventory("sword027");
+//	characterPtr->addInventory("armor009");
+//	characterPtr->addInventory("sword022");
+//	characterPtr->addInventory("sword027");
 
-	characterPtr->addInventory("armor012");
-	characterPtr->addInventory("sword022");
-	characterPtr->addInventory("sword027");
+//	characterPtr->addInventory("armor012");
+//	characterPtr->addInventory("sword022");
+//	characterPtr->addInventory("sword027");
 
-	for (int i=0;i<5;i++)
-	{
-		characterPtr->addInventory("supply009");
-	}
+//	for (int i=0;i<5;i++)
+//	{
+//		characterPtr->addInventory("supply009");
+//	}
 
 
 
