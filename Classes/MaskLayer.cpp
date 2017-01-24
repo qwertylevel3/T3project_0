@@ -60,8 +60,8 @@ void MaskLayer::update(float dt)
 	mask->begin();
 
 	Sprite* bk = Sprite::create("mask/dark.png");
-	bk->setScale(storey->getWidth() * 32 / bk->getContentSize().width);
-	bk->setPosition(storey->getWidth() * 16, storey->getHeight() * 16);
+	bk->setScale(storey->getWidth() * 32 / bk->getContentSize().width*2);
+	bk->setPosition(storey->getWidth() * 32, storey->getHeight() * 32);
 
 	ccBlendFunc func0 = { GL_ZERO, GL_ONE_MINUS_SRC_ALPHA };
 	ccBlendFunc func1 = { GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA };
@@ -117,8 +117,8 @@ void MaskLayer::initMission()
 
 //////////////////////////////////////////////////////////////////////////
 
-	mask = RenderTexture::create(storey->getWidth() * 32, storey->getHeight() * 32);
-	mask->setPosition(storey->getWidth() * 16, storey->getHeight() * 16);
+	mask = RenderTexture::create(storey->getWidth() * 32*2, storey->getHeight() * 32*2);
+	mask->setPosition(storey->getWidth() * 32, storey->getHeight() * 32);
 
 	this->addChild(mask,10);
 

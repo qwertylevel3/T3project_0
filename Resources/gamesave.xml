@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
 <gamesave version="1.0">
-	<playCount>0</playCount>
-	<dieCount>0</dieCount>
-	<vergilDieCount>0</vergilDieCount>
-	<persephoneDieCount>0</persephoneDieCount>
-	<clearGameCount>0</clearGameCount>
-	<firstClear>0</firstClear>
+    <playCount>3</playCount>
+    <dieCount>0</dieCount>
+    <vergilDieCount>0</vergilDieCount>
+    <persephoneDieCount>0</persephoneDieCount>
+    <clearGameCount>0</clearGameCount>
+    <firstClear>0</firstClear>
 </gamesave>
