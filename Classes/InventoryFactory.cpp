@@ -15,12 +15,9 @@
 
 USING_NS_CC;
 
-
-
 InventoryFactory::InventoryFactory()
 {
 }
-
 
 InventoryFactory::~InventoryFactory()
 {
@@ -28,14 +25,13 @@ InventoryFactory::~InventoryFactory()
 
 void InventoryFactory::init()
 {
-//	CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("weapon.plist");
+	//	CCSpriteFrameCache::getInstance()->addSpriteFramesWithFile("weapon.plist");
 
 	for (int i = 0; i <= 9; i++)
 	{
 		std::vector<std::string> tempBox;
 		inventoryLevelBox.push_back(tempBox);
 	}
-
 
 	tinyxml2::XMLDocument doc;
 	doc.LoadFile("inventory.xml");
@@ -55,7 +51,6 @@ Inventory * InventoryFactory::getInventory(std::string inventoryName)
 {
 	return inventoryMap[inventoryName]->clone();
 }
-
 
 std::string InventoryFactory::queryCname(const std::string& inventoryName)
 {
@@ -118,7 +113,7 @@ void InventoryFactory::initModel(tinyxml2::XMLElement* inventoryElement, const s
 
 		inventoryMap[model->getName()] = model;
 	}
-	else if (type=="arrow")
+	else if (type == "arrow")
 	{
 		Arrow* model = new Arrow();
 		initBaseData(inventoryElement, model);
@@ -128,7 +123,6 @@ void InventoryFactory::initModel(tinyxml2::XMLElement* inventoryElement, const s
 	}
 	else if (type == "shield")
 	{
-
 	}
 	else if (type == "armor")
 	{
@@ -142,7 +136,6 @@ void InventoryFactory::initModel(tinyxml2::XMLElement* inventoryElement, const s
 	}
 	else if (type == "accessory")
 	{
-
 		Accessory* model = new Accessory();
 		model->setInventoryType(Inventory::Accessory);
 
@@ -161,7 +154,7 @@ void InventoryFactory::initModel(tinyxml2::XMLElement* inventoryElement, const s
 
 		inventoryMap[model->getName()] = model;
 	}
-	else if (type=="note")
+	else if (type == "note")
 	{
 		Note* model = new Note();
 		model->setInventoryType(Inventory::Note);
@@ -177,7 +170,7 @@ void InventoryFactory::initModel(tinyxml2::XMLElement* inventoryElement, const s
 	}
 }
 
-void InventoryFactory::initBaseData(tinyxml2::XMLElement* inventoryElement,Inventory* model)
+void InventoryFactory::initBaseData(tinyxml2::XMLElement* inventoryElement, Inventory* model)
 {
 	std::string name = getChildElementStrAttr(inventoryElement, "name");
 	model->setName(name);
@@ -190,7 +183,14 @@ void InventoryFactory::initBaseData(tinyxml2::XMLElement* inventoryElement,Inven
 	int level = getChildElementIntAttr(inventoryElement, "level");
 	model->setLevel(level);
 
-	inventoryLevelBox[level].push_back(name);
+	if (model->getInventoryType() == Inventory::Note)
+	{
+		noteBox.push_back(name);
+	}
+	else
+	{
+		inventoryLevelBox[level].push_back(name);
+	}
 
 	//////////////////////////////////////////////////////////////////////////
 
@@ -226,12 +226,10 @@ void InventoryFactory::initWeaponData(tinyxml2::XMLElement* inventoryElement, We
 void InventoryFactory::initArmorData(tinyxml2::XMLElement* inventoryElement, Armor* armorModel)
 {
 	armorModel->setArmorCount(getChildElementIntAttr(inventoryElement, "armorCount"));
-
 }
 
 void InventoryFactory::initAccessoryData(tinyxml2::XMLElement* inventoryElement, Accessory* accessoryModel)
 {
-
 }
 
 void InventoryFactory::initArrowData(tinyxml2::XMLElement* inventoryElement, Arrow* model)
@@ -246,7 +244,6 @@ void InventoryFactory::initSupplyData(tinyxml2::XMLElement* inventoryElement, Su
 	supplyModel->setIntRequire(getChildElementIntAttr(inventoryElement, "intRequire"));
 	supplyModel->setSkillName(getChildElementStrAttr(inventoryElement, "skillName"));
 	supplyModel->setSupplyType(getChildElementIntAttr(inventoryElement, "supplyType"));
-
 }
 
 void InventoryFactory::initNoteData(tinyxml2::XMLElement* inventoryElement, Note* noteModel)

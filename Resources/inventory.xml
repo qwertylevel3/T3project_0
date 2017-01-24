@@ -2006,4 +2006,19 @@
 		<intRequire>1</intRequire>
 		<noteID>000</noteID>
 	</inventory>
+	<inventory>
+		<type>note</type>
+		<name>note001</name>
+		<cname>《魔物大全》</cname>
+		<tips>Vergil著,1300版</tips>
+		<level>1</level>
+		<price>999</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>1</intRequire>
+		<noteID>001</noteID>
+	</inventory>
 </inventoryList>

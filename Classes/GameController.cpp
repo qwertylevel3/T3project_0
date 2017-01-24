@@ -97,8 +97,8 @@ void GameController::startMission()
 	else if (curLevel==1)
 	{
 		//todo
-		SplashLayer::getInstance()->fadeOutBlackAndFloorNumber(2);
-		runStartDialogue();
+		//SplashLayer::getInstance()->fadeOutBlackAndFloorNumber(2);
+		SplashLayer::getInstance()->reStartGame(1.5);
 	}
 	else
 	{

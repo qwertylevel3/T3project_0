@@ -224,3 +224,31 @@ void SplashLayer::startDialogue(SplashLayer* layer)
 {
 	GameController::getInstance()->runStartDialogue();
 }
+
+void SplashLayer::reStartGame(float dt)
+{
+	black->stopAllActions();
+	black->setOpacity(255);
+
+	//titleµ­Èëµ­³ö
+	title->setOpacity(0);
+	auto titleAction = cocos2d::FadeIn::create(dt);
+	auto titleActionBack = titleAction->reverse();
+	title->runAction(
+		cocos2d::Sequence::create(
+			cocos2d::Sequence::create(titleAction, titleActionBack, nullptr),
+			cocos2d::CallFunc::create(
+				CC_CALLBACK_0(
+					SplashLayer::fadeoutBlackAndStart, this
+				)
+			),
+			NULL
+		)
+	);
+
+}
+
+void SplashLayer::showBlack()
+{
+	black->setOpacity(255);
+}

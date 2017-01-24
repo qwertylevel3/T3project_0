@@ -19,6 +19,7 @@ public:
 	~SplashLayer();
 	bool init();
 	void startGame(float dt);
+	void reStartGame(float dt);
 	void fadeOutBlackAndFloorNumber(float dt);
 	void nextMission(float dt);
 	void fadeInBlack(float dt);
@@ -28,6 +29,7 @@ public:
 	void showBlackAndFloorNumberAndStart(float dt);
 	void clearGame();
 	void fadeOutFloorNumber(float dt);
+	void showBlack();
 protected:
 	cocos2d::Sprite* logo;
 	cocos2d::Sprite* title;

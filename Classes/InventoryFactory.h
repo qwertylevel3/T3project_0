@@ -39,5 +39,6 @@ protected:
 	tinyxml2::XMLElement* curInventoryElement;
 
 	std::vector<std::vector<std::string> > inventoryLevelBox;
+	std::vector<std::string> noteBox;
 };
 

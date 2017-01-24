@@ -1,4 +1,5 @@
 #include "AIPlayer.h"
+#include "KeyController.h"
 #include "GameSaveManager.h"
 #include "SplashLayer.h"
 #include "GameController.h"
@@ -31,6 +32,7 @@ void AIPlayer::lastWords()
 
 void AIPlayer::handleDialogueResult(std::string dialogueName, int resultNumber)
 {
+	KeyController::getInstance()->setBlock(true);
 	GameController::getInstance()->reStartGame();
 }
 

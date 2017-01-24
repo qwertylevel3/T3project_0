@@ -87,8 +87,8 @@ void Player::configPlayer()
 
 	controlMode = NormalMode;
 
-	characterPtr->setHP(100);
-	characterPtr->setMaxHP(100);
+	characterPtr->setHP(10);
+	characterPtr->setMaxHP(10);
 	characterPtr->setMP(100);
 	characterPtr->setMaxMP(100);
 
@@ -111,7 +111,7 @@ void Player::configPlayer()
 	Inventory* armor = InventoryFactory::getInstance()->getInventory("armor000");
 	characterPtr->initArmor(armor);
 
-	characterPtr->addInventory("note000");
+	characterPtr->addInventory("note001");
 //	characterPtr->addInventory("scroll018");
 //	characterPtr->addInventory("scroll019");
 //	characterPtr->addInventory("scroll020");
