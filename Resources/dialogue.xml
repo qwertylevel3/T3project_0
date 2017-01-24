@@ -129,14 +129,8 @@
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil3.png</actorName>
-			<word>那你可要跟上哦</word>
-			<next>6</next>
-		</sentence>
-		<sentence>
-			<type>statement</type>
 			<actorName>dialogueVergil1.png</actorName>
-			<word>如果有危险，我还是听你的</word>
+			<word>那你可要跟上哦</word>
 			<next>-11</next>
 		</sentence>
 	</dialogue>
@@ -303,13 +297,13 @@
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil2.png</actorName>
+			<actorName>dialogueVergil5.png</actorName>
 			<word>这幅身体也是魔法合成的</word>
 			<next>3</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil1.png</actorName>
+			<actorName>dialogueVergil6.png</actorName>
 			<word>因为某些原因我没法去那个地方，所以留在这里了</word>
 			<next>-1</next>
 		</sentence>
@@ -318,13 +312,13 @@
 		<name>vergilTips2</name>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil3.png</actorName>
+			<actorName>dialogueVergil4.png</actorName>
 			<word>史莱姆的味道。。。</word>
 			<next>2</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil2.png</actorName>
+			<actorName>dialogueVergil5.png</actorName>
 			<word>超恶心的。。。</word>
 			<next>-1</next>
 		</sentence>
@@ -333,13 +327,13 @@
 		<name>vergilTips3</name>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil1.png</actorName>
+			<actorName>dialogueVergil4.png</actorName>
 			<word>明明我嘱咐朋友把我的手稿销毁的</word>
 			<next>2</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil1.png</actorName>
+			<actorName>dialogueVergil5.png</actorName>
 			<word>可是似乎他们并没有这么做</word>
 			<next>-1</next>
 		</sentence>
@@ -391,7 +385,13 @@
 		<sentence>
 			<type>statement</type>
 			<actorName>dialogueVergil3.png</actorName>
-			<word>Stella神像，手感超赞的</word>
+			<word>Stella神像的手感</word>
+			<next>3</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>赞！</word>
 			<next>3</next>
 		</sentence>
 		<sentence>
@@ -411,7 +411,7 @@
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil3.png</actorName>
+			<actorName>dialogueVergil1.png</actorName>
 			<word>真的哦</word>
 			<next>-1</next>
 		</sentence>
@@ -420,13 +420,13 @@
 		<name>vergilTips8</name>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil1.png</actorName>
+			<actorName>dialogueVergil3.png</actorName>
 			<word>黑色的蛇非常怕光</word>
 			<next>2</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil1.png</actorName>
+			<actorName>dialogueVergil4.png</actorName>
 			<word>所以它们会主动攻击点亮的星塔</word>
 			<next>-1</next>
 		</sentence>
@@ -441,7 +441,7 @@
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil3.png</actorName>
+			<actorName>dialogueVergil6.png</actorName>
 			<word>恶魔的三叉戟暴击是不是太强了一点...</word>
 			<next>-1</next>
 		</sentence>
@@ -450,13 +450,13 @@
 		<name>vergilTips10</name>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil1.png</actorName>
+			<actorName>dialogueVergil4.png</actorName>
 			<word>如果有什么对智力需求非常高的书的话</word>
 			<next>2</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil3.png</actorName>
+			<actorName>dialogueVergil2.png</actorName>
 			<word>也许我可以看的懂哦</word>
 			<next>-1</next>
 		</sentence>
@@ -465,13 +465,13 @@
 		<name>vergilTips11</name>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil1.png</actorName>
+			<actorName>dialogueVergil4.png</actorName>
 			<word>如果是高等级物品的话</word>
 			<next>2</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil3.png</actorName>
+			<actorName>dialogueVergil2.png</actorName>
 			<word>投掷也能造成大量伤害哦</word>
 			<next>-1</next>
 		</sentence>
@@ -486,7 +486,7 @@
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil3.png</actorName>
+			<actorName>dialogueVergil6.png</actorName>
 			<word>只不过掉落率太低了而已...</word>
 			<next>-1</next>
 		</sentence>
@@ -504,7 +504,7 @@
 		<name>vergilCastBuff</name>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil3.png</actorName>
+			<actorName>dialogueVergil1.png</actorName>
 			<word>把头伸过来，我给你加个Buff</word>
 			<next>-1</next>
 		</sentence>
@@ -513,7 +513,7 @@
 		<name>vergilNoMagic</name>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil3.png</actorName>
+			<actorName>dialogueVergil6.png</actorName>
 			<word>没魔法啦。。。</word>
 			<next>-1</next>
 		</sentence>
@@ -522,7 +522,7 @@
 		<name>vergilDie</name>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil3.png</actorName>
+			<actorName>dialogueVergil5.png</actorName>
 			<word>呃，这次是我的错。。。</word>
 			<next>2</next>
 		</sentence>
@@ -795,7 +795,7 @@
 		<name>firstClear</name>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil2.png</actorName>
+			<actorName>dialogueVergil6.png</actorName>
 			<word>所以说，你怎么又回来了啊</word>
 			<next>-1</next>
 		</sentence>

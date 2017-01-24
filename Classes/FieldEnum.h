@@ -5,15 +5,15 @@ namespace Field {
 	enum Tile
 	{
 		Unused = 1,
-		Ice = 2,
-		Floor = 21,
-		Corridor = 21,
-		Wall = 110,
-		Trap=51,
-		ClosedDoor = 21,
-		OpenDoor = 21,
-		UpStair = 7,
-		DownStair = 8
+		Ice = 5,
+		Floor = 2,
+		Corridor = 6,
+		Wall = 3,
+		Trap=4,
+		ClosedDoor = 7,
+		OpenDoor = 8,
+		UpStair = 9,
+		DownStair = 10
 	};
 	enum Direction
 	{

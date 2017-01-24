@@ -25,6 +25,7 @@ public:
 	int queryInventoryWeight(const std::string& inventoryName);
 	int queryInventoryLevel(const std::string& inventoryName);
 	std::string getRandomInventory(int level);
+	std::string getRandomNote();
 protected:
 	void initModel(tinyxml2::XMLElement* inventoryElement,const std::string& type);
 	void initBaseData(tinyxml2::XMLElement* inventoryElement,Inventory* model);

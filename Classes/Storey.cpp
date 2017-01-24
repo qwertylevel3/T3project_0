@@ -609,15 +609,12 @@ bool Field::Storey::isMoveAble(int tile)
 	bool flag = false;
 	switch (tile)
 	{
-	case Field::Tile::Floor:
-	case Field::Tile::UpStair:
-	case Field::Tile::DownStair:
-	case Field::Tile::Ice:
-	case Field::Tile::Trap:
-		flag = true;
+	case Field::Tile::Wall:
+	case Field::Tile::Unused:
+		flag = false;
 		break;
 	default:
-		flag = false;
+		flag = true;
 		break;
 	}
 	return flag;

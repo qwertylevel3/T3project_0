@@ -49,6 +49,51 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
+            <key>dialogueVergil4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{150,200}</string>
+                <key>spriteSourceSize</key>
+                <string>{150,200}</string>
+                <key>textureRect</key>
+                <string>{{0,600},{150,200}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dialogueVergil5.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{150,200}</string>
+                <key>spriteSourceSize</key>
+                <string>{150,200}</string>
+                <key>textureRect</key>
+                <string>{{0,800},{150,200}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>dialogueVergil6.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{150,200}</string>
+                <key>spriteSourceSize</key>
+                <string>{150,200}</string>
+                <key>textureRect</key>
+                <string>{{0,1000},{150,200}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
             <key>persephone.png</key>
             <dict>
                 <key>aliases</key>
@@ -60,7 +105,7 @@
                 <key>spriteSourceSize</key>
                 <string>{150,208}</string>
                 <key>textureRect</key>
-                <string>{{0,600},{150,208}}</string>
+                <string>{{0,1200},{150,208}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -75,7 +120,7 @@
                 <key>spriteSourceSize</key>
                 <string>{150,200}</string>
                 <key>textureRect</key>
-                <string>{{0,808},{150,200}}</string>
+                <string>{{0,1408},{150,200}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -91,9 +136,9 @@
             <key>realTextureFileName</key>
             <string>dialogueActor.png</string>
             <key>size</key>
-            <string>{150,1008}</string>
+            <string>{150,1608}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:a87cd700e3a56f20743b0accb4dbe80c:acf815cb437b5c6dc7ba0bc742b41aed:86d9bba55a8fc447cc79f80a54dcb6c5$</string>
+            <string>$TexturePacker:SmartUpdate:fc144728359ef09419c0ddb379e0792f:a872f7616829cbbb9d7ba64a4b99f1b4:86d9bba55a8fc447cc79f80a54dcb6c5$</string>
             <key>textureFileName</key>
             <string>dialogueActor.png</string>
         </dict>

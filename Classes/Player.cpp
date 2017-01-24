@@ -111,16 +111,7 @@ void Player::configPlayer()
 	Inventory* armor = InventoryFactory::getInstance()->getInventory("armor000");
 	characterPtr->initArmor(armor);
 
-	characterPtr->addInventory("note001");
-//	characterPtr->addInventory("scroll018");
-//	characterPtr->addInventory("scroll019");
-//	characterPtr->addInventory("scroll020");
-//	characterPtr->addInventory("scroll021");
-
-
-
-
-
+	characterPtr->addInventory("note000");
 
 
 
