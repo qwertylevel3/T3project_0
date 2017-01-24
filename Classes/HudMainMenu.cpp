@@ -1,4 +1,5 @@
 #include "HudMainMenu.h"
+#include "HudSysMenu.h"
 #include "HudLayout.h"
 #include "base/ccTypes.h"
 #include "HudMenuItem.h"
@@ -79,5 +80,15 @@ void HudMainMenu::init()
 
 	HudTrigActChildMenu* groundTrigger = new HudTrigActChildMenu(HudGroundMenu::getInstance());
 	groundMenuItem->setTrigger(groundTrigger);
+
+
+	//////////////////////////////////////////////////////////////////////////
+	HudMenuItem* sysMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"ϵͳ"));
+	this->addItem(sysMenuItem);
+
+	HudSysMenu::getInstance()->setParent(this);
+
+	HudTrigActChildMenu* sysTrigger = new HudTrigActChildMenu(HudSysMenu::getInstance());
+	sysMenuItem->setTrigger(sysTrigger);
 
 }

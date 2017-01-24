@@ -14,6 +14,7 @@ class SplashLayer:public cocos2d::Layer,public Singleton<SplashLayer>
 public:
 	static void startMission(SplashLayer* layer);
 	static void fadeoutBlackAndStart(SplashLayer* layer);
+	static void startDialogue(SplashLayer* layer);
 	SplashLayer();
 	~SplashLayer();
 	bool init();
@@ -24,6 +25,7 @@ public:
 	void fadeInWhite(float dt);
 	void fadeOutBlack(float dt);
 	void fadeInFloorNumber(float dt);
+	void showBlackAndFloorNumberAndStart(float dt);
 	void clearGame();
 	void fadeOutFloorNumber(float dt);
 protected:

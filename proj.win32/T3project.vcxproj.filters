@@ -651,6 +651,8 @@
     <ClCompile Include="..\Classes\HPSelfAccordInt.cpp" />
     <ClCompile Include="..\Classes\HPCastAccordInt.cpp" />
     <ClCompile Include="..\Classes\ActiveSkilllSphere.cpp" />
+    <ClCompile Include="..\Classes\HudSysMenu.cpp" />
+    <ClCompile Include="..\Classes\HudTrigQuit.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1229,6 +1231,8 @@
     <ClInclude Include="..\Classes\HPSelfAccordInt.h" />
     <ClInclude Include="..\Classes\HPCastAccordInt.h" />
     <ClInclude Include="..\Classes\ActiveSkilllSphere.h" />
+    <ClInclude Include="..\Classes\HudSysMenu.h" />
+    <ClInclude Include="..\Classes\HudTrigQuit.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

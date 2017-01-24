@@ -623,19 +623,19 @@
 			<word>你的愿望</word>
 			<optionList>
 				<option>
-					<label>武器(30信仰)</label>
+					<label>武器(25信仰)</label>
 					<next>-1</next>
 				</option>
 				<option>
-					<label>法杖(30信仰)</label>
+					<label>法杖(25信仰)</label>
 					<next>-2</next>
 				</option>
 				<option>
-					<label>护甲(30信仰)</label>
+					<label>护甲(25信仰)</label>
 					<next>-3</next>
 				</option>
 				<option>
-					<label>附件(30信仰)</label>
+					<label>附件(25信仰)</label>
 					<next>-4</next>
 				</option>
 				<option>

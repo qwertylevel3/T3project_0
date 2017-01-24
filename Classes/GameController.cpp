@@ -91,7 +91,7 @@ void GameController::startMission()
 
 	if (firstPlay)
 	{
-		SplashLayer::getInstance()->startGame(2);
+		SplashLayer::getInstance()->startGame(1.5);
 		firstPlay = false;
 	}
 	else if (curLevel==1)

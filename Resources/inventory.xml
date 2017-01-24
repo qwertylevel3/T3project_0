@@ -1128,7 +1128,7 @@
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>EvadeBuff_星月祝福7_ATTR_Good_4_-1_15</buffID>
+			<buffID>EvadeBuff_星月祝福7_ATTR_Good_4_-1_25</buffID>
 			<buffID>ViewSizeBuff_星月祝福8_ATTR_Good_1_-1_1</buffID>
 		</buffBox>
 	</inventory>
@@ -1143,7 +1143,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 			<buffID>ViewSizeBuff_星光_ATTR_Good_1_-1_2</buffID>
-			<buffID>EvadeBuff_Stella的祝福_ATTR_Good_4_-1_15</buffID>
+			<buffID>EvadeBuff_Stella的祝福_ATTR_Good_4_-1_30</buffID>
 		</buffBox>
 	</inventory>
 	<inventory>
@@ -1475,7 +1475,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>40</intRequire>
 		<skillName>LearnSkill_学习魅魔的召唤_0_0_Summon_魅魔的召唤_300_100_succubus</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
@@ -1619,7 +1619,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BlinkSelf_闪烁_0_0_3</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
@@ -1635,7 +1635,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_闪避buff祝福_0_0_EvadeBuff_闪避buff_ATTR_Good_4_20_20</skillName>
 		<supplyType>3</supplyType>
 	</inventory>
@@ -1651,7 +1651,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_暴击buff祝福_0_0_CriticalProBuff_暴击Buff_ATTR_Good_4_20_20</skillName>
 		<supplyType>3</supplyType>
 	</inventory>
@@ -1667,7 +1667,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_夜视_0_0_ViewSizeBuff_夜视_ATTR_Good_1_40_2</skillName>
 		<supplyType>3</supplyType>
 	</inventory>
@@ -1683,7 +1683,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_鹰眼祝福_0_0_AccuracyBuff_鹰眼_ATTR_Good_4_20_20</skillName>
 		<supplyType>3</supplyType>
 	</inventory>
@@ -1795,7 +1795,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>Summon_slime的召唤_0_0_sslime</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
@@ -1843,7 +1843,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_锻炼_0_0_BaseAttrBuff_肌肉强健_ATTR_Good_2_-1_2_0_0</skillName>
 		<supplyType>4</supplyType>
 	</inventory>
@@ -1859,7 +1859,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_锻炼_0_0_BaseAttrBuff_敏捷提高_ATTR_Good_2_-1_0_2_0</skillName>
 		<supplyType>4</supplyType>
 	</inventory>
@@ -1875,7 +1875,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_狂化_0_0_CriticalProBuff_暴击Buff_ATTR_Good_4_5_50</skillName>
 		<supplyType>3</supplyType>
 	</inventory>
@@ -1891,7 +1891,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_狂化_0_0_EvadeBuff_加速_ATTR_Good_4_5_50</skillName>
 		<supplyType>3</supplyType>
 	</inventory>
@@ -1907,7 +1907,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_群星闪耀_0_0_ViewSizeBuff_星光_ATTR_Good_1_1_50</skillName>
 		<supplyType>9</supplyType>
 	</inventory>
@@ -1923,7 +1923,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_祝福_0_0_AccuracyBuff_游侠之祝福_ATTR_Good_4_8_100</skillName>
 		<supplyType>3</supplyType>
 	</inventory>
@@ -1939,7 +1939,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_祝福_0_0_ComboBuff_GK之祝福_ATTR_Good_4_1_100</skillName>
 		<supplyType>3</supplyType>
 	</inventory>
@@ -1955,7 +1955,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_闪避buff祝福_0_0_EvadeBuff_闪避buff_ATTR_Good_4_10_40</skillName>
 		<supplyType>3</supplyType>
 	</inventory>
@@ -1971,7 +1971,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_暴击buff祝福_0_0_CriticalProBuff_暴击Buff_ATTR_Good_4_10_40</skillName>
 		<supplyType>3</supplyType>
 	</inventory>
@@ -1987,7 +1987,7 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>10</intRequire>
+		<intRequire>0</intRequire>
 		<skillName>BuffSelf_鹰眼祝福_0_0_AccuracyBuff_钛金鹰眼_ATTR_Good_4_10_60</skillName>
 		<supplyType>3</supplyType>
 	</inventory>

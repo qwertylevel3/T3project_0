@@ -153,8 +153,8 @@ void SplashLayer::fadeOutBlack(float dt)
 
 void SplashLayer::fadeoutBlackAndStart(SplashLayer* layer)
 {
-	layer->fadeOutBlack(2);
-	GameController::getInstance()->runStartDialogue();
+//	layer->fadeOutBlackAndFloorNumber(2);
+	layer->showBlackAndFloorNumberAndStart(1.5);
 }
 
 void SplashLayer::fadeInWhite(float dt)
@@ -188,4 +188,39 @@ void SplashLayer::clearGame()
 			NULL
 		)
 	);
+}
+
+void SplashLayer::showBlackAndFloorNumberAndStart(float dt)
+{
+	black->setOpacity(255);
+	black->runAction(
+		cocos2d::Sequence::create(
+			cocos2d::DelayTime::create(dt),
+			cocos2d::FadeOut::create(dt),
+			NULL
+		)
+	);
+
+	int curLevel = GameController::getInstance()->getCurLevel();
+	levelMessageLabel->setString(
+		"FLOOR -" + ToolFunction::int2string(curLevel)
+	);
+
+	levelMessageLabel->runAction(
+		cocos2d::Sequence::create(
+			cocos2d::FadeIn::create(dt),
+			cocos2d::FadeOut::create(dt-0.3),
+			cocos2d::CallFunc::create(
+				CC_CALLBACK_0(
+					SplashLayer::startDialogue,this
+				)
+			),
+			NULL
+		)
+	);
+}
+
+void SplashLayer::startDialogue(SplashLayer* layer)
+{
+	GameController::getInstance()->runStartDialogue();
 }

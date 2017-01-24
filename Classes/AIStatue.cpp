@@ -133,15 +133,15 @@ void AIStatue::handlePrayResult(int resultNumber)
 
 void AIStatue::giveWeapon()
 {
-	if (Player::getInstance()->getFaithValue()<30)
+	if (Player::getInstance()->getFaithValue()<25)
 	{
 		DialogueSystem::getInstance()->runDialogue("noFaith");
 		return;
 	}
 
 
-	Player::getInstance()->reduceFaith(30);
-	HudMessageBox::getInstance()->addMessage(L"你失去了30信仰点数");
+	Player::getInstance()->reduceFaith(25);
+	HudMessageBox::getInstance()->addMessage(L"你失去了25信仰点数");
 
 	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
 
@@ -171,13 +171,13 @@ void AIStatue::giveWeapon()
 
 void AIStatue::giveWand()
 {
-	if (Player::getInstance()->getFaithValue()<30)
+	if (Player::getInstance()->getFaithValue()<25)
 	{
 		DialogueSystem::getInstance()->runDialogue("noFaith");
 		return;
 	}
-	Player::getInstance()->reduceFaith(30);
-	HudMessageBox::getInstance()->addMessage(L"你失去了30信仰点数");
+	Player::getInstance()->reduceFaith(25);
+	HudMessageBox::getInstance()->addMessage(L"你失去了25信仰点数");
 
 	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
 
@@ -207,15 +207,15 @@ void AIStatue::giveWand()
 
 void AIStatue::giveArmor()
 {
-	if (Player::getInstance()->getFaithValue()<30)
+	if (Player::getInstance()->getFaithValue()<25)
 	{
 		DialogueSystem::getInstance()->runDialogue("noFaith");
 		return;
 	}
 
 
-	Player::getInstance()->reduceFaith(30);
-	HudMessageBox::getInstance()->addMessage(L"你失去了30信仰点数");
+	Player::getInstance()->reduceFaith(25);
+	HudMessageBox::getInstance()->addMessage(L"你失去了25信仰点数");
 
 	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
 
@@ -245,15 +245,15 @@ void AIStatue::giveArmor()
 
 void AIStatue::giveAccessory()
 {
-	if (Player::getInstance()->getFaithValue()<30)
+	if (Player::getInstance()->getFaithValue()<25)
 	{
 		DialogueSystem::getInstance()->runDialogue("noFaith");
 		return;
 	}
 
 
-	Player::getInstance()->reduceFaith(30);
-	HudMessageBox::getInstance()->addMessage(L"你失去了30信仰点数");
+	Player::getInstance()->reduceFaith(25);
+	HudMessageBox::getInstance()->addMessage(L"你失去了25信仰点数");
 
 	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
 
