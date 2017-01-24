@@ -361,7 +361,7 @@ std::vector<std::string > InventoryListGenerator::generateChest5()
 	std::string level6Inv = getRandomInv(6, 40);
 	addInv2List(level6Inv, invList);
 
-	std::string level7Inv = getRandomInv(7, 10);
+	std::string level7Inv = getRandomInv(7, 4);
 	addInv2List(level7Inv, invList);
 
 	std::string note = getRandomNote();

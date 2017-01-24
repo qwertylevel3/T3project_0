@@ -1,4 +1,5 @@
 #include "SplashLayer.h"
+#include "RandomNumber.h"
 #include "ToolFunction.h"
 #include "2d/CCSprite.h"
 #include "2d/CCActionInterval.h"
@@ -45,6 +46,12 @@ bool SplashLayer::init()
 	title->setPosition(400, 300);
 	title->setOpacity(0);
 	this->addChild(title);
+
+	starSky = cocos2d::Sprite::create("sys/starSky.png");
+	starSky->setAnchorPoint(cocos2d::Vec2::ANCHOR_BOTTOM_LEFT);
+	starSky->setPosition(0, 0);
+	starSky->setOpacity(0);
+	this->addChild(starSky);
 
 	levelMessageLabel = cocos2d::Label::createWithTTF("", "fonts/arialuni.ttf", 40);
 	levelMessageLabel->setAnchorPoint(cocos2d::Vec2::ANCHOR_MIDDLE);
@@ -153,7 +160,7 @@ void SplashLayer::fadeOutBlack(float dt)
 
 void SplashLayer::fadeoutBlackAndStart(SplashLayer* layer)
 {
-//	layer->fadeOutBlackAndFloorNumber(2);
+	//	layer->fadeOutBlackAndFloorNumber(2);
 	layer->showBlackAndFloorNumberAndStart(1.5);
 }
 
@@ -173,20 +180,52 @@ void SplashLayer::clearGame()
 	white->runAction(
 		cocos2d::Sequence::create(
 			cocos2d::FadeIn::create(2),
-			cocos2d::DelayTime::create(1.9),
+			cocos2d::DelayTime::create(4.9),
 			cocos2d::FadeOut::create(0.1),
 			NULL
 		)
 
 	);
 
-	black->setOpacity(0);
-	black->runAction(
+	for (int i = 0; i < 10; i++)
+	{
+		cocos2d::Sprite* star = cocos2d::Sprite::create("sys/star.png");
+
+		int x = RandomNumber::getInstance()->randomInt(50, 750);
+		int y = RandomNumber::getInstance()->randomInt(400, 750);
+
+		star->setPosition(x, y);
+
+		starSky->addChild(star);
+
+		int delay = RandomNumber::getInstance()->randomInt(1, 10);
+
+		double delayTime = double(delay) / 10.0;
+
+		star->runAction(
+			cocos2d::RepeatForever::create(
+				cocos2d::Sequence::create(
+					cocos2d::DelayTime::create(delayTime),
+					cocos2d::FadeOut::create(0.5),
+					cocos2d::FadeIn::create(0.5),
+					NULL
+				)
+			)
+		);
+	}
+
+	starSky->setOpacity(0);
+	starSky->runAction(
 		cocos2d::Sequence::create(
 			cocos2d::DelayTime::create(2),
-			cocos2d::FadeIn::create(2),
+			cocos2d::Spawn::create(
+				cocos2d::FadeIn::create(5),
+				cocos2d::MoveBy::create(10, cocos2d::Vec2(0, -200)),
+				NULL
+			),
 			NULL
 		)
+
 	);
 }
 
@@ -209,10 +248,10 @@ void SplashLayer::showBlackAndFloorNumberAndStart(float dt)
 	levelMessageLabel->runAction(
 		cocos2d::Sequence::create(
 			cocos2d::FadeIn::create(dt),
-			cocos2d::FadeOut::create(dt-0.3),
+			cocos2d::FadeOut::create(dt - 0.3),
 			cocos2d::CallFunc::create(
 				CC_CALLBACK_0(
-					SplashLayer::startDialogue,this
+					SplashLayer::startDialogue, this
 				)
 			),
 			NULL
@@ -227,6 +266,11 @@ void SplashLayer::startDialogue(SplashLayer* layer)
 
 void SplashLayer::reStartGame(float dt)
 {
+	starSky->stopAllActions();
+	starSky->setOpacity(0);
+	starSky->setPosition(0, 0);
+	starSky->removeAllChildren();
+
 	black->stopAllActions();
 	black->setOpacity(255);
 
@@ -245,7 +289,6 @@ void SplashLayer::reStartGame(float dt)
 			NULL
 		)
 	);
-
 }
 
 void SplashLayer::showBlack()

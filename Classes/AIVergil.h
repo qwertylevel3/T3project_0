@@ -87,4 +87,7 @@ protected:
 
 	int smallTalkCount;
 
+	//9²ãµÄÊ±ºòÍÂ²Û
+	bool level9Word;
 };
+

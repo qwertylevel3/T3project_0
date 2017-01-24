@@ -1,4 +1,5 @@
 #include "AIPersephone.h"
+#include "KeyController.h"
 #include "GameSaveManager.h"
 #include "SplashLayer.h"
 #include "RandomNumber.h"
@@ -87,6 +88,7 @@ void AIPersephone::handleDialogueResult(std::string dialogueName, int resultNumb
 	else if (dialogueName == "clearGame"
 		&& resultNumber == -1)
 	{
+		KeyController::getInstance()->setBlock(true);
 		GameSaveManager::getInstance()->increaseClearGameCount();
 		GameSaveManager::getInstance()->increasePersephoneDieCount();
 		GameSaveManager::getInstance()->increaseFirstClear();

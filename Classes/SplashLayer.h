@@ -35,6 +35,7 @@ protected:
 	cocos2d::Sprite* title;
 	cocos2d::Sprite* black;
 	cocos2d::Sprite* white;
+	cocos2d::Sprite* starSky;
 	cocos2d::Label* levelMessageLabel;
 };
 

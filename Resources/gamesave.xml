@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gamesave version="1.0">
-    <playCount>32</playCount>
+    <playCount>60</playCount>
     <dieCount>13</dieCount>
     <vergilDieCount>0</vergilDieCount>
-    <persephoneDieCount>0</persephoneDieCount>
-    <clearGameCount>0</clearGameCount>
-    <firstClear>0</firstClear>
+    <persephoneDieCount>13</persephoneDieCount>
+    <clearGameCount>13</clearGameCount>
+    <firstClear>14</firstClear>
 </gamesave>

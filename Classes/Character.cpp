@@ -1066,7 +1066,7 @@ void Character::startRound()
 	if (storey->isTrap(mapCoord)
 		&& !this->isDead())
 	{
-		sufferHPEffect(-5);
+		sufferHPEffect(-10);
 	}
 }
 

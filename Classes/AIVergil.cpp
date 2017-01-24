@@ -1,4 +1,5 @@
 #include "AIVergil.h"
+#include "GameController.h"
 #include "RandomNumber.h"
 #include "BuffHandler.h"
 #include "Supply.h"
@@ -26,6 +27,7 @@ AIVergil::AIVergil()
 {
 	//默认为紧密跟随
 	curState = 0;
+	level9Word = false;
 
 	smallTalkCount = 4;
 }
@@ -36,6 +38,13 @@ AIVergil::~AIVergil()
 
 void AIVergil::update()
 {
+	if (GameController::getInstance()->getCurLevel()==9
+		&& level9Word==false)
+	{
+		characterPtr->speak(L"Vexilla regis prodeunt inferni");
+		level9Word = true;
+	}
+
 	//更新闲聊计数器
 	updateSmallTalkCount();
 

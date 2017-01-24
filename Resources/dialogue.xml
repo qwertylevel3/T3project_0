@@ -392,7 +392,7 @@
 			<type>statement</type>
 			<actorName>dialogueVergil1.png</actorName>
 			<word>赞！</word>
-			<next>3</next>
+			<next>4</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
@@ -689,37 +689,61 @@
 			<type>statement</type>
 			<actorName>NULL</actorName>
 			<word>此刻</word>
-			<next>3</next>
+			<next>4</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
 			<actorName>NULL</actorName>
 			<word>映入眼帘的</word>
-			<next>3</next>
+			<next>5</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
 			<actorName>NULL</actorName>
 			<word>是灿烂的群星[Stella]</word>
-			<next>4</next>
-		</sentence>
-		<sentence>
-			<type>statement</type>
-			<actorName>dialogueVergil1.png</actorName>
-			<word>那么，这次就到这里了</word>
-			<next>5</next>
-		</sentence>
-		<sentence>
-			<type>statement</type>
-			<actorName>dialogueVergil2.png</actorName>
-			<word>下次再见喽</word>
 			<next>6</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil3.png</actorName>
-			<word>Thank you for playing</word>
+			<actorName>dialogueVergil6.png</actorName>
+			<word>还真是费劲啊</word>
 			<next>7</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>不过没事了</word>
+			<next>8</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>我们已经从Inferno结界中出来了</word>
+			<next>9</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil4.png</actorName>
+			<word>下面的路就轻松多了</word>
+			<next>10</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>那么，这次就到这里吧</word>
+			<next>11</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>下次再见喽</word>
+			<next>12</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>Thank you for playing</word>
+			<next>13</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
