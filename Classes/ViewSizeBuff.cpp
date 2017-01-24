@@ -17,7 +17,9 @@ Buff::ViewSizeBuff::~ViewSizeBuff()
 void Buff::ViewSizeBuff::apply(Character* target)
 {
 	CharacterAttrHandler* attrHandler = target->getAttrHandler();
-	attrHandler->setViewSizeByBuff(attrHandler->getViewSize() + viewSizeOffset);
+	int tempSize = attrHandler->getViewSize() + viewSizeOffset;
+	tempSize = tempSize < 1 ? 1 : tempSize;
+	attrHandler->setViewSizeByBuff(tempSize);
 }
 
 Buff::ViewSizeBuff* Buff::ViewSizeBuff::createPrototype()

@@ -130,6 +130,20 @@ std::string InventoryListGenerator::getRandomInv(int level, int pro)
 	return "";
 }
 
+std::string InventoryListGenerator::getRandomNote()
+{
+	int roll = RandomNumber::getInstance()->randomInt(1, 10);
+
+	if (roll == 1)
+	{
+		return InventoryFactory::getInstance()->getRandomNote();
+	}
+	else
+	{
+		return "";
+	}
+}
+
 std::vector<std::string > InventoryListGenerator::generateSlimeInvList()
 {
 	std::vector<std::string > invList;
@@ -171,6 +185,7 @@ std::vector<std::string > InventoryListGenerator::generateBlackSnackInvList()
 
 	std::string level5Inv = getRandomInv(5, 20);
 	addInv2List(level5Inv, invList);
+
 	return invList;
 }
 
@@ -187,6 +202,7 @@ std::vector<std::string > InventoryListGenerator::generateGhostInvList()
 
 	std::string level5Inv = getRandomInv(5, 20);
 	addInv2List(level5Inv, invList);
+
 	return invList;
 }
 
@@ -207,7 +223,6 @@ std::vector<std::string > InventoryListGenerator::generateDemonInvList()
 	std::string level8Inv = getRandomInv(8, 5);
 	addInv2List(level8Inv, invList);
 
-
 	return invList;
 }
 
@@ -226,6 +241,9 @@ std::vector<std::string > InventoryListGenerator::generateWizardInvList()
 
 	std::string level8Inv = getRandomInv(8, 5);
 	addInv2List(level8Inv, invList);
+
+	std::string note = getRandomNote();
+	addInv2List(note, invList);
 
 	return invList;
 }
@@ -259,6 +277,9 @@ std::vector<std::string > InventoryListGenerator::generateChest1()
 	std::string level3Inv = getRandomInv(3, 10);
 	addInv2List(level3Inv, invList);
 
+	std::string note = getRandomNote();
+	addInv2List(note, invList);
+
 	return invList;
 }
 
@@ -277,6 +298,9 @@ std::vector<std::string > InventoryListGenerator::generateChest2()
 
 	std::string level4Inv = getRandomInv(4, 5);
 	addInv2List(level4Inv, invList);
+
+	std::string note = getRandomNote();
+	addInv2List(note, invList);
 
 	return invList;
 }
@@ -297,6 +321,10 @@ std::vector<std::string > InventoryListGenerator::generateChest3()
 	std::string level5Inv = getRandomInv(5, 10);
 	addInv2List(level5Inv, invList);
 
+	std::string note = getRandomNote();
+	addInv2List(note, invList);
+
+
 	return invList;
 }
 
@@ -312,6 +340,10 @@ std::vector<std::string > InventoryListGenerator::generateChest4()
 
 	std::string level6Inv = getRandomInv(6, 10);
 	addInv2List(level6Inv, invList);
+
+	std::string note = getRandomNote();
+	addInv2List(note, invList);
+
 
 	return invList;
 }
@@ -332,6 +364,10 @@ std::vector<std::string > InventoryListGenerator::generateChest5()
 	std::string level7Inv = getRandomInv(7, 10);
 	addInv2List(level7Inv, invList);
 
+	std::string note = getRandomNote();
+	addInv2List(note, invList);
+
+
 	return invList;
 }
 
@@ -347,6 +383,9 @@ std::vector<std::string > InventoryListGenerator::generateChest6()
 
 	std::string level7Inv = getRandomInv(7, 8);
 	addInv2List(level7Inv, invList);
+
+	std::string note = getRandomNote();
+	addInv2List(note, invList);
 
 	return invList;
 }
@@ -367,6 +406,10 @@ std::vector<std::string > InventoryListGenerator::generateChest7()
 	std::string level8Inv = getRandomInv(8, 2);
 	addInv2List(level8Inv, invList);
 
+	std::string note = getRandomNote();
+	addInv2List(note, invList);
+
+
 	return invList;
 }
 
@@ -379,6 +422,9 @@ std::vector<std::string > InventoryListGenerator::generateChest8()
 
 	std::string level8Inv = getRandomInv(8, 10);
 	addInv2List(level8Inv, invList);
+
+	std::string note = getRandomNote();
+	addInv2List(note, invList);
 
 
 	return invList;
@@ -396,6 +442,10 @@ std::vector<std::string > InventoryListGenerator::generateChest9()
 
 	std::string level9Inv = getRandomInv(9, 1);
 	addInv2List(level9Inv, invList);
+
+	std::string note = getRandomNote();
+	addInv2List(note, invList);
+
 
 	return invList;
 }

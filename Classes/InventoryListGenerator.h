@@ -34,6 +34,7 @@ public:
 protected:
 	//pro概率出现随机level物品
 	std::string getRandomInv(int level, int pro);
+	std::string getRandomNote(int pro);
 
 	void addInv2List(std::string invName,std::vector<std::string >& invList);
 

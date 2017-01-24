@@ -81,6 +81,13 @@ std::string InventoryFactory::getRandomInventory(int level)
 	return inventoryLevelBox[level][roll];
 }
 
+std::string InventoryFactory::getRandomNote()
+{
+	int roll = RandomNumber::getInstance()->randomInt(0, noteBox.size() - 1);
+
+	return noteBox[roll];
+}
+
 void InventoryFactory::initModel(tinyxml2::XMLElement* inventoryElement, const std::string& type)
 {
 	if (type == "oneHandWeapon")
