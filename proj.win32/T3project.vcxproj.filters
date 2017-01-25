@@ -653,6 +653,7 @@
     <ClCompile Include="..\Classes\ActiveSkilllSphere.cpp" />
     <ClCompile Include="..\Classes\HudSysMenu.cpp" />
     <ClCompile Include="..\Classes\HudTrigQuit.cpp" />
+    <ClCompile Include="..\Classes\HudTips.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1233,6 +1234,7 @@
     <ClInclude Include="..\Classes\ActiveSkilllSphere.h" />
     <ClInclude Include="..\Classes\HudSysMenu.h" />
     <ClInclude Include="..\Classes\HudTrigQuit.h" />
+    <ClInclude Include="..\Classes\HudTips.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

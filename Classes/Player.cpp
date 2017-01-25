@@ -87,12 +87,12 @@ void Player::configPlayer()
 
 	controlMode = NormalMode;
 
-	characterPtr->setHP(300);
-	characterPtr->setMaxHP(300);
+	characterPtr->setHP(100);
+	characterPtr->setMaxHP(100);
 	characterPtr->setMP(100);
 	characterPtr->setMaxMP(100);
 
-	characterPtr->setStrength(300);
+	characterPtr->setStrength(10);
 	characterPtr->setAgility(10);
 	characterPtr->setIntellect(10);
 	characterPtr->setLuck(10);
@@ -116,18 +116,18 @@ void Player::configPlayer()
 
 
 //²âÊÔ×°±¸
-	characterPtr->addInventory("armor009");
-	characterPtr->addInventory("sword022");
-	characterPtr->addInventory("sword027");
+//	characterPtr->addInventory("armor009");
+//	characterPtr->addInventory("sword022");
+//	characterPtr->addInventory("sword027");
 
-	characterPtr->addInventory("armor012");
-	characterPtr->addInventory("sword022");
-	characterPtr->addInventory("sword027");
+//	characterPtr->addInventory("armor012");
+//	characterPtr->addInventory("sword022");
+//	characterPtr->addInventory("sword027");
 
-	for (int i=0;i<5;i++)
-	{
-		characterPtr->addInventory("supply009");
-	}
+//	for (int i=0;i<5;i++)
+//	{
+//		characterPtr->addInventory("supply009");
+//	}
 
 
 

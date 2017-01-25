@@ -1,4 +1,5 @@
 #include "Character.h"
+#include "EffectManager.h"
 #include "RoundSystem.h"
 #include "ExpHandler.h"
 #include "CharacterSpeakLabel.h"
@@ -293,6 +294,8 @@ void Character::hideSpeakLabel()
 
 void Character::levelUp()
 {
+	EffectManager::getInstance()->showEffect("levelUp", getPosition(), 1);
+
 	if (ai)
 	{
 		ai->levelUp();

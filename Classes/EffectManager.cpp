@@ -85,6 +85,22 @@ void EffectManager::initAnimationBox()
 
 	animationBox["MPRecovery"] = mpRecoverySV;
 
+	//////////////////////////////////////////////////////////////////////////
+
+	std::vector<std::string > levelUpSV;
+	levelUpSV.push_back("levelUp1.png");
+	levelUpSV.push_back("levelUp2.png");
+	levelUpSV.push_back("levelUp3.png");
+	levelUpSV.push_back("levelUp4.png");
+	levelUpSV.push_back("levelUp5.png");
+	levelUpSV.push_back("levelUp6.png");
+	levelUpSV.push_back("levelUp7.png");
+	levelUpSV.push_back("levelUp8.png");
+
+	animationBox["levelUp"] = levelUpSV;
+
+
+
 
 }
 

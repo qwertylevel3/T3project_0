@@ -231,6 +231,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudNoteSystem.cpp" />
     <ClCompile Include="..\Classes\HudSkillMenu.cpp" />
     <ClCompile Include="..\Classes\HudSysMenu.cpp" />
+    <ClCompile Include="..\Classes\HudTips.cpp" />
     <ClCompile Include="..\Classes\HudTrigActiveSkill.cpp" />
     <ClCompile Include="..\Classes\HudTrigDrop.cpp" />
     <ClCompile Include="..\Classes\HudTrigEquipAccessory.cpp" />
@@ -429,6 +430,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudNoteSystem.h" />
     <ClInclude Include="..\Classes\HudSkillMenu.h" />
     <ClInclude Include="..\Classes\HudSysMenu.h" />
+    <ClInclude Include="..\Classes\HudTips.h" />
     <ClInclude Include="..\Classes\HudTrigActiveSkill.h" />
     <ClInclude Include="..\Classes\HudTrigDrop.h" />
     <ClInclude Include="..\Classes\HudTrigEquipAccessory.h" />

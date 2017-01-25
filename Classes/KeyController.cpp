@@ -1,4 +1,5 @@
 #include "KeyController.h"
+#include "HudTips.h"
 #include "HudNoteSystem.h"
 #include "HudMessageBox.h"
 #include "HudExchangeInventorySystem.h"
@@ -118,6 +119,7 @@ void KeyController::switchCtrlToPlayer()
 	HudPlayerStateMenu::getInstance()->hide();
 	HudMessageBox::getInstance()->show();
 	HudBar::getInstance()->show();
+	HudTips::getInstance()->show();
 	control = PLAYER;
 }
 
@@ -127,17 +129,21 @@ void KeyController::switchCtrlToMenu()
 	HudPlayerStateMenu::getInstance()->show();
 	HudMenuSystem::getInstance()->show();
 	HudBar::getInstance()->hide();
+
+	HudTips::getInstance()->show();
 	control = MENU;
 }
 
 void KeyController::switchCtrlToOption()
 {
 	control = OPTION;
+	HudTips::getInstance()->hide();
 }
 
 void KeyController::switchCtrlToExchangeInv()
 {
 	control = EXCHANGEINV;
+	HudTips::getInstance()->hide();
 }
 
 void KeyController::switchCtrlToNote()
@@ -146,6 +152,7 @@ void KeyController::switchCtrlToNote()
 	HudPlayerStateMenu::getInstance()->hide();
 	HudMessageBox::getInstance()->show();
 	HudBar::getInstance()->show();
+	HudTips::getInstance()->hide();
 	
 
 	control = NOTE;
@@ -157,6 +164,7 @@ void KeyController::switchCtrlToDialog()
 	HudPlayerStateMenu::getInstance()->hide();
 	HudMessageBox::getInstance()->hide();
 	HudBar::getInstance()->hide();
+	HudTips::getInstance()->hide();
 	control = DIALOG;
 }
 
