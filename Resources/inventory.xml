@@ -61,7 +61,7 @@
 		<name>sword003</name>
 		<cname>钢剑</cname>
 		<tips>普通的钢剑</tips>
-		<level>4</level>
+		<level>5</level>
 		<price>16</price>
 		<weight>4</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -124,7 +124,7 @@
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
 		</buffBox>
-		<weaponDamage>6</weaponDamage>
+		<weaponDamage>4</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -318,7 +318,7 @@
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>BaseAttrBuff_水晶球_ATTR_Good_2_-1_0_0_4</buffID>
+			<buffID>BaseAttrBuff_水晶球_ATTR_Good_2_-1_0_0_8</buffID>
 		</buffBox>
 		<weaponDamage>1</weaponDamage>
 		<strRequire>0</strRequire>
@@ -685,7 +685,7 @@
 		<name>sword035</name>
 		<cname>吟唱权杖</cname>
 		<tips>免去了吟唱的痛苦...</tips>
-		<level>5</level>
+		<level>4</level>
 		<price>9</price>
 		<weight>2</weight>
 		<spriteName>sword_icon.png</spriteName>
@@ -693,6 +693,416 @@
 			<buffID>ChantBuff_吟唱祝福_OnRoundStart_Good_10_-1_100</buffID>
 		</buffBox>
 		<weaponDamage>3</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword036</name>
+		<cname>月之祭祀权杖</cname>
+		<tips>月祭司使用的权杖</tips>
+		<level>5</level>
+		<price>9</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>MPBuff_月之祝福1_OnRoundStart_Good_10_-1_3</buffID>
+			<buffID>BaseAttrBuff_月之祝福2_ATTR_Good_2_-1_0_0_5</buffID>
+		</buffBox>
+		<weaponDamage>1</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword037</name>
+		<cname>星之祭祀权杖</cname>
+		<tips>星祭司使用的权杖</tips>
+		<level>5</level>
+		<price>9</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>ChantBuff_星之祝福1_OnRoundStart_Good_10_-1_100</buffID>
+			<buffID>BaseAttrBuff_星之祝福2_ATTR_Good_2_-1_0_0_5</buffID>
+		</buffBox>
+		<weaponDamage>1</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword038</name>
+		<cname>战锤</cname>
+		<tips>重，但实用</tips>
+		<level>4</level>
+		<price>9</price>
+		<weight>8</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<weaponDamage>10</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword039</name>
+		<cname>巨剑</cname>
+		<tips>重剑无锋</tips>
+		<level>6</level>
+		<price>9</price>
+		<weight>10</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<weaponDamage>16</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword040</name>
+		<cname>战士之刀</cname>
+		<tips>普通的长刀</tips>
+		<level>3</level>
+		<price>9</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_战士祝福_ATTR_Good_2_-1_3_1_0</buffID>
+		</buffBox>
+		<weaponDamage>6</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword041</name>
+		<cname>Diana之刃</cname>
+		<tips>曾今的神剑，月光已经暗淡</tips>
+		<level>8</level>
+		<price>9</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>ViewSizeBuff_月光1_ATTR_Good_1_-1_1</buffID>
+			<buffID>BaseAttrBuff_月光2_ATTR_Good_2_-1_3_3_3</buffID>
+		</buffBox>
+		<weaponDamage>12</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword042</name>
+		<cname>雪</cname>
+		<tips>雪，月，花</tips>
+		<level>2</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_雪_ATTR_Good_2_-1_8_-5_-5</buffID>
+		</buffBox>
+		<weaponDamage>2</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword043</name>
+		<cname>月</cname>
+		<tips>雪，月，花</tips>
+		<level>2</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_月_ATTR_Good_2_-1_-5_8_-5</buffID>
+		</buffBox>
+		<weaponDamage>2</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword044</name>
+		<cname>花</cname>
+		<tips>雪，月，花</tips>
+		<level>2</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_花_ATTR_Good_2_-1_-5_-5_8</buffID>
+		</buffBox>
+		<weaponDamage>2</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword045</name>
+		<cname>月华</cname>
+		<tips>Diana祝福过的匕首</tips>
+		<level>4</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_月华1_ATTR_Good_2_-1_0_2_4</buffID>
+			<buffID>ViewSizeBuff_月华2_ATTR_Good_1_-1_1</buffID>
+		</buffBox>
+		<weaponDamage>7</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword046</name>
+		<cname>星辉</cname>
+		<tips>Stella祝福过的匕首</tips>
+		<level>4</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_星辉1_ATTR_Good_2_-1_0_4_2</buffID>
+			<buffID>ViewSizeBuff_星辉2_ATTR_Good_1_-1_1</buffID>
+		</buffBox>
+		<weaponDamage>7</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword047</name>
+		<cname>食尸鬼之爪</cname>
+		<tips>其实食尸鬼早就灭绝了...</tips>
+		<level>5</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>CriticalProBuff_食尸鬼狂暴1_ATTR_Good_4_-1_30</buffID>
+			<buffID>CriticalPointBuff_食尸鬼狂暴2_ATTR_Good_4_-1_6</buffID>
+		</buffBox>
+		<weaponDamage>3</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword048</name>
+		<cname>黑剑</cname>
+		<tips>不详之剑，使用过的人都会受到诅咒</tips>
+		<level>5</level>
+		<price>9</price>
+		<weight>3</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>MaxHPBuff_诅咒1_ATTR_Good_1_-1_-50</buffID>
+			<buffID>EvadeBuff_诅咒2_ATTR_Good_4_-1_-100</buffID>
+		</buffBox>
+		<weaponDamage>15</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword049</name>
+		<cname>白银战斧</cname>
+		<tips>守望者们的标准装备</tips>
+		<level>5</level>
+		<price>9</price>
+		<weight>3</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>ViewSizeBuff_守望者祝福_ATTR_Good_1_-1_2</buffID>
+		</buffBox>
+		<weaponDamage>10</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+			<sphereID>MagicphagiaSphere_驱魔_80</sphereID>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword050</name>
+		<cname>邪神之触</cname>
+		<tips>鲜血，生命及一切</tips>
+		<level>6</level>
+		<price>9</price>
+		<weight>2</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>HPBuff_献祭1_OnRoundStart_Good_10_-1_-4</buffID>
+			<buffID>MaxHPBuff_献祭2_ATTR_Good_1_-1_-50</buffID>
+		</buffBox>
+		<weaponDamage>14</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+			<sphereID>HemophagiaSphere_邪神之力_30</sphereID>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword051</name>
+		<cname>战狂之斧</cname>
+		<tips>铁匠P.Z.用过的斧头</tips>
+		<level>5</level>
+		<price>9</price>
+		<weight>6</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>AccuracyBuff_嗜战1_ATTR_Good_4_-1_-20</buffID>
+			<buffID>CriticalProBuff_嗜战2_ATTR_Good_4_-1_20</buffID>
+		</buffBox>
+		<weaponDamage>12</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+			<sphereID>HemophagiaSphere_嗜战_10</sphereID>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword052</name>
+		<cname>蓝色魔法剑</cname>
+		<tips>这把剑被附错了魔</tips>
+		<level>3</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>MaxMPBuff_魔法增加_ATTR_Good_1_-1_50</buffID>
+		</buffBox>
+		<weaponDamage>6</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword053</name>
+		<cname>力量之剑</cname>
+		<tips>顾名思义</tips>
+		<level>4</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_属性增加_ATTR_Good_2_-1_5_0_0</buffID>
+		</buffBox>
+		<weaponDamage>7</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword054</name>
+		<cname>敏捷之剑</cname>
+		<tips>顾名思义</tips>
+		<level>4</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_属性增加_ATTR_Good_2_-1_0_5_0</buffID>
+		</buffBox>
+		<weaponDamage>7</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword055</name>
+		<cname>智力之剑</cname>
+		<tips>顾名思义</tips>
+		<level>4</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_属性增加_ATTR_Good_2_-1_0_0_5</buffID>
+		</buffBox>
+		<weaponDamage>7</weaponDamage>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<sphereBox>
+		</sphereBox>
+	</inventory>
+	<inventory>
+		<type>oneHandWeapon</type>
+		<name>sword056</name>
+		<cname>膜法师之杖</cname>
+		<tips>Inferno结界里的法师不知怎么，就膜起来了</tips>
+		<level>3</level>
+		<price>9</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_膜法1_ATTR_Good_2_-1_0_0_3</buffID>
+			<buffID>MaxMPBuff_膜法2_ATTR_Good_1_-1_50</buffID>
+		</buffBox>
+		<weaponDamage>1</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -782,12 +1192,12 @@
 		<name>armor006</name>
 		<cname>法术长袍</cname>
 		<tips>没有重量，是HHU法术学校的校服</tips>
-		<level>4</level>
+		<level>3</level>
 		<price>2</price>
 		<weight>0</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>MPBuff_魔法回复_OnRoundStart_Good_10_-1_1</buffID>
+			<buffID>MPBuff_魔法回复_OnRoundStart_Good_10_-1_2</buffID>
 		</buffBox>
 		<armorCount>2</armorCount>
 	</inventory>
@@ -843,7 +1253,7 @@
 		<buffBox>
 			<buffID>BaseAttrBuff_链甲_ATTR_Good_2_-1_0_3_0</buffID>
 		</buffBox>
-		<armorCount>6</armorCount>
+		<armorCount>5</armorCount>
 	</inventory>
 	<inventory>
 		<type>armor</type>
@@ -935,6 +1345,139 @@
 		<armorCount>12</armorCount>
 	</inventory>
 	<inventory>
+		<type>armor</type>
+		<name>armor017</name>
+		<cname>过重的护甲</cname>
+		<tips>这护甲真的能穿么...</tips>
+		<level>6</level>
+		<price>2</price>
+		<weight>18</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+		</buffBox>
+		<armorCount>25</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor018</name>
+		<cname>生命守护之甲</cname>
+		<tips>在外界也被称为防弹衣</tips>
+		<level>4</level>
+		<price>2</price>
+		<weight>3</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>MaxHPBuff_生命提高_ATTR_Good_1_-1_50</buffID>
+		</buffBox>
+		<armorCount>6</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor019</name>
+		<cname>忍者套装</cname>
+		<tips>牺牲了防护，换取最大程度的灵活性</tips>
+		<level>4</level>
+		<price>2</price>
+		<weight>0</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>EvadeBuff_忍者1_ATTR_Good_4_-1_40</buffID>
+			<buffID>ComboBuff_忍者2_ATTR_Good_4_-1_10</buffID>
+		</buffBox>
+		<armorCount>1</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor020</name>
+		<cname>G.K.礼服</cname>
+		<tips>幸运之神在向你微笑</tips>
+		<level>5</level>
+		<price>2</price>
+		<weight>0</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>EvadeBuff_G.K.之祝福1_ATTR_Good_4_-1_70</buffID>
+			<buffID>MaxHPBuff_G.K.之祝福2_ATTR_Good_1_-1_-99</buffID>
+		</buffBox>
+		<armorCount>1</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor021</name>
+		<cname>骑士冲锋甲</cname>
+		<tips>向在寒霜之战中牺牲的骑士们致敬</tips>
+		<level>6</level>
+		<price>2</price>
+		<weight>3</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>EvadeBuff_冲锋1_ATTR_Good_4_-1_10</buffID>
+			<buffID>CriticalProBuff_冲锋2_ATTR_Good_4_-1_20</buffID>
+		</buffBox>
+		<armorCount>7</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor022</name>
+		<cname>专家法师套装</cname>
+		<tips>专家级法师制服</tips>
+		<level>5</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>MPBuff_魔法回复_OnRoundStart_Good_10_-1_2</buffID>
+			<buffID>ChantBuff_自动吟唱_OnRoundStart_Good_10_-1_80</buffID>
+		</buffBox>
+		<armorCount>1</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor023</name>
+		<cname>大师法师套装</cname>
+		<tips>大师级法师制服</tips>
+		<level>7</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>MPBuff_魔法回复_OnRoundStart_Good_10_-1_3</buffID>
+			<buffID>ChantBuff_自动吟唱_OnRoundStart_Good_10_-1_100</buffID>
+			<buffID>BaseAttrBuff_属性附加_ATTR_Good_2_-1_0_0_10</buffID>
+		</buffBox>
+		<armorCount>1</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor024</name>
+		<cname>新手法师套装</cname>
+		<tips>新手法师制服</tips>
+		<level>3</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>MPBuff_魔法回复_OnRoundStart_Good_10_-1_1</buffID>
+			<buffID>ChantBuff_自动吟唱_OnRoundStart_Good_10_-1_50</buffID>
+		</buffBox>
+		<armorCount>1</armorCount>
+	</inventory>
+	<inventory>
+		<type>armor</type>
+		<name>armor025</name>
+		<cname>膜法师套装</cname>
+		<tips>膜法师制服</tips>
+		<level>3</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>MPBuff_水可载舟_OnRoundStart_Good_10_-1_1</buffID>
+			<buffID>BaseAttrBuff_亦可赛艇_ATTR_Good_2_-1_0_0_3</buffID>
+		</buffBox>
+		<armorCount>1</armorCount>
+	</inventory>
+	<inventory>
 		<type>accessory</type>
 		<name>accessory000</name>
 		<cname>333之证</cname>
@@ -970,7 +1513,7 @@
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>MaxHPBuff_生命提高_ATTR_Good_1_-1_10</buffID>
+			<buffID>MaxHPBuff_生命提高_ATTR_Good_1_-1_30</buffID>
 		</buffBox>
 	</inventory>
 	<inventory>
@@ -983,7 +1526,7 @@
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>MaxMPBuff_魔法提高_ATTR_Good_1_-1_10</buffID>
+			<buffID>MaxMPBuff_魔法提高_ATTR_Good_1_-1_30</buffID>
 		</buffBox>
 	</inventory>
 	<inventory>
@@ -1009,7 +1552,7 @@
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>EvadeBuff_恶魔的尾巴_ATTR_Good_4_-1_10</buffID>
+			<buffID>EvadeBuff_恶魔的尾巴_ATTR_Good_4_-1_15</buffID>
 		</buffBox>
 	</inventory>
 	<inventory>
@@ -1156,7 +1699,101 @@
 		<weight>0</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox>
-			<buffID>EvadeBuff_黑色的羽毛_ATTR_Good_4_-1_10</buffID>
+			<buffID>EvadeBuff_黑色的羽毛_ATTR_Good_4_-1_7</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory017</name>
+		<cname>黑曜石</cname>
+		<tips>地狱天使的结晶</tips>
+		<level>5</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>CriticalProBuff_黑曜石1_ATTR_Good_4_-1_10</buffID>
+			<buffID>ChantBuff_黑曜石2_OnRoundStart_Good_10_-1_50</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory018</name>
+		<cname>血精石</cname>
+		<tips>鲜血之精华</tips>
+		<level>6</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>MaxHPBuff_血精石_ATTR_Good_1_-1_100</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory019</name>
+		<cname>魔晶</cname>
+		<tips>魔力之精华</tips>
+		<level>6</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>MaxMPBuff_魔晶_ATTR_Good_1_-1_100</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory020</name>
+		<cname>游侠之章</cname>
+		<tips>游侠欧米伽曾经佩戴的徽章</tips>
+		<level>5</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_游侠之祝福_ATTR_Good_2_-1_0_8_0</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory021</name>
+		<cname>HHU纪念章</cname>
+		<tips>上面记载着某个从HHU膜法师学院毕业的学生信息</tips>
+		<level>4</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>MPBuff_HHU祝福_OnRoundStart_Good_10_-1_2</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory022</name>
+		<cname>Stella的缎带</cname>
+		<tips>所以Stella是真实存在的神，只不过看不见而已</tips>
+		<level>7</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>MPBuff_Stella祝福1_OnRoundStart_Good_10_-1_2</buffID>
+			<buffID>HPBuff_Stella祝福2_OnRoundStart_Good_10_-1_2</buffID>
+		</buffBox>
+	</inventory>
+	<inventory>
+		<type>accessory</type>
+		<name>accessory023</name>
+		<cname>魅魔的不可描述</cname>
+		<tips>总之不可描述</tips>
+		<level>6</level>
+		<price>2</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox>
+			<buffID>BaseAttrBuff_不可描述之祝福1_ATTR_Good_2_-1_5_5_-10</buffID>
+			<buffID>CriticalProBuff_不可描述之祝福2_ATTR_Good_4_-1_15</buffID>
 		</buffBox>
 	</inventory>
 	<inventory>
@@ -1317,6 +1954,22 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
 		<skillName>HPRecoverySelf_生命恢复_0_0_1000</skillName>
+		<supplyType>0</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>supply010</name>
+		<cname>一包辣条</cname>
+		<tips>外界流入的小吃，在法师圈广受欢迎</tips>
+		<level>1</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>HPRecoverySelf_生命恢复_0_0_70</skillName>
 		<supplyType>0</supplyType>
 	</inventory>
 	<inventory>
@@ -1992,6 +2645,70 @@
 		<supplyType>3</supplyType>
 	</inventory>
 	<inventory>
+		<type>supply</type>
+		<name>scroll031</name>
+		<cname>禁忌之漫画</cname>
+		<tips>不可描述，总之不要读这本书</tips>
+		<level>4</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>BuffSelf_禁忌之漫画_0_0_BaseAttrBuff_沉迷漫画_ATTR_Good_2_-1_2_2_-5</skillName>
+		<supplyType>4</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll032</name>
+		<cname>初级魔导教典</cname>
+		<tips>法师入门必读,加1智力</tips>
+		<level>2</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>BuffSelf_魔导教典_0_0_BaseAttrBuff_魔导教典_ATTR_Good_2_-1_0_0_1</skillName>
+		<supplyType>4</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll033</name>
+		<cname>初级战士手册</cname>
+		<tips>战士入门必读,加1力量</tips>
+		<level>2</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>BuffSelf_战士入门_0_0_BaseAttrBuff_战士手册_ATTR_Good_2_-1_1_0_0</skillName>
+		<supplyType>4</supplyType>
+	</inventory>
+	<inventory>
+		<type>supply</type>
+		<name>scroll034</name>
+		<cname>初级游侠手册</cname>
+		<tips>游侠入门必读，加1敏捷</tips>
+		<level>2</level>
+		<price>10</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>0</intRequire>
+		<skillName>BuffSelf_游侠入门_0_0_BaseAttrBuff_游侠手册_ATTR_Good_2_-1_0_1_0</skillName>
+		<supplyType>4</supplyType>
+	</inventory>
+	<inventory>
 		<type>note</type>
 		<name>note000</name>
 		<cname>《生存手册》</cname>
@@ -2020,5 +2737,20 @@
 		<agiRequire>0</agiRequire>
 		<intRequire>1</intRequire>
 		<noteID>001</noteID>
+	</inventory>
+	<inventory>
+		<type>note</type>
+		<name>note002</name>
+		<cname>便条</cname>
+		<tips>只是一张便条</tips>
+		<level>1</level>
+		<price>999</price>
+		<weight>1</weight>
+		<spriteName>sword_icon.png</spriteName>
+		<buffBox/>
+		<strRequire>0</strRequire>
+		<agiRequire>0</agiRequire>
+		<intRequire>1</intRequire>
+		<noteID>002</noteID>
 	</inventory>
 </inventoryList>

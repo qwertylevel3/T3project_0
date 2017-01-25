@@ -28,8 +28,9 @@ Buff::EvadeBuff* Buff::EvadeBuff::createPrototype()
 std::string Buff::EvadeBuff::getDescription()
 {
 	return ToolFunction::WStr2UTF8(L"ÉÁ±Ü¸ÅÂÊ")
-		+(evadeOffset>0?"+":"")
-		+ ToolFunction::int2string(evadeOffset);
+		+ (evadeOffset > 0 ? "+" : "")
+		+ ToolFunction::int2string(evadeOffset)
+		+ "%";
 }
 
 void Buff::EvadeBuff::initExtraMessage(std::vector<std::string> baseMessage)

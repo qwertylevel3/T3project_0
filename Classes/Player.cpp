@@ -113,8 +113,6 @@ void Player::configPlayer()
 
 	characterPtr->addInventory("note000");
 
-
-
 //²âÊÔ×°±¸
 //	characterPtr->addInventory("armor009");
 //	characterPtr->addInventory("sword022");

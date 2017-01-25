@@ -30,13 +30,13 @@ void AISnack::update()
 		{
 			Buff::BuffHandler* targetBuffHandler = targetCharacter->getBuffHandler();
 			if (!targetBuffHandler->exist(
-				ToolFunction::WStr2UTF8(L"HPBuff_¶¾Òº_OnRoundStart_Bad_10_10_-3")))
+				ToolFunction::WStr2UTF8(L"HPBuff_¶¾Òº_OnRoundStart_Bad_10_10_-4")))
 			{
 				//ÒÑÒ÷³ª
 				if (characterPtr->getChantCount() >= 1)
 				{
 					characterPtr->runSkill(
-						ToolFunction::WStr2UTF8(L"BuffCast_¶¾Òº_0_0_HPBuff_¶¾Òº_OnRoundStart_Bad_10_10_-3")
+						ToolFunction::WStr2UTF8(L"BuffCast_¶¾Òº_0_0_HPBuff_¶¾Òº_OnRoundStart_Bad_10_10_-4")
 					);
 					HudMessageBox::getInstance()->addMessage(
 						targetCharacter->getName()+

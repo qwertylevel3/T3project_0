@@ -47,7 +47,7 @@
 		<maxHP>80</maxHP>
 		<maxMP>20</maxMP>
 		<leftHand>sword002</leftHand>
-		<rightHand>sword003</rightHand>
+		<rightHand>sword002</rightHand>
 		<armor>NULL</armor>
 		<accessory>NULL</accessory>
 	</actor>
@@ -264,12 +264,12 @@
 		<chantAble>1</chantAble>
 		<skillAble>1</skillAble>
 		<actionAble>1</actionAble>
-		<strength>10</strength>
+		<strength>15</strength>
 		<intellect>6</intellect>
 		<agility>6</agility>
 		<luck>0</luck>
 		<viewSize>3</viewSize>
-		<maxHP>100</maxHP>
+		<maxHP>150</maxHP>
 		<maxMP>20</maxMP>
 		<leftHand>sword005</leftHand>
 		<rightHand>NULL</rightHand>

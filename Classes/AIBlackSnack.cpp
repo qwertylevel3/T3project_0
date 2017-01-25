@@ -38,18 +38,18 @@ void AIBlackSnack::update()
 		{
 			Buff::BuffHandler* targetBuffHandler = targetCharacter->getBuffHandler();
 			if (!targetBuffHandler->exist(
-				ToolFunction::WStr2UTF8(L"ViewSizeBuff_ÖÂÃ¤_ATTR_Bad_1_10_-3")))
+				ToolFunction::WStr2UTF8(L"ViewSizeBuff_÷öÃð_ATTR_Bad_1_10_-3")))
 			{
 				//Èç¹ûµ±Ç°Ä¿±êÃ»ÓÐÖÂÃ¤
 				//ÒÑÒ÷³ª
 				if (characterPtr->getChantCount() >= 1)
 				{
 					characterPtr->runSkill(
-						ToolFunction::WStr2UTF8(L"BuffCast_ÖÂÃ¤_0_0_ViewSizeBuff_ÖÂÃ¤_ATTR_Bad_1_10_-3")
+						ToolFunction::WStr2UTF8(L"BuffCast_÷öÃð_0_0_ViewSizeBuff_÷öÃð_ATTR_Bad_1_10_-3")
 					);
 					HudMessageBox::getInstance()->addMessage(
 						targetCharacter->getName() +
-						ToolFunction::WStr2UTF8(L"ÖÐÁËÖÂÃ¤buff")
+						ToolFunction::WStr2UTF8(L"ÖÐÁË÷öÃðbuff")
 					);
 				}
 				else if (RandomNumber::getInstance()->randomBool(0.9))

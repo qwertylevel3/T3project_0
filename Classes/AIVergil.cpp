@@ -27,8 +27,8 @@ AIVergil::AIVergil()
 {
 	//默认为紧密跟随
 	curState = 0;
-	level9Word = false;
 
+	magicLowCount = 0;
 	smallTalkCount = 4;
 }
 
@@ -38,15 +38,11 @@ AIVergil::~AIVergil()
 
 void AIVergil::update()
 {
-	if (GameController::getInstance()->getCurLevel()==9
-		&& level9Word==false)
-	{
-		characterPtr->speak(L"Vexilla regis prodeunt inferni");
-		level9Word = true;
-	}
-
 	//更新闲聊计数器
 	updateSmallTalkCount();
+
+	//更新魔法不足计数器
+	updateMagicLowCount();
 
 	//尝试治疗身边的player
 	if (healPlayer())
@@ -888,5 +884,21 @@ void AIVergil::updateSmallTalkCount()
 	if (smallTalkCount >= 4)
 	{
 		smallTalkCount = 4;
+	}
+}
+
+void AIVergil::updateMagicLowCount()
+{
+	magicLowCount++;
+
+	if (magicLowCount>=20)
+	{
+		magicLowCount = 20;
+
+		if (characterPtr->getMP()<40)
+		{
+			characterPtr->speak(L"快没魔法了");
+			magicLowCount = 0;
+		}
 	}
 }

@@ -83,11 +83,12 @@ protected:
 	void healSelf();
 
 	void updateSmallTalkCount();
+	void updateMagicLowCount();
 
 
 	int smallTalkCount;
 
-	//9²ãµÄÊ±ºòÍÂ²Û
-	bool level9Word;
+	int magicLowCount;
+
 };
 
