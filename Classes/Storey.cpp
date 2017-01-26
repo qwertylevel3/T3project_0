@@ -225,7 +225,8 @@ void Field::Storey::characterMoveUp(Character* character)
 	cocos2d::Point targetCoord = character->getMapCoord();
 	targetCoord.y--;
 	cocos2d::Point position = character->getPosition();
-	ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x, position.y + 32));
+	cocos2d::Point targetPosition = getTilePosition(targetCoord);
+	ActionInterval* moveAction = CCMoveTo::create(0.2, targetPosition);
 	character->showMoveUpAnimation();
 	character->getSprite()->runAction(moveAction);
 
@@ -246,7 +247,8 @@ void Field::Storey::characterMoveDown(Character* character)
 	targetCoord.y++;
 
 	cocos2d::Point position = character->getPosition();
-	ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x, position.y - 32));
+	cocos2d::Point targetPosition = getTilePosition(targetCoord);
+	ActionInterval* moveAction = CCMoveTo::create(0.2, targetPosition);
 	character->showMoveDownAnimation();
 	character->getSprite()->runAction(moveAction);
 
@@ -267,7 +269,8 @@ void Field::Storey::characterMoveLeft(Character* character)
 	targetCoord.x--;
 
 	cocos2d::Point position = character->getPosition();
-	ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x - 32, position.y));
+	cocos2d::Point targetPosition = getTilePosition(targetCoord);
+	ActionInterval* moveAction = CCMoveTo::create(0.2, targetPosition);
 	character->showMoveLeftAnimation();
 	character->getSprite()->runAction(moveAction);
 
@@ -286,7 +289,8 @@ void Field::Storey::characterMoveRight(Character* character)
 	targetCoord.x++;
 
 	cocos2d::Point position = character->getPosition();
-	ActionInterval* moveAction = CCMoveTo::create(0.2, cocos2d::Vec2(position.x + 32, position.y));
+	cocos2d::Point targetPosition = getTilePosition(targetCoord);
+	ActionInterval* moveAction = CCMoveTo::create(0.2, targetPosition);
 	character->showMoveRightAnimation();
 	character->getSprite()->runAction(moveAction);
 
