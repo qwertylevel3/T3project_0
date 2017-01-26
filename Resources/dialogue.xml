@@ -230,7 +230,7 @@
 		<sentence>
 			<type>statement</type>
 			<actorName>dialogueVergil3.png</actorName>
-			<word>按'E'可以和面前的角色交互</word>
+			<word>按'E'可以和面前的单位交互</word>
 			<next>14</next>
 		</sentence>
 		<sentence>
@@ -952,7 +952,7 @@
 		<sentence>
 			<type>statement</type>
 			<actorName>dialogueVergil3.png</actorName>
-			<word>因为蝴蝶效应，所以每次重置结界都会发生一点变化</word>
+			<word>因为某些原因，每次重置结界都会发生一点变化</word>
 			<next>10</next>
 		</sentence>
 		<sentence>

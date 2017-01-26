@@ -37,7 +37,7 @@ void BattleSystem::init()
 	combo = 0;
 	srand(unsigned(time(0)));
 
-	cocos2d::SpriteFrame* frame0 = cocos2d::SpriteFrame::create("effect_0.png", cocos2d::Rect(0, 0, 32, 32));
+	cocos2d::SpriteFrame* frame0 = cocos2d::SpriteFrame::create("battle/effect_0.png", cocos2d::Rect(0, 0, 32, 32));
 	cocos2d::Vector<cocos2d::SpriteFrame*> frameVec;
 	frameVec.pushBack(frame0);
 	animation = cocos2d::Animation::createWithSpriteFrames(frameVec, 0.1f);

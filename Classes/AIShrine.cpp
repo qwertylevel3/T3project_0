@@ -32,5 +32,6 @@ void AIShrine::feedback(Character* character)
 		//设置为点亮的sprite
 		characterPtr->setOrientationUp();
 		Player::getInstance()->addFaith(1);
+		characterPtr->hideSpeakLabel();
 	}
 }

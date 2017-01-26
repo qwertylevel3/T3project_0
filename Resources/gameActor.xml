@@ -319,7 +319,7 @@
 		<agility>1</agility>
 		<luck>0</luck>
 		<viewSize>0</viewSize>
-		<maxHP>50</maxHP>
+		<maxHP>100</maxHP>
 		<maxMP>1</maxMP>
 		<leftHand>NULL</leftHand>
 		<rightHand>NULL</rightHand>
