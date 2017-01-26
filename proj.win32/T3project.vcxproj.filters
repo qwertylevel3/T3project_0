@@ -666,6 +666,7 @@
     <ClCompile Include="..\Classes\ActiveSkilllSphere.cpp">
       <Filter>src\sphere</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\HudTrigRestart.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1259,6 +1260,7 @@
     <ClInclude Include="..\Classes\ActiveSkilllSphere.h">
       <Filter>src\sphere</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\HudTrigRestart.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -1267,5 +1269,8 @@
     <ResourceCompile Include="game.rc">
       <Filter>resource</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\game.ico" />
   </ItemGroup>
 </Project>

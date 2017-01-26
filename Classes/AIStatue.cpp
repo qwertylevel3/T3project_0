@@ -56,6 +56,10 @@ void AIStatue::handleDialogueResult(std::string dialogueName, int resultNumber)
 	{
 		handlePrayResult(resultNumber);
 	}
+	else if (dialogueName=="praySkillBook")
+	{
+		handlePraySkillBook(resultNumber);
+	}
 	else if (dialogueName == "levelUp"
 		&& resultNumber == -1)
 	{
@@ -126,9 +130,40 @@ void AIStatue::handlePrayResult(int resultNumber)
 	case -6:
 		giveMP();
 		break;
+	case -7:
+		DialogueSystem::getInstance()->runDialogue("praySkillBook",characterPtr);
+		break;
 	default:
 		break;
 	}
+}
+
+void AIStatue::handlePraySkillBook(int resultNumber)
+{
+	switch (resultNumber)
+	{
+	case -1:
+		giveFireBallBook();
+		break;
+	case -2:
+		giveRandomDamageBook();
+		break;
+	case -3:
+		giveThunderBook();
+		break;
+	case -4:
+		giveHealSelfBook();
+		break;
+	case -5:
+		giveHealCastBook();
+		break;
+	case -6:
+		giveYellowBook();
+		break;
+	default:
+		break;
+	}
+
 }
 
 void AIStatue::giveWeapon()
@@ -141,7 +176,6 @@ void AIStatue::giveWeapon()
 
 
 	Player::getInstance()->reduceFaith(25);
-	HudMessageBox::getInstance()->addMessage(L"你失去了25信仰点数");
 
 	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
 
@@ -177,7 +211,6 @@ void AIStatue::giveWand()
 		return;
 	}
 	Player::getInstance()->reduceFaith(25);
-	HudMessageBox::getInstance()->addMessage(L"你失去了25信仰点数");
 
 	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
 
@@ -215,7 +248,6 @@ void AIStatue::giveArmor()
 
 
 	Player::getInstance()->reduceFaith(25);
-	HudMessageBox::getInstance()->addMessage(L"你失去了25信仰点数");
 
 	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
 
@@ -253,7 +285,6 @@ void AIStatue::giveAccessory()
 
 
 	Player::getInstance()->reduceFaith(25);
-	HudMessageBox::getInstance()->addMessage(L"你失去了25信仰点数");
 
 	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
 
@@ -279,6 +310,119 @@ void AIStatue::giveAccessory()
 		ToolFunction::WStr2UTF8(L"你获得了")
 		+ inventoryCName
 	);
+}
+
+void AIStatue::giveFireBallBook()
+{
+	if (Player::getInstance()->getFaithValue()<10)
+	{
+		DialogueSystem::getInstance()->runDialogue("noFaith");
+		return;
+	}
+
+
+	Player::getInstance()->reduceFaith(10);
+
+	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
+
+	playerCharacter->addInventory("skillBook000");
+	HudMessageBox::getInstance()->addMessage(L"你获得了火球术之书");
+
+
+}
+
+void AIStatue::giveRandomDamageBook()
+{
+	if (Player::getInstance()->getFaithValue()<15)
+	{
+		DialogueSystem::getInstance()->runDialogue("noFaith");
+		return;
+	}
+
+
+	Player::getInstance()->reduceFaith(15);
+
+	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
+
+	playerCharacter->addInventory("skillBook001");
+	HudMessageBox::getInstance()->addMessage(L"你获得了随机闪电之书");
+
+
+}
+
+void AIStatue::giveThunderBook()
+{
+	if (Player::getInstance()->getFaithValue()<20)
+	{
+		DialogueSystem::getInstance()->runDialogue("noFaith");
+		return;
+	}
+
+
+	Player::getInstance()->reduceFaith(20);
+
+	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
+
+	playerCharacter->addInventory("skillBook002");
+	HudMessageBox::getInstance()->addMessage(L"你获得了闪电风暴之书");
+
+
+}
+
+void AIStatue::giveHealSelfBook()
+{
+	if (Player::getInstance()->getFaithValue()<15)
+	{
+		DialogueSystem::getInstance()->runDialogue("noFaith");
+		return;
+	}
+
+
+	Player::getInstance()->reduceFaith(15);
+
+	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
+
+	playerCharacter->addInventory("skillBook004");
+	HudMessageBox::getInstance()->addMessage(L"你获得了自愈之书");
+
+
+}
+
+void AIStatue::giveHealCastBook()
+{
+	if (Player::getInstance()->getFaithValue()<15)
+	{
+		DialogueSystem::getInstance()->runDialogue("noFaith");
+		return;
+	}
+
+
+	Player::getInstance()->reduceFaith(15);
+
+	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
+
+	playerCharacter->addInventory("skillBook005");
+	HudMessageBox::getInstance()->addMessage(L"你获得了治疗之书");
+
+}
+
+void AIStatue::giveYellowBook()
+{
+	if (Player::getInstance()->getFaithValue()<40)
+	{
+		DialogueSystem::getInstance()->runDialogue("noFaith");
+		return;
+	}
+
+
+	Player::getInstance()->reduceFaith(40);
+
+	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
+
+	playerCharacter->addInventory("scroll003");
+	HudMessageBox::getInstance()->addMessage(L"你获得了黄色魔法书");
+
+
 }
 
 void AIStatue::giveHP()

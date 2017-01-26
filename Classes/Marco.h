@@ -3,4 +3,4 @@
 #include <iostream>
 
 #define SHOWMESSAGE
-#define CONSOLE
+//#define CONSOLE

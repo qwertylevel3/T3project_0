@@ -180,14 +180,14 @@ void SplashLayer::clearGame()
 	white->runAction(
 		cocos2d::Sequence::create(
 			cocos2d::FadeIn::create(2),
-			cocos2d::DelayTime::create(4.9),
+			cocos2d::DelayTime::create(9.9),
 			cocos2d::FadeOut::create(0.1),
 			NULL
 		)
 
 	);
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 20; i++)
 	{
 		cocos2d::Sprite* star = cocos2d::Sprite::create("sys/star.png");
 
@@ -219,7 +219,11 @@ void SplashLayer::clearGame()
 		cocos2d::Sequence::create(
 			cocos2d::DelayTime::create(2),
 			cocos2d::Spawn::create(
-				cocos2d::FadeIn::create(5),
+				cocos2d::Sequence::create(
+					cocos2d::FadeIn::create(5),
+					cocos2d::DelayTime::create(5),
+					NULL
+				),
 				cocos2d::MoveBy::create(10, cocos2d::Vec2(0, -200)),
 				NULL
 			),

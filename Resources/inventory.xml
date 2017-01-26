@@ -826,7 +826,7 @@
 		<buffBox>
 			<buffID>BaseAttrBuff_雪_ATTR_Good_2_-1_8_-5_-5</buffID>
 		</buffBox>
-		<weaponDamage>2</weaponDamage>
+		<weaponDamage>1</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -845,7 +845,7 @@
 		<buffBox>
 			<buffID>BaseAttrBuff_月_ATTR_Good_2_-1_-5_8_-5</buffID>
 		</buffBox>
-		<weaponDamage>2</weaponDamage>
+		<weaponDamage>1</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -864,7 +864,7 @@
 		<buffBox>
 			<buffID>BaseAttrBuff_花_ATTR_Good_2_-1_-5_-5_8</buffID>
 		</buffBox>
-		<weaponDamage>2</weaponDamage>
+		<weaponDamage>1</weaponDamage>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>0</intRequire>
@@ -2113,7 +2113,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>13</intRequire>
-		<skillName>LearnSkill_学习史莱姆召唤_0_0_Summon_Slime召唤_50_30_sslime</skillName>
+		<skillName>LearnSkill_学习史莱姆召唤_0_0_Summon_Slime召唤_60_40_sslime</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -2185,14 +2185,14 @@
 		<name>scroll003</name>
 		<cname>黄色魔法书</cname>
 		<tips>上面有一些不可描述的图片和一些不可描述的文字，使用者需奉献一切</tips>
-		<level>7</level>
+		<level>6</level>
 		<price>999</price>
 		<weight>1</weight>
 		<spriteName>sword_icon.png</spriteName>
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>35</intRequire>
+		<intRequire>40</intRequire>
 		<skillName>Summon_魅魔的召唤_0_0_succubus</skillName>
 		<supplyType>2</supplyType>
 	</inventory>

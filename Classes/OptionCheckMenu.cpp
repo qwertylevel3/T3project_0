@@ -62,7 +62,7 @@ void OptionCheckMenu::init()
 {
 	curQuestion = nullptr;
 	this->setPosition(300, 400);
-	this->setWidth(200);
+	this->setWidth(230);
 
 	hide();
 }

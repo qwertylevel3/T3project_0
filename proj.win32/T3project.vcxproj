@@ -124,7 +124,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
       <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -242,6 +242,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\HudTrigPick.cpp" />
     <ClCompile Include="..\Classes\HudTrigQuit.cpp" />
     <ClCompile Include="..\Classes\HudTrigReadNote.cpp" />
+    <ClCompile Include="..\Classes\HudTrigRestart.cpp" />
     <ClCompile Include="..\Classes\HudTrigThrow.cpp" />
     <ClCompile Include="..\Classes\HudTrigUnequipAccessory.cpp" />
     <ClCompile Include="..\Classes\HudTrigUnequipArmor.cpp" />
@@ -441,6 +442,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\HudTrigPick.h" />
     <ClInclude Include="..\Classes\HudTrigQuit.h" />
     <ClInclude Include="..\Classes\HudTrigReadNote.h" />
+    <ClInclude Include="..\Classes\HudTrigRestart.h" />
     <ClInclude Include="..\Classes\HudTrigThrow.h" />
     <ClInclude Include="..\Classes\HudTrigUnequipAccessory.h" />
     <ClInclude Include="..\Classes\HudTrigUnequipArmor.h" />
@@ -562,6 +564,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\game.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

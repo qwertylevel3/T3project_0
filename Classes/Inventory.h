@@ -34,6 +34,7 @@ public:
 	void addBuff(std::string buffID);
 	std::vector<std::string> getAllInventoryBuff();
 	std::string getDescription();
+	std::string getTypeStr();
 protected:
 	std::string getBaseDescription();
 	virtual std::string getExtraDescription();

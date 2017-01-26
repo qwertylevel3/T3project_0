@@ -14,10 +14,17 @@ protected:
 	void handlePray();
 	void handleLevelUp();
 	void handlePrayResult(int resultNumber);
+	void handlePraySkillBook(int resultNumber);
 	void giveWeapon();
 	void giveWand();
 	void giveArmor();
 	void giveAccessory();
+	void giveFireBallBook();
+	void giveRandomDamageBook();
+	void giveThunderBook();
+	void giveHealSelfBook();
+	void giveHealCastBook();
+	void giveYellowBook();
 	void giveHP();
 	void giveMP();
 };

@@ -95,6 +95,7 @@ std::string Inventory::getBaseDescription()
 {
 	std::string description;
 
+	description += ToolFunction::WStr2UTF8(L"类型:") + getTypeStr()+ "\n";
 	description += "Level:" + ToolFunction::int2string(level)+"\n";
 	description += "Weight:" + ToolFunction::int2string(weight) + "\n\n";
 
@@ -128,4 +129,46 @@ std::string Inventory::getExtraDescription()
 std::string Inventory::getDescription()
 {
 	return getBaseDescription() + getExtraDescription();
+}
+
+std::string Inventory::getTypeStr()
+{
+	std::string typeStr;
+	switch (inventoryType)
+	{
+	case Inventory::Other:
+		typeStr = ToolFunction::WStr2UTF8(L"其他类型");
+		break;
+	case Inventory::OneHandWeapon:
+		typeStr = ToolFunction::WStr2UTF8(L"装备");
+		break;
+	case Inventory::TwoHandWeapon:
+		typeStr = ToolFunction::WStr2UTF8(L"装备");
+		break;
+	case Inventory::Bow:
+		typeStr = ToolFunction::WStr2UTF8(L"装备");
+		break;
+	case Inventory::Shield:
+		typeStr = ToolFunction::WStr2UTF8(L"装备");
+		break;
+	case Inventory::Arrow:
+		typeStr = ToolFunction::WStr2UTF8(L"箭");
+		break;
+	case Inventory::Armor:
+		typeStr = ToolFunction::WStr2UTF8(L"护甲");
+		break;
+	case Inventory::Supply:
+		typeStr = ToolFunction::WStr2UTF8(L"物品");
+		break;
+	case Inventory::Accessory:
+		typeStr = ToolFunction::WStr2UTF8(L"附件");
+		break;
+	case Inventory::Note:
+		typeStr = ToolFunction::WStr2UTF8(L"书");
+		break;
+	default:
+		typeStr = ToolFunction::WStr2UTF8(L"其他物品");
+		break;
+	}
+	return typeStr;
 }
