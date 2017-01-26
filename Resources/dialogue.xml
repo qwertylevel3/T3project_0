@@ -67,20 +67,12 @@
 			<word>那么，有什么问题么？</word>
 			<optionList>
 				<option>
-					<label>跟我走</label>
-					<next>4</next>
-				</option>
-				<option>
-					<label>在这等我</label>
-					<next>3</next>
-				</option>
-				<option>
-					<label>你来带路吧</label>
-					<next>5</next>
+					<label>关于行动</label>
+					<next>2</next>
 				</option>
 				<option>
 					<label>关于战斗</label>
-					<next>2</next>
+					<next>3</next>
 				</option>
 				<option>
 					<label>帮我背一点东西</label>
@@ -91,12 +83,35 @@
 					<next>-7</next>
 				</option>
 				<option>
+					<label>谈谈你自己</label>
+					<next>-12</next>
+				</option>
+				<option>
 					<label>随便聊聊吧</label>
 					<next>-8</next>
 				</option>
 				<option>
 					<label>没啥</label>
 					<next>-1</next>
+				</option>
+			</optionList>
+		</sentence>
+		<sentence>
+			<type>question</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>有什么我要做的？</word>
+			<optionList>
+				<option>
+					<label>跟我走</label>
+					<next>5</next>
+				</option>
+				<option>
+					<label>在这等我</label>
+					<next>4</next>
+				</option>
+				<option>
+					<label>你来带路吧</label>
+					<next>6</next>
 				</option>
 			</optionList>
 		</sentence>
@@ -112,6 +127,10 @@
 				<option>
 					<label>帮我加个Buff</label>
 					<next>-10</next>
+				</option>
+				<option>
+					<label>没什么</label>
+					<next>-13</next>
 				</option>
 			</optionList>
 		</sentence>
@@ -174,62 +193,125 @@
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil3.png</actorName>
-			<word>不管怎样，先活动一下身体吧</word>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>我叫Vergil，暂时是你的引路人</word>
 			<next>8</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
-			<actorName>dialogueVergil2.png</actorName>
-			<word>可以用方向键移动哦</word>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>不管怎样，先活动一下身体吧</word>
 			<next>9</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
 			<actorName>dialogueVergil2.png</actorName>
-			<word>按住Ctrl的同时按下方向键可以原地转身</word>
+			<word>可以用方向键移动哦</word>
 			<next>10</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>按住Ctrl的同时按下方向键可以原地转身</word>
+			<next>11</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
 			<actorName>dialogueVergil3.png</actorName>
 			<word>空格键可以进行攻击</word>
-			<next>11</next>
+			<next>12</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
 			<actorName>dialogueVergil2.png</actorName>
 			<word>按'E'可赛艇,呃不</word>
-			<next>12</next>
+			<next>13</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
 			<actorName>dialogueVergil3.png</actorName>
 			<word>按'E'可以和面前的角色交互</word>
-			<next>13</next>
+			<next>14</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
 			<actorName>dialogueVergil2.png</actorName>
 			<word>Enter可以打开菜单</word>
-			<next>14</next>
-		</sentence>
-		<sentence>
-			<type>statement</type>
-			<actorName>dialogueVergil3.png</actorName>
-			<word>那么，我们走吧，一起离开这里</word>
 			<next>15</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
 			<actorName>dialogueVergil3.png</actorName>
-			<word>如果还要什么问题的话，这里有一本指南，记得看哦</word>
+			<word>那么，我们走吧，一起离开这里</word>
 			<next>16</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>如果还要什么问题的话，这里有一本指南，记得看哦</word>
+			<next>17</next>
 		</sentence>
 		<sentence>
 			<type>statement</type>
 			<actorName>NULL</actorName>
 			<word>所以说这里到底是哪里啊。。。</word>
+			<next>-1</next>
+		</sentence>
+	</dialogue>
+	<dialogue>
+		<name>vergilIntroduce</name>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>那么，我的名字是Publius Vergilius Maro</word>
+			<next>2</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>你可以叫我Vergil</word>
+			<next>3</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>关于我的能力...</word>
+			<next>4</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>我会一些简单的治疗法术</word>
+			<next>5</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>当然我可以帮你背一些东西,只要不是太重</word>
+			<next>6</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil6.png</actorName>
+			<word>如果遇到危险，我也许会使用回复品</word>
+			<next>7</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil2.png</actorName>
+			<word>我也会挑选更好的物品来装备自己</word>
+			<next>8</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil3.png</actorName>
+			<word>另外，如果不知道下一层的出口的话，我也许可以帮你引一下路哦</word>
+			<next>9</next>
+		</sentence>
+		<sentence>
+			<type>statement</type>
+			<actorName>dialogueVergil1.png</actorName>
+			<word>那么，我们继续走吧~</word>
 			<next>-1</next>
 		</sentence>
 	</dialogue>

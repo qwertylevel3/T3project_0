@@ -77,6 +77,7 @@ protected:
 	void showCurState();
 	//опад
 	void smallTalk();
+	void introduceSelf();
 	void tryBuffToPlayer();
 	void castBuffToPlayer();
 	void healCast();

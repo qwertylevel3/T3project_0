@@ -164,12 +164,18 @@ void AIVergil::handleDialogueResult(std::string dialogueName, int resultNumber)
 		//玩家等待Vergil动作
 		Player::getInstance()->getcharacterPtr()->idle();
 	}
+	else if (dialogueName=="vergilTalk"
+		&& resultNumber==-12)
+	{
+		introduceSelf();
+	}
 	else if (dialogueName == "vergilCastBuff"
 		&& resultNumber == -1)
 	{
 		//给buff
 		castBuffToPlayer();
 	}
+	
 }
 
 void AIVergil::lastWords()
@@ -828,6 +834,11 @@ void AIVergil::smallTalk()
 
 		smallTalkCount = 0;
 	}
+}
+
+void AIVergil::introduceSelf()
+{
+	DialogueSystem::getInstance()->runDialogue("vergilIntroduce");
 }
 
 void AIVergil::tryBuffToPlayer()

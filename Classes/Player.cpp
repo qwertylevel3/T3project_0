@@ -30,7 +30,7 @@ Player::~Player()
 
 void Player::init()
 {
-	faithValue = 999;
+	faithValue = 0;
 	historySize = 10;
 	characterPtr = CharacterFactory::getInstance()->getCharacter("player");
 	characterPtr->setAI("AIPlayer");
