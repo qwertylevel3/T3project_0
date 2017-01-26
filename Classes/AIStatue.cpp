@@ -52,6 +52,11 @@ void AIStatue::handleDialogueResult(std::string dialogueName, int resultNumber)
 	{
 		handleLevelUp();
 	}
+	else if (dialogueName=="statueTalk"
+		&& resultNumber==-3)
+	{
+		return;
+	}
 	else if (dialogueName == "pray")
 	{
 		handlePrayResult(resultNumber);
@@ -68,6 +73,7 @@ void AIStatue::handleDialogueResult(std::string dialogueName, int resultNumber)
 			playerCharacterPtr->getOriStrength() + 1
 		);
 		expHandler->useAttrPoint();
+		HudMessageBox::getInstance()->addMessage(L"你增加了一点力量");
 	}
 	else if (dialogueName == "levelUp"
 		&& resultNumber == -2)
@@ -77,6 +83,7 @@ void AIStatue::handleDialogueResult(std::string dialogueName, int resultNumber)
 			playerCharacterPtr->getOriAgility() + 1
 		);
 		expHandler->useAttrPoint();
+		HudMessageBox::getInstance()->addMessage(L"你增加了一点敏捷");
 	}
 	else if (dialogueName == "levelUp"
 		&& resultNumber == -3)
@@ -86,6 +93,12 @@ void AIStatue::handleDialogueResult(std::string dialogueName, int resultNumber)
 			playerCharacterPtr->getOriIntellect() + 1
 		);
 		expHandler->useAttrPoint();
+		HudMessageBox::getInstance()->addMessage(L"你增加了一点智力");
+	}
+	else if (dialogueName=="levelUp"
+		&& resultNumber==-4)
+	{
+		return;
 	}
 }
 

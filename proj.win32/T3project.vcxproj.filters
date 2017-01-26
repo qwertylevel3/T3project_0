@@ -666,7 +666,9 @@
     <ClCompile Include="..\Classes\ActiveSkilllSphere.cpp">
       <Filter>src\sphere</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HudTrigRestart.cpp" />
+    <ClCompile Include="..\Classes\HudTrigRestart.cpp">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1260,7 +1262,10 @@
     <ClInclude Include="..\Classes\ActiveSkilllSphere.h">
       <Filter>src\sphere</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HudTrigRestart.h" />
+    <ClInclude Include="..\Classes\HudTrigRestart.h">
+      <Filter>src\HUD\menuSystem\menuItem\trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
