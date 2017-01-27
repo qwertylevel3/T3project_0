@@ -92,7 +92,7 @@ void HudTrigThrow::showEffect(Inventory* inventory,cocos2d::Point targetCoord)
 	cocos2d::Point oriPosition = characterPrt->getPosition();
 	cocos2d::Point targetPosition = storey->getTilePosition(targetCoord);
 
-	cocos2d::Sprite* inventorySprite = cocos2d::Sprite::create("inventory.png");
+	cocos2d::Sprite* inventorySprite = cocos2d::Sprite::create("sys/inventory.png");
 	inventorySprite->setPosition(oriPosition);
 	MainLayer::getInstance()->addChild(inventorySprite, 15);
 	cocos2d::ActionInterval* moveAction = cocos2d::CCMoveTo::create(0.1, cocos2d::Vec2(targetPosition));
