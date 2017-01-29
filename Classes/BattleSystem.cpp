@@ -490,13 +490,13 @@ void BattleSystem::attack(Character* a, Character* b, AttackHand hand)
 	}
 	int realDamage = sufferAttack(a, b, hand, attackCount);
 
-//	HudMessageBox::getInstance()->addMessage(L"伤害：" +
-//		ToolFunction::string2wstring(
-//			ToolFunction::int2string(realDamage)
-//		)
-//	);
+	//	HudMessageBox::getInstance()->addMessage(L"伤害：" +
+	//		ToolFunction::string2wstring(
+	//			ToolFunction::int2string(realDamage)
+	//		)
+	//	);
 
-	//sphereEffect 调用点
+		//sphereEffect 调用点
 	Weapon* weapon = getWeapon(a, hand);
 	if (!weapon)
 	{
@@ -595,11 +595,15 @@ int BattleSystem::sufferAttack(Character* a, Character * b, AttackHand hand, int
 
 	b->sufferHPEffect(-damage);
 	showVibrateEffect(b);
-	a->addExp(damage);
+	if (b->getPlayType() != Character::Object)
+	{
+		a->addExp(damage);
+	}
+
 	//showDamage(c, damage);
 
 	showAttackEffect(a, hand);
-//	showSufferDamageEffect(b, a->getOrientation(), damage, block);
+	//	showSufferDamageEffect(b, a->getOrientation(), damage, block);
 
 	return damage;
 }
@@ -635,7 +639,7 @@ int BattleSystem::getAttackCount(Character* a, AttackHand hand)
 
 	if (strength > 10)
 	{
-		attackCount += (strength-10) / 2;
+		attackCount += (strength - 10) / 2;
 	}
 
 	return int(attackCount < 1 ? 1 : attackCount);

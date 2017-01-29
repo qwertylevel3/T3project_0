@@ -126,6 +126,7 @@ void Field::Storey::moveUp(Character* character)
 	if (isIce(character->getMapCoord())
 		&& isMoveAble(tempCoord))
 	{
+		character->getSprite()->stopAllActions();
 		characterMoveUp(character);
 	}
 }
@@ -156,6 +157,7 @@ void Field::Storey::moveDown(Character* character)
 	if (isIce(character->getMapCoord())
 		&& isMoveAble(tempCoord))
 	{
+		character->getSprite()->stopAllActions();
 		characterMoveDown(character);
 	}
 }
@@ -186,6 +188,7 @@ void Field::Storey::moveLeft(Character* character)
 	if (isIce(character->getMapCoord())
 		&& isMoveAble(tempCoord))
 	{
+		character->getSprite()->stopAllActions();
 		characterMoveLeft(character);
 	}
 }
@@ -216,6 +219,7 @@ void Field::Storey::moveRight(Character* character)
 	if (isIce(character->getMapCoord())
 		&& isMoveAble(tempCoord))
 	{
+		character->getSprite()->stopAllActions();
 		characterMoveRight(character);
 	}
 }

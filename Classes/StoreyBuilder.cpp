@@ -698,7 +698,7 @@ void Field::StoreyBuilder::placeSpecialTile(const Rect& rect)
 	if (curLevel >= 7)
 	{
 		//房间内ice数量(0-2之间)
-		int iceNumber = RandomNumber::getInstance()->randomInt(0, 2);
+		int iceNumber = RandomNumber::getInstance()->randomInt(1, 2);
 
 		for (int i = 0; i < iceNumber; i++)
 		{
