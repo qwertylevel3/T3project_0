@@ -421,14 +421,14 @@ void AIStatue::giveHealCastBook()
 
 void AIStatue::giveYellowBook()
 {
-	if (Player::getInstance()->getFaithValue()<40)
+	if (Player::getInstance()->getFaithValue()<35)
 	{
 		DialogueSystem::getInstance()->runDialogue("noFaith");
 		return;
 	}
 
 
-	Player::getInstance()->reduceFaith(40);
+	Player::getInstance()->reduceFaith(35);
 
 	Character* playerCharacter = Player::getInstance()->getcharacterPtr();
 

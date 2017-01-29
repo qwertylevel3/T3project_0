@@ -31,10 +31,10 @@ HudNoteMenu::HudNoteMenu()
 	this->addItem(dropMenuItem);
 
 
-	HudMenuItem* throwMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"Í¶ÖÀ"));
-	HudTrigThrow* throwTrig = new HudTrigThrow();
-	throwMenuItem->setTrigger(throwTrig);
-	this->addItem(throwMenuItem);
+//	HudMenuItem* throwMenuItem = new HudMenuItem(ToolFunction::WStr2UTF8(L"Í¶ÖÀ"));
+//	HudTrigThrow* throwTrig = new HudTrigThrow();
+//	throwMenuItem->setTrigger(throwTrig);
+//	this->addItem(throwMenuItem);
 
 	hide();
 }

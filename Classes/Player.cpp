@@ -112,6 +112,12 @@ void Player::configPlayer()
 	characterPtr->initArmor(armor);
 
 	characterPtr->addInventory("note000");
+//	characterPtr->addInventory("skillBook000");
+//	characterPtr->addInventory("skillBook001");
+//	characterPtr->addInventory("skillBook002");
+//	characterPtr->addInventory("scroll000");
+//	characterPtr->addInventory("scroll001");
+//	characterPtr->addInventory("scroll002");
 
 //²âÊÔ×°±¸
 //	characterPtr->addInventory("armor009");

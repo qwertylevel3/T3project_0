@@ -1985,7 +1985,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>13</intRequire>
-		<skillName>LearnSkill_学习火球术_0_0_FireBall_火球术_20_20_80_5</skillName>
+		<skillName>LearnSkill_学习火球术_0_0_FireBall_火球术_20_20_180_5</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -2001,7 +2001,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>17</intRequire>
-		<skillName>LearnSkill_学习随机闪电_0_0_RandomDirectDamage_随机闪电_30_30_100_3_2</skillName>
+		<skillName>LearnSkill_学习随机闪电_0_0_RandomDirectDamage_随机闪电_20_20_200_3_2</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -2016,8 +2016,8 @@
 		<buffBox/>
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
-		<intRequire>35</intRequire>
-		<skillName>LearnSkill_学习闪电_0_0_Thunder_闪电_80_80_80</skillName>
+		<intRequire>25</intRequire>
+		<skillName>LearnSkill_学习闪电_0_0_Thunder_闪电_40_40_180</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -2145,7 +2145,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>11</intRequire>
-		<skillName>FireBall_火球术_0_0_150_5</skillName>
+		<skillName>FireBall_火球术_0_0_240_5</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -2161,7 +2161,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>18</intRequire>
-		<skillName>RandomDirectDamage_随机闪电_0_0_200_3_2</skillName>
+		<skillName>RandomDirectDamage_随机闪电_0_0_250_3_2</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
@@ -2177,7 +2177,7 @@
 		<strRequire>0</strRequire>
 		<agiRequire>0</agiRequire>
 		<intRequire>25</intRequire>
-		<skillName>Thunder_闪电_0_0_120</skillName>
+		<skillName>Thunder_闪电_0_0_200</skillName>
 		<supplyType>2</supplyType>
 	</inventory>
 	<inventory>
