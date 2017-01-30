@@ -1,6 +1,6 @@
 # Light the Dark
 
-### roguelike game,based on cocos2dx
+roguelike game,based on cocos2dx
 ## release
 https://github.com/qwertylevel3/T3project/releases
 ## Screenshot
